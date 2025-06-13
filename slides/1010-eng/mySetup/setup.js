@@ -90,10 +90,8 @@
 			},
 			menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
 				themes: [
-					{ name: 'Black', theme: 'revealjs/dist/theme/black.css' },
-					{ name: 'White', theme: 'revealjs/dist/theme/white.css' },
-					{ name: 'Night', theme: 'revealjs/dist/theme/night.css' },
-					{ name: 'Simple', theme: 'revealjs/dist/theme/simple.css' },
+					{ name: 'Black', theme: '../revealjs/dist/theme/black.css' },
+					{ name: 'White', theme: '../revealjs/dist/theme/white.css' },
 				],
 				transitions: false,
 				markers: true,
