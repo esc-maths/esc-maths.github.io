@@ -18,12 +18,12 @@ let framerate;
 
 function preload() {
   // load the shader
-  theShader = loadShader("shader.vert", "shader.frag");
+  theShader = loadShader("./shaders/shader.vert", "./shaders/shader.frag");
 }
 
 function setup() {
   // disables scaling for retina screens which can create inconsistent scaling between displays
-  //pixelDensity(1);
+  pixelDensity(1);
 
   createCanvas(windowWidth, windowHeight);
   noStroke();

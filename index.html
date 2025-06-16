@@ -15,7 +15,7 @@
 
 <body>
 
- 
+
 
   <script>
     /*
@@ -117,6 +117,18 @@ Date: 15/Jan/2024
     
     */
 
+      if (isMouseOverLink()) {
+        fill(180);
+        cursor('pointer'); // <-- this makes the cursor a hand
+      } else {
+        fill(220);
+        cursor('default'); // <-- this restores the default cursor
+      }
+
+      rect(0, 0, 110, 30);
+      fill(0);
+      text("dynamicmath.xyz", 7, 19)
+
       //console.log(imView);
     }
 
@@ -133,6 +145,10 @@ Date: 15/Jan/2024
       viewX = mouseX;
       viewY = map(mouseY, 0, height, height, 0);
       cursor('grabbing');
+
+      if (isMouseOverLink()) {
+        window.open("https://dynamicmath.xyz", "_blank");
+      }
     }
 
     function mouseReleased() {
@@ -156,6 +172,10 @@ Date: 15/Jan/2024
         imView = false;
       }
       cursor('grab');
+    }
+
+    function isMouseOverLink() {
+      return mouseX >= 0 && mouseX <= 110 && mouseY >= 0 && mouseY <= 30;
     }
   </script>
 
