@@ -36,6 +36,8 @@ Date: 15/Jan/2024
     let time_;
     let framerate;
 
+    let moves = [0, 0];
+
     function preload() {
       // load the shader
       theShader = loadShader('inf-room/shader.vert', 'inf-room/shader.frag');
@@ -71,14 +73,12 @@ Date: 15/Jan/2024
       xMouse = (xMouse * width) / height;
       yMouse = (yMouse);
 
+      mouseMove();
 
       // pass the interactive information to the shader
       theShader.setUniform("iResolution", [width, height]);
       theShader.setUniform("iTime", millis() / 1000.0);
-      theShader.setUniform("iMouse", [viewX, viewY]);
-      theShader.setUniform("iView", imView);
-
-
+      theShader.setUniform("iMouse", moves);
 
 
       // rect gives us some geometry on the screen to draw the shader on
@@ -122,7 +122,7 @@ Date: 15/Jan/2024
         cursor('pointer'); // <-- this makes the cursor a hand
       } else {
         fill(220);
-        cursor('default'); // <-- this restores the default cursor
+        //cursor('default'); // <-- this restores the default cursor
       }
 
       rect(0, 0, 110, 30);
@@ -136,14 +136,7 @@ Date: 15/Jan/2024
       resizeCanvas(windowWidth, windowHeight);
     }
 
-    let imView = false;
-
     function mousePressed() {
-      if (imView === false) {
-        imView = true;
-      }
-      viewX = mouseX;
-      viewY = map(mouseY, 0, height, height, 0);
       cursor('grabbing');
 
       if (isMouseOverLink()) {
@@ -152,30 +145,17 @@ Date: 15/Jan/2024
     }
 
     function mouseReleased() {
-      if (imView === true) {
-        imView = false;
-      }
-      cursor('grab');
-    }
-
-    // Change 3D view 
-    let viewX = -100;
-    let viewY = 100;
-    function mouseDragged() {
-      viewX = mouseX;
-      viewY = map(mouseY, 0, height, height, 0);
-      //console.log(viewX,viewY);
-    }
-
-    function mouseReleased() {
-      if (imView === true) {
-        imView = false;
-      }
       cursor('grab');
     }
 
     function isMouseOverLink() {
       return mouseX >= 0 && mouseX <= 110 && mouseY >= 0 && mouseY <= 30;
+    }
+
+    function mouseMove() {
+      if (!mouseIsPressed) return;
+      moves[0] += mouseX - pmouseX;
+      moves[1] += pmouseY - mouseY;
     }
   </script>
 
