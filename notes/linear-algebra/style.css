@@ -189,7 +189,7 @@ body {
   font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
   line-height: 1.8;
 
-  max-width: 80ch;
+  max-width: 85ch;
   min-height: 100vh;
   overflow-x: hidden;
   margin: 0 auto;
@@ -811,4 +811,16 @@ h6 {
     padding-right: 0.5em;
     margin-left: -3.5em;
     /* Use lowercase letters with parentheses */
+}
+
+
+@media print {
+  * {
+        color: #000;
+        background-color: #fff;
+    }
+
+  body {
+     background-color: #fff;
+  }
 }

@@ -229,6 +229,12 @@
           where $s_x$ and $s_y$ scale the $x$ and $y$ coordinates of a point, $\theta$ is an angle of counterclockwise
           rotation around the origin, $h_x$ is a horizontal shear factor, and $h_y$ is a vertical shear factor.
         </p>
+
+        <br />
+
+        <div class="ggbElement" id="ggb-element-01"></div>
+        <!--
+        <iframe scrolling="no" title="Affine transformations" src="https://www.geogebra.org/material/iframe/id/hgdbm5tx/width/765/height/445/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="765px" height="445px" style="border:0px;" allowfullscreen> </iframe>-->
       </div>
 
       <div>
@@ -653,26 +659,32 @@
       </p>
 
       <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
-        <tr>
-          <th></th>
-          <th><strong>Probability</strong></th>
-        </tr>
-        <tr>
-          <td><em>T<sub>1</sub></em></td>
-          <td style="text-align: center;">0.01</td>
-        </tr>
-        <tr>
-          <td><em>T<sub>2</sub></em></td>
-          <td style="text-align: center;">0.85</td>
-        </tr>
-        <tr>
-          <td><em>T<sub>3</sub></em></td>
-          <td style="text-align: center;">0.07</td>
-        </tr>
-        <tr>
-          <td><em>T<sub>4</sub></em></td>
-          <td style="text-align: center;">0.07</td>
-        </tr>
+        <thead>
+          <tr>
+            <th></th>
+            <th><strong>Probability</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td><em>T<sub>1</sub></em></td>
+            <td style="text-align: center;">0.01</td>
+          </tr>
+          <tr>
+            <td><em>T<sub>2</sub></em></td>
+            <td style="text-align: center;">0.85</td>
+          </tr>
+          <tr>
+            <td><em>T<sub>3</sub></em></td>
+            <td style="text-align: center;">0.07</td>
+          </tr>
+          <tr>
+            <td><em>T<sub>4</sub></em></td>
+            <td style="text-align: center;">0.07</td>
+          </tr>
+        </tbody>
+        <caption><strong></strong></caption>
       </table>
 
 
@@ -682,7 +694,7 @@
       </p>
 
       <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
-        
+
         <thead>
           <tr style="text-align: center;">
             <th style="text-align: center;"><em>T</em></th>
@@ -741,9 +753,6 @@
       </table>
 
 
-
-
-
       <p>
         To generate the fern, we begin with an initial point, typically the origin, and repeatedly apply one of the four
         transformations, selected at random according to the given probabilities. Each new point becomes the input for
@@ -752,7 +761,59 @@
         of a fern.
       </p>
 
+      <div>
+						<script data-height="525" data-preview-width="400" type="text/p5">
+let x = 0, y = 0;
 
+function nextPoint() {
+  let nextX, nextY, r = random();
+  // Apply affine transforms base on probability distribution
+  if (r < 0.01) {
+    nextX = 0;
+    nextY = 0.16 * y;
+  } else if (r < 0.86) {
+    nextX = 0.85 * x + 0.04 * y;
+    nextY = -0.04 * x + 0.85 * y + 1.6;
+  } else if (r < 0.93) {
+    nextX = 0.2 * x + -0.26 * y;
+    nextY = 0.23 * x + 0.22 * y + 1.6;
+  } else {
+    nextX = -0.15 * x + 0.28 * y;
+    nextY = 0.26 * x + 0.24 * y + 0.44;
+  }
+  x = nextX;
+  y = nextY;
+}
+
+function setup() {
+  createCanvas(300, 450);
+  background(255);
+  strokeWeight(3); // Point size
+}
+
+let maxValue = 5; // Change this number to speed up iterations
+function draw() {
+  for (let i = 0; i < maxValue; i++) {
+    drawPoint();
+    nextPoint();
+  }
+}
+
+// Auxiliary function
+function drawPoint() {
+  // Range: -2.1820 < x < 2.6558 and 0 < y < 9.9983.
+  let px = map(x, -2.182, 2.6558, 5, width - 5);
+  let py = map(y, 0, 9.9983, height, 5);
+  point(px, py);
+}
+</script>
+					</div>
+
+     <!--
+           <div style="text-align: center;">
+        <iframe style="border: none; width:100%; height: 550px;"
+          src="https://editor.p5js.org/jcponce/sketches/rxQvWQ9d-"></iframe>
+      </div>-->
 
       <p>
         This method beautifully illustrates how simple affine transformations, when combined through a probabilistic
@@ -762,11 +823,129 @@
         fractals, offering deep insight into both mathematical structure and natural phenomena.
       </p>
 
+      <h3>Interactive demos in JavaScript</h3>
+
       <p>
         The probabilistic IFS can be used to generate not only the Barnsley fern, but also a wide variety of fractals.
         Two notable examples are the fractal tree and the Sierpiński triangle. The affine transformations needed to
         construct these are listed in Tables \ref{tab:tree} and \ref{tab:triangle}.
       </p>
+
+      <table border="1" style="margin: 0 auto; border-collapse: collapse;">
+        <caption><strong>IFS code for a fractal tree.</strong></caption>
+        <thead>
+          <tr>
+            <th style="text-align: center;"><em>T</em></th>
+            <th style="text-align: center;"><em>a</em></th>
+            <th style="text-align: center;"><em>b</em></th>
+            <th style="text-align: center;"><em>c</em></th>
+            <th style="text-align: center;"><em>d</em></th>
+            <th style="text-align: center;"><em>e</em></th>
+            <th style="text-align: center;"><em>f</em></th>
+            <th style="text-align: center;"><em>p</em></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.5</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.05</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">2</td>
+            <td style="text-align: center;">0.42</td>
+            <td style="text-align: center;">-0.42</td>
+            <td style="text-align: center;">0.42</td>
+            <td style="text-align: center;">0.42</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.2</td>
+            <td style="text-align: center;">0.4</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">0.42</td>
+            <td style="text-align: center;">0.42</td>
+            <td style="text-align: center;">-0.42</td>
+            <td style="text-align: center;">0.42</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.2</td>
+            <td style="text-align: center;">0.4</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">4</td>
+            <td style="text-align: center;">0.1</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.1</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.2</td>
+            <td style="text-align: center;">0.15</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+
+      <table border="1" style="margin: 0 auto; border-collapse: collapse;">
+        <caption style="width:22em"><strong>IFS code for a Sierpiński triangle.</strong></caption>
+        <thead>
+          <tr>
+            <th style="text-align: center;"><em>T</em></th>
+            <th style="text-align: center;"><em>a</em></th>
+            <th style="text-align: center;"><em>b</em></th>
+            <th style="text-align: center;"><em>c</em></th>
+            <th style="text-align: center;"><em>d</em></th>
+            <th style="text-align: center;"><em>e</em></th>
+            <th style="text-align: center;"><em>f</em></th>
+            <th style="text-align: center;"><em>p</em></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">0.5</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.5</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.33</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">2</td>
+            <td style="text-align: center;">0.5</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.5</td>
+            <td style="text-align: center;">0.5</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.33</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">0.5</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.5</td>
+            <td style="text-align: center;">0.25</td>
+            <td style="text-align: center;">0.433</td>
+            <td style="text-align: center;">0.34</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        You can explore the online-interactive implementations
+        of the probabilistic IFS in the following links:
+      </p>
+
+
+
 
       <h2>References</h2>
 
@@ -810,22 +989,63 @@
     MathJax = {
       tex: {
         inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        tags: 'ams',
+        //packages: {'[-]': ['ams']}, // it is already included in v.3
+        macros: {
+          R: "\\mathbb{R}",
+          C: "\\mathbb{C}",
+          N: "\\mathbb{N}",
+          Z: "\\mathbb{Z}",
+          Q: "\\mathbb{Q}",
+          Re: "{\\mbox{Re}}\\,",
+          Im: "{\\mbox{Im}}\\,",
+          arg: "{\\mbox{arg}}\\,",
+          Arg: "{\\mbox{Arg}}\\,",
+          Log: "\\mbox{Log}\\,",
+          Int: "\\mbox{Int}\\,",
+          ra: "\\rightarrow",
+          ds: "\\displaystyle",
+          res: "\\mbox{res}\\,",
+          conj: ["{\\overline{#1}}", 1],
+          abs: ["{\\left|#1\\right|}", 1],
+          sabs: ["{\\left|#1\\right|}", 1],
+          snorm: ["{\\|#1\\|}", 1],
+          norm: ["{\\|#1\\|}", 1],
+          pd: "\\boldsymbol{\\cdot}",
+          epsilon: "\\varepsilon",
+          vre: "\\varepsilon",
+          Ra: "\\Rightarrow",
+          bs: "\\blacksquare",
+        }
       },
     }
-    const typeFaceToggle = document.getElementById('typeface-toggle')
-    const typeface = document.getElementById('typeface')
-    typeFaceToggle.addEventListener('click', () => {
-      document.body.classList.toggle('libertinus')
-      typeface.textContent = document.body.classList.contains('libertinus') ? 'Libertinus' : 'Latin Modern'
-    })
 
-    const darkModeToggle = document.getElementById('dark-mode-toggle')
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('latex-dark')
-    })
   </script>
+
+  <!-- GeoGebra -->
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+  <script>
+    let params01 = {
+      "width": 765,
+      "height": 445,
+      "material_id": "fzusae9z",
+      "borderColor": "888888",
+      "playButton": false,
+      "showFullscreenButton": true,
+      "enableShiftDragZoom": false,
+      "showResetIcon": true
+    };
+
+    let ggbApplet01 = new GGBApplet(params01, true);
+    window.addEventListener("load", () => {
+      ggbApplet01.inject('ggb-element-01');
+    });
+  </script>
+
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script async src="prism/prism.js"></script>
+
+  <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
 </body>
 
