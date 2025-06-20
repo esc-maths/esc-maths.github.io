@@ -34,185 +34,694 @@
     <ol>
       <li><a href="#intro">Introduction</a></li>
       <li><a href="#affine-transformations">Affine transformations</a></li>
+      <li><a href="#matrix-representation">Matrix representation of linear transformations</a></li>
+      <li><a href="#homogeneous-coordinates">Homogeneous coordinates</a></li>
+      <li><a href="#fractals">Affine transformations and Fractals</a></li>
 
     </ol>
   </nav>
 
   <main>
     <article>
-      <h2 id="intro">Introduction</h2>
+
+      <div>
+        <h2 id="intro">Introduction</h2>
+
+        <p>
+          An affine transformation is a type of mapping that preserves geometric properties such as points, straight
+          lines, and planes. Importantly, it maintains the parallelism of lines, meaning that sets of parallel lines
+          remain parallel after the transformation.
+        </p>
+
+        <p>
+          This technique is commonly applied to correct geometric distortions or deformations caused by non-ideal camera
+          perspectives. For instance, in satellite imagery, affine transformations help adjust for distortions from
+          wide-angle lenses, align images in panorama stitching, and support accurate image registration. By
+          transforming
+          and aligning images within a flat, consistent coordinate system, distortion is minimised, simplifying
+          interaction and enabling more straightforward calculations without the need to compensate for image warping.
+        </p>
+
+        <p>
+          Affine transformations are fundamental tools in geometry, computer graphics, and computer vision, providing a
+          powerful way to describe coordinate system mappings while preserving key geometric relationships. Unlike
+          \emph{linear transformations}, which are restricted to origin-preserving operations like rotation, scaling,
+          and
+          shearing, affine transformations additionally incorporate translations, enabling arbitrary shifts of the
+          space.
+        </p>
+
+        <p>
+          This generalisation makes affine transformations particularly useful for:
+        </p>
+        <ul>
+          <li>Representing more general geometric deformations</li>
+          <li>Modelling transformations where position changes matter</li>
+        </ul>
+
+        <p>
+          We will explore their mathematical formulation, geometric properties, and some practical applications,
+          focusing
+          on both theoretical understanding and implementation aspects.
+        </p>
+      </div>
+
+      <div>
+        <h2 id="affine-transformations">Affine transformations</h2>
+
+        <p>Consider a point $\mathbf x=(x,y).$ A transformation $T: \mathbb R^2 \to \mathbb R^2$ of the form
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          ax + by + e \\
+          cx + dy + f
+          \end{pmatrix}
+          \]
+          where $a,b,c,d,e$ and $f$ are real numbers, is called a two-dimensional affine transformation.</p>
+
+        <p>For example, if $a,d = 1,$ and $b,c=0,$ then we have a pure translation
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          x + e \\
+          y + f
+          \end{pmatrix}
+          \]
+        </p>
+
+        <p>
+          If $b,c=0$ and $e,f=0$ then we have a pure scale
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          ax \\
+          dy
+          \end{pmatrix}
+          \]
+        </p>
+
+        <p>
+          If $a,c = \cos \theta,$ $b = -\sin \theta,$ $d = \sin \theta,$ and $e,f=0,$ then we have a pure rotation about
+          the origin
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          x\cos\theta -y \sin \theta \\
+          x\sin \theta + y \cos \theta
+          \end{pmatrix}
+          \]
+        </p>
+
+        <p>
+          Finally, if $a,c=1,$ and $e,f=0$ we have the shear transforms
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          x+ by \\
+          y+ cx
+          \end{pmatrix}
+          \]
+        </p>
+
+        <p>
+          In summary, we have the four basic affine transformations:
+        </p>
+      </div>
+
+      <div>
+        <h2 id="matrix-representation">Matrix representation of linear <br />transformations</h2>
+
+        <p>
+          The affine transformations such as scaling, rotation, and shearing are in fact linear transformations, and
+          they
+          can be represented as matrix multiplications with column vectors. For instance, a linear transformation \( T
+          \)
+          applied to a vector \( \mathbf{x} = (x, y)^T \) can be written as
+          \[
+          T(\mathbf{x}) =
+          \begin{pmatrix}
+          ax + by \\
+          cx + dy
+          \end{pmatrix}
+          =
+          \begin{pmatrix}
+          a & b \\
+          c & d
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y
+          \end{pmatrix},
+          \]
+          or more compactly, \( T(\mathbf{x}) = A \mathbf{x} \), where \( A \) is the \( 2 \times 2 \) matrix
+          \[
+          A =
+          \begin{pmatrix}
+          a & b \\
+          c & d
+          \end{pmatrix}.
+          \]
+        </p>
+
+        <p>
+          One of the key advantages of using matrices for representing transformations is that we can express a complex
+          transformation as a composition of simpler ones. For example, suppose that we wish to scale an object, then
+          shear it, and finally rotate it. Let \( S \) be the scaling matrix, \( H \) the shearing matrix, and \( R \)
+          the
+          rotation matrix. Then the transformation can be written as
+          \[
+          T(\mathbf{x}) = R(H(S \mathbf{x})).
+          \]
+          This represents the following sequence of operations:
+          1. Scale, 2. Shear, 3. Rotate.
+        </p>
+
+        <p>
+          Since matrix multiplication is associative, we can remove the parentheses and compute the product of the three
+          matrices once:
+          \[
+          M = R H S,
+          \]
+          allowing us to rewrite the transformation as
+          $T(\mathbf{x}) = M \mathbf{x}.$
+        </p>
+
+        <p>
+          This approach is especially efficient when transforming a large number of points, such as in a complex
+          graphical
+          model. Instead of applying multiple transformations sequentially, we can compute a single composite matrix \(
+          M
+          \) and apply it directly. This demonstrates the power of matrices to encapsulate and simplify complex
+          transformations in a compact and computationally efficient form.
+        </p>
+
+        <p>
+          In matrix form, then we can calatog the linear transforms as
+          \[
+          \text{Scale:} \begin{pmatrix}
+          s_x & 0 \\
+          0 & s_y
+          \end{pmatrix},
+          \quad
+          \text{Rotate:} \begin{pmatrix}
+          \cos \theta & -\sin \theta \\
+          \sin \theta & \cos \theta
+          \end{pmatrix},
+          \quad
+          \text{Shear:} \begin{pmatrix}
+          1 & h_x \\
+          h_y & 1
+          \end{pmatrix}
+          \]
+          where $s_x$ and $s_y$ scale the $x$ and $y$ coordinates of a point, $\theta$ is an angle of counterclockwise
+          rotation around the origin, $h_x$ is a horizontal shear factor, and $h_y$ is a vertical shear factor.
+        </p>
+      </div>
+
+      <div>
+        <h2 id="homogeneous-coordinates">Homogeneous coordinates</h2>
+
+        <p>
+          Because matrix notation is so convenient for constructing complex transformations from simpler ones, it would
+          be
+          ideal to represent all affine transformations using matrices. However, translation poses a challenge since it
+          is
+          not a linear transformation. The solution is to reformulate the 2D problem in terms of 3D homogeneous
+          coordinates.
+        </p>
+
+        <p>
+          We begin by considering all points \(\mathbf{x} = (x, y)\) in the plane, which we represent as 2D column
+          vectors
+          $
+          \begin{pmatrix}
+          x \\
+          y
+          \end{pmatrix}.
+          $
+          To enable affine transformations such as translation to be represented using matrix multiplication, we embed
+          these 2D vectors into 3D space using homogeneous coordinates by appending a third coordinate, conventionally
+          set
+          to 1:
+          \[
+          \begin{pmatrix}
+          x \\
+          y
+          \end{pmatrix}
+          \quad \Rightarrow \quad
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}.
+          \]
+          This third coordinate is typically called \(w\) to
+          distinguish it from the usual \(z\)-coordinate in 3D
+          geometry.
+        </p>
+
+        <p>
+          Next, we extend our 2D transformation matrices to 3D by adding an extra row and column, resulting in their
+          homogeneous forms:
+
+          \[
+          \text{Scale:} \;
+          \begin{pmatrix}
+          s_x & 0 & 0 \\
+          0 & s_y & 0 \\
+          0 & 0 & 1
+          \end{pmatrix},
+          \quad
+          \text{Rotate:} \;
+          \begin{pmatrix}
+          \cos \theta & -\sin \theta & 0 \\
+          \sin \theta & \cos \theta & 0 \\
+          0 & 0 & 1
+          \end{pmatrix},
+          \quad
+          \text{Shear:} \;
+          \begin{pmatrix}
+          1 & h_x & 0 \\
+          h_y & 1 & 0 \\
+          0 & 0 & 1
+          \end{pmatrix}.
+          \]
+        </p>
+
+        <p>
+          When we apply one of these homogeneous transformation matrices to a point in homogeneous coordinates, the
+          result
+          is:
+          \[
+          \begin{pmatrix}
+          a & b & 0 \\
+          c & d & 0 \\
+          0 & 0 & 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}
+          =
+          \begin{pmatrix}
+          ax + by \\
+          cx + dy \\
+          1
+          \end{pmatrix}.
+          \]
+        </p>
+
+        <p>
+          This is equivalent to the original 2D linear transformation, with the additional \(w\)-coordinate remaining 1.
+          In essence, we are performing standard 2D operations on the \(w = 1\) plane embedded in 3D space.
+        </p>
+
+        <p>
+          The real advantage of this approach becomes apparent when we include translation. By placing translation
+          parameters in the third column of the matrix, we can express translations as linear operations in homogeneous
+          coordinates:
+
+          \[
+          \begin{pmatrix}
+          a & b & e \\
+          c & d & f \\
+          0 & 0 & 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}
+          =
+          \begin{pmatrix}
+          ax + by + e \\
+          cx + dy + f \\
+          1
+          \end{pmatrix}.
+          \]
+
+
+        </p>
+
+        <p>
+          We can now represent translation as a matrix operation and add it to our collection of basic transformations:
+
+          \[
+          \text{Translate:} \;
+          \begin{pmatrix}
+          1 & 0 & \Delta x \\
+          0 & 1 & \Delta y \\
+          0 & 0 & 1
+          \end{pmatrix},
+          \]
+          where \(\Delta x\) and \(\Delta y\) represent translations along the \(x\)- and \(y\)-axes, respectively. The
+          insightful reader will notice the clever trick at play: 2D translation is now represented as a form of shear
+          in
+          3D space.
+        </p>
+
+        <p>
+          For example, suppose we have $2\times 2$ square centred at the origin and we want to first rotate the square
+          by
+          $45^{\circ}$ about its centre and then move it so its centre is at $(2, 3).$ We can do this in two steps, as
+          shown in Figure \ref{fig:steps}.
+        </p>
+
+        <p>
+          In matrix form we have
+          \begin{eqnarray*}
+          M &=&
+          \overbrace{\begin{pmatrix}
+          1 & 0 & 2 \\
+          0 & 1 & 3 \\
+          0 & 0 & 1
+          \end{pmatrix}}^{\text{Translate at } (2,3)}
+          \overbrace{\begin{pmatrix}
+          \cos 45^{\circ} & -\sin 45^{\circ}& 0 \\
+          \sin 45^{\circ} & \cos 45^{\circ} & 0 \\
+          0 & 0 & 1
+          \end{pmatrix}}^{\text{Rotate} 45^\circ} \\[1ex]
+          &=&
+          \begin{pmatrix}
+          \cos 45^{\circ} & -\sin 45^{\circ}& 3 \\
+          \sin 45^{\circ} & \cos 45^{\circ} & 2 \\
+          0 & 0 & 1
+          \end{pmatrix} \\[1ex]
+          &=&
+          \begin{pmatrix}
+          \sqrt{2}/2 & -\sqrt{2}/2 & 3 \\
+          \sqrt{2}/2 & \sqrt{2}/2 & 2 \\
+          0 & 0 & 1
+          \end{pmatrix}
+          \end{eqnarray*}
+        </p>
+
+        <p>
+          Now consider the vertices of the square using homogeneous coordinates
+          \[
+          v_1 =
+          \begin{pmatrix}
+          1 \\
+          1 \\
+          1
+          \end{pmatrix}, \;\; v_2 =
+          \begin{pmatrix}
+          -1 \\
+          1 \\
+          1
+          \end{pmatrix}, \;\; v_3 =
+          \begin{pmatrix}
+          1 \\
+          -1 \\
+          1
+          \end{pmatrix},\;\; v_4 =
+          \begin{pmatrix}
+          -1 \\
+          -1 \\
+          1
+          \end{pmatrix}.
+          \]
+          Multiplying by the matrix $M$ we obtain the new vertices, as shown in Figure \ref{fig:steps}:
+          \[
+          \begin{array}{ll}
+          v_1' =
+          M \begin{pmatrix}
+          1 \\
+          1 \\
+          1
+          \end{pmatrix} =
+          \begin{pmatrix}
+          3 \\
+          2+\sqrt{2} \\
+          1
+          \end{pmatrix},
+          & v_2' =
+          M \begin{pmatrix}
+          -1 \\
+          1 \\
+          1
+          \end{pmatrix} =
+          \begin{pmatrix}
+          3-\sqrt{2} \\
+          2\\
+          1
+          \end{pmatrix}, \\
+
+          \\
+          v_3' =
+          M \begin{pmatrix}
+          1 \\
+          -1 \\
+          1
+          \end{pmatrix} =
+          \begin{pmatrix}
+          3 + \sqrt{2} \\
+          2 \\
+          1
+          \end{pmatrix}, & v_3' =
+          M \begin{pmatrix}
+          -1 \\
+          -1 \\
+          1
+          \end{pmatrix} =
+          \begin{pmatrix}
+          3 \\
+          2-\sqrt{2} \\
+          1
+          \end{pmatrix}.
+          \end{array}
+          \]
+        </p>
+      </div>
+
+      <h2 id="fractals">Affine transformations and Fractals</h2>
 
       <p>
-        An affine transformation is a type of mapping that preserves geometric properties such as points, straight
-        lines, and planes. Importantly, it maintains the parallelism of lines, meaning that sets of parallel lines
-        remain parallel after the transformation.
+        Affine transformations play a fundamental role in the construction of fractals through a method known as an
+        \textit{Iterated Function System} (IFS). An IFS is a collection of contraction mappings, typically affine
+        transformations, that are applied repeatedly to generate self-similar structures. The elegance of this approach
+        lies in how complex, intricate patterns can emerge from the iteration of simple rules.
       </p>
+
+      <h3>Iterated Function Systems</h3>
 
       <p>
-        This technique is commonly applied to correct geometric distortions or deformations caused by non-ideal camera
-        perspectives. For instance, in satellite imagery, affine transformations help adjust for distortions from
-        wide-angle lenses, align images in panorama stitching, and support accurate image registration. By transforming
-        and aligning images within a flat, consistent coordinate system, distortion is minimised, simplifying
-        interaction and enabling more straightforward calculations without the need to compensate for image warping.
-      </p>
-
-      <p>
-        Affine transformations are fundamental tools in geometry, computer graphics, and computer vision, providing a
-        powerful way to describe coordinate system mappings while preserving key geometric relationships. Unlike
-        \emph{linear transformations}, which are restricted to origin-preserving operations like rotation, scaling, and
-        shearing, affine transformations additionally incorporate translations, enabling arbitrary shifts of the space.
-      </p>
-
-      <p>
-        This generalisation makes affine transformations particularly useful for:
-      </p>
-      <ul>
-        <li>Representing more general geometric deformations</li>
-        <li>Modelling transformations where position changes matter</li>
-      </ul>
-
-      <p>
-        We will explore their mathematical formulation, geometric properties, and some practical applications, focusing
-        on both theoretical understanding and implementation aspects.
-      </p>
-
-      <h2 id="affine-transformations">Affine transformations</h2>
-
-      <p>Consider a point $\mathbf x=(x,y).$ A transformation $T: \mathbb R^2 \to \mathbb R^2$ of the form
+        An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\} \), each of the form:
         \[
-        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-        ax + by + e \\
-        cx + dy + f
-        \end{pmatrix}
+        T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i,
         \]
-        where $a,b,c,d,e$ and $f$ are real numbers, is called a two-dimensional affine transformation.</p>
+        where \( A_i \) is a \(2 \times 2\) matrix representing a linear transformation (scaling, rotation, or
+        shearing), and \( \mathbf{t}_i \) is a translation vector.
+      </p>
 
-      <p>For example, if $a,d = 1,$ and $b,c=0,$ then we have a pure translation
+      <p>
+        There are two common approaches for plotting fractals using IFS:
+      </p>
+
+      <p>
+        We now illustrate both approaches through two classical examples.
+      </p>
+
+      <h3>Sierpiński Triangle: A Deterministic IFS</h3>
+
+      <p>
+        The Sierpiński triangle is a classic fractal built by repeatedly removing the central triangle from an
+        equilateral triangle.
+      </p>
+
+      <p>
+        This fractal can be constructed using a deterministic iterated function system (IFS) that repeatedly applies a
+        small set of affine transformations to an initial shape.
+      </p>
+
+      <p>
+        In this version, rather than starting with a triangle, we begin with a simple geometric shape: a circle of
+        radius 100 centred at the origin \( (0, 0) .\) At each iteration, we apply three affine transformations that
+        scale the circle by a factor of \( \frac{1}{2} \) and translate it to a new location. Using homogeneous
+        coordinates, the transformations are defined as follows:
         \[
-        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-        x + e \\
-        y + f
-        \end{pmatrix}
+        \begin{aligned}
+        T_1(\mathbf x) &= \begin{pmatrix} 0.5 & 0 & 0\\ 0 & 0.5 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix}
+        x \\
+        y \\
+        1
+        \end{pmatrix}, \\[1ex]
+        T_2(\mathbf{x}) &= \begin{pmatrix} 0.5 & 0 & 0 \\ 0 & 0.5 & 100 \\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix}
+        x \\
+        y \\
+        1
+        \end{pmatrix}, \\[1ex]
+        T_3(\mathbf{x}) &= \begin{pmatrix} 0.5 & 0 & 100 \\ 0 & 0.5 & 100 \\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix}
+        x \\
+        y \\
+        1
+        \end{pmatrix}.
+        \end{aligned}
         \]
       </p>
 
       <p>
-        If $b,c=0$ and $e,f=0$ then we have a pure scale
-        \[
-        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-        ax \\
-        dy
-        \end{pmatrix}
-        \]
+        Geometrically, these transformations move the original circle into three positions: bottom-left, top-left, and
+        top-right within a larger triangular layout. At each iteration, every existing circle is replaced by three
+        smaller circles, each one scaled down and repositioned using one of the transformations, as shown in Figure
+        \ref{fig:s-triangle}.
       </p>
 
       <p>
-        If $a,c = \cos \theta,$ $b = -\sin \theta,$ $d = \sin \theta,$ and $e,f=0,$ then we have a pure rotation about
-        the origin
-        \[
-        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-        x\cos\theta -y \sin \theta \\
-        x\sin \theta + y \cos \theta
-        \end{pmatrix}
-        \]
+        After several iterations, the resulting pattern reveals the structure of the Sierpiński triangle, composed
+        entirely of circles. This method illustrates how simple affine transformations applied to geometric primitives
+        can yield complex, self-similar fractals.
       </p>
 
       <p>
-        Finally, if $a,c=1,$ and $e,f=0$ we have the shear transforms
-        \[
-        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-        x+ by \\
-        y+ cx
-        \end{pmatrix}
-        \]
+        It should be noted that this iterative process is not restricted to beginning with a circular shape. In fact,
+        starting with a square or any other closed figure can still lead to the same limiting fractal. This illustrates
+        the robustness of the process with respect to the choice of initial shape. In his work on \emph{V-variable
+        fractals and superfractals}, Michael Barnsley, et al. \cite{barnsley-2003} famously demonstrated this
+        flexibility using the image of a fish as the initial figure.
+      </p>
+
+      <h3>Interactive demos in JavaScript</h3>
+
+      <p>
+        In the links below, you can explore an online-interactive implementation of the deterministic IFS for the
+        Sierpiński triangle:
       </p>
 
       <p>
-        In summary, we have the four basic affine transformations:
+        You can modify the parameters defining the affine transformation and explore how they affect the plot of the
+        fractal.
       </p>
 
-      <h2>Matrix representation of linear transformations</h2>
+      <h3>Barnsley Fern: A Probabilistic IFS</h3>
 
       <p>
-        The affine transformations such as scaling, rotation, and shearing are in fact linear transformations, and they
-        can be represented as matrix multiplications with column vectors. For instance, a linear transformation \( T \)
-        applied to a vector \( \mathbf{x} = (x, y)^T \) can be written as
+        The Barnsley fern is a well-known example of a natural-looking fractal generated using a probabilistic IFS. It
+        consists of four affine transformations, each applied with a specified probability. These transformations are
+        iteratively applied to a single point, and the accumulation of these points produces the characteristic fern
+        shape.
+      </p>
+
+      <p>
+        The four affine transformations are defined as:
         \[
-        T(\mathbf{x}) =
+        \begin{aligned}
+        T_1(\mathbf{x}) &=
         \begin{pmatrix}
-        ax + by \\
-        cx + dy
-        \end{pmatrix}
-        =
-        \begin{pmatrix}
-        a & b \\
-        c & d
+        0 & 0 & 0 \\
+        0 & 0.16 & 0 \\
+        0 & 0 & 1
         \end{pmatrix}
         \begin{pmatrix}
         x \\
-        y
-        \end{pmatrix},
-        \]
-        or more compactly, \( T(\mathbf{x}) = A \mathbf{x} \), where \( A \) is the \( 2 \times 2 \) matrix
-        \[
-        A =
+        y \\
+        1
+        \end{pmatrix}, \\[1ex]
+        T_2(\mathbf{x}) &=
         \begin{pmatrix}
-        a & b \\
-        c & d
-        \end{pmatrix}.
-        \]
-      </p>
-
-      <p>
-        One of the key advantages of using matrices for representing transformations is that we can express a complex
-        transformation as a composition of simpler ones. For example, suppose that we wish to scale an object, then
-        shear it, and finally rotate it. Let \( S \) be the scaling matrix, \( H \) the shearing matrix, and \( R \) the
-        rotation matrix. Then the transformation can be written as
-        \[
-        T(\mathbf{x}) = R(H(S \mathbf{x})).
-        \]
-        This represents the following sequence of operations:
-        1. Scale, 2. Shear, 3. Rotate.
-      </p>
-
-      <p>
-        Since matrix multiplication is associative, we can remove the parentheses and compute the product of the three
-        matrices once:
-        \[
-        M = R H S,
-        \]
-        allowing us to rewrite the transformation as
-        $T(\mathbf{x}) = M \mathbf{x}.$
-      </p>
-
-      <p>
-        This approach is especially efficient when transforming a large number of points, such as in a complex graphical
-        model. Instead of applying multiple transformations sequentially, we can compute a single composite matrix \( M
-        \) and apply it directly. This demonstrates the power of matrices to encapsulate and simplify complex
-        transformations in a compact and computationally efficient form.
-      </p>
-
-      <p>
-        In matrix form, then we can calatog the linear transforms as
-        \[
-        \text{Scale:} \begin{pmatrix}
-        s_x & 0 \\
-        0 & s_y
-        \end{pmatrix},
-        \quad
-        \text{Rotate:} \begin{pmatrix}
-        \cos \theta & -\sin \theta \\
-        \sin \theta & \cos \theta
-        \end{pmatrix},
-        \quad
-        \text{Shear:} \begin{pmatrix}
-        1 & h_x \\
-        h_y & 1
+        0.85 & 0.04 & 0 \\
+        -0.04 & 0.85 & 1.6 \\
+        0 & 0 & 1
         \end{pmatrix}
+        \begin{pmatrix}
+        x \\
+        y \\
+        1
+        \end{pmatrix}, \\[1ex]
+        T_3(\mathbf{x}) &=
+        \begin{pmatrix}
+        0.2 & -0.26 & 0 \\
+        0.23 & 0.22 & 1.6 \\
+        0 & 0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        x \\
+        y \\
+        1
+        \end{pmatrix}, \\[1ex]
+        T_4(\mathbf{x}) &=
+        \begin{pmatrix}
+        -0.15 & 0.28 & 0 \\
+        0.26 & 0.24 & 0.44 \\
+        0 & 0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        x \\
+        y \\
+        1
+        \end{pmatrix}.
+        \end{aligned}
         \]
-        where $s_x$ and $s_y$ scale the $x$ and $y$ coordinates of a point, $\theta$ is an angle of counterclockwise
-        rotation around the origin, $h_x$ is a horizontal shear factor, and $h_y$ is a vertical shear factor.
       </p>
+
+      <p>
+        Each transformation is associated with a probability, as shown below:
+        \begin{center}
+        \begin{tabular}{c|c}
+        & \textbf{Probability} \\ \hline
+        $T_1$ & $0.01$ \\
+        $T_2$ & $0.85$ \\
+        $T_3$ & $0.07$ \\
+        $T_4$ & $0.07$ \\
+        \end{tabular}
+        \end{center}
+      </p>
+
+      <p>
+        The table below is a tidier way of conveying the same iterated function system, including the probabilities
+        $p_k$ associated to $T_k.$
+      </p>
+
+      <p>
+        To generate the fern, we begin with an initial point, typically the origin, and repeatedly apply one of the four
+        transformations, selected at random according to the given probabilities. Each new point becomes the input for
+        the next iteration. After tens of thousands of iterations, the resulting plot reveals the familiar leafy
+        structure
+        of a fern.
+      </p>
+
+
+
+      <p>
+        This method beautifully illustrates how simple affine transformations, when combined through a probabilistic
+        IFS, can model the complexity of natural forms. Alongside the deterministic construction of the Sierpiński
+        triangle, the Barnsley fern underscores the power of affine transformations in the algorithmic generation of
+        fractals. These examples highlight how affine transformations and IFS can be used to algorithmically generate
+        fractals, offering deep insight into both mathematical structure and natural phenomena.
+      </p>
+
+      <p>
+        The probabilistic IFS can be used to generate not only the Barnsley fern, but also a wide variety of fractals.
+        Two notable examples are the fractal tree and the Sierpiński triangle. The affine transformations needed to
+        construct these are listed in Tables \ref{tab:tree} and \ref{tab:triangle}.
+      </p>
+
+      <h2>References</h2>
+
+      <ul>
+        <li id="ban-2024">
+          Ban, S., & Kim, T. (2024). <em>Rational-Function-Model-Based Rigorous Bundle Adjustment for Improving the
+            Relative Geometric Positioning Accuracy of Multiple Korea Multi-Purpose Satellite-3A Images</em>.
+          <strong>Remote Sensing</strong>, 16(16), 2890.
+          <a href="https://doi.org/10.3390/rs16162890" target="_blank">https://doi.org/10.3390/rs16162890</a>
+        </li>
+
+        <li id="barnsley-1993">
+          Barnsley, M. (1993). <em>Fractals Everywhere</em>. (Chapter III). 2nd ed. Morgan Kaufmann. USA.
+        </li>
+
+        <li id="barnsley-2003">
+          Barnsley, M., Hutchinson, J. E., & Stenflo, Ö. (2003). <em>V-variable fractals and superfractals</em>.
+          <a href="https://arxiv.org/abs/math/0312314" target="_blank">https://arxiv.org/abs/math/0312314</a>
+        </li>
+
+        <li id="howard-2014">
+          Howard, A., & Rorres, C. (2014). <em>Elementary Linear Algebra</em>. 11th ed. Wiley. USA. pp. 624–639.
+        </li>
+
+        <li id="rogers-1976">
+          Rogers, D. F. (1976). <em>Mathematical Elements for Computer Graphics</em>. McGraw Hill.
+          <a href="https://archive.org/details/mathematicalelem00roge/"
+            target="_blank">https://archive.org/details/mathematicalelem00roge/</a>
+        </li>
+      </ul>
+
 
     </article>
   </main>
@@ -220,8 +729,7 @@
   <script>
     MathJax = {
       tex: {
-        inlineMath: [['$', '$'],],
-        inlineMath: [['\(', ')\'],]
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
       },
     }
     const typeFaceToggle = document.getElementById('typeface-toggle')
