@@ -64,6 +64,16 @@
           interaction and enabling more straightforward calculations without the need to compensate for image warping.
         </p>
 
+        <figure>
+          <img src="imgs/affine-transformations/application-affine-satellite.png"
+            loading="lazy" alt="Mountain landscape" width="500" />
+          <figcaption>
+           Geometry correction for satellite images by S. Ban &amp; T. Kim (2024).
+          </figcaption>
+        </figure>
+
+        <img >
+
         <p>
           Affine transformations are fundamental tools in geometry, computer graphics, and computer vision, providing a
           powerful way to describe coordinate system mappings while preserving key geometric relationships. Unlike
@@ -109,6 +119,14 @@
           \]
         </p>
 
+        <figure>
+          <img src="imgs/affine-transformations/translate.png"
+            loading="lazy" alt="Mountain landscape" width="350" />
+          <figcaption>
+           A pure translation.
+          </figcaption>
+        </figure>
+
         <p>
           If $b,c=0$ and $e,f=0$ then we have a pure scale
           \[
@@ -118,6 +136,14 @@
           \end{pmatrix}
           \]
         </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/scale.png"
+            loading="lazy" alt="Mountain landscape" width="350" />
+          <figcaption>
+           A pure scale.
+          </figcaption>
+        </figure>
 
         <p>
           If $a,c = \cos \theta,$ $b = -\sin \theta,$ $d = \sin \theta,$ and $e,f=0,$ then we have a pure rotation about
@@ -130,6 +156,14 @@
           \]
         </p>
 
+        <figure>
+          <img src="imgs/affine-transformations/rotate.png"
+            loading="lazy" alt="Mountain landscape" width="350" />
+          <figcaption>
+           A pure rotation.
+          </figcaption>
+        </figure>
+
         <p>
           Finally, if $a,c=1,$ and $e,f=0$ we have the shear transforms
           \[
@@ -140,9 +174,28 @@
           \]
         </p>
 
+        <figure>
+          <img src="imgs/affine-transformations/shear.png"
+            loading="lazy" alt="Mountain landscape" width="350" />
+          <figcaption>
+           Shear transformations.
+          </figcaption>
+        </figure>
+
         <p>
           In summary, we have the four basic affine transformations:
         </p>
+
+        <ul>
+          <li>Translate: moves a set of points a fixed distance in $x$ and $y,$</li>
+          <li>Scale: scales a set of points up or down in the $x$ and $y$ directions,</li>
+          <li>Rotate: rotates a set of points about the origin,</li>
+          <li>Shear: offset a set of points a distance proportional to their $x$ and $y$ coordinates.</li>
+        </ul>
+
+
+
+
       </div>
 
       <div>
@@ -368,8 +421,6 @@
           1
           \end{pmatrix}.
           \]
-
-
         </p>
 
         <p>
@@ -388,6 +439,14 @@
           in
           3D space.
         </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/3d-homogeneous.png"
+            loading="lazy" alt="Mountain landscape" width="550" />
+          <figcaption>
+           Geometric object defined on the plane $w = 1$ in 3D.
+          </figcaption>
+        </figure>
 
         <p>
           For example, suppose we have $2\times 2$ square centred at the origin and we want to first rotate the square
@@ -549,6 +608,14 @@
           equilateral triangle.
         </p>
 
+         <figure>
+          <img src="imgs/affine-transformations/sierpinski.png"
+            loading="lazy" alt="Mountain landscape" width="600" />
+          <figcaption>
+           Sierpiński triangle.
+          </figcaption>
+        </figure>
+
         <p>
           This fractal can be constructed using a deterministic iterated function system (IFS) that repeatedly applies a
           small set of affine transformations to an initial shape.
@@ -592,6 +659,7 @@
           entirely of circles. This method illustrates how simple affine transformations applied to geometric primitives
           can yield complex, self-similar fractals.
         </p>
+        <br/>
 
         <div>
           <script data-height="525" data-preview-width="400" type="text/p5">
@@ -834,14 +902,14 @@ function plotAxesInfo() {
 
             <thead>
               <tr>
-                <th  scope="col"><em>T</em></th>
-                <th  scope="col"><em>a</em></th>
-                <th  scope="col"><em>b</em></th>
-                <th  scope="col"><em>c</em></th>
-                <th  scope="col"><em>d</em></th>
-                <th  scope="col"><em>e</em></th>
-                <th  scope="col"><em>f</em></th>
-                <th  scope="col"><em>p</em></th>
+                <th scope="col"><em>T</em></th>
+                <th scope="col"><em>a</em></th>
+                <th scope="col"><em>b</em></th>
+                <th scope="col"><em>c</em></th>
+                <th scope="col"><em>d</em></th>
+                <th scope="col"><em>e</em></th>
+                <th scope="col"><em>f</em></th>
+                <th scope="col"><em>p</em></th>
               </tr>
             </thead>
             <tbody>
@@ -900,6 +968,8 @@ function plotAxesInfo() {
           structure
           of a fern.
         </p>
+
+        <br/>
 
         <div>
           <script data-height="525" data-preview-width="400" type="text/p5">
@@ -1037,7 +1107,15 @@ function drawPoint() {
           </table>
         </div>
 
-      
+         <figure>
+          <img src="imgs/affine-transformations/fractal-tree.png"
+            loading="lazy" alt="Mountain landscape" width="400" />
+          <figcaption>
+           Fractal tree.
+          </figcaption>
+        </figure>
+
+
 
         <div class="scroll-wrapper">
 
@@ -1090,6 +1168,14 @@ function drawPoint() {
           </table>
 
         </div>
+
+         <figure>
+          <img src="imgs/affine-transformations/sierpinski-prob.png"
+            loading="lazy" alt="Mountain landscape" width="300" />
+          <figcaption>
+           Sierpiński triangle.
+          </figcaption>
+        </figure>
 
 
 

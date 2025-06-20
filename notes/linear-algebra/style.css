@@ -197,7 +197,7 @@ body {
   margin: 0 auto;
   padding: 2rem 1.25rem;
 
-  counter-reset: theorem definition sidenote-counter;
+  counter-reset: theorem definition sidenote-counter figcaption;
 
   color: var(--body-color);
   background-color: var(--body-bg-color);
@@ -458,9 +458,13 @@ table.borders-custom {
 /* Format figure captions (based on table captions) */
 figure {
   counter-increment: figcaption;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 figcaption {
-  text-align: left;
+  text-align: center;
   font-size: 0.923em;
   padding: 0.25em 0.25em 0;
   width: 100%;
