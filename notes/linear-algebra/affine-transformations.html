@@ -303,9 +303,7 @@
 
         <br />
 
-        <div class="ggbElement" id="ggb-element-01"></div>
-        <!--
-        <iframe scrolling="no" title="Affine transformations" src="https://www.geogebra.org/material/iframe/id/hgdbm5tx/width/765/height/445/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="765px" height="445px" style="border:0px;" allowfullscreen> </iframe>-->
+       
       </div>
 
       <br/>
@@ -463,10 +461,39 @@
 
         <p>
           For example, suppose we have $2\times 2$ square centred at the origin and we want to first rotate the square
-          by
-          $45^{\circ}$ about its centre and then move it so its centre is at $(2, 3).$ We can do this in two steps, as
-          shown in Figure \ref{fig:steps}.
+          by  $45^{\circ}$ about its centre and then move it so its centre is at $(2, 3).$ 
         </p>
+
+        <figure>
+            <img src="imgs/affine-transformations/example-01.png" loading="lazy" alt="Mountain landscape" width="400" />
+              
+          <figcaption>
+           Initial $2\times 2$ square.
+          </figcaption>
+        </figure>
+
+        <p>
+          We can do this in two steps, as
+          shown in Figure 8.
+        </p>
+
+        <figure>
+          <table style="border-collapse: collapse; border: none;">
+            <tr style="border: none;">
+              <td style="border: none;">
+                <img src="imgs/affine-transformations/example-02.png" loading="lazy" alt="Mountain landscape" width="100%" />
+                <div style="text-align: center;">Step 1</div>
+              </td>
+              <td style="border: none;">
+                <img src="imgs/affine-transformations/example-03.png" loading="lazy" alt="Mountain landscape" width="100%" />
+                <div style="text-align: center;">Step 2</div>
+              </td>
+            </tr>
+          </table>
+          <figcaption>
+           Transformations of $2\times 2$ square centred at the origin.
+          </figcaption>
+        </figure>
 
         <p>
           In matrix form we have
@@ -528,7 +555,7 @@
           1
           \end{pmatrix}.
           \]
-          Multiplying by the matrix $M$ we obtain the new vertices, as shown in Figure \ref{fig:steps}:
+          Multiplying by the matrix $M$ we obtain the new vertices:
           \[
           \begin{array}{ll}
           v_1' =
@@ -579,6 +606,12 @@
           \end{array}
           \]
         </div>
+
+        <br/>
+
+        <div class="ggbElement" id="ggb-element-01"></div>
+        <!--
+        <iframe scrolling="no" title="Affine transformations" src="https://www.geogebra.org/material/iframe/id/hgdbm5tx/width/765/height/445/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="765px" height="445px" style="border:0px;" allowfullscreen> </iframe>-->
 
 
       </div>
@@ -666,8 +699,7 @@
         <p>
           Geometrically, these transformations move the original circle into three positions: bottom-left, top-left, and
           top-right within a larger triangular layout. At each iteration, every existing circle is replaced by three
-          smaller circles, each one scaled down and repositioned using one of the transformations, as shown in Figure
-          \ref{fig:s-triangle}.
+          smaller circles, each one scaled down and repositioned using one of the transformations.
         </p>
 
         <p>
@@ -1123,15 +1155,7 @@ function drawPoint() {
           </table>
         </div>
 
-         <figure>
-          <img src="imgs/affine-transformations/fractal-tree.png"
-            loading="lazy" alt="Mountain landscape" width="400" />
-          <figcaption>
-           Fractal tree.
-          </figcaption>
-        </figure>
-
-
+        
 
         <div class="scroll-wrapper">
 
@@ -1185,11 +1209,21 @@ function drawPoint() {
 
         </div>
 
-         <figure>
-          <img src="imgs/affine-transformations/sierpinski-prob.png"
-            loading="lazy" alt="Mountain landscape" width="300" />
+        <figure>
+          <table style="border-collapse: collapse; border: none;">
+            <tr style="border: none;">
+              <td style="border: none;">
+                <img src="imgs/affine-transformations/fractal-tree.png" loading="lazy" alt="Mountain landscape" width="100%" />
+                <div style="text-align: center;">Fractal Tree</div>
+              </td>
+              <td style="border: none;">
+                <img src="imgs/affine-transformations/sierpinski-prob.png" loading="lazy" alt="Mountain landscape" width="100%" />
+                <div style="text-align: center;">Sierpiński triangle</div>
+              </td>
+            </tr>
+          </table>
           <figcaption>
-           Sierpiński triangle.
+           Probabilistic IFS.
           </figcaption>
         </figure>
 
