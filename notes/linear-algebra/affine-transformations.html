@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="tm5Y6ZNTf-lBqbwniGjQPv1q02o2TuUQZ9GTYa4SMLg" />
+  <title>Affine Transformations</title>
+
+  <meta name="description"
+    content="A minimal, almost class-less CSS library to write modern websites that look like LaTeX documents." />
+  <meta name="keywords" content="latex.css,css library,class-less css,latex css" />
+  <meta property="og:title" content="LaTeX.css" />
+  <meta property="og:url" content="https://latex.vercel.app" />
+  <meta property="og:description"
+    content="A minimal, almost class-less CSS library to write modern websites that look like LaTeX documents." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="prism/prism.css" />
+</head>
+
+<body id="top" class="text-justify">
+  <header>
+    <h1><span class="latex">Affine Transformations</h1>
+    <p class="author">
+      Juan Carlos Ponce Campuzano <br />
+      Jun 2025
+    </p>
+  </header>
+
+  <nav role="navigation" class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#affine-transformations">Affine transformations</a></li>
+
+    </ol>
+  </nav>
+
+  <main>
+    <article>
+      <h2 id="intro">Introduction</h2>
+
+      <p>
+        An affine transformation is a type of mapping that preserves geometric properties such as points, straight
+        lines, and planes. Importantly, it maintains the parallelism of lines, meaning that sets of parallel lines
+        remain parallel after the transformation.
+      </p>
+
+      <p>
+        This technique is commonly applied to correct geometric distortions or deformations caused by non-ideal camera
+        perspectives. For instance, in satellite imagery, affine transformations help adjust for distortions from
+        wide-angle lenses, align images in panorama stitching, and support accurate image registration. By transforming
+        and aligning images within a flat, consistent coordinate system, distortion is minimised, simplifying
+        interaction and enabling more straightforward calculations without the need to compensate for image warping.
+      </p>
+
+      <p>
+        Affine transformations are fundamental tools in geometry, computer graphics, and computer vision, providing a
+        powerful way to describe coordinate system mappings while preserving key geometric relationships. Unlike
+        \emph{linear transformations}, which are restricted to origin-preserving operations like rotation, scaling, and
+        shearing, affine transformations additionally incorporate translations, enabling arbitrary shifts of the space.
+      </p>
+
+      <p>
+        This generalisation makes affine transformations particularly useful for:
+      </p>
+      <ul>
+        <li>Representing more general geometric deformations</li>
+        <li>Modelling transformations where position changes matter</li>
+      </ul>
+
+      <p>
+        We will explore their mathematical formulation, geometric properties, and some practical applications, focusing
+        on both theoretical understanding and implementation aspects.
+      </p>
+
+      <h2 id="affine-transformations">Affine transformations</h2>
+
+      <p>Consider a point $\mathbf x=(x,y).$ A transformation $T: \mathbb R^2 \to \mathbb R^2$ of the form
+        \[
+        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+        ax + by + e \\
+        cx + dy + f
+        \end{pmatrix}
+        \]
+        where $a,b,c,d,e$ and $f$ are real numbers, is called a two-dimensional affine transformation.</p>
+
+      <p>For example, if $a,d = 1,$ and $b,c=0,$ then we have a pure translation
+        \[
+        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+        x + e \\
+        y + f
+        \end{pmatrix}
+        \]
+      </p>
+
+      <p>
+        If $b,c=0$ and $e,f=0$ then we have a pure scale
+        \[
+        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+        ax \\
+        dy
+        \end{pmatrix}
+        \]
+      </p>
+
+      <p>
+        If $a,c = \cos \theta,$ $b = -\sin \theta,$ $d = \sin \theta,$ and $e,f=0,$ then we have a pure rotation about
+        the origin
+        \[
+        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+        x\cos\theta -y \sin \theta \\
+        x\sin \theta + y \cos \theta
+        \end{pmatrix}
+        \]
+      </p>
+
+      <p>
+        Finally, if $a,c=1,$ and $e,f=0$ we have the shear transforms
+        \[
+        \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+        x+ by \\
+        y+ cx
+        \end{pmatrix}
+        \]
+      </p>
+
+      <p>
+        In summary, we have the four basic affine transformations:
+      </p>
+
+      <h2>Matrix representation of linear transformations</h2>
+
+      <p>
+        The affine transformations such as scaling, rotation, and shearing are in fact linear transformations, and they
+        can be represented as matrix multiplications with column vectors. For instance, a linear transformation \( T \)
+        applied to a vector \( \mathbf{x} = (x, y)^T \) can be written as
+        \[
+        T(\mathbf{x}) =
+        \begin{pmatrix}
+        ax + by \\
+        cx + dy
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+        a & b \\
+        c & d
+        \end{pmatrix}
+        \begin{pmatrix}
+        x \\
+        y
+        \end{pmatrix},
+        \]
+        or more compactly, \( T(\mathbf{x}) = A \mathbf{x} \), where \( A \) is the \( 2 \times 2 \) matrix
+        \[
+        A =
+        \begin{pmatrix}
+        a & b \\
+        c & d
+        \end{pmatrix}.
+        \]
+      </p>
+
+      <p>
+        One of the key advantages of using matrices for representing transformations is that we can express a complex
+        transformation as a composition of simpler ones. For example, suppose that we wish to scale an object, then
+        shear it, and finally rotate it. Let \( S \) be the scaling matrix, \( H \) the shearing matrix, and \( R \) the
+        rotation matrix. Then the transformation can be written as
+        \[
+        T(\mathbf{x}) = R(H(S \mathbf{x})).
+        \]
+        This represents the following sequence of operations:
+        1. Scale, 2. Shear, 3. Rotate.
+      </p>
+
+      <p>
+        Since matrix multiplication is associative, we can remove the parentheses and compute the product of the three
+        matrices once:
+        \[
+        M = R H S,
+        \]
+        allowing us to rewrite the transformation as
+        $T(\mathbf{x}) = M \mathbf{x}.$
+      </p>
+
+      <p>
+        This approach is especially efficient when transforming a large number of points, such as in a complex graphical
+        model. Instead of applying multiple transformations sequentially, we can compute a single composite matrix \( M
+        \) and apply it directly. This demonstrates the power of matrices to encapsulate and simplify complex
+        transformations in a compact and computationally efficient form.
+      </p>
+
+      <p>
+        In matrix form, then we can calatog the linear transforms as
+        \[
+        \text{Scale:} \begin{pmatrix}
+        s_x & 0 \\
+        0 & s_y
+        \end{pmatrix},
+        \quad
+        \text{Rotate:} \begin{pmatrix}
+        \cos \theta & -\sin \theta \\
+        \sin \theta & \cos \theta
+        \end{pmatrix},
+        \quad
+        \text{Shear:} \begin{pmatrix}
+        1 & h_x \\
+        h_y & 1
+        \end{pmatrix}
+        \]
+        where $s_x$ and $s_y$ scale the $x$ and $y$ coordinates of a point, $\theta$ is an angle of counterclockwise
+        rotation around the origin, $h_x$ is a horizontal shear factor, and $h_y$ is a vertical shear factor.
+      </p>
+
+    </article>
+  </main>
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'],],
+        inlineMath: [['\(', ')\'],]
+      },
+    }
+    const typeFaceToggle = document.getElementById('typeface-toggle')
+    const typeface = document.getElementById('typeface')
+    typeFaceToggle.addEventListener('click', () => {
+      document.body.classList.toggle('libertinus')
+      typeface.textContent = document.body.classList.contains('libertinus') ? 'Libertinus' : 'Latin Modern'
+    })
+
+    const darkModeToggle = document.getElementById('dark-mode-toggle')
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('latex-dark')
+    })
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script async src="prism/prism.js"></script>
+
+</body>
+
+</html>
