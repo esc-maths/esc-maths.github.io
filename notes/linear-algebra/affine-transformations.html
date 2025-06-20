@@ -573,6 +573,107 @@
         can yield complex, self-similar fractals.
       </p>
 
+      <div>
+        <script data-height="525" data-preview-width="400" type="text/p5">
+// Play button, then click on the plot to iterate!
+
+// Affine transforms applied to center and radius of circle
+function T1(c) {
+  return {
+    x: 0.5 * c.x + 0,
+    y: 0.5 * c.y + 0,
+    r: 0.5 * c.r, // radius
+  };
+}
+
+function T2(c) {
+  return {
+    x: 0.5 * c.x + 0,
+    y: 0.5 * c.y + 100,
+    r: 0.5 * c.r,
+  };
+}
+
+function T3(c) {
+  return {
+    x: 0.5 * c.x + 100,
+    y: 0.5 * c.y + 100,
+    r: 0.5 * c.r,
+  };
+}
+
+let maxIterations = 8;
+let circles = [];
+let iteration = 0;
+
+function setup() {
+  createCanvas(400, 400);
+
+  textSize(20);
+  ellipseMode(RADIUS);
+  textAlign(CENTER);
+
+  resetFractal(); // Initialize the first circle
+}
+
+function draw() {
+  background(255);
+
+  translate(width / 2, height / 2);
+
+  // Axes
+  plotAxesInfo();
+
+  noStroke();
+  fill(0, 100, 255, 240);
+  for (let c of circles) {
+    ellipse(c.x, -c.y, c.r, c.r); // The minus on c.y is to flip the y axis
+  }
+  
+}
+
+// Auxiliary functions
+function mousePressed() {
+  if (iteration >= maxIterations) {
+    resetFractal(); // Reset if max iterations reached
+    return;
+  }
+
+  let newCircles = [];
+  for (let c of circles) {
+    newCircles.push(T1(c));
+    newCircles.push(T2(c));
+    newCircles.push(T3(c));
+  }
+
+  circles = newCircles;
+  iteration++;
+}
+
+function resetFractal() {
+  circles = [{ x: 0, y: 0, r: 100 }]; // Reset initial circle
+  iteration = 0; // Reset iteration counter
+}
+
+function plotAxesInfo() {
+  push();
+  fill(0);
+  text("x", width/2 - 10, 20);
+  text("y", -10, -height/2 + 20);
+  stroke(255, 0, 0);
+  line(-300, 0, 300, 0); // x-axis
+  stroke(0, 0, 255);
+  line(0, -300, 0, 300); // y-axis
+  pop();
+  
+  push();
+  fill(0);
+  text("No. Iterations = " + iteration, -width/2 + 90, height / 2 - 15);
+  pop();
+}
+</script>
+      </div>
+
       <p>
         It should be noted that this iterative process is not restricted to beginning with a circular shape. In fact,
         starting with a square or any other closed figure can still lead to the same limiting fractal. This illustrates
@@ -762,7 +863,7 @@
       </p>
 
       <div>
-						<script data-height="525" data-preview-width="400" type="text/p5">
+        <script data-height="525" data-preview-width="400" type="text/p5">
 let x = 0, y = 0;
 
 function nextPoint() {
@@ -807,9 +908,9 @@ function drawPoint() {
   point(px, py);
 }
 </script>
-					</div>
+      </div>
 
-     <!--
+      <!--
            <div style="text-align: center;">
         <iframe style="border: none; width:100%; height: 550px;"
           src="https://editor.p5js.org/jcponce/sketches/rxQvWQ9d-"></iframe>
