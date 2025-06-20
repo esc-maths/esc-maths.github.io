@@ -1300,77 +1300,7 @@ function drawPoint() {
 
   </main>
 
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [["$", "$"], ["\\(", "\\)"]],
-        tags: 'ams',
-        //packages: {'[-]': ['ams']}, // it is already included in v.3
-        macros: {
-          R: "\\mathbb{R}",
-          C: "\\mathbb{C}",
-          N: "\\mathbb{N}",
-          Z: "\\mathbb{Z}",
-          Q: "\\mathbb{Q}",
-          Re: "{\\mbox{Re}}\\,",
-          Im: "{\\mbox{Im}}\\,",
-          arg: "{\\mbox{arg}}\\,",
-          Arg: "{\\mbox{Arg}}\\,",
-          Log: "\\mbox{Log}\\,",
-          Int: "\\mbox{Int}\\,",
-          ra: "\\rightarrow",
-          ds: "\\displaystyle",
-          res: "\\mbox{res}\\,",
-          conj: ["{\\overline{#1}}", 1],
-          abs: ["{\\left|#1\\right|}", 1],
-          sabs: ["{\\left|#1\\right|}", 1],
-          snorm: ["{\\|#1\\|}", 1],
-          norm: ["{\\|#1\\|}", 1],
-          pd: "\\boldsymbol{\\cdot}",
-          epsilon: "\\varepsilon",
-          vre: "\\varepsilon",
-          Ra: "\\Rightarrow",
-          bs: "\\blacksquare",
-        }
-      },
-    }
-
-    /*---------------------------------------------------------------*/
-/* Button to the top */
-// Get the button
-
-let mybutton = document.getElementById("toTop");
-//let prevScrollpos = window.scrollY;
-
-window.onscroll = function () { scrollFunction() };
-
-// When the user scrolls down 500px from the top of the document, show the button
-function scrollFunction() {
-  //let currentScrollPos = window.scrollY;
-  //if (prevScrollpos > currentScrollPos) {
-  mybutton.style.display = "none";
-  //} else {
-  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-    mybutton.style.display = "block";
-  }
-  //}
-  //prevScrollpos = currentScrollPos;
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  let tocLinks = document.querySelectorAll('.toc-chapter a');
-  tocLinks.forEach((link) => {
-    //link.classList.remove('active');
-    link.classList.remove('highlight');
-  });
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-/*---------------------------------------------------------------*/
-
-  </script>
+  
 
   <!-- GeoGebra -->
   <script src="https://www.geogebra.org/apps/deployggb.js"></script>
@@ -1390,15 +1320,17 @@ function topFunction() {
     window.addEventListener("load", () => {
       ggbApplet01.inject('ggb-element-01');
     });
-
-
   </script>
 
 
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="js/mathjax.js"></script>
+
   <script async src="prism/prism.js"></script>
 
   <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+  
+  <script src="js/main.js"></script>
 
 </body>
 
