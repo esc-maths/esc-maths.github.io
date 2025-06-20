@@ -214,6 +214,8 @@
 
         <p>
           In matrix form, then we can calatog the linear transforms as
+        </p>
+        <div class="scroll-wrapper">
           \[
           \text{Scale:} \begin{pmatrix}
           s_x & 0 \\
@@ -230,6 +232,8 @@
           h_y & 1
           \end{pmatrix}
           \]
+        </div>
+        <p>
           where $s_x$ and $s_y$ scale the $x$ and $y$ coordinates of a point, $\theta$ is an angle of counterclockwise
           rotation around the origin, $h_x$ is a horizontal shear factor, and $h_y$ is a vertical shear factor.
         </p>
@@ -286,7 +290,8 @@
         <p>
           Next, we extend our 2D transformation matrices to 3D by adding an extra row and column, resulting in their
           homogeneous forms:
-
+        </p>
+        <div class="scroll-wrapper">
           \[
           \text{Scale:} \;
           \begin{pmatrix}
@@ -309,7 +314,7 @@
           0 & 0 & 1
           \end{pmatrix}.
           \]
-        </p>
+        </div>
 
         <p>
           When we apply one of these homogeneous transformation matrices to a point in homogeneous coordinates, the
@@ -393,6 +398,9 @@
 
         <p>
           In matrix form we have
+        </p>
+        <div class="scroll-wrapper">
+
           \begin{eqnarray*}
           M &=&
           \overbrace{\begin{pmatrix}
@@ -418,10 +426,13 @@
           0 & 0 & 1
           \end{pmatrix}
           \end{eqnarray*}
-        </p>
+        </div>
 
         <p>
           Now consider the vertices of the square using homogeneous coordinates
+        </p>
+        <div class="scroll-wrapper">
+
           \[
           v_1 =
           \begin{pmatrix}
@@ -495,7 +506,9 @@
           \end{pmatrix}.
           \end{array}
           \]
-        </p>
+        </div>
+
+
       </div>
 
       <div>
@@ -725,6 +738,8 @@ function plotAxesInfo() {
 
         <p>
           The four affine transformations are defined as:
+        </p>
+        <div class="scroll-wrapper">
           \[
           \begin{aligned}
           T_1(\mathbf{x}) &=
@@ -773,7 +788,7 @@ function plotAxesInfo() {
           \end{pmatrix}.
           \end{aligned}
           \]
-        </p>
+        </div>
 
         <p>
           Each transformation is associated with a probability, as shown below:
@@ -814,64 +829,67 @@ function plotAxesInfo() {
           $p_k$ associated to $T_k.$
         </p>
 
-        <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+        <div class="scroll-wrapper">
+          <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
 
-          <thead>
-            <tr style="text-align: center;">
-              <th style="text-align: center;"><em>T</em></th>
-              <th style="text-align: center;"><em>a</em></th>
-              <th style="text-align: center;"><em>b</em></th>
-              <th style="text-align: center;"><em>c</em></th>
-              <th style="text-align: center;"><em>d</em></th>
-              <th style="text-align: center;"><em>e</em></th>
-              <th style="text-align: center;"><em>f</em></th>
-              <th style="text-align: center;"><em>p</em></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center;">1</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.16</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.01</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">2</td>
-              <td style="text-align: center;">0.85</td>
-              <td style="text-align: center;">0.04</td>
-              <td style="text-align: center;">-0.04</td>
-              <td style="text-align: center;">0.85</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">1.6</td>
-              <td style="text-align: center;">0.85</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">3</td>
-              <td style="text-align: center;">0.2</td>
-              <td style="text-align: center;">-0.26</td>
-              <td style="text-align: center;">0.23</td>
-              <td style="text-align: center;">0.22</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">1.6</td>
-              <td style="text-align: center;">0.07</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">4</td>
-              <td style="text-align: center;">-0.15</td>
-              <td style="text-align: center;">0.28</td>
-              <td style="text-align: center;">0.26</td>
-              <td style="text-align: center;">0.24</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.44</td>
-              <td style="text-align: center;">0.07</td>
-            </tr>
-          </tbody>
-          <caption><strong>IFS code for a fern.</strong></caption>
-        </table>
+            <thead>
+              <tr style="text-align: center;">
+                <th style="text-align: center;"><em>T</em></th>
+                <th style="text-align: center;"><em>a</em></th>
+                <th style="text-align: center;"><em>b</em></th>
+                <th style="text-align: center;"><em>c</em></th>
+                <th style="text-align: center;"><em>d</em></th>
+                <th style="text-align: center;"><em>e</em></th>
+                <th style="text-align: center;"><em>f</em></th>
+                <th style="text-align: center;"><em>p</em></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.16</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.01</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">0.85</td>
+                <td style="text-align: center;">0.04</td>
+                <td style="text-align: center;">-0.04</td>
+                <td style="text-align: center;">0.85</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">1.6</td>
+                <td style="text-align: center;">0.85</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">0.2</td>
+                <td style="text-align: center;">-0.26</td>
+                <td style="text-align: center;">0.23</td>
+                <td style="text-align: center;">0.22</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">1.6</td>
+                <td style="text-align: center;">0.07</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">4</td>
+                <td style="text-align: center;">-0.15</td>
+                <td style="text-align: center;">0.28</td>
+                <td style="text-align: center;">0.26</td>
+                <td style="text-align: center;">0.24</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.44</td>
+                <td style="text-align: center;">0.07</td>
+              </tr>
+            </tbody>
+            <caption><strong>IFS code for a fern.</strong></caption>
+          </table>
+        </div>
+
 
 
         <p>
@@ -957,113 +975,124 @@ function drawPoint() {
           construct these are listed in Tables \ref{tab:tree} and \ref{tab:triangle}.
         </p>
 
-        <table border="1" style="margin: 0 auto; border-collapse: collapse;">
-          <caption><strong>IFS code for a fractal tree.</strong></caption>
-          <thead>
-            <tr>
-              <th style="text-align: center;"><em>T</em></th>
-              <th style="text-align: center;"><em>a</em></th>
-              <th style="text-align: center;"><em>b</em></th>
-              <th style="text-align: center;"><em>c</em></th>
-              <th style="text-align: center;"><em>d</em></th>
-              <th style="text-align: center;"><em>e</em></th>
-              <th style="text-align: center;"><em>f</em></th>
-              <th style="text-align: center;"><em>p</em></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center;">1</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.5</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.05</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">2</td>
-              <td style="text-align: center;">0.42</td>
-              <td style="text-align: center;">-0.42</td>
-              <td style="text-align: center;">0.42</td>
-              <td style="text-align: center;">0.42</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.2</td>
-              <td style="text-align: center;">0.4</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">3</td>
-              <td style="text-align: center;">0.42</td>
-              <td style="text-align: center;">0.42</td>
-              <td style="text-align: center;">-0.42</td>
-              <td style="text-align: center;">0.42</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.2</td>
-              <td style="text-align: center;">0.4</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">4</td>
-              <td style="text-align: center;">0.1</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.1</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.2</td>
-              <td style="text-align: center;">0.15</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="scroll-wrapper">
+
+          <table border="1" style="margin: 0 auto; border-collapse: collapse;">
+            <caption><strong>IFS code for a fractal tree.</strong></caption>
+            <thead>
+              <tr>
+                <th style="text-align: center;"><em>T</em></th>
+                <th style="text-align: center;"><em>a</em></th>
+                <th style="text-align: center;"><em>b</em></th>
+                <th style="text-align: center;"><em>c</em></th>
+                <th style="text-align: center;"><em>d</em></th>
+                <th style="text-align: center;"><em>e</em></th>
+                <th style="text-align: center;"><em>f</em></th>
+                <th style="text-align: center;"><em>p</em></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.05</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">-0.42</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.2</td>
+                <td style="text-align: center;">0.4</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">-0.42</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.2</td>
+                <td style="text-align: center;">0.4</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">4</td>
+                <td style="text-align: center;">0.1</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.1</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.2</td>
+                <td style="text-align: center;">0.15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <br />
 
-        <table border="1" style="margin: 0 auto; border-collapse: collapse;">
-          <caption style="width:22em"><strong>IFS code for a Sierpiński triangle.</strong></caption>
-          <thead>
-            <tr>
-              <th style="text-align: center;"><em>T</em></th>
-              <th style="text-align: center;"><em>a</em></th>
-              <th style="text-align: center;"><em>b</em></th>
-              <th style="text-align: center;"><em>c</em></th>
-              <th style="text-align: center;"><em>d</em></th>
-              <th style="text-align: center;"><em>e</em></th>
-              <th style="text-align: center;"><em>f</em></th>
-              <th style="text-align: center;"><em>p</em></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align: center;">1</td>
-              <td style="text-align: center;">0.5</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.5</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.33</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">2</td>
-              <td style="text-align: center;">0.5</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.5</td>
-              <td style="text-align: center;">0.5</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.33</td>
-            </tr>
-            <tr>
-              <td style="text-align: center;">3</td>
-              <td style="text-align: center;">0.5</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0</td>
-              <td style="text-align: center;">0.5</td>
-              <td style="text-align: center;">0.25</td>
-              <td style="text-align: center;">0.433</td>
-              <td style="text-align: center;">0.34</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="scroll-wrapper">
+
+          <table border="1" style="margin: 0 auto; border-collapse: collapse;">
+            <caption style="width:22em"><strong>IFS code for a Sierpiński triangle.</strong></caption>
+            <thead>
+              <tr>
+                <th style="text-align: center;"><em>T</em></th>
+                <th style="text-align: center;"><em>a</em></th>
+                <th style="text-align: center;"><em>b</em></th>
+                <th style="text-align: center;"><em>c</em></th>
+                <th style="text-align: center;"><em>d</em></th>
+                <th style="text-align: center;"><em>e</em></th>
+                <th style="text-align: center;"><em>f</em></th>
+                <th style="text-align: center;"><em>p</em></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.33</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.33</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0.25</td>
+                <td style="text-align: center;">0.433</td>
+                <td style="text-align: center;">0.34</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+
+
+
 
         <p>
           You can explore the online-interactive implementations
