@@ -35,6 +35,10 @@
       <li><a href="#matrix-representation">Matrix representation of linear transformations</a></li>
       <li><a href="#homogeneous-coordinates">Homogeneous coordinates</a></li>
       <li><a href="#fractals">Affine transformations and Fractals</a></li>
+      <ol>
+        <li><a href="#sierpinski-triangle">Sierpiński Triangle: A Deterministic IFS</a></li>
+        <li><a href="#barnsley-fern">Barnsley fern: A Probabilistic IFS</a></li>
+      </ol>
 
     </ol>
   </nav>
@@ -63,7 +67,7 @@
         <p>
           Affine transformations are fundamental tools in geometry, computer graphics, and computer vision, providing a
           powerful way to describe coordinate system mappings while preserving key geometric relationships. Unlike
-          \emph{linear transformations}, which are restricted to origin-preserving operations like rotation, scaling,
+          <em>linear transformations</em>, which are restricted to origin-preserving operations like rotation, scaling,
           and
           shearing, affine transformations additionally incorporate translations, enabling arbitrary shifts of the
           space.
@@ -494,87 +498,90 @@
         </p>
       </div>
 
-      <h2 id="fractals">Affine transformations and Fractals</h2>
-
-      <p>
-        Affine transformations play a fundamental role in the construction of fractals through a method known as an
-        \textit{Iterated Function System} (IFS). An IFS is a collection of contraction mappings, typically affine
-        transformations, that are applied repeatedly to generate self-similar structures. The elegance of this approach
-        lies in how complex, intricate patterns can emerge from the iteration of simple rules.
-      </p>
-
-      <h3>Iterated Function Systems</h3>
-
-      <p>
-        An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\} \), each of the form:
-        \[
-        T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i,
-        \]
-        where \( A_i \) is a \(2 \times 2\) matrix representing a linear transformation (scaling, rotation, or
-        shearing), and \( \mathbf{t}_i \) is a translation vector.
-      </p>
-
-      <p>
-        There are two common approaches for plotting fractals using IFS:
-      </p>
-
-      <p>
-        We now illustrate both approaches through two classical examples.
-      </p>
-
-      <h3>Sierpiński Triangle: A Deterministic IFS</h3>
-
-      <p>
-        The Sierpiński triangle is a classic fractal built by repeatedly removing the central triangle from an
-        equilateral triangle.
-      </p>
-
-      <p>
-        This fractal can be constructed using a deterministic iterated function system (IFS) that repeatedly applies a
-        small set of affine transformations to an initial shape.
-      </p>
-
-      <p>
-        In this version, rather than starting with a triangle, we begin with a simple geometric shape: a circle of
-        radius 100 centred at the origin \( (0, 0) .\) At each iteration, we apply three affine transformations that
-        scale the circle by a factor of \( \frac{1}{2} \) and translate it to a new location. Using homogeneous
-        coordinates, the transformations are defined as follows:
-        \[
-        \begin{aligned}
-        T_1(\mathbf x) &= \begin{pmatrix} 0.5 & 0 & 0\\ 0 & 0.5 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix}
-        x \\
-        y \\
-        1
-        \end{pmatrix}, \\[1ex]
-        T_2(\mathbf{x}) &= \begin{pmatrix} 0.5 & 0 & 0 \\ 0 & 0.5 & 100 \\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix}
-        x \\
-        y \\
-        1
-        \end{pmatrix}, \\[1ex]
-        T_3(\mathbf{x}) &= \begin{pmatrix} 0.5 & 0 & 100 \\ 0 & 0.5 & 100 \\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix}
-        x \\
-        y \\
-        1
-        \end{pmatrix}.
-        \end{aligned}
-        \]
-      </p>
-
-      <p>
-        Geometrically, these transformations move the original circle into three positions: bottom-left, top-left, and
-        top-right within a larger triangular layout. At each iteration, every existing circle is replaced by three
-        smaller circles, each one scaled down and repositioned using one of the transformations, as shown in Figure
-        \ref{fig:s-triangle}.
-      </p>
-
-      <p>
-        After several iterations, the resulting pattern reveals the structure of the Sierpiński triangle, composed
-        entirely of circles. This method illustrates how simple affine transformations applied to geometric primitives
-        can yield complex, self-similar fractals.
-      </p>
-
       <div>
-        <script data-height="525" data-preview-width="400" type="text/p5">
+
+        <h2 id="fractals">Affine transformations and Fractals</h2>
+
+        <p>
+          Affine transformations play a fundamental role in the construction of fractals through a method known as an
+          <em>Iterated Function System</em> (IFS). An IFS is a collection of contraction mappings, typically affine
+          transformations, that are applied repeatedly to generate self-similar structures. The elegance of this
+          approach
+          lies in how complex, intricate patterns can emerge from the iteration of simple rules.
+        </p>
+
+        <h3>Iterated Function Systems</h3>
+
+        <p>
+          An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\} \), each of the form:
+          \[
+          T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i,
+          \]
+          where \( A_i \) is a \(2 \times 2\) matrix representing a linear transformation (scaling, rotation, or
+          shearing), and \( \mathbf{t}_i \) is a translation vector.
+        </p>
+
+        <p>
+          There are two common approaches for plotting fractals using IFS:
+        </p>
+
+        <p>
+          We now illustrate both approaches through two classical examples.
+        </p>
+
+        <h3 id="sierpinski-triangle">Sierpiński Triangle: A Deterministic IFS</h3>
+
+        <p>
+          The Sierpiński triangle is a classic fractal built by repeatedly removing the central triangle from an
+          equilateral triangle.
+        </p>
+
+        <p>
+          This fractal can be constructed using a deterministic iterated function system (IFS) that repeatedly applies a
+          small set of affine transformations to an initial shape.
+        </p>
+
+        <p>
+          In this version, rather than starting with a triangle, we begin with a simple geometric shape: a circle of
+          radius 100 centred at the origin \( (0, 0) .\) At each iteration, we apply three affine transformations that
+          scale the circle by a factor of \( \frac{1}{2} \) and translate it to a new location. Using homogeneous
+          coordinates, the transformations are defined as follows:
+          \[
+          \begin{aligned}
+          T_1(\mathbf x) &= \begin{pmatrix} 0.5 & 0 & 0\\ 0 & 0.5 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_2(\mathbf{x}) &= \begin{pmatrix} 0.5 & 0 & 0 \\ 0 & 0.5 & 100 \\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_3(\mathbf{x}) &= \begin{pmatrix} 0.5 & 0 & 100 \\ 0 & 0.5 & 100 \\ 0 & 0 & 1\end{pmatrix} \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}.
+          \end{aligned}
+          \]
+        </p>
+
+        <p>
+          Geometrically, these transformations move the original circle into three positions: bottom-left, top-left, and
+          top-right within a larger triangular layout. At each iteration, every existing circle is replaced by three
+          smaller circles, each one scaled down and repositioned using one of the transformations, as shown in Figure
+          \ref{fig:s-triangle}.
+        </p>
+
+        <p>
+          After several iterations, the resulting pattern reveals the structure of the Sierpiński triangle, composed
+          entirely of circles. This method illustrates how simple affine transformations applied to geometric primitives
+          can yield complex, self-similar fractals.
+        </p>
+
+        <div>
+          <script data-height="525" data-preview-width="400" type="text/p5">
 // Play button, then click on the plot to iterate!
 
 // Affine transforms applied to center and radius of circle
@@ -672,198 +679,212 @@ function plotAxesInfo() {
   pop();
 }
 </script>
-      </div>
+        </div>
 
-      <p>
-        It should be noted that this iterative process is not restricted to beginning with a circular shape. In fact,
-        starting with a square or any other closed figure can still lead to the same limiting fractal. This illustrates
-        the robustness of the process with respect to the choice of initial shape. In his work on \emph{V-variable
-        fractals and superfractals}, Michael Barnsley, et al. \cite{barnsley-2003} famously demonstrated this
-        flexibility using the image of a fish as the initial figure.
-      </p>
+        <div style="text-align: center;margin-top: -2px;">
+          <button><a href="https://editor.p5js.org/jcponce/sketches/pAr2O3zbO" target="_blank">
+              Fullscreen - Sierpiński triangle
+            </a></button>
+        </div>
 
-      <h3>Interactive demos in JavaScript</h3>
+        <p>
+          It should be noted that this iterative process is not restricted to beginning with a circular shape. In fact,
+          starting with a square or any other closed figure can still lead to the same limiting fractal. This
+          illustrates
+          the robustness of the process with respect to the choice of initial shape. In his work on
+          <em>V-variable fractals and superfractals</em>, Michael Barnsley, et al. \cite{barnsley-2003} famously
+          demonstrated this flexibility using the image of a fish as the initial figure.
+        </p>
 
-      <p>
-        In the links below, you can explore an online-interactive implementation of the deterministic IFS for the
-        Sierpiński triangle:
-      </p>
+        <p>
+          In the link below, you can explore an online-interactive implementation
+          of the deterministic IFS for the Sierpiński triangle:
+        </p>
 
-      <p>
-        You can modify the parameters defining the affine transformation and explore how they affect the plot of the
-        fractal.
-      </p>
+        <ul>
+          <li>
+            <a href="https://editor.p5js.org/jcponce/sketches/0fTGQySj6" target="_blank">
+              Squares <i class="fas fa-external-link-alt"></i>
+            </a>
+          </li>
+        </ul>
 
-      <h3>Barnsley Fern: A Probabilistic IFS</h3>
+        <p>
+          You can modify the parameters defining the affine transformation and explore how they affect the plot of the
+          fractal.
+        </p>
 
-      <p>
-        The Barnsley fern is a well-known example of a natural-looking fractal generated using a probabilistic IFS. It
-        consists of four affine transformations, each applied with a specified probability. These transformations are
-        iteratively applied to a single point, and the accumulation of these points produces the characteristic fern
-        shape.
-      </p>
+        <h3 id="barnsley-fern">Barnsley Fern: A Probabilistic IFS</h3>
 
-      <p>
-        The four affine transformations are defined as:
-        \[
-        \begin{aligned}
-        T_1(\mathbf{x}) &=
-        \begin{pmatrix}
-        0 & 0 & 0 \\
-        0 & 0.16 & 0 \\
-        0 & 0 & 1
-        \end{pmatrix}
-        \begin{pmatrix}
-        x \\
-        y \\
-        1
-        \end{pmatrix}, \\[1ex]
-        T_2(\mathbf{x}) &=
-        \begin{pmatrix}
-        0.85 & 0.04 & 0 \\
-        -0.04 & 0.85 & 1.6 \\
-        0 & 0 & 1
-        \end{pmatrix}
-        \begin{pmatrix}
-        x \\
-        y \\
-        1
-        \end{pmatrix}, \\[1ex]
-        T_3(\mathbf{x}) &=
-        \begin{pmatrix}
-        0.2 & -0.26 & 0 \\
-        0.23 & 0.22 & 1.6 \\
-        0 & 0 & 1
-        \end{pmatrix}
-        \begin{pmatrix}
-        x \\
-        y \\
-        1
-        \end{pmatrix}, \\[1ex]
-        T_4(\mathbf{x}) &=
-        \begin{pmatrix}
-        -0.15 & 0.28 & 0 \\
-        0.26 & 0.24 & 0.44 \\
-        0 & 0 & 1
-        \end{pmatrix}
-        \begin{pmatrix}
-        x \\
-        y \\
-        1
-        \end{pmatrix}.
-        \end{aligned}
-        \]
-      </p>
+        <p>
+          The Barnsley fern is a well-known example of a natural-looking fractal generated using a probabilistic IFS. It
+          consists of four affine transformations, each applied with a specified probability. These transformations are
+          iteratively applied to a single point, and the accumulation of these points produces the characteristic fern
+          shape.
+        </p>
 
-      <p>
-        Each transformation is associated with a probability, as shown below:
-      </p>
+        <p>
+          The four affine transformations are defined as:
+          \[
+          \begin{aligned}
+          T_1(\mathbf{x}) &=
+          \begin{pmatrix}
+          0 & 0 & 0 \\
+          0 & 0.16 & 0 \\
+          0 & 0 & 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_2(\mathbf{x}) &=
+          \begin{pmatrix}
+          0.85 & 0.04 & 0 \\
+          -0.04 & 0.85 & 1.6 \\
+          0 & 0 & 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_3(\mathbf{x}) &=
+          \begin{pmatrix}
+          0.2 & -0.26 & 0 \\
+          0.23 & 0.22 & 1.6 \\
+          0 & 0 & 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_4(\mathbf{x}) &=
+          \begin{pmatrix}
+          -0.15 & 0.28 & 0 \\
+          0.26 & 0.24 & 0.44 \\
+          0 & 0 & 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}.
+          \end{aligned}
+          \]
+        </p>
 
-      <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
-        <thead>
-          <tr>
-            <th></th>
-            <th><strong>Probability</strong></th>
-          </tr>
-        </thead>
-        <tbody>
+        <p>
+          Each transformation is associated with a probability, as shown below:
+        </p>
 
-          <tr>
-            <td><em>T<sub>1</sub></em></td>
-            <td style="text-align: center;">0.01</td>
-          </tr>
-          <tr>
-            <td><em>T<sub>2</sub></em></td>
-            <td style="text-align: center;">0.85</td>
-          </tr>
-          <tr>
-            <td><em>T<sub>3</sub></em></td>
-            <td style="text-align: center;">0.07</td>
-          </tr>
-          <tr>
-            <td><em>T<sub>4</sub></em></td>
-            <td style="text-align: center;">0.07</td>
-          </tr>
-        </tbody>
-        <caption><strong></strong></caption>
-      </table>
+        <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+          <thead>
+            <tr>
+              <th></th>
+              <th><strong>Probability</strong></th>
+            </tr>
+          </thead>
+          <tbody>
 
-
-      <p>
-        The table below is a tidier way of conveying the same iterated function system, including the probabilities
-        $p_k$ associated to $T_k.$
-      </p>
-
-      <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
-
-        <thead>
-          <tr style="text-align: center;">
-            <th style="text-align: center;"><em>T</em></th>
-            <th style="text-align: center;"><em>a</em></th>
-            <th style="text-align: center;"><em>b</em></th>
-            <th style="text-align: center;"><em>c</em></th>
-            <th style="text-align: center;"><em>d</em></th>
-            <th style="text-align: center;"><em>e</em></th>
-            <th style="text-align: center;"><em>f</em></th>
-            <th style="text-align: center;"><em>p</em></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="text-align: center;">1</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.16</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.01</td>
-          </tr>
-          <tr>
-            <td style="text-align: center;">2</td>
-            <td style="text-align: center;">0.85</td>
-            <td style="text-align: center;">0.04</td>
-            <td style="text-align: center;">-0.04</td>
-            <td style="text-align: center;">0.85</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">1.6</td>
-            <td style="text-align: center;">0.85</td>
-          </tr>
-          <tr>
-            <td style="text-align: center;">3</td>
-            <td style="text-align: center;">0.2</td>
-            <td style="text-align: center;">-0.26</td>
-            <td style="text-align: center;">0.23</td>
-            <td style="text-align: center;">0.22</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">1.6</td>
-            <td style="text-align: center;">0.07</td>
-          </tr>
-          <tr>
-            <td style="text-align: center;">4</td>
-            <td style="text-align: center;">-0.15</td>
-            <td style="text-align: center;">0.28</td>
-            <td style="text-align: center;">0.26</td>
-            <td style="text-align: center;">0.24</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.44</td>
-            <td style="text-align: center;">0.07</td>
-          </tr>
-        </tbody>
-        <caption><strong>IFS code for a fern.</strong></caption>
-      </table>
+            <tr>
+              <td><em>T<sub>1</sub></em></td>
+              <td style="text-align: center;">0.01</td>
+            </tr>
+            <tr>
+              <td><em>T<sub>2</sub></em></td>
+              <td style="text-align: center;">0.85</td>
+            </tr>
+            <tr>
+              <td><em>T<sub>3</sub></em></td>
+              <td style="text-align: center;">0.07</td>
+            </tr>
+            <tr>
+              <td><em>T<sub>4</sub></em></td>
+              <td style="text-align: center;">0.07</td>
+            </tr>
+          </tbody>
+          <caption><strong></strong></caption>
+        </table>
 
 
-      <p>
-        To generate the fern, we begin with an initial point, typically the origin, and repeatedly apply one of the four
-        transformations, selected at random according to the given probabilities. Each new point becomes the input for
-        the next iteration. After tens of thousands of iterations, the resulting plot reveals the familiar leafy
-        structure
-        of a fern.
-      </p>
+        <p>
+          The table below is a tidier way of conveying the same iterated function system, including the probabilities
+          $p_k$ associated to $T_k.$
+        </p>
 
-      <div>
-        <script data-height="525" data-preview-width="400" type="text/p5">
+        <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+
+          <thead>
+            <tr style="text-align: center;">
+              <th style="text-align: center;"><em>T</em></th>
+              <th style="text-align: center;"><em>a</em></th>
+              <th style="text-align: center;"><em>b</em></th>
+              <th style="text-align: center;"><em>c</em></th>
+              <th style="text-align: center;"><em>d</em></th>
+              <th style="text-align: center;"><em>e</em></th>
+              <th style="text-align: center;"><em>f</em></th>
+              <th style="text-align: center;"><em>p</em></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center;">1</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.16</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.01</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">2</td>
+              <td style="text-align: center;">0.85</td>
+              <td style="text-align: center;">0.04</td>
+              <td style="text-align: center;">-0.04</td>
+              <td style="text-align: center;">0.85</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">1.6</td>
+              <td style="text-align: center;">0.85</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">3</td>
+              <td style="text-align: center;">0.2</td>
+              <td style="text-align: center;">-0.26</td>
+              <td style="text-align: center;">0.23</td>
+              <td style="text-align: center;">0.22</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">1.6</td>
+              <td style="text-align: center;">0.07</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">4</td>
+              <td style="text-align: center;">-0.15</td>
+              <td style="text-align: center;">0.28</td>
+              <td style="text-align: center;">0.26</td>
+              <td style="text-align: center;">0.24</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.44</td>
+              <td style="text-align: center;">0.07</td>
+            </tr>
+          </tbody>
+          <caption><strong>IFS code for a fern.</strong></caption>
+        </table>
+
+
+        <p>
+          To generate the fern, we begin with an initial point, typically the origin, and repeatedly apply one of the
+          four
+          transformations, selected at random according to the given probabilities. Each new point becomes the input for
+          the next iteration. After tens of thousands of iterations, the resulting plot reveals the familiar leafy
+          structure
+          of a fern.
+        </p>
+
+        <div>
+          <script data-height="525" data-preview-width="400" type="text/p5">
 let x = 0, y = 0;
 
 function nextPoint() {
@@ -908,142 +929,164 @@ function drawPoint() {
   point(px, py);
 }
 </script>
-      </div>
+        </div>
 
-      <!--
+        <div style="text-align: center;margin-top: -2px;">
+          <button><a href="https://editor.p5js.org/jcponce/sketches/rxQvWQ9d-" target="_blank">
+              Fullscreen - Barnsley fern
+            </a></button>
+        </div>
+
+        <!--
            <div style="text-align: center;">
         <iframe style="border: none; width:100%; height: 550px;"
           src="https://editor.p5js.org/jcponce/sketches/rxQvWQ9d-"></iframe>
       </div>-->
 
-      <p>
-        This method beautifully illustrates how simple affine transformations, when combined through a probabilistic
-        IFS, can model the complexity of natural forms. Alongside the deterministic construction of the Sierpiński
-        triangle, the Barnsley fern underscores the power of affine transformations in the algorithmic generation of
-        fractals. These examples highlight how affine transformations and IFS can be used to algorithmically generate
-        fractals, offering deep insight into both mathematical structure and natural phenomena.
-      </p>
+        <p>
+          This method beautifully illustrates how simple affine transformations, when combined through a probabilistic
+          IFS, can model the complexity of natural forms. Alongside the deterministic construction of the Sierpiński
+          triangle, the Barnsley fern underscores the power of affine transformations in the algorithmic generation of
+          fractals. These examples highlight how affine transformations and IFS can be used to algorithmically generate
+          fractals, offering deep insight into both mathematical structure and natural phenomena.
+        </p>
 
-      <h3>Interactive demos in JavaScript</h3>
+        <p>
+          The probabilistic IFS can be used to generate not only the Barnsley fern, but also a wide variety of fractals.
+          Two notable examples are the fractal tree and the Sierpiński triangle. The affine transformations needed to
+          construct these are listed in Tables \ref{tab:tree} and \ref{tab:triangle}.
+        </p>
 
-      <p>
-        The probabilistic IFS can be used to generate not only the Barnsley fern, but also a wide variety of fractals.
-        Two notable examples are the fractal tree and the Sierpiński triangle. The affine transformations needed to
-        construct these are listed in Tables \ref{tab:tree} and \ref{tab:triangle}.
-      </p>
+        <table border="1" style="margin: 0 auto; border-collapse: collapse;">
+          <caption><strong>IFS code for a fractal tree.</strong></caption>
+          <thead>
+            <tr>
+              <th style="text-align: center;"><em>T</em></th>
+              <th style="text-align: center;"><em>a</em></th>
+              <th style="text-align: center;"><em>b</em></th>
+              <th style="text-align: center;"><em>c</em></th>
+              <th style="text-align: center;"><em>d</em></th>
+              <th style="text-align: center;"><em>e</em></th>
+              <th style="text-align: center;"><em>f</em></th>
+              <th style="text-align: center;"><em>p</em></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center;">1</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.5</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.05</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">2</td>
+              <td style="text-align: center;">0.42</td>
+              <td style="text-align: center;">-0.42</td>
+              <td style="text-align: center;">0.42</td>
+              <td style="text-align: center;">0.42</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.2</td>
+              <td style="text-align: center;">0.4</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">3</td>
+              <td style="text-align: center;">0.42</td>
+              <td style="text-align: center;">0.42</td>
+              <td style="text-align: center;">-0.42</td>
+              <td style="text-align: center;">0.42</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.2</td>
+              <td style="text-align: center;">0.4</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">4</td>
+              <td style="text-align: center;">0.1</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.1</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.2</td>
+              <td style="text-align: center;">0.15</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <table border="1" style="margin: 0 auto; border-collapse: collapse;">
-        <caption><strong>IFS code for a fractal tree.</strong></caption>
-        <thead>
-          <tr>
-            <th style="text-align: center;"><em>T</em></th>
-            <th style="text-align: center;"><em>a</em></th>
-            <th style="text-align: center;"><em>b</em></th>
-            <th style="text-align: center;"><em>c</em></th>
-            <th style="text-align: center;"><em>d</em></th>
-            <th style="text-align: center;"><em>e</em></th>
-            <th style="text-align: center;"><em>f</em></th>
-            <th style="text-align: center;"><em>p</em></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="text-align: center;">1</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.5</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.05</td>
-          </tr>
-          <tr>
-            <td style="text-align: center;">2</td>
-            <td style="text-align: center;">0.42</td>
-            <td style="text-align: center;">-0.42</td>
-            <td style="text-align: center;">0.42</td>
-            <td style="text-align: center;">0.42</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.2</td>
-            <td style="text-align: center;">0.4</td>
-          </tr>
-          <tr>
-            <td style="text-align: center;">3</td>
-            <td style="text-align: center;">0.42</td>
-            <td style="text-align: center;">0.42</td>
-            <td style="text-align: center;">-0.42</td>
-            <td style="text-align: center;">0.42</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.2</td>
-            <td style="text-align: center;">0.4</td>
-          </tr>
-          <tr>
-            <td style="text-align: center;">4</td>
-            <td style="text-align: center;">0.1</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.1</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.2</td>
-            <td style="text-align: center;">0.15</td>
-          </tr>
-        </tbody>
-      </table>
+        <br />
 
-      <br />
+        <table border="1" style="margin: 0 auto; border-collapse: collapse;">
+          <caption style="width:22em"><strong>IFS code for a Sierpiński triangle.</strong></caption>
+          <thead>
+            <tr>
+              <th style="text-align: center;"><em>T</em></th>
+              <th style="text-align: center;"><em>a</em></th>
+              <th style="text-align: center;"><em>b</em></th>
+              <th style="text-align: center;"><em>c</em></th>
+              <th style="text-align: center;"><em>d</em></th>
+              <th style="text-align: center;"><em>e</em></th>
+              <th style="text-align: center;"><em>f</em></th>
+              <th style="text-align: center;"><em>p</em></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center;">1</td>
+              <td style="text-align: center;">0.5</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.5</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.33</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">2</td>
+              <td style="text-align: center;">0.5</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.5</td>
+              <td style="text-align: center;">0.5</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.33</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;">3</td>
+              <td style="text-align: center;">0.5</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0</td>
+              <td style="text-align: center;">0.5</td>
+              <td style="text-align: center;">0.25</td>
+              <td style="text-align: center;">0.433</td>
+              <td style="text-align: center;">0.34</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <table border="1" style="margin: 0 auto; border-collapse: collapse;">
-        <caption style="width:22em"><strong>IFS code for a Sierpiński triangle.</strong></caption>
-        <thead>
-          <tr>
-            <th style="text-align: center;"><em>T</em></th>
-            <th style="text-align: center;"><em>a</em></th>
-            <th style="text-align: center;"><em>b</em></th>
-            <th style="text-align: center;"><em>c</em></th>
-            <th style="text-align: center;"><em>d</em></th>
-            <th style="text-align: center;"><em>e</em></th>
-            <th style="text-align: center;"><em>f</em></th>
-            <th style="text-align: center;"><em>p</em></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="text-align: center;">1</td>
-            <td style="text-align: center;">0.5</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.5</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.33</td>
-          </tr>
-          <tr>
-            <td style="text-align: center;">2</td>
-            <td style="text-align: center;">0.5</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.5</td>
-            <td style="text-align: center;">0.5</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.33</td>
-          </tr>
-          <tr>
-            <td style="text-align: center;">3</td>
-            <td style="text-align: center;">0.5</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0</td>
-            <td style="text-align: center;">0.5</td>
-            <td style="text-align: center;">0.25</td>
-            <td style="text-align: center;">0.433</td>
-            <td style="text-align: center;">0.34</td>
-          </tr>
-        </tbody>
-      </table>
+        <p>
+          You can explore the online-interactive implementations
+          of the probabilistic IFS in the following links:
+        </p>
 
-      <p>
-        You can explore the online-interactive implementations
-        of the probabilistic IFS in the following links:
-      </p>
+        <ul>
+          <li>
+            <a href="https://editor.p5js.org/jcponce/sketches/lcW-61w9g" target="_blank">
+              Fractal tree <i class="fas fa-external-link-alt"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://editor.p5js.org/jcponce/sketches/D_cmxc-sv" target="_blank">
+              Sierpiński triangle <i class="fas fa-external-link-alt"></i>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+
+
 
 
 
