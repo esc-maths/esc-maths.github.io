@@ -7,13 +7,11 @@
   <meta name="google-site-verification" content="tm5Y6ZNTf-lBqbwniGjQPv1q02o2TuUQZ9GTYa4SMLg" />
   <title>Affine Transformations</title>
 
-  <meta name="description"
-    content="A minimal, almost class-less CSS library to write modern websites that look like LaTeX documents." />
-  <meta name="keywords" content="latex.css,css library,class-less css,latex css" />
-  <meta property="og:title" content="LaTeX.css" />
-  <meta property="og:url" content="https://latex.vercel.app" />
-  <meta property="og:description"
-    content="A minimal, almost class-less CSS library to write modern websites that look like LaTeX documents." />
+  <meta name="description" content="" />
+  <meta name="keywords" content="l" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="" />
   <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="style.css" />
@@ -652,21 +650,99 @@
 
       <p>
         Each transformation is associated with a probability, as shown below:
-        \begin{center}
-        \begin{tabular}{c|c}
-        & \textbf{Probability} \\ \hline
-        $T_1$ & $0.01$ \\
-        $T_2$ & $0.85$ \\
-        $T_3$ & $0.07$ \\
-        $T_4$ & $0.07$ \\
-        \end{tabular}
-        \end{center}
       </p>
+
+      <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+        <tr>
+          <th></th>
+          <th><strong>Probability</strong></th>
+        </tr>
+        <tr>
+          <td><em>T<sub>1</sub></em></td>
+          <td style="text-align: center;">0.01</td>
+        </tr>
+        <tr>
+          <td><em>T<sub>2</sub></em></td>
+          <td style="text-align: center;">0.85</td>
+        </tr>
+        <tr>
+          <td><em>T<sub>3</sub></em></td>
+          <td style="text-align: center;">0.07</td>
+        </tr>
+        <tr>
+          <td><em>T<sub>4</sub></em></td>
+          <td style="text-align: center;">0.07</td>
+        </tr>
+      </table>
+
 
       <p>
         The table below is a tidier way of conveying the same iterated function system, including the probabilities
         $p_k$ associated to $T_k.$
       </p>
+
+      <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+        
+        <thead>
+          <tr style="text-align: center;">
+            <th style="text-align: center;"><em>T</em></th>
+            <th style="text-align: center;"><em>a</em></th>
+            <th style="text-align: center;"><em>b</em></th>
+            <th style="text-align: center;"><em>c</em></th>
+            <th style="text-align: center;"><em>d</em></th>
+            <th style="text-align: center;"><em>e</em></th>
+            <th style="text-align: center;"><em>f</em></th>
+            <th style="text-align: center;"><em>p</em></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: center;">1</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.16</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.01</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">2</td>
+            <td style="text-align: center;">0.85</td>
+            <td style="text-align: center;">0.04</td>
+            <td style="text-align: center;">-0.04</td>
+            <td style="text-align: center;">0.85</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">1.6</td>
+            <td style="text-align: center;">0.85</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">3</td>
+            <td style="text-align: center;">0.2</td>
+            <td style="text-align: center;">-0.26</td>
+            <td style="text-align: center;">0.23</td>
+            <td style="text-align: center;">0.22</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">1.6</td>
+            <td style="text-align: center;">0.07</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">4</td>
+            <td style="text-align: center;">-0.15</td>
+            <td style="text-align: center;">0.28</td>
+            <td style="text-align: center;">0.26</td>
+            <td style="text-align: center;">0.24</td>
+            <td style="text-align: center;">0</td>
+            <td style="text-align: center;">0.44</td>
+            <td style="text-align: center;">0.07</td>
+          </tr>
+        </tbody>
+        <caption><strong>IFS code for a fern.</strong></caption>
+      </table>
+
+
+
+
 
       <p>
         To generate the fern, we begin with an initial point, typically the origin, and repeatedly apply one of the four
@@ -694,7 +770,7 @@
 
       <h2>References</h2>
 
-      <ul>
+      <ol class="bbtex-list">
         <li id="ban-2024">
           Ban, S., & Kim, T. (2024). <em>Rational-Function-Model-Based Rigorous Bundle Adjustment for Improving the
             Relative Geometric Positioning Accuracy of Multiple Korea Multi-Purpose Satellite-3A Images</em>.
@@ -720,7 +796,11 @@
           <a href="https://archive.org/details/mathematicalelem00roge/"
             target="_blank">https://archive.org/details/mathematicalelem00roge/</a>
         </li>
-      </ul>
+      </ol>
+
+      <br />
+      <br />
+      <br />
 
 
     </article>

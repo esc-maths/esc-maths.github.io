@@ -783,3 +783,32 @@ h5,
 h6 {
   margin-bottom: 0.8rem;
 }
+
+/* Biblio LaTeX */
+.bbtex-list {
+    list-style-type: none;
+    /* Remove default numbering */
+    counter-reset: list-counter;
+    margin-left: 0;
+    padding-left: 0;
+    /* Reset the counter */
+}
+
+.bbtex-list li {
+    text-align: justify;
+    counter-increment: list-counter;
+    display: block;
+    margin-left: 3.5em;
+    /* Increment the counter */
+}
+
+.bbtex-list li:before {
+    content: "[" counter(list-counter, decimal) "]. ";
+    display: inline-block;
+    text-align: right;
+    width: 3em;
+    /* Must be the maximum width of your list's numbers, including the ')', for compatability (in case you use a fixed-width font, for example).  Will have to beef up if using roman. */
+    padding-right: 0.5em;
+    margin-left: -3.5em;
+    /* Use lowercase letters with parentheses */
+}
