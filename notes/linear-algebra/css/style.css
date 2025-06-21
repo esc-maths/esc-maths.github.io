@@ -851,6 +851,76 @@ h6 {
 }
 
 
+/*-- Top bar --*/
+
+/* Fixed bar styles */
+.fixed-bar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 87ch;
+    height: 50px;
+    background-color: hsla(210, 20%, 98%, 0.9);
+    /* White with 30% transparency */
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 100;
+    /* Ensuring the bar is above other content */
+}
+
+.fixed-bar a {
+    outline: none;
+}
+
+.link-container {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: black !important;
+    margin: 0 10px;
+    font-size: 1.005em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.arrow {
+    margin-right: 8px;
+    margin-left: 8px;
+    padding: 0px 5px;
+}
+
+.arrow:hover {
+    background-color: rgba(222, 222, 222, 0.8);
+    border-radius: 10px;
+}
+
+.content-original {
+    display: inline;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+.content-hover,
+.content-hover-previous,
+.content-hover-next {
+    display: none;
+    background-color: rgba(222, 222, 222, 0.8);
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+
 @media print {
   * {
         color: #000;
