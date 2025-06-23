@@ -65,6 +65,8 @@
   --toc-chapter: rgb(249, 249, 249);
   --toc-background: hsl(0, 0%, 91%);
   --toc-list: hsl(0, 0%, 27%);
+  /* Next page color button */
+  --nextPage: rgb(245, 245, 245);
 }
 
 .latex-dark {
@@ -84,6 +86,8 @@
   --toc-chapter: hsl(0, 0%, 16%);
   --toc-background: hsla(0, 0%, 60%, 0.78);
   --toc-list: hsl(0, 0%, 78%);
+  /* Next page color button */
+  --nextPage: rgba(245, 245, 245, 0.333);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -104,6 +108,8 @@
     --toc-chapter: hsl(0, 0%, 16%);
     --toc-background: hsla(0, 0%, 60%, 0.78);
     --toc-list: hsl(0, 0%, 74%);
+    /* Next page color button */
+    --nextPage: rgba(245, 245, 245, 0.333);
   }
 }
 /* Remove default margin */
@@ -554,8 +560,8 @@ dl dd {
   font-size: 0.8rem;
   float: right;
   clear: right;
-  width: 18vw;
-  margin-right: -20vw;
+  width: 15vw;
+  margin-right: -17vw;
   margin-bottom: 1em;
   text-indent: 0;
   /* Right sidenotes explicitly aligned to left for wide screens */
@@ -564,7 +570,7 @@ dl dd {
 
 .sidenote.left {
   float: left;
-  margin-left: -20vw;
+  margin-left: -17vw;
   margin-bottom: 1em;
   text-indent: 0;
   /* Left sidenotes explicitly aligned to right for wide screens */
@@ -629,7 +635,7 @@ input.sidenote-toggle {
   display: none;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1260px) {
   label.sidenote-toggle:not(.sidenote-number) {
     display: inline;
   }
@@ -1125,7 +1131,7 @@ hr {
   display: table;
   clear: both;
   padding: 8px 16px 8px 16px;
-  border-left: 5px solid #16b190 !important;
+  border-left: 5px solid hsl(0, 100%, 33%) !important;
   color: var(--summary-color);
   background-color: var(--teo-def-cards) !important;
   display: block;
@@ -1147,7 +1153,7 @@ hr {
   font-style: italic;
   text-align: justify;
   padding: 8px 16px 8px 16px;
-  border-left: 5px solid #3b87f9 !important;
+  border-left: 5px solid hsla(0, 100%, 33%, 0.6) !important;
   color: var(--summary-color);
   background-color: var(--teo-def-cards) !important;
   overflow-y: hidden;
@@ -1214,7 +1220,7 @@ hr {
   display: table;
   clear: both;
   padding: 8px 16px 8px 16px;
-  border-left: 5px solid #3b87f9 !important;
+  border-left: 5px solid hsl(0, 100%, 33%) !important;
   color: var(--summary-color);
   background-color: var(--teo-def-cards) !important;
   display: block;
@@ -1235,7 +1241,7 @@ hr {
   font-style: normal;
   text-align: justify;
   padding: 8px 16px 8px 16px;
-  border-left: 5px solid #6106d7 !important;
+  border-left: 5px solid hsl(0, 100%, 33%) !important;
   margin-left: 10px;
   display: block;
   overflow-y: hidden;
