@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>  Affine Transformations
+</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="website" />
+
+  <link rel="shortcut icon" type="image/svg+xml" type="image/svg" href="imgs/icon-griffith.svg" sizes="32x32">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body data-type="book" id="top">
+
+  <div class="myLoader" id="loader">
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="loadingMessage">Loading...</div>
+  </div>
+
+<div class="fixed-bar" id="fixed-bar">
+    <div class="link-container">
+        <a href="week-01.html" class="link" id="prev-link">
+            <span class="arrow"><i class="fa-solid fa-arrow-left"></i></span>
+        </a>
+    </div>
+    <div class="link">
+        <a href="index.html" class="link" id="center-link">
+            <span class="content-hover-previous">Week 1</span>
+            <span class="content-hover">Contents</span>
+            <span class="content-original">Linear Algebra</span>
+        </a>
+    </div>
+</div>
+  <!-- Main DIV Starts here -->
+  <div class="container">
+    <section data-type="chapter" id="affine-transformations-JWyJtKR">
+
+  <!-- Starts main content -->
+
+  <!--<div w3-include-html="small_screen_message.html"></div>-->
+
+  <div class="toc-chapter" id="toc-chapter">
+    <p><i class="fa-solid fa-list"></i>Contents</p>
+    <ul>
+      <li><a href="#section1">Introduction</a></li>
+      <li><a href="#section2">Affine transformations</a></li>
+      <li><a href="#section3">Matrix representation of linear transformations</a></li>
+      <li><a href="#section4">Homogeneous coordinates</a></li>
+      <li><a href="#section5">Affine transformations and Fractals</a></li>
+      <li><a href="#section6">References</a></li>
+      <!-- Add more sections as needed -->
+    </ul>
+  </div>
+
+  <br><br>
+
+  <header>
+    <h1>Affine Transformations</h1>
+  </header>
+
+  <br>
+  <hr>
+
+  <main>
+
+    <article>
+
+      <div id="section1">
+
+        <h2 id="intro">Introduction</h2>
+
+        <p>
+          An affine transformation is a type of mapping that preserves geometric properties such as points, straight
+          lines, and planes. Importantly, it maintains the parallelism of lines, meaning that sets of parallel lines
+          remain parallel after the transformation.
+        </p>
+
+        <p>
+          This technique is commonly applied to correct geometric distortions or deformations caused by non-ideal camera
+          perspectives. For instance, in satellite imagery, affine transformations help adjust for distortions from
+          wide-angle lenses, align images in panorama stitching, and support accurate image registration. By
+          transforming
+          and aligning images within a flat, consistent coordinate system, distortion is minimised, simplifying
+          interaction and enabling more straightforward calculations without the need to compensate for image warping.
+        </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/application-affine-satellite.png" loading="lazy" alt="Mountain landscape" width="500">
+          <figcaption>
+            Geometry correction for satellite images by
+            <a href="#ban-2024">S. Ban &amp; T. Kim (2024)</a>.
+          </figcaption>
+        </figure>
+
+        
+
+        <p>
+          Affine transformations are fundamental tools in geometry, computer graphics, and computer vision, providing a
+          powerful way to describe coordinate system mappings while preserving key geometric relationships. Unlike
+          <em>linear transformations</em>, which are restricted to origin-preserving operations like rotation, scaling,
+          and
+          shearing, affine transformations additionally incorporate translations, enabling arbitrary shifts of the
+          space.
+        </p>
+
+        <p>
+          This generalisation makes affine transformations particularly useful for:
+        </p>
+        <ul>
+          <li>Representing more general geometric deformations</li>
+          <li>Modelling transformations where position changes matter</li>
+        </ul>
+
+        <p>
+          We will explore their mathematical formulation,
+          geometric properties, and some practical applications,
+          focusing
+          on both theoretical understanding and implementation aspects.
+        </p>
+
+      </div>
+
+      <br>
+      <hr>
+
+
+      <div id="section2">
+
+        <h2 id="affine-transformations">Affine transformations</h2>
+
+        <p>Consider a point $\mathbf x=(x,y).$ A transformation $T: \mathbb R^2 \to \mathbb R^2$ of the form
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          ax + by + e \\
+          cx + dy + f
+          \end{pmatrix}
+          \]
+          where $a,b,c,d,e$ and $f$ are real numbers, is called a two-dimensional affine transformation.</p>
+
+        <p>For example, if $a,d = 1,$ and $b,c=0,$ then we have a pure translation
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          x + e \\
+          y + f
+          \end{pmatrix}
+          \]
+        </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/translate.png" loading="lazy" alt="Mountain landscape" width="350">
+          <figcaption>
+            A pure translation.
+          </figcaption>
+        </figure>
+
+        <p>
+          If $b,c=0$ and $e,f=0$ then we have a pure scale
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          ax \\
+          dy
+          \end{pmatrix}
+          \]
+        </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/scale.png" loading="lazy" alt="Mountain landscape" width="350">
+          <figcaption>
+            A pure scale.
+          </figcaption>
+        </figure>
+
+        <p>
+          If $a,c = \cos \theta,$ $b = -\sin \theta,$ $d = \sin \theta,$ and $e,f=0,$ then we have a pure rotation about
+          the origin
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          x\cos\theta -y \sin \theta \\
+          x\sin \theta + y \cos \theta
+          \end{pmatrix}
+          \]
+        </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/rotate.png" loading="lazy" alt="Mountain landscape" width="350">
+          <figcaption>
+            A pure rotation.
+          </figcaption>
+        </figure>
+
+        <p>
+          Finally, if $a,d=1,$ and $e,f=0$ we have the shear transforms
+          \[
+          \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+          x+ by \\
+          y+ cx
+          \end{pmatrix}
+          \]
+        </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/shear.png" loading="lazy" alt="Mountain landscape" width="350">
+          <figcaption>
+            Shear transformations.
+          </figcaption>
+        </figure>
+
+        <p>
+          In summary, we have the four basic affine transformations:
+        </p>
+
+        <ul>
+          <li>Translate: moves a set of points a fixed distance in $x$ and $y,$</li>
+          <li>Scale: scales a set of points up or down in the $x$ and $y$ directions,</li>
+          <li>Rotate: rotates a set of points about the origin,</li>
+          <li>Shear: offset a set of points a distance proportional to their $x$ and $y$ coordinates.</li>
+        </ul>
+
+
+      </div>
+
+      <br>
+      <hr>
+
+      
+      <div id="section3">
+
+        <h2 id="matrix-representation">Matrix representation of linear transformations</h2>
+
+        <p>
+          The affine transformations such as scaling, rotation, and shearing are in fact linear transformations, and
+          they
+          can be represented as matrix multiplications with column vectors. For instance, a linear transformation \( T
+          \)
+          applied to a vector \( \mathbf{x} = (x, y)^T \) can be written as
+          \[
+          T(\mathbf{x}) =
+          \begin{pmatrix}
+          ax + by \\
+          cx + dy
+          \end{pmatrix}
+          =
+          \begin{pmatrix}
+          a &amp; b \\
+          c &amp; d
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y
+          \end{pmatrix},
+          \]
+          or more compactly, \( T(\mathbf{x}) = A \mathbf{x} \), where \( A \) is the \( 2 \times 2 \) matrix
+          \[
+          A =
+          \begin{pmatrix}
+          a &amp; b \\
+          c &amp; d
+          \end{pmatrix}.
+          \]
+        </p>
+
+        <p>
+          One of the key advantages of using matrices for representing transformations is that we can express a complex
+          transformation as a composition of simpler ones. For example, suppose that we wish to scale an object, then
+          shear it, and finally rotate it. Let \( S \) be the scaling matrix, \( H \) the shearing matrix, and \( R \)
+          the
+          rotation matrix. Then the transformation can be written as
+          \[
+          T(\mathbf{x}) = R(H(S \mathbf{x})).
+          \]
+          This represents the following sequence of operations:
+          1. Scale, 2. Shear, 3. Rotate.
+        </p>
+
+        <p>
+          Since matrix multiplication is associative, we can remove the parentheses and compute the product of the three
+          matrices once:
+          \[
+          M = R H S,
+          \]
+          allowing us to rewrite the transformation as
+          $T(\mathbf{x}) = M \mathbf{x}.$
+        </p>
+
+        <p>
+          This approach is especially efficient when transforming a large number of points, such as in a complex
+          graphical
+          model. Instead of applying multiple transformations sequentially, we can compute a single composite matrix \(
+          M
+          \) and apply it directly. This demonstrates the power of matrices to encapsulate and simplify complex
+          transformations in a compact and computationally efficient form.
+        </p>
+
+        <p>
+          In matrix form, then we can calatog the linear transforms as
+        </p>
+        <div class="scroll-wrapper">
+          \[
+          \text{Scale:} \begin{pmatrix}
+          s_x &amp; 0 \\
+          0 &amp; s_y
+          \end{pmatrix},
+          \quad
+          \text{Rotate:} \begin{pmatrix}
+          \cos \theta &amp; -\sin \theta \\
+          \sin \theta &amp; \cos \theta
+          \end{pmatrix},
+          \quad
+          \text{Shear:} \begin{pmatrix}
+          1 &amp; h_x \\
+          h_y &amp; 1
+          \end{pmatrix}
+          \]
+        </div>
+        <p>
+          where $s_x$ and $s_y$ scale the $x$ and $y$ coordinates of a point, $\theta$ is an angle of counterclockwise
+          rotation around the origin, $h_x$ is a horizontal shear factor, and $h_y$ is a vertical shear factor.
+        </p>
+
+      </div>
+
+      <br>
+      <hr>
+
+      <div id="section4">
+
+        <h2 id="homogeneous-coordinates">Homogeneous coordinates</h2>
+
+        <p>
+          Because matrix notation is so convenient for constructing complex transformations from simpler ones, it would
+          be
+          ideal to represent all affine transformations using matrices. However, translation poses a challenge since it
+          is
+          not a linear transformation. The solution is to reformulate the 2D problem in terms of 3D homogeneous
+          coordinates.
+        </p>
+
+        <p>
+          We begin by considering all points \(\mathbf{x} = (x, y)\) in the plane, which we represent as 2D column
+          vectors
+          $
+          \begin{pmatrix}
+          x \\
+          y
+          \end{pmatrix}.
+          $
+          To enable affine transformations such as translation to be represented using matrix multiplication, we embed
+          these 2D vectors into 3D space using homogeneous coordinates by appending a third coordinate, conventionally
+          set
+          to 1:
+          \[
+          \begin{pmatrix}
+          x \\
+          y
+          \end{pmatrix}
+          \quad \Rightarrow \quad
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}.
+          \]
+          This third coordinate is typically called \(w\) to
+          distinguish it from the usual \(z\)-coordinate in 3D
+          geometry.
+        </p>
+
+        <p>
+          Next, we extend our 2D transformation matrices to 3D by adding an extra row and column, resulting in their
+          homogeneous forms:
+        </p>
+        <div class="scroll-wrapper">
+          \[
+          \text{Scale:} \;
+          \begin{pmatrix}
+          s_x &amp; 0 &amp; 0 \\
+          0 &amp; s_y &amp; 0 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix},
+          \quad
+          \text{Rotate:} \;
+          \begin{pmatrix}
+          \cos \theta &amp; -\sin \theta &amp; 0 \\
+          \sin \theta &amp; \cos \theta &amp; 0 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix},
+          \quad
+          \text{Shear:} \;
+          \begin{pmatrix}
+          1 &amp; h_x &amp; 0 \\
+          h_y &amp; 1 &amp; 0 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}.
+          \]
+        </div>
+
+        <p>
+          When we apply one of these homogeneous transformation matrices to a point in homogeneous coordinates, the
+          result
+          is:
+          \[
+          \begin{pmatrix}
+          a &amp; b &amp; 0 \\
+          c &amp; d &amp; 0 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}
+          =
+          \begin{pmatrix}
+          ax + by \\
+          cx + dy \\
+          1
+          \end{pmatrix}.
+          \]
+        </p>
+
+        <p>
+          This is equivalent to the original 2D linear transformation, with the additional \(w\)-coordinate remaining 1.
+          In essence, we are performing standard 2D operations on the \(w = 1\) plane embedded in 3D space.
+        </p>
+
+        <p>
+          The real advantage of this approach becomes apparent when we include translation. By placing translation
+          parameters in the third column of the matrix, we can express translations as linear operations in homogeneous
+          coordinates:
+
+          \[
+          \begin{pmatrix}
+          a &amp; b &amp; e \\
+          c &amp; d &amp; f \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}
+          =
+          \begin{pmatrix}
+          ax + by + e \\
+          cx + dy + f \\
+          1
+          \end{pmatrix}.
+          \]
+        </p>
+
+        <p>
+          We can now represent translation as a matrix operation and add it to our collection of basic transformations:
+
+          \[
+          \text{Translate:} \;
+          \begin{pmatrix}
+          1 &amp; 0 &amp; \Delta x \\
+          0 &amp; 1 &amp; \Delta y \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix},
+          \]
+          where \(\Delta x\) and \(\Delta y\) represent translations along the \(x\)- and \(y\)-axes, respectively. The
+          insightful reader will notice the clever trick at play: 2D translation is now represented as a form of shear
+          in
+          3D space.
+        </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/3d-homogeneous.png" loading="lazy" alt="Mountain landscape" width="550">
+          <figcaption>
+            Geometric object defined on the plane $w = 1$ in 3D.
+          </figcaption>
+        </figure>
+
+        <p>
+          For example, suppose we have $2\times 2$ square centred at the origin and we want to first rotate the square
+          by $45^{\circ}$ about its centre and then move it so its centre is at $(2, 3).$
+        </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/example-01.png" loading="lazy" alt="Mountain landscape" width="400">
+
+          <figcaption>
+            Initial $2\times 2$ square.
+          </figcaption>
+        </figure>
+
+        <p>
+          We can do this in two steps, as
+          shown in Figure 8.
+        </p>
+
+        <figure>
+          <table style="border-collapse: collapse; border: none;">
+            <tbody><tr style="border: none;">
+              <td style="border: none;">
+                <img src="imgs/affine-transformations/example-02.png" loading="lazy" alt="Mountain landscape" width="100%">
+                <div style="text-align: center;">Step 1</div>
+              </td>
+              <td style="border: none;">
+                <img src="imgs/affine-transformations/example-03.png" loading="lazy" alt="Mountain landscape" width="100%">
+                <div style="text-align: center;">Step 2</div>
+              </td>
+            </tr>
+          </tbody></table>
+          <figcaption>
+            Transformations of $2\times 2$ square centred at the origin.
+          </figcaption>
+        </figure>
+
+        <p>
+          In matrix form we have
+        </p>
+        <div class="scroll-wrapper">
+
+          \begin{eqnarray*}
+          M &amp;=&amp;
+          \overbrace{\begin{pmatrix}
+          1 &amp; 0 &amp; 2 \\
+          0 &amp; 1 &amp; 3 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}}^{\text{Translate at } (2,3)}
+          \overbrace{\begin{pmatrix}
+          \cos 45^{\circ} &amp; -\sin 45^{\circ}&amp; 0 \\
+          \sin 45^{\circ} &amp; \cos 45^{\circ} &amp; 0 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}}^{\text{Rotate} 45^\circ} \\[1ex]
+          &amp;=&amp;
+          \begin{pmatrix}
+          \cos 45^{\circ} &amp; -\sin 45^{\circ}&amp; 3 \\
+          \sin 45^{\circ} &amp; \cos 45^{\circ} &amp; 2 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix} \\[1ex]
+          &amp;=&amp;
+          \begin{pmatrix}
+          \sqrt{2}/2 &amp; -\sqrt{2}/2 &amp; 3 \\
+          \sqrt{2}/2 &amp; \sqrt{2}/2 &amp; 2 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}
+          \end{eqnarray*}
+        </div>
+
+        <p>
+          Now consider the vertices of the square using homogeneous coordinates
+        </p>
+        <div class="scroll-wrapper">
+
+          \[
+          v_1 =
+          \begin{pmatrix}
+          1 \\
+          1 \\
+          1
+          \end{pmatrix}, \;\; v_2 =
+          \begin{pmatrix}
+          -1 \\
+          1 \\
+          1
+          \end{pmatrix}, \;\; v_3 =
+          \begin{pmatrix}
+          1 \\
+          -1 \\
+          1
+          \end{pmatrix},\;\; v_4 =
+          \begin{pmatrix}
+          -1 \\
+          -1 \\
+          1
+          \end{pmatrix}.
+          \]
+          Multiplying by the matrix $M$ we obtain the new vertices:
+          \[
+          \begin{array}{ll}
+          v_1' =
+          M \begin{pmatrix}
+          1 \\
+          1 \\
+          1
+          \end{pmatrix} =
+          \begin{pmatrix}
+          3 \\
+          2+\sqrt{2} \\
+          1
+          \end{pmatrix},
+          &amp; v_2' =
+          M \begin{pmatrix}
+          -1 \\
+          1 \\
+          1
+          \end{pmatrix} =
+          \begin{pmatrix}
+          3-\sqrt{2} \\
+          2\\
+          1
+          \end{pmatrix}, \\
+
+          \\
+          v_3' =
+          M \begin{pmatrix}
+          1 \\
+          -1 \\
+          1
+          \end{pmatrix} =
+          \begin{pmatrix}
+          3 + \sqrt{2} \\
+          2 \\
+          1
+          \end{pmatrix}, &amp; v_3' =
+          M \begin{pmatrix}
+          -1 \\
+          -1 \\
+          1
+          \end{pmatrix} =
+          \begin{pmatrix}
+          3 \\
+          2-\sqrt{2} \\
+          1
+          \end{pmatrix}.
+          \end{array}
+          \]
+        </div>
+
+        <br>
+
+        <div class="ggbElement" id="ggb-element-01"></div>
+        <!--
+        <iframe scrolling="no" title="Affine transformations" src="https://www.geogebra.org/material/iframe/id/hgdbm5tx/width/765/height/445/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="765px" height="445px" style="border:0px;" allowfullscreen> </iframe>-->
+
+
+      </div>
+
+      <br>
+      <hr>
+
+      <div id="section5">
+
+        <h2 id="fractals">Affine transformations and Fractals</h2>
+
+        <p>
+          Affine transformations play a fundamental role in the construction of fractals through a method known as an
+          <em>Iterated Function System</em> (IFS). An IFS is a collection of contraction mappings, typically affine
+          transformations, that are applied repeatedly to generate self-similar structures. The elegance of this
+          approach
+          lies in how complex, intricate patterns can emerge from the iteration of simple rules.
+        </p>
+
+        <h3 id="iterated-function-systems">Iterated Function Systems</h3>
+
+        <p>
+          An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\} \), each of the form:
+          \[
+          T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i,
+          \]
+          where \( A_i \) is a \(2 \times 2\) matrix representing a linear transformation (scaling, rotation, or
+          shearing), and \( \mathbf{t}_i \) is a translation vector.
+        </p>
+
+        <p>
+          There are two common approaches for plotting fractals using IFS:
+        </p>
+
+        <p>
+          We now illustrate both approaches through two classical examples.
+        </p>
+
+        <h3 id="sierpinski-triangle">Sierpiński Triangle: A Deterministic IFS</h3>
+
+        <p>
+          The Sierpiński triangle is a classic fractal built by repeatedly removing the central triangle from an
+          equilateral triangle.
+        </p>
+
+        <figure>
+          <img src="imgs/affine-transformations/sierpinski.png" loading="lazy" alt="Mountain landscape" width="600">
+          <figcaption>
+            Sierpiński triangle.
+          </figcaption>
+        </figure>
+
+        <p>
+          This fractal can be constructed using a deterministic iterated function system (IFS) that repeatedly applies a
+          small set of affine transformations to an initial shape.
+        </p>
+
+        <p>
+          In this version, rather than starting with a triangle, we begin with a simple geometric shape: a circle of
+          radius 100 centred at the origin \( (0, 0) .\) At each iteration, we apply three affine transformations that
+          scale the circle by a factor of \( \frac{1}{2} \) and translate it to a new location. Using homogeneous
+          coordinates, the transformations are defined as follows:
+          \[
+          \begin{aligned}
+          T_1(\mathbf x) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 0\\ 0 &amp; 0.5 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_2(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 0 \\ 0 &amp; 0.5 &amp; 100 \\ 0 &amp; 0 &amp; 1\end{pmatrix} \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_3(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 100 \\ 0 &amp; 0.5 &amp; 100 \\ 0 &amp; 0 &amp; 1\end{pmatrix} \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}.
+          \end{aligned}
+          \]
+        </p>
+
+        <p>
+          Geometrically, these transformations move the original circle into three positions: bottom-left, top-left, and
+          top-right within a larger triangular layout. At each iteration, every existing circle is replaced by three
+          smaller circles, each one scaled down and repositioned using one of the transformations.
+        </p>
+
+        <p>
+          After several iterations, the resulting pattern reveals the structure of the Sierpiński triangle, composed
+          entirely of circles. This method illustrates how simple affine transformations applied to geometric primitives
+          can yield complex, self-similar fractals.
+        </p>
+        <br>
+
+        <div>
+          <script data-height="525" data-preview-width="400" type="text/p5">
+// Play button, then click on the plot to iterate!
+
+// Affine transforms applied to center and radius of circle
+function T1(c) {
+  return {
+    x: 0.5 * c.x + 0,
+    y: 0.5 * c.y + 0,
+    r: 0.5 * c.r, // radius
+  };
+}
+
+function T2(c) {
+  return {
+    x: 0.5 * c.x + 0,
+    y: 0.5 * c.y + 100,
+    r: 0.5 * c.r,
+  };
+}
+
+function T3(c) {
+  return {
+    x: 0.5 * c.x + 100,
+    y: 0.5 * c.y + 100,
+    r: 0.5 * c.r,
+  };
+}
+
+let maxIterations = 8;
+let circles = [];
+let iteration = 0;
+
+function setup() {
+  createCanvas(400, 400);
+
+  textSize(20);
+  ellipseMode(RADIUS);
+  textAlign(CENTER);
+
+  resetFractal(); // Initialize the first circle
+}
+
+function draw() {
+  background(255);
+
+  translate(width / 2, height / 2);
+
+  // Axes
+  plotAxesInfo();
+
+  noStroke();
+  fill(0, 100, 255, 240);
+  for (let c of circles) {
+    ellipse(c.x, -c.y, c.r, c.r); // The minus on c.y is to flip the y axis
+  }
+  
+}
+
+// Auxiliary functions
+function mousePressed() {
+  if (iteration >= maxIterations) {
+    resetFractal(); // Reset if max iterations reached
+    return;
+  }
+
+  let newCircles = [];
+  for (let c of circles) {
+    newCircles.push(T1(c));
+    newCircles.push(T2(c));
+    newCircles.push(T3(c));
+  }
+
+  circles = newCircles;
+  iteration++;
+}
+
+function resetFractal() {
+  circles = [{ x: 0, y: 0, r: 100 }]; // Reset initial circle
+  iteration = 0; // Reset iteration counter
+}
+
+function plotAxesInfo() {
+  push();
+  fill(0);
+  text("x", width/2 - 10, 20);
+  text("y", -10, -height/2 + 20);
+  stroke(255, 0, 0);
+  line(-300, 0, 300, 0); // x-axis
+  stroke(0, 0, 255);
+  line(0, -300, 0, 300); // y-axis
+  pop();
+  
+  push();
+  fill(0);
+  text("No. Iterations = " + iteration, -width/2 + 90, height / 2 - 15);
+  pop();
+}
+</script>
+        </div>
+
+        <div style="text-align: center;margin-top: -2px;">
+          <button><a href="https://editor.p5js.org/jcponce/sketches/pAr2O3zbO" target="_blank">
+              Fullscreen - Sierpiński triangle
+            </a></button>
+        </div>
+
+        <p>
+          It should be noted that this iterative process is not restricted to beginning with a circular shape. In fact,
+          starting with a square or any other closed figure can still lead to the same limiting fractal. This
+          illustrates
+          the robustness of the process with respect to the choice of initial shape. In his work on
+          <em>V-variable fractals and superfractals</em>, Michael Barnsley, et al. (2003) famously
+          demonstrated this flexibility using the image of a fish as the initial figure.
+        </p>
+
+        <p>
+          In the link below, you can explore an online-interactive implementation
+          of the deterministic IFS for the Sierpiński triangle:
+        </p>
+
+        <ul>
+          <li>
+            <a href="https://editor.p5js.org/jcponce/sketches/0fTGQySj6" target="_blank">
+              Squares <i class="fas fa-external-link-alt"></i>
+            </a>
+          </li>
+        </ul>
+
+        <p>
+          You can modify the parameters defining the affine transformation and explore how they affect the plot of the
+          fractal.
+        </p>
+
+        <h3 id="barnsley-fern">Barnsley Fern: A Probabilistic IFS</h3>
+
+        <p>
+          The Barnsley fern is a well-known example of a natural-looking fractal generated using a probabilistic IFS. It
+          consists of four affine transformations, each applied with a specified probability. These transformations are
+          iteratively applied to a single point, and the accumulation of these points produces the characteristic fern
+          shape.
+        </p>
+
+        <p>
+          The four affine transformations are defined as:
+        </p>
+        <div class="scroll-wrapper">
+          \[
+          \begin{aligned}
+          T_1(\mathbf{x}) &amp;=
+          \begin{pmatrix}
+          0 &amp; 0 &amp; 0 \\
+          0 &amp; 0.16 &amp; 0 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_2(\mathbf{x}) &amp;=
+          \begin{pmatrix}
+          0.85 &amp; 0.04 &amp; 0 \\
+          -0.04 &amp; 0.85 &amp; 1.6 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_3(\mathbf{x}) &amp;=
+          \begin{pmatrix}
+          0.2 &amp; -0.26 &amp; 0 \\
+          0.23 &amp; 0.22 &amp; 1.6 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}, \\[1ex]
+          T_4(\mathbf{x}) &amp;=
+          \begin{pmatrix}
+          -0.15 &amp; 0.28 &amp; 0 \\
+          0.26 &amp; 0.24 &amp; 0.44 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}
+          \begin{pmatrix}
+          x \\
+          y \\
+          1
+          \end{pmatrix}.
+          \end{aligned}
+          \]
+        </div>
+
+        <p>
+          Each transformation is associated with a probability, as shown below:
+        </p>
+
+        <table style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"><strong>Probability</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td><em>T<sub>1</sub></em></td>
+              <td style="text-align: center;">0.01</td>
+            </tr>
+            <tr>
+              <td><em>T<sub>2</sub></em></td>
+              <td style="text-align: center;">0.85</td>
+            </tr>
+            <tr>
+              <td><em>T<sub>3</sub></em></td>
+              <td style="text-align: center;">0.07</td>
+            </tr>
+            <tr>
+              <td><em>T<sub>4</sub></em></td>
+              <td style="text-align: center;">0.07</td>
+            </tr>
+          </tbody>
+          <caption><strong></strong></caption>
+        </table>
+
+
+        <p>
+          The table below is a tidier way of conveying the same iterated function system, including the probabilities
+          $p_k$ associated to $T_k.$
+        </p>
+
+        <div class="scroll-wrapper">
+          <table style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+
+            <thead>
+              <tr>
+                <th scope="col"><em>T</em></th>
+                <th scope="col"><em>a</em></th>
+                <th scope="col"><em>b</em></th>
+                <th scope="col"><em>c</em></th>
+                <th scope="col"><em>d</em></th>
+                <th scope="col"><em>e</em></th>
+                <th scope="col"><em>f</em></th>
+                <th scope="col"><em>p</em></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.16</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.01</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">0.85</td>
+                <td style="text-align: center;">0.04</td>
+                <td style="text-align: center;">-0.04</td>
+                <td style="text-align: center;">0.85</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">1.6</td>
+                <td style="text-align: center;">0.85</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">0.2</td>
+                <td style="text-align: center;">-0.26</td>
+                <td style="text-align: center;">0.23</td>
+                <td style="text-align: center;">0.22</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">1.6</td>
+                <td style="text-align: center;">0.07</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">4</td>
+                <td style="text-align: center;">-0.15</td>
+                <td style="text-align: center;">0.28</td>
+                <td style="text-align: center;">0.26</td>
+                <td style="text-align: center;">0.24</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.44</td>
+                <td style="text-align: center;">0.07</td>
+              </tr>
+            </tbody>
+            <caption><strong>IFS code for a fern.</strong></caption>
+          </table>
+        </div>
+
+
+
+        <p>
+          To generate the fern, we begin with an initial point, typically the origin, and repeatedly apply one of the
+          four
+          transformations, selected at random according to the given probabilities. Each new point becomes the input for
+          the next iteration. After tens of thousands of iterations, the resulting plot reveals the familiar leafy
+          structure
+          of a fern.
+        </p>
+
+        <br>
+
+        <div>
+          <script data-height="525" data-preview-width="400" type="text/p5" data-p5-version="1.11.8">
+let x = 0, y = 0;
+
+function nextPoint() {
+  let nextX, nextY, r = random();
+  // Apply affine transforms base on probability distribution
+  if (r < 0.01) {
+    nextX = 0;
+    nextY = 0.16 * y;
+  } else if (r < 0.86) {
+    nextX = 0.85 * x + 0.04 * y;
+    nextY = -0.04 * x + 0.85 * y + 1.6;
+  } else if (r < 0.93) {
+    nextX = 0.2 * x + -0.26 * y;
+    nextY = 0.23 * x + 0.22 * y + 1.6;
+  } else {
+    nextX = -0.15 * x + 0.28 * y;
+    nextY = 0.26 * x + 0.24 * y + 0.44;
+  }
+  x = nextX;
+  y = nextY;
+}
+
+function setup() {
+  createCanvas(300, 450);
+  background(255);
+  strokeWeight(3); // Point size
+}
+
+let maxValue = 5; // Change this number to speed up iterations
+function draw() {
+  for (let i = 0; i < maxValue; i++) {
+    drawPoint();
+    nextPoint();
+  }
+}
+
+// Auxiliary function
+function drawPoint() {
+  // Range: -2.1820 < x < 2.6558 and 0 < y < 9.9983.
+  let px = map(x, -2.182, 2.6558, 5, width - 5);
+  let py = map(y, 0, 9.9983, height, 5);
+  point(px, py);
+}
+</script>
+        </div>
+
+        <div style="text-align: center;margin-top: -2px;">
+          <button><a href="https://editor.p5js.org/jcponce/sketches/rxQvWQ9d-" target="_blank">
+              Fullscreen - Barnsley fern
+            </a></button>
+        </div>
+
+        <!--
+           <div style="text-align: center;">
+        <iframe style="border: none; width:100%; height: 550px;"
+          src="https://editor.p5js.org/jcponce/sketches/rxQvWQ9d-"></iframe>
+      </div>-->
+
+        <p>
+          This method beautifully illustrates how simple affine transformations, when combined through a probabilistic
+          IFS, can model the complexity of natural forms. Alongside the deterministic construction of the Sierpiński
+          triangle, the Barnsley fern underscores the power of affine transformations in the algorithmic generation of
+          fractals. These examples highlight how affine transformations and IFS can be used to algorithmically generate
+          fractals, offering deep insight into both mathematical structure and natural phenomena.
+        </p>
+
+        <p>
+          The probabilistic IFS can be used to generate not only the Barnsley fern, but also a wide variety of fractals.
+          Two notable examples are the fractal tree and the Sierpiński triangle. The affine transformations needed to
+          construct these are listed in Tables 3 and 4.
+        </p>
+
+
+        <div class="scroll-wrapper">
+
+          <table style="margin: 0 auto; border-collapse: collapse;margin-top: 15px;">
+            <caption><strong>IFS code for a fractal tree.</strong></caption>
+            <thead>
+              <tr>
+                <th scope="col"><em>T</em></th>
+                <th scope="col"><em>a</em></th>
+                <th scope="col"><em>b</em></th>
+                <th scope="col"><em>c</em></th>
+                <th scope="col"><em>d</em></th>
+                <th scope="col"><em>e</em></th>
+                <th scope="col"><em>f</em></th>
+                <th scope="col"><em>p</em></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.05</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">-0.42</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.2</td>
+                <td style="text-align: center;">0.4</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">-0.42</td>
+                <td style="text-align: center;">0.42</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.2</td>
+                <td style="text-align: center;">0.4</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">4</td>
+                <td style="text-align: center;">0.1</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.1</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.2</td>
+                <td style="text-align: center;">0.15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+        <div class="scroll-wrapper">
+
+          <table style="margin: 0 auto; border-collapse: collapse; margin-top: 15px;">
+            <caption style="width:22em"><strong>IFS code for a Sierpiński triangle.</strong></caption>
+            <thead>
+              <tr>
+                <th scope="col"><em>T</em></th>
+                <th scope="col"><em>a</em></th>
+                <th scope="col"><em>b</em></th>
+                <th scope="col"><em>c</em></th>
+                <th scope="col"><em>d</em></th>
+                <th scope="col"><em>e</em></th>
+                <th scope="col"><em>f</em></th>
+                <th scope="col"><em>p</em></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center;">1</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.33</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">2</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.33</td>
+              </tr>
+              <tr>
+                <td style="text-align: center;">3</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0</td>
+                <td style="text-align: center;">0.5</td>
+                <td style="text-align: center;">0.25</td>
+                <td style="text-align: center;">0.433</td>
+                <td style="text-align: center;">0.34</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+        <figure>
+          <table style="border-collapse: collapse; border: none;">
+            <tbody><tr style="border: none;">
+              <td style="border: none;">
+                <img src="imgs/affine-transformations/fractal-tree.png" loading="lazy" alt="Mountain landscape" width="100%">
+                <div style="text-align: center;">Fractal Tree</div>
+              </td>
+              <td style="border: none;">
+                <img src="imgs/affine-transformations/sierpinski-prob.png" loading="lazy" alt="Mountain landscape" width="100%">
+                <div style="text-align: center;">Sierpiński triangle</div>
+              </td>
+            </tr>
+          </tbody></table>
+          <figcaption>
+            Probabilistic IFS.
+          </figcaption>
+        </figure>
+
+
+
+
+
+        <p>
+          Explore the online-interactive implementations
+          of the probabilistic IFS:
+        </p>
+
+        <ul>
+          <li>
+            <a href="https://editor.p5js.org/jcponce/sketches/lcW-61w9g" target="_blank">
+              Fractal tree <i class="fas fa-external-link-alt"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://editor.p5js.org/jcponce/sketches/D_cmxc-sv" target="_blank">
+              Sierpiński triangle <i class="fas fa-external-link-alt"></i>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <br>
+      <hr>
+
+      <div id="section6">
+
+        <h2>References</h2>
+
+        <ol class="bbtex-list">
+          <li id="ban-2024">
+            Ban, S., &amp; Kim, T. (2024). <em>Rational-Function-Model-Based Rigorous Bundle Adjustment for Improving the
+              Relative Geometric Positioning Accuracy of Multiple Korea Multi-Purpose Satellite-3A Images</em>.
+            <strong>Remote Sensing</strong>, 16(16), 2890.
+            <a href="https://doi.org/10.3390/rs16162890" target="_blank">https://doi.org/10.3390/rs16162890</a>
+          </li>
+
+          <li id="barnsley-1993">
+            Barnsley, M. (1993). <em>Fractals Everywhere</em>. (Chapter III). 2nd ed. Morgan Kaufmann. USA.
+          </li>
+
+          <li id="barnsley-2003">
+            Barnsley, M., Hutchinson, J. E., &amp; Stenflo, Ö. (2003). <em>V-variable fractals and superfractals</em>.
+            <a href="https://arxiv.org/abs/math/0312314" target="_blank">https://arxiv.org/abs/math/0312314</a>
+          </li>
+
+          <li id="howard-2014">
+            Howard, A., &amp; Rorres, C. (2014). <em>Elementary Linear Algebra</em>. 11th ed. Wiley. USA. pp. 624–639.
+          </li>
+
+          <li id="rogers-1976">
+            Rogers, D. F. (1976). <em>Mathematical Elements for Computer Graphics</em>. McGraw Hill.
+            <a href="https://archive.org/details/mathematicalelem00roge/" target="_blank">https://archive.org/details/mathematicalelem00roge/</a>
+          </li>
+        </ol>
+
+      </div>
+
+      <br>
+
+    </article>
+
+  </main>
+
+  <!-- GeoGebra -->
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+  <script>
+    let params01 = {
+      "width": 765,
+      "height": 445,
+      "material_id": "fzusae9z",
+      "borderColor": "888888",
+      "playButton": false,
+      "showFullscreenButton": true,
+      "enableShiftDragZoom": false,
+      "showResetIcon": true
+    };
+
+    let ggbApplet01 = new GGBApplet(params01, true);
+    window.addEventListener("load", () => {
+      ggbApplet01.inject('ggb-element-01');
+    });
+  </script>
+
+  <script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+  <a href="#" style="text-decoration: none;">
+        <p class="nextPage">To be continue <i class="fa-solid fa-infinity"></i></p>
+  </a>
+  <!-- Ends main content -->
+
+</section>
+  </div>
+
+   <!-- Button to Top -->
+  <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+  
+<footer>
+
+  <span id="footer-elements">
+    <span style="font-weight: bold;">[</span>
+    <a href="../"><i class="fa-solid fa-house"></i> Home</a>,
+    <span class="hide-small">
+      <a href="#"><i
+          class="fa-solid fa-lightbulb"></i> Issues</a>
+    </span>
+    <span style="font-weight: bold;">]</span>
+  </span>
+  
+  <br />
+
+  <a id="licence-link" rel="license"
+    href="#">
+    <i class="fa-brands fa-creative-commons"></i>
+    <i class="fa-brands fa-creative-commons-by"></i>
+    <i class="fa-brands fa-creative-commons-nc"></i>
+    <i class="fa-brands fa-creative-commons-sa"></i>
+  </a>
+
+  <br />
+
+  <strong>
+    <span class="hide-small" style="font-size: 0.9em;">&copy; Juan Carlos Ponce Campuzano
+      <script>document.write(new Date().getFullYear());</script>
+    </span>
+    <span class="hide-medium hide-large" style="font-size: 0.9em;">&copy; J.C. Ponce Campuzano
+      <script>document.write(new Date().getFullYear());</script>
+    </span>
+  </strong>
+
+</footer>
+  <script src="js/mathjax.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script src="js/main.js"></script>
+  <script async src="js/prism.js"></script>
+</body>
+
+</html>

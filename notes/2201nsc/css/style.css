@@ -1,0 +1,1520 @@
+@charset "UTF-8";
+/*!
+ * LaTeX.css (https://latex.vercel.app/)
+ *
+ * Source: https://github.com/vincentdoerig/latex-css
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+@font-face {
+  font-family: "Latin Modern";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("./fonts/LM-regular.woff2") format("woff2"), url("./fonts/LM-regular.woff") format("woff"), url("./fonts/LM-regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Latin Modern";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("./fonts/LM-italic.woff2") format("woff2"), url("./fonts/LM-italic.woff") format("woff"), url("./fonts/LM-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Latin Modern";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("./fonts/LM-bold.woff2") format("woff2"), url("./fonts/LM-bold.woff") format("woff"), url("./fonts/LM-bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Latin Modern";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("./fonts/LM-bold-italic.woff2") format("woff2"), url("./fonts/LM-bold-italic.woff") format("woff"), url("./fonts/LM-bold-italic.ttf") format("truetype");
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --body-color: hsl(0, 5%, 10%);
+  --body-bg-color: hsl(210, 20%, 98%);
+  --link-visited: hsl(0, 100%, 33%);
+  --link-focus-outline: hsl(220, 90%, 52%);
+  --link-hover: hsl(220, 90%, 52%);
+  --pre-bg-color: hsl(210, 28%, 93%);
+  --kbd-bg-color: hsl(210, 5%, 100%);
+  --kbd-border-color: hsl(210, 5%, 70%);
+  --table-border-color: black;
+  --border-width-thin: 1.36px;
+  --border-width-thick: 2.27px;
+  --sidenote-target-border-color: hsl(55, 55%, 70%);
+  --footnotes-border-color: hsl(0, 0%, 39%);
+  --text-indent-size: 1.463rem;
+  /* In 12pt [Latin Modern font] LaTeX article
+  \parindent =~ 17.625pt; taking also into account the ratio
+  1pt[LaTeX] = (72 / 72.27) * 1pt[HTML], with default 12pt/1rem LaTeX.css font
+  size, the identation value in rem CSS units is:
+  \parindent =~ 17.625 * (72 / 72.27) / 12 = 1.463rem. */
+  /* ToC chapter */
+  --toc-chapter: rgb(249, 249, 249);
+  --toc-background: hsl(0, 0%, 91%);
+  --toc-list: hsl(0, 0%, 27%);
+}
+
+.latex-dark {
+  --body-color: hsl(0, 0%, 86%);
+  --body-bg-color: hsl(0, 0%, 16%);
+  --link-visited: hsl(196 80% 77%);
+  --link-focus-outline: hsl(215, 63%, 73%);
+  --link-hover: hsl(220, 88%, 63%);
+  --pre-bg-color: hsl(0, 1%, 25%);
+  --kbd-bg-color: hsl(0, 0%, 16%);
+  --kbd-border-color: hsl(210, 5%, 70%);
+  --table-border-color: white;
+  --sidenote-target-border-color: hsl(0, 0%, 59%);
+  --footnotes-border-color: hsl(0, 0%, 59%);
+  --proof-symbol-filter: invert(80%);
+  /* ToC chapter */
+  --toc-chapter: hsl(0, 0%, 16%);
+  --toc-background: hsla(0, 0%, 60%, 0.78);
+  --toc-list: hsl(0, 0%, 78%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .latex-dark-auto {
+    --body-color: hsl(0, 0%, 86%);
+    --body-bg-color: hsl(0, 0%, 16%);
+    --link-visited: hsl(196 80% 77%);
+    --link-focus-outline: hsl(215, 63%, 73%);
+    --link-hover: hsl(220, 88%, 63%);
+    --pre-bg-color: hsl(0, 1%, 25%);
+    --kbd-bg-color: hsl(0, 0%, 16%);
+    --kbd-border-color: hsl(210, 5%, 70%);
+    --table-border-color: white;
+    --sidenote-target-border-color: hsl(0, 0%, 59%);
+    --footnotes-border-color: hsl(0, 0%, 59%);
+    --proof-symbol-filter: invert(80%);
+    /* ToC chapter */
+    --toc-chapter: hsl(0, 0%, 16%);
+    --toc-background: hsla(0, 0%, 60%, 0.78);
+    --toc-list: hsl(0, 0%, 74%);
+  }
+}
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Make default font-size 1rem and add smooth scrolling to anchors */
+html {
+  font-size: 1.2rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+/* Media query for smaller screens - Top bar */
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 0.9rem;
+  }
+}
+.text-justify {
+  text-align: justify;
+}
+
+body {
+  font-family: "Latin Modern", Georgia, Cambria, "Times New Roman", Times, serif;
+  line-height: 1.8;
+  max-width: 89ch;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  counter-reset: sidenote-counter figcaption theorem corollary definition example exercise;
+  color: var(--body-color);
+  background-color: var(--body-bg-color);
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  text-align: justify;
+  /* Allow automatic hyphenation for all text in the document */
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  margin-top: 1rem;
+}
+
+/* Indents paragraphs like in LaTeX documents*/
+.indent-pars p {
+  text-indent: var(--text-indent-size);
+}
+
+.indent-pars p.no-indent,
+p.no-indent {
+  text-indent: 0;
+}
+
+.indent-pars ol p,
+.indent-pars ul p {
+  text-indent: 0;
+}
+
+.indent-pars h2 + p,
+.indent-pars h3 + p,
+.indent-pars h4 + p {
+  text-indent: 0;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make links red */
+a,
+a:visited {
+  color: var(--link-visited);
+}
+
+a:focus {
+  outline-offset: 2px;
+  outline: 2px solid var(--link-focus-outline);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Allow line breaks between any two characters */
+.break-all {
+  /*
+    NOTE: Whith `break-all` value no hyphens are shown, even if the word breaks
+    at a hyphenation point
+  */
+  word-break: break-all;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Prevent textarea from overflowing */
+textarea {
+  width: 100%;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Styles for inline code or code snippets */
+code,
+pre,
+kbd {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 85%;
+  hyphens: none;
+}
+
+pre {
+  padding: 1rem 1.4rem;
+  max-width: 100%;
+  overflow: auto;
+  border-radius: 4px;
+  background: var(--pre-bg-color);
+}
+
+pre code {
+  font-size: 95%;
+  position: relative;
+}
+
+kbd {
+  background: var(--kbd-bg-color);
+  border: 1px solid var(--kbd-border-color);
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 75%;
+}
+
+/* Better tables */
+table:not(.borders-custom) {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: auto;
+  max-width: 100%;
+  border-top: var(--border-width-thick) solid var(--table-border-color);
+  border-bottom: var(--border-width-thick) solid var(--table-border-color);
+  /* display: block; */
+  overflow-x: auto;
+  /* does not work because element is not block */
+  /* white-space: nowrap; */
+  counter-increment: caption;
+}
+
+/* add bottom border on column table headings  */
+table:not(.borders-custom) tr > th[scope=col] {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+
+/* add right border on row table headings  */
+table:not(.borders-custom) tr > th[scope=row] {
+  border-right: var(--border-width-thin) solid var(--table-border-color);
+}
+
+table:not(.borders-custom) > tbody > tr:first-child > td,
+table:not(.borders-custom) > tbody > tr:first-child > th {
+  border-top: var(--border-width-thin) solid var(--table-border-color);
+}
+
+table:not(.borders-custom) > tbody > tr:last-child > td,
+table:not(.borders-custom) > tbody > tr:last-child > th {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+  line-height: 1.1;
+}
+
+/* Table caption */
+caption {
+  text-align: left;
+  font-size: 0.923em;
+  /* border-bottom: 2pt solid #000; */
+  padding: 0 0.25em 0.25em;
+  width: 100%;
+  margin-left: 0;
+}
+
+caption::before {
+  content: "Table " counter(caption) ". ";
+  font-weight: bold;
+}
+
+/* allow scroll on the x-axis */
+.scroll-wrapper {
+  overflow-x: auto;
+}
+
+/* if a table is wrapped in a scroll wrapper,
+  the table cells shouldn't wrap */
+.scroll-wrapper > table td {
+  white-space: nowrap;
+}
+
+/* Table custom borders */
+table.borders-custom {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: auto;
+  max-width: 100%;
+  overflow-x: auto;
+  counter-increment: caption;
+}
+
+.border-top-thick {
+  border-top: var(--border-width-thick) solid var(--table-border-color);
+}
+
+.border-right-thick {
+  border-right: var(--border-width-thick) solid var(--table-border-color);
+}
+
+.border-bottom-thick {
+  border-bottom: var(--border-width-thick) solid var(--table-border-color);
+}
+
+.border-left-thick {
+  border-left: var(--border-width-thick) solid var(--table-border-color);
+}
+
+.border-top-thin {
+  border-top: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.border-right-thin {
+  border-right: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.border-bottom-thin {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.border-left-thin {
+  border-left: var(--border-width-thin) solid var(--table-border-color);
+}
+
+/* Table column alignment */
+.col-1-l tr > :nth-child(1),
+.col-2-l tr > :nth-child(2),
+.col-3-l tr > :nth-child(3),
+.col-4-l tr > :nth-child(4),
+.col-5-l tr > :nth-child(5),
+.col-6-l tr > :nth-child(6),
+.col-7-l tr > :nth-child(7),
+.col-8-l tr > :nth-child(8),
+.col-9-l tr > :nth-child(9),
+.col-10-l tr > :nth-child(10),
+.col-11-l tr > :nth-child(11),
+.col-12-l tr > :nth-child(12) {
+  text-align: left;
+}
+
+.col-1-c tr > :nth-child(1),
+.col-2-c tr > :nth-child(2),
+.col-3-c tr > :nth-child(3),
+.col-4-c tr > :nth-child(4),
+.col-5-c tr > :nth-child(5),
+.col-6-c tr > :nth-child(6),
+.col-7-c tr > :nth-child(7),
+.col-8-c tr > :nth-child(8),
+.col-9-c tr > :nth-child(9),
+.col-10-c tr > :nth-child(10),
+.col-11-c tr > :nth-child(11),
+.col-12-c tr > :nth-child(12) {
+  text-align: center;
+}
+
+.col-1-r tr > :nth-child(1),
+.col-2-r tr > :nth-child(2),
+.col-3-r tr > :nth-child(3),
+.col-4-r tr > :nth-child(4),
+.col-5-r tr > :nth-child(5),
+.col-6-r tr > :nth-child(6),
+.col-7-r tr > :nth-child(7),
+.col-8-r tr > :nth-child(8),
+.col-9-r tr > :nth-child(9),
+.col-10-r tr > :nth-child(10),
+.col-11-r tr > :nth-child(11),
+.col-12-r tr > :nth-child(12) {
+  text-align: right;
+}
+
+/* Format figure captions (based on table captions) */
+figure {
+  counter-increment: figcaption;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 0.923em;
+  padding: 0.25em 0.25em 0;
+  width: 100%;
+  margin-left: 0;
+}
+
+figcaption::before {
+  content: "Figure " counter(figcaption) ". ";
+  font-weight: bold;
+}
+
+/* Center align the title */
+h1:first-child {
+  text-align: center;
+}
+
+/* Nested ordered list for ToC */
+nav {
+  margin-left: 3rem;
+}
+
+nav ol {
+  counter-reset: item;
+  padding-left: 2rem;
+}
+
+nav ol > li {
+  display: block;
+}
+
+nav ol > li::before {
+  content: counters(item, ".") " ";
+  counter-increment: item;
+  padding-right: 0.85rem;
+}
+
+/* Center definitions (most useful for display equations) */
+dl dd {
+  text-align: center;
+}
+
+/* Theorem */
+.theorem {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+
+.theorem::before {
+  content: "Theorem " counter(theorem) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma */
+.lemma {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+
+.lemma::before {
+  content: "Lemma " counter(theorem) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proof */
+.proof {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  position: relative;
+}
+
+.proof::before {
+  content: "Proof. " attr(title);
+  font-style: italic;
+}
+
+.proof::after {
+  content: "◾️";
+  filter: var(--proof-symbol-filter);
+  position: absolute;
+  right: -12px;
+  bottom: -2px;
+}
+
+/* Definition */
+.definition {
+  counter-increment: definition;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+}
+
+.definition::before {
+  content: "Definition " counter(definition) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Center align author name, use small caps and add vertical spacing  */
+.author {
+  margin: 0.85rem 0;
+  font-variant-caps: small-caps;
+  text-align: center;
+}
+
+/* Sidenotes */
+.sidenote {
+  font-size: 0.8rem;
+  float: right;
+  clear: right;
+  width: 18vw;
+  margin-right: -20vw;
+  margin-bottom: 1em;
+  text-indent: 0;
+  /* Right sidenotes explicitly aligned to left for wide screens */
+  text-align: left;
+}
+
+.sidenote.left {
+  float: left;
+  margin-left: -20vw;
+  margin-bottom: 1em;
+  text-indent: 0;
+  /* Left sidenotes explicitly aligned to right for wide screens */
+  text-align: right;
+}
+
+/* Justify all sidenotes for wide screens when `text-justify` class is used */
+body.text-justify .sidenote,
+body.text-justify .sidenote.left {
+  text-align: justify;
+}
+
+/* (WIP) add border when a sidenote is clicked on */
+.sidenote:target {
+  border: var(--sidenote-target-border-color) 1.5px solid;
+  padding: 0 0.5rem;
+  scroll-margin-block-start: 10rem;
+}
+
+/* sidenote counter */
+.sidenote-number {
+  counter-increment: sidenote-counter;
+}
+
+.sidenote-number::after,
+.sidenote::before {
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* add number in main content */
+.sidenote-number::after {
+  content: counter(sidenote-counter);
+  font-size: 0.7rem;
+  top: -0.5rem;
+  left: 0.1rem;
+}
+
+/* add number in front of the sidenote */
+.sidenote-number ~ .sidenote::before {
+  content: counter(sidenote-counter) " ";
+  font-size: 0.7rem;
+  top: -0.5rem;
+}
+
+label.sidenote-toggle:not(.sidenote-number) {
+  display: none;
+}
+
+/* sidenotes inside blockquotes are indented more */
+blockquote .sidenote {
+  margin-right: -24vw;
+  width: 18vw;
+}
+
+label.sidenote-toggle {
+  display: inline;
+  cursor: pointer;
+}
+
+input.sidenote-toggle {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  label.sidenote-toggle:not(.sidenote-number) {
+    display: inline;
+  }
+  .sidenote {
+    display: none;
+  }
+  .sidenote-toggle:checked + .sidenote {
+    display: block;
+    margin: 0.5rem 1.25rem 1rem 0.5rem;
+    float: left;
+    left: 1rem;
+    clear: both;
+    width: 95%;
+  }
+  /* All sidenotes explicitly aligned to left for narrow screens */
+  .sidenote-toggle:checked + .sidenote.left {
+    text-align: left;
+  }
+  /* Justify all sidenotes for narrow screens when `text-justify` class is used */
+  body.text-justify .sidenote-toggle:checked + .sidenote.left {
+    text-align: justify;
+  }
+  /* tweak indentation of sidenote inside a blockquote */
+  blockquote .sidenote {
+    margin-right: -25vw;
+    width: 16vw;
+  }
+}
+/* Make footnote text smaller */
+.footnotes p {
+  line-height: 1.5;
+  font-size: 85%;
+  margin-bottom: 0.4rem;
+}
+
+.footnotes {
+  border-top: 1px solid var(--footnotes-border-color);
+}
+
+/* Center title and paragraph */
+.abstract,
+.abstract p {
+  text-align: center;
+  margin-top: 0;
+}
+
+.abstract {
+  margin: 2.25rem 0;
+}
+
+.abstract > h2 {
+  font-size: 1rem;
+  margin-bottom: -0.2rem;
+}
+
+/* Format the LaTeX symbol correctly (a higher up, e lower) */
+.latex span:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 0.75em;
+  vertical-align: 0.28em;
+  margin-left: -0.48em;
+  margin-right: -0.15em;
+  line-height: 1ex;
+}
+
+.latex span:nth-child(2) {
+  text-transform: uppercase;
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+  line-height: 1ex;
+}
+
+/* Prevent line breaks inside an element */
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+/* Heading typography */
+h1 {
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  margin-bottom: 1.625rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+  line-height: 2rem;
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+h5 {
+  font-size: 1rem;
+  margin-top: 1.8rem;
+}
+
+h6 {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 2.5rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.625rem;
+}
+
+h1 + h2 {
+  margin-top: 1.625rem;
+}
+
+h2 + h3,
+h3 + h4,
+h4 + h5 {
+  margin-top: 0.8rem;
+}
+
+h5 + h6 {
+  margin-top: -0.8rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.8rem;
+}
+
+@media print {
+  * {
+    color: #000;
+    background-color: #fff;
+  }
+  body {
+    background-color: #fff;
+  }
+  #fixed-bar,
+  #left-link,
+  #right-link,
+  #center-link,
+  #dark-mode-toggle,
+  #donate,
+  #footer-elements,
+  .nextPage,
+  .toc-chapter {
+    display: none;
+  }
+  #toTop {
+    display: none !important;
+  }
+}
+/*-- Button to Top page --*/
+#toTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background-color: rgba(145, 145, 145, 0.567);
+  color: rgb(237, 237, 237);
+  cursor: pointer;
+  width: 50px;
+  /* Adjust button width */
+  height: 50px;
+  /* Adjust button height */
+  line-height: 40px;
+  /* Adjust line-height to center text vertically */
+  text-align: center;
+  /* Center text horizontally */
+  padding: 0;
+  /* Remove padding */
+  border-radius: 50%;
+  /* Make it circular */
+}
+
+#toTop:hover {
+  background-color: #747474;
+}
+
+/*-- Button to Top page Ends --*/
+/*-- Top bar --*/
+/* Fixed bar styles */
+.fixed-bar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 87ch;
+  height: 50px;
+  background-color: hsla(210, 20%, 98%, 0.9);
+  /* White with 30% transparency */
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 100;
+  /* Ensuring the bar is above other content */
+}
+
+.fixed-bar a {
+  outline: none;
+}
+
+.link-container {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: black !important;
+  margin: 0 10px;
+  font-size: 1.005em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.arrow {
+  margin-right: 8px;
+  margin-left: 8px;
+  padding: 0px 5px;
+}
+
+.arrow:hover {
+  background-color: rgba(222, 222, 222, 0.8);
+  border-radius: 10px;
+}
+
+.content-original {
+  display: inline;
+  border-radius: 10px;
+  padding: 0px 5px;
+}
+
+.content-hover,
+.content-hover-previous,
+.content-hover-next {
+  display: none;
+  background-color: rgba(222, 222, 222, 0.8);
+  border-radius: 10px;
+  padding: 0px 5px;
+}
+
+/*-- Top bar ends --*/
+/*-- Style for the loader --*/
+/* Styles for the loader */
+.myLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--body-bg-color) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  background-color: var(--body-color) !important;
+  border-radius: 50%;
+  animation: jump 0.6s infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.loadingMessage {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: var(--body-color) !important;
+}
+
+/*
+.myLoader.dark {
+  background-color: hsl(0, 0%, 16%)!important; 
+  /* Dark background for the loader 
+}
+
+.myLoader.dark .dot {
+  background-color: hsl(0, 0%, 86%)!important; /* Light color for dots in dark mode 
+}
+
+.myLoader.dark .loadingMessage {
+  color: hsl(0, 0%, 86%)!important; /* Light text color for the "Loading..." message 
+}
+*/
+@keyframes jump {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+}
+/*-- Style for the loader Ends --*/
+/*-- For hiding stuff --*/
+@media (min-width: 993px) {
+  .hide-large {
+    display: none !important;
+  }
+}
+@media (max-width: 992px) and (min-width: 501px) {
+  .hide-medium {
+    display: none !important;
+  }
+}
+@media (max-width: 500px) {
+  .hide-small {
+    display: none !important;
+  }
+}
+/*-- Styles for the table of contents --*/
+.toc-chapter {
+  font-size: 0.75em;
+  line-height: 1.7em;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: var(--toc-chapter);
+  border-left: 1px solid #ddd;
+  border-bottom: 0px solid #ddd;
+  padding: 10px 10px 5px 10px;
+  max-height: calc(100vh - 40px);
+  /* Adjust height as needed */
+  overflow-y: auto;
+  width: calc(50vw - 430px);
+  z-index: 101;
+}
+
+.toc-chapter p {
+  margin-top: 0;
+  margin-bottom: -10px;
+}
+
+.toc-chapter ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.toc-chapter li {
+  display: block;
+  margin-left: 0px;
+}
+
+/*
+.toc-chapter li:before {
+  content: "•\0000a0";
+  display: inline-block;
+  text-align: right;
+  margin-left: -20px;
+}
+*/
+.toc-chapter a {
+  color: var(--toc-list);
+  text-decoration: none;
+  outline: none;
+}
+
+/* Highlighting active section */
+.active {
+  font-weight: normal;
+}
+
+.highlight {
+  text-decoration: none;
+  background: var(--toc-background);
+  padding: 2px 2px;
+}
+
+@media (max-width: 1200px) {
+  .toc-chapter {
+    display: none !important;
+  }
+}
+/*-- Styles for the table of contents Ends --*/
+/*-- Next page link in footer --*/
+.nextPage {
+  text-align: center;
+  text-decoration: none !important;
+  color: var(--body-color) !important;
+  background-color: var(--nextPage);
+  border: 1px solid rgb(200, 200, 200);
+  padding: 1em;
+  margin: 1.6em 0 1.3em 0;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+.nextPage:hover {
+  background-color: rgb(230, 230, 230) !important;
+  color: black !important;
+  cursor: pointer;
+}
+
+/*-- Next page link in footer Ends --*/
+#licence-link {
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+/*-- GeoGebra Canvas --*/
+.ggbElement {
+  display: block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.dark-mode-button {
+  position: relative;
+  left: 0px;
+  margin-left: 0px;
+}
+
+#dark-mode-toggle {
+  cursor: pointer;
+  padding: 5px;
+}
+
+#dark-mode-toggle:hover {
+  color: hsl(0, 100%, 33%);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+/* 
+  Numbered Theorems, Definitions, etc. 
+  For this to work we need to add the 
+  'counter-increment' in the body
+*/
+/* Theorem */
+.theorem {
+  counter-increment: theorem;
+  margin: 12px 0;
+  font-style: italic;
+  text-align: justify;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  content: "";
+  display: table;
+  clear: both;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #16b190 !important;
+  color: var(--summary-color);
+  background-color: var(--teo-def-cards) !important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.theorem::before {
+  content: "Theorem " counter(theorem) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Corollary */
+.corollary {
+  counter-increment: corollary;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+  text-align: justify;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #3b87f9 !important;
+  color: var(--summary-color);
+  background-color: var(--teo-def-cards) !important;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.corollary::before {
+  content: "Corollary " counter(corollary) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma */
+.lemma {
+  counter-increment: theorem;
+  margin: 12px 0;
+  font-style: italic;
+  text-align: justify;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #3b87f9 !important;
+  color: var(--summary-color);
+  background-color: var(--teo-def-cards) !important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.lemma::before {
+  content: "Lemma " counter(theorem) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proof */
+.proof {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  text-align: justify;
+  position: relative;
+}
+
+.proof::before {
+  content: "Proof. " attr(title);
+  font-style: italic;
+}
+
+.proof:after {
+  content: "◾️";
+  filter: var(--proof-symbol-filter);
+  position: absolute;
+  right: -12px;
+  bottom: -2px;
+}
+
+/* Definition */
+.definition {
+  counter-increment: definition;
+  margin: 12px 0;
+  font-style: normal;
+  text-align: justify;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  content: "";
+  display: table;
+  clear: both;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #3b87f9 !important;
+  color: var(--summary-color);
+  background-color: var(--teo-def-cards) !important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.definition::before {
+  content: "Definition " counter(definition) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Example: I added this class */
+.example {
+  counter-increment: example;
+  margin: 25px 0;
+  font-style: normal;
+  text-align: justify;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #6106d7 !important;
+  margin-left: 10px;
+  display: block;
+  overflow-y: hidden;
+}
+
+.example::before {
+  content: "Example " counter(example) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Exercise: I added this class */
+.exercise {
+  counter-increment: exercise;
+  margin: 25px 0;
+  font-style: normal;
+  text-align: justify;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #0691d7 !important;
+  margin-left: 10px;
+  display: block;
+  overflow-y: hidden;
+}
+
+.exercise::before {
+  content: "Exercise " counter(exercise) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Biblio LaTeX */
+.bbtex-list {
+  list-style-type: none;
+  /* Remove default numbering */
+  counter-reset: list-counter;
+  margin-left: 0;
+  padding-left: 0;
+  /* Reset the counter */
+}
+
+.bbtex-list li {
+  text-align: justify;
+  counter-increment: list-counter;
+  /* Increment the counter */
+  display: block;
+  margin-left: 3.5em;
+  margin-right: 2em;
+}
+
+.bbtex-list li:before {
+  content: "[" counter(list-counter, decimal) "]. ";
+  display: inline-block;
+  text-align: right;
+  width: 3em;
+  /* Must be the maximum width of your list's numbers, including the ')', for compatability (in case you use a fixed-width font, for example).  Will have to beef up if using roman. */
+  padding-right: 0.5em;
+  margin-left: -3em;
+  /* Use lowercase letters with parentheses */
+}
+
+/* Custom lists for "ol" tag */
+/* Alphabetical small caps */
+.alpha-list {
+  list-style-type: none;
+  /* Remove default numbering */
+  counter-reset: list-counter;
+  /* Reset the counter */
+}
+
+.alpha-list li {
+  counter-increment: list-counter;
+  /* Increment the counter */
+}
+
+.alpha-list li:before {
+  content: "(" counter(list-counter, lower-alpha) ") ";
+  /* Use lowercase letters with parentheses */
+}
+
+/* Roman small caps */
+.roman-list {
+  list-style-type: none;
+  /* Remove default numbering */
+  counter-reset: list-counter;
+  /* Reset the counter */
+}
+
+.roman-list li {
+  counter-increment: list-counter;
+  /* Increment the counter */
+}
+
+.roman-list li:before {
+  content: "(" counter(list-counter, lower-roman) ") ";
+  /* Use lowercase letters with parentheses */
+}
+
+/* ToC list / Not added now */
+/* Nested ordered list for ToC
+.toc ol {
+    counter-reset: item;
+    padding-left: 2rem;
+}
+
+.toc li {
+    display: block;
+}
+
+.toc li:before {
+    font-weight: bold;
+    content: '•';
+    content: counters(item, '.') ' ';
+    counter-increment: item;
+    padding-right: 0.35rem;
+} */
+/*!
+ * LaTeX prism.css (https://latex.now.sh/#syntax-highlighting)
+ * Based on the default prism.js theme for JavaScript, CSS and HTML by Lea Verou
+ *
+ * Source: https://github.com/vincentdoerig/latex-css/tree/master/prism
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+*/
+:root {
+  --bg-color: #F0F0F0;
+  --color: black;
+  --token-teal: #407f80;
+  --token-black: #000000;
+  --token-grey: #666666;
+  --token-green: #007f00;
+  --token-lime: #7d8f29;
+  --token-brown: #9a6e3a;
+  --token-red: #ba2121;
+  --token-fuchsia: #dd4a68;
+  --token-orange: #e90;
+  --token-pink: #BA6687;
+}
+
+.latex-dark {
+  --bg-color: #2d2d2d;
+  --color: #ccc;
+  --token-teal: #90D0D0;
+  --token-black: #ccc;
+  --token-grey: #999;
+  --token-green: #51B53F;
+  --token-lime: #B4C55D;
+  --token-brown: #D3A26B;
+  --token-red: #FA5E4F;
+  --token-fuchsia: #FF839B;
+  --token-orange: #FFCF4C;
+  --token-pink: #F49BBC;
+}
+
+@media (prefers-color-scheme: dark) {
+  .latex-dark-auto {
+    --bg-color: #2d2d2d;
+    --color: #ccc;
+    --token-teal: #90D0D0;
+    --token-black: #ccc;
+    --token-grey: #999;
+    --token-green: #51B53F;
+    --token-lime: #B4C55D;
+    --token-brown: #D3A26B;
+    --token-red: #FA5E4F;
+    --token-fuchsia: #FF839B;
+    --token-orange: #FFCF4C;
+    --token-pink: #F49BBC;
+  }
+}
+code[class*=language-],
+pre[class*=language-] {
+  color: var(--color);
+  background: none;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*=language-] {
+  padding: 1em;
+  overflow: auto;
+}
+
+pre[class*=language-] {
+  background: var(--bg-color);
+}
+
+/* Inline code */
+:not(pre) > code[class*=language-] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--token-teal);
+}
+
+.token.punctuation,
+.token.constant {
+  color: var(--token-black);
+}
+
+.token.punctuation.attr-equals,
+.token.number,
+.token.operator {
+  color: var(--token-grey);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.symbol,
+.token.deleted,
+.token.keyword {
+  color: var(--token-green);
+}
+
+.token.selector,
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--token-lime);
+}
+
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: var(--token-brown);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.string,
+.token.attr-value .punctuation:not(.attr-equals) {
+  color: var(--token-red);
+}
+
+.token.class-name {
+  color: var(--token-fuchsia);
+}
+
+.token.important,
+.token.variable {
+  color: var(--token-orange);
+}
+
+.token.regex {
+  color: var(--token-pink);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
