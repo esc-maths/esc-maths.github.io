@@ -110,10 +110,10 @@ window.addEventListener('scroll', function () {
 
     if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
       tocLinks.forEach((link) => {
-        //link.classList.remove('active');
+        link.classList.remove('active');
         link.classList.remove('highlight');
       });
-      //tocLinks[index].classList.add('active');
+      tocLinks[index].classList.add('active');
       tocLinks[index].classList.add('highlight');
     }
   });

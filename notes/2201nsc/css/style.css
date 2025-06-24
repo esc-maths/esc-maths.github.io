@@ -1020,6 +1020,14 @@ h6 {
 .toc-chapter li {
   display: block;
   margin-left: 0px;
+  text-align: left !important;
+  text-indent: -10px; /* pulls the first line left */
+  padding-left: 10px; /* pushes all lines right */
+}
+
+.toc-chapter li:before {
+  content: "- ";
+  font-weight: bold;
 }
 
 /*
@@ -1036,9 +1044,14 @@ h6 {
   outline: none;
 }
 
+.toc-chapter a:hover {
+  color: var(--link-visited);
+}
+
 /* Highlighting active section */
 .active {
   font-weight: normal;
+  color: var(--link-visited) !important;
 }
 
 .highlight {
