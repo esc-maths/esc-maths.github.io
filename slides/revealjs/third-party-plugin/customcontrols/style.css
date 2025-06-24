@@ -9,7 +9,7 @@
 
 #customcontrols button {
 	background: none;
-	color: rgba(43,118,221,255);
+	color: var(--r-link-color);
 	border: none;
 	padding: 0;
 	font: inherit;
@@ -19,7 +19,7 @@
 }
 
 #customcontrols button:hover {
-	color: rgba(107,160,232,255);
+	color: var(--r-link-color-hover);
 }
 
 #customcontrols > ul {
@@ -29,7 +29,7 @@
 	list-style-type: none;
 	overflow: hidden;
 	margin: 0;
-	border: 1px solid rgba(43,118,221,255);
+	border: 1px solid var(--r-link-color);
 	border-radius: 5px;
 	padding: 10px;
 	background-color: var(--r-background-color)
