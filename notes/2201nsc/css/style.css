@@ -462,7 +462,7 @@ h1:first-child {
 
 /* Nested ordered list for ToC */
 nav {
-  margin-left: 3rem;
+  margin-left: 1.5rem;
 }
 
 nav ol {
@@ -1300,8 +1300,10 @@ hr {
   counter-increment: list-counter;
   /* Increment the counter */
   display: block;
-  margin-left: 3.5em;
-  margin-right: 2em;
+  margin-left: 3em;
+  margin-right: 2.5em;
+  text-indent: -10px; /* pulls the first line left */
+  padding-left: 10px; /* pushes all lines right */
 }
 
 .bbtex-list li:before {
@@ -1309,7 +1311,10 @@ hr {
   display: inline-block;
   text-align: right;
   width: 3em;
-  /* Must be the maximum width of your list's numbers, including the ')', for compatability (in case you use a fixed-width font, for example).  Will have to beef up if using roman. */
+  /* Must be the maximum width of your list's numbers, 
+  including the ')', for compatibility (in case you use 
+  a fixed-width font, for example).  
+  Will have to beef up if using roman. */
   padding-right: 0.5em;
   margin-left: -3em;
   /* Use lowercase letters with parentheses */
