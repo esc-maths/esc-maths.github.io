@@ -424,7 +424,6 @@ const initChalkboard = function ( Reveal ) {
 		var container = document.createElement( 'div' );
 		container.id = drawingCanvas[ id ].id;
 		container.classList.add( 'overlay' );
-		container.classList.add( 'r-overlay' );
 		container.setAttribute( 'data-prevent-swipe', 'true' );
 		container.oncontextmenu = function () {
 			return false;
@@ -444,8 +443,6 @@ const initChalkboard = function ( Reveal ) {
 			container.style.opacity = 1;
 			container.style.visibility = 'visible';
 			container.style.pointerEvents = 'none';
-			container.style['backdrop-filter'] = 'none';
-			container.style['-webkit-backdrop-filter'] = 'none';
 
 			var slides = document.querySelector( '.slides' );
 			var aspectRatio = Reveal.getConfig().width / Reveal.getConfig().height;
@@ -853,7 +850,7 @@ const initChalkboard = function ( Reveal ) {
 			case 'erase':
 				eraseWithSponge( getCanvas( template, drawings, board ).getContext( '2d' ),
 					xOffset + slideData.events[ j ].x * scale,
-					yOffset + slideData.events[ j ].y * scale
+					yOffset + slideData.events[ j ].y * scale 
 				);
 				break;
 			case 'selectboard':
