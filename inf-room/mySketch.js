@@ -1,5 +1,5 @@
 /*
- 
+
 Learning Shaders: RayMarching starting point
 
 Author: Juan Carlos Ponce Campuzano
@@ -16,9 +16,11 @@ let img;
 let time_;
 let framerate;
 
+let moves = [0, 0];
+
 function preload() {
   // load the shader
-  theShader = loadShader("./shaders/shader.vert", "./shaders/shader.frag");
+  theShader = loadShader('inf-room/shader.vert', 'inf-room/shader.frag');
 }
 
 function setup() {
@@ -30,9 +32,9 @@ function setup() {
 
   // shaders require WEBGL mode to work
   shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
-  
+
   cursor('grab');
-  
+
 }
 
 function draw() {
@@ -49,25 +51,23 @@ function draw() {
 
   // Make sure pixels are square
   xMouse = (xMouse * width) / height;
-  yMouse = (yMouse ) ;
-  
+  yMouse = (yMouse);
+
+  mouseMove();
 
   // pass the interactive information to the shader
   theShader.setUniform("iResolution", [width, height]);
   theShader.setUniform("iTime", millis() / 1000.0);
-  theShader.setUniform("iMouse", [viewX, viewY]);
-  theShader.setUniform("iView", imView);
-
-
+  theShader.setUniform("iMouse", moves);
 
 
   // rect gives us some geometry on the screen to draw the shader on
   shaderBg.rect(0, 0, width, height);
   image(shaderBg, 0, 0, width, height);
-  
+
   let increment = 20 / ((frameRate() || 60) * 140); // timestep based on framerate, will rotate same speed on all regardless of framerate
   time_ += increment;
-  if(time_ > TWO_PI) time_ -= TWO_PI; // prevent time from getting to big and maybe causing errors?
+  if (time_ > TWO_PI) time_ -= TWO_PI; // prevent time from getting to big and maybe causing errors?
 
   /*// flip coordinate information box
   let flipX = 0;
@@ -94,8 +94,20 @@ function draw() {
   fill(255);
   text("x: " + nfc(xMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 15 + flipY);
   text("y: " + nfc(yMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 30 + flipY);
-
+ 
 */
+
+  if (isMouseOverLink()) {
+    fill(180);
+    cursor('pointer'); // <-- this makes the cursor a hand
+  } else {
+    fill(220);
+    //cursor('default'); // <-- this restores the default cursor
+  }
+
+  rect(0, 0, 110, 30);
+  fill(0);
+  text("dynamicmath.xyz", 7, 19)
 
   //console.log(imView);
 }
@@ -104,36 +116,24 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-let imView = false;
-
 function mousePressed() {
-  if (imView === false) {
-    imView = true;
-  }
-  viewX = mouseX;
-  viewY = map(mouseY, 0, height, height, 0);
   cursor('grabbing');
+
+  if (isMouseOverLink()) {
+    window.open("https://www.dynamicmath.xyz", "_blank");
+  }
 }
 
 function mouseReleased() {
-  if (imView === true) {
-    imView = false;
-  }
   cursor('grab');
 }
 
-// Change 3D view 
-let viewX = -100;
-let viewY = 100;
-function mouseDragged() {
-  viewX = mouseX;
-  viewY = map(mouseY, 0, height, height, 0);
-  //console.log(viewX,viewY);
+function isMouseOverLink() {
+  return mouseX >= 0 && mouseX <= 110 && mouseY >= 0 && mouseY <= 30;
 }
 
-function mouseReleased() {
-  if (imView === true) {
-    imView = false;
-  }
-  cursor('grab');
+function mouseMove() {
+  if (!mouseIsPressed) return;
+  moves[0] += mouseX - pmouseX;
+  moves[1] += pmouseY - mouseY;
 }

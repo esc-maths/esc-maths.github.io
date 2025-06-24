@@ -8,7 +8,7 @@ Based upon Kishimisy's video tutorials: https://youtu.be/khblXafu7iA
 
 Author: Juan Carlos Ponce Campuzano
 Website: https://jcponce.github.io
-Date: 15/Jan/2024
+Date: 15/Jun/2025
 
 */
 
@@ -102,14 +102,14 @@ void main() {
     vec3 rd = normalize(vec3(uv, 1.0)); // ray direction
     vec3 col = vec3(0.0); // final pixel color
     
-    float t = 0.0; // total distance travelled
+    float t = 0.0; // total distance traveled
   
     // Updated thanks to Matthias Hurrle from this sketch
 		// https://openprocessing.org/sketch/2679978
 		float MN = min(iResolution.x,iResolution.y);
     // Horizontal camera rotation
-    ro.yz *= rot2D(0.5-iMouse.y*6.3/MN);
-    rd.yz *= rot2D(0.5-iMouse.y*6.3/MN);
+    ro.yz *= rot2D(-iMouse.y*6.3/MN);
+    rd.yz *= rot2D(-iMouse.y*6.3/MN);
   
     // Horizontal camera rotation
     ro.xz *= rot2D(-iMouse.x*6.3/MN);
