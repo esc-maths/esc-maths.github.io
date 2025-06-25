@@ -34,6 +34,48 @@
   font-display: swap;
   src: url("./fonts/LM-bold-italic.woff2") format("woff2"), url("./fonts/LM-bold-italic.woff") format("woff"), url("./fonts/LM-bold-italic.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Libertinus";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("./fonts/Libertinus-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("./fonts/Libertinus-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("./fonts/Libertinus-bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("./fonts/Libertinus-bold-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/Libertinus-semibold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/Libertinus-semibold-italic.woff2") format("woff2");
+}
 /* Box sizing rules */
 *,
 *::before,
@@ -131,7 +173,7 @@ dd {
 
 /* Make default font-size 1rem and add smooth scrolling to anchors */
 html {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -150,7 +192,7 @@ html {
 }
 
 body {
-  font-family: "Latin Modern", Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: "Libertinus", Georgia, Cambria, "Times New Roman", Times, serif;
   line-height: 1.8;
   max-width: 89ch;
   min-height: 100vh;
@@ -462,7 +504,7 @@ h1:first-child {
 
 /* Nested ordered list for ToC */
 nav {
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 nav ol {
