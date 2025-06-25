@@ -1,0 +1,9 @@
+<!-- Button to Top -->
+<button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- Button Next page -->
+{% if navigation.next %}
+<a href="{{ navigation.next.href }}" style="text-decoration: none;">
+    <p class="nextPage">Next <i class="fa-solid fa-angles-right"></i></p>
+</a>
+{% endif %}

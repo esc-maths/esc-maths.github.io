@@ -1,0 +1,26 @@
+<div class="fixed-bar" id="fixed-bar">
+    <div class="link-container">
+        {% if navigation.prev %}
+        <a href="{{ navigation.prev.href }}" class="link" id="prev-link">
+            <span class="arrow"><i class="fa-solid fa-arrow-left"></i></span>
+        </a>
+        {% endif %}
+    </div>
+    <div class="link">
+        <a href="./" class="link" id="center-link">
+            {% if navigation.prev %}
+            <span class="content-hover-previous">{{navigation.prev.label}}</span>
+            {% endif %} 
+            <span class="content-hover">Home</span>
+            <span class="content-original"><span class="latex">L<span>a</span>T<span>e</span>X</span> Notes</span>
+            {% if navigation.next %}
+            <span class="content-hover-next">{{navigation.next.label}}</span>
+            {% endif %} 
+        </a>
+    </div>
+    {% if navigation.next %}
+    <a href="{{ navigation.next.href }}" class="link" id="next-link">
+        <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+    {% endif %} 
+</div>

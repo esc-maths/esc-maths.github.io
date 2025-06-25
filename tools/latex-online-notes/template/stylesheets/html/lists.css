@@ -1,0 +1,56 @@
+/* Custom lists for "ol" tag */
+
+/* Alphabetical small caps */
+.alpha-list {
+    list-style-type: none;
+    /* Remove default numbering */
+    counter-reset: list-counter;
+    /* Reset the counter */
+}
+
+.alpha-list li {
+    counter-increment: list-counter;
+    /* Increment the counter */
+}
+
+.alpha-list li:before {
+    content: "(" counter(list-counter, lower-alpha) ") ";
+    /* Use lowercase letters with parentheses */
+}
+
+/* Roman small caps */
+.roman-list {
+    list-style-type: none;
+    /* Remove default numbering */
+    counter-reset: list-counter;
+    /* Reset the counter */
+}
+
+.roman-list li {
+    counter-increment: list-counter;
+    /* Increment the counter */
+}
+
+.roman-list li:before {
+    content: "(" counter(list-counter, lower-roman) ") ";
+    /* Use lowercase letters with parentheses */
+}
+
+/* ToC list / Not added now */
+/* Nested ordered list for ToC
+.toc ol {
+    counter-reset: item;
+    padding-left: 2rem;
+}
+
+.toc li {
+    display: block;
+}
+
+.toc li:before {
+    font-weight: bold;
+    content: '•';
+    content: counters(item, '.') ' ';
+    counter-increment: item;
+    padding-right: 0.35rem;
+} */

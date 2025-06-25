@@ -1,0 +1,339 @@
+/*-- Button to Top page --*/
+#toTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: rgba(145, 145, 145, 0.567);
+    color: rgb(237, 237, 237);
+    cursor: pointer;
+    width: 50px;
+    /* Adjust button width */
+    height: 50px;
+    /* Adjust button height */
+    line-height: 40px;
+    /* Adjust line-height to center text vertically */
+    text-align: center;
+    /* Center text horizontally */
+    padding: 0;
+    /* Remove padding */
+    border-radius: 50%;
+    /* Make it circular */
+}
+
+#toTop:hover {
+    background-color: #747474;
+}
+/*-- Button to Top page Ends --*/
+
+
+/*-- Top bar --*/
+/* Fixed bar styles */
+.fixed-bar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 87ch;
+    height: 50px;
+    background-color: hsla(210, 20%, 98%, 0.9);
+    /* White with 30% transparency */
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 100;
+    /* Ensuring the bar is above other content */
+}
+
+.fixed-bar a {
+    outline: none;
+}
+
+.link-container {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: black !important;
+    margin: 0 10px;
+    font-size: 1.005em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.arrow {
+    margin-right: 8px;
+    margin-left: 8px;
+    padding: 0px 5px;
+}
+
+.arrow:hover {
+    background-color: rgba(222, 222, 222, 0.8);
+    border-radius: 10px;
+}
+
+.content-original {
+    display: inline;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+.content-hover,
+.content-hover-previous,
+.content-hover-next {
+    display: none;
+    background-color: rgba(222, 222, 222, 0.8);
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+/*-- Top bar ends --*/
+
+/*-- Style for the loader --*/
+/* Styles for the loader */
+.myLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--body-bg-color)!important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  background-color: var(--body-color)!important;
+  border-radius: 50%;
+  animation: jump 0.6s infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.loadingMessage {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: var(--body-color)!important;
+}
+
+/*
+.myLoader.dark {
+  background-color: hsl(0, 0%, 16%)!important; 
+  /* Dark background for the loader 
+}
+
+.myLoader.dark .dot {
+  background-color: hsl(0, 0%, 86%)!important; /* Light color for dots in dark mode 
+}
+
+.myLoader.dark .loadingMessage {
+  color: hsl(0, 0%, 86%)!important; /* Light text color for the "Loading..." message 
+}
+*/
+
+
+@keyframes jump {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+}
+/*-- Style for the loader Ends --*/
+
+
+/*-- For hiding stuff --*/
+@media (min-width:993px) {
+    .hide-large {
+        display: none !important
+    }
+}
+
+@media (max-width:992px) and (min-width:501px) {
+    .hide-medium {
+        display: none !important
+    }
+}
+
+@media (max-width:500px) {
+    .hide-small {
+        display: none !important
+    }
+}
+
+/*-- Styles for the table of contents --*/
+.toc-chapter {
+  font-size: 0.75em;
+  line-height: 1.7em;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: var(--toc-chapter);
+  border-left: 1px solid #ddd;
+  border-bottom: 0px solid #ddd;
+  padding: 10px 10px 5px 10px;
+  max-height: calc(100vh - 40px);
+  /* Adjust height as needed */
+  overflow-y: auto;
+  width: calc(50vw - 430px);
+  z-index: 101;
+}
+
+.toc-chapter p {
+  margin-top: 0;
+  margin-bottom: -10px;
+}
+
+.toc-chapter ul {
+  list-style-type: none;
+  padding: 0;
+
+}
+
+.toc-chapter li {
+  display: block;
+  margin-left: 0px;
+  text-align: left !important;
+  text-indent: -10px;     /* pulls the first line left */
+  padding-left: 10px;     /* pushes all lines right */
+}
+.toc-chapter li:before {
+  content: '- ';
+  font-weight: bold;
+}
+
+/*
+.toc-chapter li:before {
+  content: "•\0000a0";
+  display: inline-block;
+  text-align: right;
+  margin-left: -20px;
+}
+*/
+
+.toc-chapter a {
+  color: var(--toc-list);
+  text-decoration: none;
+  outline: none;
+}
+
+.toc-chapter a:hover {
+  color: var(--link-visited);
+}
+
+/* Highlighting active section */
+.active {
+  font-weight: normal;
+  color: var(--link-visited) !important;
+}
+
+.highlight {
+  text-decoration: none;
+  background: var(--toc-background);
+  padding: 2px 2px;
+}
+
+@media (max-width: 1200px) {
+  .toc-chapter {
+    display: none !important;
+  }
+}
+/*-- Styles for the table of contents Ends --*/
+
+
+/*-- Next page link in footer --*/
+.nextPage {
+  text-align: center;
+  text-decoration: none !important;
+  color: var(--body-color) !important;
+  background-color: var(--nextPage);
+  border: 1px solid rgb(200, 200, 200);
+  padding: 1em;
+  margin: 1.6em 0 1.3em 0;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+.nextPage:hover {
+  background-color: rgb(230, 230, 230) !important;
+  color: black !important;
+  cursor: pointer;
+}
+/*-- Next page link in footer Ends --*/
+
+#licence-link {
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/*-- GeoGebra Canvas --*/
+.ggbElement {
+	display: block;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+
+.dark-mode-button {
+    position: relative;
+    left: 0px;
+    margin-left: 0px;
+}
+
+#dark-mode-toggle {
+    cursor: pointer;
+    padding: 5px;
+}
+
+#dark-mode-toggle:hover {
+    color: hsl(0, 100%, 33%);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}

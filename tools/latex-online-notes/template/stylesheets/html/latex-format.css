@@ -1,0 +1,192 @@
+/* 
+  Numbered Theorems, Definitions, etc. 
+  For this to work we need to add the 
+  'counter-increment' in the body
+*/
+
+/* Theorem */
+.theorem {
+  counter-increment: theorem;
+  margin: 12px 0;
+  font-style: italic;
+  text-align: justify;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  content: "";
+  display: table;
+  clear: both;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid hsl(0, 100%, 33%) !important;
+  color: var(--summary-color);
+  background-color: var(--teo-def-cards) !important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.theorem::before {
+  content: 'Theorem ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Corollary */
+.corollary {
+  counter-increment: corollary;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+  text-align: justify;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid hsla(0, 100%, 33%, 0.6) !important;
+  color: var(--summary-color);
+  background-color: var(--teo-def-cards) !important;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.corollary::before {
+  content: 'Corollary ' counter(corollary) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma */
+.lemma {
+  counter-increment: theorem;
+  margin: 12px 0;
+  font-style: italic;
+  text-align: justify;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #3b87f9 !important;
+  color: var(--summary-color);
+  background-color: var(--teo-def-cards) !important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.lemma::before {
+  content: 'Lemma ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proof */
+.proof {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  text-align: justify;
+  position: relative;
+}
+
+.proof::before {
+  content: 'Proof. ' attr(title);
+  font-style: italic;
+}
+
+.proof:after {
+  content: '◾️';
+  filter: var(--proof-symbol-filter);
+  position: absolute;
+  right: -12px;
+  bottom: -2px;
+}
+
+/* Definition */
+.definition {
+  counter-increment: definition;
+  margin: 12px 0;
+  font-style: normal;
+  text-align: justify;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  content: "";
+  display: table;
+  clear: both;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid hsl(0, 100%, 33%) !important;
+  color: var(--summary-color);
+  background-color: var(--teo-def-cards) !important;
+  display: block;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.definition::before {
+  content: 'Definition ' counter(definition) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Example: I added this class */
+.example {
+  counter-increment: example;
+  margin: 25px 0;
+  font-style: normal;
+  text-align: justify;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid hsl(0, 100%, 33%) !important;
+  margin-left: 10px;
+  display: block;
+  overflow-y: hidden;
+}
+
+.example::before {
+  content: 'Example ' counter(example) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Exercise: I added this class */
+.exercise {
+  counter-increment: exercise;
+  margin: 25px 0;
+  font-style: normal;
+  text-align: justify;
+  padding: 8px 16px 8px 16px;
+  border-left: 5px solid #0691d7 !important;
+  margin-left: 10px;
+  display: block;
+  overflow-y: hidden;
+}
+
+.exercise::before {
+  content: 'Exercise ' counter(exercise) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Biblio LaTeX */
+.bbtex-list {
+    list-style-type: none;
+    /* Remove default numbering */
+    counter-reset: list-counter;
+    margin-left: 0;
+    padding-left: 0;
+    /* Reset the counter */
+}
+
+.bbtex-list li {
+    text-align: justify;
+    counter-increment: list-counter;
+    /* Increment the counter */
+    display: block;
+    margin-left: 3em;
+    margin-right: 2.5em;
+    text-indent: -10px;     /* pulls the first line left */
+    padding-left: 10px;     /* pushes all lines right */
+}
+
+.bbtex-list li:before {
+    content: "[" counter(list-counter, decimal) "]. ";
+    display: inline-block;
+    text-align: right;
+    width: 3em;
+    /* Must be the maximum width of your list's numbers, 
+    including the ')', for compatibility (in case you use 
+    a fixed-width font, for example).  
+    Will have to beef up if using roman. */
+    padding-right: 0.5em;
+    margin-left: -3em;
+    /* Use lowercase letters with parentheses */
+}

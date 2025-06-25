@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% capture first_h1 %}
+  {{ content | split: '<h1>' | last | split: '</h1>' | first | replace: '<br>', '' | replace: '<b>', '' | replace:
+    '</b>', '' }}
+  {% endcapture %}
+  <title>{{ first_h1 }}</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="website" />
+
+  <link rel="shortcut icon" type="image/svg+xml" type="image/svg" href="imgs/icon-griffith.svg" sizes="32x32">
+
+  {{ stylesheets }}
+
+</head>
+
+<body data-type="book" id="top" class="text-justify">
+
+  {% include loader.html %}
+
+  {% include navigation.html %}
+
+  <!-- Main DIV Starts here -->
+  <div class="container">
+    {{ content }}
+  </div>
+
+  {% include nextbutton.html %}
+
+  {% include footer.html %}
+
+  <script src="js/mathjax.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script src="js/main.js"></script>
+  <script async src="js/prism.js"></script>
+</body>
+
+</html>

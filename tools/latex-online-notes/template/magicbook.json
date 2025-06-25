@@ -1,0 +1,35 @@
+{
+  "title": "LaTeX Online Notes",
+  "destination": "build/content",
+  "files": [
+    "content/index.html",
+    "content/notes.html",
+    "content/elements.html"
+  ],
+  "builds": [
+    {
+      "format": "html",
+      "layout": "layouts/html.html",
+      "stylesheets": {
+        "files": [
+          "stylesheets/style.scss"
+        ],
+        "destination": "css"
+      },
+      "images": {
+        "files": "images/**/*.*",
+        "destination": "imgs/"
+      },
+      "javascripts": {
+        "files": [
+          "javascripts/*.js"
+        ],
+        "destination": "js/"
+      },
+      "fonts": {
+        "files": "fonts/*.*",
+        "destination": "css/fonts"
+      }
+    }
+  ]
+}

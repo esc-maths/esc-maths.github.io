@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <defs>
+        <style>
+            @media (prefers-color-scheme: light) {
+                path {
+                    fill: #e42531 !important;
+                }
+            }
+
+            @media (prefers-color-scheme: dark) {
+                path {
+                    fill: white !important;
+                }
+        </style>
+    </defs>
+    <path
+        d="M11.31,4.28l3.75,8.91v13.13l-3.75-8.91V4.28ZM3.81,13.66H1v14.06h12.66l-9.85-3.75v-10.31ZM8.97,11.31l-2.81-2.81v13.12l7.97,5.16-5.16-7.27v-8.2ZM28.19,23.97l-9.85,3.75h12.66v-14.06h-2.81v10.31ZM20.69,4.28l-3.75,8.91v13.13l3.75-8.91V4.28ZM25.84,8.5l-2.81,2.81v8.2l-5.16,7.27,7.97-5.16v-13.12Z" />
+</svg>
