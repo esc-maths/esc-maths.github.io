@@ -20,7 +20,7 @@ let moves = [0, 0];
 
 function preload() {
   // load the shader
-  theShader = loadShader('inf-room/shader.vert', 'inf-room/shader.frag');
+  theShader = loadShader('shader.vert', 'shader.frag');
 }
 
 function setup() {
