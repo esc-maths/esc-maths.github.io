@@ -1,8 +1,49 @@
 html,
 body {
   margin: 0;
-  height: 100%;
+  background-color: #000;
+  color: #fff;
+  font-family: Monospace;
+  font-size: 1.2rem;
+  line-height: 2em;
+  overscroll-behavior: none;
+
+  position: relative;
+  /* key for absolute children */
+  height: 100vh;
   overflow: hidden;
+}
+
+
+/* Overlay card */
+.card {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: rgba(0, 0, 0, 0.85);
+  color: rgb(255, 255, 255);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+  width: 30%;
+  max-width: 500px;
+  text-align: center;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.card li {
+  text-align: left;
+}
+
+.card a {
+  color: rgb(255, 255, 255);
+}
+
+.card a:hover {
+  color: rgb(119, 230, 255);
 }
 
 canvas {
