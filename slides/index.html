@@ -17,39 +17,19 @@ https://www.geogebra.org/m/xsy4fy25
             background-color: #000;
             color: #fff;
             font-family: Monospace;
-            font-size: 13px;
-            line-height: 24px;
+            font-size: 1.2rem;
+            line-height: 2em;
             overscroll-behavior: none;
-        }
 
-        a {
-            color: #ff0;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            position: relative;
+            /* key for absolute children */
+            height: 100vh;
+            overflow: hidden;
         }
 
         button {
             cursor: pointer;
             text-transform: uppercase;
-        }
-
-        #info {
-            position: absolute;
-            top: 0px;
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            text-align: center;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            pointer-events: none;
-            z-index: 1;
-            /* TODO Solve this in HTML */
         }
 
         a,
@@ -108,6 +88,37 @@ https://www.geogebra.org/m/xsy4fy25
             margin-top: 20px;
             padding: 10px;
         }
+
+        
+        /* Overlay card */
+        .card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background-color: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+            width: 50%;
+            max-width: 500px;
+            text-align: center;
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        .card li {
+            text-align: left;
+        }
+
+        .card a {
+            color: rgb(38, 225, 245);
+        }
+        .card a:hover{
+            color: rgb(47, 240, 211);
+        }
     </style>
 
 
@@ -115,9 +126,14 @@ https://www.geogebra.org/m/xsy4fy25
 
 <body>
 
-    <div id="info">
+    
 
-        <a href="https://www.dynamicmath.xyz/threejs/" target="_blank" rel="noopener">dynamicmath.xyz</a>
+    <div class="card">
+       <h1>Slides</h1>
+       <ul>
+        <li><a href="1017scg/">Foundation Mathematics</a></li>
+        <li><a href="1010eng/">Engineering Mathematics 1</a></li>
+       </ul>
     </div>
 
     <script type="importmap">
