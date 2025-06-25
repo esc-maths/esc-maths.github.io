@@ -504,7 +504,7 @@ h1:first-child {
 
 /* Nested ordered list for ToC */
 nav {
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 nav ol {
