@@ -1344,8 +1344,6 @@ hr {
   display: block;
   margin-left: 3em;
   margin-right: 2.5em;
-  text-indent: -10px; /* pulls the first line left */
-  padding-left: 10px; /* pushes all lines right */
 }
 
 .bbtex-list li:before {
