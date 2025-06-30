@@ -49,6 +49,35 @@
 			font-weight: bold;
 			text-decoration: underline;
 		}
+
+		.overlay-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: rgb(0, 0, 0);
+			font-size: 6rem;
+			font-weight: bold;
+			margin: 0;
+		}
+
+		.fragment.blur {
+			filter: none;
+		}
+
+		.fragment.blur.visible {
+			filter: blur(1px);
+		}
+
+		.fragment.fade-img {
+			opacity: 1;
+		}
+
+		.fragment.fade-img.visible {
+			
+			opacity: 0.1;
+			transition: opacity 0.8s ease;
+		}
 	</style>
 
 </head>
@@ -460,6 +489,28 @@
 
 					<br />
 				</section>
+
+				<section>
+					<img class="fragment custom fade-img" data-fragment-index="0" src="images/week-01/branches.png">
+					<div class="fragment" data-fragment-index="0">
+						<p class="overlay-text">Mathematics <br>∞
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<img style="width: 100%;" src="images/week-01/branches.png">
+					
+				</section>
+
+				<section data-auto-animate>
+					<img style="width: 60%;margin-bottom: -10px;" src="images/week-01/branches.png">
+					<div style="font-size: 5rem;">
+						<p>
+							Mathematics <br>∞
+						</p>
+					</div>
+				</section>
 			</section>
 
 			<section>
@@ -492,23 +543,12 @@
 
 				<section>
 					<h3>
-						Week 1
+						Order of operations
 					</h3>
 
-					<br />
 
 					<div class="left-txt size-85">
-						<ul style="line-height: 60px;">
-							<li class="fragment" data-fragment-index="0">
-								Order of operations.
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								Index Laws.
-							</li>
-							<li class="fragment" data-fragment-index="2">
-								Scientific notation.
-							</li>
-						</ul>
+						<p>Let's begin</p>
 
 					</div>
 					<br />
