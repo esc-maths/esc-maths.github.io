@@ -147,7 +147,7 @@
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate="">
 					<h3>Introduction to Logarithms</h3>
 
 					<div class="left-txt size-75">
@@ -161,37 +161,85 @@
 						</p>
 					</div>
 
-					<div class="fragment" data-fragment-index="2">
-						<iframe style="width: 100%; height: 430px; border: 5px solid rgb(166, 166, 166); margin-top: -10px; border-radius: 20px;"
-						src="../revealjs-animations/log-animation/index.html"></iframe>
+					<div style="text-align: center;" class="fragment" data-fragment-index="2">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="250"
+								height="250">
+						</picture>
+					</div>
+
+					<br />
+
+
+				</section>
+				<section data-auto-animate="">
+					<h3>Introduction to Logarithms</h3>
+
+					<div class="left-txt size-75">
+						<p>
+							A logarithm is the inverse of an exponent.
+							<span>
+								It tells us what power we need to raise a base to in order to get a certain number.
+							</span>
+
+
+						</p>
+					</div>
+
+					<div>
+						<iframe
+							style="width: 100%; height: 430px; border: 5px solid rgb(166, 166, 166); margin-top: -10px; border-radius: 20px;"
+							src="../revealjs-animations/log-animation/index.html"></iframe>
 
 					</div>
 				</section>
 				<section>
 					<h3>Introduction to Logarithms</h3>
 
-					<div class="left-txt size-75">
-						<p>
-							A logarithm is the inverse of an exponent. It tells us what power we need to raise a base to
-							in order to get a certain number.
+
+					<div style="font-size: 120%;">
+						<p class="fragment" data-fragment-index="0">
+							If
+							\(
+							\;a^x = N,\;
+							\)
+							<span class="fragment" data-fragment-index="1">
+								then
+								\(
+								\;\log_a N = x\;
+								\)
+							</span>
 						</p>
 
-						<p>
-							If:
-							\[
-							a^x = b
-							\]
-							Then:
-							\[
-							\log_a b = x
-							\]
+						<p class="fragment" data-fragment-index="2">
+							where $\;N\gt 0,\;$
+							<span class="fragment" data-fragment-index="3">
+								$a\gt 0,\;$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$a\neq 1.$
+							</span>
 						</p>
 
-						<ul>
-							<li>\( \log_2 8 = 3 \) because \( 2^3 = 8 \)</li>
-							<li>\( \log_{10} 1000 = 3 \) because \( 10^3 = 1000 \)</li>
-						</ul>
+
 					</div>
+
+					<div class="left-txt">
+						<ul style="line-height: 100px;">
+							<li class="fragment" data-fragment-index="5">\( \log_2 8 = 3\; \)
+								<span class="fragment" data-fragment-index="6">because \( \;2^3 = 8 \)</span>
+							</li>
+							<li class="fragment" data-fragment-index="7">\( \log_{10} 1000 = 3 \;\)
+								<span class="fragment" data-fragment-index="8">because \( \;10^3 = 1000 \)</span>
+							</li>
+						</ul>
+
+
+					</div>
+					<br />
+					<br />
 				</section>
 
 				<section>
@@ -199,54 +247,97 @@
 
 					<div class="left-txt size-85">
 						<p>Simplify the following by thinking in terms of powers:</p>
+					</div>
 
-						<ul>
-							<li>\( \log_2 16 = 4 \) because \( 2^4 = 16 \)</li>
+					<div class="left-txt">
+						
+
+						<ul style="line-height: 80px;">
+							<li>\( \log_2 16  \) 
+								<span class="fragment" data-fragment-index="1">
+									\(=4\;\) 
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									because \(\; 2^4 = 16 \)
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="3">\( \log_3 81  \) </li>
+							<li class="fragment" data-fragment-index="4">\( \log_5 25  \) </li>
+							<li class="fragment" data-fragment-index="5">\( \log_{10} 1 \)</li>
+						</ul>
+
+						<!--
+						<ul style="line-height: 80px;">
+							<li class="fragment" data-fragment-index="0">\( \log_2 16 = 4 \) because \( 2^4 = 16 \)</li>
 							<li>\( \log_3 81 = 4 \) because \( 3^4 = 81 \)</li>
 							<li>\( \log_5 25 = 2 \) because \( 5^2 = 25 \)</li>
 							<li>\( \log_{10} 1 = 0 \) because \( 10^0 = 1 \)</li>
 						</ul>
+						-->
 					</div>
+					
+					<br/>
+					<br/>
 				</section>
 
 				<section>
 					<h3>Logarithm Laws</h3>
 
-					<div class="left-txt size-85">
+					<div class="left-txt size-90">
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								<strong>Product Law:</strong>
-								\[
-								\log_a(xy) = \log_a x + \log_a y
-								\]
+								<div style="padding: 20px;">
+									<span class="fragment" data-fragment-index="1">$\log_a\left(M\times N\right)$</span>
+									<span class="fragment" data-fragment-index="2">$=\log_a M + \log_a N$</span>
+								</div>
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								<strong>Quotient Law:</strong>
-								\[
-								\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y
-								\]
+								<div style="padding: 20px;">
+									<span class="fragment" data-fragment-index="4">$\log_a\left(\dfrac{M}{N}\right)$</span>
+									<span class="fragment" data-fragment-index="5">$=\log_a M - \log_a N$</span>
+								</div>
+								
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="6">
 								<strong>Power Law:</strong>
-								\[
-								\log_a(x^n) = n \log_a x
-								\]
+								<div style="padding: 20px;">
+									<span class="fragment" data-fragment-index="7">$\log_a\left(N^p\right)$</span>
+									<span class="fragment" data-fragment-index="8">$= p \times \log_a (N)$</span>
+								</div>
+								
 							</li>
 						</ul>
-						<p>These rules work for any base \( a > 0 \), \( a \ne 1 \).</p>
+						<p class="fragment" data-fragment-index="9">
+							These rules work for any base \( a > 0 ,\) \( a \ne 1 .\)
+						</p>
 					</div>
+					<br/>
 				</section>
 
 				<section>
-					<h3>Using Log Laws – Examples</h3>
+					<h3>Using Log Laws - Examples</h3>
 
-					<div class="left-txt size-85">
-						<ul>
-							<li>\( \log_2(8 \cdot 4) = \log_2 8 + \log_2 4 = 3 + 2 = 5 \)</li>
-							<li>\( \log_3\left(\frac{81}{3}\right) = \log_3 81 - \log_3 3 = 4 - 1 = 3 \)</li>
-							<li>\( \log_5(25^3) = 3 \log_5 25 = 3 \times 2 = 6 \)</li>
+					<div class="left-txt">
+						<ul style="line-height: 120px;">
+							<li>\( \log_2\left(8 \cdot 4\right)  \)</li>
+							<li>\( \log_3\left(\dfrac{81}{3}\right)  \)</li>
+							<li>\( \log_5\left(25^3\right)  \)</li>
 						</ul>
+
+						<!--
+						<ul style="line-height: 120px;">
+							<li>\( \log_2\left(8 \cdot 4\right) = \log_2 8 + \log_2 4 = 3 + 2 = 5 \)</li>
+							<li>\( \log_3\left(\dfrac{81}{3}\right) = \log_3 81 - \log_3 3 = 4 - 1 = 3 \)</li>
+							<li>\( \log_5\left(25^3\right) = 3 \log_5 25 = 3 \times 2 = 6 \)</li>
+						</ul>
+						-->
 					</div>
+					<div>
+						<p>$\log_a(a) = 1$ and $\log_a(1) = 0$</p>
+					</div>
+					<br/>
 				</section>
 
 				<section>
