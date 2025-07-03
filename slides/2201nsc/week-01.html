@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Week 1</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+
+		.overlay-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: rgb(0, 0, 0);
+			font-size: 6rem;
+			font-weight: bold;
+			margin: 0;
+		}
+
+		.fragment.blur {
+			filter: none;
+		}
+
+		.fragment.blur.visible {
+			filter: blur(1px);
+		}
+
+		.fragment.fade-img {
+			opacity: 1;
+		}
+
+		.fragment.fade-img.visible {
+
+			opacity: 0.1;
+			transition: opacity 0.8s ease;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/gu-logo-black-white.gif"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-95">
+					<h2>Foundation Mathematics</h2>
+					<p style="font-weight: bold; font-size: 120%;">1017SCG</p>
+				</div>
+
+				<br />
+				<p style="margin-top: 50px;">Week 1
+				</p>
+				<br /><br />
+			</section>
+
+			<section>
+				<section>
+					<h3>Foundation Mathematics</h3>
+
+					<br />
+					<p style="font-size: 120%;margin-bottom: 50px;">
+						Welcome!
+					</p>
+
+
+
+					<div class="size-80">
+
+						<p class="fragment" data-fragment-index="0">
+							<span class="fragment custom emph">Convenor:</span>
+							<span>Juan Carlos Ponce Campuzano</span>
+						</p>
+
+
+					</div>
+
+					<br />
+
+					<div>
+						<img style="width: 50px;" src="images/Griffith-logo-black-book.png">
+					</div>
+
+
+				</section>
+
+				<section>
+					<h3>Lecture (two hours)</h3>
+
+					<div class="size-80  left-txt">
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								Choice of lecture:
+								<ul>
+									<li class="fragment" data-fragment-index="1">
+										[<strong>Recommended</strong>] Live lecture on-campus.
+									</li>
+									<li class="fragment" data-fragment-index="2">
+										Pre-recorded lecture (not run live).
+									</li>
+
+								</ul>
+							</li>
+							<br />
+							<li class="fragment" data-fragment-index="3">
+								Format of lecture:
+								<ul>
+									<li class="fragment" data-fragment-index="4">
+										Introduce the content for the week.
+									</li>
+									<li class="fragment" data-fragment-index="5">
+										Worked examples.
+									</li>
+
+								</ul>
+							</li>
+
+						</ul>
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Workshop (two hours)</h3>
+
+					<div class="size-80 left-txt">
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								Format of workshop:
+								<ul>
+									<li class="fragment " data-fragment-index="1">
+										Collaborate with other students.
+									</li>
+									<li class="fragment" data-fragment-index="2">
+										Work through workshop questions.
+									</li>
+									<li class="fragment" data-fragment-index="3">
+										Opportunity to ask questions.
+									</li>
+									<li class="fragment" data-fragment-index="4">
+										Receive individualised help.
+									</li>
+									<li class="fragment" data-fragment-index="5">
+										Marks for engagement with workshop.
+									</li>
+
+								</ul>
+							</li>
+
+
+						</ul>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section>
+					<h3>Assumed Knowledge</h3>
+
+					<div class="size-80 left-txt">
+						<p>
+							No assumed knowledge from senior high school mathematics.
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							Orientation Week (0-Week) Revision:
+						</p>
+
+						<ul>
+							<li>
+								Understanding of the basic operations.
+							</li>
+							<li>
+								Working with negative numbers.
+							</li>
+							<li>
+								Working with fractions.
+							</li>
+							<li>
+								Converting between fractions, decimals and percentages.
+							</li>
+							<li>
+								Rounding decimals.
+							</li>
+
+						</ul>
+
+						<p class="fragment" data-fragment-index="8">
+							👉 Resources available in Learning@Griffith
+						</p>
+
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<h3>Resources available on Learning@Griffith</h3>
+
+					<div class="size-80 left-txt">
+
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="0">
+								No textbook required and no reading list.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Lecture videos (pre-recorded).
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Weekly summary sheet.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Workshops Questions (and solutions).
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								Numbas (online practice environment).
+							</li>
+
+
+						</ul>
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Assessment</h3>
+
+					<div class="size-80 left-txt">
+
+						<ul>
+							<li class="fragment" data-fragment-index="0">
+								Foundation Mathematics is non-graded course.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Non-graded pass (NGP) or non-graded fail (NGF).
+							</li>
+
+
+						</ul>
+
+						<br /><br />
+
+						<ul>
+							<li class="fragment" data-fragment-index="2">
+								Workshop Engagement (20%) - Week 1 to 11.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Progress Test 1 (20%) - Week 4.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Progress Test 2 (30%) - Week 8.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Progress Test 3 (30%) - Week 12.
+							</li>
+
+
+						</ul>
+
+						<br /><br />
+
+						<ul>
+							<li class="fragment" data-fragment-index="4">Minimum of 65% overall required for a
+								non-graded
+								pass (NGP).</li>
+						</ul>
+
+
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<h3>Need help?</h3>
+
+
+
+					<div class="size-80 left-txt">
+
+						<ol style="line-height: 80px;">
+							<li class="fragment" data-fragment-index="0">
+								Workshop. 📝
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Revision sessions/Drop-in Session/Study Sessions.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Microsoft Teams.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Email: <a href="mailto:j.poncecampuzano@griffith.edu.au"
+									target="_blank">j.poncecampuzano@griffith.edu.au</a>
+							</li>
+
+
+						</ol>
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Required Resources</h3>
+
+
+
+					<div class="size-80 left-txt">
+
+						<p>
+							Scientific Calculator (graphics calculators and programmable
+							calculators cannot be used during assessment).
+						</p>
+
+						<ol>
+							<li>
+								Campus Bookshop.
+							</li>
+							<li>
+								Officeworks.
+							</li>
+							<li>
+								Big W.
+							</li>
+
+
+
+						</ol>
+						<p class="fragment" data-fragment-index="0">
+							Reliable internet connection (or use Griffith WiFi). 🛜
+						</p>
+					</div>
+
+
+
+					<br /><br />
+				</section>
+
+				<section>
+					<h3>Workload (10-12 hours per week for 10CP course)</h3>
+
+
+
+					<div class="size-80 left-txt">
+
+						<table>
+							<tr>
+								<td style="border: none;">
+									Lecture
+
+								</td>
+								<td style="border: none;">
+									2 hours
+
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none;">
+									Workshop
+
+								</td style="border: none;">
+								<td style="border: none;">
+									2 hours
+
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none;">
+									Complete workshop questions
+
+								</td>
+								<td style="border: none;">
+									2 hours
+
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none;">
+									Re-watch video
+
+								</td>
+								<td style="border: none;">
+									1 hours
+
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none;">
+									Numbas (online environment)
+
+								</td>
+								<td style="border: none;">
+									2 hours
+
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none;">
+									Revision/Study for assessment
+
+								</td>
+								<td style="border: none;">
+									1 hours
+
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="0">
+								<td>
+									<strong>Total</strong>
+								</td>
+								<td>
+									10
+								</td>
+							</tr>
+
+
+						</table>
+
+					</div>
+
+					<br />
+				</section>
+
+				<!--
+				<section>
+					<img style="width: 100%;" class="fragment custom fade-img" data-fragment-index="0" src="images/week-01/branches.png">
+					<div class="fragment" data-fragment-index="0">
+						<p class="overlay-text">Mathematics <br>∞
+						</p>
+					</div>
+				</section>
+				-->
+
+				<section data-auto-animate>
+					<img style="width: 100%;" src="images/week-01/branches.png">
+
+					<!-- Rectangle 1 -->
+					<div class="fragment fade-out" data-fragment-index="0" style="
+      					position: absolute;
+      					top: 1%;
+      					left: 1%;
+      					width: 350px;
+      					height: 260px;
+      					background-color: white;
+      					opacity: 1;
+    					"></div>
+
+					<!-- Rectangle 2 -->
+					<div class="fragment fade-out" data-fragment-index="1" style="
+      					position: absolute;
+      					top: 19%;
+      					left: 38%;
+      					width: 230px;
+      					height: 380px;
+      					background-color: white;
+      					opacity: 1;
+      
+    					"></div>
+
+					<!-- Rectangle 3 -->
+					<div class="fragment fade-out" data-fragment-index="2" style="
+      					position: absolute;
+      					top: 55%;
+      					left: 2%;
+      					width: 320px;
+      					height: 260px;
+      					background-color: white;
+      					opacity: 1;
+    					"></div>
+
+					<!-- Rectangle 4 -->
+					<div class="fragment fade-out" data-fragment-index="3" style="
+      					position: absolute;
+      					top: 3%;
+      					left: 64%;
+      					width: 325px;
+      					height: 260px;
+      					background-color: white;
+      					opacity: 1;
+    					"></div>
+
+					<!-- Rectangle 5 -->
+					<div class="fragment fade-out" data-fragment-index="4" style="
+      					position: absolute;
+      					top: 55%;
+      					left: 64%;
+      					width: 325px;
+      					height: 260px;
+      					background-color: white;
+      					opacity: 1;
+    					"></div>
+				</section>
+
+				<section data-auto-animate>
+					<img style="width: 60%;margin-bottom: -10px;" src="images/week-01/branches.png">
+					<div style="font-size: 5rem;">
+						<p>
+							Mathematics <br>∞
+						</p>
+					</div>
+				</section>
+			</section>
+
+			<section>
+				<h3>
+					Topics for Week 1
+				</h3>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Order of Operations.
+						</li>
+						<li>
+							Index Laws.
+						</li>
+						<li>
+							Scientific Notation.
+						</li>
+					</ul>
+
+				</div>
+				<br />
+				<div class="fragment" data-fragment-index="3">
+					<p>Let's begin!</p>
+					<picture>
+						<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.webp"
+							type="image/webp">
+						<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀" width="64"
+							height="64">
+					</picture>
+
+				</div>
+
+				<br />
+			</section>
+
+
+			<section>
+				<section data-auto-animate="">
+					<h3>Order of Operations</h3>
+
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="0">
+							When we solve a mathematical expression,
+							<span class="fragment" data-fragment-index="1">
+								we can't just work from left to right.
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								We follow a specific order known as <strong>BIDMAS</strong>:
+							</span>
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="3"><strong>B</strong>rackets</li>
+							<li class="fragment" data-fragment-index="4"><strong>I</strong>ndices (exponents or powers)
+							</li>
+							<li class="fragment" data-fragment-index="5"><strong>D</strong>ivision and
+								<strong>M</strong>ultiplication (left to right)
+							</li>
+							<li class="fragment" data-fragment-index="6"><strong>A</strong>ddition and
+								<strong>S</strong>ubtraction (left to right)
+							</li>
+						</ul>
+
+						<p class="fragment" data-fragment-index="7">
+							<strong>Question:</strong> How would you do this operation?
+						</p>
+					</div>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="7">$3 + 12 \times 3 ÷ 2$</p>
+					</div>
+
+					<br />
+				</section>
+
+
+
+				<section data-auto-animate="">
+					<h3>Let's solve it using BIDMAS</h3>
+					<div class="size-80">
+						<p>$3 + 12 \times 3 ÷ 2$</p>
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0">
+							<strong>Step 1:</strong> Multiplication and Division come first,
+							<span class="fragment" data-fragment-index="1">
+								left to right:
+							</span>
+						</p>
+
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="2">$12 \times 3 = 36,$</span> <span
+								class="fragment" data-fragment-index="3">and then $36 ÷ 2 = 18$</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="4">
+							<strong>Step 2:</strong> Now add 3:
+						</p>
+
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="4">$3 + 18 = 21$</span>
+						</p>
+					</div>
+					<div class="left-txt size-85">
+
+						<p class="fragment" data-fragment-index="6">
+							✅ <strong>Final answer:</strong> $21$
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h3>What if? 🤔</h3>
+					<div class="size-80">
+						<p>$3 + 12 \times 3 ÷ 2$</p>
+					</div>
+
+					<br />
+
+					<table style="border-collapse: collapse; text-align: center; width: 100%;" class="fragment"
+						data-fragment-index="1">
+						<tr>
+							<td style="border: none; text-align: center;" class="fragment" data-fragment-index="1">
+								$3 + 12 \times 3 ÷ 2 = 21$
+							</td>
+							<td style="border-left: 2px solid black; border-top: none; border-bottom: none; border-right: none; text-align: center;"
+								class="fragment" data-fragment-index="1">
+								$3 + 12 \times 3 ÷ 2 = 22.5 $
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none; text-align: center; font-size: 150%;" class="fragment"
+								data-fragment-index="2">
+								✅
+							</td>
+							<td
+								style="border-left: 2px solid black; border-top: none; border-bottom: none; border-right: none; text-align: center; font-size: 150%;">
+								<span class="fragment" data-fragment-index="2">❌</span>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+
+					<span style="font-weight: bold; font-size: 110%;" class="fragment" data-fragment-index="3">
+						Always follow the order of operations!
+					</span>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Practice Examples 📝</h3>
+					<div class="left-txt size-85">
+						<p>Try solving these using the correct order of operations:</p>
+						<ol style="line-height: 80px;">
+							<li>\( 4 + 6 \times 2 \)</li>
+							<li>\( (4 + 6) \times 2 \)</li>
+							<li>\( 3^2 + 5 \times 2 \)</li>
+							<li>\( (8 + 4) ÷ 2^2 \)</li>
+							<li>\( 20 - 3 \times (2 + 1) \)</li>
+						</ol>
+					</div>
+
+					<br />
+					<br />
+				</section>
+			</section>
+
+
+			<section>
+				<section data-auto-animate="">
+					<h3>Scientific Notation</h3>
+
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="0">
+							Scientific notation is a way of writing very <strong>large</strong> or very
+							<strong>small</strong> numbers in a more compact form.
+						</p>
+
+						<ul>
+							<li class="fragment" data-fragment-index="1">We write numbers as a <strong>number between 1
+									and 10</strong> multiplied by a
+								<strong>power of 10</strong>.
+							</li>
+							<li class="fragment" data-fragment-index="2">The power tells us how many places to move the
+								decimal point.</li>
+							<li class="fragment" data-fragment-index="3"><strong>Positive powers</strong> are used for
+								large numbers.</li>
+							<li class="fragment" data-fragment-index="4"><strong>Negative powers</strong> are used for
+								small numbers.</li>
+						</ul>
+
+
+					</div>
+
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate="">
+					<h3>Scientific Notation</h3>
+
+					<div class="left-txt size-80">
+						<p>
+							Scientific notation is a way of writing very <strong>large</strong> or very
+							<strong>small</strong> numbers in a more compact form.
+						</p>
+
+						<ul>
+							<li>We write numbers as a <strong>number between 1 and 10</strong> multiplied by a
+								<strong>power of 10</strong>.
+							</li>
+							<li>The power tells us how many places to move the decimal point.</li>
+							<li><strong>Positive powers</strong> are used for large numbers.</li>
+							<li><strong>Negative powers</strong> are used for small numbers.</li>
+						</ul>
+
+
+					</div>
+
+					<div style="font-size: 110%;">
+
+						<p>
+							Format: <span>$\;a \times 10^n \;$</span>
+							<span class="fragment" data-fragment-index="0">where $1 \leq a \lt 10$</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h3>Large Numbers in Scientific Notation</h3>
+
+					<div class="left-txt size-95">
+						<p>Convert the following to scientific notation:</p>
+						<ul style="line-height: 70px;">
+							<li>
+								<span>\( 5,200\)</span>
+								<!--<span class="fragment" data-fragment-index="1">\( = 5.2 \times 10^3 \)</span>-->
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<span>\(300,000,000\)</span>
+								<!--<span class="fragment" data-fragment-index="3">\( =3 \times 10^8 \)</span>-->
+
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								<span>\( 92,000\)</span>
+								<!--<span class="fragment" data-fragment-index="5">\( = 9.2 \times 10^4 \)</span>-->
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Small Numbers in Scientific Notation</h3>
+
+					<div class="left-txt size-95">
+						<p>Convert the following to scientific notation:</p>
+						<ul style="line-height: 70px;">
+							<li class="fragment" data-fragment-index="0">
+								<span>\( 0.004\)</span>
+								<!--<span class="fragment" data-fragment-index="1">\( = 4 \times 10^{-3}\)</span>-->
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<span>\( 0.000072 \)</span>
+								<!--<span class="fragment" data-fragment-index="3">\( = 7.2 \times 10^{-5}\)</span>-->
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								<span>\( 0.09 \)</span>
+								<!--<span class="fragment" data-fragment-index="5">\( = 9 \times 10^{-2}\)</span>-->
+							</li>
+
+
+						</ul>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Try It Yourself 📝</h3>
+
+					<div class="left-txt size-95">
+						<p>Write the following in scientific notation:</p>
+						<ol style="line-height: 70px;"">
+							<li>$47,000$</li>
+							<li>$0.00056$</li>
+							<li>$6,300,000$</li>
+							<li>$0.0089$</li>
+						</ol>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+			</section>
+
+
+			<section>
+
+				<section>
+					<h3>Index Laws</h3>
+
+					<div class=" left-txt size-95">
+
+							<p class="fragment" data-fragment-index="0">
+								Index laws (or exponent rules) help us simplify
+								expressions involving powers of the same
+								base.
+							</p>
+					</div>
+					<div>
+						<p class="fragment" data-fragment-index="1">
+							$
+							\ds \left(\frac{2a^2b}{b^3}\right)^3 ÷ \left(\frac{16a^5}{ab^7}\right)^2
+							$
+						</p>
+					</div>
+
+					<div>
+						<picture class="fragment" data-fragment-index="2">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬" width="120"
+								height="120">
+						</picture>
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<div style="margin-top: -22px;">
+						<h3>Index Laws</h3>
+
+						<div class=" left-txt size-95">
+
+							<p>
+								Index laws (or exponent rules) help us simplify
+								expressions involving powers of the same
+								base.
+							</p>
+						</div>
+					</div>
+
+					<div>
+
+						<p>
+							$
+							\ds \frac{b^8}{32a^2}
+							$
+						</p>
+					</div>
+
+					<div>
+
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃" width="120"
+								height="120">
+						</picture>
+					</div>
+
+					<br />
+				</section>
+
+
+				<section>
+					<h3>Index Laws</h3>
+
+					<table style="width: 100%;font-size: 94%;padding: none;">
+						<tr>
+							<td style="width: 75%; text-align: left;">
+								<ul style="line-height: 80px;margin-left: -10px;">
+									<li class="fragment" data-fragment-index="1"><strong>Multiplying:</strong> \( a^m
+										\times a^n = a^{m+n} \)</li>
+									<li class="fragment" data-fragment-index="2"><strong>Dividing:</strong> \(
+										\dfrac{a^m}{a^n} = a^{m-n} \)</li>
+									<li class="fragment" data-fragment-index="3"><strong>Power of a power:</strong> \(
+										\left(a^m\right)^n = a^{m \times n} \)</li>
+									<li class="fragment" data-fragment-index="4"><strong>Power of a product:</strong> \(
+										\left(ab\right)^n = a^n b^n \)</li>
+									<li class="fragment" data-fragment-index="5"><strong>Zero index:</strong> \( a^0 = 1
+										\quad (a \neq 0) \)</li>
+									<li class="fragment" data-fragment-index="6"><strong>Negative index:</strong> \(
+										a^{-n} = \dfrac{1}{a^n} \)</li>
+								</ul>
+							</td>
+							<td style="width: 25%; text-align: center;" class="fragment" data-fragment-index="7">
+								<div style="border: 1px solid rgb(188, 188, 188); padding: 20px; border-radius: 15px;">
+									<strong>Extra:</strong><br />
+									$\large a^{\frac{1}{n}} = \sqrt[n]{a}$
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+				<section>
+					<h3>Examples: Multiply and Divide</h3>
+
+					<div class="left-txt size-95">
+						<ul style="line-height: 120px;">
+							<li>
+								<span>
+									\( x^3 \times x^4 \)
+								</span>
+								<!--<span class="fragment" data-fragment-index="1">
+									\( = x^{3+4}\)
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									\( = x^7 \)
+								</span>-->
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<span>
+									\(\dfrac{y^5}{y^2} \)
+								</span>
+								<!--<span class="fragment" data-fragment-index="4">
+									\( = y^{5 - 2}\)
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									\(= y^3 \)
+								</span>-->
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								<span>
+									\( 2^3 \times 2^2 \)
+								</span>
+								<!--<span class="fragment" data-fragment-index="7">
+									\( = 2^{3+2}\)
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									\( =2^6\)
+								</span>
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									\( =32\)
+								</span>-->
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Power of a Power / Product</h3>
+
+					<div class="left-txt size-95">
+						<ul style="line-height: 120px;">
+							<li class="fragment" data-fragment-index="0">
+								<span>
+									\(\left(x^2\right)^3 \)
+								</span>
+								<!--<span class="fragment" data-fragment-index="1">
+									\( = x^{2 \times 3} \)
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									\(= x^6 \)
+								</span>-->
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<span>
+									\(\left(3a^2\right)^2 \)
+								</span>
+								<!--<span class="fragment" data-fragment-index="4">
+									\( = 3^2 \times a^4 \)
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									\(= 9a^4 \)
+								</span>-->
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								<span>
+									\(\left(2x^3\right)^2 \)
+								</span>
+								<!--<span class="fragment" data-fragment-index="7">
+									\( = 2^2 \times x^6 \)
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									\(= 4x^6 \)
+								</span>-->
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Zero and Negative Indices</h3>
+
+					<div class="left-txt size-95">
+						<ul style="line-height: 80px;">
+							<li class="fragment" data-fragment-index="0">
+								<span>
+									\(a^0 = 1 \)
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									(as long as \( a \neq 0 \))
+								</span>
+
+								<p>
+									&nbsp;
+									<!--<span class="fragment" data-fragment-index="3">
+										👉 \(\;7^0 = 1; \;\)
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										also \(\;(-1234)^0 = 1 \)
+									</span>-->
+								</p>
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								\( a^{-n} = \dfrac{1}{a^n} \)
+								<p>
+									&nbsp;
+									<!--<span class="fragment" data-fragment-index="6">
+										👉 \(\;10^{-2}\)
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										\( = \dfrac{1}{10^2} \)
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										\( = \dfrac{1}{100} \)
+									</span>-->
+								</p>
+							</li>
+							<li class="fragment" data-fragment-index="9">
+								$a^{\frac{1}{n}}=\sqrt[n]{a}$
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section>
+					<h3>Try These 📝</h3>
+
+					<div class="left-txt size-95">
+						<ol style="line-height: 90px;">
+							<li> \( x^5 \times x^3 \) </li>
+							<li> \( \dfrac{a^6}{a^2} \) </li>
+							<li> \( \left(b^4\right)^2 \) </li>
+							<li> \( \sqrt[4]{y^2} \) </li>
+							<li> \( 5^0 + 3^{-1} \) </li>
+						</ol>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+
+
+
+			</section>
+
+			<section>
+
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
