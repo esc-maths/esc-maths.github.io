@@ -105,6 +105,10 @@ ol.r>li:before {
   box-shadow: none;
 }
 
+.reveal h2 {
+  text-transform: none;
+}
+
 .reveal h3 {
   text-transform: none;
   font-size: 90%;
