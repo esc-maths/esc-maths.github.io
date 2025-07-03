@@ -39,6 +39,16 @@
 		<script src="../reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
 
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
 </head>
 
 <body>
@@ -1059,15 +1069,17 @@
 
 				<section data-auto-animate>
 					<h6>Probability distributions</h6>
-					
+
 					<div>
-						<a href="https://www.dynamicmath.xyz/eng-scg/probability-distributions.html#/" target="_blank"><img style="width:70%" src="images/week-11/prob-dist-tool.png"></a>
+						<a href="https://www.dynamicmath.xyz/eng-scg/probability-distributions.html#/"
+							target="_blank"><img style="width:70%" src="images/week-11/prob-dist-tool.png"></a>
 					</div>
 
 					<div style="font-size: 50%;margin-top: -20px;">
 						<p>
-							<a href="https://www.dynamicmath.xyz/eng-scg/probability-distributions.html#/" target="_blank">Open tool <i class="fa fa-external-link-alt"></i></a>
-							
+							<a href="https://www.dynamicmath.xyz/eng-scg/probability-distributions.html#/"
+								target="_blank">Open tool <i class="fa fa-external-link-alt"></i></a>
+
 						</p>
 					</div>
 					<br />
@@ -1138,26 +1150,26 @@
 								\( X_B \sim \text{Poisson}(3),\)
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								and \( X_C \sim \text{Poisson}(4) ,\) 
+								and \( X_C \sim \text{Poisson}(4) ,\)
 							</span>
 						</p>
 					</div>
 
 					<div class="size-70">
 						<p class="fragment" data-fragment-index="4" style="margin-left: 40px;margin-top: -20px;">
-							
+
 							<span>
 								All independent.
 							</span>
 
-							
+
 						</p>
 					</div>
 
 					<div class="size-70 left-txt">
 						<p class="fragment" data-fragment-index="5" style="margin-left: 40px;margin-top: 50px;">
-							
-							<span >
+
+							<span>
 								The total number of customers served is:
 
 							</span>
@@ -1224,7 +1236,7 @@
 					</div>
 					<br />
 					<br />
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -1248,7 +1260,7 @@
 								Use the complement rule:
 							</span>
 
-							
+
 						</p>
 					</div>
 
@@ -1259,12 +1271,14 @@
 							\quad P(X > 5) = 1 - P(X \leq 5)
 							$
 							<span class="fragment" data-fragment-index="2">
-								$= 1 - \ds \sum_{k=0}^{5}P\left(X=k\right) $ 
+								$= 1 - \ds \sum_{k=0}^{5}P\left(X=k\right) $
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="3" style="font-size: 90%;">
 							$
-							\qquad \qquad = 1 - \left[ \ds \frac{e^{-9}9^{0}}{0!} + \frac{e^{-9}9^{1}}{1!}  + \frac{e^{-9}9^{2}}{2!}  + \frac{e^{-9}9^{3}}{3!} + \frac{e^{-9}9^{4}}{4!} + \frac{e^{-9}9^{5}}{5!}\right]
+							\qquad \qquad = 1 - \left[ \ds \frac{e^{-9}9^{0}}{0!} + \frac{e^{-9}9^{1}}{1!} +
+							\frac{e^{-9}9^{2}}{2!} + \frac{e^{-9}9^{3}}{3!} + \frac{e^{-9}9^{4}}{4!} +
+							\frac{e^{-9}9^{5}}{5!}\right]
 							$
 						</p>
 
@@ -1274,7 +1288,7 @@
 					<br />
 				</section>
 
-				
+
 
 				<section data-auto-animate>
 					<h6>Key properties of the Exponential distribution</h6>
@@ -1302,7 +1316,7 @@
 									<span class="fragment" data-fragment-index="2">
 										$\quad P(X\lt x)=$
 									</span>
-									
+
 									$\ds F_X(x) =\ds \left\{
 									\begin{array}{rl}
 									1-e^{-\lambda x}, & x\geq 0\\

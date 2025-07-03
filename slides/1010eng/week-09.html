@@ -38,7 +38,16 @@
 		<script src="../reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
 
-	
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
 
 </head>
 
@@ -50,7 +59,8 @@
 			<section>
 
 				<div style="margin-top: -40px; margin-bottom: 40px;">
-					<img src="images/gu-logo-black-white.gif" style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+					<img src="images/gu-logo-black-white.gif"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
 				</div>
 
 				<h2>
@@ -63,7 +73,7 @@
 				</h2>
 
 				<p style="margin-top: 50px;">Week 9 - Probability</p>
-				<br/>
+				<br />
 			</section>
 
 
@@ -109,8 +119,8 @@
 							- <strong>Independent & Not independent events</strong>
 						</p>
 						<p class="fragment" data-fragment-index="11">
-							- <strong>Conditional probability:</strong><br/>
-							
+							- <strong>Conditional probability:</strong><br />
+
 						</p>
 
 
@@ -120,7 +130,7 @@
 
 					<div class="size-65">
 						<span class="fragment" data-fragment-index="12">
-							$P(B|A) = \dfrac{P(A\text{ and }B)}{ P(A)},\,$  $\,P(A|B) = \dfrac{P(A\text{ and }B)}{
+							$P(B|A) = \dfrac{P(A\text{ and }B)}{ P(A)},\,$ $\,P(A|B) = \dfrac{P(A\text{ and }B)}{
 							P(B)}$
 						</span>
 					</div>
@@ -148,12 +158,12 @@
 							<li class="fragment" data-fragment-index="1">
 								Permutations of selecting $r$
 								things from $n$ distinct objects (order matters):
-								$$\large  ^nP_r = \dfrac{n!}{(n-r)!}$$
+								$$\large ^nP_r = \dfrac{n!}{(n-r)!}$$
 							</li>
 							<li class="fragment" data-fragment-index="2">
 								Combinations of selecting $r$
 								things from $n$ objects (order does not matter):
-								$$\large  ^nC_r=\frac{^nP_r}{r!} = \frac{n!}{r!(n-r)!} $$
+								$$\large ^nC_r=\frac{^nP_r}{r!} = \frac{n!}{r!(n-r)!} $$
 							</li>
 						</ul>
 
@@ -268,38 +278,39 @@
 										<p>
 											$
 											\left.
-											\begin{array}{r} 
+											\begin{array}{r}
 											P(\text{D and +}) = 0.001 \times 0.99 = 0.00099\\
 											P(\text{D' and +}) = 0.999 \times 0.01 = 0.00999
 											\end{array}
-											\right\} P(+) 
+											\right\} P(+)
 											\left\{
-											\begin{array}{l} 
+											\begin{array}{l}
 											\text{total prob. of a}\\
 											\text{positive result}
 											\end{array}\right.
-											
+
 											$
 										</p>
-										
+
 
 										<p>
 											Prob. of having the disease given a positive test result
 										</p>
 										<p>
-											$P(\text{D}\, | \,+ ) = \dfrac{P(\text{D} \text{ and } +)}{P(+)}= \dfrac{0.00099}{0.01098}\approx 9\%$
+											$P(\text{D}\, | \,+ ) = \dfrac{P(\text{D} \text{ and } +)}{P(+)}=
+											\dfrac{0.00099}{0.01098}\approx 9\%$
 										</p>
 									</td>
 								</tr>
 							</table>
-							
+
 						</div>
 						<br />
 						<br />
 						<br />
 						<br />
 						<br />
-						<br/>
+						<br />
 					</div>
 				</section>
 				<section data-auto-animate>
@@ -324,11 +335,11 @@
 
 						<div style="text-align: center;">
 							<img style="width: 50%;" src="images/week-09/tree-diragam-conditional-prob.svg">
-							
+
 						</div>
 						<br />
-						<br/>
-						
+						<br />
+
 					</div>
 				</section>
 
@@ -380,7 +391,7 @@
 						</p>
 
 					</div>
-					<br/>
+					<br />
 
 				</section>
 
@@ -391,7 +402,7 @@
 					<div class="size-80" style="margin-top: 50px;margin-bottom: 50px;">
 
 						<p>
-						⭐️	&nbsp;\(P(B|A)= \dfrac{P(A|B) \cdot P(A)}{P(B)}\) &nbsp; ⭐️
+							⭐️ &nbsp;\(P(B|A)= \dfrac{P(A|B) \cdot P(A)}{P(B)}\) &nbsp; ⭐️
 						</p>
 
 					</div>
@@ -465,7 +476,7 @@
 						<img class="fragment fade-in" data-fragment-index="12" style="width:60%;"
 							src="images/week-09/tree-monty-hall-14.svg">
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-background-iframe="sketches/monty-hall" data-background-interactive>
@@ -752,7 +763,7 @@
 							<span class="fragment" data-fragment-index="4">$(1-p)^{n-k}$</span>
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -835,7 +846,7 @@
 							</tr>
 						</table>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -1017,13 +1028,13 @@
 						</tr>
 					</table>
 
-					
+
 
 				</section>
 				<section data-auto-animate>
 					<h5>Statistical Analysis</h5>
 
-					
+
 					<table style="text-align: center; border-collapse: collapse; font-size: 48%;" border="1">
 						<thead>
 							<tr>
@@ -1152,18 +1163,18 @@
 							<tr>
 								<td style="border: none;"></td>
 								<td style="border: none;text-align: right;">
-									<span  class="fragment"  data-fragment-index="5">
+									<span class="fragment" data-fragment-index="5">
 										<strong>Mean</strong> $=$
 									</span>
 									<span class="fragment" data-fragment-index="5">$\bar{x} =$</span>
 								</td>
 								<td style="border: none;text-align: center;">
-									
+
 									<span class="fragment" data-fragment-index="3">$\large ^{252}/_{36}$</span>
 									<span class="fragment" data-fragment-index="4">$= 7$</span>
 								</td>
-								<td ></td>
-								<td  style="border: none;text-align: right;"  class="fragment" data-fragment-index="11">
+								<td></td>
+								<td style="border: none;text-align: right;" class="fragment" data-fragment-index="11">
 									<strong>Variance</strong>
 								</td>
 								<td style="border: none;text-align: left;" class="fragment" data-fragment-index="10">
@@ -1176,10 +1187,10 @@
 						</tbody>
 					</table>
 
-					
 
 
-					<br/>
+
+					<br />
 
 
 				</section>
@@ -1233,7 +1244,7 @@
 								$\;\;\text{SD} =$ $\sqrt{^{210}/_{36}} \approx 2.42$
 							</span>
 						</p>
-						<p  class="fragment" data-fragment-index="5" style="font-size: 70%;">👉 Sum of two dice 🎲🎲</p>
+						<p class="fragment" data-fragment-index="5" style="font-size: 70%;">👉 Sum of two dice 🎲🎲</p>
 					</div>
 					<br />
 
@@ -1244,7 +1255,7 @@
 
 					<div class="size-50">
 						<p>
-							<span >
+							<span>
 								$\bar{x} = 7,\;\;$
 							</span>
 							<span>
@@ -1386,7 +1397,8 @@ plt.show()</code></pre>
 
 								</td>
 
-								<td style="text-align: center; font-size: 52%;width:40%;"  class="fragment" data-fragment-index="0" >
+								<td style="text-align: center; font-size: 52%;width:40%;" class="fragment"
+									data-fragment-index="0">
 
 
 									<p>$\bar{x} = \ds\sum \big[k \cdot P(X=k)\big]$</p>
@@ -1464,7 +1476,9 @@ box-sizing: border-box;        /* Ensures border is included in size */
 					<div style="font-size: 60%;margin-top: -30px;">
 						<p>"Don't rely solely on summary statistics—always visualise your data."</p>
 						<p style="margin-top: -10px;">
-							Source: <a href="https://www.research.autodesk.com/publications/same-stats-different-graphs/" target="_blank">Same Stats, Different Graphs 
+							Source: <a
+								href="https://www.research.autodesk.com/publications/same-stats-different-graphs/"
+								target="_blank">Same Stats, Different Graphs
 								<i class="fa fa-external-link-alt"></i></a>
 						</p>
 					</div>
