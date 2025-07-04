@@ -11,10 +11,11 @@
 <body>
 
     <div id="info">
-			
-			Based on <a href="https://web.archive.org/web/20210101053442/http://oos.moxiecode.com/js_webgl/cubescape/" target="_blank" rel="noopener">Cubescape</a>
-			by <a href="https://github.com/oosmoxiecode" target="_blank" rel="noopener">oosmoxiecode</a>
-	</div>
+
+        Based on <a href="https://web.archive.org/web/20210101053442/http://oos.moxiecode.com/js_webgl/cubescape/"
+            target="_blank" rel="noopener">Cubescape</a>
+        by <a href="https://github.com/oosmoxiecode" target="_blank" rel="noopener">oosmoxiecode</a>
+    </div>
 
 
     <script type="importmap">
@@ -45,7 +46,12 @@
         const baseColors = [];
 
         const color = new THREE.Color();
-        const colors = [new THREE.Color(0x00ffff), new THREE.Color(0xffff00), new THREE.Color(0xff00ff)];
+        //const colors = [new THREE.Color(0x00ffff), new THREE.Color(0xffff00), new THREE.Color(0xff00ff)];
+        const colors = [
+            new THREE.Color(0xffb3ba), // pastel pink
+            new THREE.Color(0xbaffc9), // pastel mint green
+            new THREE.Color(0xbae1ff)  // pastel baby blue
+        ];
         const animation = { t: 0 };
         let currentColorIndex = 0;
         let nextColorIndex = 1;
@@ -184,7 +190,7 @@
                 mesh.getMatrixAt(i, dummy.matrix);
                 dummy.matrix.decompose(dummy.position, dummy.quaternion, dummy.scale);
 
-                dummy.position.y = Math.abs( 2.5 * Math.sin((time*2 + seeds[i]) * seeds[i] * 1.02));
+                dummy.position.y = Math.abs(2.5 * Math.sin((time * 2 + seeds[i]) * seeds[i] * 1.02));
 
                 dummy.updateMatrix();
 
