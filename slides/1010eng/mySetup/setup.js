@@ -12,7 +12,8 @@
             // - "all":      Always show the slide number
             // - "print":    Only when printing to PDF
             // - "speaker":  Only in the speaker view
-			slideNumber: false,
+            // - "c/t":  Flattened slide number / total slides
+			slideNumber: "c/t",
 
 			// Vertical centering of slides
 			center: true,
