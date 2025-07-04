@@ -184,7 +184,7 @@
                 mesh.getMatrixAt(i, dummy.matrix);
                 dummy.matrix.decompose(dummy.position, dummy.quaternion, dummy.scale);
 
-                dummy.position.y = Math.abs(2.5*Math.sin((time/3 + seeds[i]) * 2 + seeds[i]));
+                dummy.position.y = Math.abs( 2.5 * Math.sin((time*2 + seeds[i]) * seeds[i] * 1.02));
 
                 dummy.updateMatrix();
 
