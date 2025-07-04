@@ -1,7 +1,17 @@
+/*
+    Written by Juan Carlos Ponce Campuzano
+    https://www.dynamicmath.xyz/
+    Date: 4/Ju/2025
+
+    References: 
+    https://en.wikipedia.org/wiki/Singular_value_decomposition
+    https://dmicz.github.io/machine-learning/svd-image-compression/
+*/
+
 let img;
 let grayMatrix = [];
 let compressedMatrix = [];
-let k = 21; // default k value
+let k = 131; // default k value
 let slider;
 let originalGfx;
 
@@ -10,8 +20,8 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(2 * 300, 420); // 300x400 images + space for text
-    img.resize(300, 400);
+    createCanvas(2 * 250, 370); // 250x350 images + space for text
+    img.resize(250, 350);
     img.loadPixels();
 
     // Convert to grayscale matrix
@@ -44,7 +54,7 @@ function setup() {
     originalGfx.updatePixels();
 
     // Slider
-    slider = createSlider(1, 300, k, 10);
+    slider = createSlider(1, 250, k, 1);
     slider.position(10, height + 5);
     slider.style('width', `${width - 20}px`);
 }
