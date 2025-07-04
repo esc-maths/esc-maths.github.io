@@ -58,9 +58,13 @@
 				</div>
 
 				<div>
-					<span class="size-85"><h2>Lineal Algebra & Applications</h2></span>
-					<span class="size-95"><p style="font-weight: bold; font-size: 120%;">2201NSC</p></span>
-					
+					<span class="size-85">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-95">
+						<p style="font-weight: bold; font-size: 120%;">2201NSC</p>
+					</span>
+
 				</div>
 
 				<br />
@@ -70,8 +74,7 @@
 			</section>
 
 			<section>
-				<section data-background-iframe="sketches/matrix/"
-			         data-background-color="white">
+				<section data-background-iframe="sketches/matrix/" data-background-color="white">
 					<h3>Lineal Algebra & Applications</h3>
 
 					<br />
@@ -102,47 +105,46 @@
 
 				<section data-auto-animate>
 					<h3>Rough outline</h3>
-					
+
 
 					<div style="margin-top:30px">
 						<table style="width:100%">
-							<tr >
+							<tr>
 								<td>&nbsp;&nbsp;
 								</td>
 								<td style="width:50%;">
 
 									<div style="height:400px;width:400px;text-align:center">
-										<iframe style="border:0px;" 
-										width="400px" height="400px"
-										data-src="sketches/zeros-ones/"  scrolling="no"></iframe>
+										<iframe style="border:0px;" width="400px" height="400px"
+											data-src="sketches/zeros-ones/" scrolling="no"></iframe>
 									</div>
-									
+
 								</td>
 								<td style="width:50%;font-size:70%">
 									<p class="fragment" data-fragment-index="0">
 										\[
 										A = \left(
-											\begin{array}{cccc}
-											a_{11} &  a_{12} & \cdots & a_{1n} \\
-											a_{21} &  a_{22} & \cdots & a_{2n} \\
-											a_{31} &  a_{32} & \cdots & a_{3n} \\
-											\vdots &  \vdots & \ddots & \vdots\\
-											a_{m1} &  a_{m2} &\cdots & a_{mn} \\
-											\end{array}
-											\right)
-											\quad
+										\begin{array}{cccc}
+										a_{11} & a_{12} & \cdots & a_{1n} \\
+										a_{21} & a_{22} & \cdots & a_{2n} \\
+										a_{31} & a_{32} & \cdots & a_{3n} \\
+										\vdots & \vdots & \ddots & \vdots\\
+										a_{m1} & a_{m2} &\cdots & a_{mn} \\
+										\end{array}
+										\right)
+										\quad
 										\]
 									</p>
 								</td>
 							</tr>
 						</table>
 					</div>
-					<br/>
-					
+					<br />
+
 				</section>
 				<section data-auto-animate>
 					<h3>Rough outline</h3>
-					
+
 
 					<div style="margin-top:55px">
 						<table style="width:100%">
@@ -150,14 +152,14 @@
 								<td style="width:60%;text-align:center">
 									<img style="width:100%" data-src="images/week-01/system-planes-800.gif">
 									<p style="font-size:15px;margin-top:0px">
-										<strong>Source:</strong> 
+										<strong>Source:</strong>
 										<a href="https://esc-maths.github.io/slides/1010eng/week-10.html#/3/1"
-										target="_blank">Visualization Guass-Jordan Elimination</a>
+											target="_blank">Visualization Guass-Jordan Elimination</a>
 									</p>
-									
+
 								</td>
 								<td style="width:40%;font-size:60%">
-									
+
 									<p>
 										\[
 										\left(
@@ -170,11 +172,11 @@
 										\left(
 										\begin{array}{c}
 										x_{1} \\
-										\vdots  \\
-										x_{n}  \\
+										\vdots \\
+										x_{n} \\
 										\end{array}
 										\right)
-										= 
+										=
 										\left(
 										\begin{array}{c}
 										b_{1} \\
@@ -189,18 +191,18 @@
 										A \mathbf x = \mathbf b
 										\]
 									</p>
-									<br><br/>
+									<br><br />
 								</td>
 							</tr>
 						</table>
 					</div>
-					<br/>
-					
+					<br />
+
 				</section>
-				
+
 				<section data-auto-animate>
 					<h3>Rough outline</h3>
-					
+
 
 					<div style="margin-top:40px">
 						<table style="width:100%">
@@ -208,58 +210,95 @@
 								<td style="width:50%;text-align:center">
 									<img style="width:80%" data-src="images/week-01/Euler2a.gif">
 									<p style="font-size:15px;margin-top:-20px">
-										<strong>Source:</strong> 
+										<strong>Source:</strong>
 										<a href="https://en.wikipedia.org/wiki/Rotation_matrix#General_rotations"
-										target="_blank">General rotations</a>
+											target="_blank">General rotations</a>
 									</p>
-									
+
 								</td>
 								<td style="width:50%;font-size:55%">
-									
+
 									<p>
 										$$
-										{\begin{bmatrix}\cos \gamma &amp;-\sin \gamma &amp;0\\\sin \gamma &amp;\cos \gamma &amp;0\\0&amp;0&amp;1\\\end{bmatrix}}\qquad {\begin{bmatrix}\cos \beta &amp;0&amp;\sin \beta \\0&amp;1&amp;0\\-\sin \beta &amp;0&amp;\cos \beta \\\end{bmatrix}}
+										{\begin{bmatrix}\cos \gamma &amp;-\sin \gamma &amp;0\\\sin \gamma &amp;\cos
+										\gamma &amp;0\\0&amp;0&amp;1\\\end{bmatrix}}\qquad {\begin{bmatrix}\cos \beta
+										&amp;0&amp;\sin \beta \\0&amp;1&amp;0\\-\sin \beta &amp;0&amp;\cos \beta
+										\\\end{bmatrix}}
 										$$
 									</p>
 									<p>
-										$${\begin{bmatrix}1&amp;0&amp;0\\0&amp;\cos \alpha &amp;-\sin \alpha \\0&amp;\sin \alpha &amp;\cos \alpha \\\end{bmatrix}}$$
+										$${\begin{bmatrix}1&amp;0&amp;0\\0&amp;\cos \alpha &amp;-\sin \alpha
+										\\0&amp;\sin \alpha &amp;\cos \alpha \\\end{bmatrix}}$$
 									</p>
-									
+
 								</td>
 							</tr>
 						</table>
 					</div>
-					<br/><br/>
-					
+					<br /><br />
+
 				</section>
 
-				<section  data-auto-animate>
-					<h4>Current applications: Searching engines</h4>
+				<section data-background-iframe="sketches/vectors/v.html" data-background-interactive
+					data-background-color="rgb(0, 0, 0)" data-background-opacity="0.99" data-auto-animate>
+					<h3 style="
+				  font-size:80%;margin-top:0px;
+				  background-color: rgb(231, 231, 231);
+				  border: 2px solid rgb(0, 0, 0);
+				  padding: 10px;
+				  margin: auto;
+				  color: black;
+				  width: 55%;
+				  ">Vector space representation</h3>
+
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				</section>
+
+				<section data-background-iframe="sketches/points/" data-background-interactive
+					data-background-color="rgb(0, 0, 0)" data-background-opacity="0.9" data-auto-animate>
+					<h3 style="
+			     font-size:80%;margin-top:0px;
+			     background-color: rgb(231, 231, 231);
+			     border: 2px solid rgb(0, 0, 0);
+			     padding: 10px;
+			     margin: auto;
+			     color: black;
+			     width: 55%;
+			     ">Vector space representation</h3>
+
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Applications: Searching engines</h4>
 					<img width="80%" data-src="images/week-01/search-engine.png">
-					<br/>
+					<br />
 				</section>
 
-				<section  data-auto-animate>
-					<h4>More recent applecations: AI & Machine learning</h4>
+				<section data-auto-animate>
+					<h4>Applications: AI & Machine learning</h4>
 					<img width="65%" data-src="images/week-01/ai-ml.jpeg">
 				</section>
-				
+
 				<section data-auto-animate>
 					<h3>DALL$\cdot$E</h3>
 					<img width="90%" data-src="images/week-01/dall-e.png">
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
 					<h3>DALL$\cdot$E</h3>
 					<video loop style="width:100%;" data-autoplay data-src="images/week-01/dalle2.mp4"></video>
-					<p style="font-size:18px;margin-top:-5px">More details here: <a href="https://arxiv.org/abs/2204.06125" target="_blank">Hierarchical Text-Conditional Image Generation with CLIP Latents</a></p>
-					
-					<br/><br/>
-					
+					<p style="font-size:18px;margin-top:-5px">More details here: <a
+							href="https://arxiv.org/abs/2204.06125" target="_blank">Hierarchical Text-Conditional Image
+							Generation with CLIP Latents</a></p>
+
+					<br /><br />
+
 				</section>
 
-				
+
 
 				<section data-auto-animate>
 					<img style="width: 100%;" src="images/week-01/branches.png">
