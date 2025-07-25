@@ -1,9 +1,9 @@
 let cols = 10;
-let rows = 10;
+let rows = 4;
 let sectors = [];
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(800, 200);
   colorMode(HSB,360,100,100,100)
   angleMode(DEGREES);
   noStroke();
