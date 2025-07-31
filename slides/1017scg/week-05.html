@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1017SCG - Week 5</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<h2>
+					<span class="size-70">
+						Foundation Mathematics
+						<br />
+						1017SCG
+					</span>
+				</h2>
+
+				<br />
+				<p style="margin-top: 50px;">Week 5
+				</p>
+				<br /><br />
+			</section>
+
+			<section>
+				<h3>
+					Topics for Week 5
+				</h3>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Solving Linear Equations
+						</li>
+						<li>
+							Solving Quadratic Equations
+						</li>
+						<li>
+							Solving Logarithmic Equations
+						</li>
+						<li>
+							Solving Exponential Equations
+						</li>
+					</ul>
+
+				</div>
+
+
+				<br />
+				<br />
+			</section>
+
+			<section>
+
+				<section>
+					<h3>Solving Equations</h3>
+
+
+					<div class="">
+
+						<p class="fragment" data-fragment-index="0">
+							Solve: Find the value of the unknown.
+							\[
+							x+1= 3
+							\]
+
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							\[
+							x= 2
+							\]
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							\[
+							\text{Since }\;2 + 1 = 3
+							\]
+						</p>
+
+
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h3>Why do we need to solve equations in general?</h3>
+
+					<div>
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="250"
+								height="250">
+						</picture>
+					</div>
+
+					<div class="size-80">
+						<p>\(2x-7=4,\;\; 2x^2-x+1=0,\;\; \log_3(2x) = 6,\;\; 4^x+2 = 3 \)</p>
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>📊 Linear Regression</h3>
+					<div class="size-70 left-txt">
+						<p><strong>Predicting height from age:</strong> Suppose we collect data from
+							children aged 2 to 13 and record their heights.</p>
+
+						<div style="text-align: center; margin-top: -20px;" class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="0" style="width: 60%;"
+								src="images/week-05/linear-regression.svg">
+							<img class="fragment fade-in" data-fragment-index="0" style="width: 60%;"
+								src="images/week-05/linear-regression-h.svg">
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>📊 Linear Regression</h3>
+					<div class="size-70 left-txt">
+						<p><strong>Predicting height from age:</strong></p>
+
+						<div style="text-align: center; margin-top: -20px;margin-bottom: -20px;"><img
+								style="width: 45%;" src="images/week-05/linear-regression-h.svg"></div>
+
+
+						<p style="font-size: 1em;">The data points suggest a linear trend:</p>
+						<p style="font-size: 1em;">\[ h(x) = m x + 70.36 \]</p>
+
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h3>📈 Linear Regression</h3>
+					<div class="size-75 left-txt">
+						<p><strong>Predicting height from age:</strong></p>
+
+						<p style="font-size: 1.2em;">The data points suggest a linear trend:</p>
+						<p style="font-size: 1.4em;">\[ h(x) = m x + 70.36 \]</p>
+
+						<ul>
+							<li class="fragment" data-fragment-index="0">\( x \): age in years</li>
+							<li class="fragment" data-fragment-index="1">\( h(x) \): predicted height in cm</li>
+							<li class="fragment" data-fragment-index="2">Slope \( m \): average growth per year</li>
+						</ul>
+
+						<p class="fragment" data-fragment-index="3">This line is the <strong>line of best fit</strong> —
+							found using linear regression.</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>🚀 Motion of Objects/Particles Affected by Gravity</h5>
+
+					<div>
+						<video muted loop style="width:80%;" data-autoplay
+							data-src="https://www.dynamicmath.xyz/math1052/images/lect-02/parabola-water.mov"></video>
+					</div>
+
+
+					<div style="font-size:80%;margin-top:-20px" class="fragment" data-fragment-index="1">
+						<p>$y(x) = \ds \frac{g}{2u^2} x^2+\frac{v}{u}x$</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>☕️ Law of Cooling & 🧫 Population Growth</h5>
+
+
+					<div>
+						<table style="font-size: 70%; text-align: center;">
+							<tr>
+								<td style="text-align: center;border: none;" class="fragment" data-fragment-index="0">
+									<img style="width:370px"
+										src="https://www.geogebra.org/resource/bjvchnzq/PjLWHuNlqlXBLwPI/material-bjvchnzq.png">
+								</td>
+								<td style="text-align: center;border: none;" class="fragment" data-fragment-index="1">
+									<img style="width:440px"
+										src="https://www.geogebra.org/resource/hwezty7d/VpBU7WG133ZjUQOG/material-hwezty7d.png">
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;" class="fragment" data-fragment-index="0">
+									\(T(t)=\left(T_0-T_m\right) e^{-kt} + T_m\)
+								</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="1">
+									$\ds P(t) = \frac{\theta P_0 e^{rt}}{\theta-P_0+P_0e^{rt}}$
+
+								</td>
+							</tr>
+						</table>
+					</div>
+
+
+
+					<br /><br />
+				</section>
+
+				<section>
+
+					<h4>
+						In summary
+					</h4>
+
+					
+
+					<iframe style="width: 100%; height: 550px;border: none; margin-top: -20px;" src="sketches/sir-model-simple/"></iframe>
+					
+					
+					<div class="left-txt size-50" style="margin-top: -20px;">
+						<p>
+							Solving equations teaches logical thinking and is a 
+							powerful tool for predicting, designing, optimizing, 
+							and understanding the world around us.
+						</p>
+					</div>
+					<br/>
+				</section>
+			</section>
+
+
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
