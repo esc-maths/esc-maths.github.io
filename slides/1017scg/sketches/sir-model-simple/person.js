@@ -66,9 +66,9 @@ class Person {
       this.pos.x = constrain(this.pos.x, halfSize, simulationState.bounds.x - halfSize);
     }
 
-    if (this.pos.y - halfSize < 0 || this.pos.y + halfSize > simulationState.bounds.y) {
+    if (this.pos.y - halfSize < 0 || this.pos.y + halfSize > simulationState.bounds.y-5) {
       this.vel.y *= -1;
-      this.pos.y = constrain(this.pos.y, halfSize, simulationState.bounds.y - halfSize);
+      this.pos.y = constrain(this.pos.y, halfSize, simulationState.bounds.y - 5 - halfSize);
     }
   }
 
