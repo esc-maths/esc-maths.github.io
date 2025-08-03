@@ -1,10 +1,14 @@
-  /*
+/*
 
-Learning Shaders: RayMarching starting point
+"RayMarching" 
+
+You can use this shader as a template for ray marching shaders
+
+Based upon Kishimisy's video tutorials: https://youtu.be/khblXafu7iA
 
 Author: Juan Carlos Ponce Campuzano
 Website: https://jcponce.github.io
-Date: 15/Jan/2024
+Date: 15/Jun/2025
 
 */
 

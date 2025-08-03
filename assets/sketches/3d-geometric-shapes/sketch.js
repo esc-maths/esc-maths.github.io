@@ -1,10 +1,11 @@
-  /*
+/*
 
-Learning Shaders: RayMarching starting point
+"Da Rasterizer" by TDM: 
+https://www.shadertoy.com/view/MsjSzz
 
-Author: Juan Carlos Ponce Campuzano
+This version: Juan Carlos Ponce Campuzano
 Website: https://jcponce.github.io
-Date: 15/Jan/2024
+Date: 3/Aug/2025
 
 */
 
