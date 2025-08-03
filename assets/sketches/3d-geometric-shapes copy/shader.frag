@@ -90,8 +90,6 @@ void main() {
     vec2 uv = ( coord * 2.0 - 1.0 ) * iResolution.xy / iResolution.y;
     uv = uv * (1.0 + pow(length(uv)*0.4,0.5)) * 0.6; // Spherical view
 
-    vec3 col = vec3(0.2, 0.5, 0.4); // final pixel color
-
     float line_width = 1.5; 
     float time = iTime * 0.31415;
     vec3 c = vec3(mix(vec3(0.01,0.03,0.1), vec3(0.0), 0.5*pow(length(uv)*0.5,2.0)));
