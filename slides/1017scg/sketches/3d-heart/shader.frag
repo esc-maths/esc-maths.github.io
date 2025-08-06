@@ -44,6 +44,15 @@ vec3 forwardSF( float i, float n)
     return vec3( cos(phi)*sinTheta, sin(phi)*sinTheta, zi);
 }
 
+float almostIdentity( float x, float m, float n )
+{
+    if( x>m ) return x;
+    float a = 2.0*n - m;
+    float b = 2.0*m - 3.0*n;
+    float t = x/m;
+    return (a*t + b)*t*t + n;
+}
+
 vec2 map( vec3 q )
 {
     q *= 100.0;
@@ -53,16 +62,16 @@ vec2 map( vec3 q )
 
     float r = 15.0;
     q.y -= r;
-    float ani = pow( 0.5 + 0.5 * sin(TWO_PI * iTime + q.y/25.0), 4.0 );
+    float ani = - 1.0 + 1.0*pow( 0.5 + 0.5 * sin(TWO_PI * iTime + q.y/25.0), 4.0 );
     q *= 1.0 - 0.2 * vec3(1.0,0.5,1.0) * ani;
     q.y -= 1.5 * ani;
     float x = abs(q.x);
     
-    //x = almostIdentity( x, 1.0, 0.5 ); // remove discontinuity (https://iquilezles.org/articles/functions)
+    x = almostIdentity( x, 1.0, 0.5 ); // remove discontinuity (https://iquilezles.org/articles/functions)
         
     float y = q.y;
     float z = q.z;
-    y = 4.0 + y * 1.2 - x * sqrt(max((20.0 - x)/20.0,0.0));
+    y = 3.0 + y * 1.2 - x * sqrt(max((20.0 - x)/40.0,0.0));
     z *= 2.0 - y/15.0;
     float d = sqrt(x*x + y*y + z*z) - r;
     d = d/3.0;
