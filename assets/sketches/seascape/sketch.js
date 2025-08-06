@@ -26,7 +26,7 @@ Date: 3/Aug/2025
 
     function setup() {
       // disables scaling for retina screens which can create inconsistent scaling between displays
-      //pixelDensity(1);
+      pixelDensity(1);
 
       createCanvas(windowWidth, windowHeight);
       noStroke();
