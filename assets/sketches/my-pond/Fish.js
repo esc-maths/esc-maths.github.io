@@ -8,7 +8,7 @@ class Fish extends Boid {
 	constructor(location, maxSpeed, maxForce) {
 		super(location, maxSpeed, maxForce);
 		this.stripeColor = color(int(random(255)), int(random(255)), int(random(255)));
-		this.bodySizeW = random(100, 200);
+		this.bodySizeW = random(80, 150);
 		this.bodySizeH = this.bodySizeW * 0.3 + random(5);
 		this.mousePosition = createVector(0, 0);
 		this.lastAteTimer = 0;
