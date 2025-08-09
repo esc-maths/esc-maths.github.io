@@ -5,6 +5,13 @@ Alpha particles emitted as clusters (removed after 40s)
 Electrons orbit nucleus with visible orbital rings
 by Juan Carlos Ponce Campuzano 
 10/Aug/2025
+
+
+I know this is not scientifically accurate at the subatomic level, however this representation can still be very useful for teaching and understanding concepts at the right stage.
+
+MinutePhysics has a nice video where he talks about: A Better Way To Picture Atoms
+
+https://youtu.be/W2Xb2GFK2yc
 */
 
 let nucleus = [];
@@ -13,9 +20,8 @@ let electrons = [];
 let lastDecayTime = 0;
 let nextDecayInterval;
 const clusterLifetime = 40000; // 40 seconds
-const nucleusRadius = 45;
-const particleRadius = 6; // size of protons/neutrons
-const minSpacing = particleRadius * 3.5; // minimal allowed distance between nucleons
+const nucleusRadius = 40;
+const particleRadius = 7; // size of protons/neutrons
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
@@ -116,36 +122,97 @@ function windowResized() {
 
 function createNucleus() {
     nucleus = [];
-    const total = 270; // number of nucleons
-    let attempts;
+    const total = 200; // number of nucleons
+    let maxAttempts = 500; // increased from 100 to give more chances
+    let safetyRadius = particleRadius * 1.8; // slightly more than diameter
 
     for (let i = 0; i < total; i++) {
         let col = i % 2 === 0 ? 'red' : 'blue';
-        attempts = 0;
+        let attempts = 0;
         let pos;
-        do {
+        let validPosition = false;
+        
+        while (!validPosition && attempts < maxAttempts) {
             // 50% on surface, 50% inside
             if (random() < 0.5) {
+                // Surface particles - random point on sphere with small variation
                 pos = p5.Vector.random3D().mult(nucleusRadius + random(-3, 3));
             } else {
-                let r = nucleusRadius * pow(random(), 1 / 3);
+                // Interior particles - random point within sphere
+                let r = nucleusRadius * pow(random(), 1/3);
                 pos = p5.Vector.random3D().mult(r);
             }
+            
+            // Check against all existing particles
+            validPosition = true;
+            for (let p of nucleus) {
+                if (p.pos.dist(pos) < safetyRadius) {
+                    validPosition = false;
+                    break;
+                }
+            }
+            
             attempts++;
-        } while (!isFarEnough(pos) && attempts < 100);
-
-        nucleus.push({ pos, col });
-    }
-}
-
-function isFarEnough(newPos) {
-    for (let p of nucleus) {
-        if (p.pos.dist(newPos) < minSpacing) {
-            return false;
+        }
+        
+        if (validPosition) {
+            nucleus.push({ pos, col });
+        } else {
+            console.log("Failed to place particle after", maxAttempts, "attempts");
         }
     }
-    return true;
+    
+    // Optional: After initial placement, try to push overlapping particles apart
+    relaxNucleus();
 }
+
+// New function to help push overlapping particles apart
+function relaxNucleus() {
+    const repulsionStrength = 0.5;
+    const minDistance = particleRadius * 2.2;
+    const iterations = 20;
+    
+    for (let iter = 0; iter < iterations; iter++) {
+        for (let i = 0; i < nucleus.length; i++) {
+            let totalForce = createVector(0, 0, 0);
+            let p1 = nucleus[i];
+            
+            // Check against all other particles
+            for (let j = 0; j < nucleus.length; j++) {
+                if (i === j) continue;
+                
+                let p2 = nucleus[j];
+                let dist = p1.pos.dist(p2.pos);
+                
+                if (dist < minDistance) {
+                    // Calculate repulsion force
+                    let force = p5.Vector.sub(p1.pos, p2.pos);
+                    force.normalize();
+                    force.mult((minDistance - dist) * repulsionStrength);
+                    totalForce.add(force);
+                }
+            }
+            
+            // Apply the force
+            p1.pos.add(totalForce);
+            
+            // Keep particles within nucleus bounds
+            let mag = p1.pos.mag();
+            if (mag > nucleusRadius) {
+                p1.pos.normalize().mult(nucleusRadius);
+            }
+        }
+    }
+}
+
+// function isFarEnough(newPos) {
+//     for (let p of nucleus) {
+//         if (p.pos.dist(newPos) < minSpacing) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
 
 function createElectrons() {
     electrons = [];
