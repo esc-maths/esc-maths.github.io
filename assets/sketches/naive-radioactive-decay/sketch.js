@@ -1,8 +1,11 @@
-// Radioactive decay simulation in p5.js (WebGL)
-// Nucleus with red/blue spheres, no overlaps
-// Alpha particles emitted as clusters (removed after 40s)
-// Electrons orbit nucleus with visible orbital rings
-// by Juan Carlos Ponce Campuzano + ChatGPT
+/* 
+Radioactive decay simulation in p5.js (WebGL)
+Nucleus with red/blue spheres, no overlaps
+Alpha particles emitted as clusters (removed after 40s)
+Electrons orbit nucleus with visible orbital rings
+by Juan Carlos Ponce Campuzano 
+10/Aug/2025
+*/
 
 let nucleus = [];
 let emittedClusters = [];
@@ -24,7 +27,7 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    background(10);
     orbitControl();
 
     ambientLight(90);
@@ -53,13 +56,13 @@ function draw() {
 
         // Store position in trail
         e.trail.push(createVector(ex, ey, 0));
-        if (e.trail.length > 40) { // keep trail short
+        if (e.trail.length > 30) { // keep trail short
             e.trail.shift();
         }
 
         // Draw trail
         noFill();
-        stroke(100, 100, 255, 80);
+        stroke(128, 255, 255, 200);
         beginShape();
         for (let p of e.trail) {
             vertex(p.x, p.y, p.z);
@@ -150,7 +153,7 @@ function createElectrons() {
     for (let i = 0; i < 8; i++) {
         electrons.push({
             radius: random(orbits),
-            speed: random(0.007, 0.055) * (random() < 0.5 ? 1 : -1),
+            speed: random(0.007, 0.095) * (random() < 0.5 ? 1 : -1),
             angle: random(TWO_PI),
             axis: p5.Vector.random3D().normalize(),
             trail: [] // store previous positions
