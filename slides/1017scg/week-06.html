@@ -363,7 +363,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Exponential Growth/Decay</h4>
+					<h5>Exponential Growth</h5>
 					<div>
 						<p>
 							\(N = N_0 e^{kt}\)
@@ -387,7 +387,7 @@
 					<br />
 				</section>
 				<section data-auto-animate>
-					<h4>Exponential Growth/Decay</h4>
+					<h4>Exponential Growth</h4>
 					<div>
 						<p>
 							\(N = N_0 e^{kt}\)
@@ -402,31 +402,23 @@
 
 						<p><strong>Data:</strong></p>
 						
-						<p>&nbsp;&nbsp; Initial population $N_0=50$</p>
-						<p>&nbsp;&nbsp; Time passed $t=4$ (weeks)</p>
-						<p>&nbsp;&nbsp; At time $t=4$ the amount $N=80$</p>
+						<p class="fragment" data-fragment-index="1">&nbsp;&nbsp; Initial population $N_0=50$</p>
+						<p class="fragment" data-fragment-index="2">&nbsp;&nbsp; Time passed $t=4$ (weeks)</p>
+						<p class="fragment" data-fragment-index="3">&nbsp;&nbsp; At time $t=4$ the population $N=80$</p>
 					</div>
 					<br />
 					<br />
 				</section>
 				<section data-auto-animate>
-					<h4>Exponential Growth/Decay</h4>
+					<h5>Exponential Growth</h5>
 					
-					<div class="left-txt size-50">
-						<p>
-							The population of fish in a pond grows according the exponential
-							growth model above. Initially there were 50 fish is the pond.
-							Four weeks later, there were 80 fish in the pond.
-						</p>
-
-						
-					</div>
+					
 					<div class="size-70">
 						
 						<p><strong>Data:</strong> $\,N_0=50,$  $t=4,$  $N=80$</p>
 					</div>
 
-					<div class="left-txt size-60">
+					<div class="left-txt size-80">
 						<p>
 							• Find the value of the growth factor $k.$
 						</p>
@@ -484,7 +476,7 @@
 					<br />
 				</section>
 				<section data-auto-animate>
-					<h4>Exponential Growth/Decay</h4>
+					<h5>Exponential Growth</h5>
 					
 					
 					<div class="size-70">
@@ -547,7 +539,7 @@
 									\(=\)
 							</td>
 							<td style="border: none; text-align: left;">
-								\(\dfrac{\ln\left( \dfrac{8}{5}\right)}{4}\)
+								\(\dfrac{1}{4}\ln\left( \dfrac{8}{5}\right)\)
 								<span class="fragment" data-fragment-index="8">\(\,= 0.1175\)</span>	
 								
 							</td>
@@ -557,15 +549,15 @@
 					<br />
 				</section>
 				<section data-auto-animate>
-					<h4>Exponential Growth/Decay</h4>
+					<h5>Exponential Growth</h5>
 					
 					
 					<div class="size-70">
 						
-						<p><strong>Data:</strong> $\,N_0=50,$  $k = 0.1175$</p>
+						<p>👉 <strong>New Data:</strong> $\,N_0=50,$  $k = 0.1175$</p>
 					</div>
 
-					<div class="left-txt size-60">
+					<div class="left-txt size-75">
 						<p class="fragment" data-fragment-index="0">
 							• What is the expected number of fish in the pond
 								after eight weeks?
@@ -573,60 +565,228 @@
 
 					</div>
 
-					<table style="font-size: 85%;">
+					<table style="font-size: 95%;">
 						
 						
-						<tr>
+						<tr class="fragment" data-fragment-index="1">
 							<td style="border: none; text-align: right;">
-								\( e^{4k}\)	
+								\(N\)	
 							</td>
 							<td style="border: none; text-align: center;">
 									\(=\)
 							</td>
 							<td style="border: none; text-align: left;">
-								\(\dfrac{8}{5}\)
+								\(N_0e^{kt}\)
 							</td>
 						</tr>
-						<tr>
+						<tr class="fragment" data-fragment-index="2">
 							<td style="border: none; text-align: right;">
-								\(\ln\left(e^{4k}\right)\)	
-								
+								\(N\)	
 							</td>
 							<td style="border: none; text-align: center;">
 									\(=\)
 							</td>
 							<td style="border: none; text-align: left;">
-								\(\ln\left( \dfrac{8}{5}\right)\)
+								\(50e^{(0.1175)(8)}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(N\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(50e^{0.94}\)
+								<span class="fragment" data-fragment-index="4">
+									\(\approx 127.99\ldots \)
+								</span>
+							</td>
+						</tr>
+						
+						<tr class="fragment" data-fragment-index="5">
+							<td style="border: none; text-align: right;">
+								\(N\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(128\) fishes
+							</td>
+						</tr>
+					</table>
+					
+					<div class="size-90 left-txt">
+						<p class="fragment" data-fragment-index="6">
+							After 8 weeks, it is predicted that there will
+							be 128 fish in the pond.
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Growth</h5>
+					
+					
+					<div class="size-70">
+						
+						<p>👉 <strong>New Data:</strong> $\,N_0=50,$  $k = 0.1175$</p>
+					</div>
+
+					<div class="left-txt size-70">
+						<p>
+							• When would there be 200 fish in the pond?
+						</p>
+
+					</div>
+
+					<table style="font-size: 95%;">
+						
+						
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(N\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(N_0e^{kt}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="border: none; text-align: right;">
+								\(200\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(50e^{(0.1175)t}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{200}{50}\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{50e^{0.1175}}{50}\)
+							</td>
+						</tr>
+						
+						<tr class="fragment" data-fragment-index="4">
+							<td style="border: none; text-align: right;">
+								\(4\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(e^{0.1175 t}\) 
 							</td>
 						</tr>
 						<tr class="fragment" data-fragment-index="5">
 							<td style="border: none; text-align: right;">
-								<span class="fragment" data-fragment-index="6">\( 4k=\,\)</span>
-								\(4k \ln\left(e\right)\)
-								
+								\(\ln(4)\)	
 							</td>
 							<td style="border: none; text-align: center;">
 									\(=\)
 							</td>
 							<td style="border: none; text-align: left;">
-									
-								\(\ln\left( \dfrac{8}{5}\right)\)
+								\(\ln\left(e^{0.1175 t}\right)\) 
 							</td>
 						</tr>
-						<tr class="fragment" data-fragment-index="7">
+						
+					</table>
+					
+					
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Growth</h5>
+					
+					
+					<div class="size-70">
+						
+						<p>👉 <strong>New Data:</strong> $\,N_0=50,$  $k = 0.1175$</p>
+					</div>
+
+					<div class="left-txt size-70">
+						<p>
+							• When would there be 200 fish in the pond?
+						</p>
+
+					</div>
+
+					<table style="font-size: 85%;">
+						
+						
+						
+						<tr>
 							<td style="border: none; text-align: right;">
-								\(k\)	
+								\(\ln(4)\)	
 							</td>
 							<td style="border: none; text-align: center;">
 									\(=\)
 							</td>
 							<td style="border: none; text-align: left;">
-								\(\dfrac{\ln\left( \dfrac{8}{5}\right)}{4}\)
-								<span class="fragment" data-fragment-index="8">\(\,= 0.1175\)</span>	
-								
+								\(\ln\left(e^{0.1175 t}\right)\) 
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(\ln(4)\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(0.1175 t\) 
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{\ln(4)}{0.1175}\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{0.1175 t}{0.1175}\) 
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(t\)	
+							</td>
+							<td style="border: none; text-align: center;">
+									\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{\ln(4)}{0.1175}\) 
+								<span class="fragment" data-fragment-index="4">
+									\(= 11.80\) weeks 
+								</span>
 							</td>
 						</tr>
 					</table>
+					
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="5">
+							Therefore, it takes a little under 12 weeks for the population of fish 
+							to reach 200.
+						</p>
+					</div>
+					<br />
 					<br />
 					<br />
 				</section>
