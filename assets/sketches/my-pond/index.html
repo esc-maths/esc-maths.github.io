@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My personal pond</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <!-- keep the line below for OpenProcessing compatibility -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  
+</head>
+
+<body>
+
+
+
+  <p class="footer">
+    Look for the fish that follows your mouse.
+    <br/>
+    Press <span style="color: aliceblue;"><strong>P</strong></span> for water drop sounds.
+    <br/>
+    Inspired by
+    <a href="https://github.com/dasl-/my-life-aquatic" target="_blank">My Life Aquatic</a>
+
+  </p>
+
+  <script src="Boid.js"></script>
+  <script src="Bubble.js"></script>
+  <script src="Fish.js"></script>
+  <script src="Flagellum.js"></script>
+  <script src="Food.js"></script>
+  <script src="mySketch.js"></script>
+
+  <script>
+    // Function to toggle full screen mode
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Event listener for keydown event
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'f' || event.key === 'F') {
+        toggleFullScreen();
+      }
+    });
+  </script>
+  
+</body>
+
+</html>
