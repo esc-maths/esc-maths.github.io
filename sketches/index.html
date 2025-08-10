@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketches</title>
+
+  <link rel="icon" type="image/png" href="../assets/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../assets/icon/infinity16.png" sizes="16x16">
+
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: block;
+    }
+
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Monospace;
+      font-size: 1.2rem;
+      line-height: 1.8em;
+      overscroll-behavior: none;
+
+      position: relative;
+      /* key for absolute children */
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    a,
+    button,
+    input,
+    select {
+      pointer-events: auto;
+    }
+
+    /* Overlay card */
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+      width: 50%;
+      max-width: 500px;
+      text-align: center;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .card li {
+      text-align: left;
+    }
+
+    .card a {
+      color: rgb(255, 255, 255);
+    }
+
+    .card a:hover {
+      color: rgb(119, 230, 255);
+    }
+
+    a {
+  text-decoration: none;
+}
+  </style>
+</head>
+
+<body>
+  <iframe src="../sketches/3d-geometric-shapes/"></iframe>
+
+  <div class="card">
+    <h1>Sketches</h1>
+    <ul>
+      <li><a href="3d-geometric-shapes/">3D geometric shapes</a></li>
+      <li><a href="black-hole/">Black hole</a></li>
+      <li><a href="infinite-room/">Infinite room</a></li>
+      <li><a href="my-pond/">My pond</a></li>
+      <li><a href="naive-radioactive-decay/">Simple atomic model</a></li>
+      <li><a href="seascape/">Ocean simulation</a></li>
+    </ul>
+
+    <picture>
+      <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f636_200d_1f32b_fe0f/512.webp" type="image/webp">
+      <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f636_200d_1f32b_fe0f/512.gif" alt="😶" 
+        width="64"
+        height="64">
+    </picture>
+  </div>
+</body>
+
+</html>
