@@ -129,9 +129,9 @@ vec3 render( in vec2 p )
     // camera
     //-----------------------------------------------------
 	
-	float an = 0.1*iTime;
+	float an = 0.3*iTime;
 
-	vec3 ro = vec3(0.4*sin(an),0.25,0.4*cos(an));
+	vec3 ro = vec3(0.5*sin(an),0.25,0.4*cos(an));
     vec3 ta = vec3(0.0,0.15,0.0);
     // camera matrix
     vec3 ww = normalize( ta - ro );
