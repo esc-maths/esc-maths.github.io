@@ -121,77 +121,77 @@
         let clusterStartTime = null;
 
         // Assign a small random 3D offset for each particle (outside animate)
-const offsets = new Float32Array(particleCount * 3);
-const strengths = new Float32Array(particleCount);
-for (let i = 0; i < particleCount; i++) {
-    offsets[i * 3]     = (Math.random() - 0.5) * 15; // random offset X
-    offsets[i * 3 + 1] = (Math.random() - 0.5) * 15; // random offset Y
-    offsets[i * 3 + 2] = (Math.random() - 0.5) * 15; // random offset Z
-    strengths[i] = 0.0005 + Math.random() * 0.0007; // slightly different pull per particle
-}
-
-function animate() {
-    requestAnimationFrame(animate);
-
-    const now = performance.now();
-    const elapsed = now - startTime;
-
-    if (!clustering && elapsed > 10000) {
-        clustering = true;
-        clusterStartTime = now;
-    }
-
-    const pos = particles.attributes.position.array;
-
-    for (let i = 0; i < particleCount; i++) {
-        const idx = i * 3;
-
-        // Brownian motion always active
-        pos[idx] += velocities[idx] + (Math.random() - 0.5) * 0.01;
-        pos[idx + 1] += velocities[idx + 1] + (Math.random() - 0.5) * 0.01;
-        pos[idx + 2] += velocities[idx + 2] + (Math.random() - 0.5) * 0.01;
-
-        if (clustering) {
-            const target = attractors[i % 3];
-
-            // Use particle's personal offset to avoid symmetry
-            const targetX = target.x + offsets[idx];
-            const targetY = target.y + offsets[idx + 1];
-            const targetZ = target.z + offsets[idx + 2];
-
-            let dx = targetX - pos[idx];
-            let dy = targetY - pos[idx + 1];
-            let dz = targetZ - pos[idx + 2];
-
-            const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-            const desiredRadius = 10;
-            const t = Math.min((now - clusterStartTime) / 3000, 1);
-            const pullStrength = t * strengths[i]; // personal pull strength
-
-            if (dist > desiredRadius) {
-                // Keep the small noise inside the pull
-                dx += (Math.random() - 0.5) * 1.5;
-                dy += (Math.random() - 0.5) * 1.5;
-                dz += (Math.random() - 0.5) * 1.5;
-
-                pos[idx] += dx * pullStrength;
-                pos[idx + 1] += dy * pullStrength;
-                pos[idx + 2] += dz * pullStrength;
-            } else {
-                // Repel slightly if too close
-                const repelStrength = 0.0004;
-                pos[idx] -= dx * repelStrength;
-                pos[idx + 1] -= dy * repelStrength;
-                pos[idx + 2] -= dz * repelStrength;
-            }
+        const offsets = new Float32Array(particleCount * 3);
+        const strengths = new Float32Array(particleCount);
+        for (let i = 0; i < particleCount; i++) {
+            offsets[i * 3] = (Math.random() - 0.5) * 15; // random offset X
+            offsets[i * 3 + 1] = (Math.random() - 0.5) * 15; // random offset Y
+            offsets[i * 3 + 2] = (Math.random() - 0.5) * 15; // random offset Z
+            strengths[i] = 0.0005 + Math.random() * 0.0007; // slightly different pull per particle
         }
-    }
 
-    particles.attributes.position.needsUpdate = true;
-    controls.update();
-    renderer.render(scene, camera);
-}
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const now = performance.now();
+            const elapsed = now - startTime;
+
+            if (!clustering && elapsed > 10000) {
+                clustering = true;
+                clusterStartTime = now;
+            }
+
+            const pos = particles.attributes.position.array;
+
+            for (let i = 0; i < particleCount; i++) {
+                const idx = i * 3;
+
+                // Brownian motion always active
+                pos[idx] += velocities[idx] + (Math.random() - 0.5) * 0.01;
+                pos[idx + 1] += velocities[idx + 1] + (Math.random() - 0.5) * 0.01;
+                pos[idx + 2] += velocities[idx + 2] + (Math.random() - 0.5) * 0.01;
+
+                if (clustering) {
+                    const target = attractors[i % 3];
+
+                    // Use particle's personal offset to avoid symmetry
+                    const targetX = target.x + offsets[idx];
+                    const targetY = target.y + offsets[idx + 1];
+                    const targetZ = target.z + offsets[idx + 2];
+
+                    let dx = targetX - pos[idx];
+                    let dy = targetY - pos[idx + 1];
+                    let dz = targetZ - pos[idx + 2];
+
+                    const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                    const desiredRadius = 10;
+                    const t = Math.min((now - clusterStartTime) / 3000, 1);
+                    const pullStrength = t * strengths[i]; // personal pull strength
+
+                    if (dist > desiredRadius) {
+                        // Keep the small noise inside the pull
+                        dx += (Math.random() - 0.5) * 1.5;
+                        dy += (Math.random() - 0.5) * 1.5;
+                        dz += (Math.random() - 0.5) * 1.5;
+
+                        pos[idx] += dx * pullStrength;
+                        pos[idx + 1] += dy * pullStrength;
+                        pos[idx + 2] += dz * pullStrength;
+                    } else {
+                        // Repel slightly if too close
+                        const repelStrength = 0.0004;
+                        pos[idx] -= dx * repelStrength;
+                        pos[idx + 1] -= dy * repelStrength;
+                        pos[idx + 2] -= dz * repelStrength;
+                    }
+                }
+            }
+
+            particles.attributes.position.needsUpdate = true;
+            controls.update();
+            renderer.render(scene, camera);
+        }
 
 
 
