@@ -61,8 +61,8 @@
             new THREE.Color(0x4b0082), // indigo
 
             new THREE.Color(0x9400d3), // violet
-            new THREE.Color(0xffffff), // white
-            new THREE.Color(0x00ffff)  // cyan
+            // new THREE.Color(0xffffff), // white
+            // new THREE.Color(0x00ffff)  // cyan
         ];
         const colorClasses = colors.length;
         const particlesPerColor = Math.floor(particleCount / colorClasses);
@@ -137,7 +137,7 @@
                 positions[i * 3 + 2] += velocities[i * 3 + 2] + (Math.random() - 0.5) * 0.01;
                 
                 // Boundary conditions
-                const maxDistance = 30;
+                const maxDistance = 60;
                 for (let j = 0; j < 3; j++) {
                     if (Math.abs(positions[i * 3 + j]) > maxDistance) {
                         positions[i * 3 + j] = maxDistance * Math.sign(positions[i * 3 + j]);
