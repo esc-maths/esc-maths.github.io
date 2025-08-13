@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	background-color: #000;
-	color: #fff;
+	color: #6f6f6f;
 	font-family: Monospace;
 	font-size: 13px;
 	line-height: 24px;
@@ -9,7 +9,7 @@ body {
 }
 
 a {
-	color: #ff0;
+	color: rgb(0, 115, 255);
 	text-decoration: none;
 }
 
@@ -24,7 +24,7 @@ button {
 
 #info {
 	position: absolute;
-	top: 0px;
+	bottom: 0px;
 	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
