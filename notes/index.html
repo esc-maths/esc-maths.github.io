@@ -87,6 +87,42 @@ https://www.geogebra.org/m/xsy4fy25
         .card a:hover {
             color: rgb(119, 230, 255);
         }
+
+        /* Responsive adjustments for smaller devices */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 1rem;
+                /* Slightly smaller font for mobile */
+                line-height: 1.6em;
+                /* Tighter line height */
+            }
+
+            .card {
+                width: 90%;
+                /* Wider relative width on mobile */
+                padding: 1rem;
+                /* Less padding */
+                border-radius: 0.8rem;
+                /* Slightly smaller radius */
+            }
+        }
+
+        /* Extra small devices (phones, 600px and down) */
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 0.9rem;
+                /* Even smaller font for very small screens */
+            }
+
+            .card {
+                width: 95%;
+                /* Nearly full width on very small screens */
+                max-width: none;
+                /* Override the max-width on smallest screens */
+                padding: 0.8rem;
+                /* Minimal padding */
+            }
+        }
     </style>
 
     <!-- Google tag (gtag.js) -->

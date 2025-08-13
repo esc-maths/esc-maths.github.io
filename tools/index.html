@@ -2,17 +2,18 @@
 <html lang="en">
 
 <head>
-  
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
 
-    <link rel="icon" type="image/png" href="../assets/icon/infinity32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="../assets/icon/infinity16.png" sizes="16x16">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Not Found</title>
+
+  <link rel="icon" type="image/png" href="../assets/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../assets/icon/infinity16.png" sizes="16x16">
+
 
   <style>
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -25,59 +26,95 @@
       display: block;
     }
 
-	body {
-            margin: 0;
-            background-color: #000;
-            color: #fff;
-            font-family: Monospace;
-            font-size: 1.2rem;
-            line-height: 2em;
-            overscroll-behavior: none;
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Monospace;
+      font-size: 1.2rem;
+      line-height: 2em;
+      overscroll-behavior: none;
 
-            position: relative;
-            /* key for absolute children */
-            height: 100vh;
-            overflow: hidden;
-        }
+      position: relative;
+      /* key for absolute children */
+      height: 100vh;
+      overflow: hidden;
+    }
 
-        a,
-        button,
-        input,
-        select {
-            pointer-events: auto;
-        }
+    a,
+    button,
+    input,
+    select {
+      pointer-events: auto;
+    }
 
 
-        /* Overlay card */
-        .card {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+    /* Overlay card */
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
-            background-color: rgba(0, 0, 0, 0.0);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.0);
-            width: 50%;
-            max-width: 300px;
-            text-align: center;
-            z-index: 10;
-            pointer-events: auto;
-        }
+      background-color: rgba(0, 0, 0, 0.0);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.0);
+      width: 50%;
+      max-width: 300px;
+      text-align: center;
+      z-index: 10;
+      pointer-events: auto;
+    }
 
-        .card li {
-            text-align: left;
-        }
+    .card li {
+      text-align: left;
+    }
 
-        .card a {
-            color: rgb(255, 255, 255);
-        }
+    .card a {
+      color: rgb(255, 255, 255);
+    }
 
-        .card a:hover {
-            color: rgb(119, 230, 255);
-        }
+    .card a:hover {
+      color: rgb(119, 230, 255);
+    }
+
+    /* Responsive adjustments for smaller devices */
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 1rem;
+        /* Slightly smaller font for mobile */
+        line-height: 1.6em;
+        /* Tighter line height */
+      }
+
+      .card {
+        width: 90%;
+        /* Wider relative width on mobile */
+        padding: 1rem;
+        /* Less padding */
+        border-radius: 0.8rem;
+        /* Slightly smaller radius */
+      }
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media screen and (max-width: 600px) {
+      body {
+        font-size: 0.9rem;
+        /* Even smaller font for very small screens */
+      }
+
+      .card {
+        width: 95%;
+        /* Nearly full width on very small screens */
+        max-width: none;
+        /* Override the max-width on smallest screens */
+        padding: 0.8rem;
+        /* Minimal padding */
+      }
+    }
   </style>
 </head>
 
@@ -85,15 +122,15 @@
   <iframe src="../sketches/black-hole/"></iframe>
 
   <div class="card">
-        <h1>404</h1>
-        
-        <div style="text-align: center !important;">
-            <picture>
-                <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47b/512.webp" type="image/webp">
-                <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47b/512.gif" alt="👻" width="50" height="50">
-            </picture>
-        </div>
+    <h1>404</h1>
+
+    <div style="text-align: center !important;">
+      <picture>
+        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47b/512.webp" type="image/webp">
+        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47b/512.gif" alt="👻" width="50" height="50">
+      </picture>
     </div>
+  </div>
 </body>
 
 </html>
