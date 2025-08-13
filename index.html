@@ -12,9 +12,113 @@
   <link rel="icon" type="image/png" href="assets/icon/infinity32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="assets/icon/infinity16.png" sizes="16x16">
 
-  <link rel="stylesheet" type="text/css" href="assets/main/style.css">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
 
-  <title>Infinite magic room</title>
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: block;
+    }
+
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Monospace;
+      font-size: 1.2rem;
+      line-height: 2em;
+      overscroll-behavior: none;
+
+      position: relative;
+      /* key for absolute children */
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    a,
+    button,
+    input,
+    select {
+      pointer-events: auto;
+    }
+
+
+    /* Overlay card */
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+      width: 50%;
+      max-width: 450px;
+      text-align: center;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .card li {
+      text-align: left;
+    }
+
+    .card a {
+      color: rgb(255, 255, 255);
+    }
+
+    .card a:hover {
+      color: rgb(119, 230, 255);
+    }
+
+    /* Responsive adjustments for smaller devices */
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 1rem;
+        /* Slightly smaller font for mobile */
+        line-height: 1.6em;
+        /* Tighter line height */
+      }
+
+      .card {
+        width: 90%;
+        /* Wider relative width on mobile */
+        padding: 1rem;
+        /* Less padding */
+        border-radius: 0.8rem;
+        /* Slightly smaller radius */
+      }
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media screen and (max-width: 600px) {
+      body {
+        font-size: 0.9rem;
+        /* Even smaller font for very small screens */
+      }
+
+      .card {
+        width: 95%;
+        /* Nearly full width on very small screens */
+        max-width: none;
+        /* Override the max-width on smallest screens */
+        padding: 0.8rem;
+        /* Minimal padding */
+      }
+    }
+  </style>
+
+  <title>ESC Maths - Contents</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
@@ -30,6 +134,8 @@
 
 <body>
 
+  <iframe src="../sketches/birds/"></iframe>
+
   <div class="card">
     <h1>Contents</h1>
     <ul>
@@ -40,148 +146,6 @@
     </ul>
 
   </div>
-
-  <script>
-    /*
-
-Learning Shaders: RayMarching starting point
-
-Author: Juan Carlos Ponce Campuzano
-Website: https://jcponce.github.io
-Date: 15/Jan/2024
-
-*/
-
-    // a shader variable
-    let theShader;
-    let shaderBg;
-
-    let img;
-    let time_;
-    let framerate;
-
-    let moves = [0, 0];
-
-    function preload() {
-      // load the shader
-      theShader = loadShader('assets/main/shader.vert', 'assets/main/shader.frag');
-    }
-
-    function setup() {
-      // disables scaling for retina screens which can create inconsistent scaling between displays
-      //pixelDensity(1);
-
-      createCanvas(windowWidth, windowHeight);
-      noStroke();
-
-      // shaders require WEBGL mode to work
-      shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
-
-      cursor('grab');
-
-    }
-
-    function draw() {
-      // we can draw the background each frame or not.
-      // if we do we can use transparency in our shader.
-      // if we don't it will leave a trailing after image.
-      // background(0);
-      // shader() sets the active shader with our shader
-      shaderBg.shader(theShader);
-
-      // get the mouse coordinates, map them to values between 0-1 space
-      let yMouse = (map(mouseY, 0, height, height, 0) / height) * 2 - 1;
-      let xMouse = (mouseX / width) * 2 - 1;
-
-      // Make sure pixels are square
-      xMouse = (xMouse * width) / height;
-      yMouse = (yMouse);
-
-      mouseMove();
-
-      // pass the interactive information to the shader
-      theShader.setUniform("iResolution", [width, height]);
-      theShader.setUniform("iTime", millis() / 1000.0);
-      theShader.setUniform("iMouse", moves);
-
-
-      // rect gives us some geometry on the screen to draw the shader on
-      shaderBg.rect(0, 0, width, height);
-      image(shaderBg, 0, 0, width, height);
-
-      let increment = 20 / ((frameRate() || 60) * 140); // timestep based on framerate, will rotate same speed on all regardless of framerate
-      time_ += increment;
-      if (time_ > TWO_PI) time_ -= TWO_PI; // prevent time from getting to big and maybe causing errors?
-
-      /*// flip coordinate information box
-      let flipX = 0;
-      let flipY = 0;
-      if (width - mouseX < 200) {
-        flipX = -130;
-      }
-      if (height - mouseY < 100) {
-        flipY = -35;
-      }
-      */
-
-      // draw coordinate information box if you want
-
-      /*
-      
-      fill(255);
-      rect(mouseX + flipX, mouseY + flipY, 60, 40);
-      fill(0);
-      text("x: " + int(mouseX), mouseX + 15 + flipX, mouseY + 15 + flipY);
-      text("y: " + int(mouseY), mouseX + 15 + flipX, mouseY + 30 + flipY);
-      fill(0);
-      rect(mouseX + 60 + flipX, mouseY + flipY, 70, 40);
-      fill(255);
-      text("x: " + nfc(xMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 15 + flipY);
-      text("y: " + nfc(yMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 30 + flipY);
-     
-    */
-
-      // if (isMouseOverLink()) {
-      //   fill(180);
-      //   cursor('pointer'); // <-- this makes the cursor a hand
-      // } else {
-      //   fill(220);
-      //   //cursor('default'); // <-- this restores the default cursor
-      // }
-
-      // rect(0, 0, 110, 30);
-      // fill(0);
-      // text("dynamicmath.xyz", 7, 19)
-
-      //console.log(imView);
-    }
-
-    function windowResized() {
-      resizeCanvas(windowWidth, windowHeight);
-    }
-
-    function mousePressed() {
-      cursor('grabbing');
-
-      if (isMouseOverLink()) {
-        window.open("https://www.dynamicmath.xyz", "_blank");
-      }
-    }
-
-    function mouseReleased() {
-      cursor('grab');
-    }
-
-    function isMouseOverLink() {
-      return mouseX >= 0 && mouseX <= 110 && mouseY >= 0 && mouseY <= 30;
-    }
-
-    function mouseMove() {
-      if (!mouseIsPressed) return;
-      moves[0] += mouseX - pmouseX;
-      moves[1] += pmouseY - mouseY;
-    }
-  </script>
 
 </body>
 
