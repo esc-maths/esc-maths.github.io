@@ -33,14 +33,14 @@
 
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0xffffff);
-        scene.rotation.x = Math.PI / 5; // rotate entire scene
+        scene.rotation.x = Math.PI / 4; // rotate entire scene
 
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        camera.position.z = 0;
+        camera.position.z = 20;
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
@@ -91,7 +91,7 @@
         const particleTexture = textureLoader.load('1.png');
 
         const particleMaterial = new THREE.PointsMaterial({
-            size: 0.2,
+            size: 0.5,
             alphaMap: particleTexture,
             alphaTest: 0.5,
             vertexColors: true,
@@ -111,67 +111,89 @@
 
         // Attractor points
         const attractors = [
-            new THREE.Vector3(20, 0, 0),
-            new THREE.Vector3(-20, 0, 0),
-            new THREE.Vector3(0, 20, 0)
+            new THREE.Vector3(30, 0, 0),
+            new THREE.Vector3(-30, 0, 0),
+            new THREE.Vector3(0, -30, 0)
         ];
 
-        // Track time
         const startTime = performance.now();
         let clustering = false;
+        let clusterStartTime = null;
 
-        function animate() {
-            requestAnimationFrame(animate);
+        // Assign a small random 3D offset for each particle (outside animate)
+const offsets = new Float32Array(particleCount * 3);
+const strengths = new Float32Array(particleCount);
+for (let i = 0; i < particleCount; i++) {
+    offsets[i * 3]     = (Math.random() - 0.5) * 15; // random offset X
+    offsets[i * 3 + 1] = (Math.random() - 0.5) * 15; // random offset Y
+    offsets[i * 3 + 2] = (Math.random() - 0.5) * 15; // random offset Z
+    strengths[i] = 0.0005 + Math.random() * 0.0007; // slightly different pull per particle
+}
 
-            const now = performance.now();
-            if (!clustering && now - startTime > 300) {
-                clustering = true; // Start attraction after 20s
+function animate() {
+    requestAnimationFrame(animate);
+
+    const now = performance.now();
+    const elapsed = now - startTime;
+
+    if (!clustering && elapsed > 10000) {
+        clustering = true;
+        clusterStartTime = now;
+    }
+
+    const pos = particles.attributes.position.array;
+
+    for (let i = 0; i < particleCount; i++) {
+        const idx = i * 3;
+
+        // Brownian motion always active
+        pos[idx] += velocities[idx] + (Math.random() - 0.5) * 0.01;
+        pos[idx + 1] += velocities[idx + 1] + (Math.random() - 0.5) * 0.01;
+        pos[idx + 2] += velocities[idx + 2] + (Math.random() - 0.5) * 0.01;
+
+        if (clustering) {
+            const target = attractors[i % 3];
+
+            // Use particle's personal offset to avoid symmetry
+            const targetX = target.x + offsets[idx];
+            const targetY = target.y + offsets[idx + 1];
+            const targetZ = target.z + offsets[idx + 2];
+
+            let dx = targetX - pos[idx];
+            let dy = targetY - pos[idx + 1];
+            let dz = targetZ - pos[idx + 2];
+
+            const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+            const desiredRadius = 10;
+            const t = Math.min((now - clusterStartTime) / 3000, 1);
+            const pullStrength = t * strengths[i]; // personal pull strength
+
+            if (dist > desiredRadius) {
+                // Keep the small noise inside the pull
+                dx += (Math.random() - 0.5) * 1.5;
+                dy += (Math.random() - 0.5) * 1.5;
+                dz += (Math.random() - 0.5) * 1.5;
+
+                pos[idx] += dx * pullStrength;
+                pos[idx + 1] += dy * pullStrength;
+                pos[idx + 2] += dz * pullStrength;
+            } else {
+                // Repel slightly if too close
+                const repelStrength = 0.0004;
+                pos[idx] -= dx * repelStrength;
+                pos[idx + 1] -= dy * repelStrength;
+                pos[idx + 2] -= dz * repelStrength;
             }
-
-            const pos = particles.attributes.position.array;
-
-            for (let i = 0; i < particleCount; i++) {
-                const idx = i * 3;
-
-                // Brownian motion always active
-                pos[idx] += velocities[idx] + (Math.random() - 0.5) * 0.01;
-                pos[idx + 1] += velocities[idx + 1] + (Math.random() - 0.5) * 0.01;
-                pos[idx + 2] += velocities[idx + 2] + (Math.random() - 0.5) * 0.01;
-
-                if (clustering) {
-                    // Pick one of the three attractors (even distribution)
-                    const target = attractors[i % 3];
-
-                    // Vector from particle to attractor
-                    let dx = target.x - pos[idx];
-                    let dy = target.y - pos[idx + 1];
-                    let dz = target.z - pos[idx + 2];
-
-                    const distSq = dx * dx + dy * dy + dz * dz;
-                    const dist = Math.sqrt(distSq);
-
-                    // Desired cluster radius
-                    const desiredRadius = 5; // particles hover within ~5 units
-                    if (dist > desiredRadius) {
-                        // Weak attraction force
-                        const pullStrength = 0.0005; // lower = looser cluster
-                        pos[idx] += dx * pullStrength;
-                        pos[idx + 1] += dy * pullStrength;
-                        pos[idx + 2] += dz * pullStrength;
-                    } else {
-                        // Optional: small repulsion if too close
-                        const repelStrength = 0.0005;
-                        pos[idx] -= dx * repelStrength;
-                        pos[idx + 1] -= dy * repelStrength;
-                        pos[idx + 2] -= dz * repelStrength;
-                    }
-                }
-            }
-
-            particles.attributes.position.needsUpdate = true;
-            controls.update();
-            renderer.render(scene, camera);
         }
+    }
+
+    particles.attributes.position.needsUpdate = true;
+    controls.update();
+    renderer.render(scene, camera);
+}
+
+
 
 
         window.addEventListener('resize', () => {
