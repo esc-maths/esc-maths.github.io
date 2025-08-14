@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brownian Motion with 80,000 Textured Particles</title>
+    <title>Brownian Motion with 80,000 Particles</title>
     <style>
         body {
             margin: 0;
@@ -166,7 +166,9 @@
                     const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
                     const desiredRadius = 10;
-                    const t = Math.min((now - clusterStartTime) / 5000, 1); // smooth transition to clusters
+
+                    // Smooth transition for attraction strength (10-second ramp)
+                    let t = Math.min((now - clusterStartTime) / 10000, 1);
                     const pullStrength = t * strengths[i]; // personal pull strength
 
                     if (dist > desiredRadius) {
@@ -192,9 +194,6 @@
             controls.update();
             renderer.render(scene, camera);
         }
-
-
-
 
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
