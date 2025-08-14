@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <title>VertexRegen: Mesh Generation with Continuous Level of Detail</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://vertexregen.github.io/static/css/index.14c154949681c9601ffb.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/js/bulma-slider.min.js"></script>
+    <script type="importmap">{
+      "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.148.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.148.0/examples/jsm/"
+      }
+  }</script>
+    <script type="module" src="js/index.js"></script>
+</head>
+
+<body>
+
+    <section class="section" style="padding: 0 1.5rem 2rem 1.5rem;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-fifths">
+                    <h2 class="title is-3 fancy-title"></h2>
+                </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-three-fifths interpolation-panel">
+                    <div class="loading-overlay" style="display: flex;">
+                        <div class="loading-spinner"></div>
+                        <div class="loading-progress"></div>
+                    </div>
+                    <div class="columns is-vcentered is-centered">
+                        <div class="column is-full" id="canvas-container"><canvas id="canvas-scene"
+                                data-engine="three.js r148"
+                                style="width: 100%; height: auto; touch-action: none;"></canvas>
+                            <div class="columns is-vcentered is-mobile">
+                                <div class="column is-narrow"><button class="button" id="prev-button"
+                                        disabled="disabled"><span class="icon"><i class="fa-solid fa-arrow-left"></i>
+                                        </span><span>Prev</span></button></div>
+                                <div class="column" style="flex-grow: 1;"><input
+                                        class="slider is-fullwidth is-large is-vertexregen" id="interpolation-slider"
+                                        step="1" min="0" max="100" value="0" type="range"></div>
+                                <div class="column is-narrow"><button class="button" id="next-button"
+                                        disabled="disabled"><span class="icon"><i class="fa-solid fa-arrow-right"></i>
+                                        </span><span>Next</span></button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-vcentered">
+                        <div class="column is-narrow"><button class="button" id="auto-slide-btn"><span class="icon">
+                            <i class="fa-solid fa-pause"></i></span><span
+                                    class="auto-slide-btn-text">Pause</span></button></div>
+                        <div class="column">
+                            <h3 class="title is-5">Generation Steps: <span id="current-step-text"></span> / <span
+                                    id="total-steps-text"></span></h3>
+                        </div>
+                        <div class="column is-narrow"
+                            style="visibility: hidden; height: 0; padding-top: 0; padding-bottom: 0;"><button
+                                class="button" disabled="disabled"><span class="icon"><i
+                                        class="fa-solid fa-circle-pause auto-slide-btn-icon"></i> </span><span
+                                    class="auto-slide-btn-text">Pause</span></button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>
