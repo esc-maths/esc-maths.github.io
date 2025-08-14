@@ -19,8 +19,8 @@
     <script type="importmap">
         {
             "imports": {
-                "three": "https://unpkg.com/three@0.163.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.163.0/examples/jsm/"
+                "three": "https://unpkg.com/three@0.179.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.179.0/examples/jsm/"
             }
         }
     </script>
@@ -136,7 +136,7 @@
             const now = performance.now();
             const elapsed = now - startTime;
 
-            if (!clustering && elapsed > 100) {
+            if (!clustering && elapsed > 30000) {
                 clustering = true;
                 clusterStartTime = now;
             }
