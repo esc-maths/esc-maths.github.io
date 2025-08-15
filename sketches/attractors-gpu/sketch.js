@@ -8,6 +8,7 @@ let collShdr, showGridShdr, updateShdr, drawShdr;
 function setup() {
   // Create canvas with full window dimensions
   createCanvas(windowWidth, windowHeight, WEBGL);
+  pixelDensity(1);
   
   collDist = 0.75 * sqrt(4.0/N);
   gridWide = gridHigh = int(4.0/collDist);
@@ -295,7 +296,7 @@ void main() {
 	
 	// Get color from palette based on particle index
     vec3 c = getColor(idx);
-  gl_PointSize = 10.0;
+  gl_PointSize = 5.0;
   vColor = vec4(c, 1.0);
 }`;
 
