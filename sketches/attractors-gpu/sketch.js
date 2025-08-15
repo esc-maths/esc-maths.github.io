@@ -295,7 +295,7 @@ void main() {
 	
 	// Get color from palette based on particle index
     vec3 c = getColor(idx);
-  gl_PointSize = 2.5;
+  gl_PointSize = 3.0;
   vColor = vec4(c, 1.0);
 }`;
 
