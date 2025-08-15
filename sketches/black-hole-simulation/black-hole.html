@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elliot's Black Hole Simulation #62</title>
     <style>
-        body { margin: 0; overflow: hidden; font-family: Arial, sans-serif; }
-        canvas { display: block; }
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            display: block;
+        }
+
         #infoBox {
             position: absolute;
             display: none;
@@ -17,6 +26,7 @@
             font-size: 12px;
             pointer-events: none;
         }
+
         #logo {
             position: absolute;
             bottom: 20px;
@@ -38,10 +48,12 @@
     }
     </script>
 </head>
+
 <body>
+    <div id="infoBox"></div>
     <!--<div id="infoBox"></div>
     <div id="logo">Telford Projects</div>-->
-    
+
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -54,7 +66,7 @@
         const velocityScale = 0.01 + Math.random() * 0.9;
 
         const isLowEndDevice = window.innerWidth < 800 || navigator.userAgent.toLowerCase().includes('mobile');
-        const numParticles = isLowEndDevice ? 500 : 3000;
+        const numParticles = isLowEndDevice ? 1000 : 4000;
         const radiusMin = 100;
         const radiusMax = boundaryRadius;
         const trailLength = 8;
@@ -104,6 +116,15 @@
             particleGeometry = new THREE.BufferGeometry();
             const positions = new Float32Array(numParticles * 3);
             const sizes = new Float32Array(numParticles);
+            const colors = new Float32Array(numParticles * 3);
+
+
+            for (let i = 0; i < numParticles * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 1;
+                colors[i] = Math.random();
+            }
+
+            //const color = new THREE.Color();
 
             for (let i = 0; i < numParticles; i++) {
                 const theta = Math.random() * 2 * Math.PI;
@@ -118,6 +139,12 @@
                 positions[i * 3 + 2] = z;
                 sizes[i] = 5 + Math.random() * 10;
 
+                // Assign vertex color (all particles same base color, but could randomize)
+                // color.set('#4ab8e2');
+                // colors[i * 3] = color.r;
+                // colors[i * 3 + 1] = color.g;
+                // colors[i * 3 + 2] = color.b;
+
                 trails.push({
                     points: new Array(trailLength).fill(new THREE.Vector3(x, y, z)),
                     geometry: new THREE.BufferGeometry(),
@@ -130,12 +157,23 @@
 
             particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+            particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
+            // Load texture
+            const textureLoader = new THREE.TextureLoader();
+            const particleTexture = textureLoader.load('1.png');
+
+            // Create new material
             particleMaterial = new THREE.PointsMaterial({
-                color: 0xffffff,
-                size: 2.5,
+                size: 20,
+                sizeAttenuation: true,
+                color: new THREE.Color('#4ab8e2'),
                 transparent: true,
-                opacity: 1
+                alphaMap: particleTexture,
+                alphaTest: 0.01,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending,
+                vertexColors: true,
             });
 
             particles = new THREE.Points(particleGeometry, particleMaterial);
@@ -146,16 +184,17 @@
                 const trailMaterial = new THREE.LineBasicMaterial({
                     color: 0x00ffff,
                     transparent: true,
-                    opacity: 0.3
+                    opacity: 0.5
                 });
                 trail.line = new THREE.Line(trail.geometry, trailMaterial);
                 scene.add(trail.line);
             });
         }
 
+
         function createOuterBoundary() {
             const boundaryGeometry = new THREE.RingGeometry(boundaryRadius - 2, boundaryRadius, 64);
-            const boundaryMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, side: THREE.DoubleSide });
+            const boundaryMaterial = new THREE.MeshBasicMaterial({ color: 0xf000f0, side: THREE.DoubleSide });
             const boundary = new THREE.Mesh(boundaryGeometry, boundaryMaterial);
             boundary.rotation.x = -Math.PI / 2;
             scene.add(boundary);
@@ -231,11 +270,12 @@
 
         function debounce(func, wait) {
             let timeout;
-            return function(...args) {
+            return function (...args) {
                 clearTimeout(timeout);
                 timeout = setTimeout(() => func.apply(this, args), wait);
             };
         }
     </script>
 </body>
+
 </html>
