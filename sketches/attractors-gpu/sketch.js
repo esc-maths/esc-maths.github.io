@@ -1,4 +1,4 @@
-let N = 10000;
+let N = 34000;
 let collDist;
 let fbWide, fbHigh;
 let oldPosVel, newPosVel;
@@ -214,10 +214,11 @@ void main() {
   
   // Attractors
   vec2 attractors[4];
-  attractors[0] = vec2(-0.9, 0.9);
-  attractors[1] = vec2(-0.9, -0.9);
-  attractors[2] = vec2(0.9, -0.9);
-  attractors[3] = vec2(0.9, 0.9);
+  float lim = 0.85;
+  attractors[0] = vec2(-lim, lim);
+  attractors[1] = vec2(-lim, -lim);
+  attractors[2] = vec2(lim, -lim);
+  attractors[3] = vec2(lim, lim);
   
   int attractorIndex = idx % 4;
   vec2 target = attractors[attractorIndex];
@@ -294,7 +295,7 @@ void main() {
 	
 	// Get color from palette based on particle index
     vec3 c = getColor(idx);
-  gl_PointSize = 4.0;
+  gl_PointSize = 2.5;
   vColor = vec4(c, 1.0);
 }`;
 
