@@ -193,7 +193,7 @@
 
 
         function createOuterBoundary() {
-            const boundaryGeometry = new THREE.RingGeometry(boundaryRadius - 2, boundaryRadius, 64);
+            const boundaryGeometry = new THREE.RingGeometry(boundaryRadius - 2, boundaryRadius, 72);
             const boundaryMaterial = new THREE.MeshBasicMaterial({ color: 0xffffcc, side: THREE.DoubleSide });
             const boundary = new THREE.Mesh(boundaryGeometry, boundaryMaterial);
             boundary.rotation.x = -Math.PI / 2;
