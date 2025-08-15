@@ -66,7 +66,7 @@
         const velocityScale = 0.01 + Math.random() * 0.9;
 
         const isLowEndDevice = window.innerWidth < 800 || navigator.userAgent.toLowerCase().includes('mobile');
-        const numParticles = isLowEndDevice ? 1000 : 4000;
+        const numParticles = isLowEndDevice ? 1000 : 8000;
         const radiusMin = 100;
         const radiusMax = boundaryRadius;
         const trailLength = 8;
@@ -170,7 +170,7 @@
                 color: new THREE.Color('#4ab8e2'),
                 transparent: true,
                 alphaMap: particleTexture,
-                alphaTest: 0.01,
+                alphaTest: 0.05,
                 depthWrite: false,
                 blending: THREE.AdditiveBlending,
                 vertexColors: true,
@@ -194,7 +194,7 @@
 
         function createOuterBoundary() {
             const boundaryGeometry = new THREE.RingGeometry(boundaryRadius - 2, boundaryRadius, 64);
-            const boundaryMaterial = new THREE.MeshBasicMaterial({ color: 0xf000f0, side: THREE.DoubleSide });
+            const boundaryMaterial = new THREE.MeshBasicMaterial({ color: 0xffffcc, side: THREE.DoubleSide });
             const boundary = new THREE.Mesh(boundaryGeometry, boundaryMaterial);
             boundary.rotation.x = -Math.PI / 2;
             scene.add(boundary);
