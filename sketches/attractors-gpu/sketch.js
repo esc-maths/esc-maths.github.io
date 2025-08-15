@@ -214,7 +214,7 @@ void main() {
   
   // Attractors
   vec2 attractors[4];
-  float lim = 0.85;
+  float lim = 0.75;
   attractors[0] = vec2(-lim, lim);
   attractors[1] = vec2(-lim, -lim);
   attractors[2] = vec2(lim, -lim);
