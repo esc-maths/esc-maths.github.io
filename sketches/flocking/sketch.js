@@ -92,20 +92,19 @@ function setup() {
     posC = createVector(random(2 * width / 3 + frame, 3 * width / 3 - frame), random(height / 3 - frame, 2 * height / 3 - frame));
     attractors.push(new Attractor(posC, 2)); // Pass index 2
 
-    // create gui (dat.gui)
-    let gui = new dat.GUI({
-        width: 295
-    });
-    //gui.close();
-    gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
-    gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
-    gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
-    gui.add(controls, 'numParticles', 0, 800).name("Num Particles").step(1);
-    gui.add(controls, 'trace').name("Trace").listen();
-    for (let i = 0; i < controls.numParticles; i++) {
-        pushRandomBoid(); 
-    }
-    gui.close();
+    // // create gui (dat.gui)
+    // let gui = new dat.GUI({
+    //     width: 295
+    // });
+    // gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
+    // gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
+    // gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
+    // gui.add(controls, 'numParticles', 0, 800).name("Num Particles").step(1);
+    // gui.add(controls, 'trace').name("Trace").listen();
+    // for (let i = 0; i < controls.numParticles; i++) {
+    //     pushRandomBoid(); 
+    // }
+    // gui.close();
 
 }
 
