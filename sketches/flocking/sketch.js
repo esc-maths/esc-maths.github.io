@@ -7,12 +7,12 @@
 const flock = [];
 const attractors = [];
 
-let Controls = function() {
-  this.align = 1.5;
-  this.cohesion = 1;
-  this.separation = 2;
-  this.trace = true;
-  this.numPoly = 300;
+let Controls = function () {
+    this.align = 1.5;
+    this.cohesion = 1;
+    this.separation = 2;
+    this.trace = true;
+    this.numPoly = 300;
 };
 
 let controls = new Controls();
@@ -20,13 +20,13 @@ let controls = new Controls();
 let quadTree;
 
 let palette = [
-  "#FF4136", // Bright Red
-  "#FFDC00", // Vivid Yellow
-  "#2ECC40", // Bright Green
-  "#0074D9", // Vivid Blue
-  "#B10DC9", // Bright Purple
-  "#FF851B", // Vivid Orange
-  "#7FDBFF"  // Bright Cyan
+    "#FF4136", // Bright Red
+    "#FFDC00", // Vivid Yellow
+    "#2ECC40", // Bright Green
+    "#0074D9", // Vivid Blue
+    "#B10DC9", // Bright Purple
+    "#FF851B", // Vivid Orange
+    "#7FDBFF"  // Bright Cyan
 ];
 
 // Add these constants at the top of your code
@@ -37,292 +37,288 @@ const FORCE_PULSE_SPEED = 0.02;
 const MIN_DISTANCE_FROM_EDGE = 100; // Minimum distance from canvas edge
 
 class Attractor {
-  constructor() {
-    // Position attractor away from edges
-    this.position = createVector(
-      random(MIN_DISTANCE_FROM_EDGE, width - MIN_DISTANCE_FROM_EDGE),
-      random(MIN_DISTANCE_FROM_EDGE, height - MIN_DISTANCE_FROM_EDGE)
-    );
-    this.baseStrength = random(0.4, 0.4); // Base attraction strength
-    this.currentStrength = 0;
-    this.pulsePhase = random(TWO_PI); // Random starting phase for pulsing
-    this.color = color(255);
-    this.radius = random(15, 25);
-  }
-  
-  update() {
-    // Pulsing effect using sine wave
-    this.pulsePhase += FORCE_PULSE_SPEED;
-    this.currentStrength = this.baseStrength * (0.8 + 0.2 * sin(this.pulsePhase));
-  }
-  
-  display() {
-    // Always show attractor
-    noStroke();
-    fill(this.color);
-    ellipse(this.position.x, this.position.y, this.radius, this.radius);
-    
-    // Show pulsating influence radius
-    // noFill();
-    // stroke(this.color);
-    // strokeWeight(1);
-    // let pulseSize = map(sin(this.pulsePhase), -1, 1, 0.8, 1.2);
-    // ellipse(this.position.x, this.position.y, 
-    //        ATTRACTION_RADIUS * 2 * pulseSize, 
-    //        ATTRACTION_RADIUS * 2 * pulseSize);
-  }
-  
-  getStrength() {
-    return this.currentStrength;
-  }
+    constructor(pos) {
+        // Position attractor away from edges
+        // this.position = createVector(
+        //     random(MIN_DISTANCE_FROM_EDGE, width - MIN_DISTANCE_FROM_EDGE),
+        //     random(MIN_DISTANCE_FROM_EDGE, height - MIN_DISTANCE_FROM_EDGE)
+        // );
+        this.position = pos;
+        this.baseStrength = random(0.4, 0.4); // Base attraction strength
+        this.currentStrength = 0;
+        this.pulsePhase = random(TWO_PI); // Random starting phase for pulsing
+        this.color = color(255);
+        this.radius = random(15, 25);
+    }
+
+    update() {
+        // Pulsing effect using sine wave
+        this.pulsePhase += FORCE_PULSE_SPEED;
+        this.currentStrength = this.baseStrength * (0.8 + 0.2 * sin(this.pulsePhase));
+    }
+
+    display() {
+        // Always show attractor
+        noStroke();
+        fill(this.color);
+        ellipse(this.position.x, this.position.y, this.radius, this.radius);
+
+        // Show pulsating influence radius
+        // noFill();
+        // stroke(this.color);
+        // strokeWeight(1);
+        // let pulseSize = map(sin(this.pulsePhase), -1, 1, 0.8, 1.2);
+        // ellipse(this.position.x, this.position.y, 
+        //        ATTRACTION_RADIUS * 2 * pulseSize, 
+        //        ATTRACTION_RADIUS * 2 * pulseSize);
+    }
+
+    getStrength() {
+        return this.currentStrength;
+    }
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  colorMode(HSB, 360, 100, 100, 300);
+    createCanvas(windowWidth, windowHeight);
+    colorMode(HSB, 360, 100, 100, 300);
 
-  quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
+    quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
 
-  // Create 3 attractors (they'll stay forever)
-  for (let i = 0; i < 3; i++) {
-    attractors.push(new Attractor());
-  }
+    // Create 3 attractors (they'll stay forever)
+    // for (let i = 0; i < 3; i++) {
+    //     attractors.push(new Attractor());
+    // }
+    posA = createVector(random(50, width / 3 - 50), random(50, 2 * height / 3 - 50));
+    attractors.push(new Attractor(posA));
+    posB = createVector(random( width / 3 + 50, 2 * width / 3 - 50), random(2 * height / 3 - 50, 3 * height / 3 - 50));
+    attractors.push(new Attractor(posB));
+    posC = createVector(random( 2 * width / 3 + 50, 3 * width / 3 - 50), random(height / 3 - 50, 2 * height / 3 - 50));
+    attractors.push(new Attractor(posC));
 
-  // create gui (dat.gui)
-  let gui = new dat.GUI({
-    width: 295
-  });
-  //gui.close();
-  gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
-  gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
-  gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
-  gui.add(controls, 'numPoly', 0, 300).name("Num Polygons").step(1);
-  gui.add(controls, 'trace').name("Trace").listen();
-  for (let i = 0; i < controls.numPoly; i++) {
-  }
+    // create gui (dat.gui)
+    let gui = new dat.GUI({
+        width: 295
+    });
+    //gui.close();
+    gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
+    gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
+    gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
+    gui.add(controls, 'numPoly', 0, 300).name("Num Polygons").step(1);
+    gui.add(controls, 'trace').name("Trace").listen();
+    for (let i = 0; i < controls.numPoly; i++) {
+    }
+    gui.close();
 
-  gui.close();
-
-}
-
-function sourceCode() {
-  window.location.href = "https://editor.p5js.org/jcponce/sketches/BkCDZSR1V";
-}
-
-function backHome() {
-  window.location.href = "https://jcponce.github.io/#sketches";
 }
 
 function draw() {
 
-  //This is for drawing the trace of particles
-  if (controls.trace == true) {
-    fill(0, 45);
-  } else {
-    background(0);
-    fill(0, 0);
-  }
-  noStroke();
-  rect(0, 0, width, height);
-
-
-  quadTree.clear();
-  for (const boid of flock) {
-    quadTree.addItem(boid.position.x, boid.position.y, boid);
-  }
-  //if(controls.quad3 == true){
-  quadTree.debugRender();
-  //}
-
-   // Update and display attractors
-  for (let attractor of attractors) {
-    attractor.update();
-    attractor.display();
-  }
-
-
-  for (let boid of flock) {
-    boid.edges();
-    boid.flock(flock);
-    boid.update();
-    boid.show();
-  }
-
-  // Adjust the amount of boids on screen according to the slider value
-  let maxBoids = controls.numPoly;
-  let difference = flock.length - maxBoids;
-  if (difference < 0) {
-    for (let i = 0; i < -difference; i++) {
-      pushRandomBoid(); // Add boids if there are less boids than the slider value
+    //This is for drawing the trace of particles
+    if (controls.trace == true) {
+        fill(0, 45);
+    } else {
+        background(0);
+        fill(0, 0);
     }
-  } else if (difference > 0) {
-    for (let i = 0; i < difference; i++) {
-      flock.pop(); // Remove boids if there are more boids than the slider value
+    noStroke();
+    rect(0, 0, width, height);
+
+    quadTree.clear();
+    for (const boid of flock) {
+        quadTree.addItem(boid.position.x, boid.position.y, boid);
     }
-  }
+    //if(controls.quad3 == true){
+    quadTree.debugRender();
+    //}
+
+    // Update and display attractors
+    for (let attractor of attractors) {
+        attractor.update();
+        attractor.display();
+    }
+
+    for (let boid of flock) {
+        boid.edges();
+        boid.flock(flock);
+        boid.update();
+        boid.show();
+    }
+
+    // Adjust the amount of boids on screen according to the slider value
+    let maxBoids = controls.numPoly;
+    let difference = flock.length - maxBoids;
+    if (difference < 0) {
+        for (let i = 0; i < -difference; i++) {
+            pushRandomBoid(); // Add boids if there are less boids than the slider value
+        }
+    } else if (difference > 0) {
+        for (let i = 0; i < difference; i++) {
+            flock.pop(); // Remove boids if there are more boids than the slider value
+        }
+    }
 }
 
 // Make a new boid
 function pushRandomBoid() {
-  let boid = new Boid(); // Create a new boid
-  flock.push(boid); // Add the new boid to the flock
+    let boid = new Boid(); // Create a new boid
+    flock.push(boid); // Add the new boid to the flock
 }
 
 class Boid {
-  constructor() {
-    this.position = createVector(random(2 * width / 5, 3 * width / 5), random(2 * height / 5, 3 * height / 5));
-    this.velocity = p5.Vector.random2D();
-    this.velocity.setMag(random(1.5, 3.5));
-    this.acceleration = createVector();
-    this.maxForce = 0.2;
-    this.maxSpeed = 3.5;
-    this.col = color(random(palette));
-  }
-
-  edges() {
-    if (this.position.x > width) {
-      this.position.x = 0;
-    } else if (this.position.x < 0) {
-      this.position.x = width;
+    constructor() {
+        this.position = createVector(random(2 * width / 5, 3 * width / 5), random(2 * height / 5, 3 * height / 5));
+        this.velocity = p5.Vector.random2D();
+        this.velocity.setMag(random(1.5, 3.5));
+        this.acceleration = createVector();
+        this.maxForce = 0.2;
+        this.maxSpeed = 3.0;
+        this.col = color(random(palette));
     }
-    if (this.position.y > height) {
-      this.position.y = 0;
-    } else if (this.position.y < 0) {
-      this.position.y = height;
-    }
-  }
 
-  align(boids) {
-    let perceptionRadius = 30;
-    let perceptionCount = 5;
-    let steering = createVector();
-    let total = 0;
-    for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
-      steering.add(other.velocity);
-      total++;
+    edges() {
+        if (this.position.x > width) {
+            this.position.x = 0;
+        } else if (this.position.x < 0) {
+            this.position.x = width;
+        }
+        if (this.position.y > height) {
+            this.position.y = 0;
+        } else if (this.position.y < 0) {
+            this.position.y = height;
+        }
     }
-    if (total > 0) {
-      steering.div(total);
-      steering.setMag(this.maxSpeed);
-      steering.sub(this.velocity);
-      steering.limit(this.maxForce);
+
+    align(boids) {
+        let perceptionRadius = 30;
+        let perceptionCount = 5;
+        let steering = createVector();
+        let total = 0;
+        for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
+            steering.add(other.velocity);
+            total++;
+        }
+        if (total > 0) {
+            steering.div(total);
+            steering.setMag(this.maxSpeed);
+            steering.sub(this.velocity);
+            steering.limit(this.maxForce);
+        }
+        return steering;
     }
-    return steering;
-  }
 
-  separation(boids) {
-    let perceptionRadius = 30;
-    let perceptionCount = 5;
-    let steering = createVector();
-    let total = 0;
-    for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
-      const diff = p5.Vector.sub(this.position, other.position);
-      const d = diff.mag();
-      if (d === 0) continue;
-      diff.div(d * d);
-      steering.add(diff);
-      total++;
+    separation(boids) {
+        let perceptionRadius = 30;
+        let perceptionCount = 5;
+        let steering = createVector();
+        let total = 0;
+        for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
+            const diff = p5.Vector.sub(this.position, other.position);
+            const d = diff.mag();
+            if (d === 0) continue;
+            diff.div(d * d);
+            steering.add(diff);
+            total++;
+        }
+        if (total > 0) {
+            steering.div(total);
+            steering.setMag(this.maxSpeed);
+            steering.sub(this.velocity);
+            steering.limit(this.maxForce);
+        }
+        return steering;
     }
-    if (total > 0) {
-      steering.div(total);
-      steering.setMag(this.maxSpeed);
-      steering.sub(this.velocity);
-      steering.limit(this.maxForce);
+
+    cohesion(boids) {
+        let perceptionRadius = 50;
+        let perceptionCount = 5;
+        let steering = createVector();
+        let total = 0;
+        for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
+            steering.add(other.position);
+            total++;
+        }
+        if (total > 0) {
+            steering.div(total);
+            steering.sub(this.position);
+            steering.setMag(this.maxSpeed);
+            steering.sub(this.velocity);
+            steering.limit(this.maxForce);
+        }
+        return steering;
     }
-    return steering;
-  }
 
-  cohesion(boids) {
-    let perceptionRadius = 50;
-    let perceptionCount = 5;
-    let steering = createVector();
-    let total = 0;
-    for (const other of quadTree.getItemsInRadius(this.position.x, this.position.y, perceptionRadius, perceptionCount)) {
-      steering.add(other.position);
-      total++;
+    flock(boids) {
+        let alignment = this.align(boids);
+        let cohesion = this.cohesion(boids);
+        let separation = this.separation(boids);
+
+        alignment.mult(controls.align);
+        cohesion.mult(controls.cohesion);
+        separation.mult(controls.separation);
+
+        this.acceleration.add(alignment);
+        this.acceleration.add(cohesion);
+        this.acceleration.add(separation);
     }
-    if (total > 0) {
-      steering.div(total);
-      steering.sub(this.position);
-      steering.setMag(this.maxSpeed);
-      steering.sub(this.velocity);
-      steering.limit(this.maxForce);
+
+    applyAttractors() {
+        let totalForce = createVector(0, 0);
+        let attractorCount = 0;
+
+        // Accumulate forces from all nearby attractors
+        for (let attractor of attractors) {
+            let d = p5.Vector.dist(this.position, attractor.position);
+            if (d < ATTRACTION_RADIUS) {
+                // Calculate attraction force (stronger when closer)
+                let strength = attractor.getStrength() * (1 - d / ATTRACTION_RADIUS);
+                let desired = p5.Vector.sub(attractor.position, this.position);
+                desired.normalize();
+                desired.mult(strength);
+                totalForce.add(desired);
+                attractorCount++;
+            }
+        }
+
+        // Apply average force if we found any attractors
+        if (attractorCount > 0) {
+            totalForce.div(attractorCount);
+            this.acceleration.add(totalForce);
+        }
     }
-    return steering;
-  }
 
-  flock(boids) {
-    let alignment = this.align(boids);
-    let cohesion = this.cohesion(boids);
-    let separation = this.separation(boids);
-
-    alignment.mult(controls.align);
-    cohesion.mult(controls.cohesion);
-    separation.mult(controls.separation);
-
-    this.acceleration.add(alignment);
-    this.acceleration.add(cohesion);
-    this.acceleration.add(separation);
-  }
-
-  applyAttractors() {
-    let totalForce = createVector(0, 0);
-    let attractorCount = 0;
-    
-    // Accumulate forces from all nearby attractors
-    for (let attractor of attractors) {
-      let d = p5.Vector.dist(this.position, attractor.position);
-      if (d < ATTRACTION_RADIUS) {
-        // Calculate attraction force (stronger when closer)
-        let strength = attractor.getStrength() * (1 - d/ATTRACTION_RADIUS);
-        let desired = p5.Vector.sub(attractor.position, this.position);
-        desired.normalize();
-        desired.mult(strength);
-        totalForce.add(desired);
-        attractorCount++;
-      }
+    update() {
+        this.applyAttractors(); // Add this line
+        this.position.add(this.velocity);
+        this.velocity.add(this.acceleration);
+        this.velocity.limit(this.maxSpeed);
+        this.acceleration.mult(0);
     }
-    
-    // Apply average force if we found any attractors
-    if (attractorCount > 0) {
-      totalForce.div(attractorCount);
-      this.acceleration.add(totalForce);
+
+    show() {
+        let theta = this.velocity.heading() + PI / 2;
+
+        noStroke();
+        fill(this.col);
+        push();
+        translate(this.position.x, this.position.y)
+        rotate(theta);
+        ellipse(0, 0, 10);
+        pop();
     }
-  }
-
-  update() {
-    this.applyAttractors(); // Add this line
-    this.position.add(this.velocity);
-    this.velocity.add(this.acceleration);
-    this.velocity.limit(this.maxSpeed);
-    this.acceleration.mult(0);
-  }
-
-  show() {
-    let theta = this.velocity.heading() + PI / 2;
-    
-    noStroke();
-    fill(this.col);
-    push();
-    translate(this.position.x, this.position.y)
-    rotate(theta);
-    ellipse(0, 0, 10);
-    pop();
-  }
 }
 
 class QuadTreeItem {
-    
+
     constructor(x, y, data) {
         this.x = x;
         this.y = y;
         this.data = data;
     }
-    
+
 }
 
 class QuadTreeBin {
-    
+
     /*
      * @param maxDepth The maximum number of permitted subdivisions.
      * @param maxItemsPerBin The maximum number of items in a single bin before it is subdivided.
@@ -337,7 +333,7 @@ class QuadTreeBin {
         this.items = [];
         this.depth = depth;
     }
-    
+
     /*
      * Check if a point is within the extent of a `QuadTreeBin` instance.
      * Returns true if so, false otherwise.
@@ -345,9 +341,9 @@ class QuadTreeBin {
      */
     checkWithinExtent(x, y, range = 0) {
         return x >= this.rect.x - range && x < this.rect.x + this.rect.width + range &&
-        y >= this.rect.y - range && y < this.rect.y + this.rect.height + range;
+            y >= this.rect.y - range && y < this.rect.y + this.rect.height + range;
     }
-    
+
     /*
      * Adds an item to the `QuadTreeBin`.
      * @param item An instance of `QuadTreeItem`.
@@ -363,14 +359,14 @@ class QuadTreeBin {
                 this.bins[binIndex].addItem(item);
         }
     }
-    
+
     /*
      * Returns a list of items from the bin within the specified radius of the coordinates provided.
      */
     getItemsInRadius(x, y, radius, maxItems) {
         const radiusSqrd = radius ** 2;
         let items = [];
-        
+
         if (this.bins) {
             for (let b of this.bins)
                 if (b.checkWithinExtent(x, y, radius))
@@ -382,10 +378,10 @@ class QuadTreeBin {
                     items.push({ distSqrd: distSqrd, data: item.data });
             }
         }
-        
+
         return items;
     }
-    
+
     /*
      * Split a `QuadTreeBin` into 4 smaller `QuadTreeBin`s.
      * Removes all `QuadTreeItem`s from the bin and adds them to the appropriate child bins.
@@ -396,16 +392,16 @@ class QuadTreeBin {
         let w = this.rect.width * 0.5, h = this.rect.height * 0.5;
         for (let i = 0; i < 4; ++i)
             this.bins.push(new QuadTreeBin(this.maxDepth, this.maxItemsPerBin, new Rect(this.rect.x + i % 2 * w, this.rect.y + Math.floor(i * 0.5) * h, w, h), this.depth + 1));
-        
+
         for (let item of this.items) {
             const binIndex = this._getBinIndex(item.x, item.y);
             if (binIndex != -1)
                 this.bins[binIndex].addItem(item);
         }
-        
+
         this.items = null;
     }
-    
+
     /*
      * Renders the borders of the `QuadTreeBin`s within this `QuadTreeBin`.
      * For debugging purposes.
@@ -420,7 +416,7 @@ class QuadTreeBin {
             for (let b of this.bins)
                 b.debugRender(renderingContext);
     }
-    
+
     /*
      * Private.
      */
@@ -431,11 +427,11 @@ class QuadTreeBin {
         let yy = Math.floor((y - this.rect.y) / h);
         return xx + yy * 2;
     }
-    
+
 }
 
 class QuadTree {
-    
+
     /*
      * @param maxDepth The maximum number of permitted subdivisions.
      * @param maxItemsPerBin The maximum number of items in a single bin before it is subdivided.
@@ -447,14 +443,14 @@ class QuadTree {
         this.maxItemsPerBin = maxItemsPerBin;
         this.clear();
     }
-    
+
     /*
      * Remove all `QuadTreeItem`s and `QuadTreeBin`s from the QuadTree leaving it completely empty.
      */
     clear() {
         this.rootBin = new QuadTreeBin(this.maxDepth, this.maxItemsPerBin, new Rect(0, 0, this.extent.width, this.extent.height));
     }
-    
+
     /*
      * Add an item at a specified position in the `QuadTree`.
      * @param x The x coordinate of the item.
@@ -464,7 +460,7 @@ class QuadTree {
     addItem(x, y, item) {
         this.rootBin.addItem(new QuadTreeItem(x, y, item));
     }
-    
+
     /*
      * Returns a list of items within the specified radius of the specified coordinates.
      */
@@ -473,12 +469,12 @@ class QuadTree {
             return this.rootBin.getItemsInRadius(x, y, radius);
         } else {
             return this.rootBin.getItemsInRadius(x, y, radius)
-            .sort((a, b) => a.distSqrd - b.distSqrd)
-            .slice(0, maxItems)
-            .map(v => v.data);
+                .sort((a, b) => a.distSqrd - b.distSqrd)
+                .slice(0, maxItems)
+                .map(v => v.data);
         }
     }
-    
+
     /*
      * Renders the borders of the `QuadTreeBin`s within this `QuadTree`.
      * For debugging purposes.
@@ -486,24 +482,24 @@ class QuadTree {
     debugRender(renderingContext) {
         this.rootBin.debugRender(renderingContext);
     }
-    
+
 }
 
 class Rect {
 
-  // By default, positioned at [0, 0] with a width and height of 1
-  constructor(x = 0, y = 0, width = 1, height = 1) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-  }
+    // By default, positioned at [0, 0] with a width and height of 1
+    constructor(x = 0, y = 0, width = 1, height = 1) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
 
-  /*
-   * Return a new rectangle instance with the same values
-   */
-  copy() {
-    return new Rect(this.x, this.y, this.width, this.height);
-  }
+    /*
+     * Return a new rectangle instance with the same values
+     */
+    copy() {
+        return new Rect(this.x, this.y, this.width, this.height);
+    }
 
 }
