@@ -38,11 +38,6 @@ const MIN_DISTANCE_FROM_EDGE = 100; // Minimum distance from canvas edge
 
 class Attractor {
     constructor(pos) {
-        // Position attractor away from edges
-        // this.position = createVector(
-        //     random(MIN_DISTANCE_FROM_EDGE, width - MIN_DISTANCE_FROM_EDGE),
-        //     random(MIN_DISTANCE_FROM_EDGE, height - MIN_DISTANCE_FROM_EDGE)
-        // );
         this.position = pos;
         this.baseStrength = random(0.4, 0.4); // Base attraction strength
         this.currentStrength = 0;
