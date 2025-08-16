@@ -80,7 +80,6 @@ class Attractor {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    colorMode(HSB, 360, 100, 100, 300);
 
     quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
 
@@ -115,7 +114,7 @@ function draw() {
 
     //This is for drawing the trace of particles
     if (controls.trace == true) {
-        fill(0, 45);
+        fill(0, 25);
     } else {
         background(0);
         fill(0, 0);
