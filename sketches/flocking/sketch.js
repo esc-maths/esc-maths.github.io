@@ -20,19 +20,19 @@ let controls = new Controls();
 let quadTree;
 
 let palette = [
-    "#FF4136", // Bright Red
-    "#FFDC00", // Vivid Yellow
-    "#2ECC40", // Bright Green
-    "#0074D9", // Vivid Blue
-    "#B10DC9", // Bright Purple
-    "#FF851B", // Vivid Orange
-    "#7FDBFF"  // Bright Cyan
+    "#fe8c86ff", // Bright Red
+    "#fdee8aff", // Vivid Yellow
+    "#91e29aff", // Bright Green
+    "#9bc9f2ff", // Vivid Blue
+    "#bb74c6ff", // Bright Purple
+    "#edcc97ff", // Vivid Orange
+    "#aae7ffff"  // Bright Cyan
 ];
 
 const attractorColors = [
-  "#FF00FF", // Magenta
-  "#00FFFF", // Cyan 
-  "#FFFF00"  // Yellow
+    "#00ffffff", // Electric Magenta (very bright pink-purple)
+    "#02ffb3ff", // Neon Green (extremely vivid)
+    "#ff000dff"  // Hot Pink (intense pink-red)
 ];
 
 // Add these constants at the top of your code
@@ -40,7 +40,6 @@ const ATTRACTION_RADIUS = 120;
 const MIN_ATTRACTION_FORCE = 0.3;
 const MAX_ATTRACTION_FORCE = 1.5;
 const FORCE_PULSE_SPEED = 0.02;
-const MIN_DISTANCE_FROM_EDGE = 100; // Minimum distance from canvas edge
 
 class Attractor {
     constructor(pos, index) {  // Add index parameter
@@ -85,13 +84,13 @@ function setup() {
 
     quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
 
-   // Update your attractor creation in setup():
-posA = createVector(random(50, width / 3 - 50), random(50, 2 * height / 3 - 50));
-attractors.push(new Attractor(posA, 0)); // Pass index 0
-posB = createVector(random( width / 3 + 50, 2 * width / 3 - 50), random(2 * height / 3 - 50, 3 * height / 3 - 50));
-attractors.push(new Attractor(posB, 1)); // Pass index 1
-posC = createVector(random( 2 * width / 3 + 50, 3 * width / 3 - 50), random(height / 3 - 50, 2 * height / 3 - 50));
-attractors.push(new Attractor(posC, 2)); // Pass index 2
+    // Update your attractor creation in setup():
+    posA = createVector(random(50, width / 3 - 50), random(50, 2 * height / 3 - 50));
+    attractors.push(new Attractor(posA, 0)); // Pass index 0
+    posB = createVector(random(width / 3 + 50, 2 * width / 3 - 50), random(2 * height / 3 - 50, 3 * height / 3 - 50));
+    attractors.push(new Attractor(posB, 1)); // Pass index 1
+    posC = createVector(random(2 * width / 3 + 50, 3 * width / 3 - 50), random(height / 3 - 50, 2 * height / 3 - 50));
+    attractors.push(new Attractor(posC, 2)); // Pass index 2
 
     // create gui (dat.gui)
     let gui = new dat.GUI({
@@ -292,7 +291,7 @@ class Boid {
         let closestAttractor = null;
         let minDist = Infinity;
         let targetColor = this.originalCol;
-        
+
         // Find closest attractor
         for (let attractor of attractors) {
             let d = p5.Vector.dist(this.position, attractor.position);
@@ -301,14 +300,14 @@ class Boid {
                 closestAttractor = attractor;
             }
         }
-        
+
         // If near an attractor, set target to attractor's color
         if (closestAttractor) {
             // Calculate color intensity based on distance (closer = stronger color)
             let intensity = map(minDist, 0, ATTRACTION_RADIUS, 1, 0);
             targetColor = lerpColor(this.originalCol, closestAttractor.influenceColor, intensity);
         }
-        
+
         // Smoothly transition to target color
         this.currentCol = lerpColor(this.currentCol, targetColor, this.colorTransitionSpeed);
     }
@@ -323,7 +322,7 @@ class Boid {
     }
 
     show() {
-         let theta = this.velocity.heading() + PI / 2;
+        let theta = this.velocity.heading() + PI / 2;
         noStroke();
         fill(this.currentCol); // Use currentCol instead of this.col
         push();
@@ -529,4 +528,23 @@ class Rect {
         return new Rect(this.x, this.y, this.width, this.height);
     }
 
+}
+
+// Add this at the end of your code, after all class definitions
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+
+    // Update quad tree bounds
+    quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
+
+    // Keep attractors within new bounds (but maintain their relative positions)
+    for (let attractor of attractors) {
+        attractor.position.x = constrain(attractor.position.x, 0, width);
+        attractor.position.y = constrain(attractor.position.y, 0, height);
+    }
+
+    // Reset the trace if not in trace mode
+    if (!controls.trace) {
+        background(0);
+    }
 }
