@@ -12,7 +12,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 800
+    numParticles: 700
 };
 
 let quadTree;
