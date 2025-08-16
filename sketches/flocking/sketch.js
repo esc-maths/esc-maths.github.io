@@ -115,7 +115,7 @@ function draw() {
     } else {
         background(0);
     }
-    
+
     quadTree.clear();
     for (const boid of flock) {
         quadTree.addItem(boid.position.x, boid.position.y, boid);
@@ -324,7 +324,7 @@ class Boid {
         push();
         translate(this.position.x, this.position.y)
         rotate(theta);
-        ellipse(0, 0, 10);
+        ellipse(0, 0, 15);
         pop();
     }
 }
