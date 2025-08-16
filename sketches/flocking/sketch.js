@@ -68,7 +68,7 @@ class Attractor {
         // Show pulsating influence radius
         noFill();
         stroke(this.color);
-        strokeWeight(1);
+        strokeWeight(2);
         let pulseSize = map(sin(this.pulsePhase), -1, 1, 0.8, 1.2);
         ellipse(this.position.x, this.position.y, 
                ATTRACTION_RADIUS * 2 * pulseSize, 
