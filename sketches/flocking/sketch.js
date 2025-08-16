@@ -7,15 +7,13 @@
 const flock = [];
 const attractors = [];
 
-let Controls = function () {
-    this.align = 1.5;
-    this.cohesion = 1;
-    this.separation = 2;
-    this.trace = true;
-    this.numParticles = 400;
+const controls = {
+    align: 1.5,
+    cohesion: 1,
+    separation: 2,
+    trace: true,
+    numParticles: 800
 };
-
-let controls = new Controls();
 
 let quadTree;
 
@@ -66,13 +64,13 @@ class Attractor {
         ellipse(this.position.x, this.position.y, this.radius, this.radius);
 
         // Show pulsating influence radius
-        noFill();
-        stroke(this.color);
-        strokeWeight(2);
-        let pulseSize = map(sin(this.pulsePhase), -1, 1, 0.8, 1.2);
-        ellipse(this.position.x, this.position.y, 
-               ATTRACTION_RADIUS * 2 * pulseSize, 
-               ATTRACTION_RADIUS * 2 * pulseSize);
+        // noFill();
+        // stroke(this.color);
+        // strokeWeight(2);
+        // let pulseSize = map(sin(this.pulsePhase), -1, 1, 0.8, 1.2);
+        // ellipse(this.position.x, this.position.y, 
+        //        ATTRACTION_RADIUS * 2 * pulseSize, 
+        //        ATTRACTION_RADIUS * 2 * pulseSize);
     }
 
     getStrength() {
@@ -101,7 +99,7 @@ function setup() {
     gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
     gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
-    gui.add(controls, 'numParticles', 0, 400).name("Num Particles").step(1);
+    gui.add(controls, 'numParticles', 0, 800).name("Num Particles").step(1);
     gui.add(controls, 'trace').name("Trace").listen();
     for (let i = 0; i < controls.numParticles; i++) {
     }
