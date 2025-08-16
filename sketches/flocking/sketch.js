@@ -38,8 +38,6 @@ const attractorColors = [
 
 // Add these constants at the top of your code
 const ATTRACTION_RADIUS = 130;
-//const MIN_ATTRACTION_FORCE = 0.3;
-//const MAX_ATTRACTION_FORCE = 1.5;
 const FORCE_PULSE_SPEED = 0.02;
 
 class Attractor {

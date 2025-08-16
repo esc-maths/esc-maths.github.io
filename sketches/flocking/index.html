@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.8/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.3/dat.gui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
 
-  </head>
-  <body>
+</head>
+
+<body>
     <script src="sketch.js"></script>
-  </body>
+
+    <script>
+        // Function to toggle full screen mode
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Event listener for keydown event
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'f' || event.key === 'F') {
+                toggleFullScreen();
+            }
+        });
+    </script>
+</body>
+
 </html>
