@@ -12,7 +12,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 650
+    numParticles: 600
 };
 
 let quadTree;
@@ -111,13 +111,11 @@ function draw() {
 
     //This is for drawing the trace of particles
     if (controls.trace == true) {
-        fill(0, 10);
+        background(0, 10);
     } else {
         background(0);
-        fill(0, 0);
     }
-    noStroke();
-    rect(0, 0, width, height);
+    
 
     quadTree.clear();
     for (const boid of flock) {
