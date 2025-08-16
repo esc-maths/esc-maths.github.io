@@ -36,9 +36,9 @@ const attractorColors = [
 ];
 
 // Add these constants at the top of your code
-const ATTRACTION_RADIUS = 120;
-const MIN_ATTRACTION_FORCE = 0.3;
-const MAX_ATTRACTION_FORCE = 1.5;
+const ATTRACTION_RADIUS = 130;
+//const MIN_ATTRACTION_FORCE = 0.3;
+//const MAX_ATTRACTION_FORCE = 1.5;
 const FORCE_PULSE_SPEED = 0.02;
 
 class Attractor {
@@ -61,17 +61,18 @@ class Attractor {
     display() {
         // Always show attractor
         noStroke();
-        fill(this.color);
+        //fill(this.color);
+        noFill();
         ellipse(this.position.x, this.position.y, this.radius, this.radius);
 
         // Show pulsating influence radius
-        // noFill();
-        // stroke(this.color);
-        // strokeWeight(1);
-        // let pulseSize = map(sin(this.pulsePhase), -1, 1, 0.8, 1.2);
-        // ellipse(this.position.x, this.position.y, 
-        //        ATTRACTION_RADIUS * 2 * pulseSize, 
-        //        ATTRACTION_RADIUS * 2 * pulseSize);
+        noFill();
+        stroke(this.color);
+        strokeWeight(1);
+        let pulseSize = map(sin(this.pulsePhase), -1, 1, 0.8, 1.2);
+        ellipse(this.position.x, this.position.y, 
+               ATTRACTION_RADIUS * 2 * pulseSize, 
+               ATTRACTION_RADIUS * 2 * pulseSize);
     }
 
     getStrength() {
@@ -313,8 +314,8 @@ class Boid {
     }
 
     update() {
-        this.applyAttractors(); // Add this line
-        this.updateColor(); // Add this line
+        this.applyAttractors();
+        this.updateColor();
         this.position.add(this.velocity);
         this.velocity.add(this.acceleration);
         this.velocity.limit(this.maxSpeed);
