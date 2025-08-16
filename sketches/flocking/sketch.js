@@ -29,6 +29,12 @@ let palette = [
     "#7FDBFF"  // Bright Cyan
 ];
 
+const attractorColors = [
+  "#FF00FF", // Magenta
+  "#00FFFF", // Cyan 
+  "#FFFF00"  // Yellow
+];
+
 // Add these constants at the top of your code
 const ATTRACTION_RADIUS = 120;
 const MIN_ATTRACTION_FORCE = 0.3;
@@ -37,13 +43,14 @@ const FORCE_PULSE_SPEED = 0.02;
 const MIN_DISTANCE_FROM_EDGE = 100; // Minimum distance from canvas edge
 
 class Attractor {
-    constructor(pos) {
+    constructor(pos, index) {  // Add index parameter
         this.position = pos;
-        this.baseStrength = random(0.4, 0.4); // Base attraction strength
+        this.baseStrength = random(0.4, 0.4);
         this.currentStrength = 0;
-        this.pulsePhase = random(TWO_PI); // Random starting phase for pulsing
-        this.color = color(255);
+        this.pulsePhase = random(TWO_PI);
+        this.color = color(attractorColors[index % attractorColors.length]); // Use index to get unique color
         this.radius = random(15, 25);
+        this.influenceColor = color(attractorColors[index % attractorColors.length]); // Color to apply to boids
     }
 
     update() {
@@ -78,16 +85,13 @@ function setup() {
 
     quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
 
-    // Create 3 attractors (they'll stay forever)
-    // for (let i = 0; i < 3; i++) {
-    //     attractors.push(new Attractor());
-    // }
-    posA = createVector(random(50, width / 3 - 50), random(50, 2 * height / 3 - 50));
-    attractors.push(new Attractor(posA));
-    posB = createVector(random( width / 3 + 50, 2 * width / 3 - 50), random(2 * height / 3 - 50, 3 * height / 3 - 50));
-    attractors.push(new Attractor(posB));
-    posC = createVector(random( 2 * width / 3 + 50, 3 * width / 3 - 50), random(height / 3 - 50, 2 * height / 3 - 50));
-    attractors.push(new Attractor(posC));
+   // Update your attractor creation in setup():
+posA = createVector(random(50, width / 3 - 50), random(50, 2 * height / 3 - 50));
+attractors.push(new Attractor(posA, 0)); // Pass index 0
+posB = createVector(random( width / 3 + 50, 2 * width / 3 - 50), random(2 * height / 3 - 50, 3 * height / 3 - 50));
+attractors.push(new Attractor(posB, 1)); // Pass index 1
+posC = createVector(random( 2 * width / 3 + 50, 3 * width / 3 - 50), random(height / 3 - 50, 2 * height / 3 - 50));
+attractors.push(new Attractor(posC, 2)); // Pass index 2
 
     // create gui (dat.gui)
     let gui = new dat.GUI({
@@ -167,6 +171,10 @@ class Boid {
         this.maxForce = 0.2;
         this.maxSpeed = 3.0;
         this.col = color(random(palette));
+
+        this.originalCol = color(random(palette)); // Store original color
+        this.currentCol = this.originalCol; // Current display color
+        this.colorTransitionSpeed = 0.05; // How fast color changes
     }
 
     edges() {
@@ -280,8 +288,34 @@ class Boid {
         }
     }
 
+    updateColor() {
+        let closestAttractor = null;
+        let minDist = Infinity;
+        let targetColor = this.originalCol;
+        
+        // Find closest attractor
+        for (let attractor of attractors) {
+            let d = p5.Vector.dist(this.position, attractor.position);
+            if (d < ATTRACTION_RADIUS && d < minDist) {
+                minDist = d;
+                closestAttractor = attractor;
+            }
+        }
+        
+        // If near an attractor, set target to attractor's color
+        if (closestAttractor) {
+            // Calculate color intensity based on distance (closer = stronger color)
+            let intensity = map(minDist, 0, ATTRACTION_RADIUS, 1, 0);
+            targetColor = lerpColor(this.originalCol, closestAttractor.influenceColor, intensity);
+        }
+        
+        // Smoothly transition to target color
+        this.currentCol = lerpColor(this.currentCol, targetColor, this.colorTransitionSpeed);
+    }
+
     update() {
         this.applyAttractors(); // Add this line
+        this.updateColor(); // Add this line
         this.position.add(this.velocity);
         this.velocity.add(this.acceleration);
         this.velocity.limit(this.maxSpeed);
@@ -289,10 +323,9 @@ class Boid {
     }
 
     show() {
-        let theta = this.velocity.heading() + PI / 2;
-
+         let theta = this.velocity.heading() + PI / 2;
         noStroke();
-        fill(this.col);
+        fill(this.currentCol); // Use currentCol instead of this.col
         push();
         translate(this.position.x, this.position.y)
         rotate(theta);
