@@ -113,7 +113,7 @@ function draw() {
 
     //This is for drawing the trace of particles
     if (controls.trace == true) {
-        fill(0, 25);
+        fill(0, 20);
     } else {
         background(0);
         fill(0, 0);
