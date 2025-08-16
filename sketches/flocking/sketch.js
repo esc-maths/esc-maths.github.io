@@ -84,11 +84,12 @@ function setup() {
     quadTree = new QuadTree(Infinity, 30, new Rect(0, 0, width, height));
 
     // Update your attractor creation in setup():
-    posA = createVector(random(50, width / 3 - 50), random(50, 2 * height / 3 - 50));
+    const frame = 100;
+    posA = createVector(random(frame, width / 3 - frame), random(frame, 2 * height / 3 - frame));
     attractors.push(new Attractor(posA, 0)); // Pass index 0
-    posB = createVector(random(width / 3 + 50, 2 * width / 3 - 50), random(2 * height / 3 - 50, 3 * height / 3 - 50));
+    posB = createVector(random(width / 3 + frame, 2 * width / 3 - frame), random(2 * height / 3 - frame, 3 * height / 3 - frame));
     attractors.push(new Attractor(posB, 1)); // Pass index 1
-    posC = createVector(random(2 * width / 3 + 50, 3 * width / 3 - 50), random(height / 3 - 50, 2 * height / 3 - 50));
+    posC = createVector(random(2 * width / 3 + frame, 3 * width / 3 - frame), random(height / 3 - frame, 2 * height / 3 - frame));
     attractors.push(new Attractor(posC, 2)); // Pass index 2
 
     // create gui (dat.gui)
