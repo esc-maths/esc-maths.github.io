@@ -18,13 +18,13 @@ const controls = {
 let quadTree;
 
 let palette = [
-    "#fcc9c6ff", // Bright Red
-    "#faf2c1ff", // Vivid Yellow
-    "#b7ffc0ff", // Bright Green
-    "#aed9ffff", // Vivid Blue
-    "#d097d9ff", // Bright Purple
-    "#edd4adff", // Vivid Orange
-    "#bbf9faff"  // Bright Cyan
+    "rgba(255, 245, 191, 1)",     // Vivid Gold (bright yellow)
+    "rgba(255, 205, 171, 1)",     // Intense Orange (bold and warm)
+    "rgba(123, 0, 255, 1)",     // Electric Purple (deep violet)
+    "rgba(255, 218, 186, 1)",       // Pure Lime Green (maximum saturation)
+    "rgba(255, 164, 255, 1)",     // Fuchsia (balanced pink-purple)
+    "rgba(169, 169, 255, 1)",       // Solid Blue (primary, high contrast)
+    "rgba(255, 174, 214, 1)"      // Raspberry Pink (between pink and red)
 ];
 
 const attractorColors = [
