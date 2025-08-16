@@ -12,7 +12,7 @@ let Controls = function () {
     this.cohesion = 1;
     this.separation = 2;
     this.trace = true;
-    this.numPoly = 300;
+    this.numParticles = 400;
 };
 
 let controls = new Controls();
@@ -20,17 +20,17 @@ let controls = new Controls();
 let quadTree;
 
 let palette = [
-    "#fe8c86ff", // Bright Red
-    "#fdee8aff", // Vivid Yellow
-    "#91e29aff", // Bright Green
-    "#9bc9f2ff", // Vivid Blue
-    "#bb74c6ff", // Bright Purple
-    "#edcc97ff", // Vivid Orange
-    "#aae7ffff"  // Bright Cyan
+    "#fcc9c6ff", // Bright Red
+    "#faf2c1ff", // Vivid Yellow
+    "#b7ffc0ff", // Bright Green
+    "#aed9ffff", // Vivid Blue
+    "#d097d9ff", // Bright Purple
+    "#edd4adff", // Vivid Orange
+    "#bbf9faff"  // Bright Cyan
 ];
 
 const attractorColors = [
-    "#00ffffff", // Electric Magenta (very bright pink-purple)
+    "#00bfffff", // Electric Magenta (very bright pink-purple)
     "#02ffb3ff", // Neon Green (extremely vivid)
     "#ff000dff"  // Hot Pink (intense pink-red)
 ];
@@ -101,9 +101,9 @@ function setup() {
     gui.add(controls, 'align', 0, 3).name("Align").step(0.1);
     gui.add(controls, 'cohesion', 0, 3).name("Cohesion").step(0.1);
     gui.add(controls, 'separation', 0, 3).name("Separation").step(0.1);
-    gui.add(controls, 'numPoly', 0, 300).name("Num Polygons").step(1);
+    gui.add(controls, 'numParticles', 0, 400).name("Num Particles").step(1);
     gui.add(controls, 'trace').name("Trace").listen();
-    for (let i = 0; i < controls.numPoly; i++) {
+    for (let i = 0; i < controls.numParticles; i++) {
     }
     gui.close();
 
@@ -143,7 +143,7 @@ function draw() {
     }
 
     // Adjust the amount of boids on screen according to the slider value
-    let maxBoids = controls.numPoly;
+    let maxBoids = controls.numParticles;
     let difference = flock.length - maxBoids;
     if (difference < 0) {
         for (let i = 0; i < -difference; i++) {
@@ -169,7 +169,7 @@ class Boid {
         this.velocity.setMag(random(1.5, 3.5));
         this.acceleration = createVector();
         this.maxForce = 0.2;
-        this.maxSpeed = 3.0;
+        this.maxSpeed = 2.5;
         this.col = color(random(palette));
 
         this.originalCol = color(random(palette)); // Store original color
