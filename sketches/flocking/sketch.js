@@ -17,21 +17,24 @@ const controls = {
 
 let quadTree;
 
-let palette = [
-    "rgba(255, 245, 191, 1)",     // Vivid Gold (bright yellow)
-    "rgba(255, 205, 171, 1)",     // Intense Orange (bold and warm)
-    "rgba(123, 0, 255, 1)",     // Electric Purple (deep violet)
-    "rgba(255, 218, 186, 1)",       // Pure Lime Green (maximum saturation)
-    "rgba(255, 164, 255, 1)",     // Fuchsia (balanced pink-purple)
-    "rgba(169, 169, 255, 1)",       // Solid Blue (primary, high contrast)
-    "rgba(255, 174, 214, 1)"      // Raspberry Pink (between pink and red)
+// Palette colors
+const palette = [
+    "rgba(255, 228, 75, 1)",   // Bright yellow, like sunflower
+    "rgba(5, 130, 1, 1)",      // Dark green, like forest green
+    "rgba(123, 0, 255, 1)",    // Vivid purple
+    "rgba(255, 85, 0, 1)",     // Deep orange / coral orange
+    "rgba(255, 29, 255, 1)",   // Bright pink / magenta
+    "rgba(46, 46, 255, 1)",    // Deep blue / royal blue
+    "rgba(255, 0, 128, 1)"     // Strong pink / fuchsia
 ];
 
+// Attractor colors
 const attractorColors = [
-    "#00bfffff", // Electric Magenta (very bright pink-purple)
-    "#02ffb3ff", // Neon Green (extremely vivid)
-    "#ff000dff"  // Hot Pink (intense pink-red)
+    "#00bfffff",   // Cyan / bright aqua
+    "#00ffb3ff",   // Light aqua / mint
+    "#ff0000ff"    // True red
 ];
+
 
 // Add these constants at the top of your code
 const ATTRACTION_RADIUS = 130;
