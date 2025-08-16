@@ -116,7 +116,6 @@ function draw() {
         background(0);
     }
     
-
     quadTree.clear();
     for (const boid of flock) {
         quadTree.addItem(boid.position.x, boid.position.y, boid);
