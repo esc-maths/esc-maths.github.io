@@ -102,6 +102,7 @@ function setup() {
     gui.add(controls, 'numParticles', 0, 800).name("Num Particles").step(1);
     gui.add(controls, 'trace').name("Trace").listen();
     for (let i = 0; i < controls.numParticles; i++) {
+        pushRandomBoid(); 
     }
     gui.close();
 
@@ -159,7 +160,7 @@ function pushRandomBoid() {
 
 class Boid {
     constructor() {
-        this.position = createVector(random(2 * width / 5, 3 * width / 5), random(2 * height / 5, 3 * height / 5));
+        this.position = createVector(random(0, width), random(0, height));
         this.velocity = p5.Vector.random2D();
         this.velocity.setMag(random(1.5, 3.5));
         this.acceleration = createVector();
