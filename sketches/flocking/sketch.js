@@ -507,6 +507,23 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+function keyPressed() {
+  if (key === 's' || key === 'S') {
+    // Get date and time
+    let now = new Date();
+    let timestamp =
+      now.getFullYear() + "-" +
+      nf(now.getMonth() + 1, 2) + "-" +
+      nf(now.getDate(), 2) + "_" +
+      nf(now.getHours(), 2) + "-" +
+      nf(now.getMinutes(), 2) + "-" +
+      nf(now.getSeconds(), 2);
+
+    // Save canvas with custom name, date and time
+    saveCanvas(cnv, 'emotion_' + timestamp, 'jpg');
+  }
+}
+
 // Make a new boid
 function pushRandomBoid() {
     let boid = new Boid(); // Create a new boid
@@ -514,8 +531,9 @@ function pushRandomBoid() {
 }
 
 /* Setup and Draw functions */
+let cnv;
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    cnv = createCanvas(windowWidth, windowHeight);
 
     quadTree = new QuadTree(6, 20, new Rect(0, 0, width, height));
 
