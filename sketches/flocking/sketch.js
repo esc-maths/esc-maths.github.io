@@ -29,7 +29,7 @@ const controls = {
     cohesion: 1,
     separation: 2,
     trace: true,
-    numParticles: 600
+    numParticles: 500
 };
 
 // Palette colors for particles
@@ -507,6 +507,8 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+let showTrace = true;
+
 function keyPressed() {
   if (key === 's' || key === 'S') {
     // Get date and time
@@ -521,6 +523,10 @@ function keyPressed() {
 
     // Save canvas with custom name, date and time
     saveCanvas(cnv, 'emotion_' + timestamp, 'jpg');
+  }
+
+  if (key === 't' || key === 'T'){
+    showTrace = !showTrace;
   }
 }
 
@@ -570,7 +576,7 @@ function setup() {
 function draw() {
 
     //This is for drawing the trace of particles
-    if (controls.trace == true) {
+    if (showTrace == true) {
         background(0, 10);
     } else {
         background(0);
