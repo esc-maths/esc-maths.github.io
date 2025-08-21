@@ -182,6 +182,14 @@
   </div>
   
   <div class="toggle-container">
+    <span>Show Axes</span>
+    <label class="toggle">
+      <input type="checkbox" id="toggle-axes" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container">
     <span>Show Points</span>
     <label class="toggle">
       <input type="checkbox" id="toggle-points" checked>
@@ -269,6 +277,11 @@
   const togglePoints = document.getElementById('toggle-points');
   togglePoints.addEventListener('change', function() {
     pickMarkers.visible = this.checked;
+  });
+
+  const toggleAxes = document.getElementById('toggle-axes');
+  toggleAxes.addEventListener('change', function() {
+    axesHelper.visible = this.checked;
   });
   
   document.getElementById('clear-btn').addEventListener('click', clearFibers);
@@ -417,7 +430,7 @@
       }
     } else if (exampleName === 'spiral') {
       // Spiral pattern - points along a spiral on the sphere
-      const numPoints = 300;
+      const numPoints = 100;
       for (let i = 0; i < numPoints; i++) {
         const t = i / numPoints;
         const theta = t * Math.PI * 4; // Multiple rotations
