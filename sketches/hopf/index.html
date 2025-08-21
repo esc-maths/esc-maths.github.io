@@ -304,7 +304,7 @@
     container.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0b1020, 0.045);
+    scene.fog = new THREE.FogExp2(0x0b1020, 0.015);
 
     const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 200);
     camera.position.set(2.8, 1.9, 3.2);
@@ -313,9 +313,9 @@
     controls.enableDamping = true;
     controls.target.set(0, 0, 0);
 
-    const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+    const ambient = new THREE.AmbientLight(0xffffff, 0.9);
     scene.add(ambient);
-    const dir = new THREE.DirectionalLight(0xffffff, 1.1);
+    const dir = new THREE.DirectionalLight(0xffffff, 1.5);
     dir.position.set(3, 5, 2);
     scene.add(dir);
 
@@ -331,10 +331,10 @@
     const sphereGeo = new THREE.SphereGeometry(1, 48, 32);
     const sphereMat = new THREE.MeshStandardMaterial({
       color: 0x22409a,
-      roughness: 0.15,
+      roughness: 0.25,
       metalness: 0.05,
       transparent: true,
-      opacity: 0.45,
+      opacity: 0.35,
       emissive: 0x07142e,
       emissiveIntensity: 0.8,
       side: THREE.DoubleSide
