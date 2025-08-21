@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Picker Sphere Position Control</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0b1020 0%, #1a2b4d 100%);
+      color: #eaf2ff;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(13, 25, 59, 0.7);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #9fb7ff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .panel {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(13, 25, 59, 0.7);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .panel h2 {
+      color: #9fb7ff;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #2b3a5a;
+    }
+    .control-group {
+      margin-bottom: 20px;
+    }
+    .control-group h3 {
+      margin-bottom: 15px;
+      color: #b4d0ff;
+    }
+    .slider-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .slider-container label {
+      width: 120px;
+      font-weight: 500;
+    }
+    .slider-container input {
+      flex: 1;
+      margin: 0 15px;
+    }
+    .slider-container span {
+      width: 60px;
+      text-align: right;
+      font-family: monospace;
+    }
+    .position-display {
+      background: rgba(27, 42, 74, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-family: monospace;
+    }
+    .position-display div {
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .position-display span {
+      color: #b4d0ff;
+    }
+    .visualization {
+      flex: 2;
+      min-width: 400px;
+      height: 500px;
+      background: #091326;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    #preview {
+      width: 100%;
+      height: 100%;
+    }
+    .corner-label {
+      position: absolute;
+      padding: 8px 15px;
+      background: rgba(27, 42, 74, 0.8);
+      border-radius: 6px;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .top-left { top: 20px; left: 20px; }
+    .top-right { top: 20px; right: 20px; }
+    .bottom-left { bottom: 20px; left: 20px; }
+    .bottom-right { bottom: 20px; right: 20px; }
+    .center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .code-sample {
+      background: #0a1429;
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .code-sample h2 {
+      color: #9fb7ff;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #2b3a5a;
+    }
+    pre {
+      background: #07142e;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      color: #b4d0ff;
+      font-family: 'Fira Code', monospace;
+      line-height: 1.5;
+    }
+    .comment { color: #5c7eb3; }
+    .property { color: #9fb7ff; }
+    .value { color: #b4d0ff; }
+    .explanation {
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(13, 25, 59, 0.7);
+      border-radius: 15px;
+    }
+    .explanation h3 {
+      color: #9fb7ff;
+      margin-bottom: 15px;
+    }
+    .explanation p {
+      margin-bottom: 15px;
+    }
+    .button {
+      background: #1b2a4a;
+      color: #eaf2ff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+      border: 1px solid #2b3a5a;
+    }
+    .button:hover {
+      background: #2b3a5a;
+    }
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+      .visualization {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Picker Sphere Position Control</h1>
+      <p class="subtitle">Learn how to position the picker sphere in your Three.js Hopf Fibration project</p>
+    </header>
+
+    <div class="content">
+      <div class="panel">
+        <h2>Position Controls</h2>
+        
+        <div class="control-group">
+          <h3>Horizontal Position</h3>
+          <div class="slider-container">
+            <label for="posX">X Position:</label>
+            <input type="range" id="posX" min="0" max="100" value="5">
+            <span id="posXValue">5%</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <h3>Vertical Position</h3>
+          <div class="slider-container">
+            <label for="posY">Y Position:</label>
+            <input type="range" id="posY" min="0" max="100" value="5">
+            <span id="posYValue">5%</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <h3>Size Control</h3>
+          <div class="slider-container">
+            <label for="size">Sphere Size:</label>
+            <input type="range" id="size" min="150" max="400" value="260">
+            <span id="sizeValue">260px</span>
+          </div>
+        </div>
+
+        <div class="position-display">
+          <h3>Current CSS Values:</h3>
+          <div>
+            <span>left:</span> <span id="cssLeft">16px</span>
+          </div>
+          <div>
+            <span>bottom:</span> <span id="cssBottom">16px</span>
+          </div>
+          <div>
+            <span>width/height:</span> <span id="cssSize">260px</span>
+          </div>
+        </div>
+
+        <button id="resetBtn" class="button">Reset to Default</button>
+      </div>
+
+      <div class="visualization">
+        <div id="preview">
+          <!-- This is where the Three.js scene would be rendered -->
+          <div style="width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
+            <div style="text-align:center;">
+              <div style="font-size:5rem;margin-bottom:20px;">🌐</div>
+              <p>Three.js visualization would appear here</p>
+              <p style="opacity:0.7;">(In your actual project, this is where the WebGL renderer displays)</p>
+            </div>
+          </div>
+        </div>
+        <div class="corner-label top-left">Top Left</div>
+        <div class="corner-label top-right">Top Right</div>
+        <div class="corner-label bottom-left">Bottom Left</div>
+        <div class="corner-label bottom-right">Bottom Right</div>
+        <div class="corner-label center">Center</div>
+        
+        <!-- Picker Sphere (simulated) -->
+        <div id="pickerSphere" style="position:absolute;width:260px;height:260px;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06);background:rgba(34, 64, 122, 0.6);border:2px solid #b4d0ff;left:16px;bottom:16px;">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);text-align:center;color:white;">
+            Picker Sphere
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-sample">
+      <h2>Code Implementation</h2>
+      <pre><code><span class="comment">// This function controls the position of the picker sphere</span>
+function getPickerViewport() {
+  <span class="comment">// Get values from sliders (converted to pixels)</span>
+  const xPercent = document.getElementById('posX').value;
+  const yPercent = document.getElementById('posY').value;
+  const size = document.getElementById('size').value;
+  
+  <span class="comment">// Convert percentage values to pixels</span>
+  const x = (xPercent / 100) * window.innerWidth;
+  const y = (yPercent / 100) * window.innerHeight;
+  
+  <span class="comment">// Return position and size values</span>
+  return { 
+    x: x, 
+    y: window.innerHeight - y - size, <span class="comment">// Adjust for bottom positioning</span>
+    w: size, 
+    h: size 
+  };
+}
+
+<span class="comment">// In your render function:</span>
+function render() {
+  <span class="comment">// ... other rendering code ...</span>
+  
+  <span class="comment">// Get the updated position</span>
+  const { x, y, w, h } = getPickerViewport();
+  
+  <span class="comment">// Set the viewport and scissor for the picker sphere</span>
+  renderer.setViewport(x, y, w, h);
+  renderer.setScissor(x, y, w, h);
+  renderer.setClearColor(0x091326, 1);
+  renderer.clear(true, true, true);
+  pickerCamera.lookAt(0, 0, 0);
+  renderer.render(pickerScene, pickerCamera);
+  
+  <span class="comment">// ... rest of rendering code ...</span>
+}</code></pre>
+    </div>
+
+    <div class="explanation">
+      <h3>How to Position the Picker Sphere in Your Code</h3>
+      <p>In your original code, the picker sphere position is controlled by the <code>getPickerViewport()</code> function. This function returns an object with <code>x</code>, <code>y</code>, <code>w</code> (width), and <code>h</code> (height) values.</p>
+      
+      <p>The key part of the code is:</p>
+      <pre>const { x, y, w, h } = getPickerViewport();
+renderer.setViewport(x, y, w, h);
+renderer.setScissor(x, y, w, h);</pre>
+      
+      <p>To change the position of the picker sphere, you need to modify the values returned by the <code>getPickerViewport()</code> function. The current implementation places it in the bottom-left corner with fixed pixel values.</p>
+      
+      <p>You can make the position dynamic by modifying the function to accept parameters or by connecting it to UI controls like the sliders in this demo.</p>
+    </div>
+  </div>
+
+  <script>
+    // Get DOM elements
+    const posXSlider = document.getElementById('posX');
+    const posYSlider = document.getElementById('posY');
+    const sizeSlider = document.getElementById('size');
+    const posXValue = document.getElementById('posXValue');
+    const posYValue = document.getElementById('posYValue');
+    const sizeValue = document.getElementById('sizeValue');
+    const cssLeft = document.getElementById('cssLeft');
+    const cssBottom = document.getElementById('cssBottom');
+    const cssSize = document.getElementById('cssSize');
+    const pickerSphere = document.getElementById('pickerSphere');
+    const resetBtn = document.getElementById('resetBtn');
+
+    // Update slider value displays
+    function updateSliderValues() {
+      posXValue.textContent = posXSlider.value + '%';
+      posYValue.textContent = posYSlider.value + '%';
+      sizeValue.textContent = sizeSlider.value + 'px';
+    }
+
+    // Update picker sphere position
+    function updatePickerPosition() {
+      const xPercent = parseInt(posXSlider.value);
+      const yPercent = parseInt(posYSlider.value);
+      const size = parseInt(sizeSlider.value);
+      
+      // Convert percentage to pixels
+      const x = (xPercent / 100) * window.innerWidth;
+      const y = (yPercent / 100) * window.innerHeight;
+      
+      // Update CSS (for visualization)
+      pickerSphere.style.left = x + 'px';
+      pickerSphere.style.bottom = y + 'px';
+      pickerSphere.style.width = size + 'px';
+      pickerSphere.style.height = size + 'px';
+      
+      // Update displayed CSS values
+      cssLeft.textContent = Math.round(x) + 'px';
+      cssBottom.textContent = Math.round(y) + 'px';
+      cssSize.textContent = size + 'px';
+    }
+
+    // Reset to default values
+    function resetToDefault() {
+      posXSlider.value = 5;
+      posYSlider.value = 5;
+      sizeSlider.value = 260;
+      updateSliderValues();
+      updatePickerPosition();
+    }
+
+    // Event listeners
+    posXSlider.addEventListener('input', () => {
+      updateSliderValues();
+      updatePickerPosition();
+    });
+
+    posYSlider.addEventListener('input', () => {
+      updateSliderValues();
+      updatePickerPosition();
+    });
+
+    sizeSlider.addEventListener('input', () => {
+      updateSliderValues();
+      updatePickerPosition();
+    });
+
+    resetBtn.addEventListener('click', resetToDefault);
+
+    // Initialize
+    updateSliderValues();
+    updatePickerPosition();
+
+    // Update on window resize
+    window.addEventListener('resize', updatePickerPosition);
+  </script>
+</body>
+</html>
