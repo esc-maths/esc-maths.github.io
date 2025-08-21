@@ -96,11 +96,14 @@
       transform: translateX(26px);
     }
     .instructions {
-      margin-top: 15px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       padding: 10px;
+      padding-top: 1px;
+      padding-bottom: 1px;
       background: rgba(27, 42, 74, 0.5);
       border-radius: 8px;
-      font-size: 12px;
+      font-size: 14px;
     }
     .selection-marker {
       position: absolute;
@@ -118,7 +121,8 @@
     .dropdown {
       width: 100%;
       padding: 6px;
-      margin-bottom: 15px;
+      margin-top: 2px;
+      margin-bottom: 10px;
       background: #1b2a4a;
       color: #eaf2ff;
       border: 1px solid #2b3a5a;
@@ -166,12 +170,13 @@
 <button class="toggle-controls-btn" id="toggle-controls-btn">▼ Hide Controls</button>
 <div class="controls" id="controls">
   <h3>Hopf Fibration Controls</h3>
-  
-  <select class="dropdown" id="examples">
-    <option value="custom">Custom Points</option>
-    <option value="tropical">Tropical Pattern</option>
-    <option value="spiral">Spiral Pattern</option>
-  </select>
+
+  <div class="instructions">
+    <p>
+      <strong>Instructions:</strong>
+      Move mouse over sphere to select point, then press 'A' to add a Hopf fiber at that location.</p>
+    
+  </div>
   
   <div class="toggle-container">
     <span>Show Sphere</span>
@@ -196,15 +201,18 @@
       <span class="slider"></span>
     </label>
   </div>
+
+  <select class="dropdown" id="examples">
+    <option value="custom">Custom Points</option>
+    <option value="tropical">Tropical Pattern</option>
+    <option value="spiral">Spiral Pattern</option>
+  </select>
   
   <button id="clear-btn">Clear All Fibers</button>
+
   
-  <div class="instructions">
-    <p>Mouse: Select point on sphere</p>
-    <p>A key: Add fiber at selected point</p>
-    <p>Left-click + drag: Rotate view</p>
-    <p>Scroll: Zoom in/out</p>
-  </div>
+  
+  
 </div>
 <div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
 
@@ -306,7 +314,7 @@
       toggleControlsBtn.textContent = '▼ Hide Controls';
     } else {
       controlsElement.classList.add('hidden');
-      toggleControlsBtn.textContent = '▲ Show Controls';
+      toggleControlsBtn.textContent = '▲ Controls';
     }
   });
 
