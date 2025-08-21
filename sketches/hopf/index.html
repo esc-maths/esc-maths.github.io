@@ -1,17 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hopf Fibration Visualization</title>
   <style>
-    html, body { margin:0; height:100%; overflow:hidden; background:#0b1020; }
-    #app { position:relative; width:100vw; height:100vh; }
-    canvas { display:block; }
-    .hud { position:fixed; left:16px; top:16px; color:#eaf2ff; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial; font-size:14px; line-height:1.3; }
-    .hint { opacity:.8; max-width:340px; }
-    .badge { display:inline-block; padding:2px 8px; border-radius:999px; background:#1b2a4a; border:1px solid #2b3a5a; margin-right:8px; font-size:12px; }
-    .footer { position:fixed; right:16px; bottom:16px; color:#9fb7ff; font-size:12px; opacity:.7; }
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #0b1020;
+    }
+
+    #app {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    .hud {
+      position: fixed;
+      left: 16px;
+      top: 16px;
+      color: #eaf2ff;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .hint {
+      opacity: .8;
+      max-width: 340px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #1b2a4a;
+      border: 1px solid #2b3a5a;
+      margin-right: 8px;
+      font-size: 12px;
+    }
+
+    .footer {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      color: #9fb7ff;
+      font-size: 12px;
+      opacity: .7;
+    }
+
     .controls {
       position: fixed;
       left: 16px;
@@ -23,19 +69,22 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       color: #eaf2ff;
       font-family: ui-sans-serif, system-ui;
-      width: 240px;
+      width: 200px;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
+
     .controls.hidden {
       transform: translateY(calc(100% + 20px));
       opacity: 0;
       pointer-events: none;
     }
+
     .controls h3 {
       margin: 0 0 12px 0;
       font-size: 16px;
       color: #b4d0ff;
     }
+
     .controls button {
       width: 100%;
       padding: 8px;
@@ -47,26 +96,31 @@
       margin-top: 5px;
       transition: background 0.3s;
     }
+
     .controls button:hover {
       background: #3a5aaa;
     }
+
     .toggle-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 15px;
     }
+
     .toggle {
       position: relative;
       display: inline-block;
       width: 50px;
       height: 24px;
     }
+
     .toggle input {
       opacity: 0;
       width: 0;
       height: 0;
     }
+
     .slider {
       position: absolute;
       cursor: pointer;
@@ -78,6 +132,7 @@
       transition: .4s;
       border-radius: 24px;
     }
+
     .slider:before {
       position: absolute;
       content: "";
@@ -89,12 +144,15 @@
       transition: .4s;
       border-radius: 50%;
     }
-    input:checked + .slider {
+
+    input:checked+.slider {
       background-color: #2b4a8a;
     }
-    input:checked + .slider:before {
+
+    input:checked+.slider:before {
       transform: translateX(26px);
     }
+
     .instructions {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -105,6 +163,7 @@
       border-radius: 8px;
       font-size: 14px;
     }
+
     .selection-marker {
       position: absolute;
       width: 12px;
@@ -118,6 +177,7 @@
       z-index: 100;
       display: none;
     }
+
     .dropdown {
       width: 100%;
       padding: 6px;
@@ -129,9 +189,11 @@
       border-radius: 4px;
       font-family: ui-sans-serif, system-ui;
     }
+
     .dropdown option {
       background: #0b1020;
     }
+
     .toggle-controls-btn {
       position: fixed;
       left: 16px;
@@ -146,6 +208,7 @@
       font-size: 12px;
       z-index: 1000;
     }
+
     .toggle-controls-btn:hover {
       background: #3a5aaa;
     }
@@ -159,373 +222,422 @@
     }
   </script>
 </head>
+
 <body>
-<div id="app"></div>
-<div class="selection-marker" id="selection-marker"></div>
-<!--<div class="hud">
+  <div id="app"></div>
+  <div class="selection-marker" id="selection-marker"></div>
+  <!--<div class="hud">
   <span class="badge">Press 'A' to add fiber</span>
   <span class="hint">Move mouse over sphere to select point, then press 'A' to add a Hopf fiber at that location.</span>
 </div>-->
 
-<button class="toggle-controls-btn" id="toggle-controls-btn">▼ Hide Controls</button>
-<div class="controls" id="controls">
-  <h3>Hopf Fibration Controls</h3>
+  <button class="toggle-controls-btn" id="toggle-controls-btn">▼ Hide Controls</button>
+  <div class="controls" id="controls">
+    <h3>Hopf Fibration Controls</h3>
 
-  <div class="instructions">
-    <p>
-      <strong>Instructions:</strong>
-      Move mouse over sphere to select point, then press 'A' to add a Hopf fiber at that location.</p>
+    <div class="instructions">
+      <p>
+        <strong>Instructions:</strong>
+        Move mouse over sphere to select point, then press 'A' to add a Hopf fiber at that location.
+      </p>
+
+    </div>
+
+    <div class="toggle-container">
+      <span>Sphere</span>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-sphere" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-container">
+      <span>Points</span>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-points" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-container">
+      <span>Axes</span>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-axes" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-container">
+      <span>Grid</span>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-grid" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
     
+
+    <select class="dropdown" id="examples">
+      <option value="custom">Custom Points</option>
+      <option value="tropical">Tropical Pattern</option>
+      <option value="spiral">Spiral Pattern</option>
+      <option value="icosahedral">Icosahedral Pattern</option>
+      <option value="longitude-bands">Longitude Bands</option>
+    </select>
+
+    <button id="clear-btn">Clear All Fibers</button>
+
+
+
+
   </div>
-  
-  <div class="toggle-container">
-    <span>Show Sphere</span>
-    <label class="toggle">
-      <input type="checkbox" id="toggle-sphere" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
-  
-  <div class="toggle-container">
-    <span>Show Axes</span>
-    <label class="toggle">
-      <input type="checkbox" id="toggle-axes" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
+  <div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
 
-  <div class="toggle-container">
-    <span>Show Points</span>
-    <label class="toggle">
-      <input type="checkbox" id="toggle-points" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-  <select class="dropdown" id="examples">
-    <option value="custom">Custom Points</option>
-    <option value="tropical">Tropical Pattern</option>
-    <option value="spiral">Spiral Pattern</option>
-  </select>
-  
-  <button id="clear-btn">Clear All Fibers</button>
+    const container = document.getElementById('app');
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
 
-  
-  
-  
-</div>
-<div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x0b1020, 0.045);
 
-<script type="module">
-  import * as THREE from 'three';
-  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 200);
+    camera.position.set(2.8, 1.9, 3.2);
 
-  const container = document.getElementById('app');
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  container.appendChild(renderer.domElement);
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.target.set(0, 0, 0);
 
-  const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x0b1020, 0.045);
+    const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+    scene.add(ambient);
+    const dir = new THREE.DirectionalLight(0xffffff, 1.1);
+    dir.position.set(3, 5, 2);
+    scene.add(dir);
 
-  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 200);
-  camera.position.set(2.8, 1.9, 3.2);
+    const grid = new THREE.GridHelper(20, 20, 0x3355aa, 0x1c2c4f);
+    grid.material.opacity = 0.84; 
+    grid.material.transparent = true;
+    scene.add(grid);
 
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.target.set(0, 0, 0);
+    const axesHelper = new THREE.AxesHelper(1);
+    scene.add(axesHelper);
 
-  const ambient = new THREE.AmbientLight(0xffffff, 0.7);
-  scene.add(ambient);
-  const dir = new THREE.DirectionalLight(0xffffff, 1.1);
-  dir.position.set(3, 5, 2);
-  scene.add(dir);
+    // Create the main sphere in the center of the scene
+    const sphereGeo = new THREE.SphereGeometry(1, 48, 32);
+    const sphereMat = new THREE.MeshStandardMaterial({
+      color: 0x22409a,
+      roughness: 0.15,
+      metalness: 0.05,
+      transparent: true,
+      opacity: 0.45,
+      emissive: 0x07142e,
+      emissiveIntensity: 0.8,
+      side: THREE.DoubleSide
+    });
+    const sphere = new THREE.Mesh(sphereGeo, sphereMat);
+    scene.add(sphere);
 
-  const grid = new THREE.GridHelper(20, 20, 0x3355aa, 0x1c2c4f);
-  grid.material.opacity = 0.14; grid.material.transparent = true;
-  scene.add(grid);
+    const pickMarkers = new THREE.Group();
+    scene.add(pickMarkers);
+    const markerGeo = new THREE.SphereGeometry(0.035, 16, 16);
+    const markerMat = new THREE.MeshStandardMaterial({ color: 0xb4d0ff, emissive: 0x224488, emissiveIntensity: 0.5 });
 
-  const axesHelper = new THREE.AxesHelper( 1 );
-  scene.add( axesHelper );
+    // Parameters for the Hopf fibration
+    const params = {
+      waves: 4,
+      amplitude: 0.25,
+      segments: 240
+    };
 
-  // Create the main sphere in the center of the scene
-  const sphereGeo = new THREE.SphereGeometry(1, 48, 32);
-  const sphereMat = new THREE.MeshStandardMaterial({
-    color: 0x22409a,
-    roughness: 0.15,
-    metalness: 0.05,
-    transparent: true,
-    opacity: 0.45,
-    emissive: 0x07142e,
-    emissiveIntensity: 0.8,
-    side: THREE.DoubleSide
-  });
-  const sphere = new THREE.Mesh(sphereGeo, sphereMat);
-  scene.add(sphere);
+    // Set up toggle functionality
+    const toggleSphere = document.getElementById('toggle-sphere');
+    toggleSphere.addEventListener('change', function () {
+      sphere.visible = this.checked;
+    });
 
-  const pickMarkers = new THREE.Group();
-  scene.add(pickMarkers);
-  const markerGeo = new THREE.SphereGeometry(0.035, 16, 16);
-  const markerMat = new THREE.MeshStandardMaterial({ color: 0xb4d0ff, emissive: 0x224488, emissiveIntensity: 0.5 });
+    const togglePoints = document.getElementById('toggle-points');
+    togglePoints.addEventListener('change', function () {
+      pickMarkers.visible = this.checked;
+    });
 
-  // Parameters for the Hopf fibration
-  const params = {
-    waves: 4,
-    amplitude: 0.25,
-    segments: 240
-  };
+    const toggleAxes = document.getElementById('toggle-axes');
+    toggleAxes.addEventListener('change', function () {
+      axesHelper.visible = this.checked;
+    });
 
-  // Set up toggle functionality
-  const toggleSphere = document.getElementById('toggle-sphere');
-  toggleSphere.addEventListener('change', function() {
-    sphere.visible = this.checked;
-  });
-  
-  const togglePoints = document.getElementById('toggle-points');
-  togglePoints.addEventListener('change', function() {
-    pickMarkers.visible = this.checked;
-  });
+    const toggleGrid = document.getElementById('toggle-grid');
+    toggleGrid.addEventListener('change', function () {
+      grid.visible = this.checked;
+    });
 
-  const toggleAxes = document.getElementById('toggle-axes');
-  toggleAxes.addEventListener('change', function() {
-    axesHelper.visible = this.checked;
-  });
-  
-  document.getElementById('clear-btn').addEventListener('click', clearFibers);
-  
-  // Set up examples dropdown
-  const examplesDropdown = document.getElementById('examples');
-  examplesDropdown.addEventListener('change', function() {
-    if (this.value !== 'custom') {
-      loadExample(this.value);
+    document.getElementById('clear-btn').addEventListener('click', clearFibers);
+
+    // Set up examples dropdown
+    const examplesDropdown = document.getElementById('examples');
+    examplesDropdown.addEventListener('change', function () {
+      if (this.value !== 'custom') {
+        loadExample(this.value);
+      }
+    });
+
+    // Set up controls toggle
+    const controlsElement = document.getElementById('controls');
+    const toggleControlsBtn = document.getElementById('toggle-controls-btn');
+    let controlsVisible = true;
+
+    toggleControlsBtn.addEventListener('click', function () {
+      controlsVisible = !controlsVisible;
+      if (controlsVisible) {
+        controlsElement.classList.remove('hidden');
+        toggleControlsBtn.textContent = '▼ Hide Controls';
+      } else {
+        controlsElement.classList.add('hidden');
+        toggleControlsBtn.textContent = '▲ Controls';
+      }
+    });
+
+    function spinorFromN(n) {
+      const nz = n.z;
+      const denom = 2 * Math.sqrt((1 + nz) / 2);
+      if (denom > 1e-8) {
+        const z1 = { re: Math.sqrt((1 + nz) / 2), im: 0 };
+        const z2 = { re: n.x / denom, im: n.y / denom };
+        return { z1, z2 };
+      } else {
+        return { z1: { re: 0, im: 0 }, z2: { re: 0, im: 1 } };
+      }
     }
-  });
-  
-  // Set up controls toggle
-  const controlsElement = document.getElementById('controls');
-  const toggleControlsBtn = document.getElementById('toggle-controls-btn');
-  let controlsVisible = true;
-  
-  toggleControlsBtn.addEventListener('click', function() {
-    controlsVisible = !controlsVisible;
-    if (controlsVisible) {
-      controlsElement.classList.remove('hidden');
-      toggleControlsBtn.textContent = '▼ Hide Controls';
-    } else {
-      controlsElement.classList.add('hidden');
-      toggleControlsBtn.textContent = '▲ Controls';
+
+    function rotatePhase(z, theta) {
+      const c = Math.cos(theta), s = Math.sin(theta);
+      return { re: z.re * c - z.im * s, im: z.re * s + z.im * c };
     }
-  });
 
-  function spinorFromN(n) {
-    const nz = n.z;
-    const denom = 2 * Math.sqrt((1 + nz) / 2);
-    if (denom > 1e-8) {
-      const z1 = { re: Math.sqrt((1 + nz) / 2), im: 0 };
-      const z2 = { re: n.x / denom, im: n.y / denom };
-      return { z1, z2 };
-    } else {
-      return { z1: { re: 0, im: 0 }, z2: { re: 0, im: 1 } };
+    function stereoProjectS3ToR3(x1, x2, x3, x4) {
+      const d = 1 - x4;
+      const inv = 1 / d;
+      return new THREE.Vector3(x1 * inv, x2 * inv, x3 * inv);
     }
-  }
 
-  function rotatePhase(z, theta) {
-    const c = Math.cos(theta), s = Math.sin(theta);
-    return { re: z.re * c - z.im * s, im: z.re * s + z.im * c };
-  }
-
-  function stereoProjectS3ToR3(x1, x2, x3, x4) {
-    const d = 1 - x4;
-    const inv = 1 / d;
-    return new THREE.Vector3(x1 * inv, x2 * inv, x3 * inv);
-  }
-
-  function hopfFiberPoints(n, segments) {
-    const { z1, z2 } = spinorFromN(n);
-    const pts = [];
-    for (let i = 0; i < segments; i++) {
-      const t = i / segments;
-      const theta = t * Math.PI * 2;
-      const z1t = rotatePhase(z1, theta);
-      const z2t = rotatePhase(z2, theta);
-      const p = stereoProjectS3ToR3(z1t.re, z1t.im, z2t.re, z2t.im);
-      pts.push(p);
+    function hopfFiberPoints(n, segments) {
+      const { z1, z2 } = spinorFromN(n);
+      const pts = [];
+      for (let i = 0; i < segments; i++) {
+        const t = i / segments;
+        const theta = t * Math.PI * 2;
+        const z1t = rotatePhase(z1, theta);
+        const z2t = rotatePhase(z2, theta);
+        const p = stereoProjectS3ToR3(z1t.re, z1t.im, z2t.re, z2t.im);
+        pts.push(p);
+      }
+      return pts;
     }
-    return pts;
-  }
 
-  const fibers = new THREE.Group();
-  scene.add(fibers);
+    const fibers = new THREE.Group();
+    scene.add(fibers);
 
-  function clearFibers() {
-    // Remove all fibers
-    while(fibers.children.length > 0) {
-      const fiber = fibers.children[0];
-      fiber.traverse((child) => {
-        if (child.geometry) child.geometry.dispose();
-        if (child.material) {
-          if (Array.isArray(child.material)) {
-            child.material.forEach(material => material.dispose());
-          } else {
-            child.material.dispose();
+    function clearFibers() {
+      // Remove all fibers
+      while (fibers.children.length > 0) {
+        const fiber = fibers.children[0];
+        fiber.traverse((child) => {
+          if (child.geometry) child.geometry.dispose();
+          if (child.material) {
+            if (Array.isArray(child.material)) {
+              child.material.forEach(material => material.dispose());
+            } else {
+              child.material.dispose();
+            }
+          }
+        });
+        fibers.remove(fiber);
+      }
+
+      // Remove all markers
+      while (pickMarkers.children.length > 0) {
+        const marker = pickMarkers.children[0];
+        if (marker.geometry) marker.geometry.dispose();
+        if (marker.material) marker.material.dispose();
+        pickMarkers.remove(marker);
+      }
+
+      // Reset dropdown to custom
+      examplesDropdown.value = 'custom';
+    }
+
+    function addFiber(n) {
+      const segments = params.segments;
+      const pts = hopfFiberPoints(n, segments);
+
+      const fiber = new THREE.Group();
+
+      // Create curve geometry (no spheres)
+      const lineGeo = new THREE.BufferGeometry().setFromPoints(pts.concat([pts[0]]));
+      const lineMat = new THREE.LineBasicMaterial({
+        color: new THREE.Color().setHSL(0.6 + 0.4 * Math.random(), 0.8, 0.7),
+        linewidth: 5  // Thicker fibers
+      });
+      fiber.add(new THREE.Line(lineGeo, lineMat));
+
+      fibers.add(fiber);
+
+      const marker = new THREE.Mesh(markerGeo, markerMat);
+      marker.position.copy(n.clone().multiplyScalar(1.001));
+      pickMarkers.add(marker);
+    }
+
+    function loadExample(exampleName) {
+      clearFibers();
+
+      if (exampleName === 'tropical') {
+        // Tropical pattern - points around the equator and tropics
+        const numPoints = 90;
+        for (let i = 0; i < numPoints; i++) {
+          const theta = (i / numPoints) * Math.PI * 2;
+
+          // Equator
+          const x1 = Math.cos(theta);
+          const y1 = Math.sin(theta);
+          addFiber(new THREE.Vector3(x1, y1, 0).normalize());
+
+          // Tropic of Cancer (northern)
+          const z2 = 0.5;
+          const scale2 = Math.sqrt(1 - z2 * z2);
+          const x2 = scale2 * Math.cos(theta);
+          const y2 = scale2 * Math.sin(theta);
+          addFiber(new THREE.Vector3(x2, y2, z2).normalize());
+
+          // Tropic of Capricorn (southern)
+          const z3 = -0.5;
+          const scale3 = Math.sqrt(1 - z3 * z3);
+          const x3 = scale3 * Math.cos(theta);
+          const y3 = scale3 * Math.sin(theta);
+          addFiber(new THREE.Vector3(x3, y3, z3).normalize());
+        }
+      } else if (exampleName === 'spiral') {
+        // Spiral pattern - points along a spiral on the sphere
+        const numPoints = 100;
+        for (let i = 0; i < numPoints; i++) {
+          const t = i / numPoints;
+          const theta = t * Math.PI * 4; // Multiple rotations
+          const phi = Math.acos(1 - 2 * t); // From north to south pole
+
+          const x = Math.sin(phi) * Math.cos(theta);
+          const y = Math.sin(phi) * Math.sin(theta);
+          const z = Math.cos(phi);
+
+          addFiber(new THREE.Vector3(x, y, z).normalize());
+        }
+      } else if (exampleName === 'icosahedral') {
+        const phi = (1 + Math.sqrt(5)) / 2; // golden ratio
+        const vertices = [
+          [-1, phi, 0], [1, phi, 0], [-1, -phi, 0], [1, -phi, 0],
+          [0, -1, phi], [0, 1, phi], [0, -1, -phi], [0, 1, -phi],
+          [phi, 0, -1], [phi, 0, 1], [-phi, 0, -1], [-phi, 0, 1]
+        ];
+        for (let v of vertices) {
+          const n = new THREE.Vector3(v[0], v[1], v[2]).normalize();
+          addFiber(n);
+        }
+      } else if (exampleName === 'longitude-bands') {
+        const bands = 12;   // number of longitude slices
+        const perBand = 24; // points along each slice
+
+        for (let b = 0; b < bands; b++) {
+          const theta = (b / bands) * Math.PI * 2; // longitude angle
+          const cosTheta = Math.cos(theta);
+          const sinTheta = Math.sin(theta);
+
+          for (let i = 0; i < perBand; i++) {
+            const phi = (i / (perBand - 1)) * Math.PI; // latitude from north to south pole
+            const x = Math.sin(phi) * cosTheta;
+            const y = Math.sin(phi) * sinTheta;
+            const z = Math.cos(phi);
+            addFiber(new THREE.Vector3(x, y, z).normalize());
           }
         }
-      });
-      fibers.remove(fiber);
-    }
-    
-    // Remove all markers
-    while(pickMarkers.children.length > 0) {
-      const marker = pickMarkers.children[0];
-      if (marker.geometry) marker.geometry.dispose();
-      if (marker.material) marker.material.dispose();
-      pickMarkers.remove(marker);
-    }
-    
-    // Reset dropdown to custom
-    examplesDropdown.value = 'custom';
-  }
-
-  function addFiber(n) {
-    const segments = params.segments;
-    const pts = hopfFiberPoints(n, segments);
-
-    const fiber = new THREE.Group();
-    
-    // Create curve geometry (no spheres)
-    const lineGeo = new THREE.BufferGeometry().setFromPoints(pts.concat([pts[0]]));
-    const lineMat = new THREE.LineBasicMaterial({ 
-      color: new THREE.Color().setHSL(0.6 + 0.4 * Math.random(), 0.8, 0.7),
-      linewidth: 5  // Thicker fibers
-    });
-    fiber.add(new THREE.Line(lineGeo, lineMat));
-
-    fibers.add(fiber);
-
-    const marker = new THREE.Mesh(markerGeo, markerMat);
-    marker.position.copy(n.clone().multiplyScalar(1.001));
-    pickMarkers.add(marker);
-  }
-
-  function loadExample(exampleName) {
-    clearFibers();
-    
-    if (exampleName === 'tropical') {
-      // Tropical pattern - points around the equator and tropics
-      const numPoints = 150;
-      for (let i = 0; i < numPoints; i++) {
-        const theta = (i / numPoints) * Math.PI * 2;
-        
-        // Equator
-        const x1 = Math.cos(theta);
-        const y1 = Math.sin(theta);
-        addFiber(new THREE.Vector3(x1, y1, 0).normalize());
-        
-        // Tropic of Cancer (northern)
-        const z2 = 0.5;
-        const scale2 = Math.sqrt(1 - z2 * z2);
-        const x2 = scale2 * Math.cos(theta);
-        const y2 = scale2 * Math.sin(theta);
-        addFiber(new THREE.Vector3(x2, y2, z2).normalize());
-        
-        // Tropic of Capricorn (southern)
-        const z3 = -0.5;
-        const scale3 = Math.sqrt(1 - z3 * z3);
-        const x3 = scale3 * Math.cos(theta);
-        const y3 = scale3 * Math.sin(theta);
-        addFiber(new THREE.Vector3(x3, y3, z3).normalize());
-      }
-    } else if (exampleName === 'spiral') {
-      // Spiral pattern - points along a spiral on the sphere
-      const numPoints = 100;
-      for (let i = 0; i < numPoints; i++) {
-        const t = i / numPoints;
-        const theta = t * Math.PI * 4; // Multiple rotations
-        const phi = Math.acos(1 - 2 * t); // From north to south pole
-        
-        const x = Math.sin(phi) * Math.cos(theta);
-        const y = Math.sin(phi) * Math.sin(theta);
-        const z = Math.cos(phi);
-        
-        addFiber(new THREE.Vector3(x, y, z).normalize());
       }
     }
-  }
 
-  const raycaster = new THREE.Raycaster();
-  const mouse = new THREE.Vector2();
-  let selectedPoint = null;
-  const selectionMarker = document.getElementById('selection-marker');
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    let selectedPoint = null;
+    const selectionMarker = document.getElementById('selection-marker');
 
-  function onMouseMove(e) {
-    // Calculate mouse position in normalized device coordinates
-    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    function onMouseMove(e) {
+      // Calculate mouse position in normalized device coordinates
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
 
-    raycaster.setFromCamera(mouse, camera);
-    const hit = raycaster.intersectObject(sphere, false)[0];
-    
-    if (hit) {
-      selectedPoint = hit.point.clone().normalize();
-      
-      // Project 3D point to screen coordinates
-      const vector = selectedPoint.clone();
-      vector.project(camera);
-      
-      const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
-      const y = -(vector.y * 0.5 - 0.5) * window.innerHeight;
-      
-      // Update selection marker position
-      selectionMarker.style.left = `${x}px`;
-      selectionMarker.style.top = `${y}px`;
-      selectionMarker.style.display = 'block';
-    } else {
-      selectedPoint = null;
-      selectionMarker.style.display = 'none';
-    }
-  }
+      raycaster.setFromCamera(mouse, camera);
+      const hit = raycaster.intersectObject(sphere, false)[0];
 
-  function onKeyDown(e) {
-    // Add fiber when 'A' key is pressed
-    if (e.key === 'a' || e.key === 'A') {
-      if (selectedPoint) {
-        addFiber(selectedPoint);
-        examplesDropdown.value = 'custom';
+      if (hit) {
+        selectedPoint = hit.point.clone().normalize();
+
+        // Project 3D point to screen coordinates
+        const vector = selectedPoint.clone();
+        vector.project(camera);
+
+        const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
+        const y = -(vector.y * 0.5 - 0.5) * window.innerHeight;
+
+        // Update selection marker position
+        selectionMarker.style.left = `${x}px`;
+        selectionMarker.style.top = `${y}px`;
+        selectionMarker.style.display = 'block';
+      } else {
+        selectedPoint = null;
+        selectionMarker.style.display = 'none';
       }
     }
-    
-    // Toggle controls with 'C' key
-    if (e.key === 'c' || e.key === 'C') {
-      toggleControlsBtn.click();
+
+    function onKeyDown(e) {
+      // Add fiber when 'A' key is pressed
+      if (e.key === 'a' || e.key === 'A') {
+        if (selectedPoint) {
+          addFiber(selectedPoint);
+          examplesDropdown.value = 'custom';
+        }
+      }
+
+      // Toggle controls with 'C' key
+      if (e.key === 'c' || e.key === 'C') {
+        toggleControlsBtn.click();
+      }
     }
-  }
 
-  window.addEventListener('mousemove', onMouseMove);
-  window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('keydown', onKeyDown);
 
-  function render() {
-    controls.update();
-    
-    renderer.setClearColor(0x0b1020, 1);
-    renderer.clear(true, true, true);
-    renderer.render(scene, camera);
+    function render() {
+      controls.update();
 
-    requestAnimationFrame(render);
-  }
-  render();
+      renderer.setClearColor(0x0b1020, 1);
+      renderer.clear(true, true, true);
+      renderer.render(scene, camera);
 
-  function onResize() {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-  }
-  window.addEventListener('resize', onResize);
+      requestAnimationFrame(render);
+    }
+    render();
 
-  // Add initial fibers
-  addFiber(new THREE.Vector3(0, 0, 1));
-  addFiber(new THREE.Vector3(1, 0, 0).normalize());
-  addFiber(new THREE.Vector3(0, 1, 0).normalize());
-</script>
+    function onResize() {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    window.addEventListener('resize', onResize);
+
+    // Add initial fibers
+    addFiber(new THREE.Vector3(0, 0, 1));
+    addFiber(new THREE.Vector3(1, 0, 0).normalize());
+    addFiber(new THREE.Vector3(0, 1, 0).normalize());
+  </script>
 </body>
+
 </html>
