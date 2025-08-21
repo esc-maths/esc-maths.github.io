@@ -15,7 +15,7 @@
     .controls {
       position: fixed;
       left: 16px;
-      bottom: 16px;
+      bottom: 54px;
       background: rgba(11, 16, 32, 0.8);
       padding: 15px;
       border-radius: 12px;
@@ -131,11 +131,11 @@
     .toggle-controls-btn {
       position: fixed;
       left: 16px;
-      bottom: calc(100% - 40px);
+      bottom: 16px;
       background: #2b4a8a;
       color: white;
       border: none;
-      border-radius: 6px 6px 0 0;
+      border-radius: 6px;
       padding: 6px 12px;
       cursor: pointer;
       font-family: ui-sans-serif, system-ui;
@@ -230,6 +230,9 @@
   grid.material.opacity = 0.14; grid.material.transparent = true;
   scene.add(grid);
 
+  const axesHelper = new THREE.AxesHelper( 1 );
+  scene.add( axesHelper );
+
   // Create the main sphere in the center of the scene
   const sphereGeo = new THREE.SphereGeometry(1, 48, 32);
   const sphereMat = new THREE.MeshStandardMaterial({
@@ -237,7 +240,7 @@
     roughness: 0.15,
     metalness: 0.05,
     transparent: true,
-    opacity: 0.95,
+    opacity: 0.45,
     emissive: 0x07142e,
     emissiveIntensity: 0.8,
     side: THREE.DoubleSide
@@ -389,7 +392,7 @@
     
     if (exampleName === 'tropical') {
       // Tropical pattern - points around the equator and tropics
-      const numPoints = 12;
+      const numPoints = 150;
       for (let i = 0; i < numPoints; i++) {
         const theta = (i / numPoints) * Math.PI * 2;
         
@@ -414,7 +417,7 @@
       }
     } else if (exampleName === 'spiral') {
       // Spiral pattern - points along a spiral on the sphere
-      const numPoints = 24;
+      const numPoints = 300;
       for (let i = 0; i < numPoints; i++) {
         const t = i / numPoints;
         const theta = t * Math.PI * 4; // Multiple rotations
