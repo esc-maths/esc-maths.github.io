@@ -594,27 +594,7 @@
       }
     }
 
-    function saveScreenshot() {
-      // Create a temporary link element
-      const link = document.createElement('a');
-      
-      // Set the link's href to the canvas data URL
-      link.href = renderer.domElement.toDataURL('image/png');
-      
-      // Set the download attribute with a filename
-      link.download = 'hopf-fibration-' + new Date().toISOString().replace(/:/g, '-') + '.png';
-      
-      // Programmatically click the link to trigger download
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Show notification
-      screenshotNotification.classList.add('show');
-      setTimeout(() => {
-        screenshotNotification.classList.remove('show');
-      }, 2000);
-    }
+    
 
     function onKeyDown(e) {
       // Add fiber when 'A' key is pressed
@@ -629,6 +609,8 @@
       if (e.key === 'c' || e.key === 'C') {
         toggleControlsBtn.click();
       }
+
+    
     }
 
     window.addEventListener('mousemove', onMouseMove);
