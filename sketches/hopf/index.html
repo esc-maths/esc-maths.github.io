@@ -226,23 +226,21 @@
 <body>
   <div id="app"></div>
   <div class="selection-marker" id="selection-marker"></div>
-  <!--<div class="hud">
-  <span class="badge">Press 'A' to add fiber</span>
-  <span class="hint">Move mouse over sphere to select point, then press 'A' to add a Hopf fiber at that location.</span>
-</div>-->
 
   <button class="toggle-controls-btn" id="toggle-controls-btn">▼ Hide Controls</button>
   <div class="controls" id="controls">
     <h3>Hopf Fibration Controls</h3>
-
     <div class="instructions">
-      <p>
-        <strong>Instructions:</strong>
-        Move mouse over sphere to select point, then press 'A' to add a Hopf fiber at that location.
-      </p>
-
+      <p><strong>Instructions:</strong> Move mouse over sphere to select point, then press 'A' to add a Hopf fiber at
+        that location.</p>
     </div>
-
+    <div class="toggle-container">
+      <span>Fibers</span>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-fibers" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
     <div class="toggle-container">
       <span>Sphere</span>
       <label class="toggle">
@@ -250,7 +248,6 @@
         <span class="slider"></span>
       </label>
     </div>
-
     <div class="toggle-container">
       <span>Points</span>
       <label class="toggle">
@@ -258,25 +255,20 @@
         <span class="slider"></span>
       </label>
     </div>
-
     <div class="toggle-container">
       <span>Axes</span>
       <label class="toggle">
-        <input type="checkbox" id="toggle-axes" checked>
+        <input type="checkbox" id="toggle-axes" unchecked>
         <span class="slider"></span>
       </label>
     </div>
-
     <div class="toggle-container">
       <span>Grid</span>
       <label class="toggle">
-        <input type="checkbox" id="toggle-grid" checked>
+        <input type="checkbox" id="toggle-grid" unchecked>
         <span class="slider"></span>
       </label>
     </div>
-
-    
-
     <select class="dropdown" id="examples">
       <option value="custom">Custom Points</option>
       <option value="tropical">Tropical Pattern</option>
@@ -284,12 +276,7 @@
       <option value="icosahedral">Icosahedral Pattern</option>
       <option value="longitude-bands">Longitude Bands</option>
     </select>
-
     <button id="clear-btn">Clear All Fibers</button>
-
-
-
-
   </div>
   <div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
 
@@ -307,7 +294,9 @@
     scene.fog = new THREE.FogExp2(0x0b1020, 0.015);
 
     const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.01, 200);
-    camera.position.set(2.8, 1.9, 3.2);
+    // Rotate the camera to have z-axis as top view
+    camera.position.set(2.5, 4, 1.5); // Position camera above the sphere looking down
+    camera.up.set(0, 0, 1); // Set Z as the up direction
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
@@ -316,16 +305,19 @@
     const ambient = new THREE.AmbientLight(0xffffff, 0.9);
     scene.add(ambient);
     const dir = new THREE.DirectionalLight(0xffffff, 1.5);
-    dir.position.set(3, 5, 2);
+    dir.position.set(6, 1, 5);
     scene.add(dir);
 
-    const grid = new THREE.GridHelper(20, 20, 0x3355aa, 0x1c2c4f);
-    grid.material.opacity = 0.84; 
+    const grid = new THREE.GridHelper(20, 20, 0xa7b9e5, 0x1c2c4f);
+    grid.material.opacity = 0.84;
     grid.material.transparent = true;
+    grid.rotation.x = Math.PI / 2; // Rotate grid to be horizontal (XY plane)
     scene.add(grid);
+    grid.visible = false;
 
     const axesHelper = new THREE.AxesHelper(1);
     scene.add(axesHelper);
+    axesHelper.visible = false;
 
     // Create the main sphere in the center of the scene
     const sphereGeo = new THREE.SphereGeometry(1, 48, 32);
@@ -355,6 +347,11 @@
     };
 
     // Set up toggle functionality
+    const toggleFibers = document.getElementById('toggle-fibers');
+    toggleFibers.addEventListener('change', function () {
+      fibers.visible = this.checked;
+    });
+
     const toggleSphere = document.getElementById('toggle-sphere');
     toggleSphere.addEventListener('change', function () {
       sphere.visible = this.checked;
@@ -595,6 +592,28 @@
         selectedPoint = null;
         selectionMarker.style.display = 'none';
       }
+    }
+
+    function saveScreenshot() {
+      // Create a temporary link element
+      const link = document.createElement('a');
+      
+      // Set the link's href to the canvas data URL
+      link.href = renderer.domElement.toDataURL('image/png');
+      
+      // Set the download attribute with a filename
+      link.download = 'hopf-fibration-' + new Date().toISOString().replace(/:/g, '-') + '.png';
+      
+      // Programmatically click the link to trigger download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Show notification
+      screenshotNotification.classList.add('show');
+      setTimeout(() => {
+        screenshotNotification.classList.remove('show');
+      }, 2000);
     }
 
     function onKeyDown(e) {
