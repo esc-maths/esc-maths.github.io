@@ -221,6 +221,64 @@
       margin: 0 4px;
       font-family: monospace;
     }
+
+    .share-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(11, 16, 32, 0.95);
+      border: 1px solid rgba(100, 150, 255, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      z-index: 1001;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      color: #eaf2ff;
+      font-family: ui-sans-serif, system-ui;
+      min-width: 300px;
+      display: none;
+    }
+
+    .share-modal h3 {
+      margin-top: 0;
+      color: #b4d0ff;
+    }
+
+    .share-modal input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      background: #1b2a4a;
+      color: #eaf2ff;
+      border: 1px solid #2b3a5a;
+      border-radius: 4px;
+      font-family: ui-sans-serif, system-ui;
+    }
+
+    .share-modal button {
+      padding: 8px 16px;
+      background: #2b4a8a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+
+    .share-modal button:hover {
+      background: #3a5aaa;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      display: none;
+    }
   </style>
   <script type="importmap">
     {
@@ -246,9 +304,6 @@
         then press <span class="key-shortcut">A</span>
         to add a Hopf fiber at that location.
       </p>
-      <!--<p>
-        Press <span class="key-shortcut">S</span> to save view.
-      </p>-->
     </div>
     <div class="toggle-container">
       <span>Fibers</span>
@@ -294,9 +349,21 @@
     </select>
     <button id="clear-btn">Clear All Fibers</button>
     <button id="save-view-btn">Save View</button>
-
+    <button id="share-link-btn">Create Share Link</button>
   </div>
   <div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
+
+  <!-- Share Modal -->
+  <div class="modal-overlay" id="share-modal-overlay"></div>
+  <div class="share-modal" id="share-modal">
+    <h3>Share Your Configuration</h3>
+    <p>Copy this link to share your current configuration:</p>
+    <input type="text" id="share-link-input" readonly>
+    <div>
+      <button id="copy-link-btn">Copy Link</button>
+      <button id="close-share-modal">Close</button>
+    </div>
+  </div>
 
   <script type="module">
     import * as THREE from 'three';
@@ -429,6 +496,127 @@
     // Hook the button to the function
     document.getElementById("save-view-btn").addEventListener("click", saveCurrentView);
 
+    // Set up share functionality
+    const shareLinkBtn = document.getElementById('share-link-btn');
+    const shareModal = document.getElementById('share-modal');
+    const shareModalOverlay = document.getElementById('share-modal-overlay');
+    const shareLinkInput = document.getElementById('share-link-input');
+    const copyLinkBtn = document.getElementById('copy-link-btn');
+    const closeShareModal = document.getElementById('close-share-modal');
+
+    shareLinkBtn.addEventListener('click', createShareLink);
+    copyLinkBtn.addEventListener('click', copyShareLink);
+    closeShareModal.addEventListener('click', closeModal);
+    shareModalOverlay.addEventListener('click', closeModal);
+
+    function createShareLink() {
+      // Get all current points
+      const points = [];
+      pickMarkers.children.forEach(marker => {
+        points.push({
+          x: marker.position.x,
+          y: marker.position.y,
+          z: marker.position.z
+        });
+      });
+
+      // Get camera position and target
+      const cameraData = {
+        position: {
+          x: camera.position.x,
+          y: camera.position.y,
+          z: camera.position.z
+        },
+        target: {
+          x: controls.target.x,
+          y: controls.target.y,
+          z: controls.target.z
+        }
+      };
+
+      // Create data object
+      const shareData = {
+        points: points,
+        camera: cameraData,
+        timestamp: new Date().toISOString()
+      };
+
+      // Convert to base64 string
+      const jsonString = JSON.stringify(shareData);
+      const base64String = btoa(unescape(encodeURIComponent(jsonString)));
+      
+      // Create shareable URL
+      const baseUrl = window.location.href.split('?')[0];
+      const shareUrl = `${baseUrl}?config=${base64String}`;
+      
+      // Show in modal
+      shareLinkInput.value = shareUrl;
+      shareModal.style.display = 'block';
+      shareModalOverlay.style.display = 'block';
+    }
+
+    function copyShareLink() {
+      shareLinkInput.select();
+      document.execCommand('copy');
+      
+      // Provide visual feedback
+      const originalText = copyLinkBtn.textContent;
+      copyLinkBtn.textContent = 'Copied!';
+      setTimeout(() => {
+        copyLinkBtn.textContent = originalText;
+      }, 2000);
+    }
+
+    function closeModal() {
+      shareModal.style.display = 'none';
+      shareModalOverlay.style.display = 'none';
+    }
+
+    function loadFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const configParam = urlParams.get('config');
+      
+      if (configParam) {
+        try {
+          // Decode the base64 string
+          const jsonString = decodeURIComponent(escape(atob(configParam)));
+          const config = JSON.parse(jsonString);
+          
+          // Clear existing fibers
+          clearFibers();
+          
+          // Add points from config
+          config.points.forEach(point => {
+            const vector = new THREE.Vector3(point.x, point.y, point.z);
+            addFiber(vector);
+          });
+          
+          // Set camera position and target if available
+          if (config.camera) {
+            camera.position.set(
+              config.camera.position.x,
+              config.camera.position.y,
+              config.camera.position.z
+            );
+            controls.target.set(
+              config.camera.target.x,
+              config.camera.target.y,
+              config.camera.target.z
+            );
+            controls.update();
+          }
+          
+          // Set dropdown to custom
+          examplesDropdown.value = 'custom';
+          
+        } catch (e) {
+          console.error('Error loading configuration from URL:', e);
+        }
+      }
+    }
+
+    // Load configuration from URL on page load
+    window.addEventListener('load', loadFromUrl);
 
     // Set up controls toggle
     const controlsElement = document.getElementById('controls');
@@ -615,40 +803,37 @@
     const selectionMarker = document.getElementById('selection-marker');
 
     function onMouseMove(e) {
-  if (!sphereVisible) {
-    selectedPoint = null;
-    selectionMarker.style.display = 'none';
-    return; // don’t allow selection when sphere is off
-  }
+      if (!sphereVisible) {
+        selectedPoint = null;
+        selectionMarker.style.display = 'none';
+        return; // don't allow selection when sphere is off
+      }
 
-  // Normal raycasting logic
-  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      // Normal raycasting logic
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
 
-  raycaster.setFromCamera(mouse, camera);
-  const hit = raycaster.intersectObject(sphere, false)[0];
+      raycaster.setFromCamera(mouse, camera);
+      const hit = raycaster.intersectObject(sphere, false)[0];
 
-  if (hit) {
-    selectedPoint = hit.point.clone().normalize();
+      if (hit) {
+        selectedPoint = hit.point.clone().normalize();
 
-    // Project 3D point to screen coords
-    const vector = selectedPoint.clone();
-    vector.project(camera);
+        // Project 3D point to screen coords
+        const vector = selectedPoint.clone();
+        vector.project(camera);
 
-    const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
-    const y = -(vector.y * 0.5 - 0.5) * window.innerHeight;
+        const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
+        const y = -(vector.y * 0.5 - 0.5) * window.innerHeight;
 
-    selectionMarker.style.left = `${x}px`;
-    selectionMarker.style.top = `${y}px`;
-    selectionMarker.style.display = 'block';
-  } else {
-    selectedPoint = null;
-    selectionMarker.style.display = 'none';
-  }
-}
-
-
-
+        selectionMarker.style.left = `${x}px`;
+        selectionMarker.style.top = `${y}px`;
+        selectionMarker.style.display = 'block';
+      } else {
+        selectedPoint = null;
+        selectionMarker.style.display = 'none';
+      }
+    }
 
     function onKeyDown(e) {
       // Add fiber when 'A' key is pressed
@@ -669,7 +854,10 @@
         saveCurrentView();
       }
 
-
+      // Create share link with 'L' key
+      if (e.key === 'l' || e.key === 'L') {
+        createShareLink();
+      }
     }
 
     window.addEventListener('mousemove', onMouseMove);
