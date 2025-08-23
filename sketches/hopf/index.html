@@ -240,9 +240,15 @@
   <div class="controls" id="controls">
     <h3>Hopf Fibration Controls</h3>
     <div class="instructions">
-      <p><strong>Instructions:</strong> 
-        Move mouse over sphere to select point, then press <span class="key-shortcut">A</span> to add a Hopf fiber at
-        that location.</p>
+      <p>
+        <strong>Instructions:</strong>
+        Move mouse over sphere to select point, 
+        then press <span class="key-shortcut">A</span> 
+        to add a Hopf fiber at that location.
+      </p>
+      <!--<p>
+        Press <span class="key-shortcut">S</span> to save view.
+      </p>-->
     </div>
     <div class="toggle-container">
       <span>Fibers</span>
@@ -287,6 +293,8 @@
       <option value="longitude-bands">Longitude Bands</option>
     </select>
     <button id="clear-btn">Clear All Fibers</button>
+    <button id="save-view-btn">Save View</button>
+
   </div>
   <div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
 
@@ -391,6 +399,29 @@
         loadExample(this.value);
       }
     });
+
+    function saveCurrentView() {
+      // Render one more frame to ensure the canvas is up-to-date
+      renderer.render(scene, camera);
+
+      // Get image data from canvas
+      const dataURL = renderer.domElement.toDataURL("image/png");
+
+      // Create a temporary download link
+      const link = document.createElement("a");
+      link.href = dataURL;
+
+      // Name with timestamp
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+      link.download = `hopf_view_${timestamp}.png`;
+
+      // Trigger download
+      link.click();
+    }
+
+    // Hook the button to the function
+    document.getElementById("save-view-btn").addEventListener("click", saveCurrentView);
+
 
     // Set up controls toggle
     const controlsElement = document.getElementById('controls');
@@ -618,6 +649,11 @@
       // Toggle controls with 'C' key
       if (e.key === 'c' || e.key === 'C') {
         toggleControlsBtn.click();
+      }
+
+      // Save current view with 'S' key
+      if (e.key === 's' || e.key === 'S') {
+        saveCurrentView();
       }
 
 
