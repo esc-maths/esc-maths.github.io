@@ -382,9 +382,9 @@
     </div>
     <select class="dropdown" id="examples">
       <option value="custom">Custom Points</option>
-      <option value="tropical">Tropical Pattern</option>
       <option value="spiral">Spiral Pattern</option>
       <option value="icosahedral">Icosahedral Pattern</option>
+      <option value="latitude-bands">Latitude Bands</option>
       <option value="longitude-bands">Longitude Bands</option>
     </select>
     <button id="clear-btn">Clear All Fibers</button>
@@ -522,11 +522,11 @@
     <br />
 
     <div style="text-align: center;">
-      
+
       <button onClick="window.open('https://www.patreon.com/jcponce', '_blank')">❤️ Support</button>
       <button id="close-modal">❌ Close</button>
       <p>\(\Large\infty\)</p>
-      <br/>
+      <br />
     </div>
   </div>
 
@@ -862,30 +862,21 @@
     function loadExample(exampleName) {
       clearFibers();
 
-      if (exampleName === 'tropical') {
-        // Tropical pattern - points around the equator and tropics
-        const numPoints = 90;
-        for (let i = 0; i < numPoints; i++) {
-          const theta = (i / numPoints) * Math.PI * 2;
+      if (exampleName === 'latitude-bands') {
+        const bands = 6;   // number of latitude circles
+        const perBand = 100; // points per circle
 
-          // Equator
-          const x1 = Math.cos(theta);
-          const y1 = Math.sin(theta);
-          addFiber(new THREE.Vector3(x1, y1, 0).normalize());
+        for (let b = 1; b < bands; b++) {
+          const phi = (b / bands) * Math.PI - Math.PI / 2; // from -90° to +90°
+          const z = Math.sin(phi);
+          const r = Math.cos(phi);
 
-          // Tropic of Cancer (northern)
-          const z2 = 0.5;
-          const scale2 = Math.sqrt(1 - z2 * z2);
-          const x2 = scale2 * Math.cos(theta);
-          const y2 = scale2 * Math.sin(theta);
-          addFiber(new THREE.Vector3(x2, y2, z2).normalize());
-
-          // Tropic of Capricorn (southern)
-          const z3 = -0.5;
-          const scale3 = Math.sqrt(1 - z3 * z3);
-          const x3 = scale3 * Math.cos(theta);
-          const y3 = scale3 * Math.sin(theta);
-          addFiber(new THREE.Vector3(x3, y3, z3).normalize());
+          for (let i = 0; i < perBand; i++) {
+            const theta = (i / perBand) * Math.PI * 2;
+            const x = r * Math.cos(theta);
+            const y = r * Math.sin(theta);
+            addFiber(new THREE.Vector3(x, y, z).normalize());
+          }
         }
       } else if (exampleName === 'spiral') {
         // Spiral pattern - points along a spiral on the sphere
