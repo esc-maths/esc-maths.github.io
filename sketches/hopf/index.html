@@ -242,8 +242,8 @@
     <div class="instructions">
       <p>
         <strong>Instructions:</strong>
-        Move mouse over sphere to select point, 
-        then press <span class="key-shortcut">A</span> 
+        Move mouse over sphere to select point,
+        then press <span class="key-shortcut">A</span>
         to add a Hopf fiber at that location.
       </p>
       <!--<p>
@@ -370,9 +370,16 @@
       fibers.visible = this.checked;
     });
 
+    let sphereVisible = true;
     const toggleSphere = document.getElementById('toggle-sphere');
     toggleSphere.addEventListener('change', function () {
       sphere.visible = this.checked;
+      sphereVisible = this.checked;  // track state
+      if (!sphereVisible) {
+        // Hide marker when sphere is off
+        selectionMarker.style.display = 'none';
+        selectedPoint = null;
+      }
     });
 
     const togglePoints = document.getElementById('toggle-points');
@@ -608,32 +615,38 @@
     const selectionMarker = document.getElementById('selection-marker');
 
     function onMouseMove(e) {
-      // Calculate mouse position in normalized device coordinates
-      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  if (!sphereVisible) {
+    selectedPoint = null;
+    selectionMarker.style.display = 'none';
+    return; // don’t allow selection when sphere is off
+  }
 
-      raycaster.setFromCamera(mouse, camera);
-      const hit = raycaster.intersectObject(sphere, false)[0];
+  // Normal raycasting logic
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
 
-      if (hit) {
-        selectedPoint = hit.point.clone().normalize();
+  raycaster.setFromCamera(mouse, camera);
+  const hit = raycaster.intersectObject(sphere, false)[0];
 
-        // Project 3D point to screen coordinates
-        const vector = selectedPoint.clone();
-        vector.project(camera);
+  if (hit) {
+    selectedPoint = hit.point.clone().normalize();
 
-        const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
-        const y = -(vector.y * 0.5 - 0.5) * window.innerHeight;
+    // Project 3D point to screen coords
+    const vector = selectedPoint.clone();
+    vector.project(camera);
 
-        // Update selection marker position
-        selectionMarker.style.left = `${x}px`;
-        selectionMarker.style.top = `${y}px`;
-        selectionMarker.style.display = 'block';
-      } else {
-        selectedPoint = null;
-        selectionMarker.style.display = 'none';
-      }
-    }
+    const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
+    const y = -(vector.y * 0.5 - 0.5) * window.innerHeight;
+
+    selectionMarker.style.left = `${x}px`;
+    selectionMarker.style.top = `${y}px`;
+    selectionMarker.style.display = 'block';
+  } else {
+    selectedPoint = null;
+    selectionMarker.style.display = 'none';
+  }
+}
+
 
 
 
