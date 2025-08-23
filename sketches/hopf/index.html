@@ -236,6 +236,7 @@
       color: #eaf2ff;
       font-family: ui-sans-serif, system-ui;
       min-width: 300px;
+      max-width: 90%;
       display: none;
     }
 
@@ -277,6 +278,20 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.7);
       z-index: 1000;
+      display: none;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .success-message {
+      color: #6bff8d;
+      font-size: 14px;
+      margin-top: 10px;
       display: none;
     }
   </style>
@@ -329,14 +344,14 @@
     <div class="toggle-container">
       <span>Axes</span>
       <label class="toggle">
-        <input type="checkbox" id="toggle-axes" unchecked>
+        <input type="checkbox" id="toggle-axes">
         <span class="slider"></span>
       </label>
     </div>
     <div class="toggle-container">
       <span>Grid</span>
       <label class="toggle">
-        <input type="checkbox" id="toggle-grid" unchecked>
+        <input type="checkbox" id="toggle-grid">
         <span class="slider"></span>
       </label>
     </div>
@@ -362,6 +377,12 @@
     <div>
       <button id="copy-link-btn">Copy Link</button>
       <button id="close-share-modal">Close</button>
+    </div>
+    <div class="error-message" id="share-error">
+      Error: Configuration is too large to share via URL. Try reducing the number of points.
+    </div>
+    <div class="success-message" id="share-success">
+      Link copied to clipboard!
     </div>
   </div>
 
@@ -503,13 +524,85 @@
     const shareLinkInput = document.getElementById('share-link-input');
     const copyLinkBtn = document.getElementById('copy-link-btn');
     const closeShareModal = document.getElementById('close-share-modal');
+    const shareError = document.getElementById('share-error');
+    const shareSuccess = document.getElementById('share-success');
 
     shareLinkBtn.addEventListener('click', createShareLink);
     copyLinkBtn.addEventListener('click', copyShareLink);
     closeShareModal.addEventListener('click', closeModal);
     shareModalOverlay.addEventListener('click', closeModal);
 
+    // Efficient encoding function using compression techniques
+    function encodeConfig(config) {
+      try {
+        // Convert to a more compact representation
+        const compactConfig = {
+          p: config.points.map(point => [
+            Math.round(point.x * 1000) / 1000,
+            Math.round(point.y * 1000) / 1000,
+            Math.round(point.z * 1000) / 1000
+          ]),
+          c: config.camera ? {
+            p: [
+              Math.round(config.camera.position.x * 100) / 100,
+              Math.round(config.camera.position.y * 100) / 100,
+              Math.round(config.camera.position.z * 100) / 100
+            ],
+            t: [
+              Math.round(config.camera.target.x * 100) / 100,
+              Math.round(config.camera.target.y * 100) / 100,
+              Math.round(config.camera.target.z * 100) / 100
+            ]
+          } : null,
+          t: config.timestamp
+        };
+        
+        const jsonString = JSON.stringify(compactConfig);
+        
+        // Use a more efficient encoding
+        const compressed = LZString.compressToEncodedURIComponent(jsonString);
+        
+        // Check if the URL would be too long
+        const baseUrl = window.location.href.split('?')[0];
+        const shareUrl = `${baseUrl}?config=${compressed}`;
+        
+        if (shareUrl.length > 2000) {
+          throw new Error("Configuration too large");
+        }
+        
+        return shareUrl;
+      } catch (e) {
+        console.error("Encoding error:", e);
+        throw e;
+      }
+    }
+
+    // Decoding function
+    function decodeConfig(encoded) {
+      try {
+        const jsonString = LZString.decompressFromEncodedURIComponent(encoded);
+        const compactConfig = JSON.parse(jsonString);
+        
+        // Convert back to full format
+        return {
+          points: compactConfig.p.map(p => ({ x: p[0], y: p[1], z: p[2] })),
+          camera: compactConfig.c ? {
+            position: { x: compactConfig.c.p[0], y: compactConfig.c.p[1], z: compactConfig.c.p[2] },
+            target: { x: compactConfig.c.t[0], y: compactConfig.c.t[1], z: compactConfig.c.t[2] }
+          } : null,
+          timestamp: compactConfig.t
+        };
+      } catch (e) {
+        console.error("Decoding error:", e);
+        throw e;
+      }
+    }
+
     function createShareLink() {
+      // Hide previous messages
+      shareError.style.display = 'none';
+      shareSuccess.style.display = 'none';
+      
       // Get all current points
       const points = [];
       pickMarkers.children.forEach(marker => {
@@ -541,30 +634,45 @@
         timestamp: new Date().toISOString()
       };
 
-      // Convert to base64 string
-      const jsonString = JSON.stringify(shareData);
-      const base64String = btoa(unescape(encodeURIComponent(jsonString)));
-      
-      // Create shareable URL
-      const baseUrl = window.location.href.split('?')[0];
-      const shareUrl = `${baseUrl}?config=${base64String}`;
-      
-      // Show in modal
-      shareLinkInput.value = shareUrl;
-      shareModal.style.display = 'block';
-      shareModalOverlay.style.display = 'block';
+      try {
+        // Create shareable URL with compressed data
+        const shareUrl = encodeConfig(shareData);
+        
+        // Show in modal
+        shareLinkInput.value = shareUrl;
+        shareModal.style.display = 'block';
+        shareModalOverlay.style.display = 'block';
+      } catch (e) {
+        // Show error message
+        shareError.style.display = 'block';
+        shareModal.style.display = 'block';
+        shareModalOverlay.style.display = 'block';
+        shareLinkInput.value = 'Error: Configuration is too large to share';
+      }
     }
 
     function copyShareLink() {
       shareLinkInput.select();
-      document.execCommand('copy');
       
-      // Provide visual feedback
-      const originalText = copyLinkBtn.textContent;
-      copyLinkBtn.textContent = 'Copied!';
-      setTimeout(() => {
-        copyLinkBtn.textContent = originalText;
-      }, 2000);
+      try {
+        document.execCommand('copy');
+        
+        // Show success message
+        shareSuccess.style.display = 'block';
+        setTimeout(() => {
+          shareSuccess.style.display = 'none';
+        }, 2000);
+      } catch (e) {
+        // Fallback for browsers that don't support execCommand
+        navigator.clipboard.writeText(shareLinkInput.value).then(() => {
+          shareSuccess.style.display = 'block';
+          setTimeout(() => {
+            shareSuccess.style.display = 'none';
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy: ', err);
+        });
+      }
     }
 
     function closeModal() {
@@ -578,9 +686,8 @@
       
       if (configParam) {
         try {
-          // Decode the base64 string
-          const jsonString = decodeURIComponent(escape(atob(configParam)));
-          const config = JSON.parse(jsonString);
+          // Decode the configuration
+          const config = decodeConfig(configParam);
           
           // Clear existing fibers
           clearFibers();
@@ -886,6 +993,7 @@
     addFiber(new THREE.Vector3(1, 0, 0).normalize());
     addFiber(new THREE.Vector3(0, 1, 0).normalize());
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
 </body>
 
 </html>
