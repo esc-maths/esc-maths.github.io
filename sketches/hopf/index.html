@@ -292,11 +292,15 @@
     }
 
     .info-modal a {
-      color: #5081d5;
+      color: #50abd5;
     }
 
     .info-modal a:hover {
-      color: #5ab9dc;
+      color: #a79ec3;
+    }
+
+    hr {
+      border: 1px solid #aebcd5;
     }
 
     .modal-overlay {
@@ -398,7 +402,7 @@
     <button id="clear-btn">Clear All Fibers</button>
     <button id="save-view-btn">Save View</button>
     <button id="share-link-btn">Share Scene</button>
-    <button id="modal-btn">More Info</button>
+    <button id="modal-btn">What is this?</button>
 
   </div>
   <div class="footer">Hopf fibration via stereographic projection from S³ → ℝ³</div>
@@ -407,142 +411,160 @@
   <div class="modal-overlay" id="info-modal-overlay"></div>
   <div class="info-modal" id="info-modal">
 
-    <h1>Hopf Fibration Visualization</h1>
+  <h1>Hopf Fibration Visualization</h1>
 
-    <div class="section">
-      <h2>What is a Hopf fibration?</h2>
-      <div class="math">
-        The Hopf fibration is a way of connecting higher-dimensional spaces to our familiar 3D world.
-        By using stereographic projection, these abstract fibers can be represented as smooth,
-        interwoven circles in three dimensions.
-        <br /><br />
-        It is a remarkable construction in mathematics that provides a mapping from the 3-sphere \(S^3\)
-        to the 2-sphere \(S^2\) such that the preimage of each point in \(S^2\) is a circle in \(S^3\). This
-        visualization project demonstrates Hopf fibers using <b>stereographic projection</b> into \(\mathbb{R}^3\).
-        <br /><br />
-        This project was inspired by Richard Behiel's video
-        <a href="https://youtu.be/dkyvZo68IoM" target=""><b>A Quick Intro to Fiber Bundles (Hopf Fibration)</b></a>
-        where he provides a nice introduction to Fiber bundles and
-        why they are useful in quantum mechanics
-        and other areas of math and physics.
-      </div>
-    </div>
+  <div class="section">
+    <h2>What is a Hopf fibration?</h2>
+    <div class="math">
+      <p>
+        The <strong>Hopf fibration</strong> is a fundamental construction in topology that gives a surprising way of
+        decomposing higher-dimensional spheres. Formally, it is a continuous map from the 3-sphere to the 2-sphere:
+      </p>
+      <p style="text-align: center;">
+        \( h: S^3 \to S^2 \)
+      </p>
+      <p>
+        with the remarkable property that the preimage \( h^{-1}(p) \) of every point \( p \in S^2 \) is a circle
+        \( S^1 \). In other words, \(S^3\) can be written as a disjoint union of circles (called
+        <em>fibers</em>), one for each point on the ordinary 2-sphere.
+      </p>
 
-    <div class="section">
-      <h2>The 3-Sphere \(S^3\)</h2>
-      <div class="math">
-        The 3-sphere is defined as
-        <div class="matheqn">
-          \[
-          S^3 = \left\{ (x_1, x_2, x_3, x_4) \in \mathbb{R}^4 \,\bigg|\, x_1^2 + x_2^2 + x_3^2 + x_4^2 = 1 \right\}.
-          \]
-        </div>
+      <h3>Why is it important?</h3>
+      <p>
+        The Hopf fibration is not just a mathematical curiosity; it plays a central role in both mathematics and physics:
+      </p>
+      <ul style="line-height: 25px;">
+        <li>
+          <strong>In Mathematics:</strong> It was the first known example of a <strong>non-trivial fiber bundle</strong>,
+          showing that spaces can be “twisted together” in globally non-obvious ways
+          (since \( S^3 \not\cong S^2 \times S^1 \)). It is a key example in homotopy theory, differential geometry,
+          and the study of characteristic classes.
+        </li>
+        <li>
+          <strong>In Physics:</strong> The fibration provides geometric insight into physical systems:
+          <ul>
+            <li><strong>Quantum Mechanics:</strong> The state space of a pure qubit is the 3-sphere \( S^3 \).
+              The Hopf map projects this space onto the Bloch sphere \( S^2 \), which represents observable states.</li>
+            <li><strong>Field Theory & Optics:</strong> It models the topology of magnetic fields
+              (e.g. Dirac monopoles, Hopfions) and describes structured light beams whose
+              polarization is linked to spatial geometry.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        In essence, the Hopf fibration builds a bridge between abstract topology and the geometry of our physical world.
+      </p>
 
-        A point on \(S^3\) can also be represented using complex coordinates \((z_1, z_2) \in \mathbb{C}^2\) such that
-        <div class="matheqn">
-          \[
-          z_1 = x_1 + i x_2, \quad z_2 = x_3 + i x_4, \quad |z_1|^2 + |z_2|^2 = 1.
-          \]
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Spinor Representation</h2>
-      <div class="math">
-        Given a point \(n = (x, y, z)\) on \(S^2\), we can associate a spinor in \(\mathbb{C}^2\) as follows:
-        \[
-        z_1 = \sqrt{\frac{1+n_z}{2}}, \quad z_2 = \frac{x + i y}{2 z_1}.
-        \]
-        This representation is useful for computing Hopf fibers and their rotation phases.
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Hopf Fiber Parametrization</h2>
-      <div class="math">
-        A Hopf fiber corresponding to a point on \(S^2\) can be parametrized as
-        \[
-        (z_1 e^{i \theta}, z_2 e^{i \theta}), \quad \theta \in [0, 2\pi).
-        \]
-
-        The points in \(\mathbb{R}^3\) after stereographic projection are
-        \[
-        \mathbf{p} = \left( \frac{x_1}{1 - x_4}, \frac{x_2}{1 - x_4}, \frac{x_3}{1 - x_4} \right).
-        \]
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Stereographic Projection</h2>
-      <div class="math">
-        Stereographic projection from \(S^3 \subset \mathbb{R}^4\) to \(\mathbb{R}^3\) is defined by
-        <div class="matheqn">
-          \[
-          \pi: S^3 \setminus \{N\} \to \mathbb{R}^3, \quad
-          \pi(x_1, x_2, x_3, x_4) = \left( \frac{x_1}{1 - x_4}, \frac{x_2}{1 - x_4}, \frac{x_3}{1 - x_4} \right),
-          \]
-        </div>
-        where \(N = (0,0,0,1)\) is the north pole of \(S^3\). This maps circles (Hopf fibers) in \(S^3\) to circles in
-        \(\mathbb{R}^3\).
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Hopf Fibration Visualization</h2>
-      <div class="math">
-        In the project, the 3D visualization is constructed as follows:
-        <ol>
-          <li>Sample points \(n \in S^2\) as fiber directions.</li>
-          <li>Convert \(n\) into a spinor \((z_1, z_2)\).</li>
-          <li>Rotate the phase \(\theta \in [0, 2\pi)\) to generate points on the fiber.</li>
-          <li>Apply stereographic projection to map points from \(S^3 \to \mathbb{R}^3\).</li>
-          <li>Render the fibers using Three.js.</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Patterns and Examples</h2>
-      <div class="math">
-        Some patterns that can be visualized include:
-        <ul>
-          <li><b>Tropical pattern:</b> Points distributed along the equator and tropics of \(S^2\).</li>
-          <li><b>Spiral pattern:</b> Points along a spiral from north to south pole.</li>
-          <li><b>Icosahedral pattern:</b> Points at the vertices of an icosahedron projected onto \(S^2\).</li>
-          <li><b>Longitude bands:</b> Points along meridians for a uniform grid.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>How is this rendered?</h2>
-      <div class="math">
-        To turn the mathematics into something visible, this project translates Hopf fibers into
-        3D geometry and renders them with <b>Three.js</b>. The library takes care of the heavy lifting
-        of real-time 3D graphics, including lighting, and shading, so the focus can stay
-        on the geometry itself.
-        <br><br>
-        Thanks to Three.js, this project can:
-        <ul>
-          <li>Render the intricate linked circles of the fibration smoothly in real time.</li>
-          <li>Let you rotate, zoom, and explore the fibers interactively in your browser.</li>
-          <li>Use color, depth, and motion to highlight patterns that are hard to see on paper.</li>
-        </ul>
-        In this way, abstract mathematics becomes something you can explore visually and intuitively.
-      </div>
-    </div>
-
-    <br />
-
-    <div style="text-align: center;">
-
-      <button onClick="window.open('https://www.patreon.com/jcponce', '_blank')">❤️ Support</button>
-      <button id="close-modal">❌ Close</button>
-      <p>\(\Large\infty\)</p>
-      <br />
+      <p>
+        <b>Note:</b> This project was inspired by Richard Behiel's video
+        <a href="https://youtu.be/dkyvZo68IoM" target="_blank">A Quick Intro to Fiber Bundles (Hopf Fibration)</a>.
+        For further reading, see <a href="https://nilesjohnson.net/hopf-articles/Treisman_Guide-to-Hopf-fibration.pdf"
+          target="">Zachary Treisman's notes</a>.
+      </p>
     </div>
   </div>
+
+  <hr>
+
+  <div class="section">
+    <h2>How this project works?</h2>
+    <div class="math">
+      <p>
+        To make the Hopf fibration visible, the fibers are turned into 3D geometry and displayed with
+        <a href="https://threejs.org/" target="_blank">Three.js</a>.
+        The library handles real-time rendering, lighting, and shading, 
+        leaving the focus on the underlying geometry.
+        In this way, abstract mathematics becomes something 
+        you can explore visually and intuitively.
+      </p>
+      <p>
+        The visualization follows these steps:
+      </p>
+      <ol style="line-height: 25px;">
+        <li>Sample directions \(n \in S^2\).</li>
+        <li>Convert each direction into a spinor \((z_1, z_2)\).</li>
+        <li>Generate points along the fiber by rotating the phase \(\theta \in [0, 2\pi)\).</li>
+        <li>Apply stereographic projection \(S^3 \to \mathbb{R}^3\).</li>
+        <li>Render the fibers using Three.js.</li>
+      </ol>
+
+      <h2>Terminology</h2>
+      <h3>The 3-Sphere \(S^3\)</h3>
+      <p>
+        The 3-sphere is defined by
+        \[
+        S^3 = \{ (x_1, x_2, x_3, x_4) \in \mathbb{R}^4 \mid x_1^2 + x_2^2 + x_3^2 + x_4^2 = 1 \}.
+        \]
+        It can also be expressed in complex coordinates \((z_1, z_2) \in \mathbb{C}^2\) with
+        \[
+        z_1 = x_1 + i x_2, \quad z_2 = x_3 + i x_4, \quad |z_1|^2 + |z_2|^2 = 1.
+        \]
+      </p>
+
+      <h3>Spinor Representation</h3>
+      <p>
+        Given a point \(n = (x,y,z)\) on \(S^2\), a corresponding spinor is
+        \[
+        z_1 = \sqrt{\tfrac{1+n_z}{2}}, \quad
+        z_2 = \frac{x + i y}{2 z_1}.
+        \]
+        This representation is convenient for generating Hopf fibers.
+      </p>
+
+      <h3>Hopf Fiber Parametrization</h3>
+      <p>
+        A fiber associated to \((z_1, z_2)\) is
+        \[
+        (z_1 e^{i \theta},\, z_2 e^{i \theta}), \quad \theta \in [0, 2\pi).
+        \]
+        After stereographic projection to \(\mathbb{R}^3\), the points are
+        \[
+        \mathbf{p} = \left( \tfrac{x_1}{1 - x_4},\, \tfrac{x_2}{1 - x_4},\, \tfrac{x_3}{1 - x_4} \right).
+        \]
+      </p>
+
+      <h3>Stereographic Projection</h3>
+      <p>
+        Stereographic projection from \(S^3 \subset \mathbb{R}^4\) (excluding the north pole \(N=(0,0,0,1)\)) to \(\mathbb{R}^3\) is
+        \[
+        \pi(x_1, x_2, x_3, x_4) =
+        \left( \frac{x_1}{1 - x_4},\, \frac{x_2}{1 - x_4},\, \frac{x_3}{1 - x_4} \right).
+        \]
+        Under this map, Hopf fibers remain circles in \(\mathbb{R}^3\).
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Patterns and Examples</h2>
+    <div class="math">
+      Some point distributions used for visualizations include:
+      <ul style="line-height: 25px;">
+        <li><b>Spiral:</b> points arranged from the north to south pole.</li>
+        <li><b>Icosahedral:</b> points at the vertices of an icosahedron projected onto \(S^2\).</li>
+        <li><b>Latitude bands:</b> points along the equator and tropics of \(S^2\).</li>
+        <li><b>Longitude bands:</b> points along meridians for a grid-like structure.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>That's it!</h2>
+    <div class="math">
+      I hope this visualization helps you explore the Hopf fibration in a more intuitive way.
+    </div>
+  </div>
+
+  <br />
+
+  <div style="text-align: center;">
+    <button onClick="window.open('https://www.patreon.com/jcponce', '_blank')">❤️ Support</button>
+    <button id="close-modal">❌ Close</button>
+    <p>\(\Large\infty\)</p>
+    <br />
+  </div>
+</div>
+
 
   <script type="module">
     import * as THREE from 'three';
@@ -987,8 +1009,8 @@
         }
       }
 
-      // Toggle controls with 'C' key
-      if (e.key === 'c' || e.key === 'C') {
+      // Toggle controls with 'H' key
+      if (e.key === 'h' || e.key === 'H') {
         toggleControlsBtn.click();
       }
 
