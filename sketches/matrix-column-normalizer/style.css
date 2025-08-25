@@ -4,7 +4,7 @@ body {
       background: #f4f6fa;
       margin: 20px;
       color: #222;
-      padding: 0px 90px 10px 90px;
+      padding: 0rem 2rem 1rem 2rem;
     }
 
     h1 {
@@ -41,6 +41,8 @@ body {
       padding: 15px;
       border-radius: 5px;
       margin-bottom: 20px;
+      display: none;
+      overflow-x: auto;
     }
 
     pre {
@@ -53,4 +55,9 @@ body {
 
     .code-block {
       margin-bottom: 20px;
+    }
+
+    footer{
+      padding-top: 1.5rem;
+      text-align: center;
     }
