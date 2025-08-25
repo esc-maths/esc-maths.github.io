@@ -75,6 +75,7 @@
 7 8 9</textarea>
   <br>
   <button onclick="normalizeMatrix()">Normalize Columns</button>
+  <button onclick="clearOutputs()">Clear Outputs</button>
 
   <div id="matrixOutput" class="output"></div>
   <div id="codeOutput"></div>
@@ -178,6 +179,12 @@ disp(A_normalized);`;
         </div>
       `;
     }
+
+    function clearOutputs() {
+  document.getElementById("matrixOutput").style.display = 'none';
+  document.getElementById("matrixOutput").innerHTML = '';
+  document.getElementById("codeOutput").innerHTML = '';
+}
   </script>
 </body>
 
