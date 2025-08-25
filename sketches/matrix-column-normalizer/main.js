@@ -1,57 +1,65 @@
 function normalizeMatrix() {
-      const input = document.getElementById("matrixInput").value.trim();
-      if (!input) return;
+    const input = document.getElementById("matrixInput").value.trim();
+    if (!input) return;
 
-      const rows = input.split(/\n/).map(r => r.trim().split(/[\s,]+/).map(Number));
-      const n = rows.length;
-      if (n > 20 || rows.some(r => r.length !== n)) {
-        alert("Matrix must be square with max size 20x20");
+    // Parse input into 2D array
+    const rows = input.split(/\n/).map(r => r.trim().split(/[\s,]+/).map(Number));
+    const m = rows.length;          // number of rows
+    const n = rows[0].length;       // number of columns
+
+    if (m > 20 || n > 20) {
+        alert("Matrix size must be at most 20x20");
         return;
-      }
+    }
+    if (rows.some(r => r.length !== n)) {
+        alert("All rows must have the same number of columns");
+        return;
+    }
 
-      // Normalize columns
-      const normalized = Array.from({ length: n }, () => Array(n).fill(0));
-      for (let j = 0; j < n; j++) {
+    // Normalize columns
+    const normalized = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let j = 0; j < n; j++) {
         let norm = 0;
-        for (let i = 0; i < n; i++) norm += rows[i][j] ** 2;
+        for (let i = 0; i < m; i++) norm += rows[i][j] ** 2;
         norm = Math.sqrt(norm);
-        for (let i = 0; i < n; i++) normalized[i][j] = norm === 0 ? 0 : rows[i][j] / norm;
-      }
+        for (let i = 0; i < m; i++) normalized[i][j] = norm === 0 ? 0 : rows[i][j] / norm;
+    }
 
-      // LaTeX output
-      let latex = "\\begin{bmatrix}";
-      for (let i = 0; i < n; i++) {
+    // LaTeX output
+    let latex = "\\begin{bmatrix}";
+    for (let i = 0; i < m; i++) {
         latex += normalized[i].map(v => v.toFixed(4)).join(" & ");
-        if (i < n - 1) latex += " \\\\ ";
-      }
-      latex += "\\end{bmatrix}";
-      document.getElementById("matrixOutput").innerHTML = `Normalized Matrix:<br>$$${latex}$$`;
-      MathJax.typeset();
+        if (i < m - 1) latex += " \\\\ ";
+    }
+    latex += "\\end{bmatrix}";
+    document.getElementById("matrixOutput").innerHTML = `Normalized Matrix:<br>$$${latex}$$`;
+    MathJax.typeset();
 
-      // Generate code snippets
-      const pythonCode =
-        `import numpy as np
+    // Generate code snippets
+    const pythonCode =
+`import numpy as np
 
 A = np.array(${JSON.stringify(rows)})
 norms = np.linalg.norm(A, axis=0)
 A_normalized = A / norms
 print(A_normalized)`;
 
-      const jsCode =
-        `let A = ${JSON.stringify(rows)};
-let n = A.length;
-let normalized = Array.from({ length: n }, () => Array(n).fill(0));
+    const jsCode =
+`let A = ${JSON.stringify(rows)};
+let m = A.length;
+let n = A[0].length;
+let normalized = Array.from({ length: m }, () => Array(n).fill(0));
 
 for (let j = 0; j < n; j++) {
   let norm = 0;
-  for (let i = 0; i < n; i++) norm += A[i][j] ** 2;
+  for (let i = 0; i < m; i++) norm += A[i][j] ** 2;
   norm = Math.sqrt(norm);
-  for (let i = 0; i < n; i++) normalized[i][j] = norm === 0 ? 0 : A[i][j] / norm;
+  for (let i = 0; i < m; i++) normalized[i][j] = norm === 0 ? 0 : A[i][j] / norm;
 }
 console.log(normalized);`;
 
-      const octaveCode =
-        `% Input matrix
+    const octaveCode =
+`% Input matrix
 A = [${rows.map(r => r.join(" ")).join("; ")}];
 
 % Compute column norms
@@ -64,8 +72,7 @@ A_normalized = A ./ norms;
 disp('Normalized matrix:');
 disp(A_normalized);`;
 
-      // Output
-      document.getElementById("codeOutput").innerHTML = `
+    document.getElementById("codeOutput").innerHTML = `
         <div class="code-block">
           <h3>Python</h3>
           <pre>${pythonCode}</pre>
@@ -78,5 +85,5 @@ disp(A_normalized);`;
           <h3>Octave</h3>
           <pre>${octaveCode}</pre>
         </div>
-      `;
-    }
+    `;
+}
