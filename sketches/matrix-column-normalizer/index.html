@@ -1,174 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Matrix Column Normalizer</title>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       font-size: 1.1rem;
-      background: #f4f4f9;
-      color: #222;
+      background: #f4f6fa;
       margin: 20px;
-      line-height: 1.6;
-      padding: 0px 50px 100px 50px;
+      color: #222;
+      padding: 0px 90px 10px 90px;
     }
-    h1 { text-align: center; margin-bottom: 10px; }
+
+    h1 {
+      text-align: center;
+    }
+
     textarea {
       width: 100%;
       height: 150px;
       font-family: monospace;
       font-size: 1rem;
       margin-bottom: 10px;
-      margin-top: -15px;
-      padding: 8px;
     }
+
     button {
-      background: #0077cc;
-      color: white;
+      background: #48a8d2;
       border: none;
-      padding: 10px 16px;
-      font-size: 1rem;
-      border-radius: 5px;
+      color: white;
+      padding: 8px 12px;
       cursor: pointer;
-      margin-top: 10px;
+      border-radius: 4px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      font-size: 1rem;
     }
-    button:hover { background: #005fa3; }
-    .output-section {
-      margin-top: 20px;
-      padding: 15px;
+
+    button:hover {
+      background: #4061a7;
+    }
+
+    .output {
       background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
     }
+
     pre {
       background: #272822;
       color: #f8f8f2;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 4px;
       overflow-x: auto;
+    }
+
+    .code-block {
+      margin-bottom: 20px;
     }
   </style>
 </head>
+
 <body>
   <h1>Matrix Column Normalizer</h1>
-  <p>Enter an \(n \times n\) matrix (rows separated by newlines, numbers by spaces).  
-     Max \(n = 20\).<br/>
-      <b>Example:</b><br>
-     <code>1 2<br>3 4</code></p>
-    <p><b>Input:</b></p>
-  <textarea id="matrixInput">1 2
-3 4</textarea>
+  <p>Enter an \(n \times n\) matrix (max 20). Separate rows with newlines, entries by spaces or commas.</p>
+  <textarea id="matrixInput">1 2 3
+4 5 6
+7 8 9</textarea>
   <br>
-  <button onclick="processMatrix()">Normalize Columns</button>
+  <button onclick="normalizeMatrix()">Normalize Columns</button>
 
-  <div class="output-section">
-    <h2>Normalized Matrix (LaTeX)</h2>
-    <div id="latexOutput">–</div>
-  </div>
-
-  <div class="output-section">
-    <h2>Normalized Matrix (Plain Text)</h2>
-    <pre id="plainOutput">–</pre>
-  </div>
-
-  <div class="output-section">
-    <h2>Python Code</h2>
-    <pre id="pythonCode"></pre>
-  </div>
-
-  <div class="output-section">
-    <h2>JavaScript Code</h2>
-    <pre id="jsCode"></pre>
-  </div>
-
-  <div class="output-section">
-    <h2>MATLAB Code</h2>
-    <pre id="matlabCode"></pre>
-  </div>
+  <div id="matrixOutput" class="output"></div>
+  <div id="codeOutput"></div>
 
   <script>
-    function parseMatrix(input) {
-      return input.trim().split("\n").map(row =>
-        row.trim().split(/\s+/).map(Number)
-      );
-    }
+    function normalizeMatrix() {
+      const input = document.getElementById("matrixInput").value.trim();
+      if (!input) return;
 
-    function normalizeColumns(A) {
-      const n = A.length;
-      const m = A[0].length;
-      const result = Array.from({length: n}, () => Array(m).fill(0));
-
-      for (let j = 0; j < m; j++) {
-        let norm = 0;
-        for (let i = 0; i < n; i++) norm += A[i][j] ** 2;
-        norm = Math.sqrt(norm);
-        for (let i = 0; i < n; i++) result[i][j] = A[i][j] / norm;
+      const rows = input.split(/\n/).map(r => r.trim().split(/[\s,]+/).map(Number));
+      const n = rows.length;
+      if (n > 20 || rows.some(r => r.length !== n)) {
+        alert("Matrix must be square with max size 20x20");
+        return;
       }
-      return result;
-    }
 
-    function toLatex(A) {
-      let rows = A.map(row => row.map(x => x.toFixed(4)).join(" & "));
-      return `\\begin{bmatrix} ${rows.join(" \\\\ ")} \\end{bmatrix}`;
-    }
+      // Normalize columns
+      const normalized = Array.from({ length: n }, () => Array(n).fill(0));
+      for (let j = 0; j < n; j++) {
+        let norm = 0;
+        for (let i = 0; i < n; i++) norm += rows[i][j] ** 2;
+        norm = Math.sqrt(norm);
+        for (let i = 0; i < n; i++) normalized[i][j] = norm === 0 ? 0 : rows[i][j] / norm;
+      }
 
-    function toPlainText(A) {
-      return A.map(row => row.map(x => x.toFixed(4)).join(" ")).join("\n");
-    }
-
-    function processMatrix() {
-      let input = document.getElementById("matrixInput").value;
-      let A = parseMatrix(input);
-      let B = normalizeColumns(A);
-
-      // Show LaTeX
-      let latex = toLatex(B);
-      document.getElementById("latexOutput").innerHTML = `$$${latex}$$`;
+      // LaTeX output
+      let latex = "\\begin{bmatrix}";
+      for (let i = 0; i < n; i++) {
+        latex += normalized[i].map(v => v.toFixed(4)).join(" & ");
+        if (i < n - 1) latex += " \\\\ ";
+      }
+      latex += "\\end{bmatrix}";
+      document.getElementById("matrixOutput").innerHTML = `Normalized Matrix:<br>$$${latex}$$`;
       MathJax.typeset();
 
-      // Show plain text
-      document.getElementById("plainOutput").textContent = toPlainText(B);
+      // Generate code snippets
+      const pythonCode =
+        `import numpy as np
 
-      // Code snippets
-      document.getElementById("pythonCode").textContent =
-`import numpy as np
+A = np.array(${JSON.stringify(rows)})
+norms = np.linalg.norm(A, axis=0)
+A_normalized = A / norms
+print(A_normalized)`;
 
-def normalize_columns(A):
-    A = np.array(A, dtype=float)
-    norms = np.linalg.norm(A, axis=0)
-    return A / norms
+      const jsCode =
+        `let A = ${JSON.stringify(rows)};
+let n = A.length;
+let normalized = Array.from({ length: n }, () => Array(n).fill(0));
 
-A = ${JSON.stringify(A)}
-print(normalize_columns(A))`;
-
-      document.getElementById("jsCode").textContent =
-`function normalizeColumns(A) {
-  const n = A.length;
-  const m = A[0].length;
-  const result = Array.from({length: n}, () => Array(m).fill(0));
-  for (let j = 0; j < m; j++) {
-    let norm = 0;
-    for (let i = 0; i < n; i++) norm += A[i][j] ** 2;
-    norm = Math.sqrt(norm);
-    for (let i = 0; i < n; i++) result[i][j] = A[i][j] / norm;
-  }
-  return result;
+for (let j = 0; j < n; j++) {
+  let norm = 0;
+  for (let i = 0; i < n; i++) norm += A[i][j] ** 2;
+  norm = Math.sqrt(norm);
+  for (let i = 0; i < n; i++) normalized[i][j] = norm === 0 ? 0 : A[i][j] / norm;
 }
+console.log(normalized);`;
 
-let A = ${JSON.stringify(A)};
-console.log(normalizeColumns(A));`;
+      const octaveCode =
+        `% Input matrix
+A = [${rows.map(r => r.join(" ")).join("; ")}];
 
-      document.getElementById("matlabCode").textContent =
-`function B = normalize_columns(A)
-    norms = sqrt(sum(A.^2, 1));
-    B = A ./ norms;
-end
+% Compute column norms
+norms = sqrt(sum(A.^2, 1));
 
-A = ${JSON.stringify(A).replace(/\[/g,'[').replace(/\]/g,']')};
-B = normalize_columns(A)`;
+% Normalize each column
+A_normalized = A ./ norms;
+
+% Display result
+disp('Normalized matrix:');
+disp(A_normalized);`;
+
+      // Output
+      document.getElementById("codeOutput").innerHTML = `
+        <div class="code-block">
+          <h3>Python</h3>
+          <pre>${pythonCode}</pre>
+        </div>
+        <div class="code-block">
+          <h3>JavaScript</h3>
+          <pre>${jsCode}</pre>
+        </div>
+        <div class="code-block">
+          <h3>Octave</h3>
+          <pre>${octaveCode}</pre>
+        </div>
+      `;
     }
   </script>
 </body>
+
 </html>
