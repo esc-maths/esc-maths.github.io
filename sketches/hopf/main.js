@@ -349,9 +349,9 @@ function loadExample(exampleName) {
             const r = Math.cos(phi);
 
             for (let i = 0; i < perBand; i++) {
-                const theta = (i / perBand) * Math.PI;
-                const x = r * Math.cos(theta + Math.PI);
-                const y = r * Math.sin(theta + Math.PI);
+                const theta = (i / perBand) * Math.PI + Math.PI - Math.PI * 0.45;
+                const x = r * Math.cos(theta);
+                const y = r * Math.sin(theta);
                 addFiber(new THREE.Vector3(x, y, z).normalize());
             }
         }
