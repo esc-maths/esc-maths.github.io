@@ -21,6 +21,7 @@
       font-family: monospace;
       font-size: 1rem;
       margin-bottom: 10px;
+      margin-top: -15px;
       padding: 8px;
     }
     button {
@@ -56,7 +57,7 @@
      Max \(n = 20\).<br/>
       <b>Example:</b><br>
      <code>1 2<br>3 4</code></p>
-
+    <p><b>Input:</b></p>
   <textarea id="matrixInput">1 2
 3 4</textarea>
   <br>
@@ -65,6 +66,11 @@
   <div class="output-section">
     <h2>Normalized Matrix (LaTeX)</h2>
     <div id="latexOutput">–</div>
+  </div>
+
+  <div class="output-section">
+    <h2>Normalized Matrix (Plain Text)</h2>
+    <pre id="plainOutput">–</pre>
   </div>
 
   <div class="output-section">
@@ -108,6 +114,10 @@
       return `\\begin{bmatrix} ${rows.join(" \\\\ ")} \\end{bmatrix}`;
     }
 
+    function toPlainText(A) {
+      return A.map(row => row.map(x => x.toFixed(4)).join(" ")).join("\n");
+    }
+
     function processMatrix() {
       let input = document.getElementById("matrixInput").value;
       let A = parseMatrix(input);
@@ -117,6 +127,9 @@
       let latex = toLatex(B);
       document.getElementById("latexOutput").innerHTML = `$$${latex}$$`;
       MathJax.typeset();
+
+      // Show plain text
+      document.getElementById("plainOutput").textContent = toPlainText(B);
 
       // Code snippets
       document.getElementById("pythonCode").textContent =
