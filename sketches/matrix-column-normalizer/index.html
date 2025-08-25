@@ -50,6 +50,7 @@
       padding: 15px;
       border-radius: 5px;
       margin-bottom: 20px;
+      display: none;
     }
 
     pre {
@@ -112,12 +113,17 @@
         if (i < m - 1) latex += " \\\\ ";
       }
       latex += "\\end{bmatrix}";
+      document.getElementById("matrixOutput").style.display = 'block';
       document.getElementById("matrixOutput").innerHTML = `Normalized Matrix:<br>$$${latex}$$`;
       MathJax.typeset();
 
+      // Plain text output
+      const plainText = normalized.map(row => row.map(v => v.toFixed(4)).join("\t")).join("\n");
+      // document.getElementById("matrixTextOutput").textContent = plainText;
+
       // Generate code snippets
       const pythonCode =
-`import numpy as np
+        `import numpy as np
 
 A = np.array(${JSON.stringify(rows)})
 norms = np.linalg.norm(A, axis=0)
@@ -125,7 +131,7 @@ A_normalized = A / norms
 print(A_normalized)`;
 
       const jsCode =
-`let A = ${JSON.stringify(rows)};
+        `let A = ${JSON.stringify(rows)};
 let m = A.length;
 let n = A[0].length;
 let normalized = Array.from({ length: m }, () => Array(n).fill(0));
@@ -139,7 +145,7 @@ for (let j = 0; j < n; j++) {
 console.log(normalized);`;
 
       const octaveCode =
-`% Input matrix
+        `% Input matrix
 A = [${rows.map(r => r.join(" ")).join("; ")}];
 
 % Compute column norms
@@ -154,6 +160,10 @@ disp(A_normalized);`;
 
       // Output
       document.getElementById("codeOutput").innerHTML = `
+        <div class="code-block">
+          <h3>Plain text</h3>
+          <pre>${plainText}</pre>
+        </div>
         <div class="code-block">
           <h3>Python</h3>
           <pre>${pythonCode}</pre>
