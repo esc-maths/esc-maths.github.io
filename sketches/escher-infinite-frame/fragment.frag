@@ -11,7 +11,7 @@
  
 */
 
-// These are necessary definitions that let you graphics card know how to render the shader
+// These are necessary definitions that let your graphics card know how to render the shader
 #ifdef GL_ES
 precision highp float;
 #endif
@@ -102,6 +102,10 @@ void main() {
     // Horizontal camera rotation
     ro.xz *= rot2D(-iMouse.x*6.3/MN);
     rd.xz *= rot2D(-iMouse.x*6.3/MN);
+		
+		// 👇 transition control Auxilary function
+    // float u = smoothstep(0.0, 1.0, 0.5 + 0.5*sin(iTime*0.5));
+    // float u = smoothstep(0.0, 5.0, iTime); // alternative: one-way morph
   
     // Raymarching
   
@@ -111,7 +115,7 @@ void main() {
 			p.zy *= rot2D(-0.3);
 			p.zx *= rot2D(-0.4);
 		
-			p.xy *= rot2D(t*0.045);  // rotate ray along z-axis
+			p.xy *= rot2D(t*0.045);  // rotate ray around z-axis
 			
 			p.y += sin(t*0.5)*0.35; // wiggle ray along y-axis
   
@@ -124,10 +128,14 @@ void main() {
     }
   
     // Coloring
-		float transForm = easingFunction(iTime);
-    col = palette2(t*0.1 + 0.01) * transForm + palette1(t*0.1 + 0.01) * (1.0 - transForm);
+		float u = smoothstep(0.0, 1.0, 0.5 + 0.5*sin(iTime*0.5));
+		vec3 p1 = palette1(t*0.1 + 0.01);
+		vec3 p2 = palette2(t*0.1 + 0.01);
+		col = mix(p2, p1, u);
+		
+		// float transForm = easingFunction(iTime);
+		// col = palette2(t*0.1 + 0.01) * transForm + palette1(t*0.1 + 0.01) * (1.0 - transForm); // Alternatively
     
-      
     // gl_FragColor is a built in shader variable, and 
 		// your .frag file must contain it
     // We are setting the vec3 color into a new vec4, 
