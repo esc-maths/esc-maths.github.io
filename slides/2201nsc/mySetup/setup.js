@@ -76,6 +76,7 @@
 						artanh: "\\mbox{artanh}\\,",
 						dup: "{\\hspace{1pt}\\text{d}}",
 						mat: ["{\\left(\\begin{array}{#1} #2\\end{array}\\right)}", 2],
+						mattwotwo: ["{\\begin{pmatrix} #1 & #2 \\\\ #3 & #4 \\end{pmatrix}}", 4],
 						dif: ["{\\frac{\\text{d}\\hspace{1pt}#1}{\\text{d}\\hspace{1pt}#2}}", 2],
 						conj: ["{\\overline{#1}}", 1],
 						abs: ["{\\left|#1\\right|}", 1],
