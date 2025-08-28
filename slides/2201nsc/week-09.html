@@ -105,7 +105,7 @@
 							Produces an orthogonal matrix?
 						</li>
 						<li>
-							 Produces an upper or lower triangular matrix?
+							Produces an upper or lower triangular matrix?
 						</li>
 						<li>
 							Can be applied to non-square matrices?
@@ -124,10 +124,42 @@
 
 			<section id="problem-3">
 				<h4>Problem 3</h4>
-				<div class="size-85 left-txt">
+				<div class="size-80 left-txt">
 					<p>
-						Find a basis for the parts of Q1 that represent vector spaces.
+						Use software to calculate the LDU, QR, Cholesky
+						and SVD factorisations for the following
+						matrices, if possible. If not possible, indicate
+						why the method cannot be applied.
 					</p>
+
+					<table style="width: 100%; font-size: 80%;">
+						<tr>
+							<td style="width: 50%; border: none;">
+								(a) $\,A=\begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}$
+							</td>
+							<td style="width: 50%; border: none;">
+								(b) $\,A=\begin{pmatrix} 8 & 1 & 6 \\ 3 & 5 & 7\\ 4 & 9 & 2 \end{pmatrix}$
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 50%; border: none;">
+								(c) $\,A=\begin{pmatrix} 6 & 1 & -4 \\ 1 & 6 & -5 \\ -4 & -5 & 6 \end{pmatrix}$
+
+							</td>
+							<td style="width: 50%; border: none;">
+								(d) $\,A=\begin{pmatrix} 4 & 0 & 0 \\ -1 & 4 & 1\\ 0 & 0 & 4 \end{pmatrix}$
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 50%; border: none;">
+								(e) $\,A=\begin{pmatrix} 3 & -1 \\ 1 & -1 \\ 2 & 3 \end{pmatrix}$
+
+							</td>
+							<td style="width: 50%; border: none;">
+								(f) $A=\begin{pmatrix} 3 & -1 & 1 & 2 \\ 1 & -1 & 0 & -2 \\ 2 & 0 & 1 & 4 \end{pmatrix}$
+							</td>
+						</tr>
+					</table>
 
 
 				</div>
@@ -147,26 +179,50 @@
 				<h4>Problem 4</h4>
 				<div class="size-85 left-txt">
 					<p>
-						State why none of the following can be a basis for the stated vector space.
+						For any of the SVD factorisations calculated above, 
+						compare the SVD factorisation of $A$ with
+						the matrices obtained from diagonalisation of 
+						$A^T A$ and $A A^T$.
+					</p>
+
+					
+				</div>
+
+
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+
+			</section>
+
+			<section id="problem-5">
+				<h4>Problem 5</h4>
+				<div class="size-85 left-txt">
+					<p>
+						Solve the least-squares problem in 5.7.2, 
+						for the data provided in that section, using the 
+						QR factorisation approach. Solve for a fit 
+						to the following equations:
 					</p>
 
 					<ol style="line-height: 60px;list-style-type: lower-alpha;">
 						<li>
-							$\{(1,-1)^T,(-2,1)^T,(-1,3)^T\}$ as a basis for $\R^2$
+							$y=a e^{-x} + b e^{-x/2} + c$  (see 5.7.2 for the solution using the direct method)
 						</li>
 						<li>
-							$\{1-x, x^2-1, x^2-x\}$ as a basis for polynomials of degree 2 or less.
-						</li>
-						<li>
-							$\{x^2-x,1+x,x^2+1,x^2-1\}$ as a basis for polynomials of degree 2 or less.
-						</li>
-						<li>
-							$\{(1,-1,2)^T,(-2,3,1)^T,(-1,3,8)^T\}$ as a basis for $\R^3$
+							$y=ax^3 + bx^3 + cx + d$
 						</li>
 					</ol>
 				</div>
 
-
+				<br />
+				<br />
+				<br />
 				<br />
 				<br />
 			</section>
