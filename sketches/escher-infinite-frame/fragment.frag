@@ -105,7 +105,7 @@ void main() {
   
     // Raymarching
   
-    for(int i = 0; i < 90; i++){
+    for(int i = 0; i < 50; i++){
       vec3 p = ro + rd * t; // position along the ray
 			
 			p.zy *= rot2D(-0.3);
