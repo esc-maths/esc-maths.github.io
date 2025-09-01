@@ -1,6 +1,6 @@
 /*
 
-Escher infinite bende frame
+Escher infinite bended frame
  Juan Carlos Ponce Campuzano
  28/Aug/2025
  https://www.patreon.com/jcponce
