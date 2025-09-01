@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../../assets/icon/infinity32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/icon/infinity16.png" sizes="16x16">
+
+    <title>Matrix Calculator</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 1.1rem;
+            margin: 20px;
+            background: #f4f4f9;
+            color: #333;
+            padding: 0rem 2rem 1rem 2rem;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .matrix-input {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background: #389dc7;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: #4061a7;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin-top: 5px;
+            font-family: monospace;
+        }
+
+        #result {
+            text-align: center;
+            /* centers inline content */
+            margin: 20px auto;
+            /* centers the block itself */
+            display: block;
+            width: fit-content;
+            /* shrink to fit its content */
+            font-size: 1.2rem;
+        }
+
+        footer {
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Matrix Calculator</h1>
+
+    <div class="matrix-input">
+        <div>
+            <h3>Matrix A</h3>
+            <textarea id="matrixA_text">1 2 3
+1/2 2 3
+4 5 6</textarea>
+        </div>
+        <div>
+            <h3>Matrix B</h3>
+            <textarea id="matrixB_text">1 0 0
+0 1 0
+0 0 1</textarea>
+        </div>
+    </div>
+
+    <div style="text-align:center;">
+        <button onclick="calculate('add')">A + B</button>
+        <button onclick="calculate('sub')">A - B</button>
+        <button onclick="calculate('mul')">A × B</button>
+        <button onclick="calculate('detA')">det(A)</button>
+        <button onclick="calculate('detB')">det(B)</button>
+        <button onclick="calculate('transA')">Aᵀ</button>
+        <button onclick="calculate('transB')">Bᵀ</button>
+        <button onclick="calculate('invA')">A⁻¹</button>
+        <button onclick="calculate('invB')">B⁻¹</button>
+    </div>
+
+    <div id="result"></div>
+
+    <footer>
+        <p>
+            \( \huge \infty \)
+        </p>
+    </footer>
+
+    <script>
+        function readMatrix(id) {
+            let text = document.getElementById(id + '_text').value.trim();
+            return text.split(/\n/).map(line => line.trim().split(/\s+/).map(eval));
+        }
+
+        function formatNumber(num) {
+            // Round to 4 decimals max
+            let rounded = Math.round(num * 10000) / 10000;
+
+            // If it's an integer, return as integer
+            if (Number.isInteger(rounded)) {
+                return rounded.toString();
+            }
+
+            // Otherwise, trim trailing zeros
+            return parseFloat(rounded.toString());
+        }
+
+        function displayMatrix(matrix) {
+            let html = '<table border="1">';
+            for (let i = 0; i < matrix.length; i++) {
+                html += '<tr>';
+                for (let j = 0; j < matrix[0].length; j++) {
+                    html += `<td>${formatNumber(matrix[i][j])}</td>`;
+                }
+                html += '</tr>';
+            }
+            html += '</table>';
+            document.getElementById('result').innerHTML = html;
+        }
+
+        function determinant(matrix) {
+            if (matrix.length !== matrix[0].length) {
+                alert('Matrix must be square');
+                return null;
+            }
+            let n = matrix.length;
+            if (n === 1) return matrix[0][0];
+            if (n === 2) return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+
+            let det = 0;
+            for (let j = 0; j < n; j++) {
+                let sub = matrix.slice(1).map(row => row.filter((_, col) => col !== j));
+                det += ((j % 2 === 0 ? 1 : -1) * matrix[0][j] * determinant(sub));
+            }
+
+            // Format result: 4 decimals, but strip trailing zeros
+            return parseFloat(det.toFixed(4));
+        }
+
+
+        function transpose(matrix) {
+            return matrix[0].map((_, i) => matrix.map(row => row[i]));
+        }
+
+        function inverse(matrix) {
+            let n = matrix.length;
+            if (n !== matrix[0].length) {
+                alert('Matrix must be square');
+                return null;
+            }
+            let det = determinant(matrix);
+            if (det === 0) {
+                alert('Matrix is singular (no inverse)');
+                return null;
+            }
+            let I = matrix.map((row, i) => row.map((_, j) => i === j ? 1 : 0));
+            let A = matrix.map(row => row.slice());
+            for (let i = 0; i < n; i++) {
+                let factor = A[i][i];
+                for (let j = 0; j < n; j++) {
+                    A[i][j] /= factor;
+                    I[i][j] /= factor;
+                }
+                for (let k = 0; k < n; k++) {
+                    if (k !== i) {
+                        let f = A[k][i];
+                        for (let j = 0; j < n; j++) {
+                            A[k][j] -= f * A[i][j];
+                            I[k][j] -= f * I[i][j];
+                        }
+                    }
+                }
+            }
+            return I;
+        }
+
+        function multiply(A, B) {
+            if (A[0].length !== B.length) {
+                alert('Columns of A must match rows of B');
+                return null;
+            }
+            let result = [];
+            for (let i = 0; i < A.length; i++) {
+                result[i] = [];
+                for (let j = 0; j < B[0].length; j++) {
+                    let sum = 0;
+                    for (let k = 0; k < A[0].length; k++) {
+                        sum += A[i][k] * B[k][j];
+                    }
+                    result[i][j] = sum;
+                }
+            }
+            return result;
+        }
+
+        function calculate(op) {
+            let A = readMatrix('matrixA');
+            let B = readMatrix('matrixB');
+            let res = null;
+            switch (op) {
+                case 'add': res = A.map((row, i) => row.map((val, j) => val + B[i][j])); break;
+                case 'sub': res = A.map((row, i) => row.map((val, j) => val - B[i][j])); break;
+                case 'mul': res = multiply(A, B); break;
+                case 'detA': document.getElementById('result').innerText = 'det(A) = ' + determinant(A); return;
+                case 'detB': document.getElementById('result').innerText = 'det(B) = ' + determinant(B); return;
+                case 'transA': res = transpose(A); break;
+                case 'transB': res = transpose(B); break;
+                case 'invA': res = inverse(A); break;
+                case 'invB': res = inverse(B); break;
+            }
+            if (res) displayMatrix(res);
+        }
+    </script>
+</body>
+
+</html>
