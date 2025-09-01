@@ -9,132 +9,95 @@ Date: 3/Aug/2025
 
 */
 
-    // a shader variable
-    let theShader;
-    let shaderBg;
+// a shader variable
+let theShader;
+let shaderBg;
 
-    let img;
-    let time_;
-    let framerate;
+let img;
+let time_;
+let framerate;
 
-    let moves = [0, 0];
+let moves = [0, 0];
 
-    function preload() {
-      // load the shader
-      theShader = loadShader('shader.vert', 'shader.frag');
-    }
+// function preload() {
+//   // load the shader
+//   theShader = loadShader('shader.vert', 'shader.frag');
+// }
 
-    function setup() {
-      // disables scaling for retina screens which can create inconsistent scaling between displays
-      pixelDensity(1);
+async function setup() {
+  theShader = await loadShader("vertex.vert", "fragment.frag");
 
-      createCanvas(windowWidth, windowHeight);
-      noStroke();
+  // disables scaling for retina screens which can create inconsistent scaling between displays
+  pixelDensity(1);
 
-      // shaders require WEBGL mode to work
-      shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
+  createCanvas(windowWidth, windowHeight);
+  noStroke();
 
-      cursor('grab');
+  // shaders require WEBGL mode to work
+  shaderBg = createGraphics(windowWidth, windowHeight, WEBGL);
 
-    }
+  cursor('grab');
 
-    function draw() {
-      // we can draw the background each frame or not.
-      // if we do we can use transparency in our shader.
-      // if we don't it will leave a trailing after image.
-      // background(0);
-      // shader() sets the active shader with our shader
-      shaderBg.shader(theShader);
+}
 
-      // get the mouse coordinates, map them to values between 0-1 space
-      let yMouse = (map(mouseY, 0, height, height, 0) / height) * 2 - 1;
-      let xMouse = (mouseX / width) * 2 - 1;
+function draw() {
+  // we can draw the background each frame or not.
+  // if we do we can use transparency in our shader.
+  // if we don't it will leave a trailing after image.
+  // background(0);
+  // shader() sets the active shader with our shader
+  shaderBg.shader(theShader);
 
-      // Make sure pixels are square
-      xMouse = (xMouse * width) / height;
-      yMouse = (yMouse);
+  // get the mouse coordinates, map them to values between 0-1 space
+  let yMouse = (map(mouseY, 0, height, height, 0) / height) * 2 - 1;
+  let xMouse = (mouseX / width) * 2 - 1;
 
-      mouseMove();
+  // Make sure pixels are square
+  xMouse = (xMouse * width) / height;
+  yMouse = (yMouse);
 
-      // pass the interactive information to the shader
-      theShader.setUniform("iResolution", [width, height]);
-      theShader.setUniform("iTime", millis() / 1000.0);
-      theShader.setUniform("iMouse", moves);
+  mouseMove();
+
+  // pass the interactive information to the shader
+  theShader.setUniform("iResolution", [width, height]);
+  theShader.setUniform("iTime", millis() / 1000.0);
+  theShader.setUniform("iMouse", moves);
 
 
-      // rect gives us some geometry on the screen to draw the shader on
-      shaderBg.rect(0, 0, width, height);
-      image(shaderBg, 0, 0, width, height);
+  // rect gives us some geometry on the screen to draw the shader on
+  shaderBg.rect(0, 0, width, height);
+  image(shaderBg, 0, 0, width, height);
 
-      let increment = 20 / ((frameRate() || 60) * 140); // timestep based on framerate, will rotate same speed on all regardless of framerate
-      time_ += increment;
-      if (time_ > TWO_PI) time_ -= TWO_PI; // prevent time from getting to big and maybe causing errors?
+  // if (isMouseOverLink()) {
+  //   fill(180);
+  //   cursor('pointer'); // <-- this makes the cursor a hand
+  // } else {
+  //   fill(220);
+  //   //cursor('default'); // <-- this restores the default cursor
+  // }
 
-      /*// flip coordinate information box
-      let flipX = 0;
-      let flipY = 0;
-      if (width - mouseX < 200) {
-        flipX = -130;
-      }
-      if (height - mouseY < 100) {
-        flipY = -35;
-      }
-      */
+  // rect(0, 0, 110, 30);
+  // fill(0);
+  // text("dynamicmath.xyz", 7, 19)
 
-      // draw coordinate information box if you want
+  //console.log(imView);
+}
 
-      /*
-      
-      fill(255);
-      rect(mouseX + flipX, mouseY + flipY, 60, 40);
-      fill(0);
-      text("x: " + int(mouseX), mouseX + 15 + flipX, mouseY + 15 + flipY);
-      text("y: " + int(mouseY), mouseX + 15 + flipX, mouseY + 30 + flipY);
-      fill(0);
-      rect(mouseX + 60 + flipX, mouseY + flipY, 70, 40);
-      fill(255);
-      text("x: " + nfc(xMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 15 + flipY);
-      text("y: " + nfc(yMouse, 3), mouseX + 15 + 60 + flipX, mouseY + 30 + flipY);
-     
-    */
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  theShader.setUniform("iResolution", [width, height]);
+}
 
-      // if (isMouseOverLink()) {
-      //   fill(180);
-      //   cursor('pointer'); // <-- this makes the cursor a hand
-      // } else {
-      //   fill(220);
-      //   //cursor('default'); // <-- this restores the default cursor
-      // }
+function mousePressed() {
+  cursor('grabbing');
+}
 
-      // rect(0, 0, 110, 30);
-      // fill(0);
-      // text("dynamicmath.xyz", 7, 19)
+function mouseReleased() {
+  cursor('grab');
+}
 
-      //console.log(imView);
-    }
-
-    function windowResized() {
-      resizeCanvas(windowWidth, windowHeight);
-    }
-
-    function mousePressed() {
-      cursor('grabbing');
-
-      if (isMouseOverLink()) {
-        window.open("https://www.dynamicmath.xyz", "_blank");
-      }
-    }
-
-    function mouseReleased() {
-      cursor('grab');
-    }
-
-    function isMouseOverLink() {
-      return mouseX >= 0 && mouseX <= 110 && mouseY >= 0 && mouseY <= 30;
-    }
-
-    function mouseMove() {
-      if (!mouseIsPressed) return;
-      moves[0] += mouseX - pmouseX;
-      moves[1] += pmouseY - mouseY;
-    }
+function mouseMove() {
+  if (!mouseIsPressed) return;
+  moves[0] += mouseX - pmouseX;
+  moves[1] += pmouseY - mouseY;
+}
