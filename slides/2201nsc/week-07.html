@@ -213,7 +213,7 @@
 					<br />
 					<br />
 				</section>
-				
+
 			</section>
 
 
@@ -597,10 +597,10 @@
 							\end{pmatrix}$$
 						</p>
 						<p class="fragment" data-fragment-index="0">
-							a. &nbsp; $\mathbf x = (5,0,0,0,0,0,0,0,0,4)$
+							a. &nbsp; $\mathbf x = (5,0,0,0,0,0,0,0,0,4)^T$
 						</p>
 						<p class="fragment" data-fragment-index="1">
-							b. &nbsp; $\mathbf x = (1,0,0,0,0,0,1,1,0,0)$
+							b. &nbsp; $\mathbf x = (1,0,0,0,0,0,1,1,0,0)^T$
 						</p>
 					</div>
 
@@ -636,7 +636,7 @@
 0
   </code></pre>
 				</section>
-				
+
 			</section>
 
 
@@ -644,176 +644,172 @@
 				<section id="problem-8">
 					<h4>Problem 8</h4>
 
-					<div class="left-txt">
-						<p>
-							My friend's new ice-cream company is developing 10 flavours,
-							and has employed 8 tasters to rate
-							them. Their ratings are shown below. If I rate the Vanilla
-							a '5' and the Lemon Sorbet a '3',
-							which three flavours would you recommend I try next?
-						</p>
-					</div>
+					<div>
+						<table style="width: 100%;">
+							<tr>
+								<td style="width: 25%; font-size: 58%;text-align: left;">
+									
+										My friend's new ice-cream company is developing 10 flavours,
+										and has employed 8 tasters to rate
+										them. Their ratings are shown below. 
+										
+										<br/><br/>
+										
+										If I rate the Vanilla
+										a '5' and the Lemon Sorbet a '3',
+										which three flavours would you recommend I try next?
+									
+								</td>
+								<td style="width: 75%;">
 
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
+									<div style="font-size: 58%;">
+										<table border="1" cellspacing="0" cellpadding="5"
+											style="border-collapse: collapse; text-align: center;">
+											<thead>
+												<tr>
+													<th>Flavour</th>
+													<th colspan="8">Tester ratings</th>
+												</tr>
+												<tr>
+													<th></th>
+													<th style="text-align: center;">T1</th>
+													<th style="text-align: center;">T2</th>
+													<th style="text-align: center;">T3</th>
+													<th style="text-align: center;">T4</th>
+													<th style="text-align: center;">T5</th>
+													<th style="text-align: center;">T6</th>
+													<th style="text-align: center;">T7</th>
+													<th style="text-align: center;">T8</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Chocolate</td>
+													<td>5</td>
+													<td>5</td>
+													<td>5</td>
+													<td>3</td>
+													<td>3</td>
+													<td>5</td>
+													<td>3</td>
+													<td>2</td>
+												</tr>
+												<tr>
+													<td>Vanilla</td>
+													<td>4</td>
+													<td>1</td>
+													<td>2</td>
+													<td>5</td>
+													<td>5</td>
+													<td>4</td>
+													<td>2</td>
+													<td>1</td>
+												</tr>
+												<tr>
+													<td>Strawberry</td>
+													<td>1</td>
+													<td>4</td>
+													<td>2</td>
+													<td>1</td>
+													<td>1</td>
+													<td>5</td>
+													<td>4</td>
+													<td>2</td>
+												</tr>
+												<tr>
+													<td>Rum and Raisin</td>
+													<td>4</td>
+													<td>5</td>
+													<td>2</td>
+													<td>3</td>
+													<td>3</td>
+													<td>2</td>
+													<td>3</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>Salted Caramel</td>
+													<td>2</td>
+													<td>4</td>
+													<td>5</td>
+													<td>3</td>
+													<td>2</td>
+													<td>2</td>
+													<td>3</td>
+													<td>3</td>
+												</tr>
+												<tr>
+													<td>Pistachio</td>
+													<td>1</td>
+													<td>1</td>
+													<td>1</td>
+													<td>2</td>
+													<td>5</td>
+													<td>1</td>
+													<td>3</td>
+													<td>3</td>
+												</tr>
+												<tr>
+													<td>Cookies and Cream</td>
+													<td>3</td>
+													<td>5</td>
+													<td>2</td>
+													<td>4</td>
+													<td>5</td>
+													<td>2</td>
+													<td>1</td>
+													<td>5</td>
+												</tr>
+												<tr>
+													<td>Bubblegum</td>
+													<td>1</td>
+													<td>5</td>
+													<td>4</td>
+													<td>1</td>
+													<td>5</td>
+													<td>3</td>
+													<td>1</td>
+													<td>4</td>
+												</tr>
+												<tr>
+													<td>Lemon Sorbet</td>
+													<td>4</td>
+													<td>4</td>
+													<td>2</td>
+													<td>5</td>
+													<td>5</td>
+													<td>2</td>
+													<td>3</td>
+													<td>2</td>
+												</tr>
+												<tr>
+													<td>Mandarine Sorbet</td>
+													<td>1</td>
+													<td>2</td>
+													<td>5</td>
+													<td>4</td>
+													<td>4</td>
+													<td>5</td>
+													<td>5</td>
+													<td>2</td>
+												</tr>
+											</tbody>
+										</table>
 
-				</section>
-				<section>
-					<h4>Problem 8 (cont.)</h4>
-
-					<div class="size-40 left-txt" style="margin-top: -15px;">
-						<p>
-							My friend's new ice-cream company is developing 10 flavours,
-							and has employed 8 tasters to rate
-							them. Their ratings are shown below. If I rate the Vanilla
-							a '5' and the Lemon Sorbet a '3',
-							which three flavours would you recommend I try next?
-						</p>
-					</div>
-
-					<div style="font-size: 60%; margin-top: -15px;">
-						<table border="1" cellspacing="0" cellpadding="5"
-							style="border-collapse: collapse; text-align: center;">
-							<thead>
-								<tr>
-									<th>Flavour</th>
-									<th colspan="8">Tester ratings</th>
-								</tr>
-								<tr>
-									<th></th>
-									<th style="text-align: center;">T1</th>
-									<th style="text-align: center;">T2</th>
-									<th style="text-align: center;">T3</th>
-									<th style="text-align: center;">T4</th>
-									<th style="text-align: center;">T5</th>
-									<th style="text-align: center;">T6</th>
-									<th style="text-align: center;">T7</th>
-									<th style="text-align: center;">T8</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Chocolate</td>
-									<td>5</td>
-									<td>5</td>
-									<td>5</td>
-									<td>3</td>
-									<td>3</td>
-									<td>5</td>
-									<td>3</td>
-									<td>2</td>
-								</tr>
-								<tr>
-									<td>Vanilla</td>
-									<td>4</td>
-									<td>1</td>
-									<td>2</td>
-									<td>5</td>
-									<td>5</td>
-									<td>4</td>
-									<td>2</td>
-									<td>1</td>
-								</tr>
-								<tr>
-									<td>Strawberry</td>
-									<td>1</td>
-									<td>4</td>
-									<td>2</td>
-									<td>1</td>
-									<td>1</td>
-									<td>5</td>
-									<td>4</td>
-									<td>2</td>
-								</tr>
-								<tr>
-									<td>Rum and Raisin</td>
-									<td>4</td>
-									<td>5</td>
-									<td>2</td>
-									<td>3</td>
-									<td>3</td>
-									<td>2</td>
-									<td>3</td>
-									<td>4</td>
-								</tr>
-								<tr>
-									<td>Salted Caramel</td>
-									<td>2</td>
-									<td>4</td>
-									<td>5</td>
-									<td>3</td>
-									<td>2</td>
-									<td>2</td>
-									<td>3</td>
-									<td>3</td>
-								</tr>
-								<tr>
-									<td>Pistachio</td>
-									<td>1</td>
-									<td>1</td>
-									<td>1</td>
-									<td>2</td>
-									<td>5</td>
-									<td>1</td>
-									<td>3</td>
-									<td>3</td>
-								</tr>
-								<tr>
-									<td>Cookies and Cream</td>
-									<td>3</td>
-									<td>5</td>
-									<td>2</td>
-									<td>4</td>
-									<td>5</td>
-									<td>2</td>
-									<td>1</td>
-									<td>5</td>
-								</tr>
-								<tr>
-									<td>Bubblegum</td>
-									<td>1</td>
-									<td>5</td>
-									<td>4</td>
-									<td>1</td>
-									<td>5</td>
-									<td>3</td>
-									<td>1</td>
-									<td>4</td>
-								</tr>
-								<tr>
-									<td>Lemon Sorbet</td>
-									<td>4</td>
-									<td>4</td>
-									<td>2</td>
-									<td>5</td>
-									<td>5</td>
-									<td>2</td>
-									<td>3</td>
-									<td>2</td>
-								</tr>
-								<tr>
-									<td>Mandarine Sorbet</td>
-									<td>1</td>
-									<td>2</td>
-									<td>5</td>
-									<td>4</td>
-									<td>4</td>
-									<td>5</td>
-									<td>5</td>
-									<td>2</td>
-								</tr>
-							</tbody>
+									</div>
+								</td>
+							</tr>
 						</table>
-
 					</div>
 
-
-
 					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+
 				</section>
+				
 
 				<section>
 					<h4>Problem 8 (cont.)</h4>
@@ -836,11 +832,11 @@
 							\]
 
 						</p>
-						<p  class="fragment" data-fragment-index="0">
+						<p class="fragment" data-fragment-index="0">
 							$\mathbf x = (0,5,0,0,0,0,0,3,0,0)^T$
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 				<section data-visibility="hidden">
 					<pre><code data-trim data-noescape>
@@ -873,7 +869,7 @@
 
 			<section id="problem-9">
 				<h4>Problem 9</h4>
-				<div class="size-80 left-txt">
+				<div class="size-75 left-txt">
 					<p>
 						Determine least-squares lines of best fit for the
 						following data, to match the proposed data models
@@ -925,13 +921,13 @@
 					</p>
 					<p style="line-height: 20px;">
 
-						2. Cubic model, $y=ax^3+bx^2+cx+d$; or
+						2. Cubic model, $y=ax^3+bx^2+cx+d;$ or
 
 					</p>
-					<p style="line-height: 20px;">
+					<p style="line-height: 40px;">
 
 						3. Hyperbolic sinusoidal model
-						$y=a\cosh\left(\frac{x}{2}\right)+b\sinh\left(\frac{x}{2}\right)+c$
+						$$y=a\cosh\left(\frac{x}{2}\right)+b\sinh\left(\frac{x}{2}\right)+c$$
 
 					</p>
 				</div>
