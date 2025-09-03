@@ -130,7 +130,7 @@
       // LaTeX output
       let latex = "\\begin{bmatrix}";
       for (let i = 0; i < m; i++) {
-        latex += normalized[i].map(v => v.toFixed(4)).join(" & ");
+        latex += normalized[i].map(v => v.toFixed(5)).join(" & ");
         if (i < m - 1) latex += " \\\\ ";
       }
       latex += "\\end{bmatrix}";
