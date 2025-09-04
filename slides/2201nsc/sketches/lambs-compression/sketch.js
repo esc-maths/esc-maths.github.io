@@ -15,18 +15,18 @@ let bMatrix = [];
 let compressedR = [];
 let compressedG = [];
 let compressedB = [];
-let k = 50; // default k value for compression
+let k = 100; // default k value for compression
 let slider;
 let originalGfx;
 
 async function setup() {
     img = await loadImage('Lambs.jpg'); // Load image
 
-    createCanvas(2 * 400, 470); // 250x350 images + space for text
+    createCanvas(2 * 300, 320); // 250x350 images + space for text
 
     pixelDensity(1);
 
-    img.resize(400, 450);
+    img.resize(300, 300);
     img.loadPixels();
 
      // Convert to RGB matrices
@@ -118,8 +118,8 @@ function showInfo() {
 
     let m = img.height;
     let n = img.width;
-    let compressedSize = (m * k + k + n * k); // U, S, V
-    let originalSize = m * n;
-    let compressionRatio = 100 * (1 - compressedSize / originalSize);
-    text(`Compressed (${compressionRatio.toFixed(1)}% smaller)`, 1.5 * img.width, img.height + 15);
+    let compressionRatio = 1 - k * (1 + m + n) / (m * n);
+    text(`Compressed (${compressionRatio.toFixed(2)}% smaller)`, 1.5 * img.width, img.height + 15);
 }
+
+
