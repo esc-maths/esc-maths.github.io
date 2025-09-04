@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="mySetup/mylayout.css" />
 
 	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
 
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
@@ -69,128 +69,317 @@
 				</div>
 			</section>
 
-			<section id="problem-1">
-				<h4>Problem 1</h4>
-				<div class="size-85 left-txt">
+			<section>
+				<section id="problem-1">
+					<h4>Problem 1</h4>
+					<div class="size-85 left-txt">
 
 
-					<ol style="line-height: 50px;list-style-type: lower-alpha;">
-						<li>
-							Prove that the inverse of a diagonal matrix must be diagonal matrix.
-						</li>
-						<li>
-							Prove that the inverse of a lower-triangular matrix must be lower-triangular.
-						</li>
-						<li>
-							Prove that the inverse of an upper-triangular matrix must be upper-triangular.
-						</li>
-					</ol>
-				</div>
+						<ol style="line-height: 50px;list-style-type: lower-alpha;">
+							<li>
+								Prove that the inverse of a diagonal matrix must be diagonal matrix.
+							</li>
+							<li>
+								Prove that the inverse of a lower-triangular matrix must be lower-triangular.
+							</li>
+							<li>
+								Prove that the inverse of an upper-triangular matrix must be upper-triangular.
+							</li>
+						</ol>
+					</div>
 
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Problem 1 (cont.)</h4>
+
+					<div class="size-85 left-txt">
+
+
+						<ol style="line-height: 50px;list-style-type: lower-alpha;">
+							<li>
+								Prove that the inverse of a diagonal matrix must be diagonal matrix.
+							</li>
+						</ol>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
 			</section>
 
-			<section id="problem-2">
-				<h4>Problem 2</h4>
-				<div class="size-85 left-txt">
-					<p>
-						Which of the factorisations we have considered (LU, QR, Cholesky, SVD) has the following
-						properties or requirements?
-					</p>
+			<section>
+				<section id="problem-2">
+					<h4>Problem 2</h4>
+					<div class="size-85 left-txt">
+						<p>
+							Which of the factorisations we have considered (LU, QR, Cholesky, SVD) has the following
+							properties or requirements?
+						</p>
 
-					<ol style="line-height: 60px;list-style-type: lower-alpha;">
-						<li>
-							Produces an orthogonal matrix?
-						</li>
-						<li>
-							Produces an upper or lower triangular matrix?
-						</li>
-						<li>
-							Can be applied to non-square matrices?
-						</li>
-						<li>
-							Provides an orthogonal basis for the column space?
-						</li>
-					</ol>
-				</div>
+						<ol style="line-height: 50px;list-style-type: lower-alpha;">
+							<li>
+								Produces an orthogonal matrix?
+							</li>
+							<li>
+								Produces an upper or lower triangular matrix?
+							</li>
+							<li>
+								Can be applied to non-square matrices?
+							</li>
+							<li>
+								Provides an orthogonal basis for the column space?
+							</li>
+						</ol>
+					</div>
 
-				<br />
-				<br />
-				<br />
-				<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Problem 2 (cont.)</h4>
+
+					<div class="size-80 left-txt">
+
+
+						<ol style="line-height: 50px;list-style-type: lower-alpha;">
+							<li>
+								Produces an orthogonal matrix?
+							</li>
+
+							<li>
+								Produces an upper or lower triangular matrix?
+							</li>
+							<li>
+								Can be applied to non-square matrices?
+							</li>
+							<li>
+								Provides an orthogonal basis for the column space?
+							</li>
+						</ol>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
 			</section>
 
-			<section id="problem-3">
-				<h4>Problem 3</h4>
-				<div class="size-80 left-txt">
-					<p>
-						Use software to calculate the LDU, QR, Cholesky
-						and SVD factorisations for the following
-						matrices, if possible. If not possible, indicate
-						why the method cannot be applied.
-					</p>
+			<section>
+				<section id="problem-3">
+					<h4>Problem 3</h4>
+					<div class="size-80 left-txt">
+						<p>
+							Use software to calculate the LDU, QR, Cholesky
+							and SVD factorisations for the following
+							matrices, if possible. If not possible, indicate
+							why the method cannot be applied.
+						</p>
 
-					<table style="width: 100%; font-size: 80%;">
-						<tr>
-							<td style="width: 50%; border: none;">
-								(a) $\,A=\begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}$
-							</td>
-							<td style="width: 50%; border: none;">
-								(b) $\,A=\begin{pmatrix} 8 & 1 & 6 \\ 3 & 5 & 7\\ 4 & 9 & 2 \end{pmatrix}$
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 50%; border: none;">
-								(c) $\,A=\begin{pmatrix} 6 & 1 & -4 \\ 1 & 6 & -5 \\ -4 & -5 & 6 \end{pmatrix}$
+						<table style="width: 100%; font-size: 80%;">
+							<tr>
+								<td style="width: 50%; border: none;">
+									(a) $\,A=\begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}$
+								</td>
+								<td style="width: 50%; border: none;">
+									(b) $\,A=\begin{pmatrix} 8 & 1 & 6 \\ 3 & 5 & 7\\ 4 & 9 & 2 \end{pmatrix}$
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 50%; border: none;">
+									(c) $\,A=\begin{pmatrix} 6 & 1 & -4 \\ 1 & 6 & -5 \\ -4 & -5 & 6 \end{pmatrix}$
 
-							</td>
-							<td style="width: 50%; border: none;">
-								(d) $\,A=\begin{pmatrix} 4 & 0 & 0 \\ -1 & 4 & 1\\ 0 & 0 & 4 \end{pmatrix}$
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 50%; border: none;">
-								(e) $\,A=\begin{pmatrix} 3 & -1 \\ 1 & -1 \\ 2 & 3 \end{pmatrix}$
+								</td>
+								<td style="width: 50%; border: none;">
+									(d) $\,A=\begin{pmatrix} 4 & 0 & 0 \\ -1 & 4 & 1\\ 0 & 0 & 4 \end{pmatrix}$
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 50%; border: none;">
+									(e) $\,A=\begin{pmatrix} 3 & -1 \\ 1 & -1 \\ 2 & 3 \end{pmatrix}$
 
-							</td>
-							<td style="width: 50%; border: none;">
-								(f) $A=\begin{pmatrix} 3 & -1 & 1 & 2 \\ 1 & -1 & 0 & -2 \\ 2 & 0 & 1 & 4 \end{pmatrix}$
-							</td>
-						</tr>
-					</table>
+								</td>
+								<td style="width: 50%; border: none;">
+									(f) $A=\begin{pmatrix} 3 & -1 & 1 & 2 \\ 1 & -1 & 0 & -2 \\ 2 & 0 & 1 & 4
+									\end{pmatrix}$
+								</td>
+							</tr>
+						</table>
 
 
-				</div>
+					</div>
 
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
+					<br />
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section data-visibility="hidden">
+					<h4>Problem 3 (cont.)</h4>
+					<div class="left-txt size-65" style="margin-top: -20px;">
+						<p>
+							(a) $\,A=\begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}$
+						</p>
+					</div>
+					<div style="margin-top: -25px; margin-bottom: -10px; font-size: 90%;">
+						<p>
+							LDU - Python
+						</p>
+					</div>
+
+					<pre style="width: 100%;height: 430px; font-size: 25px;">
+						<code data-trim data-noescape  
+							data-line-numbers="1-14|1-2|4-5|7|7,8|7,9|7,10|7,11-14">
+import numpy as np
+from scipy.linalg import lu, qr, svd, cholesky
+
+A = np.array([[0, -1],
+              [1,  1]])
+
+print("--- LDU decomposition ---")
+P, L, U = lu(A)  # SciPy: returns P, L, U with P*A = L*U
+D = np.diag(np.diag(U))
+U_normalized = np.linalg.inv(D) @ U
+print("L:\n", L)
+print("D:\n", D)
+print("U:\n", U_normalized)
+print("Check:\n", P @ A, "\n", L @ D @ U_normalized)
+  </code></pre>
+
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section data-visibility="hidden">
+					<h4>Problem 3 (cont.)</h4>
+
+					<div style="margin-top: -15px; margin-bottom: -10px; font-size: 90%;">
+						<p>
+							QR - Python
+						</p>
+					</div>
+
+					<pre style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13|1-5|7-8|7,10-12">
+import numpy as np
+from scipy.linalg import lu, qr, svd, cholesky
+
+A = np.array([[0, -1],
+              [1,  1]])
+
+print("\n--- QR decomposition ---")
+Q, R = qr(A)
+
+print("Q:\n", Q)
+print("R:\n", R)
+print("Check Q*R:\n", Q @ R)
+  </code></pre>
+
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section data-visibility="hidden">
+					<h4>Problem 3 (cont.)</h4>
+
+					<div style="margin-top: -15px; margin-bottom: -10px; font-size: 90%;">
+						<p>
+							Cholesky - Python
+						</p>
+					</div>
+
+					<pre style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13|1-5|7-10|7,11-12">
+import numpy as np
+from scipy.linalg import lu, qr, svd, cholesky
+
+A = np.array([[0, -1],
+              [1,  1]])
+
+print("\n--- Cholesky decomposition ---")
+try:
+    Rchol = cholesky(A, lower=False)
+    print("Rchol:\n", Rchol)
+except Exception as e:
+    print("Cholesky failed:", e)
+  </code></pre>
+
+					<br />
+					<br />
+					<br />
+
+				</section>
+				<section data-visibility="hidden">
+					<h4>Problem 3 (cont.)</h4>
+
+					<div style="margin-top: -15px; margin-bottom: -10px; font-size: 90%;">
+						<p>
+							SVD - Python
+						</p>
+					</div>
+
+					<pre style="width: 100%;height: 370px; font-size: 25px;">
+						<code data-trim data-noescape 
+							data-line-numbers="1-13|1-5|7-8|7,9-11|7,10|7,12">
+import numpy as np
+from scipy.linalg import lu, qr, svd, cholesky
+
+A = np.array([[0, -1],
+              [1,  1]])
+
+print("\n--- SVD decomposition ---")
+U_svd, S_svd, Vh_svd = svd(A)
+print("U:\n", U_svd)
+print("S (as diag):\n", np.diag(S_svd))
+print("V^T:\n", Vh_svd)
+print("Check U*S*V^T:\n", U_svd @ np.diag(S_svd) @ Vh_svd)
+  </code></pre>
+
+					<br />
+					<br />
+					<br />
+
+				</section>
+
 			</section>
 
 			<section id="problem-4">
 				<h4>Problem 4</h4>
-				<div class="size-85 left-txt">
+				<div class="size-80 left-txt">
 					<p>
-						For any of the SVD factorisations calculated above, 
+						For any of the SVD factorisations calculated above,
 						compare the SVD factorisation of $A$ with
-						the matrices obtained from diagonalisation of 
+						the matrices obtained from diagonalisation of
 						$A^T A$ and $A A^T$.
 					</p>
 
-					
+
 				</div>
 
 
+				<br />
 				<br />
 				<br />
 				<br />
@@ -202,31 +391,55 @@
 
 			</section>
 
-			<section id="problem-5">
-				<h4>Problem 5</h4>
-				<div class="size-85 left-txt">
-					<p>
-						Solve the least-squares problem in 5.7.2, 
-						for the data provided in that section, using the 
-						QR factorisation approach. Solve for a fit 
-						to the following equations:
-					</p>
+			<section>
+				<section id="problem-5">
+					<h4>Problem 5</h4>
+					<div class="size-80 left-txt">
+						<p>
+							Solve the least-squares problem in 5.7.2,
+							for the data provided in that section, using the
+							QR factorisation approach. Solve for a fit
+							to the following equations:
+						</p>
+						<ol style="line-height: 60px;list-style-type: lower-alpha;">
+							<li>
+								$y=a e^{-x} + b e^{-x/2} + c$ <br />(see 5.7.2 for the solution using the direct method)
+							</li>
+							<li>
+								$y=ax^3 + bx^2 + cx + d$
+							</li>
+						</ol>
+					</div>
 
-					<ol style="line-height: 60px;list-style-type: lower-alpha;">
-						<li>
-							$y=a e^{-x} + b e^{-x/2} + c$  <br/>(see 5.7.2 for the solution using the direct method)
-						</li>
-						<li>
-							$y=ax^3 + bx^2 + cx + d$
-						</li>
-					</ol>
-				</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
 
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
+				<section>
+					<h4>Problem 5 (cont.)</h4>
+					<div class="size-80 left-txt">
+						
+						<ol style="line-height: 70px;list-style-type: lower-alpha;">
+							<li>
+								$y=a e^{-x} + b e^{-x/2} + c\;\;$ (see 5.7.2 for direct method)
+							</li>
+						</ol>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
 			</section>
 
 
