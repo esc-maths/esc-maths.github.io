@@ -234,7 +234,7 @@
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4>Problem 3 (cont.)</h4>
 					<div class="left-txt size-65" style="margin-top: -20px;">
 						<p>
@@ -249,7 +249,7 @@
 
 					<pre style="width: 100%;height: 430px; font-size: 25px;">
 						<code data-trim data-noescape  
-							data-line-numbers="1-14|1-2|4-5|7|7,8|7,9|7,10|7,11-14">
+							data-line-numbers="1-14|1-2|4-5|7|7,8|7,9|7,10|7,11-13|7,14">
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
@@ -272,7 +272,10 @@ print("Check:\n", P @ A, "\n", L @ D @ U_normalized)
 
 				</section>
 
-				<section data-visibility="hidden">
+				<!--
+				 data-visibility="hidden"
+				-->
+				<section>
 					<h4>Problem 3 (cont.)</h4>
 
 					<div style="margin-top: -15px; margin-bottom: -10px; font-size: 90%;">
@@ -302,7 +305,10 @@ print("Check Q*R:\n", Q @ R)
 
 				</section>
 
-				<section data-visibility="hidden">
+				<!--
+				 data-visibility="hidden"
+				-->
+				<section>
 					<h4>Problem 3 (cont.)</h4>
 
 					<div style="margin-top: -15px; margin-bottom: -10px; font-size: 90%;">
@@ -362,6 +368,14 @@ print("Check U*S*V^T:\n", U_svd @ np.diag(S_svd) @ Vh_svd)
 					<br />
 
 				</section>
+
+				<!--
+				Basic
+				https://trinket.io/python3/245594ad90e9
+
+				Full
+				https://trinket.io/python3/42b0a7bade33
+				-->
 
 			</section>
 
