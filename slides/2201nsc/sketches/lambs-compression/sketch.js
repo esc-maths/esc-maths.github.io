@@ -15,7 +15,7 @@ let bMatrix = [];
 let compressedR = [];
 let compressedG = [];
 let compressedB = [];
-let k = 100; // default k value for compression
+let k = 50; // default k value for compression
 let slider;
 let originalGfx;
 
