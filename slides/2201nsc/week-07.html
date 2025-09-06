@@ -38,6 +38,26 @@
 		gtag('config', 'G-8GQQBCYTB5');
 	</script>
 
+	<style>
+		.copy-btn {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			padding: 4px 8px;
+			font-size: 12px;
+			cursor: pointer;
+			background: #444;
+			color: white;
+			border: none;
+			border-radius: 4px;
+		}
+
+		pre.copyable {
+			position: relative;
+			/* so the button positions correctly */
+		}
+	</style>
+
 </head>
 
 <body>
@@ -614,10 +634,10 @@
 					<table style="width: 100%;">
 						<tr>
 							<td style="font-size: 80%;">
-								Python code 💻
+								Python <br />code <br /> 💻
 							</td>
 							<td>
-								<pre style="font-size: 44%;height: 630px;width: 640px;"><code data-trim data-noescape>
+								<pre class="copyable" style="font-size: 44%;height: 630px;width: 640px;"><code data-trim data-noescape>
 import numpy as np
 
 R = np.array([
@@ -904,11 +924,11 @@ print( "Rating:\n", rating )
 				<section>
 					<table style="width: 100%;">
 						<tr>
-							<td style="font-size: 80%;">
-								Python code  💻
+							<td style="text-align: center;">
+								Python <br />code <br /> 💻
 							</td>
 							<td>
-								<pre style="font-size: 44%;height: 630px;width: 640px;"><code data-trim data-noescape>
+								<pre class="copyable" style="font-size: 44%;height: 630px;width: 640px;"><code data-trim data-noescape>
 import numpy as np
 
 R = np.array([
@@ -977,74 +997,109 @@ print( "Rating:\n", rating )
 				</section>
 			</section>
 
-			<section id="problem-9">
-				<h4>Problem 9</h4>
-				<div class="size-75 left-txt">
-					<p>
-						Determine least-squares lines of best fit for the
-						following data, to match the proposed data models
-					</p>
-				</div>
+			<section>
+				<section id="problem-9">
+					<h4>Problem 9</h4>
+					<div class="size-75 left-txt">
+						<p>
+							Determine least-squares lines of best fit for the
+							following data, to match the proposed data models
+						</p>
+					</div>
 
-				<div style="font-size:65%;">
-					<table border="1" cellspacing="0" cellpadding="5"
-						style="border-collapse: collapse; text-align: center; width: 100%;">
-						<thead>
-							<tr>
-								<th>$x_i$</th>
-								<th style="text-align: center;">1</th>
-								<th style="text-align: center;">2</th>
-								<th style="text-align: center;">3</th>
-								<th style="text-align: center;">4</th>
-								<th style="text-align: center;">5</th>
-								<th style="text-align: center;">6</th>
-								<th style="text-align: center;">7</th>
-								<th style="text-align: center;">8</th>
-								<th style="text-align: center;">9</th>
-								<th style="text-align: center;">10</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>$y_i$</td>
-								<td>9.876</td>
-								<td>9.862</td>
-								<td>9.833</td>
-								<td>9.465</td>
-								<td>7.635</td>
-								<td>6.714</td>
-								<td>3.559</td>
-								<td>-0.397</td>
-								<td>-7.424</td>
-								<td>-19.429</td>
-							</tr>
-						</tbody>
-					</table>
+					<div style="font-size:65%;">
+						<table border="1" cellspacing="0" cellpadding="5"
+							style="border-collapse: collapse; text-align: center; width: 100%;">
+							<thead>
+								<tr>
+									<th>$x_i$</th>
+									<th style="text-align: center;">1</th>
+									<th style="text-align: center;">2</th>
+									<th style="text-align: center;">3</th>
+									<th style="text-align: center;">4</th>
+									<th style="text-align: center;">5</th>
+									<th style="text-align: center;">6</th>
+									<th style="text-align: center;">7</th>
+									<th style="text-align: center;">8</th>
+									<th style="text-align: center;">9</th>
+									<th style="text-align: center;">10</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>$y_i$</td>
+									<td>9.876</td>
+									<td>9.862</td>
+									<td>9.833</td>
+									<td>9.465</td>
+									<td>7.635</td>
+									<td>6.714</td>
+									<td>3.559</td>
+									<td>-0.397</td>
+									<td>-7.424</td>
+									<td>-19.429</td>
+								</tr>
+							</tbody>
+						</table>
 
-				</div>
+					</div>
 
-				<div class="size-80 left-txt" style="margin-top: 20px;">
-					<p style="line-height: 20px;">
+					<div class="size-80 left-txt" style="margin-top: 20px;">
+						<p style="line-height: 20px;">
 
-						1. Linear model, $y=mx+c$
+							1. Linear model, $y=mx+c$
 
-					</p>
-					<p style="line-height: 20px;">
+						</p>
+						<p style="line-height: 20px;">
 
-						2. Cubic model, $y=ax^3+bx^2+cx+d;$ or
+							2. Cubic model, $y=ax^3+bx^2+cx+d;$ or
 
-					</p>
-					<p style="line-height: 40px;">
+						</p>
+						<p style="line-height: 40px;">
 
-						3. Hyperbolic sinusoidal model
-						$$y=a\cosh\left(\frac{x}{2}\right)+b\sinh\left(\frac{x}{2}\right)+c$$
+							3. Hyperbolic sinusoidal model
+							$$y=a\cosh\left(\frac{x}{2}\right)+b\sinh\left(\frac{x}{2}\right)+c$$
 
-					</p>
-				</div>
-				<br />
-				<br />
-				<br />
-				<br />
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"
+				-->
+				<section>
+					<h4>Python code 💻</h4>
+					<pre class="copyable" style="font-size: 44%;height: 530px;width: 900px;"><code data-trim data-noescape wrapping>
+import numpy as np
+
+# Data
+x = np.array([1,2,3,4,5,6,7,8,9,10], dtype=float)
+y = np.array([9.876, 9.862, 9.833, 9.465, 7.635, 6.714, 3.559, -0.397, -7.424, -19.429], dtype=float)
+
+# ----------- 1. Linear model: y = a1*x + a0 -----------
+A_lin = np.column_stack([x, np.ones_like(x)])
+coef_lin = np.linalg.inv(A_lin.T @ A_lin) @ (A_lin.T @ y)
+
+# ----------- 2. Cubic model: y = a3*x^3 + a2*x^2 + a1*x + a0 -----------
+A_cubic = np.column_stack([x**3, x**2, x, np.ones_like(x)])
+coef_cubic = np.linalg.inv(A_cubic.T @ A_cubic) @ (A_cubic.T @ y)
+
+# ----------- 3. Hyperbolic model: y = a*cosh(x/2) + b*sinh(x/2) + c -----------
+A_hyper = np.column_stack([np.cosh(x/2), np.sinh(x/2), np.ones_like(x)])
+coef_hyper = np.linalg.inv(A_hyper.T @ A_hyper) @ (A_hyper.T @ y)
+
+# Print results
+print("Linear coefficients [a1, a0]:", coef_lin)
+print("Cubic coefficients [a3, a2, a1, a0]:", coef_cubic)
+print("Hyperbolic coefficients [a, b, c]:", coef_hyper)
+  </code></pre>
+  <br/>
+
+				</section>
 			</section>
 
 			<!-- Ends sections -->
@@ -1065,6 +1120,24 @@ print( "Rating:\n", rating )
 
 	<script>
 		includeHTML();
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			document.querySelectorAll("pre.copyable code").forEach((block) => {
+				const btn = document.createElement("button");
+				btn.className = "copy-btn";
+				btn.innerText = "Copy";
+				block.parentNode.appendChild(btn);
+
+				btn.addEventListener("click", () => {
+					navigator.clipboard.writeText(block.innerText).then(() => {
+						btn.innerText = "Copied!";
+						setTimeout(() => (btn.innerText = "Copy"), 2000);
+					});
+				});
+			});
+		});
 	</script>
 
 
