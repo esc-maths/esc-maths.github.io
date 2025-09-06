@@ -1072,25 +1072,29 @@ print( "Rating:\n", rating )
 				 data-visibility="hidden"
 				-->
 				<section>
-					<h4>Python code 💻</h4>
-					<pre class="copyable" style="font-size: 44%;height: 530px;width: 900px;"><code data-trim data-noescape wrapping>
+					<h6>Python code 💻</h6>
+					<pre class="copyable" style="font-size: 44%;height: 580px;width: 900px;margin-top: -10px;"><code data-trim data-noescape wrapping>
 import numpy as np
 
 # Data
 x = np.array([1,2,3,4,5,6,7,8,9,10], dtype=float)
-y = np.array([9.876, 9.862, 9.833, 9.465, 7.635, 6.714, 3.559, -0.397, -7.424, -19.429], dtype=float)
+y = np.array(
+	[9.876, 9.862, 9.833, 9.465, 7.635, 6.714, 3.559, -0.397, -7.424, -19.429],
+	dtype=float)
 
-# ----------- 1. Linear model: y = a1*x + a0 -----------
+y_col = y.reshape(-1, 1) # vector column
+
+# --------- 1. Linear model: y = a1*x + a0 ---------
 A_lin = np.column_stack([x, np.ones_like(x)])
-coef_lin = np.linalg.inv(A_lin.T @ A_lin) @ (A_lin.T @ y)
+coef_lin = np.linalg.inv(A_lin.T @ A_lin) @ (A_lin.T @ y_col)
 
-# ----------- 2. Cubic model: y = a3*x^3 + a2*x^2 + a1*x + a0 -----------
+# --------- 2. Cubic model: y = a3*x^3 + a2*x^2 + a1*x + a0 ---------
 A_cubic = np.column_stack([x**3, x**2, x, np.ones_like(x)])
-coef_cubic = np.linalg.inv(A_cubic.T @ A_cubic) @ (A_cubic.T @ y)
+coef_cubic = np.linalg.inv(A_cubic.T @ A_cubic) @ (A_cubic.T @ y_col)
 
-# ----------- 3. Hyperbolic model: y = a*cosh(x/2) + b*sinh(x/2) + c -----------
+# --------- 3. Hyperbolic model: y = a*cosh(x/2) + b*sinh(x/2) + c ---------
 A_hyper = np.column_stack([np.cosh(x/2), np.sinh(x/2), np.ones_like(x)])
-coef_hyper = np.linalg.inv(A_hyper.T @ A_hyper) @ (A_hyper.T @ y)
+coef_hyper = np.linalg.inv(A_hyper.T @ A_hyper) @ (A_hyper.T @ y_col)
 
 # Print results
 print("Linear coefficients [a1, a0]:", coef_lin)
