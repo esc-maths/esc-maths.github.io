@@ -1097,9 +1097,9 @@ A_hyper = np.column_stack([np.cosh(x/2), np.sinh(x/2), np.ones_like(x)])
 coef_hyper = np.linalg.inv(A_hyper.T @ A_hyper) @ (A_hyper.T @ y_col)
 
 # Print results
-print("Linear coefficients [a1, a0]:", coef_lin)
-print("Cubic coefficients [a3, a2, a1, a0]:", coef_cubic)
-print("Hyperbolic coefficients [a, b, c]:", coef_hyper)
+print("Linear coefficients [a1, a0]:\n", coef_lin)
+print("Cubic coefficients [a3, a2, a1, a0]:\n", coef_cubic)
+print("Hyperbolic coefficients [a, b, c]:\n", coef_hyper)
   </code></pre>
   <br/>
 
