@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="mySetup/mylayout.css" />
 
 	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
 
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
@@ -37,6 +37,26 @@
 
 		gtag('config', 'G-8GQQBCYTB5');
 	</script>
+
+	<style>
+		.copy-btn {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			padding: 4px 8px;
+			font-size: 12px;
+			cursor: pointer;
+			background: #444;
+			color: white;
+			border: none;
+			border-radius: 4px;
+		}
+
+		pre.copyable {
+			position: relative;
+			/* so the button positions correctly */
+		}
+	</style>
 
 </head>
 
@@ -70,102 +90,375 @@
 			</section>
 
 
-			<section id="problem-1">
-				<h4>Problem 1</h4>
-				<div class="size-85 left-txt">
+			<section>
+				<section id="problem-1">
+					<h4>Problem 1</h4>
+					<div class="size-85 left-txt">
 
-					<p>
-						Use the SVD to give a basis and dimension
-						for the column, row, and null spaces of:
+						<p>
+							Use the SVD to give a basis and dimension
+							for the column, row, and null spaces of:
+						</p>
+
+
+
+					</div>
+
+					<table style="width: 100%; font-size: 80%;">
+						<tr>
+							<td style="width: 50%; border: none;">
+								(a) $\,A = \begin{pmatrix} 1 & 3 & 2 \\ 2 & 1 & 4 \\ 4 & 7 & 8 \end{pmatrix}.$
+							</td>
+							<td style="width: 50%; border: none;">
+								(b) $\,A = \begin{pmatrix} 1 & 0 & 2 & 1 \\ 0 & 1 & 1 & 4 \\ 0 & 2 & -1 & -1
+								\end{pmatrix}.$
+							</td>
+						</tr>
+
+					</table>
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				<section>
+					<h4>Problem 1 (cont.)</h4>
+					<p style="font-size: 70%; text-align: left;">
+						(a) $\,A = \begin{pmatrix} 1 & 3 & 2 \\ 2 & 1 & 4 \\ 4 & 7 & 8 \end{pmatrix}.$
 					</p>
 
-
-
-				</div>
-
-				<table style="width: 100%; font-size: 80%;">
-					<tr>
-						<td style="width: 50%; border: none;">
-							(a) $\,A = \begin{pmatrix} 1 & 3 & 2 \\ 2 & 1 & 4 \\ 4 & 7 & 8 \end{pmatrix}.$
-						</td>
-						<td style="width: 50%; border: none;">
-							(b) $\,A = \begin{pmatrix} 1 & 0 & 2 & 1 \\ 0 & 1 & 1 & 4 \\ 0 & 2 & -1 & -1 \end{pmatrix}.$
-						</td>
-					</tr>
-
-				</table>
-
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
 			</section>
 
-			<section id="problem-2">
-				<h4>Problem 2</h4>
-				<div class="size-80 left-txt">
+			<section>
+				<section id="problem-2">
+					<h4>Problem 2</h4>
+					<div class="size-80 left-txt">
 
-					<p>
-						Download the Octave code
-						$\texttt{magic_approx_SVD.m}$ from Learning@Griffith.
-					</p>
-					<ol style="line-height: 50px;list-style-type: lower-alpha;">
-						<li>
-							Calculate the rank 1, 2, and 3 approximations to the 
-							$10\times 10$ magic matrix, $A$.
-						</li>
-						<li>
-							For each of the approximations, calculate the level of 
-							compression achieved (assume that the
-							elements of the magic square are independent, 
-							otherwise we're going to have trouble).
-						</li>
-						<li>
-							Prove, by hand, that there is no $2\times 2$ 
-							magic square.
-						</li>
-					</ol>
+						<p>
+							Download the Octave code
+							$\texttt{magic_approx_SVD.m}$ from Learning@Griffith.
+						</p>
+						<ol style="line-height: 50px;list-style-type: lower-alpha;">
+							<li>
+								Calculate the rank 1, 2, and 3 approximations to the
+								$10\times 10$ magic matrix, $A$.
+							</li>
+							<li>
+								For each of the approximations, calculate the level of
+								compression achieved (assume that the
+								elements of the magic square are independent,
+								otherwise we're going to have trouble).
+							</li>
+							<li>
+								Prove, by hand, that there is no $2\times 2$
+								magic square.
+							</li>
+						</ol>
 
 
-				</div>
+					</div>
 
-				<br />
-				<br />
-				<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section data-visibility="hidden">
+					<h4>Problem 2 (cont.)</h4>
+
+
+					<pre style="width: 100%;height: 540px; font-size: 22px;">
+						<code data-trim data-noescape  
+							data-line-numbers="1-18|1|3|5-6|8-10|12-14|16-18">
+# OCTAVE CODE. Run it here: https://octave-online.net/
+
+pkg load linear-algebra  % Load the linear algebra package
+
+A = magic(10);           % Generate a 10x10 magic square matrix
+r = 1;                   % Set the rank for the approximation
+
+% Compute the rank-r SVD approximation
+[u, s, v] = svds(A, r);  % Compute the truncated SVD 
+A_approx = u * s * v';   % Reconstruct the rank-r
+
+% Find the largest & smallest elements across both A and A_approx
+amax = max(max(max(A)), max(max(A_approx)));
+amin = min(min(min(A)), min(min(A_approx)));
+
+% Rescale matrices to the range [0, 63] for grayscale image display
+A_color = (A - amin) / (amax - amin) * 63;
+A_approx_color = (A_approx - amin) / (amax - amin) * 63;
+  </code></pre>
+
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section data-visibility="hidden">
+					<h4>Problem 2 (cont.)</h4>
+
+
+					<pre style="width: 100%;height: 540px; font-size: 22px;">
+						<code data-trim data-noescape data-ln-start-from="19"  
+							data-line-numbers="1-11|1-5|7-11">
+% Display the original matrix as a grayscale image
+figure(1); 
+colormap(bone);       % Set the colormap to 'bone'
+image(A_color);       % Display the rescaled matrix as an image
+title('Original A');  % Add a title
+
+% Display the rank-r approximation as a grayscale image
+figure(2); 
+colormap(bone);
+image(A_approx_color);
+title('Rank-1 Approximation');
+  </code></pre>
+
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section data-visibility="hidden">
+					<h4 style="font-size: 50%;">Run Octave online here: <a href="https://octave-online.net/"
+							target="_blank">octave-online.net <i class="fa fa-external-link-alt"></i></a></h4>
+
+
+					<pre class="copyable" style="width: 800px;height: 600px; font-size: 42.5%;margin-top: -10px;">
+						<code data-trim data-noescape data-ln-start-from="1"  
+							data-line-numbers="1-28">
+pkg load linear-algebra  % Load the linear algebra package
+
+A = magic(10);           % Generate a 10x10 magic square matrix
+r = 1;                   % Set the rank for the approximation
+
+% Compute the rank-r SVD approximation
+[u, s, v] = svds(A, r);  % Compute the truncated SVD 
+A_approx = u * s * v';   % Reconstruct the rank-r
+
+% Find the largest & smallest elements across both A and A_approx
+amax = max(max(max(A)), max(max(A_approx)));
+amin = min(min(min(A)), min(min(A_approx)));
+
+% Rescale matrices to the range [0, 63] for grayscale image display
+A_color = (A - amin) / (amax - amin) * 63;
+A_approx_color = (A_approx - amin) / (amax - amin) * 63;
+
+% Display the original matrix as a grayscale image
+figure(1); 
+colormap(bone);       % Set the colormap to 'bone'
+image(A_color);       % Display the rescaled matrix as an image
+title('Original A');  % Add a title
+
+% Display the rank-r approximation as a grayscale image
+figure(2); 
+colormap(bone);
+image(A_approx_color);
+title('Rank-1 Approximation');
+  </code></pre>
+
+					<br />
+				</section>
+
+
 			</section>
 
-			<section id="problem-3">
-				<h4>Problem 3</h4>
-				<div class="size-80 left-txt">
-
-					<p>
-						Download the Octave code from 
-						$\texttt{SVD_image_compress.m}$ from Learning@Griffith.
-					</p>
-					<ol style="line-height: 50px;list-style-type: lower-alpha;">
-						<li>
-							Calculate the rank $10$, $50$, and $100$ 
-							approximations to the image $\texttt{Lambs.jpg}.$
-						</li>
-						<li>
-							For each of the approximations, calculate the level of compression achieved.
-						</li>
-						<li>
-							Try compressing $\texttt{ote_screenshot.png}.$ 
-							What sort of artefacts do you encounter?
-						</li>
-					</ol>
 
 
-				</div>
+			<section>
 
-				<br />
-				<br />
-				<br />
+				<section id="problem-3">
+					<h4>Problem 3</h4>
+					<div class="size-80 left-txt">
+
+						<p>
+							Download the Octave code from
+							$\texttt{SVD_image_compress.m}$ from Learning@Griffith.
+						</p>
+						<ol style="line-height: 50px;list-style-type: lower-alpha;">
+							<li>
+								Calculate the rank $10$, $50$, and $100$
+								approximations to the image $\texttt{Lambs.jpg}.$
+							</li>
+							<li>
+								For each of the approximations, calculate the level of compression achieved.
+							</li>
+							<li>
+								Try compressing $\texttt{ote_screenshot.png}.$
+								What sort of artefacts do you encounter?
+							</li>
+						</ol>
+
+
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<!--
+				 data-visibility="hidden"-->
+				<section data-visibility="hidden">
+					<h4>Problem 3 (cont.)</h4>
+
+
+					<pre style="width: 100%;height: 540px; font-size: 22px;">
+						<code data-trim data-noescape  
+							data-line-numbers="1-20|1|2-7|2-4|5-7|9-10|12-15|17-20">
+# PYTHON CODE. Run it here: https://trinket.io/python3
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.sparse.linalg import svds
+from PIL import Image
+import requests
+from io import BytesIO
+
+# Rank for approximation
+r = 50
+
+# Download the image from URL
+url = "https://esc-maths.github.io/assets/imgs/Lambs.jpg"
+response = requests.get(url)
+a = np.array(Image.open(BytesIO(response.content))) # numpy array
+
+# Extract color channels as float
+R = a[:, :, 0].astype(float)
+G = a[:, :, 1].astype(float)
+B = a[:, :, 2].astype(float)
+  </code></pre>
+
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section data-visibility="hidden">
+					<h4>Problem 3 (cont.)</h4>
+
+
+					<pre style="width: 100%;height: 540px; font-size: 22px;">
+						<code data-trim data-noescape data-ln-start-from="20"  
+							data-line-numbers="1-17|1-8|10-13|15-17">
+# Function for rank-r SVD approximation
+def svd_approx(X, r):
+    U, S, Vt = svds(X, k=r)
+    # svds returns singular values in ascending order, so reverse
+    S = np.diag(S[::-1])
+    U = U[:, ::-1]
+    Vt = Vt[::-1, :]
+    return np.dot(U, np.dot(S, Vt))
+
+# Apply to each channel
+R_approx = svd_approx(R, r)
+G_approx = svd_approx(G, r)
+B_approx = svd_approx(B, r)
+
+# Reconstruct image
+a_out = np.stack([R_approx, G_approx, B_approx], axis=2)
+a_out = np.clip(a_out, 0, 255).astype(np.uint8)
+  </code></pre>
+
+					<br />
+				</section>
+				<!--
+				 data-visibility="hidden"-->
+				<section data-visibility="hidden">
+					<h4>Problem 3 (cont.)</h4>
+
+
+					<pre style="width: 100%;height: 540px; font-size: 22px;">
+						<code data-trim data-noescape data-ln-start-from="20"  
+							data-line-numbers="1-12|1-2|1,4-6|1,8-10|1,12">
+# Plot side by side (like montage in Octave)
+fig, axes = plt.subplots(1, 2, figsize=(15, 10))
+
+axes[0].imshow(a)
+axes[0].set_title("Original")
+axes[0].axis("off")
+
+axes[1].imshow(a_out)
+axes[1].set_title(f"Rank-{r} Approximation")
+axes[1].axis("off")
+
+plt.show()
+  </code></pre>
+
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section data-visibility="hidden">
+					<h4 style="font-size: 45%;">Run Python online here: <a href="https://trinket.io/python3"
+							target="_blank">trinket.io/python3 <i class="fa fa-external-link-alt"></i></a></h4>
+
+
+					<pre class="copyable" style="width: 630px;height: 625px; font-size: 31%;margin-top: -15px;">
+						<code data-trim data-noescape data-ln-start-from="1"  
+							data-line-numbers="1-48">
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.sparse.linalg import svds
+from PIL import Image
+import requests
+from io import BytesIO
+# Rank for approximation
+r = 50
+# Download the image from URL
+url = "https://esc-maths.github.io/assets/imgs/Lambs.jpg"
+response = requests.get(url)
+a = np.array(Image.open(BytesIO(response.content))) # numpy array
+# Extract color channels as float
+R = a[:, :, 0].astype(float)
+G = a[:, :, 1].astype(float)
+B = a[:, :, 2].astype(float)
+# Function for rank-r SVD approximation
+def svd_approx(X, r):
+    U, S, Vt = svds(X, k=r)
+    # svds returns singular values in ascending order, so reverse
+    S = np.diag(S[::-1])
+    U = U[:, ::-1]
+    Vt = Vt[::-1, :]
+    return np.dot(U, np.dot(S, Vt))
+# Apply to each channel
+R_approx = svd_approx(R, r)
+G_approx = svd_approx(G, r)
+B_approx = svd_approx(B, r)
+# Reconstruct image
+a_out = np.stack([R_approx, G_approx, B_approx], axis=2)
+a_out = np.clip(a_out, 0, 255).astype(np.uint8)
+# Plot side by side (like montage in Octave)
+fig, axes = plt.subplots(1, 2, figsize=(15, 10))
+axes[0].imshow(a)
+axes[0].set_title("Original")
+axes[0].axis("off")
+axes[1].imshow(a_out)
+axes[1].set_title(f"Rank-{r} Approximation")
+axes[1].axis("off")
+plt.show()
+  </code></pre>
+
+					<br />
+				</section>
 			</section>
-			
+
 
 			<!-- Ends sections -->
 
@@ -185,6 +478,24 @@
 
 	<script>
 		includeHTML();
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			document.querySelectorAll("pre.copyable code").forEach((block) => {
+				const btn = document.createElement("button");
+				btn.className = "copy-btn";
+				btn.innerText = "Copy";
+				block.parentNode.appendChild(btn);
+
+				btn.addEventListener("click", () => {
+					navigator.clipboard.writeText(block.innerText).then(() => {
+						btn.innerText = "Copied!";
+						setTimeout(() => (btn.innerText = "Copy"), 2000);
+					});
+				});
+			});
+		});
 	</script>
 
 

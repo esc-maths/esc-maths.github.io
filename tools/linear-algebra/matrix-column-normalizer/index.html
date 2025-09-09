@@ -89,7 +89,8 @@
 
 <body>
   <h1>Matrix Column Normalizer</h1>
-  <p>Enter an \(m \times n\) matrix (max 20×20). Separate rows with newlines, entries by spaces or commas.</p>
+  <p>Enter an \(m \times n\) matrix (max 30×30). 
+    Separate rows with newlines, entries by spaces or commas.</p>
   <textarea id="matrixInput">1 2 3
 4 5 6
 7 8 9</textarea>
@@ -109,8 +110,8 @@
       const m = rows.length;
       const n = rows[0].length;
 
-      if (m > 20 || n > 20) {
-        alert("Matrix size must be at most 20x20");
+      if (m > 30 || n > 30) {
+        alert("Matrix size must be at most 30x30");
         return;
       }
       if (rows.some(r => r.length !== n)) {
@@ -182,19 +183,19 @@ disp(A_normalized);`;
       // Output
       document.getElementById("codeOutput").innerHTML = `
         <div class="code-block">
-          <h3>Plain text</h3>
+          <h3>Plain text <button onclick="copyToClipboard(this)">Copy</button></h3>
           <pre>${plainText}</pre>
         </div>
         <div class="code-block">
-          <h3>Python</h3>
+          <h3>Python <button onclick="copyToClipboard(this)">Copy</button></h3>
           <pre>${pythonCode}</pre>
         </div>
         <div class="code-block">
-          <h3>JavaScript</h3>
+          <h3>JavaScript <button onclick="copyToClipboard(this)">Copy</button></h3>
           <pre>${jsCode}</pre>
         </div>
         <div class="code-block">
-          <h3>Octave</h3>
+          <h3>Octave <button onclick="copyToClipboard(this)">Copy</button></h3>
           <pre>${octaveCode}</pre>
         </div>
       `;
@@ -205,6 +206,19 @@ disp(A_normalized);`;
       document.getElementById("matrixOutput").innerHTML = '';
       document.getElementById("codeOutput").innerHTML = '';
     }
+
+    function copyToClipboard(button) {
+      const pre = button.parentElement.nextElementSibling; // gets the <pre> after the <h3>
+      navigator.clipboard.writeText(pre.textContent)
+        .then(() => {
+          button.textContent = "Copied!";
+          setTimeout(() => button.textContent = "Copy", 1500);
+        })
+        .catch(err => {
+          console.error("Failed to copy:", err);
+        });
+    }
+
   </script>
 
   <footer>
