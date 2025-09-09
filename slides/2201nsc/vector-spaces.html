@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Vector spaces</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;">Vectors Spaces</p>
+
+				<div style="margin-top: -30px; margin-bottom:20px;">
+					<img src="images/fractal/f008.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Definition</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								Let $V$ be a nonempty set on which are defined
+								operations "$+$" (called addition) and "$\cdot$"
+								(called scalar multiplication).
+
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								$V$ is a <strong>vector space</strong> (over $\BF$) if the following hold for
+								all $\bfu,\bfv,\bfw\in V$ and all $k,\ell\in\BF$:
+							</p>
+
+
+
+							<table id="eqarray">
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(V1)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv\in V$ (closure)
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="2">
+									<td>
+										<strong>(V2)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="3">
+									<td>
+										<strong>(V3)</strong>
+									</td>
+									<td>
+										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
+									</td>
+								</tr>
+								
+
+							</table>
+
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>Definition</h5>
+					<div class="size-40 left-txt" style="margin-top:-10px">
+						<p>
+							$V$ is a <strong>vector space</strong> (over $\BF$) if the following hold for
+							all $\bfu,\bfv,\bfw\in V$ and all $k,\ell\in\BF$:
+						</p>
+					</div>
+					<div class="size-60"  style="margin-top:-20px">
+						<div class="left-txt">
+
+
+
+							<table id="eqarray">
+								<tr>
+									<td>
+										<strong>(V1)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv\in V$ (closure)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<strong>(V2)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V3)</strong>
+									</td>
+									<td>
+										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<strong>(V4)</strong>
+									</td>
+									<td>
+										$\exists\,{\bf 0}\in V$ such that $\bfu+{\bf 0}=\bfu$ (zero vector, or additive
+										identity)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="0">
+									<td>
+										<strong>(V5)</strong>
+									</td>
+									<td>
+										For each $\bfu\in V$, $\exists\,(-\bfu)\in V$ such that $\bfu+(-\bfu)={\bf 0}$
+										(additive inverse)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(V6)</strong>
+									</td>
+									<td>
+										$k\cdot\bfu\in V$ (closure)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(V7)</strong>
+									</td>
+									<td>
+										$k\cdot(\bfu+\bfv)=k\cdot\bfu+k\cdot\bfv$ (multiplicative-additive
+										distributivity)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(V8)</strong>
+									</td>
+									<td>
+										$(k+\ell)\cdot\bfu=k\cdot\bfu+\ell\cdot\bfu$ (additive-multiplicative
+										distributivity)
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(V9)</strong>
+									</td>
+									<td>
+										$k\cdot(\ell\cdot\bfu)=(k\ell)\cdot\bfu$ (multiplicative-multiplicative
+										distributivity)
+
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="1">
+									<td>
+										<strong>(V10)</strong>
+									</td>
+									<td>
+										$1\cdot\bfu=\bfu$ (multiplicative identity)
+									</td>
+								</tr>
+
+							</table>
+
+
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Definition</h4>
+
+					<div class="size-45">
+						<div class="left-txt">
+
+							<table id="eqarray">
+								<tr>
+									<td>
+										<strong>(V1)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv\in V$ (closure)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<strong>(V2)</strong>
+									</td>
+									<td>
+										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V3)</strong>
+									</td>
+									<td>
+										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<strong>(V4)</strong>
+									</td>
+									<td>
+										$\exists\,{\bf 0}\in V$ such that $\bfu+{\bf 0}=\bfu$ (zero vector, or additive
+										identity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V5)</strong>
+									</td>
+									<td>
+										For each $\bfu\in V$, $\exists\,(-\bfu)\in V$ such that $\bfu+(-\bfu)={\bf 0}$
+										(additive inverse)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V6)</strong>
+									</td>
+									<td>
+										$k\cdot\bfu\in V$ (closure)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V7)</strong>
+									</td>
+									<td>
+										$k\cdot(\bfu+\bfv)=k\cdot\bfu+k\cdot\bfv$ (multiplicative-additive
+										distributivity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V8)</strong>
+									</td>
+									<td>
+										$(k+\ell)\cdot\bfu=k\cdot\bfu+\ell\cdot\bfu$ (additive-multiplicative
+										distributivity)
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V9)</strong>
+									</td>
+									<td>
+										$k\cdot(\ell\cdot\bfu)=(k\ell)\cdot\bfu$ (multiplicative-multiplicative
+										distributivity)
+
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<strong>(V10)</strong>
+									</td>
+									<td>
+										$1\cdot\bfu=\bfu$ (multiplicative identity)
+									</td>
+								</tr>
+
+							</table>
+
+
+
+						</div>
+
+					</div>
+					<div class="size-70">
+						<div class="left-txt">
+							<p>The scalar multiplication symbol is often omitted.
+								Elements of a vector space are usually called vectors.</p>
+
+						</div>
+					</div>
+					<br /><br/>
+				</section>
+
+
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>Example 1: $\BF^n$ - set of $n$-tuples</h4>
+					<div class="size-75">
+						<div class="left-txt">
+
+							<p class="fragment" data-fragment-index="0">1) <strong>Identify elements of the set:</strong>
+								<span>$$\BF^n = \big\{ \u = \left( u_1, u_2, \ldots , u_n\right)~|~
+									u_1, u_2, \ldots , u_n \in \BF \big\}$$</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">2) & 3) <strong>Check for closure of addition and scalar multiplication:</strong>
+								<span>$$\u+ \v = \left( u_1+v_1, u_2+v_2, \ldots , u_n+v_n\right)$$
+									</span>
+									<span>
+										$$\;\,k \cdot \u = \left( ku_1, ku_2, \ldots , ku_n\right)$$
+									</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">4) <strong>Identify the vector zero:</strong>
+								<span>$\mathbf 0 = \left( 0, 0, \ldots , 0\right)$
+									</span>
+									
+							</p>
+							<p class="fragment" data-fragment-index="3">5) <strong>Identify the inverse additive:</strong>
+								<span>$ - \mathbf u = \left( -u_1, -u_2, \ldots , -u_n\right)$
+									</span>
+									
+							</p>
+
+							
+						</div>
+					</div>
+					<br /><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2: $\BF^n$ - set of $n$-tuples</h4>
+					<div class="size-50">
+						<div class="left-txt">
+
+							<p>1) <strong>Identify elements of the set:</strong>
+								<span>$$\BF^n = \big\{ \u = \left( u_1, u_2, \ldots , u_n\right)~|~
+									u_1, u_2, \ldots , u_n \in \BF \big\}$$</span>
+							</p>
+							<p>2) & 3) <strong>Check for closure of addition and scalar multiplication:</strong>
+								<span>$$\u+ \v = \left( u_1+v_1, u_2+v_2, \ldots , u_n+v_n\right)$$
+									</span>
+									<span>
+										$$\;\,k \cdot \u = \left( ku_1, ku_2, \ldots , ku_n\right)$$
+									</span>
+							</p>
+							<p>4) <strong>Identify the vector zero:</strong>
+								<span>$\mathbf 0 = \left( 0, 0, \ldots , 0\right)$
+									</span>
+									
+							</p>
+							<p>5) <strong>Identify the inverse additive:</strong>
+								<span>$ - \mathbf u = \left( -u_1, -u_2, \ldots , -u_n\right)$
+									</span>
+									
+							</p>
+
+							
+						</div>
+					</div>
+					<div class="size-75">
+						<div class="left-txt">
+
+							
+
+							<p>Now you can continue checking that the other properties hold. 📝</p>
+
+							<p class="fragment" data-fragment-index="0"><strong>Remark:</strong> This is just an strategy you can use. But if you prefer,
+							you can verify each property one by one in the given order, that is, from (V1) to (V10).</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 3: $M_{m,n}(\BF)$ - set of $m\times n$ matrices</h4>
+					<div class="size-70">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								1) $M_{m,n} = \left\{
+									\left(
+									\begin{array}{ccc}
+									a_{11} & \cdots & a_{1n} \\
+									\vdots & \ddots & \vdots \\
+									a_{m1} & \cdots & a_{mn} \\
+									\end{array}
+									\right)
+									~\Bigg|~
+									a_{ij}\in \BF,
+									1\leq i\leq m,
+									1\leq j\leq n
+									\right\}$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								2) & 3)
+								Usual addition and scalar multiplication for matrices.
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								4) $\mathbf 0 = \left(
+										\begin{array}{ccc}
+										0 & \cdots & 0 \\
+										\vdots & \ddots & \vdots \\
+										0 & \cdots & 0 \\
+										\end{array}
+										\right)$
+							</p>
+
+							<p class="fragment" data-fragment-index="3">
+								5)
+										$- \mathbf u = \left(
+										\begin{array}{ccc}
+										-a_{11} & \cdots & -a_{1n} \\
+										\vdots & \ddots & \vdots \\
+										-a_{m1} & \cdots & -a_{mn} \\
+										\end{array}
+										\right)$
+							</p>
+							
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section id="example-7-4">
+					<h4 style="font-size:72%">Example 4: $C[a,b]$ - set of continuous real-valued functions on $[a,b]$
+					</h4>
+					
+					<div class="size-90" style="margin-top:60px">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								1) $\mathbf f, \mathbf g\in C[a,b]$, often represented as $f(x), g(x).$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								2) & 3) 
+										$\left(\,f+g\right)(x) = f(x) + g(x)$<br />
+										
+											$\qquad \quad \,\, (k \cdot f)(x) = kf(x)$
+							</p>
+
+							<p class="fragment" data-fragment-index="2">
+								4) $\mathbf 0 = \,?$ 🤔
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								5) $ - \mathbf f = -f(x) $
+							</p>
+							
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+
+				<section >
+					<h4 style="font-size:80%">Example 5: $P_n(\BF)$ - set of polynomials of degree at most $n$</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								1) $\mathbf p \in P_n(\BF)$, with $\mathbf p = a_0 + a_1x + \cdots + a_n x^n$
+								and $a_k\in \BF,$ $\forall k.$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								2) & 3) Operations similar to <a href="#/example-7-4/3">Example 7.4</a>.
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								4) $\mathbf 0 = \,?$ 🤔
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								5) $ - \mathbf p = -p(x) .$
+							</p>
+							
+						</div>
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+				<section>
+					<h4 style="font-size:80%">Example 6: Set of solutions to a homogeneous linear ODE</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								For example: $y''+p(x) y' + q(x) y = 0 $ ($y=y(x)$).
+							</p>
+
+							<p class="fragment" data-fragment-index="1">
+								1) Let $y_1$ and $y_2$ be solutions.
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								2) Operations similar to <a href="#/example-7-4/3">Example 7.4</a>.
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								3) Superposition principle: $y_1+y_2 $ is also a solution.
+							</p>
+							<p class="fragment" data-fragment-index="4">
+								4) The zero vector is the zero function.
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								5) Given a solution $y$, $-y$ is also a solution.
+							</p>
+							
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-background-iframe="sketches/vectors/v.html"
+				data-background-interactive
+				data-background-color="rgb(0, 0, 0)" 
+				data-background-opacity="0.99"
+				data-auto-animate>
+				 <h3
+				 style="
+				  font-size:80%;margin-top:0px;
+				  background-color: rgb(231, 231, 231);
+				  border: 2px solid rgb(0, 0, 0);
+				  padding: 10px;
+				  margin: auto;
+				  color: black;
+				  width: 55%;
+				  ">Vector space representation</h3>
+				 
+				 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				</section>
+
+				<section data-background-iframe="sketches/points/"
+				data-background-interactive
+				data-background-color="rgb(0, 0, 0)"
+				data-background-opacity="0.9"
+				data-auto-animate>
+				<h3
+				style="
+			     font-size:80%;margin-top:0px;
+			     background-color: rgb(231, 231, 231);
+			     border: 2px solid rgb(0, 0, 0);
+			     padding: 10px;
+			     margin: auto;
+			     color: black;
+			     width: 55%;
+			     ">Vector space representation</h3>
+				 
+				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				</section>
+
+				<section data-background-iframe="sketches/monkey-space/"
+				data-background-interactive
+				data-background-color="rgb(0, 0, 0)"
+				data-auto-animate>
+				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				<h3 
+				style="
+				font-size:60%;margin-top:0px;
+				background-color: rgb(231, 231, 231);
+				border: 2px solid rgb(0, 0, 0);
+				padding: 10px;
+				margin: auto;
+				color: black;
+				width: 40%;
+				">Vector space representation</h3>
+
+				</section>
+
+				<section data-background-iframe="sketches/sponge-space/"
+				data-background-interactive
+				data-background-color="rgb(0, 0, 0)"
+				data-auto-animate>
+				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				<h3 
+				style="
+				font-size:60%;margin-top:0px;
+				background-color: rgb(231, 231, 231);
+				border: 2px solid rgb(0, 0, 0);
+				padding: 10px;
+				margin: auto;
+				color: black;
+				width: 40%;
+				">Vector space representation</h3>
+				</section>
+			</section>
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
