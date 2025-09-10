@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Affine Transformations</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;">Affine Transformations</p>
+
+				<div style="margin-top: -30px; margin-bottom:20px;">
+					<img src="images/fractal/f011.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>What are affine transformations?</h3>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								An <b>affine transformation</b> maps points, straight lines and planes while preserving
+								parallelism — parallel lines stay parallel.
+							</p>
+
+							<p>
+								Widely used in geometry, computer graphics and vision to map coordinates while keeping
+								geometric relations. Unlike <em>linear transformations</em>, affine transforms can also
+								translate (shift) the space.
+							</p>
+
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>What are affine transformations?</h3>
+					<div class="size-85">
+						<div class="left-txt">
+
+							<p>
+								This generalisation makes affine transformations particularly useful for:
+							</p>
+							<ul>
+								<li>Representing more general geometric deformations</li>
+								<li>Modelling transformations where position changes matter</li>
+							</ul>
+
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+
+
+				<section>
+					<h3>Affine Transformations</h3>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								Consider a point $\mathbf x=(x,y).$ A transformation $T: \mathbb R^2 \to \mathbb R^2$ of
+								the form
+							</p>
+						</div>
+						<div class="">
+							<p>
+
+								\(
+								\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+								ax + by + e \\
+								cx + dy + f
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+
+								where $a,b,c,d,e$ and $f$ are real numbers, is called a two-dimensional affine
+								transformation.
+							</p>
+						</div>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+				<section>
+					<h3>Affine Transformations</h3>
+					<div class="size-85">
+
+						<table style="width: 100%;">
+							<tr>
+								<td style="width: 50%;">
+									<p>For example, if $a,d = 1,$ and $b,c=0,$ then we have a pure translation
+										\[
+										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+										x + e \\
+										y + f
+										\end{pmatrix}
+										\]
+									</p>
+								</td>
+								<td style="width: 50%;">
+									 <img src="images/affine-transformations/translate.png" loading="lazy" alt="Mountain landscape" width="350">
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+
+
+			</section>
+
+
+
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
