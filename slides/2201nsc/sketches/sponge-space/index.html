@@ -26,8 +26,8 @@
 	<script type="importmap">
 			{
 				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
-                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
+					"three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.min.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
 				}
 			}
 		</script>
@@ -62,7 +62,7 @@
 
 			controls = new OrbitControls(camera, renderer.domElement);
 			controls.autoRotate = true;
-			controls.autoRotateSpeed = - 0.2;
+			controls.autoRotateSpeed = - 0.15;
 			controls.enableDamping = true;
 
 			clock = new THREE.Clock();
@@ -228,7 +228,7 @@
 						side: THREE.BackSide
 					});
 
-					const mesh = new THREE.InstancedMesh(geometry, material, 50000);
+					const mesh = new THREE.InstancedMesh(geometry, material, 80000);
 					mesh.onBeforeRender = function () {
 
 						this.material.uniforms.cameraPos.value.copy(camera.position);
