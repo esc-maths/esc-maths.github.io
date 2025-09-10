@@ -21,7 +21,7 @@
 			rel="noopener">three.js</a>
 	</div>
 
-	
+
 
 	<script type="importmap">
 			{
@@ -238,16 +238,28 @@
 					const transform = new THREE.Object3D();
 
 					for (let i = 0; i < mesh.count; i++) {
+    
+    // spherical coordinates
+    const R = 150; // max sphere radius
+    const radius = R * Math.cbrt(Math.random()); // uniform in volume
+    const theta = Math.acos(2 * Math.random() - 1); // polar angle
+    const phi = 2 * Math.PI * Math.random();        // azimuthal angle
 
-						transform.position.random().subScalar(0.5).multiplyScalar(150);
-						transform.rotation.x = Math.random() * Math.PI;
-						transform.rotation.y = Math.random() * Math.PI;
-						transform.rotation.z = Math.random() * Math.PI;
-						transform.updateMatrix();
+    transform.position.set(
+        radius * Math.sin(theta) * Math.cos(phi),
+        radius * Math.sin(theta) * Math.sin(phi),
+        radius * Math.cos(theta)
+    );
 
-						mesh.setMatrixAt(i, transform.matrix);
+    transform.rotation.x = Math.random() * Math.PI;
+    transform.rotation.y = Math.random() * Math.PI;
+    transform.rotation.z = Math.random() * Math.PI;
+    transform.updateMatrix();
 
-					}
+    mesh.setMatrixAt(i, transform.matrix);
+}
+
+
 
 					scene.add(mesh);
 
