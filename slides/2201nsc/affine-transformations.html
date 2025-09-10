@@ -91,277 +91,446 @@
 				</div>
 			</section>
 
+
+			<section data-auto-animate>
+				<h3>What are affine transformations?</h3>
+				<div class="size-85">
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="0">
+							An <b>affine transformation</b> maps points, straight lines and planes while preserving
+							parallelism — parallel lines stay parallel.
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							Widely used in geometry, computer graphics and vision to map coordinates while keeping
+							geometric relations.
+							<span class="fragment" data-fragment-index="2">
+								Unlike <em>linear transformations</em>, affine transforms can also
+								translate (shift) the space.
+							</span>
+						</p>
+
+
+					</div>
+				</div>
+				<br /><br />
+			</section>
+
+			<section data-auto-animate>
+				<h3>What are affine transformations?</h3>
+				<div class="size-85">
+					<div class="left-txt">
+
+						<p>
+							This generalisation makes affine transformations particularly useful for:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0">Representing more general geometric
+								deformations</li>
+							<li class="fragment" data-fragment-index="1">Modelling transformations where position
+								changes matter</li>
+						</ul>
+
+
+					</div>
+				</div>
+				<br />
+				<br />
+				<br />
+			</section>
+
+
+
 			<section>
-				<section data-auto-animate>
-					<h3>What are affine transformations?</h3>
-					<div class="size-85">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								An <b>affine transformation</b> maps points, straight lines and planes while preserving
-								parallelism — parallel lines stay parallel.
-							</p>
-
-							<p class="fragment" data-fragment-index="1">
-								Widely used in geometry, computer graphics and vision to map coordinates while keeping
-								geometric relations.
-								<span class="fragment" data-fragment-index="2">
-									Unlike <em>linear transformations</em>, affine transforms can also
-									translate (shift) the space.
-								</span>
-							</p>
-
-
-						</div>
+				<h3>Affine Transformations</h3>
+				<div class="size-85">
+					<div class="left-txt">
+						<p>
+							Consider a point $\mathbf x=(x,y).$
+							<span class="fragment" data-fragment-index="0">
+								A transformation $T: \mathbb R^2 \to \mathbb R^2$ of
+								the form
+							</span>
+						</p>
 					</div>
-					<br /><br />
-				</section>
+					<div class="">
+						<p class="fragment" data-fragment-index="0">
 
-				<section data-auto-animate>
-					<h3>What are affine transformations?</h3>
-					<div class="size-85">
-						<div class="left-txt">
-
-							<p>
-								This generalisation makes affine transformations particularly useful for:
-							</p>
-							<ul>
-								<li class="fragment" data-fragment-index="0">Representing more general geometric
-									deformations</li>
-								<li class="fragment" data-fragment-index="1">Modelling transformations where position
-									changes matter</li>
-							</ul>
-
-
-						</div>
+							\(
+							\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+							ax + by + e \\
+							cx + dy + f
+							\end{pmatrix}
+							\)
+						</p>
 					</div>
-					<br />
-					<br />
-					<br />
-				</section>
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								where $a,b,c,d,e$ and $f$ are real numbers,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								is called a two-dimensional affine
+								transformation.
+							</span>
 
 
-
-				<section>
-					<h3>Affine Transformations</h3>
-					<div class="size-85">
-						<div class="left-txt">
-							<p>
-								Consider a point $\mathbf x=(x,y).$
-								<span class="fragment" data-fragment-index="0">
-									A transformation $T: \mathbb R^2 \to \mathbb R^2$ of
-									the form
-								</span>
-							</p>
-						</div>
-						<div class="">
-							<p class="fragment" data-fragment-index="0">
-
-								\(
-								\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-								ax + by + e \\
-								cx + dy + f
-								\end{pmatrix}
-								\)
-							</p>
-						</div>
-						<div class="left-txt">
-							<p>
-								<span class="fragment" data-fragment-index="1">
-									where $a,b,c,d,e$ and $f$ are real numbers,
-								</span>
-								<span class="fragment" data-fragment-index="2">
-									is called a two-dimensional affine
-									transformation.
-								</span>
-
-
-							</p>
-						</div>
+						</p>
 					</div>
+				</div>
 
-					<br />
-					<br />
-				</section>
+				<br />
+				<br />
+			</section>
 
 
-				<section>
-					<h3>Affine Transformations</h3>
-					<div class="size-70">
+			<section>
+				<h3>Affine Transformations</h3>
+				<div class="size-70">
 
-						<table style="width: 100%;">
-							<tr>
-								<td style="width: 40%;">
-									<p>For example, if $a,d = 1,$ and $b,c=0,$
-										<span class="fragment" data-fragment-index="1">
-											then we have a <b>pure translation</b>
-											\[
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-											x + e \\
-											y + f
-											\end{pmatrix}
-											\]
-										</span>
-									</p>
-									<br />
-									<br />
-								</td>
-								<td style="width: 60%;">
-									<img class="fragment" data-fragment-index="2" style="width: 100%;"
-										src="images/affine-transformations/translate.png" loading="lazy"
-										alt="Mountain landscape" width="350">
-								</td>
-							</tr>
-						</table>
-					</div>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 40%;">
+								<p>For example, if $a,d = 1,$ and $b,c=0,$
+									<span class="fragment" data-fragment-index="1">
+										then we have a <b>pure translation</b>
+										\[
+										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+										x + e \\
+										y + f
+										\end{pmatrix}
+										\]
+									</span>
+								</p>
+								<br />
+								<br />
+							</td>
+							<td style="width: 60%;">
+								<img class="fragment" data-fragment-index="2" style="width: 100%;"
+									src="images/affine-transformations/translate.png" loading="lazy"
+									alt="Mountain landscape" width="350">
+							</td>
+						</tr>
+					</table>
+				</div>
 
-					<br />
-				</section>
-				<section>
-					<h3>Affine Transformations</h3>
-					<div class="size-70">
+				<br />
+			</section>
+			<section>
+				<h3>Affine Transformations</h3>
+				<div class="size-70">
 
-						<table style="width: 100%;">
-							<tr>
-								<td style="width: 40%;">
-									<p>
-										If $b,c=0$ and $e,f=0;$
-										<span class="fragment" data-fragment-index="1">
-											then we have a <b>pure scale</b>
-											\[
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-											ax \\
-											dy
-											\end{pmatrix}
-											\]
-										</span>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 40%;">
+								<p>
+									If $b,c=0$ and $e,f=0;$
+									<span class="fragment" data-fragment-index="1">
+										then we have a <b>pure scale</b>
+										\[
+										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+										ax \\
+										dy
+										\end{pmatrix}
+										\]
+									</span>
 
-									</p>
-									<br />
-									<br />
-								</td>
-								<td style="width: 60%;">
-									<img class="fragment" data-fragment-index="2" style="width: 100%;"
-										src="images/affine-transformations/scale.png" loading="lazy"
-										alt="Mountain landscape" width="350">
-								</td>
-							</tr>
-						</table>
-					</div>
+								</p>
+								<br />
+								<br />
+							</td>
+							<td style="width: 60%;">
+								<img class="fragment" data-fragment-index="2" style="width: 100%;"
+									src="images/affine-transformations/scale.png" loading="lazy"
+									alt="Mountain landscape" width="350">
+							</td>
+						</tr>
+					</table>
+				</div>
 
-					<br />
-				</section>
-				<section>
-					<h3>Affine Transformations</h3>
-					<div class="size-65">
+				<br />
+			</section>
+			<section>
+				<h3>Affine Transformations</h3>
+				<div class="size-65">
 
-						<table style="width: 100%;">
-							<tr>
-								<td style="width: 40%;">
-									<p>
-										If $a,d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e,f=0,$
-										<span class="fragment" data-fragment-index="1">
-											then
-											we have a <b>pure rotation</b> about
-											the origin
-											\[
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-											x\cos\theta -y \sin \theta \\
-											x\sin \theta + y \cos \theta
-											\end{pmatrix}
-											\]
-										</span>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 40%;">
+								<p>
+									If $a,d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e,f=0,$
+									<span class="fragment" data-fragment-index="1">
+										then
+										we have a <b>pure rotation</b> about
+										the origin
+										\[
+										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+										x\cos\theta -y \sin \theta \\
+										x\sin \theta + y \cos \theta
+										\end{pmatrix}
+										\]
+									</span>
 
-									</p>
-									<br />
-								</td>
-								<td style="width: 60%;">
-									<img class="fragment" data-fragment-index="2" style="width: 100%;"
-										src="images/affine-transformations/rotate.png" loading="lazy"
-										alt="Mountain landscape" width="350">
-								</td>
-							</tr>
-						</table>
-					</div>
+								</p>
+								<br />
+							</td>
+							<td style="width: 60%;">
+								<img class="fragment" data-fragment-index="2" style="width: 100%;"
+									src="images/affine-transformations/rotate.png" loading="lazy"
+									alt="Mountain landscape" width="350">
+							</td>
+						</tr>
+					</table>
+				</div>
 
-					<br />
-				</section>
-				<section>
-					<h3>Affine Transformations</h3>
-					<div class="size-70">
+				<br />
+			</section>
+			<section>
+				<h3>Affine Transformations</h3>
+				<div class="size-70">
 
-						<table style="width: 100%;">
-							<tr>
-								<td style="width: 40%;">
-									<p>
-										Finally, if $a,d=1,$ and $e,f=0;$
-										<span class="fragment" data-fragment-index="1">
-											we have the <b>shear transforms</b>
-											\[
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-											x+ by \\
-											y+ cx
-											\end{pmatrix}
-											\]
-										</span>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 40%;">
+								<p>
+									Finally, if $a,d=1,$ and $e,f=0;$
+									<span class="fragment" data-fragment-index="1">
+										we have the <b>shear transforms</b>
+										\[
+										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+										x+ by \\
+										y+ cx
+										\end{pmatrix}
+										\]
+									</span>
 
-									</p>
+								</p>
 
-									<br />
-									<br />
-								</td>
-								<td style="width: 60%;">
-									<img class="fragment" data-fragment-index="2" style="width: 100%;"
-										src="images/affine-transformations/shear.png" loading="lazy"
-										alt="Mountain landscape" width="350">
-								</td>
-							</tr>
-						</table>
-					</div>
+								<br />
+								<br />
+							</td>
+							<td style="width: 60%;">
+								<img class="fragment" data-fragment-index="2" style="width: 100%;"
+									src="images/affine-transformations/shear.png" loading="lazy"
+									alt="Mountain landscape" width="350">
+							</td>
+						</tr>
+					</table>
+				</div>
 
-					<br />
-				</section>
+				<br />
+			</section>
 
-				<section>
-					<h4>Homogeneous coordinates</h4>
-					<div class="size-80">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="1">
-								To enable affine transformations such as translation 
-								to be represented using matrix
-								multiplication, we embed
-								these 2D vectors into 3D space using 
+			<section>
+				<h4>
+					Matrix representation of affine transformations
+				</h4>
+				<div class="size-80">
+					<p class="fragment" data-fragment-index="1">
+						We know a linear transformation
+						<span class="fragment" data-fragment-index="2">
+							can be written in matrix form
+						</span>
+
+					</p>
+				</div>
+				<div class="size-85">
+					<p>
+						<span class="fragment" data-fragment-index="1">
+							\(T(\mathbf{x}) =
+							\begin{pmatrix}
+							ax + by \\
+							cx + dy
+							\end{pmatrix}
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							\(
+							=
+							\begin{pmatrix}
+							a &amp; b \\
+							c &amp; d
+							\end{pmatrix}
+							\begin{pmatrix}
+							x \\
+							y
+							\end{pmatrix},
+							\)
+						</span>
+					</p>
+				</div>
+				<div class="size-85">
+					<p class="fragment" data-fragment-index="3">
+						Can we do the same with affine transformations? 🤔
+					</p>
+					<p class="fragment" data-fragment-index="4">
+						No, the problem is the <b>translation</b>❗️
+					</p>
+				</div>
+				<br />
+				<br />
+				<br />
+			</section>
+
+			<section data-auto-animate="">
+				<h4>Homogeneous coordinates</h4>
+				<div class="size-80">
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="1">
+							To enable affine transformations, such as translation,
+							to be represented using matrix
+							multiplication,
+							<span class="fragment" data-fragment-index="2">
+								we embed these 2D vectors
+
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								into 3D space using
 								homogeneous coordinates by appending a third
-								coordinate, conventionally
-								set
-								to 1:
-								\[
+								coordinate, conventionally set to 1:
+
+							</span>
+						</p>
+
+					</div>
+					<div class="">
+						<p>
+
+							<span class="fragment" data-fragment-index="2">
+								\(
 								\begin{pmatrix}
 								x \\
 								y
 								\end{pmatrix}
+
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								\(
+
 								\quad \Rightarrow \quad
 								\begin{pmatrix}
 								x \\
 								y \\
 								1
 								\end{pmatrix}.
-								\]
-							</p>
-							<p class="fragment" data-fragment-index="2">
-								This third coordinate is typically called \(w\) to
-								distinguish it from the usual \(z\)-coordinate in 3D
-								geometry.
-							</p>
-						</div>
+								\)
+							</span>
+
+						</p>
+
 					</div>
+					<div class="left-txt">
 
-					<br />
-				</section>
+						<p class="fragment" data-fragment-index="5">
+							This third coordinate is typically called \(w\) to
+							distinguish it from the usual \(z\)-coordinate in 3D
+							geometry.
+						</p>
+					</div>
+				</div>
 
-
-
-
+				<br />
 			</section>
+
+			<section data-auto-animate="">
+				<h4>Homogeneous coordinates</h4>
+				<div class="size-80">
+					<div class="left-txt">
+						<p>
+							Therefore, affine transformations can be written as
+							<span>
+								\[
+								\begin{pmatrix}
+								a &amp; b &amp; e \\
+								c &amp; d &amp; f \\
+								0 &amp; 0 &amp; 1
+								\end{pmatrix}
+								\begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}
+								=
+								\begin{pmatrix}
+								ax + by + e \\
+								cx + dy + f \\
+								1
+								\end{pmatrix}.
+								\]
+							</span>
+
+						</p>
+
+					</div>
+				</div>
+
+				<br />
+				<br />
+				<br />
+				<br />
+			</section>
+
+			<section data-auto-animate="">
+				<h4>Homogeneous coordinates</h4>
+				<div class="size-80">
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 50%;text-align: center;border: none;">
+								$\begin{pmatrix}
+								s_x &amp; 0 &amp; 0 \\
+								0 &amp; s_y &amp; 0 \\
+								0 &amp; 0 &amp; 1
+								\end{pmatrix}$
+							</td>
+							<td style="width: 50%;text-align: center;border: none;">
+								$\begin{pmatrix}
+								\cos \theta &amp; -\sin \theta &amp; 0 \\
+								\sin \theta &amp; \cos \theta &amp; 0 \\
+								0 &amp; 0 &amp; 1
+								\end{pmatrix}$
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 50%;text-align: center;border: none;">
+								Scale <br /> <br />
+							</td>
+							<td style="width: 50%;text-align: center;border: none;">
+								Rotation <br /> <br />
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 50%;text-align: center;border: none;">
+								$\begin{pmatrix}1 &amp; h_x &amp; 0 \\
+								h_y &amp; 1 &amp; 0 \\
+								0 &amp; 0 &amp; 1
+								\end{pmatrix}$
+							</td>
+							<td style="width: 50%;text-align: center;border: none;">
+								$\begin{pmatrix}
+								1 &amp; 0 &amp; \Delta x \\
+								0 &amp; 1 &amp; \Delta y \\
+								0 &amp; 0 &amp; 1
+								\end{pmatrix}$
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 50%;text-align: center;border: none;">
+								Shear
+							</td>
+							<td style="width: 50%;text-align: center;border: none;">
+								Translation
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br />
+				<br />
+			</section>
+
+
+
+
 
 
 
