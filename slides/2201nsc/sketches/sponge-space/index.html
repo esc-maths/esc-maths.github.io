@@ -14,7 +14,7 @@
 <body>
 
 	<div id="container"></div>
-	<div id="info"><a href="https://en.wikipedia.org/wiki/Menger_sponge" target="_blank">Menger sponge</a> space  -
+	<div id="info"><a href="https://en.wikipedia.org/wiki/Menger_sponge" target="_blank">Menger sponge</a> space -
 		<a href="https://threejs.org/examples/?q=instan#webgl_volume_instancing" target="_blank"
 			rel="noopener">three.js</a>
 	</div>
@@ -182,8 +182,12 @@
 
 							if ( d > 0.5 ) {
 
-								color.rgb = p * 2.0; // normal( p + 0.5 ); // * 0.5 + ( p * 1.5 + 0.25 );
-								color.a = 1.;
+								//color.rgb = p * 2.0; 
+								//color.rgb = normal( p + 0.5 ); 
+								//color.rgb = normal( p + 0.5 ) * 0.5 + ( p * 1.5 + 0.25 );
+								// sinusoidal rainbow based on voxel position
+								color.rgb = 0.4 + 0.6 * cos(1.5 * p + vec3(3.0, 5.0, 1.0));
+								color.a = 1.0;
 								break;
 
 							}
@@ -206,6 +210,8 @@
 
 					}
 				`;
+
+
 
 			const loader = new VOXLoader();
 			loader.load('menger.vox', function (chunks) {
