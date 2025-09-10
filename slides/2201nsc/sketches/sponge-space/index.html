@@ -106,6 +106,8 @@
 					uniform float threshold;
 					uniform float steps;
 
+					uniform float iTime; // pass THREE.Clock time
+
 					vec2 hitBox( vec3 orig, vec3 dir ) {
 						const vec3 box_min = vec3( - 0.5 );
 						const vec3 box_max = vec3( 0.5 );
@@ -186,7 +188,7 @@
 								//color.rgb = normal( p + 0.5 ); 
 								//color.rgb = normal( p + 0.5 ) * 0.5 + ( p * 1.5 + 0.25 );
 								// sinusoidal rainbow based on voxel position
-								color.rgb = 0.4 + 0.6 * cos(1.5 * p + vec3(3.0, 5.0, 1.0));
+								color.rgb = 0.45 + 0.45 * cos(1.5 * p + vec3(3.0, 5.0, 1.0));
 								color.a = 1.0;
 								break;
 
@@ -225,7 +227,8 @@
 						glslVersion: THREE.GLSL3,
 						uniforms: {
 							map: { value: new VOXData3DTexture(chunk) },
-							cameraPos: { value: new THREE.Vector3() }
+							cameraPos: { value: new THREE.Vector3() },
+							iTime: { value: 0.0 } // ⬅️ new time uniform
 						},
 						vertexShader,
 						fragmentShader,
@@ -288,6 +291,14 @@
 
 			const delta = clock.getDelta();
 			controls.update(delta);
+			const elapsed = clock.getElapsedTime();
+
+			// update uniform
+			scene.traverse((obj) => {
+				if (obj.material && obj.material.uniforms && obj.material.uniforms.iTime) {
+					obj.material.uniforms.iTime.value = elapsed;
+				}
+			});
 
 			renderer.render(scene, camera);
 
