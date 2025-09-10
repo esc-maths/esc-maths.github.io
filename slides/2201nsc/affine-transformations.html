@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="mySetup/mylayout.css" />
 
 	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
 
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
@@ -92,509 +92,843 @@
 			</section>
 
 
-			<section data-auto-animate>
-				<h3>What are affine transformations?</h3>
-				<div class="size-85">
-					<div class="left-txt">
-						<p class="fragment" data-fragment-index="0">
-							An <b>affine transformation</b> maps points, straight lines and planes while preserving
-							parallelism — parallel lines stay parallel.
-						</p>
-
-						<p class="fragment" data-fragment-index="1">
-							Widely used in geometry, computer graphics and vision to map coordinates while keeping
-							geometric relations.
-							<span class="fragment" data-fragment-index="2">
-								Unlike <em>linear transformations</em>, affine transforms can also
-								translate (shift) the space.
-							</span>
-						</p>
-
-
-					</div>
-				</div>
-				<br /><br />
-			</section>
-
-			<section data-auto-animate>
-				<h3>What are affine transformations?</h3>
-				<div class="size-85">
-					<div class="left-txt">
-
-						<p>
-							This generalisation makes affine transformations particularly useful for:
-						</p>
-						<ul>
-							<li class="fragment" data-fragment-index="0">Representing more general geometric
-								deformations</li>
-							<li class="fragment" data-fragment-index="1">Modelling transformations where position
-								changes matter</li>
-						</ul>
-
-
-					</div>
-				</div>
-				<br />
-				<br />
-				<br />
-			</section>
-
-
-
 			<section>
-				<h3>Affine Transformations</h3>
-				<div class="size-85">
-					<div class="left-txt">
-						<p>
-							Consider a point $\mathbf x=(x,y).$
-							<span class="fragment" data-fragment-index="0">
-								A transformation $T: \mathbb R^2 \to \mathbb R^2$ of
-								the form
-							</span>
-						</p>
-					</div>
-					<div class="">
-						<p class="fragment" data-fragment-index="0">
+				<section data-auto-animate>
+					<h3>What are affine transformations?</h3>
+					<div class="size-85">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								An <b>affine transformation</b> maps points, straight lines and planes while preserving
+								parallelism — parallel lines stay parallel.
+							</p>
 
-							\(
-							\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-							ax + by + e \\
-							cx + dy + f
-							\end{pmatrix}
-							\)
+							<p class="fragment" data-fragment-index="1">
+								Widely used in geometry, computer graphics and vision to map coordinates while keeping
+								geometric relations.
+								<span class="fragment" data-fragment-index="2">
+									Unlike <em>linear transformations</em>, affine transforms can also
+									translate (shift) the space.
+								</span>
+							</p>
+
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>What are affine transformations?</h3>
+					<div class="size-85">
+						<div class="left-txt">
+
+							<p>
+								This generalisation makes affine transformations particularly useful for:
+							</p>
+							<ul style="line-height: 60px;">
+								<li class="fragment" data-fragment-index="0">Representing more general geometric
+									deformations</li>
+								<li class="fragment" data-fragment-index="1">Modelling transformations where position
+									changes matter</li>
+							</ul>
+
+
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Affine Transformations</h3>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								Consider a point $\mathbf x=(x,y).$
+								<span class="fragment" data-fragment-index="0">
+									A transformation $T: \mathbb R^2 \to \mathbb R^2$ of
+									the form
+								</span>
+							</p>
+						</div>
+						<div class="">
+							<p class="fragment" data-fragment-index="0">
+
+								\(
+								\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+								ax + by + e \\
+								cx + dy + f
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									where $a,b,c,d,e$ and $f$ are real numbers,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									is called a two-dimensional affine
+									transformation.
+								</span>
+
+
+							</p>
+						</div>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Affine Transformations</h3>
+					<div class="size-70">
+
+						<table style="width: 100%;">
+							<tr>
+								<td style="width: 40%;">
+									<p>For example, if $a,d = 1,$ and $b,c=0,$
+										<span class="fragment" data-fragment-index="1">
+											then we have a <b>pure translation</b>
+											\[
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											x + e \\
+											y + f
+											\end{pmatrix}
+											\]
+										</span>
+									</p>
+									<br />
+									<br />
+								</td>
+								<td style="width: 60%;">
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										src="images/affine-transformations/translate.png" loading="lazy"
+										alt="Mountain landscape" width="350">
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Affine Transformations</h3>
+					<div class="size-70">
+
+						<table style="width: 100%;">
+							<tr>
+								<td style="width: 40%;">
+									<p>
+										If $b,c=0$ and $e,f=0;$
+										<span class="fragment" data-fragment-index="1">
+											then we have a <b>pure scale</b>
+											\[
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											ax \\
+											dy
+											\end{pmatrix}
+											\]
+										</span>
+
+									</p>
+									<br />
+									<br />
+								</td>
+								<td style="width: 60%;">
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										src="images/affine-transformations/scale.png" loading="lazy"
+										alt="Mountain landscape" width="350">
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Affine Transformations</h3>
+					<div class="size-70">
+
+						<table style="width: 100%;">
+							<tr>
+								<td style="width: 40%;">
+									<p>
+										If $a,d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e,f=0,$
+										<span class="fragment" data-fragment-index="1">
+											then
+											we have a <b>pure rotation</b> about
+											the origin
+											\[
+											\small
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											x\cos\theta -y \sin \theta \\
+											x\sin \theta + y \cos \theta
+											\end{pmatrix}
+											\]
+										</span>
+
+									</p>
+									<br />
+								</td>
+								<td style="width: 60%;">
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										src="images/affine-transformations/rotate.png" loading="lazy"
+										alt="Mountain landscape" width="350">
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Affine Transformations</h3>
+					<div class="size-70">
+
+						<table style="width: 100%;">
+							<tr>
+								<td style="width: 40%;">
+									<p>
+										Finally, if $a,d=1,$ and $e,f=0;$
+										<span class="fragment" data-fragment-index="1">
+											we have the <b>shear transforms</b>
+											\[
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											x+ by \\
+											y+ cx
+											\end{pmatrix}
+											\]
+										</span>
+
+									</p>
+
+									<br />
+									<br />
+								</td>
+								<td style="width: 60%;">
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										src="images/affine-transformations/shear.png" loading="lazy"
+										alt="Mountain landscape" width="350">
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Matrix representation of affine transformations
+					</h4>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="1">
+							We know a linear transformation
+							<span class="fragment" data-fragment-index="2">
+								can be written in matrix form
+							</span>
+
 						</p>
 					</div>
-					<div class="left-txt">
+					<div class="size-85">
 						<p>
 							<span class="fragment" data-fragment-index="1">
-								where $a,b,c,d,e$ and $f$ are real numbers,
+								\(T(\mathbf{x}) =
+								\begin{pmatrix}
+								ax + by \\
+								cx + dy
+								\end{pmatrix}
+								\)
 							</span>
-							<span class="fragment" data-fragment-index="2">
-								is called a two-dimensional affine
-								transformation.
-							</span>
-
-
-						</p>
-					</div>
-				</div>
-
-				<br />
-				<br />
-			</section>
-
-
-			<section>
-				<h3>Affine Transformations</h3>
-				<div class="size-70">
-
-					<table style="width: 100%;">
-						<tr>
-							<td style="width: 40%;">
-								<p>For example, if $a,d = 1,$ and $b,c=0,$
-									<span class="fragment" data-fragment-index="1">
-										then we have a <b>pure translation</b>
-										\[
-										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-										x + e \\
-										y + f
-										\end{pmatrix}
-										\]
-									</span>
-								</p>
-								<br />
-								<br />
-							</td>
-							<td style="width: 60%;">
-								<img class="fragment" data-fragment-index="2" style="width: 100%;"
-									src="images/affine-transformations/translate.png" loading="lazy"
-									alt="Mountain landscape" width="350">
-							</td>
-						</tr>
-					</table>
-				</div>
-
-				<br />
-			</section>
-			<section>
-				<h3>Affine Transformations</h3>
-				<div class="size-70">
-
-					<table style="width: 100%;">
-						<tr>
-							<td style="width: 40%;">
-								<p>
-									If $b,c=0$ and $e,f=0;$
-									<span class="fragment" data-fragment-index="1">
-										then we have a <b>pure scale</b>
-										\[
-										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-										ax \\
-										dy
-										\end{pmatrix}
-										\]
-									</span>
-
-								</p>
-								<br />
-								<br />
-							</td>
-							<td style="width: 60%;">
-								<img class="fragment" data-fragment-index="2" style="width: 100%;"
-									src="images/affine-transformations/scale.png" loading="lazy"
-									alt="Mountain landscape" width="350">
-							</td>
-						</tr>
-					</table>
-				</div>
-
-				<br />
-			</section>
-			<section>
-				<h3>Affine Transformations</h3>
-				<div class="size-65">
-
-					<table style="width: 100%;">
-						<tr>
-							<td style="width: 40%;">
-								<p>
-									If $a,d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e,f=0,$
-									<span class="fragment" data-fragment-index="1">
-										then
-										we have a <b>pure rotation</b> about
-										the origin
-										\[
-										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-										x\cos\theta -y \sin \theta \\
-										x\sin \theta + y \cos \theta
-										\end{pmatrix}
-										\]
-									</span>
-
-								</p>
-								<br />
-							</td>
-							<td style="width: 60%;">
-								<img class="fragment" data-fragment-index="2" style="width: 100%;"
-									src="images/affine-transformations/rotate.png" loading="lazy"
-									alt="Mountain landscape" width="350">
-							</td>
-						</tr>
-					</table>
-				</div>
-
-				<br />
-			</section>
-			<section>
-				<h3>Affine Transformations</h3>
-				<div class="size-70">
-
-					<table style="width: 100%;">
-						<tr>
-							<td style="width: 40%;">
-								<p>
-									Finally, if $a,d=1,$ and $e,f=0;$
-									<span class="fragment" data-fragment-index="1">
-										we have the <b>shear transforms</b>
-										\[
-										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-										x+ by \\
-										y+ cx
-										\end{pmatrix}
-										\]
-									</span>
-
-								</p>
-
-								<br />
-								<br />
-							</td>
-							<td style="width: 60%;">
-								<img class="fragment" data-fragment-index="2" style="width: 100%;"
-									src="images/affine-transformations/shear.png" loading="lazy"
-									alt="Mountain landscape" width="350">
-							</td>
-						</tr>
-					</table>
-				</div>
-
-				<br />
-			</section>
-
-			<section>
-				<h4>
-					Matrix representation of affine transformations
-				</h4>
-				<div class="size-80">
-					<p class="fragment" data-fragment-index="1">
-						We know a linear transformation
-						<span class="fragment" data-fragment-index="2">
-							can be written in matrix form
-						</span>
-
-					</p>
-				</div>
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="1">
-							\(T(\mathbf{x}) =
-							\begin{pmatrix}
-							ax + by \\
-							cx + dy
-							\end{pmatrix}
-							\)
-						</span>
-						<span class="fragment" data-fragment-index="2">
-							\(
-							=
-							\begin{pmatrix}
-							a &amp; b \\
-							c &amp; d
-							\end{pmatrix}
-							\begin{pmatrix}
-							x \\
-							y
-							\end{pmatrix},
-							\)
-						</span>
-					</p>
-				</div>
-				<div class="size-85">
-					<p class="fragment" data-fragment-index="3">
-						Can we do the same with affine transformations? 🤔
-					</p>
-					<p class="fragment" data-fragment-index="4">
-						No, the problem is the <b>translation</b>❗️
-					</p>
-				</div>
-				<br />
-				<br />
-				<br />
-			</section>
-
-			<section data-auto-animate="">
-				<h4>Homogeneous coordinates</h4>
-				<div class="size-80">
-					<div class="left-txt">
-						<p class="fragment" data-fragment-index="1">
-							To enable affine transformations, such as translation,
-							to be represented using matrix
-							multiplication,
-							<span class="fragment" data-fragment-index="2">
-								we embed these 2D vectors
-
-							</span>
-							<span class="fragment" data-fragment-index="3">
-								into 3D space using
-								homogeneous coordinates by appending a third
-								coordinate, conventionally set to 1:
-
-							</span>
-						</p>
-
-					</div>
-					<div class="">
-						<p>
-
 							<span class="fragment" data-fragment-index="2">
 								\(
+								=
+								\begin{pmatrix}
+								a &amp; b \\
+								c &amp; d
+								\end{pmatrix}
 								\begin{pmatrix}
 								x \\
 								y
-								\end{pmatrix}
-
+								\end{pmatrix},
 								\)
 							</span>
-							<span class="fragment" data-fragment-index="4">
-								\(
-
-								\quad \Rightarrow \quad
-								\begin{pmatrix}
-								x \\
-								y \\
-								1
-								\end{pmatrix}.
-								\)
-							</span>
-
-						</p>
-
-					</div>
-					<div class="left-txt">
-
-						<p class="fragment" data-fragment-index="5">
-							This third coordinate is typically called \(w\) to
-							distinguish it from the usual \(z\)-coordinate in 3D
-							geometry.
 						</p>
 					</div>
-				</div>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="3">
+							Can we do the same with affine transformations? 🤔
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							No, the problem is the <b>translation</b>❗️
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
 
-				<br />
+				<section data-auto-animate="">
+					<h4>Homogeneous coordinates</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="1">
+								To enable affine transformations, such as translation,
+								to be represented using matrix
+								multiplication,
+								<span class="fragment" data-fragment-index="2">
+									we embed these 2D vectors
+
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									into 3D space using
+									homogeneous coordinates by appending a third
+									coordinate, conventionally set to 1:
+
+								</span>
+							</p>
+
+						</div>
+						<div class="">
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									\(
+									\begin{pmatrix}
+									x \\
+									y
+									\end{pmatrix}
+
+									\)
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									\(
+
+									\quad \Rightarrow \quad
+									\begin{pmatrix}
+									x \\
+									y \\
+									1
+									\end{pmatrix}.
+									\)
+								</span>
+
+							</p>
+
+						</div>
+						<div class="left-txt">
+
+							<p class="fragment" data-fragment-index="5">
+								This third coordinate is typically called \(w\) to
+								distinguish it from the usual \(z\)-coordinate in 3D
+								geometry.
+							</p>
+						</div>
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h4>Homogeneous coordinates</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								Therefore, affine transformations can be written as
+								<span>
+									\[
+									\begin{pmatrix}
+									a &amp; b &amp; e \\
+									c &amp; d &amp; f \\
+									0 &amp; 0 &amp; 1
+									\end{pmatrix}
+									\begin{pmatrix}
+									x \\
+									y \\
+									1
+									\end{pmatrix}
+									=
+									\begin{pmatrix}
+									ax + by + e \\
+									cx + dy + f \\
+									1
+									\end{pmatrix}.
+									\]
+								</span>
+
+							</p>
+
+						</div>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h4>Homogeneous coordinates</h4>
+					<div class="size-80">
+						<table style="width: 100%;">
+							<tr>
+								<td style="width: 50%;text-align: center;border: none;">
+									$\begin{pmatrix}
+									s_x &amp; 0 &amp; 0 \\
+									0 &amp; s_y &amp; 0 \\
+									0 &amp; 0 &amp; 1
+									\end{pmatrix}$
+								</td>
+								<td style="width: 50%;text-align: center;border: none;">
+									$\begin{pmatrix}
+									\cos \theta &amp; -\sin \theta &amp; 0 \\
+									\sin \theta &amp; \cos \theta &amp; 0 \\
+									0 &amp; 0 &amp; 1
+									\end{pmatrix}$
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 50%;text-align: center;border: none;">
+									Scale <br /> <br />
+								</td>
+								<td style="width: 50%;text-align: center;border: none;">
+									Rotation <br /> <br />
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 50%;text-align: center;border: none;">
+									$\begin{pmatrix}1 &amp; h_x &amp; 0 \\
+									h_y &amp; 1 &amp; 0 \\
+									0 &amp; 0 &amp; 1
+									\end{pmatrix}$
+								</td>
+								<td style="width: 50%;text-align: center;border: none;">
+									$\begin{pmatrix}
+									1 &amp; 0 &amp; \Delta x \\
+									0 &amp; 1 &amp; \Delta y \\
+									0 &amp; 0 &amp; 1
+									\end{pmatrix}$
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 50%;text-align: center;border: none;">
+									Shear
+								</td>
+								<td style="width: 50%;text-align: center;border: none;">
+									Translation
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+					<br />
+				</section>
 			</section>
 
-			<section data-auto-animate="">
-				<h4>Homogeneous coordinates</h4>
-				<div class="size-80">
-					<div class="left-txt">
+			<section>
+				<section data-auto-animate="">
+					<h3>Affine transformations & Fractals</h3>
+
+					<div class="size-90 left-txt">
+						<p class="fragment" data-fragment-index="1">
+							An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\},\)
+							<span class="fragment" data-fragment-index="2">
+								each of the form:
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="2">
+							\(
+							T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i,
+							\)
+						</p>
+					</div>
+					<div class="size-90 left-txt">
+						<p class="fragment" data-fragment-index="3">
+
+							where \( A_i \) is a \(2 \times 2\) matrix representing a linear transformation (scaling,
+							rotation, or
+							shearing), and \( \mathbf{t}_i \) is a translation vector.
+						</p>
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate="">
+					<h3>Affine transformations & Fractals</h3>
+
+					<div class="size-75 left-txt">
 						<p>
-							Therefore, affine transformations can be written as
+							An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\},\)
 							<span>
-								\[
-								\begin{pmatrix}
-								a &amp; b &amp; e \\
-								c &amp; d &amp; f \\
-								0 &amp; 0 &amp; 1
-								\end{pmatrix}
-								\begin{pmatrix}
-								x \\
-								y \\
-								1
-								\end{pmatrix}
-								=
-								\begin{pmatrix}
-								ax + by + e \\
-								cx + dy + f \\
-								1
-								\end{pmatrix}.
-								\]
+								each of the form:
 							</span>
-
 						</p>
-
 					</div>
-				</div>
+					<div class="size-75">
+						<p>
+							\(
+							T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i,
+							\)
+						</p>
+					</div>
 
-				<br />
-				<br />
-				<br />
-				<br />
-			</section>
+					<div class="size-80 left-txt">
+						<p> There are two common approaches for plotting fractals using IFS:</p>
+						<ul style="line-height: 50px;margin-left: 0px;">
+							<li class="fragment" data-fragment-index="1"><b>Deterministic Algorithm:</b>
+								Apply all transformations to a set of points in each iteration.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<b>Random (or Probabilistic) Algorithm:</b>
+								At each step, apply one randomly chosen transformation according
+								to a probability distribution.
+							</li>
+						</ul>
+					</div>
 
-			<section data-auto-animate="">
-				<h4>Homogeneous coordinates</h4>
-				<div class="size-80">
-					<table style="width: 100%;">
-						<tr>
-							<td style="width: 50%;text-align: center;border: none;">
-								$\begin{pmatrix}
-								s_x &amp; 0 &amp; 0 \\
-								0 &amp; s_y &amp; 0 \\
-								0 &amp; 0 &amp; 1
-								\end{pmatrix}$
-							</td>
-							<td style="width: 50%;text-align: center;border: none;">
-								$\begin{pmatrix}
-								\cos \theta &amp; -\sin \theta &amp; 0 \\
-								\sin \theta &amp; \cos \theta &amp; 0 \\
-								0 &amp; 0 &amp; 1
-								\end{pmatrix}$
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 50%;text-align: center;border: none;">
-								Scale <br /> <br />
-							</td>
-							<td style="width: 50%;text-align: center;border: none;">
-								Rotation <br /> <br />
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 50%;text-align: center;border: none;">
-								$\begin{pmatrix}1 &amp; h_x &amp; 0 \\
-								h_y &amp; 1 &amp; 0 \\
-								0 &amp; 0 &amp; 1
-								\end{pmatrix}$
-							</td>
-							<td style="width: 50%;text-align: center;border: none;">
-								$\begin{pmatrix}
-								1 &amp; 0 &amp; \Delta x \\
-								0 &amp; 1 &amp; \Delta y \\
-								0 &amp; 0 &amp; 1
-								\end{pmatrix}$
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 50%;text-align: center;border: none;">
-								Shear
-							</td>
-							<td style="width: 50%;text-align: center;border: none;">
-								Translation
-							</td>
-						</tr>
-					</table>
-				</div>
-				<br />
-				<br />
-			</section>
+					<br />
 
-			<section data-auto-animate="">
-				<h3>Affine transformations & Fractals</h3>
+				</section>
 
-				<div class="size-90 left-txt">
-					<p class="fragment" data-fragment-index="1">
-						An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\},\) 
-						<span class="fragment" data-fragment-index="2">
-							each of the form:
-						</span>
-					</p>
-				</div>
-				<div class="size-90">
-					<p class="fragment" data-fragment-index="2">
-						\(
-						T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i,
-						\)
-					</p>
-				</div>
-				<div class="size-90 left-txt">
-					<p class="fragment" data-fragment-index="3">
-						
-						where \( A_i \) is a \(2 \times 2\) matrix representing a linear transformation (scaling,
-						rotation, or
-						shearing), and \( \mathbf{t}_i \) is a translation vector.
-					</p>
-				</div>
+				<section>
+					<h4>Deterministic IFS: JavaScript</h4>
+					<div class="size-80">
+						<p>
+							\(
+							\begin{aligned}
+							T_1(\mathbf x) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 0\\ 0 &amp; 0.5 &amp; 0 \\ 0 &amp; 0
+							&amp; 1 \end{pmatrix} \begin{pmatrix}
+							x \\
+							y \\
+							1
+							\end{pmatrix}, \\[1ex]
+							T_2(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 0 \\ 0 &amp; 0.5 &amp; 100 \\ 0
+							&amp; 0
+							&amp; 1\end{pmatrix} \begin{pmatrix}
+							x \\
+							y \\
+							1
+							\end{pmatrix}, \\[1ex]
+							T_3(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 100 \\ 0 &amp; 0.5 &amp; 100 \\ 0
+							&amp;
+							0 &amp; 1\end{pmatrix} \begin{pmatrix}
+							x \\
+							y \\
+							1
+							\end{pmatrix}.
+							\end{aligned}
+							\)
+						</p>
+					</div>
+					<br />
+				</section>
 
-				<br />
-				<br />
+				<!--
+				 data-visibility="hidden"
+				-->
+				<section>
+					<h4>Deterministic IFS: JavaScript</h4>
 
-			</section>
+					<pre style="width: 100%;height: 580px; font-size: 49%; margin-top: -10px;">
+						<code data-trim data-noescape 
+							data-line-numbers="1-23|1-7|9-15|17-23">
+function T1(c) {
+  return {
+    x: 0.5 * c.x + 0,
+    y: 0.5 * c.y + 0,
+    r: 0.5 * c.r, // radius
+  };
+}
 
-			<section data-auto-animate="">
-				<h3>Affine transformations & Fractals</h3>
+function T2(c) {
+  return {
+    x: 0.5 * c.x + 0,
+    y: 0.5 * c.y + 100,
+    r: 0.5 * c.r,
+  };
+}
 
-				<div class="size-75 left-txt">
-					<p>
-						An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\},\) 
-						<span>
-							each of the form:
-						</span>
-					</p>
-				</div>
-				<div class="size-75">
-					<p>
-						\(
-						T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i,
-						\)
-					</p>
-				</div>
+function T3(c) {
+  return {
+    x: 0.5 * c.x + 100,
+    y: 0.5 * c.y + 100,
+    r: 0.5 * c.r,
+  };
+}
+</code></pre>
 
-				<div class="size-80 left-txt">
-					<p> There are two common approaches for plotting fractals using IFS:</p>
-					<ul style="line-height: 50px;margin-left: 0px;">
-						<li class="fragment" data-fragment-index="1"><b>Deterministic Algorithm:</b>
-							Apply all transformations to a set of points in each iteration.
-						</li>
-						<li class="fragment" data-fragment-index="2">
-							<b>Random (or Probabilistic) Algorithm:</b>
-							At each step, apply one randomly chosen transformation according
-							to a probability distribution.
-						</li>
-					</ul>
-				</div>
+					<br />
+				</section>
 
-				<br />
+				<section>
+					<h4>Deterministic IFS: JavaScript</h4>
+					<div style="margin-top: -10px;">
+						<script data-height="600" data-preview-width="400" type="text/p5">
+// Play button, then click on the plot to iterate!
 
+// Affine transforms applied to center and radius of circle
+function T1(c) {
+  return {
+    x: 0.5 * c.x + 0,
+    y: 0.5 * c.y + 0,
+    r: 0.5 * c.r, // radius
+  };
+}
+
+function T2(c) {
+  return {
+    x: 0.5 * c.x + 0,
+    y: 0.5 * c.y + 100,
+    r: 0.5 * c.r,
+  };
+}
+
+function T3(c) {
+  return {
+    x: 0.5 * c.x + 100,
+    y: 0.5 * c.y + 100,
+    r: 0.5 * c.r,
+  };
+}
+
+let maxIterations = 8;
+let circles = [];
+let iteration = 0;
+
+function setup() {
+  createCanvas(400, 400);
+
+  textSize(20);
+  ellipseMode(RADIUS);
+  textAlign(CENTER);
+
+  resetFractal(); // Initialize the first circle
+}
+
+function draw() {
+  background(255);
+
+  translate(width / 2, height / 2);
+
+  // Axes
+  plotAxesInfo();
+
+  noStroke();
+  fill(0, 100, 255, 240);
+  for (let c of circles) {
+    ellipse(c.x, -c.y, c.r, c.r); // The minus on c.y is to flip the y axis
+  }
+  
+}
+
+// Auxiliary functions
+function mousePressed() {
+  if (iteration >= maxIterations) {
+    resetFractal(); // Reset if max iterations reached
+    return;
+  }
+
+  let newCircles = [];
+  for (let c of circles) {
+    newCircles.push(T1(c));
+    newCircles.push(T2(c));
+    newCircles.push(T3(c));
+  }
+
+  circles = newCircles;
+  iteration++;
+}
+
+function resetFractal() {
+  circles = [{ x: 0, y: 0, r: 100 }]; // Reset initial circle
+  iteration = 0; // Reset iteration counter
+}
+
+function plotAxesInfo() {
+  push();
+  fill(0);
+  text("x", width/2 - 10, 20);
+  text("y", -10, -height/2 + 20);
+  stroke(255, 0, 0);
+  line(-300, 0, 300, 0); // x-axis
+  stroke(0, 0, 255);
+  line(0, -300, 0, 300); // y-axis
+  pop();
+  
+  push();
+  fill(0);
+  text("No. Iterations = " + iteration, -width/2 + 90, height / 2 - 15);
+  pop();
+}
+</script>
+					</div>
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"
+				-->
+				<section>
+					<h4>Probabilistic IFS: JavaScript</h4>
+
+					<div class="size-90">
+						<p>IFS code for a fern</p>
+						<table style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+
+							<thead>
+								<tr>
+									<th scope="col" style="text-align: center;"><em>T</em></th>
+									<th scope="col" style="text-align: center;"><em>a</em></th>
+									<th scope="col" style="text-align: center;"><em>b</em></th>
+									<th scope="col" style="text-align: center;"><em>c</em></th>
+									<th scope="col" style="text-align: center;"><em>d</em></th>
+									<th scope="col" style="text-align: center;"><em>e</em></th>
+									<th scope="col" style="text-align: center;"><em>f</em></th>
+									<th scope="col" style="text-align: center;"><em>p</em></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align: center;border: none;">1</td>
+									<td style="text-align: center;border: none;">0</td>
+									<td style="text-align: center;border: none;">0</td>
+									<td style="text-align: center;border: none;">0</td>
+									<td style="text-align: center;border: none;">0.16</td>
+									<td style="text-align: center;border: none;">0</td>
+									<td style="text-align: center;border: none;">0</td>
+									<td style="text-align: center;border: none;">0.01</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;border: none;">2</td>
+									<td style="text-align: center;border: none;">0.85</td>
+									<td style="text-align: center;border: none;">0.04</td>
+									<td style="text-align: center;border: none;">-0.04</td>
+									<td style="text-align: center;border: none;">0.85</td>
+									<td style="text-align: center;border: none;">0</td>
+									<td style="text-align: center;border: none;">1.6</td>
+									<td style="text-align: center;border: none;">0.85</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;border: none;">3</td>
+									<td style="text-align: center;border: none;">0.2</td>
+									<td style="text-align: center;border: none;">-0.26</td>
+									<td style="text-align: center;border: none;">0.23</td>
+									<td style="text-align: center;border: none;">0.22</td>
+									<td style="text-align: center;border: none;">0</td>
+									<td style="text-align: center;border: none;">1.6</td>
+									<td style="text-align: center;border: none;">0.07</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;border: none;">4</td>
+									<td style="text-align: center;border: none;">-0.15</td>
+									<td style="text-align: center;border: none;">0.28</td>
+									<td style="text-align: center;border: none;">0.26</td>
+									<td style="text-align: center;border: none;">0.24</td>
+									<td style="text-align: center;border: none;">0</td>
+									<td style="text-align: center;border: none;">0.44</td>
+									<td style="text-align: center;border: none;">0.07</td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section>
+					<h4>Probabilistic IFS: JavaScript</h4>
+
+					<pre style="width: 100%;height: 580px; font-size: 53%; margin-top: -10px;">
+						<code data-trim data-noescape 
+							data-line-numbers="1-21|1|3-21|4|6-8|9-11|12-14|15-17|19-20">
+let x = 0, y = 0;
+
+function nextPoint() {
+  let nextX, nextY, r = random();
+  // Apply affine transforms base on probability distribution
+  if (r < 0.01) {
+    nextX = 0;
+    nextY = 0.16 * y;
+  } else if (r < 0.86) {
+    nextX = 0.85 * x + 0.04 * y;
+    nextY = -0.04 * x + 0.85 * y + 1.6;
+  } else if (r < 0.93) {
+    nextX = 0.2 * x + -0.26 * y;
+    nextY = 0.23 * x + 0.22 * y + 1.6;
+  } else {
+    nextX = -0.15 * x + 0.28 * y;
+    nextY = 0.26 * x + 0.24 * y + 0.44;
+  }
+  x = nextX;
+  y = nextY;
+}
+</code></pre>
+
+					<br />
+				</section>
+
+				<section>
+					<h4>Probabilistic IFS: JavaScript</h4>
+					<div style="margin-top: -10px;">
+						<script data-height="600" data-preview-width="400" type="text/p5" data-p5-version="1.11.8">
+let x = 0, y = 0;
+
+function nextPoint() {
+  let nextX, nextY, r = random();
+  // Apply affine transforms base on probability distribution
+  if (r < 0.01) {
+    nextX = 0;
+    nextY = 0.16 * y;
+  } else if (r < 0.86) {
+    nextX = 0.85 * x + 0.04 * y;
+    nextY = -0.04 * x + 0.85 * y + 1.6;
+  } else if (r < 0.93) {
+    nextX = 0.2 * x + -0.26 * y;
+    nextY = 0.23 * x + 0.22 * y + 1.6;
+  } else {
+    nextX = -0.15 * x + 0.28 * y;
+    nextY = 0.26 * x + 0.24 * y + 0.44;
+  }
+  x = nextX;
+  y = nextY;
+}
+
+function setup() {
+  createCanvas(300, 450);
+  background(255);
+  strokeWeight(3); // Point size
+}
+
+let maxValue = 5; // Change this number to speed up iterations
+function draw() {
+  for (let i = 0; i < maxValue; i++) {
+    drawPoint();
+    nextPoint();
+  }
+}
+
+// Auxiliary function
+function drawPoint() {
+  // Range: -2.1820 < x < 2.6558 and 0 < y < 9.9983.
+  let px = map(x, -2.182, 2.6558, 5, width - 5);
+  let py = map(y, 0, 9.9983, height, 5);
+  point(px, py);
+}
+</script>
+					</div>
+					<br />
+				</section>
 			</section>
 
 
@@ -617,6 +951,8 @@
 	<script>
 		includeHTML();
 	</script>
+
+	<script src="https://toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
 
 </body>
