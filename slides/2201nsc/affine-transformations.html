@@ -96,15 +96,18 @@
 					<h3>What are affine transformations?</h3>
 					<div class="size-85">
 						<div class="left-txt">
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								An <b>affine transformation</b> maps points, straight lines and planes while preserving
 								parallelism — parallel lines stay parallel.
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="1">
 								Widely used in geometry, computer graphics and vision to map coordinates while keeping
-								geometric relations. Unlike <em>linear transformations</em>, affine transforms can also
-								translate (shift) the space.
+								geometric relations.
+								<span class="fragment" data-fragment-index="2">
+									Unlike <em>linear transformations</em>, affine transforms can also
+									translate (shift) the space.
+								</span>
 							</p>
 
 
@@ -122,14 +125,18 @@
 								This generalisation makes affine transformations particularly useful for:
 							</p>
 							<ul>
-								<li>Representing more general geometric deformations</li>
-								<li>Modelling transformations where position changes matter</li>
+								<li class="fragment" data-fragment-index="0">Representing more general geometric
+									deformations</li>
+								<li class="fragment" data-fragment-index="1">Modelling transformations where position
+									changes matter</li>
 							</ul>
 
 
 						</div>
 					</div>
-					<br /><br />
+					<br />
+					<br />
+					<br />
 				</section>
 
 
@@ -139,12 +146,15 @@
 					<div class="size-85">
 						<div class="left-txt">
 							<p>
-								Consider a point $\mathbf x=(x,y).$ A transformation $T: \mathbb R^2 \to \mathbb R^2$ of
-								the form
+								Consider a point $\mathbf x=(x,y).$
+								<span class="fragment" data-fragment-index="0">
+									A transformation $T: \mathbb R^2 \to \mathbb R^2$ of
+									the form
+								</span>
 							</p>
 						</div>
 						<div class="">
-							<p>
+							<p class="fragment" data-fragment-index="0">
 
 								\(
 								\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
@@ -156,9 +166,15 @@
 						</div>
 						<div class="left-txt">
 							<p>
+								<span class="fragment" data-fragment-index="1">
+									where $a,b,c,d,e$ and $f$ are real numbers,
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									is called a two-dimensional affine
+									transformation.
+								</span>
 
-								where $a,b,c,d,e$ and $f$ are real numbers, is called a two-dimensional affine
-								transformation.
+
 							</p>
 						</div>
 					</div>
@@ -175,18 +191,24 @@
 						<table style="width: 100%;">
 							<tr>
 								<td style="width: 40%;">
-									<p>For example, if $a,d = 1,$ and $b,c=0,$ then we have a pure translation
-										\[
-										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-										x + e \\
-										y + f
-										\end{pmatrix}
-										\]
+									<p>For example, if $a,d = 1,$ and $b,c=0,$
+										<span class="fragment" data-fragment-index="1">
+											then we have a <b>pure translation</b>
+											\[
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											x + e \\
+											y + f
+											\end{pmatrix}
+											\]
+										</span>
 									</p>
+									<br />
+									<br />
 								</td>
 								<td style="width: 60%;">
-									<img style="width: 100%;" src="images/affine-transformations/translate.png"
-										loading="lazy" alt="Mountain landscape" width="350">
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										src="images/affine-transformations/translate.png" loading="lazy"
+										alt="Mountain landscape" width="350">
 								</td>
 							</tr>
 						</table>
@@ -202,18 +224,25 @@
 							<tr>
 								<td style="width: 40%;">
 									<p>
-										If $b,c=0$ and $e,f=0$ then we have a pure scale
-										\[
-										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-										ax \\
-										dy
-										\end{pmatrix}
-										\]
+										If $b,c=0$ and $e,f=0;$
+										<span class="fragment" data-fragment-index="1">
+											then we have a <b>pure scale</b>
+											\[
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											ax \\
+											dy
+											\end{pmatrix}
+											\]
+										</span>
+
 									</p>
+									<br />
+									<br />
 								</td>
 								<td style="width: 60%;">
-									<img style="width: 100%;" src="images/affine-transformations/scale.png"
-										loading="lazy" alt="Mountain landscape" width="350">
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										src="images/affine-transformations/scale.png" loading="lazy"
+										alt="Mountain landscape" width="350">
 								</td>
 							</tr>
 						</table>
@@ -229,20 +258,26 @@
 							<tr>
 								<td style="width: 40%;">
 									<p>
-										If $a,d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e,f=0,$ then
-										we have a pure rotation about
-										the origin
-										\[
-										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-										x\cos\theta -y \sin \theta \\
-										x\sin \theta + y \cos \theta
-										\end{pmatrix}
-										\]
+										If $a,d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e,f=0,$
+										<span class="fragment" data-fragment-index="1">
+											then
+											we have a <b>pure rotation</b> about
+											the origin
+											\[
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											x\cos\theta -y \sin \theta \\
+											x\sin \theta + y \cos \theta
+											\end{pmatrix}
+											\]
+										</span>
+
 									</p>
+									<br />
 								</td>
 								<td style="width: 60%;">
-									<img style="width: 100%;" src="images/affine-transformations/rotate.png"
-										loading="lazy" alt="Mountain landscape" width="350">
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										src="images/affine-transformations/rotate.png" loading="lazy"
+										alt="Mountain landscape" width="350">
 								</td>
 							</tr>
 						</table>
@@ -258,18 +293,26 @@
 							<tr>
 								<td style="width: 40%;">
 									<p>
-										Finally, if $a,d=1,$ and $e,f=0$ we have the shear transforms
-										\[
-										\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
-										x+ by \\
-										y+ cx
-										\end{pmatrix}
-										\]
+										Finally, if $a,d=1,$ and $e,f=0;$
+										<span class="fragment" data-fragment-index="1">
+											we have the <b>shear transforms</b>
+											\[
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											x+ by \\
+											y+ cx
+											\end{pmatrix}
+											\]
+										</span>
+
 									</p>
+
+									<br />
+									<br />
 								</td>
 								<td style="width: 60%;">
-									<img style="width: 100%;" src="images/affine-transformations/shear.png"
-										loading="lazy" alt="Mountain landscape" width="350">
+									<img class="fragment" data-fragment-index="2" style="width: 100%;"
+										src="images/affine-transformations/shear.png" loading="lazy"
+										alt="Mountain landscape" width="350">
 								</td>
 							</tr>
 						</table>
