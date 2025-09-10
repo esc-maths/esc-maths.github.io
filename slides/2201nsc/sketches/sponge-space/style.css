@@ -28,9 +28,13 @@ button {
 
 #info {
 	position: absolute;
-	top: 0px;
-	width: 100%;
-	padding: 2px;
+	top: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	width: 50%;
+    max-width: 380px;
+	padding: 0.4rem;
+    border-radius: 1rem;
 	box-sizing: border-box;
 	text-align: center;
 	-moz-user-select: none;
@@ -39,7 +43,7 @@ button {
 	user-select: none;
 	pointer-events: none;
 	z-index: 1; /* TODO Solve this in HTML */
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0,0,0,0.8);
 }
 
 a, button, input, select {
