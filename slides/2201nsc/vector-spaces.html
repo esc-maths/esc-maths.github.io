@@ -105,7 +105,7 @@
 
 							<p class="fragment" data-fragment-index="0">
 								$V$ is a <strong>vector space</strong> (over $\BF$) if the following hold for
-								all $\bfu,\bfv,\bfw\in V$ and all $k,\ell\in\BF$:
+								all $\bfx,\bfy,\bfz\in V$ and all $\alpha,\beta\in\BF$:
 							</p>
 
 
@@ -116,7 +116,7 @@
 										<strong>(V1)</strong>
 									</td>
 									<td>
-										$\bfu+\bfv\in V$ (closure)
+										$\bfx+\bfy\in V$ (closure)
 									</td>
 								</tr>
 								<tr class="fragment" data-fragment-index="2">
@@ -124,7 +124,7 @@
 										<strong>(V2)</strong>
 									</td>
 									<td>
-										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
+										$\bfx+\bfy=\bfy+\bfx$ (additive commutativity)
 									</td>
 								</tr>
 
@@ -133,7 +133,7 @@
 										<strong>(V3)</strong>
 									</td>
 									<td>
-										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
+										$\bfx+(\bfy+\bfz)=(\bfx+\bfy)+\bfz$ (additive associativity)
 									</td>
 								</tr>
 								
@@ -152,7 +152,7 @@
 					<div class="size-40 left-txt" style="margin-top:-10px">
 						<p>
 							$V$ is a <strong>vector space</strong> (over $\BF$) if the following hold for
-							all $\bfu,\bfv,\bfw\in V$ and all $k,\ell\in\BF$:
+							all $\bfx,\bfy,\bfz\in V$ and all $\alpha,\beta\in\BF$:
 						</p>
 					</div>
 					<div class="size-60"  style="margin-top:-20px">
@@ -166,7 +166,7 @@
 										<strong>(V1)</strong>
 									</td>
 									<td>
-										$\bfu+\bfv\in V$ (closure)
+										$\bfx+\bfv\in V$ (closure)
 									</td>
 								</tr>
 								<tr>
@@ -174,7 +174,7 @@
 										<strong>(V2)</strong>
 									</td>
 									<td>
-										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
+										$\bfx+\bfy=\bfy+\bfx$ (additive commutativity)
 									</td>
 								</tr>
 
@@ -183,7 +183,7 @@
 										<strong>(V3)</strong>
 									</td>
 									<td>
-										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
+										$\bfx+(\bfy+\bfz)=(\bfx+\bfy)+\bfz$ (additive associativity)
 									</td>
 								</tr>
 								<tr>
@@ -191,7 +191,7 @@
 										<strong>(V4)</strong>
 									</td>
 									<td>
-										$\exists\,{\bf 0}\in V$ such that $\bfu+{\bf 0}=\bfu$ (zero vector, or additive
+										$\exists\,{\bf 0}\in V$ such that $\bfx+{\bf 0}=\bfx$ (zero vector, or additive
 										identity)
 									</td>
 								</tr>
@@ -201,7 +201,7 @@
 										<strong>(V5)</strong>
 									</td>
 									<td>
-										For each $\bfu\in V$, $\exists\,(-\bfu)\in V$ such that $\bfu+(-\bfu)={\bf 0}$
+										For each $\bfx\in V$, $\exists\,(-\bfx)\in V$ such that $\bfx+(-\bfx)={\bf 0}$
 										(additive inverse)
 									</td>
 								</tr>
@@ -211,7 +211,7 @@
 										<strong>(V6)</strong>
 									</td>
 									<td>
-										$k\cdot\bfu\in V$ (closure)
+										$\alpha \bfx\in V$ (closure)
 									</td>
 								</tr>
 
@@ -220,7 +220,7 @@
 										<strong>(V7)</strong>
 									</td>
 									<td>
-										$k\cdot(\bfu+\bfv)=k\cdot\bfu+k\cdot\bfv$ (multiplicative-additive
+										$\alpha(\bfx+\bfy)=\alpha\bfx+\alpha\cdot\bfy$ (multiplicative-additive
 										distributivity)
 									</td>
 								</tr>
@@ -230,7 +230,7 @@
 										<strong>(V8)</strong>
 									</td>
 									<td>
-										$(k+\ell)\cdot\bfu=k\cdot\bfu+\ell\cdot\bfu$ (additive-multiplicative
+										$(\alpha + \beta )\bfx=\alpha\bfx+\beta\bfx$ (additive-multiplicative
 										distributivity)
 									</td>
 								</tr>
@@ -240,7 +240,7 @@
 										<strong>(V9)</strong>
 									</td>
 									<td>
-										$k\cdot(\ell\cdot\bfu)=(k\ell)\cdot\bfu$ (multiplicative-multiplicative
+										$\alpha(\beta\bfx)=(\alpha\beta)\bfx$ (multiplicative-multiplicative
 										distributivity)
 
 									</td>
@@ -251,7 +251,7 @@
 										<strong>(V10)</strong>
 									</td>
 									<td>
-										$1\cdot\bfu=\bfu$ (multiplicative identity)
+										$1\bfx=\bfx$ (multiplicative identity)
 									</td>
 								</tr>
 
@@ -264,123 +264,7 @@
 					<br />
 				</section>
 
-				<section data-auto-animate>
-					<h4>Definition</h4>
-
-					<div class="size-45">
-						<div class="left-txt">
-
-							<table id="eqarray">
-								<tr>
-									<td>
-										<strong>(V1)</strong>
-									</td>
-									<td>
-										$\bfu+\bfv\in V$ (closure)
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<strong>(V2)</strong>
-									</td>
-									<td>
-										$\bfu+\bfv=\bfv+\bfu$ (additive commutativity)
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<strong>(V3)</strong>
-									</td>
-									<td>
-										$\bfu+(\bfv+\bfw)=(\bfu+\bfv)+\bfw$ (additive associativity)
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<strong>(V4)</strong>
-									</td>
-									<td>
-										$\exists\,{\bf 0}\in V$ such that $\bfu+{\bf 0}=\bfu$ (zero vector, or additive
-										identity)
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<strong>(V5)</strong>
-									</td>
-									<td>
-										For each $\bfu\in V$, $\exists\,(-\bfu)\in V$ such that $\bfu+(-\bfu)={\bf 0}$
-										(additive inverse)
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<strong>(V6)</strong>
-									</td>
-									<td>
-										$k\cdot\bfu\in V$ (closure)
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<strong>(V7)</strong>
-									</td>
-									<td>
-										$k\cdot(\bfu+\bfv)=k\cdot\bfu+k\cdot\bfv$ (multiplicative-additive
-										distributivity)
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<strong>(V8)</strong>
-									</td>
-									<td>
-										$(k+\ell)\cdot\bfu=k\cdot\bfu+\ell\cdot\bfu$ (additive-multiplicative
-										distributivity)
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<strong>(V9)</strong>
-									</td>
-									<td>
-										$k\cdot(\ell\cdot\bfu)=(k\ell)\cdot\bfu$ (multiplicative-multiplicative
-										distributivity)
-
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<strong>(V10)</strong>
-									</td>
-									<td>
-										$1\cdot\bfu=\bfu$ (multiplicative identity)
-									</td>
-								</tr>
-
-							</table>
-
-
-
-						</div>
-
-					</div>
-					<div class="size-70">
-						<div class="left-txt">
-							<p>The scalar multiplication symbol is often omitted.
-								Elements of a vector space are usually called vectors.</p>
-
-						</div>
-					</div>
-					<br /><br/>
-				</section>
+				
 
 
 			</section>
@@ -512,7 +396,7 @@
 					<br />
 				</section>
 
-				<section id="example-7-4">
+				<section id="example-4">
 					<h4 style="font-size:72%">Example 4: $C[a,b]$ - set of continuous real-valued functions on $[a,b]$
 					</h4>
 					
@@ -550,7 +434,7 @@
 								and $a_k\in \BF,$ $\forall k.$
 							</p>
 							<p class="fragment" data-fragment-index="1">
-								2) & 3) Operations similar to <a href="#/example-7-4/3">Example 7.4</a>.
+								2) & 3) Operations similar to <a href="#/example-4/3">Example 4</a>.
 							</p>
 							<p class="fragment" data-fragment-index="2">
 								4) $\mathbf 0 = \,?$ 🤔
@@ -576,7 +460,7 @@
 								1) Let $y_1$ and $y_2$ be solutions.
 							</p>
 							<p class="fragment" data-fragment-index="2">
-								2) Operations similar to <a href="#/example-7-4/3">Example 7.4</a>.
+								2) Operations similar to <a href="#/example-4/3">Example 7.4</a>.
 							</p>
 							<p class="fragment" data-fragment-index="3">
 								3) Superposition principle: $y_1+y_2 $ is also a solution.
