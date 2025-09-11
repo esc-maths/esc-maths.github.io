@@ -1068,7 +1068,7 @@ h6 {
 
 .toc-chapter li a {
   display: block; /* make <a> fill the <li> */
-  padding: 5px 8px; /* spacing inside each item */
+  padding: 2px 0px; /* spacing inside each item */
   color: var(--toc-list);
   text-decoration: none;
   outline: none;
