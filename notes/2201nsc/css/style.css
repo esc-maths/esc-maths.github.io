@@ -1063,13 +1063,27 @@ h6 {
   display: block;
   margin-left: 0px;
   text-align: left !important;
-  text-indent: -10px; /* pulls the first line left */
-  padding-left: 10px; /* pushes all lines right */
+  padding: 0; /* remove text-indent tricks, we'll handle inside <a> */
 }
 
-.toc-chapter li:before {
-  content: "- ";
+.toc-chapter li a {
+  display: block; /* make <a> fill the <li> */
+  padding: 5px 8px; /* spacing inside each item */
+  color: var(--toc-list);
+  text-decoration: none;
+  outline: none;
+}
+
+.toc-chapter li a:hover {
+  background: var(--toc-background);
+  color: var(--link-visited);
+}
+
+/* Highlight active section */
+.toc-chapter li a.active {
+  background: var(--toc-background);
   font-weight: bold;
+  color: var(--link-visited) !important;
 }
 
 /*

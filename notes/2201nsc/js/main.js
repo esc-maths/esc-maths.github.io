@@ -181,7 +181,10 @@ links.forEach(function (link) {
 /*---------------------------------------------------------------*/
 
 /*---*/
-const darkModeToggle = document.getElementById('dark-mode-toggle')
-darkModeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('latex-dark')
-})
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+if (darkModeToggle) {
+  darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('latex-dark');
+  });
+}
