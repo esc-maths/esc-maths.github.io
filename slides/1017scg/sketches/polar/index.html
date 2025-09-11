@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>MathBox - Polar coordinates</title>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/three@0.137.0/examples/js/controls/OrbitControls.js"
-    ></script>
-    <script src="https://www.dynamicmath.xyz/math2001/sketches/mathbox/dat.gui.min.js"></script>
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <title>MathBox - Polar coordinates</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/three@0.137.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://www.dynamicmath.xyz/math2001/sketches/mathbox/dat.gui.min.js"></script>
+  <!--
       - a minified version mathbox.min.js is also available;
       - recommend using a specific version (not @latest) in public sites
     -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/mathbox@latest/build/bundle/mathbox.js"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/mathbox@latest/build/mathbox.css"
-    />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathbox@latest/build/bundle/mathbox.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mathbox@latest/build/mathbox.css" />
 
-    <link rel="stylesheet" href="dat-gui-light-theme.css">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="dat-gui-light-theme.css">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 
-  </head>
-  <body>
-    <script type="application/glsl" id="vertex-warp">
+</head>
+
+<body>
+  <script type="application/glsl" id="vertex-warp">
       uniform float time;
       uniform float intensity;
 
@@ -43,183 +34,202 @@
         return xyzw;
       }
     </script>
-    <script>
-      var mathbox = MathBox.mathBox({
-        plugins: ["core", "controls", "cursor"],
-        controls: {
-          klass: THREE.OrbitControls,
+  <script>
+    var mathbox = MathBox.mathBox({
+      plugins: ["core", "controls", "cursor"],
+      controls: {
+        klass: THREE.OrbitControls,
+      },
+    });
+    var three = mathbox.three;
+
+    three.camera.position.set(0, 0, 3);
+    three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+
+    function pingpong(t) {
+      return Math.sin(Math.PI / 2.0 * Math.cos(t / 6));
+    }
+
+    /*
+    var tim = 0;
+    three.on("update", function () {
+      tim = three.Time.clock;
+
+      view.set("bend", pingpong(tim));
+    });
+    */
+
+    formatNumber = MathBox.Util.Pretty.number();
+
+    mathbox.set({
+      scale: 600,
+      focus: 3,
+    });
+
+    var warpShader = mathbox.shader(
+      {
+        code: "#vertex-warp",
+      },
+      {
+        time: function (t) {
+          return t / 4;
         },
-      });
-      var three = mathbox.three;
-
-      three.camera.position.set(0, 0, 3);
-      three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
-
-      function pingpong(t) {
-        return Math.sin(Math.PI / 2.0 * Math.cos(t/6));
+        intensity: function (t) {
+          t = t / 4;
+          intensity = 0.8 + 0.2 * Math.cos(t / 3);
+          intensity = 1.0 - Math.pow(intensity, 4);
+          return intensity;
+        },
       }
+    );
 
-      /*
-      var tim = 0;
-      three.on("update", function () {
-        tim = three.Time.clock;
+    var updatefunc = function () {
+      view.set("bend", props.k);
+      //var p = pingpong(tim);
+      //view.set("bend", p);
+      //console.log(props.k);
+    };
 
-        view.set("bend", pingpong(tim));
+    var updateGraph = function () {
+      updatefunc();
+      // Rotate the whole view based on k
+      view.set("rotation", [0, 0, -props.k * MathBox.π / 2]);
+
+      // Update the curve definition
+      view.select("#sampler").set("expr", function (emit, x, i, t) {
+        let k = props.k;
+
+        // sine curve
+        let xs = x;
+        let ys = MathBox.π / 2 + Math.sin(x);
+
+        // circle (parametric)
+        let xc = Math.cos(x);
+        let yc = Math.sin(x);
+
+        // blend between sine and circle
+        let X = (1 - k) * xs + k * xc;
+        let Y = (1 - k) * ys + k * yc;
+
+        emit(X, Y);
       });
-      */
+    };
 
-      
+    var valuess = 0.5;
 
-      formatNumber = MathBox.Util.Pretty.number();
+    var view = mathbox.polar({
+      bend: valuess,
+      range: [
+        [0, 2 * MathBox.π],
+        [0, MathBox.π],
+        [-MathBox.π / 2, MathBox.π / 2],
+      ],
+      scale: [2, 1, 1],
+    });
 
-      mathbox.set({
-        scale: 600,
-        focus: 3,
-      });
-
-      var warpShader = mathbox.shader(
-        {
-          code: "#vertex-warp",
+    view
+      .transform({
+        position: [0, MathBox.π / 2, 0],
+      })
+      .axis({
+        detail: 512,
+      })
+      .scale({
+        divide: 10,
+        unit: MathBox.π,
+        base: 2,
+      })
+      .ticks({
+        width: 3,
+        classes: ["foo", "bar"],
+      })
+      .scale({
+        divide: 5,
+        unit: MathBox.π,
+        base: 2,
+      })
+      .format({
+        expr: function (x) {
+          return formatNumber(x);
         },
-        {
-          time: function (t) {
-            return t / 4;
-          },
-          intensity: function (t) {
-            t = t / 4;
-            intensity = 0.8 + 0.2 * Math.cos(t / 3);
-            intensity = 1.0 - Math.pow(intensity, 4);
-            return intensity;
-          },
-        }
-      );
-
-      var updatefunc = function () {
-       view.set("bend", props.k);
-       //var p = pingpong(tim);
-       //view.set("bend", p);
-        //console.log(props.k);
-      };
-
-      var updateGraph = function () {
-        updatefunc();
-      };
-
-      var valuess = 0.5;
-
-      var view = mathbox.polar({
-        bend: valuess,
-        range: [
-          [-MathBox.π, MathBox.π],
-          [0, MathBox.π],
-          [-MathBox.π / 2, MathBox.π / 2],
-        ],
-        scale: [2, 1, 1],
+      })
+      .label({
+        depth: 0.5,
+        zIndex: 1,
       });
 
-      view
-        .transform({
-          position: [0, MathBox.π / 2, 0],
-        })
-        .axis({
-          detail: 512,
-        })
-        .scale({
-          divide: 10,
-          unit: MathBox.π,
-          base: 2,
-        })
-        .ticks({
-          width: 3,
-          classes: ["foo", "bar"],
-        })
-        .scale({
-          divide: 5,
-          unit: MathBox.π,
-          base: 2,
-        })
-        .format({
-          expr: function (x) {
-            return formatNumber(x);
-          },
-        })
-        .label({
-          depth: 0.5,
-          zIndex: 1,
-        });
-
-      view.axis({
+    view.axis({
+      axis: 2,
+      detail: 128,
+      crossed: true,
+    });
+    view
+      .transform({
+        position: [MathBox.π * 2, 0, 0],
+      })
+      .axis({
         axis: 2,
         detail: 128,
         crossed: true,
       });
-      view
-        .transform({
-          position: [MathBox.π / 2, 0, 0],
-        })
-        .axis({
-          axis: 2,
-          detail: 128,
-          crossed: true,
-        });
-      view
-        .transform({
-          position: [-MathBox.π / 2, 0, 0],
-        })
-        .axis({
-          axis: 2,
-          detail: 128,
-          crossed: true,
-        });
-
-      view
-        .interval({
-          id: "sampler",
-          width: 512,
-          expr: function (emit, x, i, t) {
-            emit(
-              x,
-              MathBox.π / 2 +
-               Math.sin(x)
-            );
-          },
-          channels: 2,
-        })
-        .grid({
-          divideX: 40,
-          detailX: 512,
-          divideY: 20,
-          detailY: 128,
-          width: 1,
-          opacity: 0.5,
-          unitX: MathBox.π,
-          baseX: 2,
-          zBias: -5,
-        })
-        .line({
-          points: "#sampler",
-          color: 0x3090ff,
-          width: 5,
-        });//.vertex({
-         // pass: "#sampler",
-        //});
-
-      // Dat GUI
-      let gui = new dat.GUI({
-        width: 350
+    view
+      .transform({
+        position: [MathBox.π, 0, 0],
+      })
+      .axis({
+        axis: 2,
+        detail: 128,
+        crossed: true,
       });
-      let props = {
-        k: 0.001,
-      };
-      gui
-        .add(props, "k")
-        .min(0.0)
-        .max(1.0)
-        .step(0.001)
-        .name("Transform")
-        .onChange(updateGraph);
 
-      updateGraph();
-    </script>
-  </body>
+    view
+      .interval({
+        id: "sampler",
+        width: 512,
+        expr: function (emit, x, i, t) {
+          emit(
+            x,
+            MathBox.π / 2 + Math.sin(x)
+          );
+        },
+        channels: 2,
+      })
+      .grid({
+        divideX: 40,
+        detailX: 512,
+        divideY: 20,
+        detailY: 128,
+        width: 1,
+        opacity: 0.5,
+        unitX: MathBox.π,
+        baseX: 2,
+        zBias: -5,
+      })
+      .line({
+        points: "#sampler",
+        color: 0x3090ff,
+        width: 5,
+      });//.vertex({
+    // pass: "#sampler",
+    //});
+
+    // Dat GUI
+    let gui = new dat.GUI({
+      width: 350
+    });
+    let props = {
+      k: 0.001,
+    };
+    gui
+      .add(props, "k")
+      .min(0.0)
+      .max(1.0)
+      .step(0.001)
+      .name("Transform")
+      .onChange(updateGraph);
+
+    updateGraph();
+  </script>
+</body>
+
 </html>
