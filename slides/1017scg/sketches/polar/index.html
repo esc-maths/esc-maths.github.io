@@ -47,17 +47,8 @@
     three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
 
     function pingpong(t) {
-      return Math.sin(Math.PI / 2.0 * Math.cos(t / 6));
+      return Math.sin(Math.PI / 2.0 * Math.cos(t / 6)) / 2 + 1 / 2;;
     }
-
-    /*
-    var tim = 0;
-    three.on("update", function () {
-      tim = three.Time.clock;
-
-      view.set("bend", pingpong(tim));
-    });
-    */
 
     formatNumber = MathBox.Util.Pretty.number();
 
@@ -76,7 +67,7 @@
         },
         intensity: function (t) {
           t = t / 4;
-          intensity = 0.8 + 0.2 * Math.cos(t / 3);
+          intensity = 0.5 + 0.5 * Math.cos(t / 3);
           intensity = 1.0 - Math.pow(intensity, 4);
           return intensity;
         },
@@ -84,47 +75,25 @@
     );
 
     var updatefunc = function () {
-      view.set("bend", props.k);
-      //var p = pingpong(tim);
-      //view.set("bend", p);
-      //console.log(props.k);
+      view.set("bend", 0);
     };
 
     var updateGraph = function () {
       updatefunc();
-      // Rotate the whole view based on k
-      view.set("rotation", [0, 0, -props.k * MathBox.π / 2]);
-
-      // Update the curve definition
-      view.select("#sampler").set("expr", function (emit, x, i, t) {
-        let k = props.k;
-
-        // sine curve
-        let xs = x;
-        let ys = MathBox.π / 2 + Math.sin(x);
-
-        // circle (parametric)
-        let xc = Math.cos(x);
-        let yc = Math.sin(x);
-
-        // blend between sine and circle
-        let X = (1 - k) * xs + k * xc;
-        let Y = (1 - k) * ys + k * yc;
-
-        emit(X, Y);
-      });
     };
 
-    var valuess = 0.5;
+    var valuess = 0.0;
 
     var view = mathbox.polar({
       bend: valuess,
       range: [
-        [0, 2 * MathBox.π],
+        [-MathBox.π, MathBox.π],
         [0, MathBox.π],
-        [-MathBox.π / 2, MathBox.π / 2],
+        [-1, 1],
       ],
       scale: [2, 1, 1],
+    }).vertex({
+      pass: "view",
     });
 
     view
@@ -135,7 +104,7 @@
         detail: 512,
       })
       .scale({
-        divide: 10,
+        divide: 5,
         unit: MathBox.π,
         base: 2,
       })
@@ -163,34 +132,42 @@
       detail: 128,
       crossed: true,
     });
-    view
-      .transform({
-        position: [MathBox.π * 2, 0, 0],
-      })
-      .axis({
-        axis: 2,
-        detail: 128,
-        crossed: true,
-      });
-    view
-      .transform({
-        position: [MathBox.π, 0, 0],
-      })
-      .axis({
-        axis: 2,
-        detail: 128,
-        crossed: true,
-      });
+    // view
+    //   .transform({
+    //     position: [- MathBox.π, 0, 0],
+    //   })
+    //   .axis({
+    //     axis: 2,
+    //     detail: 128,
+    //     crossed: true,
+    //   });
+    // view
+    //   .transform({
+    //     position: [MathBox.π, 0, 0],
+    //   })
+    //   .axis({
+    //     axis: 2,
+    //     detail: 128,
+    //     crossed: true,
+    //   });
 
+    let alpha = { value: 0 }; // blending control
     view
       .interval({
         id: "sampler",
         width: 512,
         expr: function (emit, x, i, t) {
-          emit(
-            x,
-            MathBox.π / 2 + Math.sin(x)
-          );
+          let f1 =
+            MathBox.π / 2 +
+            0.6 * Math.sin(x + t) +
+            0.3 * Math.sin(x * 2 + t * 1.81) +
+            0.1825 * Math.sin(x * 3 + t * 2.18);
+
+          let f2 = Math.sin(x + t) + MathBox.π / 2;
+
+          let y = (1 - alpha.value) * f2 + alpha.value * f1;
+
+          emit(x, y);
         },
         channels: 2,
       })
@@ -207,28 +184,55 @@
       })
       .line({
         points: "#sampler",
-        color: 0x3090ff,
+        color: 0x3366ff,
         width: 5,
-      });//.vertex({
-    // pass: "#sampler",
-    //});
-
-    // Dat GUI
-    let gui = new dat.GUI({
-      width: 350
-    });
-    let props = {
-      k: 0.001,
-    };
-    gui
-      .add(props, "k")
-      .min(0.0)
-      .max(1.0)
-      .step(0.001)
-      .name("Transform")
-      .onChange(updateGraph);
+      });
 
     updateGraph();
+
+    // Transition speed (ms)
+    const transitionDuration = 2000; // 2 seconds for morph
+    const holdDuration = 7000;       // 5 seconds hold
+
+    function transition(toValue, onComplete) {
+      const startValue = alpha.value;
+      const delta = toValue - startValue;
+      const startTime = performance.now();
+
+      function step(now) {
+        let t = (now - startTime) / transitionDuration;
+        if (t >= 1) {
+          alpha.value = toValue;
+          if (onComplete) onComplete();
+        } else {
+          // Smooth easing (sinusoidal in/out)
+          let eased = 0.5 - 0.5 * Math.cos(Math.PI * t);
+          alpha.value = startValue + delta * eased;
+          requestAnimationFrame(step);
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    function cycle() {
+      // 1. Hold f1
+      setTimeout(() => {
+        // 2. Transition to f2
+        transition(1, () => {
+          // 3. Hold f2
+          setTimeout(() => {
+            // 4. Transition back to f1
+            transition(0, cycle);
+          }, holdDuration);
+        });
+      }, holdDuration);
+    }
+
+    // Kick off the cycle
+    cycle();
+
+
   </script>
 </body>
 
