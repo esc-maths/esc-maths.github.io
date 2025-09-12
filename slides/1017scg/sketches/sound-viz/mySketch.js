@@ -7,7 +7,7 @@ Site: https://jcponce.github.io/
 
 */
 
-/*Code based on example from Daniel Shiffman.*/
+/* Code based on example from Daniel Shiffman. */
 
 // Variables for FFT
 let song;
@@ -75,13 +75,9 @@ function setup() {
 
 function draw() {
   perspective(60 * PI/180, width/height, 1, 1000);
-  //let camZ = (height/2.0) / tan(PI*30.0/180.0); // default WEBGL camera distance
-  //camera(0, 0, camZ * 0.08, 0, 0, 0, 0, 1, 0);  // move slightly closer
 
   // orbit controls with mouse drag/scroll
   orbitControl();
-
-  //scale(10);
 
   if (mode == 0) background(0);
   else background(255);
