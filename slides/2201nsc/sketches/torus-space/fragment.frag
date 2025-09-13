@@ -89,11 +89,11 @@ float easingFunction( float t){
 float map(vec3 p) {
     p.z += iTime * 0.08;
   
-    //Space repetition
-	 	p.xy = 0.75*(fract(p.xy) - 0.5); // spacing: 1
-		p.z = mod(p.z, 0.25) - 0.125;
+    vec3 q = p;
   
-    return sdTorus(p, vec2(0.07, 0.03)); // distance to an object
+    q = fract(p) - 0.5;
+
+    return sdTorus(q, vec2(0.2, 0.05)); // distance to an object
 }
 
 
@@ -127,7 +127,7 @@ void main() {
     for(int i = 0; i < 80; i++){
       vec3 p = ro + rd * t; // position align the ray
 
-      p.zy *= rot2D(0.3);
+      p.zy *= rot2D(0.5);
 			p.zx *= rot2D(-0.1);
 			
 			p.xy *= rot2D(t*0.02);  // rotate ray around z-axis
