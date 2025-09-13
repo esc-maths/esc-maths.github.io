@@ -89,8 +89,8 @@ float easingFunction( float t){
 float map(vec3 p) {
     p.z += iTime * 0.08;
   
+    // Space repetition
     vec3 q = p;
-  
     q = fract(p) - 0.5;
 
     return sdTorus(q, vec2(0.2, 0.05)); // distance to an object
