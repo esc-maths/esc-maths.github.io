@@ -138,7 +138,7 @@ void main() {
       p.x += sin(t*0.2)*0.3; // wiggle ray
   
       float d = map(p);  // current distance to the scene
-    
+
       t += d;			// "march" the ray
       
       if (d < 0.001 || t > 100.0) break; // "d" early stop if close enough
