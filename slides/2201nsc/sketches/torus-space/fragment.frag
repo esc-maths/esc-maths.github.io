@@ -124,7 +124,7 @@ void main() {
     rd.xz *= rot2D(-iMouse.x*6.3/MN);
   
     // Raymarching
-    for(int i = 0; i < 80; i++){
+    for(int i = 0; i < 65; i++){
       vec3 p = ro + rd * t; // position align the ray
 
       p.zy *= rot2D(0.5);
