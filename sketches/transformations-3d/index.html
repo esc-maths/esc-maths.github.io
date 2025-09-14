@@ -69,7 +69,7 @@
                 transition();
 
             });
-            image.src = 'mat/sprite.png';
+            image.src = 'mat/m5.png';
 
             // Plane
 
@@ -105,7 +105,7 @@
 
             }
 
-            // Random
+           // Random
 
             for (let i = 0; i < particlesTotal; i++) {
 
@@ -134,7 +134,26 @@
 
             }
 
-            //
+            // Torus surface (no duplicate seam points)
+            const R = 750;  // major radius
+            const r = 200;  // minor radius
+            const stepsU = Math.floor(Math.sqrt(particlesTotal)); // resolution in u
+            const stepsV = Math.floor(Math.sqrt(particlesTotal)); // resolution in v
+
+            for (let i = 0; i < stepsU; i++) {
+                const u = (i / stepsU) * Math.PI * 2;
+                for (let j = 0; j < stepsV + 2; j++) {
+                    const v = (j / stepsV) * Math.PI * 2;
+
+                    const x = (R + r * Math.cos(v)) * Math.cos(u);
+                    const y = (R + r * Math.cos(v)) * Math.sin(u);
+                    const z = r * Math.sin(v);
+
+                    positions.push(x, z, y);
+                }
+            }
+
+            // 
 
             renderer = new CSS3DRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -144,8 +163,8 @@
 
             controls = new OrbitControls(camera, renderer.domElement);
             controls.autoRotate = true;
-			controls.autoRotateSpeed = - 0.4;
-			controls.enableDamping = true;
+            controls.autoRotateSpeed = - 0.4;
+            controls.enableDamping = true;
 
             //
 
@@ -165,7 +184,7 @@
         function transition() {
 
             const offset = current * particlesTotal * 3;
-            const duration = 5000;
+            const duration = 2000;
 
             for (let i = 0, j = offset; i < particlesTotal; i++, j += 3) {
 
@@ -187,7 +206,7 @@
                 .onComplete(transition)
                 .start();
 
-            current = (current + 1) % 4;
+            current = (current + 1) % 5;
 
         }
 
@@ -203,7 +222,7 @@
             for (let i = 0, l = objects.length; i < l; i++) {
 
                 const object = objects[i];
-                const scale = Math.sin((Math.floor(object.position.x) + time) * 0.002) * 0.2 + 1;
+                const scale = Math.sin((Math.floor(object.position.x) + time) * 0.002) * 0.2 + 0.7;
                 object.scale.set(scale, scale, scale);
 
             }
