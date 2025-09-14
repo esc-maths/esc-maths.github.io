@@ -194,7 +194,7 @@
             }
 
             new TWEEN.Tween(this)
-                .to({}, duration * 3)
+                .to({}, duration * 4)
                 .onComplete(transition)
                 .start();
 
@@ -214,7 +214,7 @@
             for (let i = 0, l = objects.length; i < l; i++) {
 
                 const object = objects[i];
-                const scale = Math.sin((Math.floor(object.position.x) + time) * 0.002) * 0.3 + 1;
+                const scale = Math.sin((Math.floor(object.position.x) + time) * 0.002) * 0.2 + 1;
                 object.scale.set(scale, scale, scale);
 
             }
