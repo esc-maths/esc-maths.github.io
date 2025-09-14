@@ -1,7 +1,7 @@
 body {
 	margin: 0;
-	background-color: #000;
-	color: #6f6f6f;
+	background-color: #000000;
+	color: #aaaaaa;
 	font-family: Monospace;
 	font-size: 13px;
 	line-height: 24px;
@@ -9,7 +9,7 @@ body {
 }
 
 a {
-	color: rgb(0, 115, 255);
+	color: rgb(0, 157, 255);
 	text-decoration: none;
 }
 
