@@ -432,69 +432,109 @@
 				<section data-auto-animate>
 					<h3>Consider $\;y=x^3$</h3>
 
-					<div style="font-size: 70%;">
+					<table style="width: 100%;">
+						<tr>
+							<td style="text-align: center;">
+								<div style="font-size: 80%;">
 
-						<p class="fragment" data-fragment-index="2">
-							\(
-							\begin{align*}
-							\frac{dy}{dx}
-							&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \\
-							&= \lim_{h \to 0} \frac{(x+h)^3 - x^3}{h} \\
-							&= \lim_{h \to 0} \frac{x^3 + 3x^2h + 3xh^2 + h^3 - x^3}{h} \\
-							&= \lim_{h \to 0} \frac{3x^2h + 3xh^2 + h^3}{h} \\
-							&= \lim_{h \to 0} \left( 3x^2 + 3xh + h^2 \right) \\
-							&= 3x^2
-							\end{align*}
-							\)
-						</p>
-					</div>
+									<p class="fragment" data-fragment-index="1">
+										\(
+										\begin{align*}
+										\frac{dy}{dx}
+										&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \qquad\qquad\qquad 
+										\end{align*}
+										\)
+									</p>
+									<p class="fragment" data-fragment-index="2">
+										\(
+										\begin{align*}
+										&= \lim_{h \to 0} \frac{(x+h)^3 - x^3}{h} \\
+										&= \lim_{h \to 0} \frac{x^3 + 3x^2h + 3xh^2 + h^3 - x^3}{h} \\
+										&= \lim_{h \to 0} \frac{3x^2h + 3xh^2 + h^3}{h} \\
+										&= \lim_{h \to 0} \left( 3x^2 + 3xh + h^2 \right) \\
+										&= 3x^2
+										\end{align*}
+										\)
+									</p>
+								</div>
+							</td>
+							<td>
 
-					<div style="margin-top: -40px;" class="fragment" data-fragment-index="2">
-						<picture>
-							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
-								type="image/webp">
-							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬" width="100"
-								height="100">
-						</picture>
-					</div>
+								<div class="fragment" data-fragment-index="2">
+									<picture>
+										<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+											type="image/webp">
+										<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬"
+											width="100" height="100">
+									</picture>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+
+
 					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h3>Consider $\;y = x^4 - x^3 + 2x^2 - 1$</h3>
+					<h3>Now consider $\;y = x^4 - x^3 + 2x^2 - 1$</h3>
 
-					<div style="font-size: 47%;">
-						<p class="fragment" data-fragment-index="2">
-							\(
-							\begin{align*}
-							\frac{dy}{dx}
-							&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \\
-							&= \lim_{h \to 0} \frac{(x+h)^4 - (x+h)^3 + 2(x+h)^2 - 1 \;-\; (x^4 - x^3 + 2x^2 - 1)}{h} \\
-							&= \lim_{h \to 0} \frac{(x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4) - (x^3 + 3x^2h + 3xh^2 +
-							h^3)}{h} \\
-							&\quad + \frac{(2x^2 + 4xh + 2h^2) - 1 - (x^4 - x^3 + 2x^2 - 1)}{h} \\
-							&= \lim_{h \to 0} \frac{x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4 - x^3 - 3x^2h - 3xh^2 - h^3}{h}
-							\\
-							&\quad + \frac{2x^2 + 4xh + 2h^2 - 1 - x^4 + x^3 - 2x^2 + 1}{h} \\
-							&= \lim_{h \to 0} \frac{4x^3h + 6x^2h^2 + 4xh^3 + h^4 - 3x^2h - 3xh^2 - h^3 + 4xh + 2h^2}{h}
-							\\
-							&= \lim_{h \to 0} \frac{4x^3h - 3x^2h + (6x^2h^2 - 3xh^2 + 2h^2) + (4xh^3 - h^3) + h^4}{h}
-							\\
-							&= \lim_{h \to 0} \left( 4x^3 - 3x^2 + (6x^2 - 3x + 2)h + (4x - 1)h^2 + h^3 \right) \\
-							&= 4x^3 - 3x^2 + 4x
-							\end{align*}
-							\)
-						</p>
-					</div>
+					<table style="width: 100%; margin-top: -30px;">
+						<tr>
+							<td style="text-align: center;">
+								<div style="font-size: 53%;">
+									<p>
+										\(
+										\begin{align*}
+										\frac{dy}{dx}
+										&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+										\end{align*}
+										\)
+									</p>
+									<p class="fragment" data-fragment-index="2">
+										\(
+										\begin{align*}
+										&= \lim_{h \to 0} \frac{(x+h)^4 - (x+h)^3 + 2(x+h)^2 - 1 \;-\; (x^4 - x^3 + 2x^2
+										- 1)}{h} \\
+										&= \lim_{h \to 0} \frac{(x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4) - (x^3 + 3x^2h +
+										3xh^2 +
+										h^3)}{h} \\
+										&\quad \quad \quad + \frac{(2x^2 + 4xh + 2h^2) - 1 - (x^4 - x^3 + 2x^2 - 1)}{h} \\
+										&= \lim_{h \to 0} \frac{x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4 - x^3 - 3x^2h -
+										3xh^2 - h^3}{h}
+										\\
+										&\quad\quad \quad + \frac{2x^2 + 4xh + 2h^2 - 1 - x^4 + x^3 - 2x^2 + 1}{h} \\
+										&= \lim_{h \to 0} \frac{4x^3h + 6x^2h^2 + 4xh^3 + h^4 - 3x^2h - 3xh^2 - h^3 +
+										4xh + 2h^2}{h}
+										\\
+										&= \lim_{h \to 0} \frac{4x^3h - 3x^2h + (6x^2h^2 - 3xh^2 + 2h^2) + (4xh^3 - h^3)
+										+ h^4}{h}
+										\\
+										&= \lim_{h \to 0} \left( 4x^3 - 3x^2 + (6x^2 - 3x + 2)h + (4x - 1)h^2 + h^3
+										\right) \\
+										&= 4x^3 - 3x^2 + 4x
+										\end{align*}
+										\)
+									</p>
+								</div>
+							</td>
+							<td>
+								<div class="fragment" data-fragment-index="2">
+									<picture>
+										<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f631/512.webp"
+											type="image/webp">
+										<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f631/512.gif" alt="😱"
+											width="100" height="100">
+									</picture>
+								</div>
+							</td>
+						</tr>
+					</table>
 
-					<div style="margin-top: -60px;" class="fragment" data-fragment-index="2">
-						<picture>
-							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f631/512.webp"
-								type="image/webp">
-							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f631/512.gif" alt="😱" width="100"
-								height="100">
-						</picture>
-					</div>
+
+
+
 					<br />
 				</section>
 
@@ -593,7 +633,7 @@
 							• $y= x^3$
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
 							<span class="fragment" data-fragment-index="3">$= 3x^{3-1}$</span>
 							<span class="fragment" data-fragment-index="4">$= 3x^{2}$</span>
 						</p>
@@ -615,7 +655,7 @@
 							$\quad \ds \frac{dy}{dx} =0$
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 				<section data-background-image="images/week-10/table-derivatives.svg">
 					<h4>
@@ -627,9 +667,9 @@
 							• $y= 10 \cos(x)$
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
 							<span class="fragment" data-fragment-index="3">$= -10\sin(x)$</span>
-							
+
 						</p>
 					</div>
 					<div class="left-txt size-90">
@@ -648,7 +688,7 @@
 							$\quad \ds \frac{dy}{dx} =2\cos(x) - 3 \sin(x)$
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-background-image="images/week-10/table-derivatives.svg">
@@ -661,12 +701,12 @@
 							• $y= 2e^x$
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
 							<span class="fragment" data-fragment-index="3">$= 2e^x$</span>
-							
+
 						</p>
 					</div>
-					<br/>
+					<br />
 					<div class="left-txt size-90">
 						<p class="fragment" data-fragment-index="5">
 							• $y= -5 e^x$
@@ -675,9 +715,9 @@
 							$\quad \ds \frac{dy}{dx} = -5 e^x$
 						</p>
 					</div>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
 				</section>
 				<section data-background-image="images/week-10/table-derivatives.svg">
 					<h4>
@@ -689,27 +729,27 @@
 							• $y= -3\ln(x)$
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
 							<span class="fragment" data-fragment-index="3">$= -3\left(\dfrac{1}{x}\right)$</span>
 							<span class="fragment" data-fragment-index="4">$= -\dfrac{3}{x}$</span>
-							
+
 						</p>
 					</div>
-					<br/>
+					<br />
 					<div class="left-txt size-90">
 						<p class="fragment" data-fragment-index="5">
 							• $y= 8\ln(x)$
 						</p>
 						<p class="fragment" data-fragment-index="6">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
 							<span class="fragment" data-fragment-index="7">$= 8\left(\dfrac{1}{x}\right)$</span>
 							<span class="fragment" data-fragment-index="8">$= \dfrac{8}{x}$</span>
-							
+
 						</p>
 					</div>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
 				</section>
 				<section data-background-image="images/week-10/table-derivatives.svg">
 					<h4>
@@ -721,14 +761,15 @@
 							• $y= 2x^5 + 3e^x + 5\sin(x)$
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
 							<span class="fragment" data-fragment-index="3">$= (5)2x^{5-1}$</span>
 							<span class="fragment" data-fragment-index="4">$+ \,3e^x$</span>
 							<span class="fragment" data-fragment-index="5">$+\, 5\cos(x)$</span>
-							
+
 						</p>
 						<p>
-							<span class="fragment" data-fragment-index="6">$\quad \quad \;\;= 10 x^4 + 3e^x + 5 \cos(x)$</span>
+							<span class="fragment" data-fragment-index="6">$\quad \quad \;\;= 10 x^4 + 3e^x + 5
+								\cos(x)$</span>
 						</p>
 					</div>
 					<div class="left-txt size-85">
@@ -739,26 +780,27 @@
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="9">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
 							<span class="fragment" data-fragment-index="10">$= (-5)x^{-5-1}$</span>
 							<span class="fragment" data-fragment-index="11">$+ \,7\left(\dfrac{1}{x}\right)$</span>
-							
+
 						</p>
 						<p>
-							<span class="fragment" data-fragment-index="12">$\quad \quad \;\;= -5 x^{-6} + \dfrac{7}{x}$</span>
+							<span class="fragment" data-fragment-index="12">$\quad \quad \;\;= -5 x^{-6} +
+								\dfrac{7}{x}$</span>
 							<span class="fragment" data-fragment-index="13">$= -\dfrac{5}{x^6} + \dfrac{7}{x}$</span>
 						</p>
 					</div>
-					
-					
-					<br/>
+
+
+					<br />
 				</section>
 				<section data-background-image="images/week-10/table-derivatives.svg">
 					<h4>
 						More examples
 					</h4>
 
-					
+
 					<div class="left-txt size-90">
 						<p>
 							• $y= \sqrt{x}$
@@ -767,12 +809,13 @@
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="3">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
-							<span class="fragment" data-fragment-index="4">$= \ds\left(\frac{1}{2}\right)x^{1/2-1}$</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="4">$=
+								\ds\left(\frac{1}{2}\right)x^{1/2-1}$</span>
 							<span class="fragment" data-fragment-index="5">$= \ds\frac{1}{2}x^{-1/2}$</span>
-							
+
 						</p>
-						
+
 					</div>
 					<br>
 					<div class="left-txt size-90">
@@ -783,16 +826,16 @@
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="10">
-							<span>$\quad \ds \frac{dy}{dx}  $</span>
+							<span>$\quad \ds \frac{dy}{dx} $</span>
 							<span class="fragment" data-fragment-index="11">$= \ds 3 \left(\frac{1}{x}\right)$</span>
 							<span class="fragment" data-fragment-index="12">$= \ds\frac{3}{x}$</span>
-							
+
 						</p>
 					</div>
-					
-					<br/>
-					<br/>
-					<br/>
+
+					<br />
+					<br />
+					<br />
 				</section>
 			</section>
 
