@@ -111,7 +111,7 @@
 			</section>
 
 			<section>
-				<section data-auto-animate>
+				<section>
 					<h4>
 						Definition of the Derivative (first principles)
 					</h4>
@@ -120,7 +120,7 @@
 						<img style="width: 85%;" src="images/week-10/line.svg">
 					</div>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<h4>
 						Definition of the Derivative (first principles)
 					</h4>
@@ -128,7 +128,7 @@
 						<img style="width: 85%;" src="images/week-10/parabola.svg">
 					</div>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<h4>
 						Definition of the Derivative (first principles)
 					</h4>
@@ -212,12 +212,12 @@
 								</p>
 								<div style="margin-top: 20px;" class="fragment" data-fragment-index="0">
 									<p>
-										<b>Gradient of curve</b>
+										<b>Gradient of the curve</b>
 
 									</p>
 									<p>
 										<span>
-											$\quad=\ds\lim_{h\ra 0} \dfrac{f(x+h)-f(x)}{h}$
+											$=\ds\lim_{h\ra 0} \dfrac{f(x+h)-f(x)}{h}$
 										</span>
 									</p>
 								</div>
@@ -230,39 +230,175 @@
 					<br />
 				</section>
 
-				<section>
+				<section data-auto-animate="">
 					<h4>
 						Definition of the Derivative (first principles)
 					</h4>
 
 					<div class="left-txt size-90">
-						<p class="fragment" data-fragment-index="0">
-							Gradient of a curve 
+						<p>
+							<b>Gradient of a curve </b>
 							<span class="fragment" data-fragment-index="1"> $\,\ra\,$ Slope</span>
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							We call it also <b>instantaneous rate of change</b>.
+							We call it the <b>instantaneous rate of change</b>.
 						</p>
 
 						<p class="fragment" data-fragment-index="3">
-							This is also known as the <b>Derivative</b> of the function $y=f(x).$
+							The <b>Derivative</b> of the function $y=f(x)$ is given by:
 						</p>
 
 					</div>
 					<div>
 						<p>
-							<span class="fragment" data-fragment-index="4">
-								$\dfrac{dy}{dx}$
+							<span class="fragment" data-fragment-index="3">
+								$\dfrac{dy}{dx}=$
 							</span>
-							<span class="fragment" data-fragment-index="5">
-								$=\ds \lim_{h\ra 0} \frac{f(x+h)-f(x)}{h}$
+							<span>
+								$\ds \lim_{h\ra 0} \frac{f(x+h)-f(x)}{h}$
 							</span>
 						</p>
 					</div>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
+					<br />
 				</section>
+
+				<section>
+					<h4>Example 1</h4>
+					<div class="size-80 left-txt">
+						<p>
+							Compute the derivative of $y = 3x + 7$ using first principles.
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="1">
+							Write $\,f(x)= 3x+ 7 .$
+							<span class="fragment" data-fragment-index="2">Then</span>
+						</p>
+					</div>
+					<div class="size-80">
+						<p>
+							<span class="fragment" data-fragment-index="2">$f(x+h)$</span>
+							<span class="fragment" data-fragment-index="3">$=3(x+h) + 7$</span>
+							<span class="fragment" data-fragment-index="4">$=3x + 3h + 7$</span>
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="5">
+							Thus
+						</p>
+					</div>
+					<div class="size-80">
+						<p>
+							<span class="fragment" data-fragment-index="5">$\dfrac{f(x+h)-f(x)}{h}$</span>
+							<span class="fragment" data-fragment-index="6">$=\dfrac{(3x+3h+7) -(3x+7)}{h}$</span>
+							<span class="fragment" data-fragment-index="7">$=\dfrac{3h}{h}$</span>
+							<span class="fragment" data-fragment-index="8">$=h$</span>
+						</p>
+					</div>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="9">Hence
+							<span class="fragment" data-fragment-index="9">$\;\ds \lim_{h\ra
+								0}\dfrac{f(x+h)-f(x)}{h}$</span>
+							<span class="fragment" data-fragment-index="10">$=\ds \lim_{h\ra 0} h$</span>
+							<span class="fragment" data-fragment-index="11">$=0$</span>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 2</h4>
+					<div class="size-80 left-txt">
+						<p>
+							Compute the derivative of $y = x^2$ using first principles.
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="1">
+							Write $\,f(x)= x^2.$
+							<span class="fragment" data-fragment-index="2">Then</span>
+						</p>
+					</div>
+					<div class="size-80">
+						<p>
+							<span class="fragment" data-fragment-index="2">$f(x+h)$</span>
+							<span class="fragment" data-fragment-index="3">$=(x+h)^2$</span>
+							<span class="fragment" data-fragment-index="4">$=x^2 + 2xh + h^2$</span>
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="5">
+							Thus
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="5">$\;\; \dfrac{f(x+h)-f(x)}{h}$</span>
+							<span class="fragment" data-fragment-index="6">$=\dfrac{\left(x^2 + 2xh + h^2\right)
+								-\left(x^2\right)}{h}$</span>
+
+						</p>
+						<p>
+
+							<span class="fragment" data-fragment-index="7">$\qquad \qquad \qquad \;\;\;\, =\dfrac{ 2xh +
+								h^2}{h}$</span>
+							<span class="fragment" data-fragment-index="8">$=\dfrac{ \left(2x + h\right)h}{h}$</span>
+							<span class="fragment" data-fragment-index="9">$=2x + h$</span>
+
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2</h4>
+					<div class="size-80 left-txt">
+						<p>
+							Compute the derivative of $y = x^2$ using first principles.
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p>
+							Write $\,f(x)= x^2.$
+							<span>Then</span>
+						</p>
+					</div>
+
+
+					<div class="size-90">
+						<p>
+							👉
+							<span>$\;\;\dfrac{f(x+h)-f(x)}{h}$</span>
+							<span>$=2x + h$</span>
+
+						</p>
+					</div>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="9">Take
+							<span class="fragment" data-fragment-index="9">$\;\ds \lim_{h\ra
+								0}\dfrac{f(x+h)-f(x)}{h}$</span>
+							<span class="fragment" data-fragment-index="10">$=\ds \lim_{h\ra 0} 2x + h$</span>
+							<span class="fragment" data-fragment-index="11">$=2x$</span>
+						</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="11">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.gif" alt="😎" 
+								width="80" height="80">
+						</picture>
+					</div>
+					<br />
+				</section>
+
 
 			</section>
 
