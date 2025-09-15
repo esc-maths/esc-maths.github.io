@@ -49,6 +49,7 @@
 						u: "{\\mathbf{u}}",
 						v: "{\\mathbf{v}}",
 						w: "{\\mathbf{w}}",
+						bfa: "{\\mathbf{a}}",
 						xx: "{\\mathbf{x}}",
 						bfu: "{\\mathbf{u}}",
 						bfv: "{\\mathbf{v}}",
