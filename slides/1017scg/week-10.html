@@ -392,14 +392,111 @@
 						<picture>
 							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp"
 								type="image/webp">
-							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.gif" alt="😎" 
-								width="80" height="80">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.gif" alt="😎" width="80"
+								height="80">
 						</picture>
 					</div>
 					<br />
 				</section>
 
 
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>Big question</h3>
+					<p>
+						Can we always compute the <b>derivative</b>
+						of any function $f(x)$ using the formula
+						\[
+						\ds \lim_{h\ra 0}\frac{f(x+h)-f(x)}{h}?
+						\]
+					</p>
+
+					<div class="r-stack">
+						<picture class="fragment fade-out" data-fragment-index="0">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="150"
+								height="150">
+						</picture>
+						<picture class="fragment fade-in" data-fragment-index="0">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃" width="150"
+								height="150">
+						</picture>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Consider $\;y=x^3$</h3>
+					
+					<div style="font-size: 70%;">
+						
+						<p class="fragment" data-fragment-index="2">
+							\(
+							\begin{align*}
+							\frac{dy}{dx}
+							&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \\
+							&= \lim_{h \to 0} \frac{(x+h)^3 - x^3}{h} \\
+							&= \lim_{h \to 0} \frac{x^3 + 3x^2h + 3xh^2 + h^3 - x^3}{h} \\
+							&= \lim_{h \to 0} \frac{3x^2h + 3xh^2 + h^3}{h} \\
+							&= \lim_{h \to 0} \left( 3x^2 + 3xh + h^2 \right) \\
+							&= 3x^2
+							\end{align*}
+							\)
+						</p>
+					</div>
+
+					<div style="margin-top: -40px;"  class="fragment" data-fragment-index="2">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬" width="100"
+								height="100">
+						</picture>
+					</div>
+					<br />
+				</section>
+				
+				<section data-auto-animate>
+					<h3>Consider $\;y = x^4 - x^3 + 2x^2 - 1$</h3>
+					
+					<div style="font-size: 45%;">
+						<p class="fragment" data-fragment-index="2">
+							\(
+							\begin{align*}
+							\frac{dy}{dx}
+							&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \\
+							&= \lim_{h \to 0} \frac{(x+h)^4 - (x+h)^3 + 2(x+h)^2 - 1 \;-\; (x^4 - x^3 + 2x^2 - 1)}{h} \\
+							&= \lim_{h \to 0} \frac{(x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4) - (x^3 + 3x^2h + 3xh^2 +
+							h^3)}{h} \\
+							&\quad + \frac{(2x^2 + 4xh + 2h^2) - 1 - (x^4 - x^3 + 2x^2 - 1)}{h} \\
+							&= \lim_{h \to 0} \frac{x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4 - x^3 - 3x^2h - 3xh^2 - h^3}{h}
+							\\
+							&\quad + \frac{2x^2 + 4xh + 2h^2 - 1 - x^4 + x^3 - 2x^2 + 1}{h} \\
+							&= \lim_{h \to 0} \frac{4x^3h + 6x^2h^2 + 4xh^3 + h^4 - 3x^2h - 3xh^2 - h^3 + 4xh + 2h^2}{h}
+							\\
+							&= \lim_{h \to 0} \frac{4x^3h - 3x^2h + (6x^2h^2 - 3xh^2 + 2h^2) + (4xh^3 - h^3) + h^4}{h}
+							\\
+							&= \lim_{h \to 0} \left( 4x^3 - 3x^2 + (6x^2 - 3x + 2)h + (4x - 1)h^2 + h^3 \right) \\
+							&= 4x^3 - 3x^2 + 4x
+							\end{align*}
+							\)
+						</p>
+					</div>
+
+					<div style="margin-top: -50px;"  class="fragment" data-fragment-index="2">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f631/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f631/512.gif" alt="😱" width="100"
+								height="100">
+						</picture>
+					</div>
+					<br />
+				</section>
 			</section>
 
 
