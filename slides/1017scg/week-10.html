@@ -39,14 +39,18 @@
 	</script>
 
 	<style>
-		.fragment.emph {
-			font-weight: normal;
-			text-decoration: none;
-		}
-
-		.fragment.emph.visible {
-			font-weight: bold;
-			text-decoration: underline;
+		.float-text {
+			position: absolute;
+			top: 18%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			margin: 0;
+			font-size: 0.8em;
+			color: black;
+			/* change if background requires */
+			z-index: 2;
+			background-color:rgba(221, 221, 221, 0.9);
+			border-radius: 20px;
 		}
 	</style>
 
@@ -69,14 +73,77 @@
 					<p style="font-weight: bold; font-size: 130%;">1017SCG</p>
 				</div>
 				<p style="font-size: 90%;">Week 10</p>
-				
+
 				<div style="margin-top: -20px;">
 					<img style="width: 400px;" src="images/fractal/fractal-12.svg">
 				</div>
-				<br/>
+				<br />
 			</section>
 
-			
+			<section>
+
+				<h4>Topics</h4>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Definition of the Derivative (first principles)
+						</li>
+						<li>
+							Tables of Derivatives
+						</li>
+						<li>
+							Applications of Derivatives (Turning points, Greatest
+							and Least values, Tangent lines)
+						</li>
+					</ul>
+
+				</div>
+
+				<br />
+				<br />
+				<br />
+				<br />
+
+
+			</section>
+
+			<section>
+				<section>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+
+					<div>
+						<img style="width: 85%;" src="images/week-10/line.svg">
+					</div>
+				</section>
+				<section>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+					<div>
+						<img style="width: 85%;" src="images/week-10/parabola.svg">
+					</div>
+				</section>
+				<section>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+					<div style="position: relative; display: inline-block; text-align: center; width: 100%;">
+						<img style="width: 85%;" src="images/week-10/general-function.svg">
+
+						<!-- floating centered text -->
+						<p class="float-text">
+							What is the gradient of any possible function?  🤔 
+						</p>
+					</div>
+				</section>
+			</section>
+
+
 			<section>
 				<h4>Credits</h4>
 				<div include-html="credits.html"></div>
