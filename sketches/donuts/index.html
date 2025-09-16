@@ -212,7 +212,7 @@
         const distancePercent = Math.max(0, Math.min(1, torusData.distance / torusData.distanceTotal));
         if (distancePercent > 0) {
           torusMesh.material.emissive = torusData.colorGlaze.clone();
-          torusMesh.material.emissiveIntensity = 0.1 * distancePercent;
+          torusMesh.material.emissiveIntensity = 0.3 * distancePercent;
         }
       }
     }
