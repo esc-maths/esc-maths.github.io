@@ -43,9 +43,9 @@
 <body>
     <div id="info">Click and drag to control rotation speed and direction</div>
 
-    <script type="module">
+      <script type="module">
         import * as THREE from 'three';
-
+      
         // Constants
         const DEBUG = false;
         const MATH_PI = Math.PI;
@@ -53,6 +53,7 @@
         const MATH_PI2 = MATH_PI * 2;
 
         // Scene setup
+        //let stats = null;
         let w = window.innerWidth;
         let h = window.innerHeight;
 
@@ -64,72 +65,49 @@
         let rotationSpeedFactor = { x: rotationSpeed / (w * 0.5), y: rotationSpeed / (h * 0.5) };
 
         const fov = 500;
-        let torusSceneObjectsHolder = [];
         let torusSpeed = 10;
         const torusSpeedMin = torusSpeed;
-        const torusSpeedMax = 120;
+        const torusSpeedMax = 50;
         let torusRotation = 0;
         let torusRotationSpeed = 0.25;
         const torusRotationSpeedMin = torusRotationSpeed;
         const torusRotationSpeedMax = torusRotationSpeed * 4;
 
-        const torusCount = 512;
+        const torusCount = 200; // Reduced for better performance with toon materials
         const torusDiameter = 104;
         const torusMaxZ = -fov + torusDiameter;
         const torusDistance = 8000;
 
-        const torusGlazeColors = [
-            new THREE.Color(25 / 255, 143 / 255, 188 / 255),
-            new THREE.Color(24 / 255, 223 / 255, 9 / 255),
-            new THREE.Color(16 / 255, 55 / 255, 73 / 255),
-            new THREE.Color(24 / 255, 254 / 255, 254 / 255),
-            new THREE.Color(21 / 255, 194 / 255, 215 / 255),
-            new THREE.Color(15 / 255, 194 / 255, 46 / 255),
-            new THREE.Color(17 / 255, 0 / 255, 45 / 255)
+        const torusGlazeColors = [ 
+            new THREE.Color(255/255, 143/255, 188/255), 
+            new THREE.Color(254/255, 223/255, 9/255), 
+            new THREE.Color(126/255, 55/255, 73/255), 
+            new THREE.Color(254/255, 254/255, 254/255), 
+            new THREE.Color(0/255, 194/255, 215/255), 
+            new THREE.Color(103/255, 194/255, 46/255), 
+            new THREE.Color(247/255, 0/255, 45/255) 
         ];
-
-        const torusDoughColors = [
-            new THREE.Color(21 / 255, 71 / 255, 4 / 255)
+        
+        const torusDoughColors = [ 
+            new THREE.Color(251/255, 171/255, 24/255)
         ];
-
-        const torusMaxRadialSegments = 12;
-        const torusMaxTubularSegments = 20;
-        const torusQualityReductionFactor = 1.3;
-        const torusQualityLevels = 5;
-        const torusModelMappings = [
-            { percent: 0.00, index: 0 },
-            { percent: 0.34, index: 1 },
-            { percent: 0.54, index: 2 },
-            { percent: 0.74, index: 3 },
-            { percent: 0.84, index: 4 },
-        ];
-
-        const torusModelIndexGet = (distancePercent) => {
-            for (let i = torusModelMappings.length - 1; i >= 0; i--) {
-                if (distancePercent >= torusModelMappings[i].percent) {
-                    return torusModelMappings[i].index;
-                }
-            }
-            return 0;
-        };
 
         const lightRotationSpeed = -2.00;
         let lightRotationSpeedFactor = { x: 0, y: 0 };
-        const lightBrightness = 1;
 
         let lightVector = new THREE.Vector3(0, 0, -fov * 0.5);
         const cameraVector = new THREE.Vector3(0, 0, -fov);
 
         // Background color
-        const bgColorR = 0 / 255;
-        const bgColorG = 0 / 255;
-        const bgColorB = 0 / 255;
+        const bgColorR = 0/255;
+        const bgColorG = 0/255;
+        const bgColorB = 0/255;
 
         // Three.js variables
-        let scene, camera, renderer, controls;
+        let scene, camera, renderer;
         let torusMeshes = [];
         let lightMesh;
-        let pointLight;
+        let directionalLight;
 
         // Pointer state
         let pointerPos = { x: w * 0.5, y: h * 0.5 };
@@ -142,13 +120,7 @@
             // Initialize Three.js
             scene = new THREE.Scene();
             scene.background = new THREE.Color(bgColorR, bgColorG, bgColorB);
-
-            scene.fog = new THREE.Fog(
-                new THREE.Color(bgColorR, bgColorG, bgColorB), // same as background
-                500,   // where fog starts
-                6000   // where fog fully obscures
-            );
-
+            scene.fog = new THREE.Fog(new THREE.Color(bgColorR, bgColorG, bgColorB), 500, 6000);
 
             camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 10000);
             camera.position.z = 5000;
@@ -158,11 +130,18 @@
             renderer.setPixelRatio(window.devicePixelRatio);
             document.body.appendChild(renderer.domElement);
 
+            // Add stats
+           // stats = new Stats();
+            //document.body.appendChild(stats.dom);
+
             // Setup event listeners
             setupEventListeners();
 
+            // Create gradient texture for toon shading
+            const gradientTexture = createGradientTexture();
+            
             // Create objects
-            addTori();
+            addTori(gradientTexture);
             addLight();
 
             // Handle window resize
@@ -172,15 +151,40 @@
             restart();
         }
 
+        function createGradientTexture() {
+            // Create a canvas for the gradient texture
+            const size = 64;
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            
+            const context = canvas.getContext('2d');
+            const gradient = context.createLinearGradient(0, 0, size, 0);
+            
+            // Define gradient stops for toon effect
+            gradient.addColorStop(0.0, '#000');
+            gradient.addColorStop(0.5, '#555');
+            gradient.addColorStop(0.6, '#999');
+            gradient.addColorStop(1.0, '#FFF');
+            
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, size, size);
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            texture.needsUpdate = true;
+            
+            return texture;
+        }
+
         function onResize() {
             w = window.innerWidth;
             h = window.innerHeight;
-
+            
             camera.aspect = w / h;
             camera.updateProjectionMatrix();
-
+            
             renderer.setSize(w, h);
-
+            
             rotationSpeedFactor.x = rotationSpeed / (w * 0.5);
             rotationSpeedFactor.y = rotationSpeed / (h * 0.5);
             lightRotationSpeedFactor.x = lightRotationSpeed / (w * 0.5);
@@ -191,7 +195,7 @@
             // Reset animation state if needed
             torusSpeed = torusSpeedMin;
             torusRotationSpeed = torusRotationSpeedMin;
-
+            
             // Start animation loop
             if (animationFrame !== null) {
                 cancelAnimationFrame(animationFrame);
@@ -201,7 +205,7 @@
 
         function setupEventListeners() {
             const canvas = renderer.domElement;
-
+            
             canvas.oncontextmenu = (event) => {
                 event.preventDefault();
             };
@@ -239,7 +243,7 @@
 
         function cursorMoveHandler(event) {
             const rect = renderer.domElement.getBoundingClientRect();
-
+            
             if (event.type === 'mousemove' || event.type === 'pointermove') {
                 pointerPos.x = event.clientX - rect.left;
                 pointerPos.y = event.clientY - rect.top;
@@ -249,7 +253,7 @@
             }
         }
 
-        function addTori() {
+        function addTori(gradientTexture) {
             const l = torusCount;
 
             for (let i = 0; i < l; i++) {
@@ -265,10 +269,9 @@
                     x, y, z,
                     radius: torusDiameter * 0.5,
                     tube: torusDiameter * 0.25,
-                    radialSegments: torusMaxRadialSegments,
-                    tubularSegments: torusMaxTubularSegments,
+                    radialSegments: 12,
+                    tubularSegments: 24,
                     arc: MATH_PI2,
-                    qualityLevels: torusQualityLevels,
                     ox: x,
                     oy: y,
                     rotationXSpeed: Math.random() + 0.25,
@@ -280,53 +283,50 @@
                     distance: torusDistance - z,
                     distanceTotal: Math.round(torusDistance - torusMaxZ),
                     colorDough: torusDoughColors[Math.floor(Math.random() * torusDoughColors.length)],
-                    colorGlaze: torusGlazeColors[Math.floor(Math.random() * torusGlazeColors.length)],
-                    modelIndex: 0
+                    colorGlaze: torusGlazeColors[Math.floor(Math.random() * torusGlazeColors.length)]
                 };
 
-                // Create the torus mesh
+                // Create the torus mesh with MeshToonMaterial
                 const geometry = new THREE.TorusGeometry(
-                    torusData.radius,
-                    torusData.tube,
-                    torusData.radialSegments,
-                    torusData.tubularSegments,
+                    torusData.radius, 
+                    torusData.tube, 
+                    torusData.radialSegments, 
+                    torusData.tubularSegments, 
                     torusData.arc
                 );
-
-                // const material = new THREE.MeshLambertMaterial({ 
-                //     color: torusData.colorDough,
-                //     emissive: torusData.colorGlaze,
-                //     emissiveIntensity: 0.2
-                // });
-
-                const material = new THREE.MeshStandardMaterial({
+                
+                // Use MeshToonMaterial for the cel-shaded effect
+                const material = new THREE.MeshToonMaterial({ 
                     color: torusData.colorDough,
-                    emissive: torusData.colorGlaze,
-                    emissiveIntensity: 0.3,
-                    metalness: 0.2,
-                    roughness: 0.6
+                    gradientMap: gradientTexture,
+                    shininess: 60,
+                    specular: new THREE.Color(0.5, 0.5, 0.5)
                 });
-
+                
                 const torusMesh = new THREE.Mesh(geometry, material);
                 torusMesh.position.set(torusData.x, torusData.y, torusData.z);
                 torusMesh.userData = torusData;
-
+                
                 scene.add(torusMesh);
                 torusMeshes.push(torusMesh);
             }
         }
 
         function addLight() {
-            // Create a point light
-            //pointLight = new THREE.PointLight(0xffffff, 1, 1000);
-          
-            pointLight = new THREE.PointLight(0xffffff, 2, 10000);
-            pointLight.position.set(lightVector.x, lightVector.y, lightVector.z);
-            scene.add(pointLight);
+            //pointLight = new THREE.PointLight(0xffffff, 2, 10000);
+            // Create a directional light for toon shading
+            directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+            directionalLight.position.set(lightVector.x, lightVector.y, lightVector.z);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+
+            // Add ambient light to fill in shadows
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+            scene.add(ambientLight);
 
             // Create a visual representation of the light
-            const lightGeometry = new THREE.SphereGeometry(10, 16, 16);
-            const lightMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+            const lightGeometry = new THREE.SphereGeometry(15, 16, 16);
+            const lightMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
             lightMesh = new THREE.Mesh(lightGeometry, lightMaterial);
             lightMesh.position.set(lightVector.x, lightVector.y, lightVector.z);
             scene.add(lightMesh);
@@ -334,8 +334,8 @@
 
         function normalizeLight() {
             lightVector.normalize();
-            pointLight.position.copy(lightVector.multiplyScalar(fov * 0.5));
-            lightMesh.position.copy(pointLight.position);
+            directionalLight.position.copy(lightVector.multiplyScalar(fov * 0.5));
+            lightMesh.position.copy(directionalLight.position);
         }
 
         function updateTori() {
@@ -347,20 +347,20 @@
                 if (pointerDownButton !== 2) {
                     torusSpeed = Math.min(torusSpeed + 1, torusSpeedMax);
                     torusRotationSpeed = Math.min(torusRotationSpeed + 0.005, torusRotationSpeedMax);
-
+                    
                     cX += (pointerPos.x - cX) * 0.015;
                     cY += (pointerPos.y - cY) * 0.015;
                 } else {
                     torusSpeed = Math.max(torusSpeed - 1, 0);
                     torusRotationSpeed = Math.max(torusRotationSpeed - 0.01, 0);
-
+                    
                     cX += ((w * 0.5) - cX) * 0.025;
                     cY += ((h * 0.5) - cY) * 0.025;
                 }
             } else {
                 torusSpeed = Math.max(torusSpeed - 0.5, torusSpeedMin);
                 torusRotationSpeed = Math.max(torusRotationSpeed - 0.0025, torusRotationSpeedMin);
-
+                
                 cX += ((w * 0.5) - cX) * 0.015;
                 cY += ((h * 0.5) - cY) * 0.015;
             }
@@ -371,11 +371,14 @@
                 torusRotation -= torusRotationSpeed;
             }
 
+            // Sort tori by z position for proper rendering
+            torusMeshes.sort((a, b) => b.position.z - a.position.z);
+
             // Update each torus
             for (let i = 0; i < torusMeshes.length; i++) {
                 const torusMesh = torusMeshes[i];
                 const torusData = torusMesh.userData;
-
+                
                 // Update z position
                 if (pointerDownButton === 0) {
                     torusData.z += torusSpeed;
@@ -398,7 +401,7 @@
                 // Update position
                 torusMesh.position.z = torusData.z;
 
-                // Update rotation
+                // Update rotation around center
                 const radians = MATH_PI180 * torusRotation;
                 const cos = Math.cos(radians);
                 const sin = Math.sin(radians);
@@ -422,15 +425,15 @@
 
                 // Update material based on distance
                 const distancePercent = Math.max(0, Math.min(1, torusData.distance / torusData.distanceTotal));
-
+                
                 if (distancePercent > 0) {
                     // Adjust material properties based on distance
-                    const emissiveIntensity = 0.2 + (0.8 * distancePercent);
-                    torusMesh.material.emissiveIntensity = emissiveIntensity;
-
-                    // Adjust opacity based on distance
-                    // torusMesh.material.transparent = true;
-                    // torusMesh.material.opacity = 0.5 + (0.5 * distancePercent);
+                    //torusMesh.material.transparent = true;
+                    //torusMesh.material.opacity = 0.3 + (0.7 * distancePercent);
+                    
+                    // Add some emissive effect for donuts further away
+                    torusMesh.material.emissive = torusData.colorGlaze.clone();
+                    torusMesh.material.emissiveIntensity = 0.1 * distancePercent;
                 }
             }
 
@@ -447,21 +450,22 @@
                 const sinY = Math.sin(ay);
                 const cosY = Math.cos(ay);
 
-                const rx = pointLight.position.x;
-                const rz = pointLight.position.y * sinY + pointLight.position.z * cosY;
+                const rx = directionalLight.position.x;
+                const rz = directionalLight.position.y * sinY + directionalLight.position.z * cosY;
 
-                pointLight.position.x = rx * cosX + rz * sinX;
-                pointLight.position.y = pointLight.position.y * cosY + pointLight.position.z * -sinY;
-                pointLight.position.z = rx * -sinX + rz * cosX;
+                directionalLight.position.x = rx * cosX + rz * sinX;
+                directionalLight.position.y = directionalLight.position.y * cosY + directionalLight.position.z * -sinY;
+                directionalLight.position.z = rx * -sinX + rz * cosY;
 
-                lightMesh.position.copy(pointLight.position);
-                lightVector.copy(pointLight.position).normalize();
+                lightMesh.position.copy(directionalLight.position);
+                lightVector.copy(directionalLight.position).normalize();
             }
         }
 
         function render() {
             updateTori();
             renderer.render(scene, camera);
+            //stats.update();
             animationFrame = requestAnimationFrame(render);
         }
 
