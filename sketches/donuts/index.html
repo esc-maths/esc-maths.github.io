@@ -43,9 +43,9 @@
 <body>
     <div id="info">Click and drag to control rotation speed and direction</div>
 
-      <script type="module">
+    <script type="module">
         import * as THREE from 'three';
-      
+
         // Constants
         const DEBUG = false;
         const MATH_PI = Math.PI;
@@ -78,18 +78,18 @@
         const torusMaxZ = -fov + torusDiameter;
         const torusDistance = 8000;
 
-        const torusGlazeColors = [ 
-            new THREE.Color(255/255, 143/255, 188/255), 
-            new THREE.Color(254/255, 223/255, 9/255), 
-            new THREE.Color(126/255, 55/255, 73/255), 
-            new THREE.Color(254/255, 254/255, 254/255), 
-            new THREE.Color(0/255, 194/255, 215/255), 
-            new THREE.Color(103/255, 194/255, 46/255), 
-            new THREE.Color(247/255, 0/255, 45/255) 
+        const torusGlazeColors = [
+            new THREE.Color(0.96, 0.38, 0.45), // Hot pink / magenta
+            new THREE.Color(1.00, 0.74, 0.20), // Golden orange glow
+            new THREE.Color(0.55, 0.15, 0.75), // Deep violet
+            new THREE.Color(0.10, 0.90, 0.85), // Cyan / teal gas
+            new THREE.Color(0.94, 0.20, 0.32), // Bright red flame
+            new THREE.Color(0.15, 0.70, 0.25), // Neon green
+            new THREE.Color(1.00, 1.00, 1.00)  // White sparkle
         ];
-        
-        const torusDoughColors = [ 
-            new THREE.Color(251/255, 171/255, 24/255)
+
+        const torusDoughColors = [
+            new THREE.Color(251 / 255, 171 / 255, 24 / 255)
         ];
 
         const lightRotationSpeed = -2.00;
@@ -99,9 +99,9 @@
         const cameraVector = new THREE.Vector3(0, 0, -fov);
 
         // Background color
-        const bgColorR = 0/255;
-        const bgColorG = 0/255;
-        const bgColorB = 0/255;
+        const bgColorR = 0 / 255;
+        const bgColorG = 0 / 255;
+        const bgColorB = 0 / 255;
 
         // Three.js variables
         let scene, camera, renderer;
@@ -131,7 +131,7 @@
             document.body.appendChild(renderer.domElement);
 
             // Add stats
-           // stats = new Stats();
+            // stats = new Stats();
             //document.body.appendChild(stats.dom);
 
             // Setup event listeners
@@ -139,7 +139,7 @@
 
             // Create gradient texture for toon shading
             const gradientTexture = createGradientTexture();
-            
+
             // Create objects
             addTori(gradientTexture);
             addLight();
@@ -157,34 +157,34 @@
             const canvas = document.createElement('canvas');
             canvas.width = size;
             canvas.height = size;
-            
+
             const context = canvas.getContext('2d');
             const gradient = context.createLinearGradient(0, 0, size, 0);
-            
+
             // Define gradient stops for toon effect
             gradient.addColorStop(0.0, '#000');
             gradient.addColorStop(0.5, '#555');
             gradient.addColorStop(0.6, '#999');
             gradient.addColorStop(1.0, '#FFF');
-            
+
             context.fillStyle = gradient;
             context.fillRect(0, 0, size, size);
-            
+
             const texture = new THREE.CanvasTexture(canvas);
             texture.needsUpdate = true;
-            
+
             return texture;
         }
 
         function onResize() {
             w = window.innerWidth;
             h = window.innerHeight;
-            
+
             camera.aspect = w / h;
             camera.updateProjectionMatrix();
-            
+
             renderer.setSize(w, h);
-            
+
             rotationSpeedFactor.x = rotationSpeed / (w * 0.5);
             rotationSpeedFactor.y = rotationSpeed / (h * 0.5);
             lightRotationSpeedFactor.x = lightRotationSpeed / (w * 0.5);
@@ -195,7 +195,7 @@
             // Reset animation state if needed
             torusSpeed = torusSpeedMin;
             torusRotationSpeed = torusRotationSpeedMin;
-            
+
             // Start animation loop
             if (animationFrame !== null) {
                 cancelAnimationFrame(animationFrame);
@@ -205,7 +205,7 @@
 
         function setupEventListeners() {
             const canvas = renderer.domElement;
-            
+
             canvas.oncontextmenu = (event) => {
                 event.preventDefault();
             };
@@ -243,7 +243,7 @@
 
         function cursorMoveHandler(event) {
             const rect = renderer.domElement.getBoundingClientRect();
-            
+
             if (event.type === 'mousemove' || event.type === 'pointermove') {
                 pointerPos.x = event.clientX - rect.left;
                 pointerPos.y = event.clientY - rect.top;
@@ -288,25 +288,25 @@
 
                 // Create the torus mesh with MeshToonMaterial
                 const geometry = new THREE.TorusGeometry(
-                    torusData.radius, 
-                    torusData.tube, 
-                    torusData.radialSegments, 
-                    torusData.tubularSegments, 
+                    torusData.radius,
+                    torusData.tube,
+                    torusData.radialSegments,
+                    torusData.tubularSegments,
                     torusData.arc
                 );
-                
+
                 // Use MeshToonMaterial for the cel-shaded effect
-                const material = new THREE.MeshToonMaterial({ 
+                const material = new THREE.MeshToonMaterial({
                     color: torusData.colorDough,
                     gradientMap: gradientTexture,
                     shininess: 60,
                     specular: new THREE.Color(0.5, 0.5, 0.5)
                 });
-                
+
                 const torusMesh = new THREE.Mesh(geometry, material);
                 torusMesh.position.set(torusData.x, torusData.y, torusData.z);
                 torusMesh.userData = torusData;
-                
+
                 scene.add(torusMesh);
                 torusMeshes.push(torusMesh);
             }
@@ -347,20 +347,20 @@
                 if (pointerDownButton !== 2) {
                     torusSpeed = Math.min(torusSpeed + 1, torusSpeedMax);
                     torusRotationSpeed = Math.min(torusRotationSpeed + 0.005, torusRotationSpeedMax);
-                    
+
                     cX += (pointerPos.x - cX) * 0.015;
                     cY += (pointerPos.y - cY) * 0.015;
                 } else {
                     torusSpeed = Math.max(torusSpeed - 1, 0);
                     torusRotationSpeed = Math.max(torusRotationSpeed - 0.01, 0);
-                    
+
                     cX += ((w * 0.5) - cX) * 0.025;
                     cY += ((h * 0.5) - cY) * 0.025;
                 }
             } else {
                 torusSpeed = Math.max(torusSpeed - 0.5, torusSpeedMin);
                 torusRotationSpeed = Math.max(torusRotationSpeed - 0.0025, torusRotationSpeedMin);
-                
+
                 cX += ((w * 0.5) - cX) * 0.015;
                 cY += ((h * 0.5) - cY) * 0.015;
             }
@@ -378,7 +378,7 @@
             for (let i = 0; i < torusMeshes.length; i++) {
                 const torusMesh = torusMeshes[i];
                 const torusData = torusMesh.userData;
-                
+
                 // Update z position
                 if (pointerDownButton === 0) {
                     torusData.z += torusSpeed;
@@ -425,12 +425,12 @@
 
                 // Update material based on distance
                 const distancePercent = Math.max(0, Math.min(1, torusData.distance / torusData.distanceTotal));
-                
+
                 if (distancePercent > 0) {
                     // Adjust material properties based on distance
                     //torusMesh.material.transparent = true;
                     //torusMesh.material.opacity = 0.3 + (0.7 * distancePercent);
-                    
+
                     // Add some emissive effect for donuts further away
                     torusMesh.material.emissive = torusData.colorGlaze.clone();
                     torusMesh.material.emissiveIntensity = 0.1 * distancePercent;
