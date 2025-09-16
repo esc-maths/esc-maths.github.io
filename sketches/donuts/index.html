@@ -40,13 +40,13 @@
     let torusMeshes = [];
 
     // Animation parameters
-    let torusSpeed = 10;
+    let torusSpeed = 8;
     const torusSpeedMin = torusSpeed;
     let torusRotation = 0;
-    let torusRotationSpeed = 0.25;
+    let torusRotationSpeed = 0.15;
     const torusRotationSpeedMin = torusRotationSpeed;
 
-    const torusCount = 200;
+    const torusCount = 500;
     const torusDiameter = 104;
     const torusMaxZ = -fov + torusDiameter;
     const torusDistance = 8000;
@@ -68,7 +68,7 @@
     function init() {
       scene = new THREE.Scene();
       scene.background = new THREE.Color(0, 0, 0);
-      scene.fog = new THREE.Fog(new THREE.Color(0, 0, 0), 500, 6000);
+      scene.fog = new THREE.Fog(new THREE.Color(0, 0, 0), 500, 7000);
 
       camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 10000);
       camera.position.z = 5000;
