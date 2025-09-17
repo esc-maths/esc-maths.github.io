@@ -501,12 +501,12 @@ print("Real sqrt of eigenvalues =", np.sqrt(np.real(eigvals_AtA)))
 				<!--
 				 data-visibility="hidden"
 				-->
-				<section>
+				<section  data-visibility="hidden">
 					<h5>Python code for part (b)</h5>
 
 					<pre  style="width: 100%;height: 605px; font-size: 55%;margin-top: -10px;">
 						<code data-trim data-noescape 
-							data-line-numbers="1-19">
+							data-line-numbers="1-17">
 import numpy as np
 from scipy.linalg import qr
 import matplotlib.pyplot as plt
@@ -517,8 +517,6 @@ np.set_printoptions(precision=5, suppress=True)
 # Data
 x = np.array([1,2,3,4,5,6,7,8,9,10], dtype=float)
 y = np.array([0.6,2.1837,2.8844,4.3985,4.2369,4.7755,5.5160,5.6721,5.6654,4.7268],dtype=float)
-
-y_col = y.reshape(-1, 1) # vector column
 
 X_cubic = np.column_stack([x**3, x**2, x, np.ones_like(x)]) 
 
@@ -536,12 +534,12 @@ print("Coefficients (a3, a2, a1, a0)^T = \n", coef_cubic)
 				<!--
 				 data-visibility="hidden"
 				-->
-				<section>
+				<section  data-visibility="hidden">
 					<h5>Python code for part (b)</h5>
 
 					<pre  style="width: 100%;height: 605px; font-size: 55%;margin-top: -20px;">
 						<code data-trim data-noescape 
-							data-line-numbers="1-16">
+							data-line-="1-16">
 # Predictions
 x_fit = np.linspace(1, 10, 200)
 y_cubic_fit = coef_cubic[0]*x_fit**3 + coef_cubic[1]*x_fit**2 + coef_cubic[2]*x_fit + coef_cubic[3]
