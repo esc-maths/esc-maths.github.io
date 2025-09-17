@@ -230,17 +230,16 @@
 				<!--
 				 data-visibility="hidden"-->
 				<section>
-					<h4>Problem 3 (cont.): For part a)</h4>
+					<h5>Problem 3: Python code for part a)</h5>
 
 					<div style="margin-top: -15px; margin-bottom:-10px; font-size: 90%;">
 						<p>
-							PLU - Python
+							PLU
 						</p>
 					</div>
 
-					<pre style="width: 100%;height: 370px; font-size: 25px;">
-						<code data-trim data-noescape  
-							data-line-numbers="1-12">
+					<pre class="copyable" style="width: 100%;height: 370px; font-size: 25px;">
+						<code data-trim data-noescape>
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
  
@@ -255,14 +254,22 @@ print("U:\n", U)
 print("Check P*L*U:\n ", P @ L @ U)
   </code></pre>
 
+					<div class="size-50">
+						<p>
+							👉 Run Python online here:
+							<a href="https://trinket.io/python3"><tt>tinket.io/python3</tt> <i class="fa fa-external-link-alt"></i></a>
+						</p>
+					</div>
 					<div class="size-50 left-txt">
+
 						<p><b>Note:</b> The second line imports specific linear algebra routines form
 							<tt>scipy.linalg</tt> .
-							More details here: <a
-								href="https://docs.scipy.org/doc/scipy/reference/linalg.html"
-								target="_blank">Linear algebra <i class="fa fa-external-link-alt"></i></a></p>
+							More details here: <a href="https://docs.scipy.org/doc/scipy/reference/linalg.html"
+								target="_blank">Linear algebra <i class="fa fa-external-link-alt"></i></a>
+						</p>
+
 					</div>
-					<br />
+
 					<br />
 
 				</section>
@@ -271,15 +278,16 @@ print("Check P*L*U:\n ", P @ L @ U)
 				 data-visibility="hidden"
 				-->
 				<section>
-					<h4>Problem 3 (cont.)</h4>
+					<h5>Problem 3: Python code for part a)</h5>
 
 					<div style="margin-top: -15px; margin-bottom: -10px; font-size: 90%;">
 						<p>
-							QR - Python
+							QR
 						</p>
 					</div>
 
-					<pre style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13">
+					<pre class="copyable" style="width: 100%;height: 370px; font-size: 25px;">
+						<code data-trim data-noescape>
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
@@ -294,7 +302,7 @@ print("R:\n", R)
 print("Check Q*R:\n", Q @ R)
   </code></pre>
 
-					<br />
+					
 					<br />
 					<br />
 
@@ -304,7 +312,7 @@ print("Check Q*R:\n", Q @ R)
 				 data-visibility="hidden"
 				-->
 				<section>
-					<h4>Problem 3 (cont.)</h4>
+					<h5>Problem 3: Python code for part a)</h5>
 
 					<div style="margin-top: -15px; margin-bottom: -10px; font-size: 90%;">
 						<p>
@@ -312,7 +320,8 @@ print("Check Q*R:\n", Q @ R)
 						</p>
 					</div>
 
-					<pre style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13">
+					<pre class="copyable" style="width: 100%;height: 370px; font-size: 25px;">
+						<code data-trim data-noescape >
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
@@ -330,11 +339,9 @@ except Exception as e:
 					<div class="size-50 left-txt">
 						<p><b>Note:</b> The <tt>try/except</tt> statements check if it is possible to compute the
 							Cholesky decomposition.
-							More info here: <a
-								href="https://docs.python.org/3/tutorial/errors.html#handling-exceptions"
+							More info here: <a href="https://docs.python.org/3/tutorial/errors.html#handling-exceptions"
 								target="_blank">Handling Exceptions <i class="fa fa-external-link-alt"></i></a></p>
 					</div>
-					<br />
 					<br />
 
 				</section>
@@ -342,17 +349,16 @@ except Exception as e:
 				 data-visibility="hidden"
 				-->
 				<section>
-					<h4>Problem 3 (cont.)</h4>
+					<h5>Problem 3: Python code for part a)</h5>
 
 					<div style="margin-top: -15px; margin-bottom: -10px; font-size: 90%;">
 						<p>
-							SVD - Python
+							SVD
 						</p>
 					</div>
 
-					<pre style="width: 100%;height: 370px; font-size: 25px;">
-						<code data-trim data-noescape 
-							data-line-numbers="1-13">
+					<pre class="copyable" style="width: 100%;height: 370px; font-size: 25px;">
+						<code data-trim data-noescape>
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
@@ -370,7 +376,7 @@ print("Check U*S*V^T:\n", U_svd @ np.diag(S_svd) @ Vh_svd)
 					<div class="size-45 left-txt">
 						<p><b>Remark 1:</b> For part f) you may need to modify code.</p>
 						<p><b>Remark 2:</b> For all cases, if you prefer to set a specific number of decimals,
-							after the <tt>scipy</tt> routines as imported, include this line:
+							after the <tt>scipy</tt> routines are imported, include this line of code:
 						</p>
 					</div>
 					<div class="size-50" style="margin-top: -15px;">
@@ -425,9 +431,8 @@ print("Check U*S*V^T:\n", U_svd @ np.diag(S_svd) @ Vh_svd)
 				<section>
 					<h5 style="font-size: 60%;">Problem 4 (cont.)</h5>
 
-					<pre style="width: 100%;height: 605px; font-size: 49%;margin-top: -10px;">
-						<code data-trim data-noescape 
-							data-line-numbers="1-24">
+					<pre class="copyable" style="width: 100%;height: 605px; font-size: 49%;margin-top: -10px;">
+						<code data-trim data-noescape>
 import numpy as np
 
 # Set NumPy printing precision
@@ -517,9 +522,8 @@ print("Real sqrt of eigenvalues =", np.sqrt(np.real(eigvals_AtA)))
 				<section data-visibility="hidden">
 					<h5>Python code for part (b)</h5>
 
-					<pre style="width: 100%;height: 605px; font-size: 55%;margin-top: -10px;">
-						<code data-trim data-noescape 
-							data-line-numbers="1-17">
+					<pre class="copyable" style="width: 100%;height: 605px; font-size: 55%;margin-top: -10px;">
+						<code data-trim data-noescape>
 import numpy as np
 from scipy.linalg import qr
 import matplotlib.pyplot as plt
@@ -550,9 +554,8 @@ print("Coefficients (a3, a2, a1, a0)^T = \n", coef_cubic)
 				<section data-visibility="hidden">
 					<h5>Python code for part (b)</h5>
 
-					<pre style="width: 100%;height: 605px; font-size: 55%;margin-top: -20px;">
-						<code data-trim data-noescape 
-							data-line-="1-16">
+					<pre class="copyable" style="width: 100%;height: 605px; font-size: 55%;margin-top: -20px;">
+						<code data-trim data-noescape>
 # Predictions
 x_fit = np.linspace(1, 10, 200)
 y_cubic_fit = coef_cubic[0]*x_fit**3 + coef_cubic[1]*x_fit**2 + coef_cubic[2]*x_fit + coef_cubic[3]
@@ -582,9 +585,8 @@ plt.show()
 				<section>
 					<h5 style="font-size: 50%;">Python code for part (b)</h5>
 
-					<pre style="width: 100%;height: 620px; font-size: 38%;margin-top: -10px;">
-						<code data-trim data-noescape 
-							data-line-numbers="1-34">
+					<pre class="copyable" style="width: 100%;height: 620px; font-size: 37.5%;margin-top: -10px;">
+						<code data-trim data-noescape>
 import numpy as np
 from scipy.linalg import qr
 import matplotlib.pyplot as plt
