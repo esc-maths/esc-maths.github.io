@@ -52,6 +52,27 @@
 			background-color: rgba(221, 221, 221, 0.9);
 			border-radius: 20px;
 		}
+
+		/* Custom slow fade for fragments */
+		.reveal .slides section .fragment.slow-fade {
+			opacity: 0;
+			transition: opacity 3s ease-in-out;
+			/* 2 seconds fade */
+		}
+
+		.reveal .slides section .fragment.slow-fade.visible {
+			opacity: 1;
+		}
+
+		.reveal .slides section .fragment.auto-fade {
+			opacity: 0;
+			transition: opacity 2s ease-in-out 1s;
+			/* fade over 2s, start 2s later */
+		}
+
+		.reveal .slides section .fragment.auto-fade.visible {
+			opacity: 1;
+		}
 	</style>
 
 </head>
@@ -441,11 +462,11 @@
 										\(
 										\begin{align*}
 										\frac{dy}{dx}
-										&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \qquad\qquad\qquad 
+										&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \qquad\qquad\qquad
 										\end{align*}
 										\)
 									</p>
-									<p class="fragment" data-fragment-index="2">
+									<p class="fragment slow-fade" data-fragment-index="2">
 										\(
 										\begin{align*}
 										&= \lim_{h \to 0} \frac{(x+h)^3 - x^3}{h} \\
@@ -478,7 +499,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h3>Now consider $\;y = x^4 - x^3 + 2x^2 - 1$</h3>
+					<h5>Now consider $\;y = x^4 - x^3 + 2x^2 - 1$</h5>
 
 					<table style="width: 100%; margin-top: -30px;">
 						<tr>
@@ -488,11 +509,12 @@
 										\(
 										\begin{align*}
 										\frac{dy}{dx}
-										&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad 
+										&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \qquad \qquad \qquad \qquad \qquad
+										\qquad \qquad \qquad \qquad
 										\end{align*}
 										\)
 									</p>
-									<p class="fragment" data-fragment-index="2">
+									<p class="fragment slow-fade" data-fragment-index="2">
 										\(
 										\begin{align*}
 										&= \lim_{h \to 0} \frac{(x+h)^4 - (x+h)^3 + 2(x+h)^2 - 1 \;-\; (x^4 - x^3 + 2x^2
@@ -500,7 +522,8 @@
 										&= \lim_{h \to 0} \frac{(x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4) - (x^3 + 3x^2h +
 										3xh^2 +
 										h^3)}{h} \\
-										&\quad \quad \quad + \frac{(2x^2 + 4xh + 2h^2) - 1 - (x^4 - x^3 + 2x^2 - 1)}{h} \\
+										&\quad \quad \quad + \frac{(2x^2 + 4xh + 2h^2) - 1 - (x^4 - x^3 + 2x^2 - 1)}{h}
+										\\
 										&= \lim_{h \to 0} \frac{x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4 - x^3 - 3x^2h -
 										3xh^2 - h^3}{h}
 										\\
