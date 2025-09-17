@@ -361,8 +361,16 @@ print("V^T:\n", Vh_svd)
 print("Check U*S*V^T:\n", U_svd @ np.diag(S_svd) @ Vh_svd)
   </code></pre>
 
-					<br />
-					<br />
+					<div class="size-45 left-txt">
+						<p><b>Remark 1:</b> For part f) you may need to modify code.</p>
+						<p><b>Remark 2:</b> For all cases, if you prefer to set a specific number of decimals,
+							after the <tt>scipy</tt> library is imported, include this line:
+							</p>
+					</div>
+					<div class="size-50" style="margin-top: -15px;">
+						<p>
+							<tt>np.set_printoptions(precision=5, suppress=True)</tt></p>
+					</div>
 					<br />
 
 				</section>
