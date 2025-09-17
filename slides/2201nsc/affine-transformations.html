@@ -675,9 +675,8 @@ function T3(c) {
 				<section>
 					<h4>Deterministic IFS: JavaScript</h4>
 					<div style="margin-top: -10px;">
-						<script data-height="600" data-preview-width="400" type="text/p5">
+						<script data-height="560" data-preview-width="400" type="text/p5">
 // Play button, then click on the plot to iterate!
-
 // Affine transforms applied to center and radius of circle
 function T1(c) {
   return {
@@ -686,7 +685,6 @@ function T1(c) {
     r: 0.5 * c.r, // radius
   };
 }
-
 function T2(c) {
   return {
     x: 0.5 * c.x + 0,
@@ -694,7 +692,6 @@ function T2(c) {
     r: 0.5 * c.r,
   };
 }
-
 function T3(c) {
   return {
     x: 0.5 * c.x + 100,
@@ -773,6 +770,11 @@ function plotAxesInfo() {
   pop();
 }
 </script>
+					</div>
+
+					<!-- Reload button -->
+					<div style="margin-top: -25px;">
+						<button onclick="reloadP5Widget(this)">Reload Sketch &nbsp;<i class="fas fa-sync"></i></button>
 					</div>
 					<br />
 				</section>
@@ -883,7 +885,7 @@ function nextPoint() {
 				<section>
 					<h4>Probabilistic IFS: JavaScript</h4>
 					<div style="margin-top: -10px;">
-						<script data-height="600" data-preview-width="400" type="text/p5" data-p5-version="1.11.8">
+						<script data-height="555" data-preview-width="400" type="text/p5" data-p5-version="1.11.8">
 let x = 0, y = 0;
 
 function nextPoint() {
@@ -929,6 +931,11 @@ function drawPoint() {
 }
 </script>
 					</div>
+
+					<!-- Reload button -->
+					<div style="margin-top: -25px;">
+						<button onclick="reloadP5Widget(this)">Reload Sketch &nbsp;<i class="fas fa-sync"></i></button>
+					</div>
 					<br />
 				</section>
 			</section>
@@ -952,6 +959,17 @@ function drawPoint() {
 
 	<script>
 		includeHTML();
+	</script>
+
+	<script>
+		function reloadP5Widget(button) {
+			// Find the iframe just before this button
+			let section = button.closest("section");
+			let iframe = section.querySelector("iframe");
+			if (iframe) {
+				iframe.src = iframe.src; // reload iframe
+			}
+		}
 	</script>
 
 </body>
