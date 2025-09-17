@@ -246,12 +246,12 @@
 
 					<pre class="copyable"  style="width: 100%;height: 430px; font-size: 25px;">
 						<code data-trim data-noescape  
-							data-line-numbers="1-14|1-2|4-5|7|7,8|7,9|7,10|7,11-13|7,14">
+							data-line-numbers="1-14">
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
 A = np.array([[0, -1],
-              [1,  1]])
+              [1,  -1]])
 
 print("--- LDU decomposition ---")
 P, L, U = lu(A)  # SciPy: returns P, L, U with P*A = L*U
@@ -281,12 +281,12 @@ print("Check:\n", P @ A, "\n", L @ D @ U_normalized)
 						</p>
 					</div>
 
-					<pre class="copyable"  style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13|1-5|7-8|7,10-12">
+					<pre class="copyable"  style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13">
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
 A = np.array([[0, -1],
-              [1,  1]])
+              [1,  -1]])
 
 print("\n--- QR decomposition ---")
 Q, R = qr(A)
@@ -314,12 +314,12 @@ print("Check Q*R:\n", Q @ R)
 						</p>
 					</div>
 
-					<pre class="copyable"  style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13|1-5|7-10|7,11-12">
+					<pre class="copyable"  style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13">
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
 A = np.array([[0, -1],
-              [1,  1]])
+              [1,  -1]])
 
 print("\n--- Cholesky decomposition ---")
 try:
@@ -348,12 +348,12 @@ except Exception as e:
 
 					<pre class="copyable"  style="width: 100%;height: 370px; font-size: 25px;">
 						<code data-trim data-noescape 
-							data-line-numbers="1-13|1-5|7-8|7,9-11|7,10|7,12">
+							data-line-numbers="1-13">
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
 A = np.array([[0, -1],
-              [1,  1]])
+              [1,  -1]])
 
 print("\n--- SVD decomposition ---")
 U_svd, S_svd, Vh_svd = svd(A)
@@ -414,7 +414,7 @@ print("Check U*S*V^T:\n", U_svd @ np.diag(S_svd) @ Vh_svd)
 
 					<pre class="copyable"  style="width: 100%;height: 605px; font-size: 49%;margin-top: -20px;">
 						<code data-trim data-noescape 
-							data-line-numbers="1-24|1|3-4|6-8|10-14|16-19|21-24">
+							data-line-numbers="1-24">
 import numpy as np
 
 # Set NumPy printing precision
@@ -506,7 +506,7 @@ print("Real sqrt of eigenvalues =", np.sqrt(np.real(eigvals_AtA)))
 
 					<pre  style="width: 100%;height: 605px; font-size: 55%;margin-top: -10px;">
 						<code data-trim data-noescape 
-							data-line-numbers="1-19|1-3|5-6|8-10|12|14|16|17|18|21">
+							data-line-numbers="1-19">
 import numpy as np
 from scipy.linalg import qr
 import matplotlib.pyplot as plt
@@ -541,7 +541,7 @@ print("Coefficients (a3, a2, a1, a0)^T = \n", coef_cubic)
 
 					<pre  style="width: 100%;height: 605px; font-size: 55%;margin-top: -20px;">
 						<code data-trim data-noescape 
-							data-line-numbers="1-16|1-3|5-7|9|11-16">
+							data-line-numbers="1-16">
 # Predictions
 x_fit = np.linspace(1, 10, 200)
 y_cubic_fit = coef_cubic[0]*x_fit**3 + coef_cubic[1]*x_fit**2 + coef_cubic[2]*x_fit + coef_cubic[3]
