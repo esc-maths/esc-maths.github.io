@@ -177,7 +177,7 @@
 
 				<!--
 				 data-visibility="hidden"-->
-				<section>
+				<section data-visibility="hidden">
 					<h4>Problem 2 (cont.)</h4>
 
 
@@ -209,7 +209,7 @@ A_approx_color = (A_approx - amin) / (amax - amin) * 63;
 
 				<!--
 				 data-visibility="hidden"-->
-				<section>
+				<section data-visibility="hidden">
 					<h4>Problem 2 (cont.)</h4>
 
 
@@ -234,7 +234,7 @@ title('Rank-1 Approximation');
 
 				<!--
 				 data-visibility="hidden"-->
-				<section>
+				<section data-visibility="hidden">
 					<h4 style="font-size: 50%;">Run Octave online here: <a href="https://octave-online.net/"
 							target="_blank"><tt>octave-online.net</tt> <i class="fa fa-external-link-alt"></i></a></h4>
 
@@ -314,13 +314,13 @@ title('Rank-1 Approximation');
 
 				<!--
 				 data-visibility="hidden"-->
-				<section>
+				<section data-visibility="hidden">
 					<h4>Problem 3 (cont.)</h4>
 
 
 					<pre style="width: 100%;height: 540px; font-size: 22px;">
 						<code data-trim data-noescape  
-							data-line-numbers="1-20|1-2|4|5-7">
+							data-line-numbers="1-20|1-2|4|5-7|9-10|12-15|17-20">
 import numpy as np
 from scipy.sparse.linalg import svds  # Truncated SVD
 
@@ -348,7 +348,7 @@ B = a[:, :, 2].astype(float)
 
 				<!--
 				 data-visibility="hidden"-->
-				<section>
+				<section data-visibility="hidden">
 					<h4>Problem 3 (cont.)</h4>
 
 
@@ -378,7 +378,7 @@ a_out = np.clip(a_out, 0, 255).astype(np.uint8)
 				</section>
 				<!--
 				 data-visibility="hidden"-->
-				<section>
+				<section data-visibility="hidden">
 					<h4>Problem 3 (cont.)</h4>
 
 
@@ -404,26 +404,23 @@ plt.show()
 
 				<!--
 				 data-visibility="hidden"-->
-				<section>
+				<section data-visibility="hidden">
 					<h4 style="font-size: 45%;">Run Python online here: <a href="https://trinket.io/python3"
 							target="_blank"><tt>trinket.io/python3</tt> <i class="fa fa-external-link-alt"></i></a></h4>
 
 
-					<pre class="copyable" style="width: 640px;height: 630px; font-size: 31.2%;margin-top: -15px;">
+					<pre class="copyable" style="width: 640px;height: 630px; font-size: 33.6%;margin-top: -15px;">
 						<code data-trim data-noescape data-ln-start-from="1">
 import numpy as np
-import matplotlib.pyplot as plt
 from scipy.sparse.linalg import svds
+import matplotlib.pyplot as plt
 from PIL import Image
 import requests
 from io import BytesIO
-# Rank for approximation
-r = 50
-# Download the image from URL
+r = 50 # Rank
 url = "https://esc-maths.github.io/assets/imgs/Lambs.jpg"
 response = requests.get(url)
 a = np.array(Image.open(BytesIO(response.content))) # numpy array
-# Extract color channels as float
 R = a[:, :, 0].astype(float)
 G = a[:, :, 1].astype(float)
 B = a[:, :, 2].astype(float)
