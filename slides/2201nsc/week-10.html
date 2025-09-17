@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="mySetup/mylayout.css" />
 
 	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css">
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
 
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
@@ -177,12 +177,12 @@
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4>Problem 2 (cont.)</h4>
 
 
 					<pre style="width: 100%;height: 540px; font-size: 22px;">
-						<code data-trim data-noescape  
+						<code data-trim data-noescape  class="language-python"
 							data-line-numbers="1-18|1|3|5-6|8-10|12-14|16-18">
 # OCTAVE CODE. Run it here: https://octave-online.net/
 
@@ -209,7 +209,7 @@ A_approx_color = (A_approx - amin) / (amax - amin) * 63;
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4>Problem 2 (cont.)</h4>
 
 
@@ -234,14 +234,13 @@ title('Rank-1 Approximation');
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4 style="font-size: 50%;">Run Octave online here: <a href="https://octave-online.net/"
-							target="_blank">octave-online.net <i class="fa fa-external-link-alt"></i></a></h4>
+							target="_blank"><tt>octave-online.net</tt> <i class="fa fa-external-link-alt"></i></a></h4>
 
 
 					<pre class="copyable" style="width: 800px;height: 600px; font-size: 42.5%;margin-top: -10px;">
-						<code data-trim data-noescape data-ln-start-from="1"  
-							data-line-numbers="1-28">
+						<code data-trim data-noescape data-ln-start-from="1" >
 pkg load linear-algebra  % Load the linear algebra package
 
 A = magic(10);           % Generate a 10x10 magic square matrix
@@ -315,7 +314,7 @@ title('Rank-1 Approximation');
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4>Problem 3 (cont.)</h4>
 
 
@@ -349,7 +348,7 @@ B = a[:, :, 2].astype(float)
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4>Problem 3 (cont.)</h4>
 
 
@@ -379,7 +378,7 @@ a_out = np.clip(a_out, 0, 255).astype(np.uint8)
 				</section>
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4>Problem 3 (cont.)</h4>
 
 
@@ -405,12 +404,12 @@ plt.show()
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4 style="font-size: 45%;">Run Python online here: <a href="https://trinket.io/python3"
-							target="_blank">trinket.io/python3 <i class="fa fa-external-link-alt"></i></a></h4>
+							target="_blank"><tt>trinket.io/python3</tt> <i class="fa fa-external-link-alt"></i></a></h4>
 
 
-					<pre class="copyable" style="width: 630px;height: 625px; font-size: 31%;margin-top: -15px;">
+					<pre class="copyable" style="width: 640px;height: 630px; font-size: 31.2%;margin-top: -15px;">
 						<code data-trim data-noescape data-ln-start-from="1"  
 							data-line-numbers="1-48">
 import numpy as np
