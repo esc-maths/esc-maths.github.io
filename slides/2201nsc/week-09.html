@@ -56,8 +56,6 @@
 			position: relative;
 			/* so the button positions correctly */
 		}
-
-		
 	</style>
 
 </head>
@@ -232,19 +230,15 @@
 				<!--
 				 data-visibility="hidden"-->
 				<section>
-					<h4>Problem 3 (cont.)</h4>
-					<div class="left-txt size-65" style="margin-top: -20px;">
-						<p>
-							(a) $\,A=\begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix}$
-						</p>
-					</div>
-					<div style="margin-top: -25px; margin-bottom: -10px; font-size: 90%;">
+					<h4>Problem 3 (cont.): For part a)</h4>
+
+					<div style="margin-top: -15px; margin-bottom:-10px; font-size: 90%;">
 						<p>
 							PLU - Python
 						</p>
 					</div>
 
-					<pre  style="width: 100%;height: 430px; font-size: 25px;">
+					<pre style="width: 100%;height: 370px; font-size: 25px;">
 						<code data-trim data-noescape  
 							data-line-numbers="1-12">
 import numpy as np
@@ -261,7 +255,13 @@ print("U:\n", U)
 print("Check P*L*U:\n ", P @ L @ U)
   </code></pre>
 
-					<br />
+					<div class="size-50 left-txt">
+						<p><b>Note:</b> The second line imports specific linear algebra routines form
+							<tt>scipy.linalg</tt> .
+							More details here: <a
+								href="https://docs.scipy.org/doc/scipy/reference/linalg.html"
+								target="_blank">Linear algebra <i class="fa fa-external-link-alt"></i></a></p>
+					</div>
 					<br />
 					<br />
 
@@ -312,7 +312,7 @@ print("Check Q*R:\n", Q @ R)
 						</p>
 					</div>
 
-					<pre  style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13">
+					<pre style="width: 100%;height: 370px; font-size: 25px;"><code data-trim data-noescape  data-line-numbers="1-13">
 import numpy as np
 from scipy.linalg import lu, qr, svd, cholesky
 
@@ -327,7 +327,13 @@ except Exception as e:
     print("Cholesky failed:", e)
   </code></pre>
 
-					<br />
+					<div class="size-50 left-txt">
+						<p><b>Note:</b> The <tt>try/except</tt> statements check if it is possible to compute the
+							Cholesky decomposition.
+							More info here: <a
+								href="https://docs.python.org/3/tutorial/errors.html#handling-exceptions"
+								target="_blank">Handling Exceptions <i class="fa fa-external-link-alt"></i></a></p>
+					</div>
 					<br />
 					<br />
 
@@ -344,7 +350,7 @@ except Exception as e:
 						</p>
 					</div>
 
-					<pre  style="width: 100%;height: 370px; font-size: 25px;">
+					<pre style="width: 100%;height: 370px; font-size: 25px;">
 						<code data-trim data-noescape 
 							data-line-numbers="1-13">
 import numpy as np
@@ -364,12 +370,13 @@ print("Check U*S*V^T:\n", U_svd @ np.diag(S_svd) @ Vh_svd)
 					<div class="size-45 left-txt">
 						<p><b>Remark 1:</b> For part f) you may need to modify code.</p>
 						<p><b>Remark 2:</b> For all cases, if you prefer to set a specific number of decimals,
-							after the <tt>scipy</tt> library is imported, include this line:
-							</p>
+							after the <tt>scipy</tt> routines as imported, include this line:
+						</p>
 					</div>
 					<div class="size-50" style="margin-top: -15px;">
 						<p>
-							<tt>np.set_printoptions(precision=5, suppress=True)</tt></p>
+							<tt>np.set_printoptions(precision=5, suppress=True)</tt>
+						</p>
 					</div>
 					<br />
 
@@ -418,7 +425,7 @@ print("Check U*S*V^T:\n", U_svd @ np.diag(S_svd) @ Vh_svd)
 				<section>
 					<h5 style="font-size: 60%;">Problem 4 (cont.)</h5>
 
-					<pre  style="width: 100%;height: 605px; font-size: 49%;margin-top: -10px;">
+					<pre style="width: 100%;height: 605px; font-size: 49%;margin-top: -10px;">
 						<code data-trim data-noescape 
 							data-line-numbers="1-24">
 import numpy as np
@@ -507,10 +514,10 @@ print("Real sqrt of eigenvalues =", np.sqrt(np.real(eigvals_AtA)))
 				<!--
 				 data-visibility="hidden"
 				-->
-				<section  data-visibility="hidden">
+				<section data-visibility="hidden">
 					<h5>Python code for part (b)</h5>
 
-					<pre  style="width: 100%;height: 605px; font-size: 55%;margin-top: -10px;">
+					<pre style="width: 100%;height: 605px; font-size: 55%;margin-top: -10px;">
 						<code data-trim data-noescape 
 							data-line-numbers="1-17">
 import numpy as np
@@ -540,10 +547,10 @@ print("Coefficients (a3, a2, a1, a0)^T = \n", coef_cubic)
 				<!--
 				 data-visibility="hidden"
 				-->
-				<section  data-visibility="hidden">
+				<section data-visibility="hidden">
 					<h5>Python code for part (b)</h5>
 
-					<pre  style="width: 100%;height: 605px; font-size: 55%;margin-top: -20px;">
+					<pre style="width: 100%;height: 605px; font-size: 55%;margin-top: -20px;">
 						<code data-trim data-noescape 
 							data-line-="1-16">
 # Predictions
