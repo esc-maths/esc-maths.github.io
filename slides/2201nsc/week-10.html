@@ -320,13 +320,14 @@ title('Rank-1 Approximation');
 
 					<pre style="width: 100%;height: 540px; font-size: 22px;">
 						<code data-trim data-noescape  
-							data-line-numbers="1-19|1-6|2-4|5-7|9-10|12-15|17-20">
+							data-line-numbers="1-20|1-2|4|5-7">
 import numpy as np
+from scipy.sparse.linalg import svds  # Truncated SVD
+
 import matplotlib.pyplot as plt
-from scipy.sparse.linalg import svds
-from PIL import Image
-import requests
-from io import BytesIO
+from PIL import Image  # For manipulating and saving images  
+import requests        # Access images from the web
+from io import BytesIO # Treat raw byte data
 
 # Rank for approximation
 r = 50
@@ -409,8 +410,7 @@ plt.show()
 
 
 					<pre class="copyable" style="width: 640px;height: 630px; font-size: 31.2%;margin-top: -15px;">
-						<code data-trim data-noescape data-ln-start-from="1"  
-							data-line-numbers="1-48">
+						<code data-trim data-noescape data-ln-start-from="1">
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.sparse.linalg import svds

@@ -263,7 +263,7 @@ print("Check P*L*U:\n ", P @ L @ U)
 					<div class="size-50 left-txt">
 
 						<p><b>Note:</b> The second line imports specific linear algebra routines form
-							<tt>scipy.linalg</tt> .
+							<tt>scipy.linalg</tt>.
 							More details here: <a href="https://docs.scipy.org/doc/scipy/reference/linalg.html"
 								target="_blank">Linear algebra <i class="fa fa-external-link-alt"></i></a>
 						</p>
@@ -537,7 +537,7 @@ y = np.array([0.6,2.1837,2.8844,4.3985,4.2369,4.7755,5.5160,5.6721,5.6654,4.7268
 
 X_cubic = np.column_stack([x**3, x**2, x, np.ones_like(x)]) 
 
-Q, R = qr(X_cubic, mode='economic')
+Q, R = qr(X_cubic, mode='economic') 
 R_inv = np.linalg.inv(R)
 coef_cubic = R_inv @ Q.T @ y
 print("Coefficients (a3, a2, a1, a0)^T = \n", coef_cubic)
@@ -598,9 +598,9 @@ np.set_printoptions(precision=5, suppress=True)
 x = np.array([1,2,3,4,5,6,7,8,9,10], dtype=float)
 y = np.array([0.6,2.1837,2.8844,4.3985,4.2369,4.7755,5.5160,5.6721,5.6654,4.7268], dtype=float)
 
-X_cubic = np.column_stack([x**3, x**2, x, np.ones_like(x)]) 
+X_cubic = np.column_stack([x**3, x**2, x, np.ones_like(x)]) # Create matrix
 
-Q, R = qr(X_cubic, mode='economic')
+Q, R = qr(X_cubic, mode='economic') # mode='economic' reshapes Q and R
 R_inv = np.linalg.inv(R)
 coef_cubic = R_inv @ Q.T @ y
 print("Coefficients (a3, a2, a1, a0)^T = \n", coef_cubic)
