@@ -1,4 +1,5 @@
 let x = 0, y = 0;
+let startTime;
 
 function nextPoint() {
   let nextX, nextY, r = random();
@@ -24,10 +25,19 @@ function setup() {
   createCanvas(200, 350);
   background(255);
   strokeWeight(2); // Point size
+  startTime = millis();
 }
 
 let maxValue = 20; // Change this number to speed up iterations
 function draw() {
+  // Check if 1 minute (50000 ms) has passed
+  if (millis() - startTime > 50000) {
+    background(255); // Clear canvas
+    x = 0;
+    y = 0;
+    startTime = millis(); // Reset timer
+  }
+
   for (let i = 0; i < maxValue; i++) {
     drawPoint();
     nextPoint();
