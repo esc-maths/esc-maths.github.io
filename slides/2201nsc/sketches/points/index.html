@@ -1,83 +1,177 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
   <meta charset="utf-8" />
-  <title>MathBox - Color Points 3D</title>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/three@0.137.0/examples/js/controls/OrbitControls.js">
+  <title>Three.js - Color Points with Fog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- importmap as you requested -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
   </script>
-  <!--
-      - a minified version mathbox.min.js is also available;
-      - recommend using a specific version (not @latest) in public sites
-    -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathbox@latest/build/bundle/mathbox.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mathbox@latest/build/mathbox.css" />
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    /* simple overlay text */
+    .info {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      color: #ddd;
+      font-family: sans-serif;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
-  <script>
-    // Color Cube by Max Goldstein, CC-BY
-    mathbox = MathBox.mathBox({
-      plugins: ["core", "controls", "cursor"],
-      controls: {
-        klass: THREE.OrbitControls,
-      },
-      camera: {},
-    });
+  <div class="info">Three.js points colored by position — fog applied to scene</div>
 
-    three = mathbox.three;
-    three.controls.maxDistance = 4;
-    three.camera.position.set(-1.2, .4, -1.1);
-    three.renderer.setClearColor(new THREE.Color(0x000000), 1.0);
+  <script type="module">
+    import * as THREE from "three";
+    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio || 1);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 1.0); // background color
+    document.body.appendChild(renderer.domElement);
 
-    view = mathbox
-      .set({
-        scale: 720,
-        focus: 1,
-      })
-      .cartesian({
-          range: [
-            [-1, 1],
-            [-1, 1],
-            [-1, 1],
-          ],
-          scale: [1.2, 1.2, 1.2],
-        }, {
-          quaternion: function (t) {
-            var rot = 0.002;
-            return [0, -Math.sin(t * rot), 0, Math.cos(t * rot)];
-          }
+    // Scene
+    const scene = new THREE.Scene();
+
+    // --- FOG: choose one of these ---
+    // Exponential (soft haze)
+    scene.fog = new THREE.FogExp2(0x000000, 0.7); // tweak density (0.2 - 2.0)
+    // Linear (distance-based) alternative:
+    // scene.fog = new THREE.Fog(0x000000, 1.0, 4.0); // near, far
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 20);
+    camera.position.set(-1.2, 0.4, -1.1); // similar to your MathBox camera
+    // move back so we can see the unit cube comfortably
+    camera.position.multiplyScalar(0.5);
+
+    // Controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.target.set(0, 0, 0);
+    controls.update();
+    controls.maxDistance = 4;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.enableZoom = false;   // 🚫 disable zooming
+    controls.enablePan = false;    // optional: disable panning too
+    controls.enableRotate = true;  // ✅ allow rotation
+
+    // Create a group so we can animate the whole point-cloud like MathBox quaternion
+    const group = new THREE.Group();
+    scene.add(group);
+
+    // Build the points (similar to your view.volume + view.point)
+    const rez = 26;
+    const count = rez * rez * rez;
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+
+    let ptr = 0;
+    for (let k = 0; k < rez; k++) {
+      for (let j = 0; j < rez; j++) {
+        for (let i = 0; i < rez; i++) {
+          // map indices to [-1, 1]
+          const x = (i / (rez - 1)) * 2 - 1;
+          const y = (j / (rez - 1)) * 2 - 1;
+          const z = (k / (rez - 1)) * 2 - 1;
+
+          positions[ptr * 3 + 0] = x;
+          positions[ptr * 3 + 1] = y;
+          positions[ptr * 3 + 2] = z;
+
+          // use position as color (map from [-1,1] -> [0,1])
+          colors[ptr * 3 + 0] = (x + 1) * 0.5;
+          colors[ptr * 3 + 1] = (y + 1) * 0.5;
+          colors[ptr * 3 + 2] = (z + 1) * 0.5;
+
+          ptr++;
         }
+      }
+    }
 
-      );
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    var rez = 26;
-    view.volume({
-      id: "volume",
-      width: rez,
-      height: rez,
-      depth: rez,
-      items: 1,
-      channels: 4,
-      live: false,
-      expr: function (emit, x, y, z) {
-        emit( x, y, z, 1);
-      },
-    })
-    view.point({
-      // The neat trick: use the same data for position and for color!
-      // We don't actually need to specify the points source since we just defined them
-      // but it emphasizes what's going on.
-      // The w component 1 is ignored as a position but used as opacity as a color.
-      points: "#volume",
-      colors: "#volume",
-      // Multiply every color component in [0..1] by 255
-      color: 0xffffff,
-      size: 5,
+    // load a texture for the particles
+    const textureLoader = new THREE.TextureLoader();
+    const particleTexture = textureLoader.load('1.png'); // make sure 1.png is in the same folder
+
+    // Points material (now using texture)
+    const particleMaterial = new THREE.PointsMaterial({
+      size: 0.11,                // sprite size
+      alphaMap: particleTexture, // the round/soft particle image
+      alphaTest: 0.5,            // cut off fully transparent pixels
+      vertexColors: true,        // still colorize points by position
+      transparent: true,         // must be true for alphaMap to work well
+      opacity: 1,              // overall opacity
+      //blending: THREE.NormalBlending // you can try AdditiveBlending for a glowing look
     });
+
+    // Create points with the textured material
+    const points = new THREE.Points(geometry, particleMaterial);
+    group.add(points);
+
+    // scale the group a bit to match perceived size from MathBox
+    group.scale.set(1.2, 1.2, 1.2);
+
+    // Animation loop
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      const t = clock.getElapsedTime();
+
+      // replicate MathBox quaternion behavior roughly:
+      // MathBox used quaternion [0, -sin(t*0.002), 0, cos(t*0.002)]
+      // Equivalent to rotation about -Y with angular speed ~ 0.004 rad/s
+      group.rotation.y = -0.004 * t;
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }, { passive: true });
+
+    // --- helper: expose scene and fog for console tweaking ---
+    window._demo = { scene, camera, renderer, controls, group, points };
+    console.log('Three.js demo: tweak window._demo.scene.fog or material size from console');
   </script>
 </body>
 
