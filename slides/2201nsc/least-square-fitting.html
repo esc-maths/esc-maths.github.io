@@ -149,7 +149,7 @@
 					<br /><br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>Fitting a curve to data: least squares polynomial</h4>
 					<div class="size-50">
 						<div class="left-txt">
@@ -168,39 +168,36 @@
 				</section>
 				<section data-auto-animate>
 					<h4>Fitting a curve to data: least squares polynomial</h4>
-					<div class="size-75">
+					<div class="size-80">
 						<div class="left-txt">
 							<p>
 								<strong>Example: Quadratic fit.</strong>
 								<span class="fragment" data-fragment-index="0">
 									Suppose some physical system is modeled by a quadratic
-									function $p(t).$
+									function $p(x).$
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
+									Data in the form $(x,p(x))$ have been recorded as $$ (1,5),\
 									(2,2),\ (4,7),\ (5,10). $$ Find the least squares
-									approximation for $p(t)$.
+									approximation for $p(x)$.
 								</span>
 							</p>
 						</div>
 					</div>
-					<br /><br /><br /><br /><br /><br />
+					<br /><br /><br /><br /><br />
 
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h5>Fitting a curve to data: least squares polynomial</h5>
-					<div class="size-40">
+					<div class="size-75">
 						<div class="left-txt">
 							<p>
 								<strong>Example: Quadratic fit.</strong>
+								
 								<span>
-									Suppose some physical system is modeled by a quadratic
-									function $p(t).$
-								</span>
-								<span>
-									Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
-									(2,2),\ (4,7),\ (5,10). $$ Find the least squares
-									approximation for $p(t).$
+									 $ (1,5),\
+									(2,2),\ (4,7),\ (5,10). $ Find the least squares
+									approximation for $p(x).$
 								</span>
 							</p>
 						</div>
@@ -208,7 +205,7 @@
 					<div class="size-75">
 						<div class="left-txt">
 							<p>
-								Consider the quadratic function $p(t) = a_0 + a_1 t + a_2 t^2$.
+								Consider the quadratic function $p(x) =  a_2 x^2 + a_1 x + a_0$.
 								<span class="fragment" data-fragment-index="0">
 									To find the least
 									squares approximation we need to solve the linear system:
@@ -220,10 +217,10 @@
 										\[
 										\left\{
 										\begin{array}{ccccccc}
-										a_0& +& a_1 (1)& + & a_2 (1)^2 & = & 5 \\
-										a_0& + &a_1 (2) &+ &a_2 (2)^2 & = & 2 \\
-										a_0 &+& a_1 (4) &+ &a_2 (4)^2 & = & 7 \\
-										a_0 &+& a_1 (5)& +& a_2 (5)^2 & = & 10 \\
+										a_2 (1)^2 & + & a_1 (1)& + & a_0 & = & 5 \\
+										a_2 (2)^2 & + & a_1 (2)& + & a_0 & = & 2 \\
+										a_2 (4)^2 & + & a_1 (4)& + & a_0 & = & 7 \\
+										a_2 (5)^2 & + & a_1 (5)& + & a_0 & = & 10 \\
 										\end{array}
 										\right.
 										\]
@@ -234,10 +231,10 @@
 										\[
 										\left\{
 										\begin{array}{ccrcrcc}
-										a_0& +& a_1 & + & a_2 & = & 5 \\
-										a_0& + & 2a_1 &+ & 4a_2 & = & 2 \\
-										a_0 &+& 4a_1 &+ & 16a_2 & = & 7 \\
-										a_0 &+& 5a_1 & +& 25a_2 & = & 10 \\
+										a_2  & + & a_1 & + & a_0 & = & 5 \\
+										4a_2  & + & 2a_1 & + & a_0 & = & 2 \\
+										16a_2  & + & 4a_1& + & a_0 & = & 7 \\
+										25a_2 & + & 5a_1 & + & a_0 & = & 10 \\
 										\end{array}
 										\right.
 										\]
@@ -249,16 +246,16 @@
 										\left(
 										\begin{array}{ccc}
 										1 & 1 & 1 \\
-										1 & 2 & 4 \\
-										1 & 4 & 16 \\
-										1 & 5 & 25 \\
+										4 & 2 & 1 \\
+										16 & 4 & 1 \\
+										25 & 5 & 1 \\
 										\end{array}
 										\right)
 										\left(
 										\begin{array}{c}
-										a_0 \\
-										a_1 \\
 										a_2 \\
+										a_1 \\
+										a_0 \\
 										\end{array}
 										\right)
 										=
@@ -278,17 +275,19 @@
 										\[
 										\underbrace{\left(
 										\begin{array}{ccc}
+										\begin{array}{ccc}
 										1 & 1 & 1 \\
-										1 & 2 & 4 \\
-										1 & 4 & 16 \\
-										1 & 5 & 25 \\
+										4 & 2 & 1 \\
+										16 & 4 & 1 \\
+										25 & 5 & 1 \\
+										\end{array}
 										\end{array}
 										\right)}_{{\Large A}}
 										\underbrace{\left(
 										\begin{array}{c}
-										a_0 \\
-										a_1 \\
 										a_2 \\
+										a_1 \\
+										a_0 \\
 										\end{array}
 										\right)}_{{\Large \mathbf x}}
 										=
@@ -312,18 +311,15 @@
 				</section>
 				<section data-auto-animate>
 					<h5>Fitting a curve to data: least squares polynomial</h5>
-					<div class="size-40">
+					<div class="size-75">
 						<div class="left-txt">
 							<p>
 								<strong>Example: Quadratic fit.</strong>
+								
 								<span>
-									Suppose some physical system is modeled by a quadratic
-									function $p(t).$
-								</span>
-								<span>
-									Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
-									(2,2),\ (4,7),\ (5,10). $$ Find the least squares
-									approximation for $p(t).$
+									 $ (1,5),\
+									(2,2),\ (4,7),\ (5,10). $ Find the least squares
+									approximation for $p(x).$
 								</span>
 							</p>
 						</div>
@@ -338,16 +334,16 @@
 										\underbrace{\left(
 										\begin{array}{ccc}
 										1 & 1 & 1 \\
-										1 & 2 & 4 \\
-										1 & 4 & 16 \\
-										1 & 5 & 25 \\
+										4 & 2 & 1 \\
+										16 & 4 & 1 \\
+										25 & 5 & 1 \\
 										\end{array}
 										\right)}_{A}
 										\underbrace{\left(
 										\begin{array}{c}
-										a_0 \\
-										a_1 \\
 										a_2 \\
+										a_1 \\
+										a_0 \\
 										\end{array}
 										\right)}_{\mathbf x}
 										=
@@ -383,18 +379,15 @@
 				</section>
 				<section data-auto-animate>
 					<h5>Fitting a curve to data: least squares polynomial</h5>
-					<div class="size-40">
+					<div class="size-75">
 						<div class="left-txt">
 							<p>
 								<strong>Example: Quadratic fit.</strong>
+								
 								<span>
-									Suppose some physical system is modeled by a quadratic
-									function $p(t).$
-								</span>
-								<span>
-									Data in the form $(t,p(t))$ have been recorded as $$ (1,5),\
-									(2,2),\ (4,7),\ (5,10). $$ Find the least squares
-									approximation for $p(t).$
+									 $ (1,5),\
+									(2,2),\ (4,7),\ (5,10). $ Find the least squares
+									approximation for $p(x).$
 								</span>
 							</p>
 						</div>
@@ -409,32 +402,32 @@
 										\[\Ra\;\;
 										\underbrace{\left(
 										\begin{array}{ccc}
-										1 & 1 & 1 & 1\\
+										1 & 4 & 15 & 25\\
 										1 & 2 & 4 & 5\\
-										1 & 4 & 16 & 25
+										1 & 1 & 1 & 1
 										\end{array}
 										\right)}_{A^T}
 										\underbrace{\left(
 										\begin{array}{ccc}
 										1 & 1 & 1 \\
-										1 & 2 & 4 \\
-										1 & 4 & 16 \\
-										1 & 5 & 25 \\
+										4 & 2 & 1 \\
+										16 & 4 & 1 \\
+										25 & 5 & 1 \\
 										\end{array}
 										\right)}_{A}
 										\underbrace{\left(
 										\begin{array}{c}
-										a_0 \\
-										a_1 \\
 										a_2 \\
+										a_1 \\
+										a_0 \\
 										\end{array}
 										\right)}_{\mathbf x}
 										=
 										\underbrace{\left(
 										\begin{array}{ccc}
-										1 & 1 & 1 & 1\\
+										1 & 4 & 15 & 25\\
 										1 & 2 & 4 & 5\\
-										1 & 4 & 16 & 25
+										1 & 1 & 1 & 1
 										\end{array}
 										\right)}_{A^T}
 										\underbrace{\left(
@@ -470,15 +463,15 @@
 									$=
 									\left(
 									\begin{array}{r}
-									8 \\
-									-\dfrac{9}{2} \\
 									1 \\
+									-\dfrac{9}{2} \\
+									8 \\
 									\end{array}
 									\right)
 									$
 								</span>
 								<span class="fragment" data-fragment-index="2">
-									$\;\,\Ra \;\, p(t) = 8 - \dfrac{9}{2}t+ t^2.
+									$\;\,\Ra \;\, p(x) = x^2 - \dfrac{9}{2}x+8.
 									$
 								</span>
 							</p>
@@ -490,9 +483,7 @@
 				<section data-auto-animate id="quadratic-fit">
 					<h4>Quadratic fit</h4>
 					<div>
-						<iframe scrolling="no" title="Chapter-12-5: Quadratic fit"
-							src="https://www.geogebra.org/material/iframe/id/caz96qxd/width/706/height/427/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
-							width="706px" height="427px" style="border:0px;"> </iframe>
+						<iframe scrolling="no" title="Example: Least squares" src="https://www.geogebra.org/material/iframe/id/ddr9fsqe/width/700/height/450/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="700px" height="450px" style="border:0px;"> </iframe>
 						<p style="font-size:30px">
 							<strong>Data:</strong> $(1,5),\
 							(2,2),\ (4,7),\ (5,10).$
