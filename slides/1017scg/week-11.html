@@ -433,7 +433,7 @@
 							<span class="fragment" data-fragment-index="12">$+\,C$</span>
 						</p>
 					</div>
-					
+
 					<br />
 					<br />
 				</section>
@@ -461,7 +461,7 @@
 							<span class="fragment" data-fragment-index="10">$-3\,\cos(x)+C$</span>
 						</p>
 					</div>
-					
+
 					<br />
 					<br />
 				</section>
@@ -488,14 +488,14 @@
 							<span class="fragment" data-fragment-index="10">$+\,3\ln|x|+C$</span>
 						</p>
 					</div>
-					
+
 					<br />
 					<br />
 				</section>
 				<section data-background-image="images/week-11/table-integrals.svg">
 					<h4>One more example</h4>
 
-					<br/>
+					<br />
 
 					<div class="left-txt size-80">
 
@@ -525,6 +525,113 @@
 					<br />
 					<br />
 					<br />
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h4>
+						Definite Integrals
+					</h4>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="1">
+							Consider the continuous function $f(x)$ on $[a,b]$
+							<span class="fragment" data-fragment-index="2">and $F(x)$ is function such that $F'(x)=f(x)$
+								for every $x\in[a,b],$
+							</span>
+							<span class="fragment" data-fragment-index="3">then</span>
+						</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="3">
+						<iframe style="border: none; width: 600px; height: 170px;"
+							data-src="sketches/p5-tex/ftc/"></iframe>
+					</div>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="4">
+							<b>Remark:</b> We usually call $F(x)$ an <b>anti-derivative</b>.
+						</p>
+					</div>
+
+
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h4>
+						Definite Integrals: Example 1
+					</h4>
+
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								$\ds \int_1^3 x^2 \, dx$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\ds = \left[\dfrac{x^3}{3}+C\right]_1^3$
+							</span>
+							<span style="color: rgb(196, 6, 6);" class="fragment" data-fragment-index="0">
+								$\qquad \quad \quad F(x) = \dfrac{x^3}{3}+C\;$ 👈
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$\qquad \qquad \ds = \underbrace{\left[\dfrac{(3)^3}{3}+C\right]}_{F(3)} -
+								\underbrace{\left[\dfrac{(1)^3}{3}+C\right]}_{F(1)}$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\qquad \qquad \ds = \dfrac{27}{3}+C $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ -\, \dfrac{1}{3}-C$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$\qquad \qquad \ds = \dfrac{26}{3}$
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+				<section>
+					<h4>
+						Definite Integrals: Example 1
+					</h4>
+
+
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 35%;">
+								<div class="left-txt size-85">
+									<p>
+										<span>
+											$\ds \int_1^3 x^2 \, dx= \dfrac{26}{3}$
+										</span>
+									</p>
+								</div>
+							</td>
+							<td style="width: 65%; text-align: center;font-size: 80%;">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="0" style="width: 100%;"
+										src="images/week-11/integral-ex-01a.svg">
+									<img class="fragment fade-in" data-fragment-index="0" style="width: 100%;"
+										src="images/week-11/integral-ex-01b.svg">
+								</div>
+								<p>$f(x)=x^2$</p>
+							</td>
+						</tr>
+					</table>
+
+
 				</section>
 			</section>
 
