@@ -1024,7 +1024,7 @@
 
 					<div class=" size-85">
 						<p>
-							<span class="fragment" data-fragment-index="1">
+							<span>
 								$\dfrac{dy}{dx}$
 							</span>
 							<span class="fragment" data-fragment-index="2">
@@ -1126,12 +1126,12 @@
 
 						<p>
 							<span class="fragment" data-fragment-index="8">
-								<b>T1:</b> $\;x=-2,\,$ $y = 20$
+								$P_1:$ $\;x=-2,\,$ $y = 20$
 							</span>
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="9">
-								<b>T2:</b> $\;x=1,\,$ $y = -7\;\;$
+								$P_2:$ $\;x=1,\,$ $y = -7\;\;$
 							</span>
 						</p>
 
@@ -1232,7 +1232,8 @@
 							<p class="fragment fade-in-then-out" data-fragment-index="3">
 								&nbsp;&nbsp;&nbsp; 3. where the derivative is not defined (advanced) &nbsp;&nbsp;&nbsp;
 							</p>
-							<p class="fragment fade-in" data-fragment-index="4" style="text-decoration:line-through">
+							<p class="fragment fade-in" data-fragment-index="4"
+								style="text-decoration:line-through red;">
 								&nbsp;&nbsp;&nbsp; 3. where the derivative is not defined (advanced) &nbsp;&nbsp;&nbsp;
 							</p>
 						</div>
@@ -1240,6 +1241,7 @@
 
 					</div>
 
+					<br />
 					<br />
 					<br />
 					<br />
@@ -1339,19 +1341,37 @@
 			</section>
 
 			<section>
+
+				<section data-auto-animate>
+					<h4>Applications: Tangent Line</h4>
+					<div style="margin-top:40px">
+						<iframe scrolling="no" title="Limits: Tangent to curve"
+							src="https://www.geogebra.org/material/iframe/id/njjgy8uk/width/742/height/435/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+							width="742px" height="435px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
 				<section data-auto-animate>
 					<h4>Applications: Tangent Line</h4>
 
-					<table>
+					<table style="width: 100%;">
 						<tr>
-							<td>
+							<td style="width:60%">
 								<div>
-									<img style="width: 1000%;" src="images/week-10/limit-gradient.gif">
+									<img style="width: 100%;" src="images/week-10/limit-gradient.gif">
 								</div>
 							</td>
-							<td style="text-align: center; font-size: 90%;" class="fragment" data-fragment-index="0">
-								Slope of the <br /> tangent line at $P$<br />
-								$\dfrac{dy}{dx}$
+							<td style="text-align: center; width: 40%;" class="fragment" data-fragment-index="0">
+								<span style="font-size: 80%;">Slope of the <br /> tangent line at $P$<br /><br /></span>
+								<span style="font-size: 60%;">
+									$\dfrac{dy}{dx}= \ds\lim_{h\ra 0}\frac{f(x+h)-f(x)}{h}$
+								</span>
+								<br />
+								<br />
 								<br />
 							</td>
 						</tr>
@@ -1448,37 +1468,90 @@
 				<section data-auto-animate>
 					<h4>Real-world Applications of the Derivative</h4>
 
-					<iframe style="border: none; width: 600px; height: 170px;" data-src="sketches/p5-tex/derivative/"></iframe>
-
-					<div class="size-90">
-						<p class="fragment" data-fragment-index="1"><b>Derivative</b></p>
-						<p class="fragment" data-fragment-index="2"><b>Instantaneous Rate of Change</b></p>
-						<p class="fragment" data-fragment-index="3"><b>Slope of tangent line to a curve</b></p>
+					<div class="fragment" data-fragment-index="0">
+						<iframe style="border: none; width: 600px; height: 170px;"
+						data-src="sketches/p5-tex/derivative/"></iframe>
 					</div>
-					<br/>
-					<br/>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="text-align: center; width: 55%; font-size: 80%;">
+								<div>
+									<p class="fragment" data-fragment-index="1">
+										<b>Derivative</b><br />
+										<span class="fragment" data-fragment-index="2"><b>Instantaneous Rate of
+												Change</b></span><br />
+										<span class="fragment" data-fragment-index="3"><b>Slope of tangent line to a
+												curve</b></span>
+									</p>
+								</div>
+								<br />
+								<br />
+
+							</td>
+							<td style="text-align: center;width: 45%;" class="fragment" data-fragment-index="4">
+								<p style="font-size: 50%;">Calculus was developed in the late 1700s</p>
+								<table style="width: 100%; margin-top: -30px;">
+									<tr>
+										<td style="width: 50%; text-align: center; font-size: 50%;">
+											<img style="width: 90%;" src="images/week-11/newton.jpg">
+
+											<div style="margin-top: -40px;">
+												<p>
+													Isaac Newton<br />
+													&nbsp;
+												</p>
+											</div>
+										</td>
+										<td style="width: 50%; text-align: center; font-size: 50%;">
+											<img style="width: 90%;" src="images/week-11/leibniz.jpg">
+											<div style="margin-top: -40px;">
+												<p>
+													Gottfried W. Leibniz
+												</p>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+
+
 				</section>
+
+
 
 
 				<section data-auto-animate>
 					<h4>Real-world Applications of the Derivative</h4>
-					<div class="size-90 left-txt">
-						<p><b>Rate of change:</b> We can compute the velocity of objects, that is, the derivative of position with
-							respect to time.</p>
+					<div class="size-75 left-txt">
+						<p>
+							<b>Instantaneous rate of change:</b> We can
+							compute the velocity and acceleration
+							of objects, that is, the derivative of
+							position with respect to time $\left(v(t)=\frac{dx}{dt}\right)$ and the
+							derivative of the velocity with respect to time
+							$\left(a(t)=\frac{dv}{dt}\right)$, respectively.
+						</p>
 					</div>
 
-					<table>
-						<tr>
-							
+					<table style="width: 100%;">
+						<tr style="width: 25%;">
+
 							<td>
 								<picture>
 									<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.webp"
 										type="image/webp">
 									<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀"
-										width="210" height="210">
+										width="170" height="170">
 								</picture>
 							</td>
+							<td style="width: 75%;"  class="fragment" data-fragment-index="1">
+								<iframe style="width: 100%; height: 350px; border: none;" data-src="sketches/solar-system/"></iframe>
+							</td>
 						</tr>
+
 					</table>
 					<br />
 					<br />
@@ -1489,13 +1562,15 @@
 					<div class="size-90 left-txt">
 						<p>
 							<b>Optimization:</b> Algorithms in Machine Learning use derivatives
-							(<a href="https://en.wikipedia.org/wiki/Gradient_descent" target="_blank">gradient descent</a>), which show the direction and rate
+							(<a href="https://en.wikipedia.org/wiki/Gradient_descent" target="_blank">gradient
+								descent</a>), which show the direction and rate
 							of chance of a loss function.
 						</p>
 					</div>
 
 					<video style="width: 350px;" data-autoplay loop
-						src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Gradient_Descent_in_2D.webm"></video>
+						data-src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Gradient_Descent_in_2D.webm"></video>
+					<br />
 					<br />
 				</section>
 
@@ -1514,7 +1589,8 @@
 								\)
 							</span>
 						</p>-->
-						<iframe style="border: none; width: 600px; height: 70px;" data-src="sketches/p5-tex/navier-stokes/"></iframe>
+						<iframe style="border: none; width: 600px; height: 70px;"
+							data-src="sketches/p5-tex/navier-stokes/"></iframe>
 
 
 					</div>
