@@ -73,6 +73,17 @@
 		.reveal .slides section .fragment.auto-fade.visible {
 			opacity: 1;
 		}
+
+		.fragment.strike-txt {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.strike-txt.visible {
+			font-weight: normal;
+			text-decoration: line-through;
+			text-decoration-color: red;
+		}
 	</style>
 
 </head>
@@ -407,7 +418,7 @@
 					</div>
 
 					<div class="size-80">
-						<p >
+						<p>
 							<span class="fragment" data-fragment-index="9">$\;\ds \frac{dy}{dx} = \lim_{h\ra
 								0}\dfrac{f(x+h)-f(x)}{h}$</span>
 							<span class="fragment" data-fragment-index="10">$=\ds \lim_{h\ra 0} (2x + h)$</span>
@@ -434,7 +445,7 @@
 					<h3>Big question</h3>
 					<p>
 						Can we always compute the <b>derivative</b>
-						of any function $f(x)$ using the formula
+						of any function $f(x)$ by computing the limit
 						\[
 						\ds \lim_{h\ra 0}\frac{f(x+h)-f(x)}{h}?
 						\]
@@ -1227,22 +1238,17 @@
 					<div style="font-size: 85%;text-align: left;">
 
 						<p class="fragment" data-fragment-index="1">
-							&nbsp;&nbsp;&nbsp; 1. at a turning point &nbsp;<span class="fragment"
-								data-fragment-index="5">✅</span>
+							&nbsp;&nbsp;&nbsp; 1. at a turning point &nbsp;
+							<span class="fragment" data-fragment-index="4">✅</span>
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							&nbsp;&nbsp;&nbsp; 2. at end points of the domain $(x=a,\; x=b)$ &nbsp;<span
-								class="fragment" data-fragment-index="5">✅</span>
+							&nbsp;&nbsp;&nbsp; 2. at end points of the domain $(x=a,\; x=b)$ &nbsp;
+							<span class="fragment" data-fragment-index="4">✅</span>
 						</p>
-						<div class="r-stack" style="position: fixed; left:0px !important;">
-							<p class="fragment fade-in-then-out" data-fragment-index="3">
-								&nbsp;&nbsp;&nbsp; 3. where the derivative is not defined (advanced) &nbsp;&nbsp;&nbsp;
-							</p>
-							<p class="fragment fade-in" data-fragment-index="4"
-								style="text-decoration:line-through red;">
-								&nbsp;&nbsp;&nbsp; 3. where the derivative is not defined (advanced) &nbsp;&nbsp;&nbsp;
-							</p>
-						</div>
+						<p class="fragment" data-fragment-index="3">
+							<span class="fragment fade-in custom strike-txt" data-fragment-index="5">&nbsp;&nbsp;&nbsp; 3. where the derivative is not defined (advanced) &nbsp;&nbsp;&nbsp;</span>
+						</p>
+
 
 
 					</div>
@@ -1468,13 +1474,22 @@
 					<br />
 					<br />
 				</section>
+
+				<section>
+					<h4>Applications: Tangent Line</h4>
+					<iframe scrolling="no" title="Explore tangent line" data-src="https://www.geogebra.org/material/iframe/id/pv6cnfnz/width/730/height/470/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="730px" height="470px" style="border:0px;"> </iframe>
+
+					<br/>
+					<br/>
+					<br/>
+				</section>
 			</section>
 
 			<section>
 				<section data-auto-animate>
 					<h4>Real-world Applications of the Derivative</h4>
 
-					<div class="fragment" data-fragment-index="0">
+					<div>
 						<iframe style="border: none; width: 600px; height: 170px;"
 							data-src="sketches/p5-tex/derivative/"></iframe>
 					</div>
