@@ -349,7 +349,11 @@
 					</div>
 					<div class="fragment" data-fragment-index="0">
 						<p>
-							exists for $f(x)$ continuous functions,<br />
+							exists for $f(x)$ continuous functions,
+						</p>
+					</div>
+					<div>
+						<p>
 							<span class="fragment" data-fragment-index="1"><b>we cannot always find a formula for
 									$F(x)$</b></span>
 						</p>
@@ -359,51 +363,53 @@
 						<picture class="fragment fade-in-then-out" data-fragment-index="0">
 							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.webp"
 								type="image/webp">
-							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.gif" alt="😀" width="80"
-								height="80">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.gif" alt="😀" width="100"
+								height="100">
 						</picture>
 						<picture class="fragment fade-in" data-fragment-index="1">
-							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f627/512.webp"
 								type="image/webp">
-							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="80"
-								height="80">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f627/512.gif" alt="😧" width="100"
+								height="100">
 						</picture>
+
 					</div>
 					<br />
 				</section>
 				<section data-auto-animate>
 					<h3>Remark about computing anti-derivatives❗️</h3>
-					<div style="font-size: 50%;">
+					<div class="size-65">
 						<p>
 							Although the theory says the integral
-						</p>
-					</div>
-					<div style="font-size: 50%;">
-						<p>
 							$
 							\ds \int f(x)\, dx = F(x) + C
-							$
+							$ <br />
+							exists for $f(x)$ continuous functions,
 						</p>
 					</div>
-					<div style="font-size: 50%;">
+					<div>
 						<p>
-							exists for $f(x)$ continuous functions,<br />
-							<span><b>we cannot always find a formula for $F(x)$</b></span>
+							<span><b>we cannot always find a formula for
+									$F(x)$</b></span>
 						</p>
 					</div>
 
-					<div style="font-size: 75%;">
+					<div style="font-size: 90%;">
 						<p>Here are some examples:</p>
 						<p>
 							$\ds\int e^{-x^2}\, dx,\;$ $\ds\int\sin\left(x^2\right)\, dx,\;$
 							$\ds\int\cos\left(x^2\right)\, dx$
 						</p>
+
+					</div>
+					<div style="font-size: 75%;">
+
 						<p class="fragment" data-fragment-index="0">
 							These are known as <a href="https://en.wikipedia.org/wiki/Nonelementary_integral"
-								target="_blank">non-elementary integrals</a>
+								target="_blank">non-elementary integrals <i class="fa fa-external-link-alt"></i></a>
 						</p>
 						<p class="fragment" data-fragment-index="1">
-							<b>Good news!</b> Beyond the scope of this course. 😃
+							<b>Good news!</b> Topic the scope of this course. 😃
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							<b>In this course we consider only basic, elementary functions!</b>
@@ -516,7 +522,7 @@
 				<section data-background-image="images/week-11/table-integrals.svg">
 					<h4>Examples: $a x^n$</h4>
 
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 
 						<p class="fragment" data-fragment-index="2">
 							<span>• $\ds \int 2x^4 \,dx$</span>
@@ -525,14 +531,14 @@
 						</p>
 					</div>
 					<br />
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						<p><span class="fragment" data-fragment-index="5">• $\ds \int 6x \,dx$</span>
 							<span class="fragment" data-fragment-index="6">$= \dfrac{6x^{1+1}}{1+1}+C$</span>
 							<span class="fragment" data-fragment-index="7">$= \dfrac{6x^{2}}{2}+C$</span>
 						</p>
 					</div>
 					<br />
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						<p><span class="fragment" data-fragment-index="8">• $\ds \int 2x^2-4x+5 \,dx$</span>
 							<span class="fragment" data-fragment-index="9">$= \dfrac{2x^{3}}{3}$</span>
 							<span class="fragment" data-fragment-index="10">$-\,\dfrac{4x^{2}}{2}$</span>
@@ -550,20 +556,20 @@
 					<div class="left-txt size-75">
 
 						<p class="fragment" data-fragment-index="2">
-							<span>• $\ds \int 2\cos(x) \,dx$</span>
+							<span>•$\ds \int 2\cos(x) \,dx$</span>
 							<span class="fragment" data-fragment-index="3">$=2\sin(x)+C$</span>
 						</p>
 					</div>
 					<br />
 					<div class="left-txt size-75">
-						<p><span class="fragment" data-fragment-index="5">• $\ds \int 3\sin(x) \,dx$</span>
+						<p><span class="fragment" data-fragment-index="5">•$\ds \int 3\sin(x) \,dx$</span>
 							<span class="fragment" data-fragment-index="6">$=3(-\cos(x))+C$</span>
 							<span class="fragment" data-fragment-index="7">$=-3\cos(x)+C$</span>
 						</p>
 					</div>
 					<br />
 					<div class="left-txt size-75">
-						<p><span class="fragment" data-fragment-index="8">• $\ds \int -7\cos(x) + 3\sin(x) \,dx$</span>
+						<p><span class="fragment" data-fragment-index="8">•$\ds \int -7\cos(x) + 3\sin(x) \,dx$</span>
 							<span class="fragment" data-fragment-index="9">$= -7\sin(x)$</span>
 							<span class="fragment" data-fragment-index="10">$-3\,\cos(x)+C$</span>
 						</p>
@@ -575,7 +581,7 @@
 				<section data-background-image="images/week-11/table-integrals.svg">
 					<h4>Examples: $ae^x$ and $a/x$</h4>
 
-					<div class="left-txt size-75">
+					<div class="left-txt size-85">
 
 						<p class="fragment" data-fragment-index="2">
 							<span>• $\ds \int 2e^x \,dx$</span>
@@ -583,13 +589,13 @@
 						</p>
 					</div>
 					<br />
-					<div class="left-txt size-75">
+					<div class="left-txt size-85">
 						<p><span class="fragment" data-fragment-index="5">• $\ds \int \frac{4}{x} \,dx$</span>
 							<span class="fragment" data-fragment-index="6">$=4\ln|x|+C$</span>
 						</p>
 					</div>
 					<br />
-					<div class="left-txt size-75">
+					<div class="left-txt size-85">
 						<p><span class="fragment" data-fragment-index="8">• $\ds \int -7e^x + \frac{3}{x} \,dx$</span>
 							<span class="fragment" data-fragment-index="9">$= -7e^x$</span>
 							<span class="fragment" data-fragment-index="10">$+\,3\ln|x|+C$</span>
@@ -607,7 +613,7 @@
 					<div class="left-txt size-80">
 
 						<p>
-							<span>• $\ds \int x^2 + 2\sin(x)+ 3\cos(x)+ 5e^x +\frac{7}{x} \,dx$</span>
+							<span>•$\ds \int x^2 + 2\sin(x)+ 3\cos(x)+ 5e^x +\frac{7}{x} \,dx$</span>
 						</p>
 					</div>
 					<div class="left-txt size-80">
@@ -629,6 +635,7 @@
 							<span>$+\,C$</span>
 						</p>
 					</div>
+					<br />
 					<br />
 					<br />
 					<br />
@@ -683,7 +690,7 @@
 								$\ds = \left[\dfrac{x^3}{3}+C\right]_1^3$
 							</span>
 							<span style="color: rgb(196, 6, 6);" class="fragment" data-fragment-index="0">
-								$\qquad \quad \quad F(x) = \dfrac{x^3}{3}+C\;$ 👈
+								$\qquad \quad \quad\; F(x) = \dfrac{x^3}{3}+C\;$ 👈
 							</span>
 						</p>
 						<p>
@@ -724,6 +731,7 @@
 											$\ds \int_1^3 x^2 \, dx= \dfrac{26}{3}$
 										</span>
 									</p>
+									<br /><br />
 								</div>
 							</td>
 							<td style="width: 65%; text-align: center;font-size: 80%;">
@@ -865,7 +873,7 @@
 						</p>
 
 					</div>
-					<div class="size-70">
+					<div class="size-75">
 						<p>
 							<span class="fragment" data-fragment-index="3">
 								$\ds \int_{0}^{\frac{\pi}{2}} 2\cos(x) \, dx$
@@ -882,7 +890,7 @@
 						</p>
 					</div>
 
-					<img style="width: 75%;margin-top: -10px;" src="images/week-11/integral-ex-03b.svg">
+					<img style="width: 65%;margin-top: 0px;" src="images/week-11/integral-ex-03b.svg">
 					<br />
 
 				</section>
@@ -893,14 +901,15 @@
 
 					<div class="size-70">
 						<p>
-							Therefore, the <b>total area</b> bounded by the curve $y=2\cos(x)$ <br />and
-							between $x=0$ and $x=\dfrac{3\pi}{2}$ is:
-
+							Therefore, the <b>total area</b> bounded by the curve $y=2\cos(x)$ <br />
+							and between $\,x=0\,$ and $\,x=\dfrac{3\pi}{2}\,$
+							<span class="fragment" data-fragment-index="3">
+								is:
+							</span>
 						</p>
-
 					</div>
-					<div style="font-size: 65%;">
-						<p>
+					<div style="font-size: 65%; margin-top: -10px;">
+						<p class="fragment" data-fragment-index="3">
 							<b>Total Area =</b>
 							<span>
 								$\ds\left|\int_{0}^{\frac{\pi}{2}} 2\cos(x) \,
@@ -915,7 +924,7 @@
 						</p>
 					</div>
 
-					<img style="width: 75%;margin-top: -10px;" src="images/week-11/integral-ex-03b.svg">
+					<img style="width: 65%;margin-top: px;" src="images/week-11/integral-ex-03b.svg">
 					<br />
 
 				</section>
@@ -953,7 +962,7 @@
 				<section data-auto-animate>
 					<h4>Final remarks</h4>
 
-					
+
 					<div style="font-size: 85%;">
 						<p>
 							The invention of <em>Calculus</em> is often attributed to
@@ -998,42 +1007,151 @@
 				<section data-auto-animate>
 					<h4>Final remarks</h4>
 
-					<div style="font-size: 85%;">
-						<p>Newton and Leibniz hey were also highly criticised!</p>
+					<div style="font-size: 80%;">
+						<p>Newton and Leibniz were highly criticised! 🙄</p>
 					</div>
 
-					<!--
-					<div>
-						<p>
-							$\ds \frac{dy}{dx} = \lim_{h\ra 0} \frac{f(x+h)+h}{h}$
-						</p>
-					</div>-->
-					<div style="font-size: 75%;">
-						<div class="fragment" data-fragment-index="0">
+
+					<div style="font-size: 75%; color: rgb(17, 17, 189);">
+						<div class="fragment left-txt" data-fragment-index="0">
 							<p>
-								Recall the function $y = x^2,\,$
+								Let $y = x^2.\,$
 								<span class="fragment" data-fragment-index="1">
-									then $\,\ds \frac{dy}{dx} = \lim_{h\ra 0}\dfrac{f(x+h)-f(x)}{h}$
+									Using Newton & Leibniz's method to compute the derivative
+									we consider $h$ to be an <b>infinitesimal increment</b>:
 								</span>
 							</p>
 						</div>
-						<div class="fragment" data-fragment-index="2">
+						<div>
 							<p>
-								$\ds \lim_{h\ra 0}\dfrac{\left(x^2 + 2xh + h^2\right)
-								-\left(x^2\right)}{h} $
+								<span class="fragment" data-fragment-index="2">
+									$\ds \dfrac{f(x+h)-f(x)}{h} $
+								</span>
 								<span class="fragment" data-fragment-index="3">
-									$\ds= \lim_{h\ra 0}\dfrac{ 2xh +
+									$\ds = \dfrac{\left(x^2 + 2xh + h^2\right)
+									-\left(x^2\right)}{h} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \ds = \ds \dfrac{ 2xh + h^2}{h}$
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = \dfrac{ \left(2x + h\right)h}{h}$
+								</span>
+
+								<span class="fragment" data-fragment-index="6">
+									$\ds =2x+h .\;$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									Therefore $\;\ds \frac{dy}{dx} = 2x$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div style="font-size: 75%;">
+
+					</div>
+
+
+					<div style="font-size: 70%;margin-top: 0px; text-align: left;">
+						<p class="fragment" data-fragment-index="8">
+							George Berkeley (1685-1753) argued that <b>it was logically inconsistent</b>
+							to introduce an infinitesimal
+							increment $h$ in order to perform calculations,
+							and then to let $h$ vanish at the end of the process.
+						</p>
+					</div>
+					<div style="font-size: 55%;margin-top: -10px;">
+						<p class="fragment" data-fragment-index="8">
+
+							<a href="https://en.wikipedia.org/wiki/The_Analyst" target="_blank"><em>The Analyst
+									(1734)</em> <i class="fa fa-external-link-alt"></i></a>
+						</p>
+					</div>
+
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>Final remarks</h4>
+
+					<div style="font-size: 80%; text-align: left;">
+						<p>Fortunately, the issue was solved a few years later with <br />
+							the introduction of the formal <b>definition of limit</b>.</p>
+					</div>
+
+
+					<div style="font-size: 75%;">
+						<div class="left-txt">
+							<p>
+								Let $y = x^2.\,$
+								<span class="fragment" data-fragment-index="0">
+									Using limits we have
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span>
+									$ \dfrac{f(x+h)-f(x)}{h}$
+								</span>
+								<span>
+									$\ds = $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span>
+									$\ds\dfrac{\left(x^2 + 2xh + h^2\right)
+									-\left(x^2\right)}{h} $
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\qquad \ds = $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span>
+									$\ds \dfrac{ 2xh +
 									h^2}{h}$
 								</span>
-							</p>
-						</div>
-						<div class="fragment" data-fragment-index="4">
-							<p>
-								$\ds = \lim_{h\ra 0}\dfrac{ \left(2x + h\right)h}{h}$
-								<span class="fragment" data-fragment-index="5">
-									$\ds= \lim_{h\ra 0}2x+h $
+								<span>
+									$\ds = $
 								</span>
-								<span class="fragment" data-fragment-index="6">
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span>
+									$\ds \dfrac{ \left(2x + h\right)h}{h}$
+								</span>
+
+								<span>
+									$\ds = $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds\left(\right. $
+								</span>
+								<span>
+									$\ds 2x+h$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds\left.\right) $
+								</span>
+								<span class="fragment" data-fragment-index="0">
 									$\ds=2x$
 								</span>
 							</p>
@@ -1041,17 +1159,18 @@
 					</div>
 
 
-					<div style="font-size: 85%;margin-top: 0px;">
-						<p class="fragment" data-fragment-index="7">
-							It took a few more years for the concepts <br/>
-							from <em>Calculus</em> to be accepted!
+					<div style="font-size: 80%;margin-top: 0px;">
+						<p class="fragment" data-fragment-index="9">
+							Now we can properly say that $\ds\frac{dy}{dx}=2x.$
 						</p>
 					</div>
+
 
 					<br />
 					<br />
 
 				</section>
+				
 
 				<section data-auto-animate>
 					<h4>Final remarks</h4>
@@ -1077,17 +1196,17 @@
 							</td>
 						</tr>
 					</table>
-					
+
 					<div style="font-size: 100%; text-align: left;">
 						<p>The <em>Calculus</em>, next to the Euclidian geomtery,
 							is the greatest creation in all mathematics.</p>
 					</div>
 					<div style="font-size: 80%; text-align: right;">
 						<p><b>Moris Kline, 1972.</b></p>
-						
+
 					</div>
 
-					<br/>
+					<br />
 
 
 				</section>
