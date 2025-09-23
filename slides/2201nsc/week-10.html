@@ -126,17 +126,175 @@
 				</section>
 				<section>
 					<h4>Problem 1 (cont.)</h4>
-					<p style="font-size: 70%; text-align: left;">
+					<p style="font-size: 65%; text-align: left;">
 						(a) $\,A = \begin{pmatrix} 1 & 3 & 2 \\ 2 & 1 & 4 \\ 4 & 7 & 8 \end{pmatrix}.$
 					</p>
 
+
+					<div class="size-60 left-txt">
+						<p class="fragment" data-fragment-index="1">
+							If \(A=U\Sigma V^{T}\) is an SVD with singular values
+							\(\sigma_1\ge\sigma_2\ge\cdots\ge 0\),
+							<span class="fragment" data-fragment-index="1">then</span>
+						</p>
+						<ul style="line-height: 55px;">
+							<li class="fragment" data-fragment-index="2">
+								$\mathrm{Col}(A)=\operatorname{span}\{u_1,\dots,u_r\}$ where $u_i$ are the columns of
+								$U$ corresponding to nonzero singular values (an orthonormal basis).
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								$\mathrm{Row}(A)=\operatorname{span}\{v_1,\dots,v_r\}$ where $v_i$ are the columns of
+								$V$ corresponding to nonzero singular values (an orthonormal basis).
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								$\mathrm{Null}(A)=\operatorname{span}\{v_{r+1},\dots,v_n\}$ (right singular vectors for
+								zero singular values).
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="5">Here \(r=\operatorname{rank}(A)\).</p>
+					</div>
 					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section>
+					<h5 style="font-size: 70%;">Problem 2 (cont.) Python code</h5>
+
+
+					<pre style="width: 100%;height: 600px; font-size: 41.5%;margin-top: -10px;">
+						<code data-trim data-noescape  class="language-python"
+							data-line-numbers="1-28|1|3-8|10-11|13-16|18-28">
+import numpy as np
+
+# Define the matrix
+A = np.array([
+    [1, 3, 2],
+    [2, 1, 4],
+    [4, 7, 8]
+], dtype=float)
+
+# Compute the full SVD
+U, s, Vt = np.linalg.svd(A)
+
+# Round results to 6 decimal places
+U = np.round(U, 6)
+s = np.round(s, 6)
+Vt = np.round(Vt, 6)
+
+print("Matrix A:")
+print(A)
+
+print("\nLeft singular vectors (U):")
+print(U)
+
+print("\nSingular values (s):")
+print(s)
+
+print("\nRight singular vectors (V^T):")
+print(Vt)
+  </code></pre>
+
 					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section>
+					<h5 style="font-size: 70%;">Problem 2 (cont.) Python code</h5>
+
+
+					<pre style="width: 100%;height: 600px; font-size: 41.5%;margin-top: -10px;">
+						<code data-trim data-noescape  class="language-python"  data-ln-start-from="19" 
+							data-line-numbers="1-22|1-4|6-10|12-16|18-22">
+# Rank of A = number of nonzero singular values
+tol = 1e-10
+rank = np.sum(s > tol)
+print("\nRank of A:", rank)
+
+# Column space basis (first 'rank' columns of U)
+col_space = U[:, :rank]
+print("\nBasis for column space:")
+print(np.round(col_space, 6))
+print("Dimension of column space:", col_space.shape[1])
+
+# Row space basis (first 'rank' rows of V^T, equivalently first 'rank' cols of V)
+row_space = Vt[:rank, :].T
+print("\nBasis for row space:")
+print(np.round(row_space, 6))
+print("Dimension of row space:", row_space.shape[1])
+
+# Null space basis (last n-rank columns of V)
+null_space = Vt[rank:, :].T
+print("\nBasis for null space:")
+print(np.round(null_space, 6))
+print("Dimension of null space:", null_space.shape[1])
+  </code></pre>
+
 					<br />
-					<br />
-					<br />
-					<br />
-					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"-->
+				<section>
+					<h5 style="font-size: 45%;">Problem 2 (cont.) Full Python code</h5>
+
+
+					<pre class="copyable" style="width: 55%;height: 640px; font-size: 24.7%;margin-top: -10px;">
+						<code data-trim data-noescape  class="language-python" >
+import numpy as np
+
+# Define the matrix
+A = np.array([
+    [1, 3, 2],
+    [2, 1, 4],
+    [4, 7, 8]
+], dtype=float)
+
+# Compute the full SVD
+U, s, Vt = np.linalg.svd(A)
+
+# Round results to 6 decimal places
+U = np.round(U, 6)
+s = np.round(s, 6)
+Vt = np.round(Vt, 6)
+
+print("Matrix A:")
+print(A)
+
+print("\nLeft singular vectors (U):")
+print(U)
+
+print("\nSingular values (s):")
+print(s)
+
+print("\nRight singular vectors (V^T):")
+print(Vt)
+
+# Rank of A = number of nonzero singular values
+tol = 1e-10
+rank = np.sum(s > tol)
+print("\nRank of A:", rank)
+
+# Column space basis (first 'rank' columns of U)
+col_space = U[:, :rank]
+print("\nBasis for column space:")
+print(np.round(col_space, 6))
+print("Dimension of column space:", col_space.shape[1])
+
+# Row space basis (first 'rank' rows of V^T, equivalently first 'rank' cols of V)
+row_space = Vt[:rank, :].T
+print("\nBasis for row space:")
+print(np.round(row_space, 6))
+print("Dimension of row space:", row_space.shape[1])
+
+# Null space basis (last n-rank columns of V)
+null_space = Vt[rank:, :].T
+print("\nBasis for null space:")
+print(np.round(null_space, 6))
+print("Dimension of null space:", null_space.shape[1])
+  </code></pre>
+
 					<br />
 				</section>
 			</section>
@@ -177,15 +335,13 @@
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
-					<h4>Problem 2 (cont.)</h4>
+				<section>
+					<h4 style="font-size: 80%;">Problem 2 (cont.) Octave code</h4>
 
 
 					<pre style="width: 100%;height: 540px; font-size: 22px;">
 						<code data-trim data-noescape  class="language-python"
-							data-line-numbers="1-18|1|3|5-6|8-10|12-14|16-18">
-# OCTAVE CODE. Run it here: https://octave-online.net/
-
+							data-line-numbers="1-16|1|2-4|6-8|10-12|14-16">
 pkg load linear-algebra  % Load the linear algebra package
 
 A = magic(10);           % Generate a 10x10 magic square matrix
@@ -209,12 +365,12 @@ A_approx_color = (A_approx - amin) / (amax - amin) * 63;
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
-					<h4>Problem 2 (cont.)</h4>
+				<section>
+					<h4 style="font-size: 80%;">Problem 2 (cont.) Octave code</h4>
 
 
 					<pre style="width: 100%;height: 540px; font-size: 22px;">
-						<code data-trim data-noescape data-ln-start-from="19"  
+						<code data-trim data-noescape data-ln-start-from="17"  
 							data-line-numbers="1-11|1-5|7-11">
 % Display the original matrix as a grayscale image
 figure(1); 
@@ -234,12 +390,24 @@ title('Rank-1 Approximation');
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4 style="font-size: 50%;">Run Octave online here: <a href="https://octave-online.net/"
 							target="_blank"><tt>octave-online.net</tt> <i class="fa fa-external-link-alt"></i></a></h4>
 
+					<div style="position: fixed;  z-index: 100;right:-10px;bottom:10px;text-align: left;" class="fragment" data-fragment-index="0">
+						<p style="font-size: 55%;">
+							<span>
+								👉 Compute <br />
+								compression:<br />
+							</span>
+							<span style="font-size: 80%;"><tt>[m,n]=size(A)</tt></span><br/>
+							<span style="font-size: 60%;">
+								$1-r\left(\dfrac{1-m+n}{mn}\right)$
+							</span>
+						</p>
+					</div>
 
-					<pre class="copyable" style="width: 800px;height: 600px; font-size: 42.5%;margin-top: -10px;">
+					<pre class="copyable" style="width: 670px;height: 600px; font-size: 42.5%;margin-top: -10px;">
 						<code data-trim data-noescape data-ln-start-from="1" >
 pkg load linear-algebra  % Load the linear algebra package
 
@@ -314,8 +482,8 @@ title('Rank-1 Approximation');
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
-					<h4>Problem 3 (cont.)</h4>
+				<section>
+					<h4>Problem 3 (cont.) Python code</h4>
 
 
 					<pre style="width: 100%;height: 540px; font-size: 22px;">
@@ -348,8 +516,8 @@ B = a[:, :, 2].astype(float)
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
-					<h4>Problem 3 (cont.)</h4>
+				<section>
+					<h4>Problem 3 (cont.) Python code</h4>
 
 
 					<pre style="width: 100%;height: 540px; font-size: 22px;">
@@ -378,7 +546,7 @@ a_out = np.clip(a_out, 0, 255).astype(np.uint8)
 				</section>
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4>Problem 3 (cont.)</h4>
 
 
@@ -404,9 +572,10 @@ plt.show()
 
 				<!--
 				 data-visibility="hidden"-->
-				<section data-visibility="hidden">
+				<section>
 					<h4 style="font-size: 45%;">Run Python online here: <a href="https://trinket.io/python3"
 							target="_blank"><tt>trinket.io/python3</tt> <i class="fa fa-external-link-alt"></i></a></h4>
+
 
 
 					<pre class="copyable" style="width: 640px;height: 630px; font-size: 33.6%;margin-top: -15px;">
