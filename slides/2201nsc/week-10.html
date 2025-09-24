@@ -491,7 +491,7 @@ title('Rank-1 Approximation');
 import numpy as np
 from scipy.sparse.linalg import svds  # Truncated SVD
 
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # For plotting
 from PIL import Image  # For manipulating and saving images  
 import requests        # Access images from the web
 from io import BytesIO # Treat raw byte data
@@ -510,6 +510,9 @@ G = a[:, :, 1].astype(float)
 B = a[:, :, 2].astype(float)
   </code></pre>
 
+  <div style="font-size: 45%;margin-top: -10px;">
+	<p><b>Note:</b> To access the other image use the link: <tt>https://esc-maths.github.io/assets/imgs/not.png</tt></p>
+  </div>
 					<br />
 				</section>
 
@@ -577,7 +580,7 @@ plt.show()
 
 
 
-					<pre class="copyable" style="width: 640px;height: 630px; font-size: 32.9%;margin-top: -15px;">
+					<pre class="copyable" style="width: 640px;height: 630px; font-size: 33.6%;margin-top: -15px;">
 						<code data-trim data-noescape data-ln-start-from="1">
 import numpy as np
 from scipy.sparse.linalg import svds
@@ -587,7 +590,6 @@ import requests
 from io import BytesIO
 r = 50 # Rank
 url = "https://esc-maths.github.io/assets/imgs/Lambs.jpg"
-# url = "https://esc-maths.github.io/assets/imgs/note.png"
 response = requests.get(url)
 a = np.array(Image.open(BytesIO(response.content))) # numpy array
 R = a[:, :, 0].astype(float)
