@@ -577,7 +577,7 @@ plt.show()
 
 
 
-					<pre class="copyable" style="width: 640px;height: 630px; font-size: 33.6%;margin-top: -15px;">
+					<pre class="copyable" style="width: 640px;height: 630px; font-size: 32.9%;margin-top: -15px;">
 						<code data-trim data-noescape data-ln-start-from="1">
 import numpy as np
 from scipy.sparse.linalg import svds
@@ -587,6 +587,7 @@ import requests
 from io import BytesIO
 r = 50 # Rank
 url = "https://esc-maths.github.io/assets/imgs/Lambs.jpg"
+# url = "https://esc-maths.github.io/assets/imgs/note.png"
 response = requests.get(url)
 a = np.array(Image.open(BytesIO(response.content))) # numpy array
 R = a[:, :, 0].astype(float)
