@@ -6,32 +6,32 @@
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      xmlns:ev="http://www.w3.org/2001/xml-events"
-     width="16.896126053951285cm"
-     height="11.58287886717415cm"
-     viewBox="0 0 793 544"
+     width="33.23967440047775cm"
+     height="22.018096342004444cm"
+     viewBox="0 0 781 517"
      >
 <title>
 
 </title>
 <g stroke-dashoffset="0.0000" stroke-linejoin="miter" stroke-dasharray="none" stroke-width="1.0000" stroke-linecap="square" stroke-miterlimit="10.000">
-<clipPath id="clip89051dfe-555c-41ab-bb10-b7f44081c64f">
-  <path d="M 0.0000 0.0000 L 0.0000 545.00 L 795.00 545.00 L 795.00 0.0000 z"/>
+<clipPath id="clipdb801e68-8e70-46bc-b3a6-6fca2748a214">
+  <path d="M 0.0000 0.0000 L 0.0000 518.00 L 782.00 518.00 L 782.00 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip1)">
 <g fill="#ffffff" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 0.0000 0.0000 L 795.00 0.0000 L 795.00 545.00 L 0.0000 545.00 L 0.0000 0.0000 z"/>
+  <path d="M 0.0000 0.0000 L 782.00 0.0000 L 782.00 518.00 L 0.0000 518.00 L 0.0000 0.0000 z"/>
 </g> <!-- drawing style -->
 </g> <!-- clip1 -->
 <g id="misc">
 </g><!-- misc -->
 <g id="layer0">
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip15e8d0e0-e150-433d-92b8-0d2121cd69b5">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip20802bef-059b-4ca8-b50f-f844e7eac120">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip2)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 5.8393 L 44.571 5.8393 L 44.571 5.8793 L 34.176 5.8793 L 34.176 5.8393 z"/>
+  <path d="M 34.294 4.2510 L 44.689 4.2510 L 44.689 4.2910 L 34.294 4.2910 L 34.294 4.2510 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -39,21 +39,21 @@
 </g> <!-- clip2 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipef726ff8-896b-45e7-948f-a18b64233c14">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipcee7d25a-21bd-4d9c-88fb-a06d6a54ce30">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip3)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 5.8793 L 34.216 5.8793 L 34.216 8.5323 L 34.176 8.5323 L 34.176 5.8793 z"/>
+  <path d="M 34.294 4.2910 L 34.334 4.2910 L 34.334 6.9440 L 34.294 6.9440 L 34.294 4.2910 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip3 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 596.47, 126.75)">
-<clipPath id="clipc5c1c92e-f65c-4a82-aed0-d4b7b94b98d8">
-  <path d="M -3508.6 -745.58 L -3508.6 2460.3 L 1167.8 2460.3 L 1167.8 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 598.47, 99.748)">
+<clipPath id="clipc00e247b-82c0-4b12-94f8-bd9551f8a69e">
+  <path d="M -3520.4 -586.75 L -3520.4 2460.3 L 1079.6 2460.3 L 1079.6 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip4)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -64,9 +64,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip4 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 606.64, 126.75)">
-<clipPath id="clipb2b6c10c-e750-482a-97be-179993b3e422">
-  <path d="M -3568.4 -745.58 L -3568.4 2460.3 L 1108.0 2460.3 L 1108.0 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 608.64, 99.748)">
+<clipPath id="clip1beeaecf-e1a5-4ea9-b878-f98632cd8064">
+  <path d="M -3580.2 -586.75 L -3580.2 2460.3 L 1019.8 2460.3 L 1019.8 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip5)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -77,9 +77,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip5 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 613.25, 126.75)">
-<clipPath id="clipaba3171f-91fa-4e66-bc1c-fc255b75bf74">
-  <path d="M -3607.3 -745.58 L -3607.3 2460.3 L 1069.1 2460.3 L 1069.1 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 615.25, 99.748)">
+<clipPath id="clip01a84d77-401b-4fc8-87be-2bf2de1977d7">
+  <path d="M -3619.1 -586.75 L -3619.1 2460.3 L 980.89 2460.3 L 980.89 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip6)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -90,9 +90,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip6 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 622.97, 126.75)">
-<clipPath id="clip85e59606-d98f-4d09-ad49-72d67aae803e">
-  <path d="M -3664.5 -745.58 L -3664.5 2460.3 L 1011.9 2460.3 L 1011.9 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 624.97, 99.748)">
+<clipPath id="clipddcd17e3-b07d-499a-8f35-3233428a2873">
+  <path d="M -3676.3 -586.75 L -3676.3 2460.3 L 923.69 2460.3 L 923.69 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip7)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -104,21 +104,21 @@
 </g> <!-- clip7 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipe69b2487-5e9d-4695-b6c2-8e77b84db956">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip689bae54-7ce5-4484-9029-ce4f9c879798">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip8)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 37.904 5.8793 L 37.944 5.8793 L 37.944 8.5323 L 37.904 8.5323 L 37.904 5.8793 z"/>
+  <path d="M 38.022 4.2910 L 38.062 4.2910 L 38.062 6.9440 L 38.022 6.9440 L 38.022 4.2910 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip8 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 665.29, 103.61)">
-<clipPath id="clip445a926c-0b38-445b-9fbf-58783e092a79">
-  <path d="M -3913.4 -609.48 L -3913.4 2596.4 L 763.03 2596.4 L 763.03 -609.48 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 667.29, 76.611)">
+<clipPath id="clip5218dd5e-0e5f-4278-a5ab-f9950c3efc0e">
+  <path d="M -3925.2 -450.65 L -3925.2 2596.4 L 674.79 2596.4 L 674.79 -450.65 z"/>
 </clipPath>
 <g clip-path="url(#clip9)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -129,9 +129,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip9 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 685.12, 126.75)">
-<clipPath id="clip945b2283-0ed5-49ad-944d-e1463fb8d812">
-  <path d="M -4030.1 -745.58 L -4030.1 2460.3 L 646.36 2460.3 L 646.36 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 687.12, 99.748)">
+<clipPath id="clip6947b572-32ff-4ca2-9b4a-407aa7357aad">
+  <path d="M -4041.9 -586.75 L -4041.9 2460.3 L 558.13 2460.3 L 558.13 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip10)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -142,9 +142,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip10 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 695.28, 126.75)">
-<clipPath id="clipa63b9b19-b46f-44f8-bf79-35d857963d11">
-  <path d="M -4089.9 -745.58 L -4089.9 2460.3 L 586.56 2460.3 L 586.56 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 697.28, 99.748)">
+<clipPath id="clipadebf6c5-efca-4eaf-ac6a-75985a2d1a05">
+  <path d="M -4101.7 -586.75 L -4101.7 2460.3 L 498.33 2460.3 L 498.33 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip11)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -155,9 +155,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip11 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 701.90, 126.75)">
-<clipPath id="clipab89c457-c901-4a47-8ba8-c1c73d98734c">
-  <path d="M -4128.8 -745.58 L -4128.8 2460.3 L 547.66 2460.3 L 547.66 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 703.90, 99.748)">
+<clipPath id="clip770748df-0f4d-4771-8c7c-2146f4b78d05">
+  <path d="M -4140.6 -586.75 L -4140.6 2460.3 L 459.43 2460.3 L 459.43 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip12)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -168,9 +168,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip12 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 711.62, 126.75)">
-<clipPath id="clip326d5c33-69e6-4dd7-aa9a-bc4ab3043e7d">
-  <path d="M -4186.0 -745.58 L -4186.0 2460.3 L 490.46 2460.3 L 490.46 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 713.62, 99.748)">
+<clipPath id="clip54c88f23-301d-4666-a6b1-e74e9278e958">
+  <path d="M -4197.8 -586.75 L -4197.8 2460.3 L 402.23 2460.3 L 402.23 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip13)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -181,9 +181,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip13 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 718.23, 126.75)">
-<clipPath id="clip960b62ed-e370-47d5-b5f5-739dabd6320b">
-  <path d="M -4224.9 -745.58 L -4224.9 2460.3 L 451.56 2460.3 L 451.56 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 720.23, 99.748)">
+<clipPath id="clip2102012c-3b9c-4593-8890-10f5bc021d5b">
+  <path d="M -4236.7 -586.75 L -4236.7 2460.3 L 363.33 2460.3 L 363.33 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip14)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -194,9 +194,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip14 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 727.07, 126.75)">
-<clipPath id="clipabed144a-1988-4533-9e08-4a2e35cbcfb5">
-  <path d="M -4276.9 -745.58 L -4276.9 2460.3 L 399.56 2460.3 L 399.56 -745.58 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 729.07, 99.748)">
+<clipPath id="clipcff6be01-c954-461f-a429-40eca96a59f2">
+  <path d="M -4288.7 -586.75 L -4288.7 2460.3 L 311.33 2460.3 L 311.33 -586.75 z"/>
 </clipPath>
 <g clip-path="url(#clip15)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -208,12 +208,12 @@
 </g> <!-- clip15 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipbfc1fb37-1757-4bb9-a87a-e8a51de95673">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip4a9272b4-5225-45d5-959f-948d4c3008ef">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip16)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 44.531 5.8793 L 44.571 5.8793 L 44.571 8.5323 L 44.531 8.5323 L 44.531 5.8793 z"/>
+  <path d="M 44.649 4.2910 L 44.689 4.2910 L 44.689 6.9440 L 44.649 6.9440 L 44.649 4.2910 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -221,12 +221,12 @@
 </g> <!-- clip16 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipc918077b-ef24-4564-bdad-5a95c2254598">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip96a32950-6fd7-469a-9cc0-e4849b821acd">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip17)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 8.5323 L 44.571 8.5323 L 44.571 8.5723 L 34.176 8.5723 L 34.176 8.5323 z"/>
+  <path d="M 34.294 6.9440 L 44.689 6.9440 L 44.689 6.9840 L 34.294 6.9840 L 34.294 6.9440 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -234,12 +234,12 @@
 </g> <!-- clip17 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipa03e01ff-662b-4a65-9ee3-a32e9fdd98c8">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip57ffa1cf-e4bb-444c-8298-8a300b9c5a43">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip18)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 8.6522 L 44.571 8.6522 L 44.571 8.6922 L 34.176 8.6922 L 34.176 8.6522 z"/>
+  <path d="M 34.294 7.0640 L 44.689 7.0640 L 44.689 7.1040 L 34.294 7.1040 L 34.294 7.0640 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -247,21 +247,21 @@
 </g> <!-- clip18 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip00473676-3e6b-4c1f-99f4-b952f8a38656">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip0dc26ab9-2e03-4ee1-8993-200a45a0470c">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip19)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 8.6922 L 34.216 8.6922 L 34.216 11.382 L 34.176 11.382 L 34.176 8.6922 z"/>
+  <path d="M 34.294 7.1040 L 34.334 7.1040 L 34.334 9.7942 L 34.294 9.7942 L 34.294 7.1040 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip19 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 604.35, 176.77)">
-<clipPath id="clip3c7af706-1587-44e8-899a-6b7861f0e766">
-  <path d="M -3555.0 -1039.8 L -3555.0 2166.1 L 1121.5 2166.1 L 1121.5 -1039.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 606.35, 149.77)">
+<clipPath id="clipbd5893c9-6e52-4567-81ac-4a4686a676f8">
+  <path d="M -3566.7 -880.97 L -3566.7 2166.1 L 1033.3 2166.1 L 1033.3 -880.97 z"/>
 </clipPath>
 <g clip-path="url(#clip20)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -272,9 +272,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip20 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 614.07, 169.75)">
-<clipPath id="clipc3820c0b-87ec-4e77-9c9a-97af85787ed7">
-  <path d="M -5160.3 -1426.4 L -5160.3 3153.4 L 1520.4 3153.4 L 1520.4 -1426.4 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 616.07, 142.75)">
+<clipPath id="clipdba129c6-f577-4360-a32a-b297e3ec4619">
+  <path d="M -5177.1 -1199.5 L -5177.1 3153.4 L 1394.4 3153.4 L 1394.4 -1199.5 z"/>
 </clipPath>
 <g clip-path="url(#clip21)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -286,21 +286,21 @@
 </g> <!-- clip21 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipd14ebaa7-dcec-4355-b4da-55798005eef1">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip5478d39a-31c6-4c04-aabf-0dae153fefdb">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip22)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 37.904 8.6922 L 37.944 8.6922 L 37.944 11.382 L 37.904 11.382 L 37.904 8.6922 z"/>
+  <path d="M 38.022 7.1040 L 38.062 7.1040 L 38.062 9.7942 L 38.022 9.7942 L 38.022 7.1040 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip22 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 667.68, 165.26)">
-<clipPath id="clipa683ab67-b8ea-45e8-b336-99f2b0f0d72d">
-  <path d="M -3927.5 -972.14 L -3927.5 2233.7 L 748.96 2233.7 L 748.96 -972.14 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 669.68, 138.26)">
+<clipPath id="clip378e71f2-ed4c-434c-9ef4-4a2ac889b812">
+  <path d="M -3939.3 -813.32 L -3939.3 2233.7 L 660.73 2233.7 L 660.73 -813.32 z"/>
 </clipPath>
 <g clip-path="url(#clip23)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -311,9 +311,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip23 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 677.40, 159.10)">
-<clipPath id="clip5eb7086a-89d8-466f-9bd4-3fa94aa00cdd">
-  <path d="M -5692.4 -1336.9 L -5692.4 3242.9 L 988.23 3242.9 L 988.23 -1336.9 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 679.40, 132.10)">
+<clipPath id="clip88542ffa-50f9-451a-af56-f726e6705e89">
+  <path d="M -5709.2 -1110.0 L -5709.2 3242.9 L 862.18 3242.9 L 862.18 -1110.0 z"/>
 </clipPath>
 <g clip-path="url(#clip24)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -324,9 +324,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip24 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 684.54, 159.10)">
-<clipPath id="clipcb7c584f-68bb-46f9-9bdb-a98eec44e8cf">
-  <path d="M -5752.4 -1336.9 L -5752.4 3242.9 L 928.23 3242.9 L 928.23 -1336.9 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 686.54, 132.10)">
+<clipPath id="clipe320c23a-b4b7-4a62-b7a1-139a07833506">
+  <path d="M -5769.2 -1110.0 L -5769.2 3242.9 L 802.18 3242.9 L 802.18 -1110.0 z"/>
 </clipPath>
 <g clip-path="url(#clip25)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -337,9 +337,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip25 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 693.80, 159.10)">
-<clipPath id="clip8e77b447-9405-40e1-992f-77b4584051ca">
-  <path d="M -5830.2 -1336.9 L -5830.2 3242.9 L 850.43 3242.9 L 850.43 -1336.9 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 695.80, 132.10)">
+<clipPath id="clipf08ea195-c16a-4054-a4e6-49ee757761ee">
+  <path d="M -5847.0 -1110.0 L -5847.0 3242.9 L 724.38 3242.9 L 724.38 -1110.0 z"/>
 </clipPath>
 <g clip-path="url(#clip26)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -351,21 +351,21 @@
 </g> <!-- clip26 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipac420aeb-1852-42d5-a177-18d4d8a74832">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip49027c48-a097-4cc4-9eba-49d3f9d30e5b">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip27)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 39.072 10.128 L 41.394 10.128 L 41.394 10.168 L 39.072 10.168 L 39.072 10.128 z"/>
+  <path d="M 39.189 8.5397 L 41.512 8.5397 L 41.512 8.5797 L 39.189 8.5797 L 39.189 8.5397 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip27 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 664.22, 188.43)">
-<clipPath id="clip7543ed85-4bee-4574-85f4-441bb02218bf">
-  <path d="M -3907.2 -1108.4 L -3907.2 2097.5 L 769.29 2097.5 L 769.29 -1108.4 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 666.22, 161.43)">
+<clipPath id="clipcc4368d7-8c85-4821-8898-316fd9d75e03">
+  <path d="M -3918.9 -949.57 L -3918.9 2097.5 L 681.06 2097.5 L 681.06 -949.57 z"/>
 </clipPath>
 <g clip-path="url(#clip28)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -376,9 +376,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip28 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 678.20, 188.43)">
-<clipPath id="clipa89d3591-a3a4-435d-a712-670367fb3e9c">
-  <path d="M -3989.4 -1108.4 L -3989.4 2097.5 L 687.07 2097.5 L 687.07 -1108.4 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 680.20, 161.43)">
+<clipPath id="clip26f8dac0-7923-4260-880c-1374a999a54a">
+  <path d="M -4001.2 -949.57 L -4001.2 2097.5 L 598.83 2097.5 L 598.83 -949.57 z"/>
 </clipPath>
 <g clip-path="url(#clip29)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -389,9 +389,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip29 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 695.20, 188.43)">
-<clipPath id="clip0af40638-96d0-41b7-a5e6-e93269f91354">
-  <path d="M -4089.4 -1108.4 L -4089.4 2097.5 L 587.05 2097.5 L 587.05 -1108.4 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 697.20, 161.43)">
+<clipPath id="clipd0d09340-d71d-4864-b201-7cce94e4bac6">
+  <path d="M -4101.2 -949.57 L -4101.2 2097.5 L 498.81 2097.5 L 498.81 -949.57 z"/>
 </clipPath>
 <g clip-path="url(#clip30)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -402,9 +402,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip30 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 708.68, 176.77)">
-<clipPath id="clip50f39f19-7b67-4136-b090-b91dad5bf5b2">
-  <path d="M -4168.7 -1039.8 L -4168.7 2166.1 L 507.79 2166.1 L 507.79 -1039.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 710.68, 149.77)">
+<clipPath id="clip69361687-06e1-4b7c-9b0d-3f00987f8377">
+  <path d="M -4180.4 -880.97 L -4180.4 2166.1 L 419.56 2166.1 L 419.56 -880.97 z"/>
 </clipPath>
 <g clip-path="url(#clip31)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -415,9 +415,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip31 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 725.68, 176.77)">
-<clipPath id="clip2b9ba0e3-3fbb-46ec-866e-a011eb21f37a">
-  <path d="M -4268.7 -1039.8 L -4268.7 2166.1 L 407.77 2166.1 L 407.77 -1039.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 727.68, 149.77)">
+<clipPath id="clipf46031d7-9efb-4581-af2b-5136651a275f">
+  <path d="M -4280.5 -880.97 L -4280.5 2166.1 L 319.53 2166.1 L 319.53 -880.97 z"/>
 </clipPath>
 <g clip-path="url(#clip32)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -429,12 +429,12 @@
 </g> <!-- clip32 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip5c1fb0f3-afe4-437d-a71c-c803e6d5c919">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipa019b903-60fc-421a-8d99-2e6a86073d6b">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip33)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 44.531 8.6922 L 44.571 8.6922 L 44.571 11.382 L 44.531 11.382 L 44.531 8.6922 z"/>
+  <path d="M 44.649 7.1040 L 44.689 7.1040 L 44.689 9.7942 L 44.649 9.7942 L 44.649 7.1040 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -442,12 +442,12 @@
 </g> <!-- clip33 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipc9b07d1c-c41f-46d1-bf4e-d6bad4690a5a">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipc471a712-e754-4aa0-ad42-df664630830e">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip34)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 11.382 L 44.571 11.382 L 44.571 11.422 L 34.176 11.422 L 34.176 11.382 z"/>
+  <path d="M 34.294 9.7942 L 44.689 9.7942 L 44.689 9.8342 L 34.294 9.8342 L 34.294 9.7942 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -455,21 +455,21 @@
 </g> <!-- clip34 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipdf94515a-5dcd-4837-b221-8917e4d3ab16">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip3c95dd60-cd62-4823-b951-e3b899fae8c1">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip35)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 11.422 L 34.216 11.422 L 34.216 14.113 L 34.176 14.113 L 34.176 11.422 z"/>
+  <path d="M 34.294 9.8342 L 34.334 9.8342 L 34.334 12.524 L 34.294 12.524 L 34.294 9.8342 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip35 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 599.85, 223.18)">
-<clipPath id="clipf42bc7ed-f43a-4abb-b1c9-a6ef968d5ef0">
-  <path d="M -3528.5 -1312.8 L -3528.5 1893.1 L 1147.9 1893.1 L 1147.9 -1312.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 601.85, 196.18)">
+<clipPath id="clip60832a8d-acbd-4124-9414-b99798042dd5">
+  <path d="M -3540.3 -1154.0 L -3540.3 1893.1 L 1059.7 1893.1 L 1059.7 -1154.0 z"/>
 </clipPath>
 <g clip-path="url(#clip36)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -480,9 +480,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip36 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 608.84, 223.18)">
-<clipPath id="clip2059e575-b2a1-40da-9d12-ed19d452dc79">
-  <path d="M -3581.4 -1312.8 L -3581.4 1893.1 L 1095.0 1893.1 L 1095.0 -1312.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 610.84, 196.18)">
+<clipPath id="clipc1b93454-9dbd-4ed9-b74f-4fb02626d237">
+  <path d="M -3593.2 -1154.0 L -3593.2 1893.1 L 1006.8 1893.1 L 1006.8 -1154.0 z"/>
 </clipPath>
 <g clip-path="url(#clip37)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -493,9 +493,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip37 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 618.57, 216.16)">
-<clipPath id="clipd1ef8ed2-e085-4b47-9735-fa24100b78e1">
-  <path d="M -5198.0 -1816.5 L -5198.0 2763.4 L 1482.6 2763.4 L 1482.6 -1816.5 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 620.57, 189.16)">
+<clipPath id="clip494ad92c-bf51-41af-8d7e-8f92afa38116">
+  <path d="M -5214.9 -1589.6 L -5214.9 2763.4 L 1356.6 2763.4 L 1356.6 -1589.6 z"/>
 </clipPath>
 <g clip-path="url(#clip38)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -507,21 +507,21 @@
 </g> <!-- clip38 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip3affb070-c966-4bae-9757-25c230c156b2">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipd9371568-599b-4f59-8db7-553706143450">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip39)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 37.904 11.422 L 37.944 11.422 L 37.944 14.113 L 37.904 14.113 L 37.904 11.422 z"/>
+  <path d="M 38.022 9.8342 L 38.062 9.8342 L 38.062 12.524 L 38.022 12.524 L 38.022 9.8342 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip39 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 663.18, 211.68)">
-<clipPath id="clipeac559cf-c3a5-459e-93cf-264f378a79ac">
-  <path d="M -3901.1 -1245.2 L -3901.1 1960.7 L 775.41 1960.7 L 775.41 -1245.2 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 665.18, 184.68)">
+<clipPath id="clip147d164d-d497-4f87-a912-36054215107c">
+  <path d="M -3912.8 -1086.3 L -3912.8 1960.7 L 687.18 1960.7 L 687.18 -1086.3 z"/>
 </clipPath>
 <g clip-path="url(#clip40)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -532,9 +532,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip40 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 672.17, 211.68)">
-<clipPath id="clip89ce8b00-2363-4176-bffe-9da092df3452">
-  <path d="M -3954.0 -1245.2 L -3954.0 1960.7 L 722.51 1960.7 L 722.51 -1245.2 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 674.17, 184.68)">
+<clipPath id="clip820c7fe9-e873-42fe-b922-48df5c13f609">
+  <path d="M -3965.7 -1086.3 L -3965.7 1960.7 L 634.28 1960.7 L 634.28 -1086.3 z"/>
 </clipPath>
 <g clip-path="url(#clip41)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -545,9 +545,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip41 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 681.90, 205.51)">
-<clipPath id="clip63221fcf-6f70-4fd1-b26d-6911feeb4c32">
-  <path d="M -5730.2 -1727.0 L -5730.2 2852.9 L 950.45 2852.9 L 950.45 -1727.0 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 683.90, 178.51)">
+<clipPath id="clip1020339a-4b2a-4e5c-876f-8896b0ea1222">
+  <path d="M -5747.0 -1500.1 L -5747.0 2852.9 L 824.40 2852.9 L 824.40 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip42)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -558,9 +558,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip42 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 689.04, 205.51)">
-<clipPath id="clipaf46d8ba-e2da-4f6d-9e93-bef037078d36">
-  <path d="M -5790.2 -1727.0 L -5790.2 2852.9 L 890.45 2852.9 L 890.45 -1727.0 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 691.04, 178.51)">
+<clipPath id="clip481eb890-a2ae-41f9-b5d0-c1a807cf2892">
+  <path d="M -5807.0 -1500.1 L -5807.0 2852.9 L 764.40 2852.9 L 764.40 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip43)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -571,9 +571,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip43 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 698.29, 205.51)">
-<clipPath id="clipae130265-bede-4510-a476-cd40f4e45c09">
-  <path d="M -5868.0 -1727.0 L -5868.0 2852.9 L 812.65 2852.9 L 812.65 -1727.0 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 700.29, 178.51)">
+<clipPath id="clipd6b88796-28c1-4c93-8cb6-c591780bde77">
+  <path d="M -5884.8 -1500.1 L -5884.8 2852.9 L 686.60 2852.9 L 686.60 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip44)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -585,21 +585,21 @@
 </g> <!-- clip44 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipb05c011b-f753-41d1-b3ac-26395c08cece">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipd989a58c-d1fe-4474-84fe-4631b410ab00">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip45)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 39.011 12.858 L 41.455 12.858 L 41.455 12.898 L 39.011 12.898 L 39.011 12.858 z"/>
+  <path d="M 39.128 11.270 L 41.573 11.270 L 41.573 11.310 L 39.128 11.310 L 39.128 11.270 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip45 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 664.22, 234.84)">
-<clipPath id="clip90d8f271-e195-4437-a850-098f6ea91a5f">
-  <path d="M -3907.2 -1381.4 L -3907.2 1824.5 L 769.29 1824.5 L 769.29 -1381.4 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 666.22, 207.84)">
+<clipPath id="clip2def4dc4-cafc-444a-b671-84d44689ce1b">
+  <path d="M -3918.9 -1222.6 L -3918.9 1824.5 L 681.06 1824.5 L 681.06 -1222.6 z"/>
 </clipPath>
 <g clip-path="url(#clip46)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -610,9 +610,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip46 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 678.20, 234.84)">
-<clipPath id="clip3171f8f4-77c5-47ff-b42f-23f573f300e2">
-  <path d="M -3989.4 -1381.4 L -3989.4 1824.5 L 687.07 1824.5 L 687.07 -1381.4 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 680.20, 207.84)">
+<clipPath id="clip33882917-0470-4fd0-80f1-6e512f1c6b79">
+  <path d="M -4001.2 -1222.6 L -4001.2 1824.5 L 598.83 1824.5 L 598.83 -1222.6 z"/>
 </clipPath>
 <g clip-path="url(#clip47)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -623,9 +623,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip47 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 695.20, 234.84)">
-<clipPath id="clipaca42c3b-3482-49e1-b7ff-b3363954e2f0">
-  <path d="M -4089.4 -1381.4 L -4089.4 1824.5 L 587.05 1824.5 L 587.05 -1381.4 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 697.20, 207.84)">
+<clipPath id="clip1c4ceeb8-b25c-47c5-a413-f639620cb00b">
+  <path d="M -4101.2 -1222.6 L -4101.2 1824.5 L 498.81 1824.5 L 498.81 -1222.6 z"/>
 </clipPath>
 <g clip-path="url(#clip48)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -636,9 +636,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip48 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 709.72, 223.18)">
-<clipPath id="clip3cd2e292-947f-4bf7-a7dd-32c210ccd78f">
-  <path d="M -4174.8 -1312.8 L -4174.8 1893.1 L 501.67 1893.1 L 501.67 -1312.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 711.72, 196.18)">
+<clipPath id="clip047a6bac-9b1f-4465-a4fb-f03d62286d89">
+  <path d="M -4186.6 -1154.0 L -4186.6 1893.1 L 413.43 1893.1 L 413.43 -1154.0 z"/>
 </clipPath>
 <g clip-path="url(#clip49)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -649,9 +649,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip49 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 726.72, 223.18)">
-<clipPath id="clip6faafa8f-6437-4d7d-bc03-debd9ff8fd4e">
-  <path d="M -4274.8 -1312.8 L -4274.8 1893.1 L 401.65 1893.1 L 401.65 -1312.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 728.72, 196.18)">
+<clipPath id="clipd888df53-6e5e-4945-b66c-998bb90bc75c">
+  <path d="M -4286.6 -1154.0 L -4286.6 1893.1 L 313.41 1893.1 L 313.41 -1154.0 z"/>
 </clipPath>
 <g clip-path="url(#clip50)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -663,12 +663,12 @@
 </g> <!-- clip50 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipc8ec2f6a-652d-42a7-98e1-c2a55bd03423">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip527412a9-c56c-4c80-9d1d-10de20a6ec26">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip51)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 44.531 11.422 L 44.571 11.422 L 44.571 14.113 L 44.531 14.113 L 44.531 11.422 z"/>
+  <path d="M 44.649 9.8342 L 44.689 9.8342 L 44.689 12.524 L 44.649 12.524 L 44.649 9.8342 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -676,12 +676,12 @@
 </g> <!-- clip51 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip13fc939d-2536-4f7a-a519-61bda9fc099f">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipeb70adc5-4464-43e9-9d95-ab4f1f1a8ea4">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip52)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 14.113 L 44.571 14.113 L 44.571 14.153 L 34.176 14.153 L 34.176 14.113 z"/>
+  <path d="M 34.294 12.524 L 44.689 12.524 L 44.689 12.564 L 34.294 12.564 L 34.294 12.524 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -689,21 +689,21 @@
 </g> <!-- clip52 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip2ee33fc9-1ac3-4ce0-b5fe-eaddf256439a">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip22700bb5-85ce-4f14-8d42-faedcf0fa057">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip53)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 14.153 L 34.216 14.153 L 34.216 15.584 L 34.176 15.584 L 34.176 14.153 z"/>
+  <path d="M 34.294 12.564 L 34.334 12.564 L 34.334 13.995 L 34.294 13.995 L 34.294 12.564 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip53 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 591.11, 257.01)">
-<clipPath id="clipbcec4aad-4be7-4504-a013-f960ce513279">
-  <path d="M -3477.1 -1511.8 L -3477.1 1694.1 L 1199.3 1694.1 L 1199.3 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 593.11, 230.01)">
+<clipPath id="clip910e7eeb-52ed-4355-92ee-410824bc51d4">
+  <path d="M -3488.9 -1353.0 L -3488.9 1694.1 L 1111.1 1694.1 L 1111.1 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip54)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -714,9 +714,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip54 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 597.81, 257.01)">
-<clipPath id="clip8b333c5d-1d6a-4362-8904-3255693c38ed">
-  <path d="M -3516.5 -1511.8 L -3516.5 1694.1 L 1159.9 1694.1 L 1159.9 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 599.81, 230.01)">
+<clipPath id="clipa4d21234-edfc-49f9-bcf3-98ae3419f089">
+  <path d="M -3528.3 -1353.0 L -3528.3 1694.1 L 1071.7 1694.1 L 1071.7 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip55)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -727,9 +727,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip55 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 602.54, 257.01)">
-<clipPath id="clip7c1600a8-f11d-4159-bd39-d2ed9303e9ec">
-  <path d="M -3544.3 -1511.8 L -3544.3 1694.1 L 1132.1 1694.1 L 1132.1 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 604.54, 230.01)">
+<clipPath id="clipa3ec1d1e-1876-43eb-bb05-54ce30749ea1">
+  <path d="M -3556.1 -1353.0 L -3556.1 1694.1 L 1043.9 1694.1 L 1043.9 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip56)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -740,9 +740,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip56 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 611.99, 257.01)">
-<clipPath id="clip2216bf8e-a5cb-47b6-9fc0-24825d1f1c04">
-  <path d="M -3599.9 -1511.8 L -3599.9 1694.1 L 1076.5 1694.1 L 1076.5 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 613.99, 230.01)">
+<clipPath id="clipb020eda4-78fe-454d-b0aa-9ae8224b3728">
+  <path d="M -3611.7 -1353.0 L -3611.7 1694.1 L 988.29 1694.1 L 988.29 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip57)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -753,9 +753,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip57 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 618.60, 257.01)">
-<clipPath id="clipc1043ebe-d474-4846-a2b6-a0508ef06bff">
-  <path d="M -3638.8 -1511.8 L -3638.8 1694.1 L 1037.6 1694.1 L 1037.6 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 620.60, 230.01)">
+<clipPath id="clipabcef7a6-ad72-4d05-b69b-05d36092e392">
+  <path d="M -3650.6 -1353.0 L -3650.6 1694.1 L 949.39 1694.1 L 949.39 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip58)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -766,9 +766,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip58 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 628.33, 257.01)">
-<clipPath id="clip54f27650-b119-4dbf-8002-6fde9a951a66">
-  <path d="M -3696.0 -1511.8 L -3696.0 1694.1 L 980.42 1694.1 L 980.42 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 630.33, 230.01)">
+<clipPath id="clipf42a9d89-aa47-4eee-bc0d-32213c35106b">
+  <path d="M -3707.8 -1353.0 L -3707.8 1694.1 L 892.19 1694.1 L 892.19 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip59)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -780,21 +780,21 @@
 </g> <!-- clip59 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipa543c28c-f2ca-4e12-9e84-83418f71d265">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip39646f23-4096-4b12-b624-8e0a4194ae74">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip60)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 37.904 14.153 L 37.944 14.153 L 37.944 15.584 L 37.904 15.584 L 37.904 14.153 z"/>
+  <path d="M 38.022 12.564 L 38.062 12.564 L 38.062 13.995 L 38.022 13.995 L 38.022 12.564 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip60 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 653.56, 257.01)">
-<clipPath id="clip94fc397c-b425-4db6-b1d6-b4540bcc8eef">
-  <path d="M -3844.4 -1511.8 L -3844.4 1694.1 L 832.02 1694.1 L 832.02 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 655.56, 230.01)">
+<clipPath id="clip35347103-b623-46f3-a706-1dafcc5ba396">
+  <path d="M -3856.2 -1353.0 L -3856.2 1694.1 L 743.79 1694.1 L 743.79 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip61)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -805,9 +805,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip61 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 669.62, 257.01)">
-<clipPath id="clip27132e42-2a55-44b3-899d-394ec2c3df84">
-  <path d="M -3938.9 -1511.8 L -3938.9 1694.1 L 737.56 1694.1 L 737.56 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 671.62, 230.01)">
+<clipPath id="clipcc44b824-d4ef-4123-b01b-8fbcf6b04ca6">
+  <path d="M -3950.7 -1353.0 L -3950.7 1694.1 L 649.32 1694.1 L 649.32 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip62)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -818,9 +818,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip62 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 677.16, 257.01)">
-<clipPath id="clipe7d542d7-b01f-4e59-b6fa-bb8589511967">
-  <path d="M -3983.3 -1511.8 L -3983.3 1694.1 L 693.16 1694.1 L 693.16 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 679.16, 230.01)">
+<clipPath id="clip1f150e45-8ab3-4043-a50f-103931f8fefd">
+  <path d="M -3995.1 -1353.0 L -3995.1 1694.1 L 604.92 1694.1 L 604.92 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip63)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -831,9 +831,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip63 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 685.66, 257.01)">
-<clipPath id="clip71f3c386-ebab-45e3-b10c-df6360f5d465">
-  <path d="M -4033.3 -1511.8 L -4033.3 1694.1 L 643.16 1694.1 L 643.16 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 687.66, 230.01)">
+<clipPath id="clip4b6c1108-b38e-4ca2-907f-e30ab579f01d">
+  <path d="M -4045.1 -1353.0 L -4045.1 1694.1 L 554.92 1694.1 L 554.92 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip64)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -844,9 +844,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip64 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 692.36, 257.01)">
-<clipPath id="clip1487c590-8136-4e4d-8d5a-ab0995d1e39e">
-  <path d="M -4072.7 -1511.8 L -4072.7 1694.1 L 603.76 1694.1 L 603.76 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 694.36, 230.01)">
+<clipPath id="clip3ed4e17c-8d24-4878-9319-99d8f3b597b4">
+  <path d="M -4084.5 -1353.0 L -4084.5 1694.1 L 515.52 1694.1 L 515.52 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip65)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -857,9 +857,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip65 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 698.97, 257.01)">
-<clipPath id="clipf5590069-51ad-4778-9645-b0b00d091c8a">
-  <path d="M -4111.6 -1511.8 L -4111.6 1694.1 L 564.86 1694.1 L 564.86 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 700.97, 230.01)">
+<clipPath id="clipc2cb8264-5e20-49b9-8ee5-74eea7fe71a2">
+  <path d="M -4123.4 -1353.0 L -4123.4 1694.1 L 476.62 1694.1 L 476.62 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip66)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -870,9 +870,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip66 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 708.70, 257.01)">
-<clipPath id="clipea55981d-52e8-4204-92a8-18bf23acb546">
-  <path d="M -4168.8 -1511.8 L -4168.8 1694.1 L 507.66 1694.1 L 507.66 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 710.70, 230.01)">
+<clipPath id="clipc8d70c61-f9d1-4b4f-9f4c-6b11b46f734d">
+  <path d="M -4180.6 -1353.0 L -4180.6 1694.1 L 419.42 1694.1 L 419.42 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip67)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -883,9 +883,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip67 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 718.14, 257.01)">
-<clipPath id="clip13595796-9a87-48f2-9ee2-e9a77b3b42ab">
-  <path d="M -4224.4 -1511.8 L -4224.4 1694.1 L 452.09 1694.1 L 452.09 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 720.14, 230.01)">
+<clipPath id="clipcd2be207-f3cb-433b-9780-286e2af61949">
+  <path d="M -4236.1 -1353.0 L -4236.1 1694.1 L 363.86 1694.1 L 363.86 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip68)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -896,9 +896,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip68 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 735.15, 257.01)">
-<clipPath id="clip3e187443-ca22-496b-aef0-c0a720fd7d37">
-  <path d="M -4324.4 -1511.8 L -4324.4 1694.1 L 352.07 1694.1 L 352.07 -1511.8 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 737.15, 230.01)">
+<clipPath id="clipef1a1dfb-138b-465a-b585-f2d92ef665d8">
+  <path d="M -4336.2 -1353.0 L -4336.2 1694.1 L 263.83 1694.1 L 263.83 -1353.0 z"/>
 </clipPath>
 <g clip-path="url(#clip69)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -910,12 +910,12 @@
 </g> <!-- clip69 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipb1223f36-5b4f-4792-9403-f7bc5863f26c">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip1e37e34d-1ff4-4ef7-9e53-d53283b87453">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip70)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 44.531 14.153 L 44.571 14.153 L 44.571 15.584 L 44.531 15.584 L 44.531 14.153 z"/>
+  <path d="M 44.649 12.564 L 44.689 12.564 L 44.689 13.995 L 44.649 13.995 L 44.649 12.564 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -923,12 +923,12 @@
 </g> <!-- clip70 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip68f1a4e4-19cf-4968-8edb-dc84b90201bc">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip8b429272-3072-4b49-9fdd-8188fcc06115">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip71)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 15.584 L 44.571 15.584 L 44.571 15.624 L 34.176 15.624 L 34.176 15.584 z"/>
+  <path d="M 34.294 13.995 L 44.689 13.995 L 44.689 14.035 L 34.294 14.035 L 34.294 13.995 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -936,21 +936,21 @@
 </g> <!-- clip71 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip84fead30-90cc-4806-8bc8-8ddf2487f9b0">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipb83014bb-c582-4c94-b04e-65ac7f074650">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip72)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 15.624 L 34.216 15.624 L 34.216 17.055 L 34.176 17.055 L 34.176 15.624 z"/>
+  <path d="M 34.294 14.035 L 34.334 14.035 L 34.334 15.466 L 34.294 15.466 L 34.294 14.035 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip72 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 590.18, 282.01)">
-<clipPath id="clipe3619859-0a9a-4f49-930e-9339b7413e51">
-  <path d="M -3471.6 -1658.9 L -3471.6 1547.0 L 1204.8 1547.0 L 1204.8 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 592.18, 255.01)">
+<clipPath id="clipc13f8cf6-f2aa-4094-9fb0-3d5275af0c6e">
+  <path d="M -3483.4 -1500.1 L -3483.4 1547.0 L 1116.6 1547.0 L 1116.6 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip73)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -961,9 +961,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip73 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 597.73, 282.01)">
-<clipPath id="clipb8f9178c-482f-4f58-adde-ad3799d2cd9d">
-  <path d="M -3516.0 -1658.9 L -3516.0 1547.0 L 1160.4 1547.0 L 1160.4 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 599.73, 255.01)">
+<clipPath id="clip9ea8f136-aa49-4b88-8895-b5e5debbf515">
+  <path d="M -3527.8 -1500.1 L -3527.8 1547.0 L 1072.2 1547.0 L 1072.2 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip74)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -974,9 +974,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip74 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 606.23, 282.01)">
-<clipPath id="clipbf96640a-d14a-46df-b944-3957282a4c95">
-  <path d="M -3566.0 -1658.9 L -3566.0 1547.0 L 1110.4 1547.0 L 1110.4 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 608.23, 255.01)">
+<clipPath id="clip886e9c9e-b2c3-4a33-a67b-d4305c4baa59">
+  <path d="M -3577.8 -1500.1 L -3577.8 1547.0 L 1022.2 1547.0 L 1022.2 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip75)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -987,9 +987,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip75 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 612.93, 282.01)">
-<clipPath id="clip38f2fdce-7e8a-4a06-91af-b2dd3acd8583">
-  <path d="M -3605.4 -1658.9 L -3605.4 1547.0 L 1071.0 1547.0 L 1071.0 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 614.93, 255.01)">
+<clipPath id="clip826c7b19-2d7f-43d6-bfd8-7cd0abd7e057">
+  <path d="M -3617.2 -1500.1 L -3617.2 1547.0 L 982.79 1547.0 L 982.79 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip76)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1000,9 +1000,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip76 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 619.54, 282.01)">
-<clipPath id="clipb06c5aec-866e-4b29-b69d-510e4e8604ce">
-  <path d="M -3644.3 -1658.9 L -3644.3 1547.0 L 1032.1 1547.0 L 1032.1 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 621.54, 255.01)">
+<clipPath id="clip09909fce-1334-4c4b-b8b8-bfd53d418e2d">
+  <path d="M -3656.1 -1500.1 L -3656.1 1547.0 L 943.89 1547.0 L 943.89 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip77)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1013,9 +1013,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip77 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 629.26, 282.01)">
-<clipPath id="clipbb3facfc-8966-48fc-a411-4187b3eb8693">
-  <path d="M -3701.5 -1658.9 L -3701.5 1547.0 L 974.92 1547.0 L 974.92 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 631.26, 255.01)">
+<clipPath id="clip1c9d01c7-82d8-42c4-9fbb-fee914530c41">
+  <path d="M -3713.3 -1500.1 L -3713.3 1547.0 L 886.69 1547.0 L 886.69 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip78)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1027,21 +1027,21 @@
 </g> <!-- clip78 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip3906ae27-1a23-42bc-98be-9a7f0efc2987">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipc4d3176a-9e59-410f-a85a-a7261d2b104d">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip79)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 37.904 15.624 L 37.944 15.624 L 37.944 17.055 L 37.904 17.055 L 37.904 15.624 z"/>
+  <path d="M 38.022 14.035 L 38.062 14.035 L 38.062 15.466 L 38.022 15.466 L 38.022 14.035 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip79 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 662.52, 282.01)">
-<clipPath id="clip42ae229b-6b7d-4290-b614-bf567364586b">
-  <path d="M -3897.2 -1658.9 L -3897.2 1547.0 L 779.29 1547.0 L 779.29 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 664.52, 255.01)">
+<clipPath id="clip45b17e9d-d0a8-4c37-9af9-3818669310f8">
+  <path d="M -3908.9 -1500.1 L -3908.9 1547.0 L 691.06 1547.0 L 691.06 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip80)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1052,9 +1052,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip80 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 669.22, 282.01)">
-<clipPath id="clip11bf63f0-62df-49a4-ac06-91e79209456e">
-  <path d="M -3936.6 -1658.9 L -3936.6 1547.0 L 739.89 1547.0 L 739.89 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 671.22, 255.01)">
+<clipPath id="clipd9c750b5-65f0-4635-9b3c-b179eea85517">
+  <path d="M -3948.3 -1500.1 L -3948.3 1547.0 L 651.66 1547.0 L 651.66 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip81)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1065,9 +1065,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip81 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 673.94, 282.01)">
-<clipPath id="clipd5736ed5-9b75-4211-8361-94cb272070b9">
-  <path d="M -3964.4 -1658.9 L -3964.4 1547.0 L 712.09 1547.0 L 712.09 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 675.94, 255.01)">
+<clipPath id="clipd50776c6-2c9f-46d0-8d15-982e3f8ab264">
+  <path d="M -3976.1 -1500.1 L -3976.1 1547.0 L 623.86 1547.0 L 623.86 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip82)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1078,9 +1078,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip82 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 683.40, 282.01)">
-<clipPath id="clip9370fa75-fdb9-4a2c-a69f-d9a7fb778f97">
-  <path d="M -4020.0 -1658.9 L -4020.0 1547.0 L 656.49 1547.0 L 656.49 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 685.40, 255.01)">
+<clipPath id="clip7e6519f5-b550-43b8-8bed-2c1d861471b0">
+  <path d="M -4031.7 -1500.1 L -4031.7 1547.0 L 568.26 1547.0 L 568.26 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip83)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1091,9 +1091,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip83 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 690.01, 282.01)">
-<clipPath id="clipa89c0bec-ee90-415b-b3d1-0c55d7ad9434">
-  <path d="M -4058.9 -1658.9 L -4058.9 1547.0 L 617.59 1547.0 L 617.59 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 692.01, 255.01)">
+<clipPath id="clip5f51ac28-6bf3-4e45-b926-925c2290c03e">
+  <path d="M -4070.6 -1500.1 L -4070.6 1547.0 L 529.36 1547.0 L 529.36 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip84)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1104,9 +1104,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip84 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 699.73, 282.01)">
-<clipPath id="clip2453c24e-845c-4d31-9fce-26d47662a7a9">
-  <path d="M -4116.1 -1658.9 L -4116.1 1547.0 L 560.39 1547.0 L 560.39 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 701.73, 255.01)">
+<clipPath id="clipe299f837-c875-413e-8ad5-7657a1e13d65">
+  <path d="M -4127.8 -1500.1 L -4127.8 1547.0 L 472.16 1547.0 L 472.16 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip85)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1117,9 +1117,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip85 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 709.18, 282.01)">
-<clipPath id="clip50027a0a-ed15-4292-b92e-efd8cfa5c237">
-  <path d="M -4171.6 -1658.9 L -4171.6 1547.0 L 504.82 1547.0 L 504.82 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 711.18, 255.01)">
+<clipPath id="clipe6189477-b528-463f-bd33-1924c5fe35e1">
+  <path d="M -4183.4 -1500.1 L -4183.4 1547.0 L 416.59 1547.0 L 416.59 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip86)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1130,9 +1130,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip86 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 726.18, 282.01)">
-<clipPath id="clip2b42c83a-4c69-49c0-89e4-b83db518d5e2">
-  <path d="M -4271.7 -1658.9 L -4271.7 1547.0 L 404.80 1547.0 L 404.80 -1658.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 728.18, 255.01)">
+<clipPath id="clip16151e6b-352d-4193-8cbf-6c7e3a5ebe4a">
+  <path d="M -4283.4 -1500.1 L -4283.4 1547.0 L 316.57 1547.0 L 316.57 -1500.1 z"/>
 </clipPath>
 <g clip-path="url(#clip87)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1144,12 +1144,12 @@
 </g> <!-- clip87 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipc09761c5-5db8-4555-bc31-a02785544d9c">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipbae23405-0791-4693-a7c5-c780fe670101">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip88)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 44.531 15.624 L 44.571 15.624 L 44.571 17.055 L 44.531 17.055 L 44.531 15.624 z"/>
+  <path d="M 44.649 14.035 L 44.689 14.035 L 44.689 15.466 L 44.649 15.466 L 44.649 14.035 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -1157,12 +1157,12 @@
 </g> <!-- clip88 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip42a90657-5d82-4259-a4ee-c66a927b3318">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipb8278bb3-da39-4d7a-8623-2fad7498664c">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip89)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 17.055 L 44.571 17.055 L 44.571 17.095 L 34.176 17.095 L 34.176 17.055 z"/>
+  <path d="M 34.294 15.466 L 44.689 15.466 L 44.689 15.506 L 34.294 15.506 L 34.294 15.466 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -1170,21 +1170,21 @@
 </g> <!-- clip89 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipea5a70e8-c0d3-4879-8f53-a3c8703b11ee">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip1f01e3f5-601c-455b-9593-d76af67e468d">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip90)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 17.095 L 34.216 17.095 L 34.216 18.323 L 34.176 18.323 L 34.176 17.095 z"/>
+  <path d="M 34.294 15.506 L 34.334 15.506 L 34.334 16.735 L 34.294 16.735 L 34.294 15.506 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip90 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 605.41, 306.42)">
-<clipPath id="clip5c3ff978-58db-4f5a-a922-17db9cfe3f9b">
-  <path d="M -3561.3 -1802.5 L -3561.3 1403.4 L 1115.2 1403.4 L 1115.2 -1802.5 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 607.41, 279.42)">
+<clipPath id="clipc5a97002-3983-467f-ae45-da0000218683">
+  <path d="M -3573.0 -1643.6 L -3573.0 1403.4 L 1027.0 1403.4 L 1027.0 -1643.6 z"/>
 </clipPath>
 <g clip-path="url(#clip91)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1195,9 +1195,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip91 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 613.34, 299.40)">
-<clipPath id="clip231eb67f-21c8-4c2a-a7ed-a23c9e4337a0">
-  <path d="M -5154.1 -2516.0 L -5154.1 2063.9 L 1526.6 2063.9 L 1526.6 -2516.0 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 615.34, 272.40)">
+<clipPath id="clip3946ae92-9944-481d-bfea-81cd6ff75b33">
+  <path d="M -5170.9 -2289.1 L -5170.9 2063.9 L 1400.5 2063.9 L 1400.5 -2289.1 z"/>
 </clipPath>
 <g clip-path="url(#clip92)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1209,21 +1209,21 @@
 </g> <!-- clip92 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipb2607a6e-9225-46e9-be9f-ad66481e312a">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip51153ddd-c63f-4186-887a-ad9c8d0a8131">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip93)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 37.904 17.095 L 37.944 17.095 L 37.944 18.323 L 37.904 18.323 L 37.904 17.095 z"/>
+  <path d="M 38.022 15.506 L 38.062 15.506 L 38.062 16.735 L 38.022 16.735 L 38.022 15.506 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip93 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 676.35, 306.42)">
-<clipPath id="clip4ee0d4b8-2fcc-4235-9ea6-dca1d0ff2463">
-  <path d="M -3978.5 -1802.5 L -3978.5 1403.4 L 697.95 1403.4 L 697.95 -1802.5 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 678.35, 279.42)">
+<clipPath id="clip8af86cf7-a4f9-4a3c-a240-ac6cdf2adf6b">
+  <path d="M -3990.3 -1643.6 L -3990.3 1403.4 L 609.72 1403.4 L 609.72 -1643.6 z"/>
 </clipPath>
 <g clip-path="url(#clip94)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1234,9 +1234,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip94 -->
 </g> <!-- transform -->
-<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 684.27, 299.40)">
-<clipPath id="clipec6b4c92-a707-4ea4-bc6b-ed80c15ca3d4">
-  <path d="M -5750.2 -2516.0 L -5750.2 2063.9 L 930.50 2063.9 L 930.50 -2516.0 z"/>
+<g transform="matrix(.11900, 0.0000, 0.0000, .11900, 686.27, 272.40)">
+<clipPath id="clip054ba92d-7051-487b-9508-9ec98d9d0741">
+  <path d="M -5767.0 -2289.1 L -5767.0 2063.9 L 804.45 2063.9 L 804.45 -2289.1 z"/>
 </clipPath>
 <g clip-path="url(#clip95)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1247,9 +1247,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip95 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 695.35, 306.42)">
-<clipPath id="clip0da692dd-ef73-47ce-9c6d-a75beb3328b5">
-  <path d="M -4090.3 -1802.5 L -4090.3 1403.4 L 586.16 1403.4 L 586.16 -1802.5 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 697.35, 279.42)">
+<clipPath id="clip7e4c95cf-430c-4334-b571-3f09a91aa1d3">
+  <path d="M -4102.1 -1643.6 L -4102.1 1403.4 L 497.93 1403.4 L 497.93 -1643.6 z"/>
 </clipPath>
 <g clip-path="url(#clip96)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1260,9 +1260,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip96 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 712.36, 306.42)">
-<clipPath id="clip9de38fa7-3cfa-4d18-a2ae-846ccf407f2c">
-  <path d="M -4190.3 -1802.5 L -4190.3 1403.4 L 486.14 1403.4 L 486.14 -1802.5 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 714.36, 279.42)">
+<clipPath id="clip8f049d13-70cf-49ba-8e07-48cd669c8303">
+  <path d="M -4202.1 -1643.6 L -4202.1 1403.4 L 397.90 1403.4 L 397.90 -1643.6 z"/>
 </clipPath>
 <g clip-path="url(#clip97)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1274,12 +1274,12 @@
 </g> <!-- clip97 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip171ac546-3dac-4788-9388-96d3219c851c">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip8187c5d0-5152-4c8e-8421-0231b712ea16">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip98)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 44.531 17.095 L 44.571 17.095 L 44.571 18.323 L 44.531 18.323 L 44.531 17.095 z"/>
+  <path d="M 44.649 15.506 L 44.689 15.506 L 44.689 16.735 L 44.649 16.735 L 44.649 15.506 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -1287,12 +1287,12 @@
 </g> <!-- clip98 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip7f5aaedc-6f78-47d9-8d87-0ecc67950732">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipf18a3e6e-72c8-4ed9-9af9-1f42d799b864">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip99)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 18.323 L 44.571 18.323 L 44.571 18.363 L 34.176 18.363 L 34.176 18.323 z"/>
+  <path d="M 34.294 16.735 L 44.689 16.735 L 44.689 16.775 L 34.294 16.775 L 34.294 16.735 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -1300,21 +1300,21 @@
 </g> <!-- clip99 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip67b04633-de0a-4ee7-a027-30d3eba7632e">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip2dc88a7e-b5dc-4257-95a7-876df224f85b">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip100)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 18.363 L 34.216 18.363 L 34.216 20.801 L 34.176 20.801 L 34.176 18.363 z"/>
+  <path d="M 34.294 16.775 L 34.334 16.775 L 34.334 19.212 L 34.294 19.212 L 34.294 16.775 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip100 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 608.78, 326.78)">
-<clipPath id="clipc3365e27-03c7-45b5-bc86-a3fa88bd25a8">
-  <path d="M -3581.0 -1922.3 L -3581.0 1283.6 L 1095.4 1283.6 L 1095.4 -1922.3 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 610.78, 299.78)">
+<clipPath id="clipadb66f70-3749-4039-9c95-9b7eb8aef33c">
+  <path d="M -3592.8 -1763.4 L -3592.8 1283.6 L 1007.2 1283.6 L 1007.2 -1763.4 z"/>
 </clipPath>
 <g clip-path="url(#clip101)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1326,21 +1326,21 @@
 </g> <!-- clip101 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip6bb9e8ab-fff9-44b3-89dc-babc6eb48817">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipd6407588-7fa3-45af-952e-413bfe895256">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip102)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 35.774 19.629 L 36.346 19.629 L 36.346 19.669 L 35.774 19.669 L 35.774 19.629 z"/>
+  <path d="M 35.892 18.041 L 36.464 18.041 L 36.464 18.081 L 35.892 18.081 L 35.892 18.041 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip102 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 608.17, 349.95)">
-<clipPath id="clipc3911bc8-93ef-4357-b88e-974a711c9d98">
-  <path d="M -3577.4 -2058.5 L -3577.4 1147.4 L 1099.0 1147.4 L 1099.0 -2058.5 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 610.17, 322.95)">
+<clipPath id="clip7b035c0d-2e84-4bfe-b434-630faaba4008">
+  <path d="M -3589.2 -1899.7 L -3589.2 1147.4 L 1010.8 1147.4 L 1010.8 -1899.7 z"/>
 </clipPath>
 <g clip-path="url(#clip103)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1352,21 +1352,21 @@
 </g> <!-- clip103 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipe8f208cf-27ed-4b41-a60c-f6d40fdb8397">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clipbc5f9986-7129-4295-b928-e8aef73d11bc">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip104)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 37.904 18.363 L 37.944 18.363 L 37.944 20.801 L 37.904 20.801 L 37.904 18.363 z"/>
+  <path d="M 38.022 16.775 L 38.062 16.775 L 38.062 19.212 L 38.022 19.212 L 38.022 16.775 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
 </g> <!-- drawing style -->
 </g> <!-- clip104 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 665.87, 338.29)">
-<clipPath id="clip2616f8a3-77b0-4d8c-9275-65492be80a4e">
-  <path d="M -3916.9 -1989.9 L -3916.9 1216.0 L 759.60 1216.0 L 759.60 -1989.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 667.87, 311.29)">
+<clipPath id="clipd9791df4-2ba8-45d8-8636-68ec843f6428">
+  <path d="M -3928.6 -1831.1 L -3928.6 1216.0 L 671.37 1216.0 L 671.37 -1831.1 z"/>
 </clipPath>
 <g clip-path="url(#clip105)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1377,9 +1377,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip105 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 670.59, 338.29)">
-<clipPath id="clip42b41c34-57a9-4e7f-9af8-171eaf5a1656">
-  <path d="M -3944.7 -1989.9 L -3944.7 1216.0 L 731.80 1216.0 L 731.80 -1989.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 672.59, 311.29)">
+<clipPath id="clip52dea27a-0ca8-4a6c-bbdc-dadc764be18f">
+  <path d="M -3956.4 -1831.1 L -3956.4 1216.0 L 643.57 1216.0 L 643.57 -1831.1 z"/>
 </clipPath>
 <g clip-path="url(#clip106)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1390,9 +1390,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip106 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 682.88, 338.29)">
-<clipPath id="clip8bbe6bb0-556c-4609-b989-7aabce080823">
-  <path d="M -4016.9 -1989.9 L -4016.9 1216.0 L 659.53 1216.0 L 659.53 -1989.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 684.88, 311.29)">
+<clipPath id="clip4d719689-9622-4706-89ac-e8a54cf04e2b">
+  <path d="M -4028.7 -1831.1 L -4028.7 1216.0 L 571.30 1216.0 L 571.30 -1831.1 z"/>
 </clipPath>
 <g clip-path="url(#clip107)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1403,9 +1403,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip107 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 687.61, 338.29)">
-<clipPath id="clipbb663500-42d8-4dd8-a474-5b6e1b46194e">
-  <path d="M -4044.7 -1989.9 L -4044.7 1216.0 L 631.73 1216.0 L 631.73 -1989.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 689.61, 311.29)">
+<clipPath id="clipac7a60e5-d805-4ed2-9cc7-6c9b1186179e">
+  <path d="M -4056.5 -1831.1 L -4056.5 1216.0 L 543.50 1216.0 L 543.50 -1831.1 z"/>
 </clipPath>
 <g clip-path="url(#clip108)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1416,9 +1416,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip108 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 697.33, 338.29)">
-<clipPath id="clipcc140e53-0736-41ee-9bdd-f3f2efd2bbc4">
-  <path d="M -4101.9 -1989.9 L -4101.9 1216.0 L 574.53 1216.0 L 574.53 -1989.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 699.33, 311.29)">
+<clipPath id="clip89336bd3-6dcb-43ae-90c0-fcf0e342f58e">
+  <path d="M -4113.7 -1831.1 L -4113.7 1216.0 L 486.30 1216.0 L 486.30 -1831.1 z"/>
 </clipPath>
 <g clip-path="url(#clip109)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1429,9 +1429,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip109 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 705.83, 338.29)">
-<clipPath id="clip4936a20d-8d85-413c-ad88-a020e565b634">
-  <path d="M -4152.0 -1989.9 L -4152.0 1216.0 L 524.51 1216.0 L 524.51 -1989.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 707.83, 311.29)">
+<clipPath id="clip642771e6-e41f-4f5b-8c36-1d3acbe928a2">
+  <path d="M -4163.7 -1831.1 L -4163.7 1216.0 L 436.28 1216.0 L 436.28 -1831.1 z"/>
 </clipPath>
 <g clip-path="url(#clip110)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1442,9 +1442,9 @@
 </g> <!-- drawing style -->
 </g> <!-- clip110 -->
 </g> <!-- transform -->
-<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 722.84, 338.29)">
-<clipPath id="clipc288af05-aa89-4a06-bc40-bf623c2bba0e">
-  <path d="M -4252.0 -1989.9 L -4252.0 1216.0 L 424.49 1216.0 L 424.49 -1989.9 z"/>
+<g transform="matrix(.17000, 0.0000, 0.0000, .17000, 724.84, 311.29)">
+<clipPath id="clip3728c4de-bf31-41c4-9651-c39f9965de45">
+  <path d="M -4263.7 -1831.1 L -4263.7 1216.0 L 336.26 1216.0 L 336.26 -1831.1 z"/>
 </clipPath>
 <g clip-path="url(#clip111)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
@@ -1456,12 +1456,12 @@
 </g> <!-- clip111 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clipcae86c4c-4560-46e5-9f6c-47f8253f80d7">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip16944354-6436-4d23-abe7-51e1801e0395">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip112)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 44.531 18.363 L 44.571 18.363 L 44.571 20.801 L 44.531 20.801 L 44.531 18.363 z"/>
+  <path d="M 44.649 16.775 L 44.689 16.775 L 44.689 19.212 L 44.649 19.212 L 44.649 16.775 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
@@ -1469,12 +1469,12 @@
 </g> <!-- clip112 -->
 </g> <!-- transform -->
 <g transform="matrix(17.000, 0.0000, 0.0000, 17.000, 0.0000, 0.0000)">
-<clipPath id="clip5301aa92-3afc-4401-8972-836abb6c3cb0">
-  <path d="M 0.0000 0.0000 L 0.0000 32.059 L 46.765 32.059 L 46.765 0.0000 z"/>
+<clipPath id="clip9014b69c-c30c-49c6-bf3d-f1d499dab126">
+  <path d="M 0.0000 0.0000 L 0.0000 30.471 L 46.000 30.471 L 46.000 0.0000 z"/>
 </clipPath>
 <g clip-path="url(#clip113)">
 <g fill="#000000" fill-rule="nonzero" fill-opacity="1.0000" stroke="none">
-  <path d="M 34.176 20.801 L 44.571 20.801 L 44.571 20.841 L 34.176 20.841 L 34.176 20.801 z"/>
+  <path d="M 34.294 19.212 L 44.689 19.212 L 44.689 19.252 L 34.294 19.252 L 34.294 19.212 z"/>
 <title>\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}</title>
 <desc>text1 = “\begin{array}{|c|c|}&#xa;\hline&#xa;f(x) &amp; \int f(x)dx \\\hline&#xa;\hline&#xa;x^n &amp; \dfrac{x^{n+1}}{n+1} +C \\\hline&#xa;ax^n &amp; \dfrac{ax^{n+1}}{n+1} +C \\\hline&#xa;\sin(x) &amp; -\cos(x) + C\\\hline&#xa;\cos(x) &amp; \sin(x) + C\\\hline&#xa;e^x &amp; e^x + C\\\hline&#xa;\dfrac{1}{x} &amp; \ln|x|+C \\&#xa;\hline&#xa;\end{array}”</desc>
 
