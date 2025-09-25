@@ -157,7 +157,6 @@
 						</div>
 						<div class="">
 							<p class="fragment" data-fragment-index="0">
-
 								\(
 								\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
 								ax + by + e \\
@@ -193,6 +192,16 @@
 						<table style="width: 100%;">
 							<tr>
 								<td style="width: 40%;">
+									<div class="">
+										<p>
+											\(
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											ax + by + e \\
+											cx + dy + f
+											\end{pmatrix}
+											\)
+										</p>
+									</div>
 									<p>For example, if $a,d = 1,$ and $b,c=0,$
 										<span class="fragment" data-fragment-index="1">
 											then we have a <b>pure translation</b>
@@ -225,6 +234,16 @@
 						<table style="width: 100%;">
 							<tr>
 								<td style="width: 40%;">
+									<div class="">
+										<p>
+											\(
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											ax + by + e \\
+											cx + dy + f
+											\end{pmatrix}
+											\)
+										</p>
+									</div>
 									<p>
 										If $b,c=0$ and $e,f=0;$
 										<span class="fragment" data-fragment-index="1">
@@ -259,6 +278,16 @@
 						<table style="width: 100%;">
 							<tr>
 								<td style="width: 40%;">
+									<div class="">
+										<p>
+											\(
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											ax + by + e \\
+											cx + dy + f
+											\end{pmatrix}
+											\)
+										</p>
+									</div>
 									<p>
 										If $a,d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e,f=0,$
 										<span class="fragment" data-fragment-index="1">
@@ -295,6 +324,16 @@
 						<table style="width: 100%;">
 							<tr>
 								<td style="width: 40%;">
+									<div class="">
+										<p>
+											\(
+											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											ax + by + e \\
+											cx + dy + f
+											\end{pmatrix}
+											\)
+										</p>
+									</div>
 									<p>
 										Finally, if $a,d=1,$ and $e,f=0;$
 										<span class="fragment" data-fragment-index="1">
@@ -375,7 +414,7 @@
 					<br />
 				</section>
 
-				<section data-auto-animate="">
+				<section data-auto-animate>
 					<h4>Homogeneous coordinates</h4>
 					<div class="size-80">
 						<div class="left-txt">
@@ -442,39 +481,36 @@
 						<div class="left-txt">
 							<p>
 								Therefore, affine transformations can be written as
-								<span>
-									\[
-									\begin{pmatrix}
-									a &amp; b &amp; e \\
-									c &amp; d &amp; f \\
-									0 &amp; 0 &amp; 1
-									\end{pmatrix}
-									\begin{pmatrix}
-									x \\
-									y \\
-									1
-									\end{pmatrix}
-									=
-									\begin{pmatrix}
-									ax + by + e \\
-									cx + dy + f \\
-									1
-									\end{pmatrix}.
-									\]
-								</span>
 
 							</p>
 
+
 						</div>
+					</div>
+
+					<div>
+						<iframe style="width: 690px; height: 180px;border: none;"
+							data-src="sketches/p5-tex/homogeneous-matrix/"></iframe>
 					</div>
 
 					<br />
 					<br />
 					<br />
 					<br />
+					<br />
 				</section>
 
-				<section data-auto-animate="">
+				<section data-auto-animate>
+					<h4>Homogeneous coordinates</h4>
+
+					<div>
+						<iframe style="width: 800px; height: 500px;border: none;"
+							data-src="sketches/p5-tex/all-matrices-affine-2d"></iframe>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate data-visibility="hidden">
 					<h4>Homogeneous coordinates</h4>
 					<div class="size-80">
 						<table style="width: 100%;">
@@ -533,7 +569,7 @@
 			</section>
 
 			<section>
-				<section data-auto-animate="">
+				<section data-auto-animate>
 					<h3>Affine transformations & Fractals</h3>
 
 					<div class="size-90 left-txt">
@@ -565,7 +601,7 @@
 
 				</section>
 
-				<section data-auto-animate="">
+				<section data-auto-animate>
 					<h3>Affine transformations & Fractals</h3>
 
 					<div class="size-75 left-txt">
@@ -840,7 +876,7 @@ function plotAxesInfo() {
 
 					<div style="font-size: 60%;">
 						<p class="fragment" data-fragment-index="0">We apply the following affine transformations,
-							<span  class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="1">
 								with a given probability for each case:
 							</span>
 						</p>
@@ -904,8 +940,9 @@ function plotAxesInfo() {
 								</td>
 								<td style="text-align: center; width: 40%;">
 
-									<table style="margin: 0 auto; border-collapse: collapse; text-align: center; font-size: 80%;"
-									 class="fragment" data-fragment-index="1">
+									<table
+										style="margin: 0 auto; border-collapse: collapse; text-align: center; font-size: 80%;"
+										class="fragment" data-fragment-index="1">
 										<thead>
 											<tr>
 												<th scope="col" style="text-align: center;border: 1px;">
@@ -952,13 +989,13 @@ function plotAxesInfo() {
 										</tbody>
 									</table>
 
-									<br/><br/>
+									<br /><br />
 
 								</td>
 							</tr>
 						</table>
 					</div>
-					<br/>
+					<br />
 				</section>
 				<!--
 				 data-visibility="hidden"
@@ -1057,7 +1094,7 @@ function plotAxesInfo() {
 										\mapsto 0.01
 										$
 									</p>
-									<br/>
+									<br />
 									<p>
 										$
 										\begin{aligned}
@@ -1076,7 +1113,7 @@ function plotAxesInfo() {
 										\mapsto 0.85
 										$
 									</p>
-									<br/>
+									<br />
 									<p>
 										$
 										\begin{aligned}
@@ -1095,7 +1132,7 @@ function plotAxesInfo() {
 										\mapsto 0.07
 										$
 									</p>
-									<br/>
+									<br />
 									<p>
 										$
 										\begin{aligned}
@@ -1114,7 +1151,7 @@ function plotAxesInfo() {
 										\mapsto 0.07
 										$
 									</p>
-									<br/>
+									<br />
 								</div>
 							</td>
 							<td style="width: 50%;">
