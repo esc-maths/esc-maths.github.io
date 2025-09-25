@@ -643,8 +643,8 @@
 					<h4>Deterministic IFS: JavaScript</h4>
 
 					<table style="width: 100%;">
-						<tr style="width: 40%;">
-							<td>
+						<tr>
+							<td style="width: 40%;">
 								<div class="size-55">
 									<p>
 										\(
@@ -1035,14 +1035,94 @@ function plotAxesInfo() {
 				<section>
 					<h4>Probabilistic IFS: JavaScript</h4>
 
-					<pre style="width: 100%;height: 580px; font-size: 53%; margin-top: -10px;">
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 40%;">
+								<div style="font-size: 45%;">
+									<p>
+										$
+										\begin{aligned}
+										T_1(\mathbf{x}) &=
+										\begin{pmatrix}
+										0 & 0 & 0 \\
+										0 & 0.16 & 0 \\
+										0 & 0 & 1
+										\end{pmatrix}
+										\begin{pmatrix}
+										x \\
+										y \\
+										1
+										\end{pmatrix},
+										\end{aligned}
+										$
+									</p>
+									<br/>
+									<p>
+										$
+										\begin{aligned}
+										T_2(\mathbf{x}) &=
+										\begin{pmatrix}
+										0.85 & 0.04 & 0 \\
+										-0.04 & 0.85 & 1.6 \\
+										0 & 0 & 1
+										\end{pmatrix}
+										\begin{pmatrix}
+										x \\
+										y \\
+										1
+										\end{pmatrix},
+										\end{aligned}
+										$
+									</p>
+									<br/>
+									<p>
+										$
+										\begin{aligned}
+										T_3(\mathbf{x}) &=
+										\begin{pmatrix}
+										0.2 & -0.26 & 0 \\
+										0.23 & 0.22 & 1.6 \\
+										0 & 0 & 1
+										\end{pmatrix}
+										\begin{pmatrix}
+										x \\
+										y \\
+										1
+										\end{pmatrix}, 
+										\end{aligned}
+										$
+									</p>
+									<br/>
+									<p>
+										$
+										\begin{aligned}
+										T_4(\mathbf{x}) &=
+										\begin{pmatrix}
+										-0.15 & 0.28 & 0 \\
+										0.26 & 0.24 & 0.44 \\
+										0 & 0 & 1
+										\end{pmatrix}
+										\begin{pmatrix}
+										x \\
+										y \\
+										1
+										\end{pmatrix}.
+										\end{aligned}
+										$
+									</p>
+									<br/>
+								</div>
+							</td>
+							<td style="width: 60%;">
+								<pre style="width: 100%;height: 545px; font-size: 48%; margin-top: -10px;">
 						<code data-trim data-noescape 
-							data-line-numbers="1|3-21|4|6-8|9-11|12-14|15-17|19-20|1-21">
+							data-line-numbers="1|3-22|4|5-9|5,6,10-12|5,6,13-15|5,6,16-18|20-21|1-22">
 let x = 0, y = 0;
 
 function nextPoint() {
   let nextX, nextY, r = random();
-  // Apply affine transforms base on probability distribution
+  // Apply affine transforms 
+  // base on probability distribution
   if (r < 0.01) {
     nextX = 0;
     nextY = 0.16 * y;
@@ -1060,6 +1140,9 @@ function nextPoint() {
   y = nextY;
 }
 </code></pre>
+							</td>
+						</tr>
+					</table>
 
 					<br />
 				</section>
