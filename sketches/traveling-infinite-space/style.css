@@ -14,10 +14,10 @@ canvas {
   background: rgba(0, 0, 0, 0.7);
   color: #eee;
   font-family: monospace;
-  font-size: 0.95rem;
-  padding: 10px 14px;
+  font-size: 1rem;
+  padding: 10px 15px;
   border-radius: 8px;
-  max-width: 230px;
+  max-width: 240px;
   line-height: 1.4em;
 }
 

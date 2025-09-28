@@ -5,7 +5,7 @@
 */
 
 
-let nS = 64, N = nS*nS*nS;
+let nS = 64, N = nS * nS * nS;
 
 let seed;
 let space;
@@ -16,120 +16,32 @@ let bNoise = true;
 let bLayers = false;
 let bShowText = false;
 let bSaveFrame = false;
-let fr=60;
+let fr = 60;
 let vertFlip = 1;
 let textBox;
 
 let canvas;
+let gl;
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   //space = createFramebuffer({ format: FLOAT });
   //space.begin();
   dust = createShader(vs, fs);
-  seed = random(1<<24);
+  seed = random(1 << 24);
   noStroke();
-  camera( 0, 0, 2.2,  0, 0, 0,  0, 1, 0 );
+  camera(0, 0, 2.2, 0, 0, 0, 0, 1, 0);
   //space.end();
   ship = new Ship();
-  textBox = createGraphics( 160, 64 );
+  textBox = createGraphics(160, 64);
   textBox.textSize(16);
 }
-
-class Quat {
-  constructor( axis, ang ) { 
-    this.v = p5.Vector.mult( axis, sin( ang*0.5 )/axis.mag() );
-    this.w = cos( ang*0.5 );
-  }
-  normalize() {
-    let s = 1.0/sqrt( this.v.magSq() + this.w*this.w );
-    this.v.mult( s );
-    this.w *= s;
-    return this;
-  }
-  rotate( p ) {
-    // ( w*w - dot( v, v )) * p + 2 * dot( p, v ) * v + 2 * w * cross( v, p )
-    return p5.Vector.mult( p, this.w*this.w - this.v.dot(this.v) )
-      .add( p5.Vector.mult( this.v, 2 * p.dot(this.v) ) )
-      .add( p5.Vector.mult( this.v, 2 * this.w ).cross( p ) );
-  }
-  unrotate( p ) {
-    // ( w*w - dot( v, v )) * p + 2 * dot( p, v ) * v - 2 * w * cross( v, p )
-    return p5.Vector.mult( p, this.w*this.w - this.v.dot(this.v) )
-      .add( p5.Vector.mult( this.v, 2 * p.dot(this.v) ) )
-      .sub( p5.Vector.mult( this.v, 2 * this.w ).cross( p ) );
-  }
-  rotateBy( q ) {
-    let t = this.w*q.w - this.v.dot( q.v );
-    this.v = q.v.cross( this.v )
-      .add( p5.Vector.mult( this.v, q.w ) )
-      .add( p5.Vector.mult( q.v, this.w ) );
-    this.w = t;
-    this.normalize();
-    return this;
-  }
-}
-
-class Ship {
-  constructor() {
-    this.speed = 0.01;
-    this.pos = createVector( 0, 0, 0 );
-    this.vel = createVector( 0, 0, 0 );
-    this.rot = new Quat( p5.Vector.random3D(), random(TAU) );
-    this.angVel = createVector( 0, 0, 0 );
-  }
-  move( dt ) {
-    const SIDE_THRUST = 0.0003;
-    const BACK_THRUST = 0.0012;
-    const FORE_THRUST = 0.0006;
-    this.speed += (keyIsDown(87) - keyIsDown(83)) * 0.02 * dt;
-    let turn = createVector( 
-      vertFlip*(keyIsDown( DOWN_ARROW )-keyIsDown( UP_ARROW )),
-      keyIsDown( LEFT_ARROW )-keyIsDown( RIGHT_ARROW ), 
-      keyIsDown( 68 )-keyIsDown( 65 ) );
-    if ( document.pointerLockElement === canvas.elt || touches.length > 0 ) {
-      turn.add(createVector(movedY, -movedX).mult(0.25));
-    }
-    if( turn.magSq() > 0 ) {
-      this.angVel.add( this.rot.rotate( turn.mult(dt) ) );
-    }
-    if( this.angVel.magSq() > 0 ) {
-      this.rot.rotateBy( new Quat( this.angVel, this.angVel.mag() * dt ) );
-      this.angVel.mult( pow(0.25, dt) );
-    }
-
-    let lclVel = this.rot.unrotate( this.vel );
-    lclVel.x += ( lclVel.x < -SIDE_THRUST ) ? SIDE_THRUST :
-      ( lclVel.x > SIDE_THRUST ) ? -SIDE_THRUST : -lclVel.x;
-    lclVel.y += ( lclVel.y < -SIDE_THRUST ) ? SIDE_THRUST :
-      ( lclVel.y > SIDE_THRUST ) ? -SIDE_THRUST: -lclVel.y;
-    lclVel.z += ( lclVel.z > -this.speed+BACK_THRUST ) ? -BACK_THRUST :
-      ( lclVel.z < -this.speed-FORE_THRUST ) ? FORE_THRUST :
-      -lclVel.z - this.speed;
-    this.vel = this.rot.rotate( lclVel );
-    
-    this.pos.add( p5.Vector.mult( this.vel, dt ) );
-    this.pos.x = this.pos.x % 1;
-    this.pos.y = this.pos.y % 1;
-    this.pos.z = this.pos.z % 1;
-  }
-  setCamera() {
-    let back = this.rot.rotate( createVector( 0, 0, 1 ) );
-    let up = this.rot.rotate( createVector( 0, 1, 0 ) );
-    camera( this.pos.x, this.pos.y, this.pos.z,
-            this.pos.x-back.x, this.pos.y-back.y, this.pos.z-back.z,
-            up.x, up.y, up.z );
-    perspective( PI/3, width/height, 0.001, 10 );
-    pointLight( 255, 255, 255, this.pos.x, this.pos.y, this.pos.z );
-  }
-}
-
 
 function draw() {
   let dt = deltaTime / 1000;
   t += dt;
-//  space.begin();
-  ship.move( dt );
+  //  space.begin();
+  ship.move(dt);
   ship.setCamera();
   background(0);
   dust.bindShader();
@@ -137,50 +49,51 @@ function draw() {
   dust.setUniform('bNoise', bNoise);
   dust.setUniform('bLayers', bLayers);
   dust.setUniform('N', floor(N));
-  dust.setUniform( 'time', t );
-  let gl = this._renderer.GL;
-  gl.drawArrays( gl.TRIANGLES, 0, floor(N)*3 );
+  dust.setUniform('time', t);
+  //let gl = this._renderer.GL;
+  gl = drawingContext;
+  gl.drawArrays(gl.TRIANGLES, 0, floor(N) * 3);
   dust.unbindShader();
-//  space.end();
-//  image( space, -width/3, -height/3 );
+  //  space.end();
+  //  image( space, -width/3, -height/3 );
 
-  fr = (frameRate()+59*fr)/60;
-  if( bShowText ) {
+  fr = (frameRate() + 59 * fr) / 60;
+  if (bShowText) {
     camera();
     perspective();
-    gl.disable( gl.DEPTH_TEST );
+    gl.disable(gl.DEPTH_TEST);
     fill(64, 192);
-    stroke( 255 );
-    translate( 10-width/2, 10-height/2 );
-    rect( 0, 0, 160, 64 );
-    textBox.background(0,0);
+    stroke(255);
+    translate(10 - width / 2, 10 - height / 2);
+    rect(0, 0, 160, 64);
+    textBox.background(0, 0);
     textBox.clear();
-    textBox.fill( 255 );
+    textBox.fill(255);
     textBox.noStroke();
-    textBox.text( 'N: '+floor(N)+ ' ('+nS+')', 8, 20 );
-    textBox.text( 'fps: '+nf( fr, 0, 2 ), 8, 38 );
-    textBox.text( 'spd: '+nf( 100*ship.speed, 0, 2 ), 8, 56 );
-    image( textBox, 0, 0 );
-    gl.enable( gl.DEPTH_TEST );
+    textBox.text('N: ' + floor(N) + ' (' + nS + ')', 8, 20);
+    textBox.text('fps: ' + nf(fr, 0, 2), 8, 38);
+    textBox.text('spd: ' + nf(100 * ship.speed, 0, 2), 8, 56);
+    image(textBox, 0, 0);
+    gl.enable(gl.DEPTH_TEST);
   }
 }
 
 function keyPressed() {
-  if( keyCode == ENTER ) {
-    seed = random(1<<24);
-  } else if( key === 't' ) {
+  if (keyCode == ENTER) {
+    seed = random(1 << 24);
+  } else if (key === 't') {
     bShowText = !bShowText;
-  } else if( key === '[' ) {
-    nS = max(2, nS-2);  N = nS*nS*nS;
-  } else if( key === ']' ) {
-    nS += 2;  N = nS*nS*nS;
-  } else if( key === 'n' ) {
+  } else if (key === '[') {
+    nS = max(2, nS - 2); N = nS * nS * nS;
+  } else if (key === ']') {
+    nS += 2; N = nS * nS * nS;
+  } else if (key === 'n') {
     bNoise = !bNoise;
-  } else if( key === 'l' ) {
+  } else if (key === 'l') {
     bLayers = !bLayers;
-  } else if( key === '/' ) {
+  } else if (key === '/') {
     vertFlip = -vertFlip;
-  } else if (key === 'c' || key === 'C') {
+  } if (key === 'c' || key === 'C') {
     // Toggle controls menu
     let menu = document.getElementById("controls-menu");
     if (menu.style.display === "none") {
@@ -192,19 +105,107 @@ function keyPressed() {
 }
 
 function windowResized() {
-  resizeCanvas( windowWidth, windowHeight );
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function mousePressed() {
-  if ( document.pointerLockElement === canvas.elt ) {
-     exitPointerLock();
+  if (document.pointerLockElement === canvas.elt) {
+    exitPointerLock();
   } else {
     canvas.elt.requestPointerLock();
   }
 }
 
-function mouseWheel( e ) {
+function mouseWheel(e) {
   ship.speed -= e.delta / 32768;
+}
+
+class Quat {
+  constructor(axis, ang) {
+    this.v = p5.Vector.mult(axis, sin(ang * 0.5) / axis.mag());
+    this.w = cos(ang * 0.5);
+  }
+  normalize() {
+    let s = 1.0 / sqrt(this.v.magSq() + this.w * this.w);
+    this.v.mult(s);
+    this.w *= s;
+    return this;
+  }
+  rotate(p) {
+    // ( w*w - dot( v, v )) * p + 2 * dot( p, v ) * v + 2 * w * cross( v, p )
+    return p5.Vector.mult(p, this.w * this.w - this.v.dot(this.v))
+      .add(p5.Vector.mult(this.v, 2 * p.dot(this.v)))
+      .add(p5.Vector.mult(this.v, 2 * this.w).cross(p));
+  }
+  unrotate(p) {
+    // ( w*w - dot( v, v )) * p + 2 * dot( p, v ) * v - 2 * w * cross( v, p )
+    return p5.Vector.mult(p, this.w * this.w - this.v.dot(this.v))
+      .add(p5.Vector.mult(this.v, 2 * p.dot(this.v)))
+      .sub(p5.Vector.mult(this.v, 2 * this.w).cross(p));
+  }
+  rotateBy(q) {
+    let t = this.w * q.w - this.v.dot(q.v);
+    this.v = q.v.cross(this.v)
+      .add(p5.Vector.mult(this.v, q.w))
+      .add(p5.Vector.mult(q.v, this.w));
+    this.w = t;
+    this.normalize();
+    return this;
+  }
+}
+
+class Ship {
+  constructor() {
+    this.speed = 0.01;
+    this.pos = createVector(0, 0, 0);
+    this.vel = createVector(0, 0, 0);
+    this.rot = new Quat(p5.Vector.random3D(), random(TAU));
+    this.angVel = createVector(0, 0, 0);
+  }
+  move(dt) {
+    const SIDE_THRUST = 0.0003;
+    const BACK_THRUST = 0.0012;
+    const FORE_THRUST = 0.0006;
+    this.speed += (keyIsDown(87) - keyIsDown(83)) * 0.02 * dt;
+    let turn = createVector(
+      vertFlip * (keyIsDown(DOWN_ARROW) - keyIsDown(UP_ARROW)),
+      keyIsDown(LEFT_ARROW) - keyIsDown(RIGHT_ARROW),
+      keyIsDown(68) - keyIsDown(65));
+    if (document.pointerLockElement === canvas.elt || touches.length > 0) {
+      turn.add(createVector(movedY, -movedX).mult(0.25));
+    }
+    if (turn.magSq() > 0) {
+      this.angVel.add(this.rot.rotate(turn.mult(dt)));
+    }
+    if (this.angVel.magSq() > 0) {
+      this.rot.rotateBy(new Quat(this.angVel, this.angVel.mag() * dt));
+      this.angVel.mult(pow(0.25, dt));
+    }
+
+    let lclVel = this.rot.unrotate(this.vel);
+    lclVel.x += (lclVel.x < -SIDE_THRUST) ? SIDE_THRUST :
+      (lclVel.x > SIDE_THRUST) ? -SIDE_THRUST : -lclVel.x;
+    lclVel.y += (lclVel.y < -SIDE_THRUST) ? SIDE_THRUST :
+      (lclVel.y > SIDE_THRUST) ? -SIDE_THRUST : -lclVel.y;
+    lclVel.z += (lclVel.z > -this.speed + BACK_THRUST) ? -BACK_THRUST :
+      (lclVel.z < -this.speed - FORE_THRUST) ? FORE_THRUST :
+        -lclVel.z - this.speed;
+    this.vel = this.rot.rotate(lclVel);
+
+    this.pos.add(p5.Vector.mult(this.vel, dt));
+    this.pos.x = this.pos.x % 1;
+    this.pos.y = this.pos.y % 1;
+    this.pos.z = this.pos.z % 1;
+  }
+  setCamera() {
+    let back = this.rot.rotate(createVector(0, 0, 1));
+    let up = this.rot.rotate(createVector(0, 1, 0));
+    camera(this.pos.x, this.pos.y, this.pos.z,
+      this.pos.x - back.x, this.pos.y - back.y, this.pos.z - back.z,
+      up.x, up.y, up.z);
+    perspective(PI / 3, width / height, 0.001, 10);
+    pointLight(255, 255, 255, this.pos.x, this.pos.y, this.pos.z);
+  }
 }
 
 let vs = `#version 300 es
