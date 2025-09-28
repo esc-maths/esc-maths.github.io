@@ -34,7 +34,6 @@ function setup() {
   }
   if( urlParams.has( "s" ) ) { startSpeed = urlParams.get( "s" ) - 0; }
 
-
   //space = createFramebuffer({ format: FLOAT });
   //space.begin();
   dust = createShader(vs, fs);
@@ -45,6 +44,25 @@ function setup() {
   ship = new Ship();
   textBox = createGraphics(160, 64);
   textBox.textSize(16);
+
+  // default right-mouse and mouse-wheel behaviors (context menu and scrolling,
+  // respectively) are disabled here to allow use of those events for panning and
+  // zooming.
+
+  // disable context menu for canvas element and add 'contextMenuDisabled'
+  // flag to p5 instance
+  // this.canvas.oncontextmenu = () => false;
+  // this._setProperty('contextMenuDisabled', true);
+
+  // disable default scrolling behavior on the canvas element and add
+  // 'wheelDefaultDisabled' flag to p5 instance
+  this.canvas.onwheel = () => false;
+  this._setProperty('wheelDefaultDisabled', true);
+
+  // disable default touch behavior on the canvas element and add
+  // 'touchActionsDisabled' flag to p5 instance
+  this.canvas.style['touch-action'] = 'none';
+  this._setProperty('touchActionsDisabled', true);
 }
 
 function draw() {
@@ -61,12 +79,12 @@ function draw() {
   dust.setUniform('bPlain', bPlain);
   dust.setUniform('N', floor(N));
   dust.setUniform('time', t);
-  //let gl = this._renderer.GL;
+  //let gl = this._renderer.GL; // old version
   gl = drawingContext;
   gl.drawArrays(gl.TRIANGLES, 0, floor(N) * 3);
   dust.unbindShader();
   //  space.end();
-  //  image( space, -width/3, -height/3 );
+  //  image( space, -width/2, -height/2 );
 
   fr = (frameRate() + 59 * fr) / 60;
   if (bShowText) {
@@ -138,6 +156,15 @@ function mousePressed() {
 
 function mouseWheel(e) {
   ship.speed -= e.delta / 32768;
+}
+
+function touchStarted( e ) {
+}
+
+function touchEnded() {
+}
+
+function touchMoved() {
 }
 
 class Quat {
