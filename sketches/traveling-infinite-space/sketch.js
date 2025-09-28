@@ -4,7 +4,6 @@
  https://infinitefunspace.com/p5/fly/
 */
 
-
 let nS = 64, N = nS * nS * nS;
 
 let seed;
@@ -14,6 +13,7 @@ let ship;
 let t = 0;
 let bNoise = true;
 let bLayers = false;
+let bPlain = false;
 let bShowText = false;
 let bSaveFrame = false;
 let fr = 60;
@@ -25,6 +25,16 @@ let gl;
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+
+  const urlParams = new URLSearchParams( window.location.search );
+  if( urlParams.has( "p" ) ) { bPlain = true; }
+  if( urlParams.has( "n" ) ) {
+    nS = int(urlParams.get( "n" ));
+    N = nS*nS*nS;
+  }
+  if( urlParams.has( "s" ) ) { startSpeed = urlParams.get( "s" ) - 0; }
+
+
   //space = createFramebuffer({ format: FLOAT });
   //space.begin();
   dust = createShader(vs, fs);
@@ -48,6 +58,7 @@ function draw() {
   dust.setUniform('seed', seed);
   dust.setUniform('bNoise', bNoise);
   dust.setUniform('bLayers', bLayers);
+  dust.setUniform('bPlain', bPlain);
   dust.setUniform('N', floor(N));
   dust.setUniform('time', t);
   //let gl = this._renderer.GL;
@@ -70,27 +81,36 @@ function draw() {
     textBox.clear();
     textBox.fill(255);
     textBox.noStroke();
-    textBox.text('N: ' + floor(N) + ' (' + nS + ')', 8, 20);
+    textBox.text('N: ' + floor(N) + ' (' + nS + '³)', 8, 20);
     textBox.text('fps: ' + nf(fr, 0, 2), 8, 38);
     textBox.text('spd: ' + nf(100 * ship.speed, 0, 2), 8, 56);
     image(textBox, 0, 0);
-    gl.enable(gl.DEPTH_TEST);
+   
   }
+  if( bSaveFrame ) {
+    saveCanvas('p5Fly.jpg');
+    bSaveFrame = false;
+  }
+   gl.enable(gl.DEPTH_TEST);
 }
 
 function keyPressed() {
   if (keyCode == ENTER) {
     seed = random(1 << 24);
-  } else if (key === 't') {
+  } else if( key === '+' || key === '=' ) {
+    bSaveFrame = true;
+  } else if (key === 't' || key === 'T') {
     bShowText = !bShowText;
   } else if (key === '[') {
     nS = max(2, nS - 2); N = nS * nS * nS;
   } else if (key === ']') {
     nS += 2; N = nS * nS * nS;
-  } else if (key === 'n') {
+  } else if (key === 'n' || key === 'N') {
     bNoise = !bNoise;
-  } else if (key === 'l') {
+  } else if (key === 'l' || key === 'L') {
     bLayers = !bLayers;
+  } else if( key === 'p'  || key === 'P') {
+    bPlain = !bPlain;
   } else if (key === '/') {
     vertFlip = -vertFlip;
   } if (key === 'c' || key === 'C') {
@@ -435,6 +455,7 @@ let fs = `#version 300 es
 precision highp float;
 precision highp int;
 uniform mat4 uProjectionMatrix;
+uniform bool bPlain;
 in vec3 vColor;
 in float u;
 in vec3 center;
@@ -499,6 +520,11 @@ vec3 getNormal( vec3 p ) {
 
 void main() {
   vec3 col = vColor;
+  if( bPlain ) {
+    gl_FragDepth = gl_FragCoord.z;
+    fragColor = vec4( col, 1. );
+    return;
+  }
   float t = sphereDist( ray, center, radius );
   if( t < 0. ) discard;
 
