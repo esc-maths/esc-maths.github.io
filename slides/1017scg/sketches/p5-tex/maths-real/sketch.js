@@ -108,28 +108,34 @@ function createCols(_url)
 }
 
 function writeText() {
-  let line1 = createText("Mathematics isn't just about answers —it's about discovery,");
-  let line2 = createText("exploration, and the curiosity that sparks new questions.");
-  let line3 = createText("Eugenia Cheng, Is Maths real? (2023)");
+  let line1 = createText("Mathematics isn't just about getting the right answers");
+  let line2 = createText("—it's about discovery, exploration, and the curiosity");
+  let line3 = createText("that sparks new questions.");
+  let lineName = createText("Eugenia Cheng, Is Maths real? (2023)");
 
-  let posX = 40;
-  let posY = 105;
+  let posX = 100;
+  let posY = 80;
   let sizeText = 35;
   line1.position(posX, posY);
   line1.size(sizeText);
   line1.fill(color(0));
-  line1.play("write", 0, 1.5); //startTime = 0, endTime = 1.5 sec
+  line1.play("write", 1.5, 3); //startTime = 0, endTime = 1.5 sec
 
-  line2.position(posX, posY + 55);
+  line2.position(posX, posY + 50);
   line2.size(sizeText);
   line2.fill(color(0));
-  line2.play("write", 1.5, 3); //startTime = , endTime = 
+  line2.play("write", 3, 4.5); //startTime = , endTime = 
 
-  line3.position(posX + 430, posY + 2 * 60);
-  line3.size(45);
+  line3.position(posX, posY + 2 * 50);
+  line3.size(sizeText);
   line3.fill(color(0));
-  line3.style("font-weight", "bold");
-  line3.size(sizeText - 10);
+  line3.size(sizeText);
   //line3.style("font", "Georgia");
-  line3.play("write", 3, 4); //startTime = , endTime = 
+  line3.play("write", 4.5, 6); //startTime = , endTime = 
+
+  lineName.position(posX + 260, posY + 3 * 55);
+  lineName.size(30);
+  lineName.fill(color(0));
+  lineName.style("font-weight", "bold");
+  lineName.play("write", 6, 7); //startTime = , endTime = 
 }
