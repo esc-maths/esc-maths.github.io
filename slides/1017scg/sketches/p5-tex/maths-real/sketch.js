@@ -1,7 +1,7 @@
 const Pallete = createCols("https://coolors.co/222222-ffffff-4b4e6d-c2cad3");
 let vPos, unitSize;
 const divNum = 3;
-const cycle = 140;
+const cycle = 150;
 let bg;
 
 let size;
@@ -13,7 +13,7 @@ function setup() {
 
   noStroke();
 
-  size = min(width, height) * 0.3;
+  size = min(width, height) * 0.25;
   radius = size * sqrt(3) / 3;
   centerPos = createVector(width / 2, height / 2 -  radius * 0.15 + 100);
   unitSize = size / (divNum - 1) * 0.5;
@@ -113,19 +113,19 @@ function writeText() {
   let line3 = createText("Eugenia Cheng, Is Maths real? (2023)");
 
   let posX = 40;
-  let posY = 65;
+  let posY = 105;
   let sizeText = 35;
   line1.position(posX, posY);
   line1.size(sizeText);
   line1.fill(color(0));
   line1.play("write", 0, 1.5); //startTime = 0, endTime = 1.5 sec
 
-  line2.position(posX, posY + 60);
+  line2.position(posX, posY + 55);
   line2.size(sizeText);
   line2.fill(color(0));
   line2.play("write", 1.5, 3); //startTime = , endTime = 
 
-  line3.position(posX + 430, posY + 2 * 65);
+  line3.position(posX + 430, posY + 2 * 60);
   line3.size(45);
   line3.fill(color(0));
   line3.style("font-weight", "bold");
