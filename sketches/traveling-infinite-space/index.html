@@ -16,17 +16,27 @@
     <div id="controls-menu">
       <div id="controls-content">
 
-        <h4>😃 Controls <span style="text-decoration: none;">🕹️</span></h4>
+        <h4>Navigation 🚀</h4>
         <p>Navigate with the arrow keys, or click once and move the mouse to look around.</p>
         <ul>
+          <li><b>W</b> → Thrust</li>
+          <li><b>S</b> → Drag</li>
+          <li><b>D</b> → Roll right</li>
+          <li><b>A</b> → Roll left</li>
+        </ul>
+        <br />
+        <h4>More controls 🕹️</h4>
+        <ul>
+
           <li><b>Enter</b> → New random seed</li>
           <li><b>T</b> → Info</li>
           <li><b>[</b> → Decrease Objects</li>
           <li><b>]</b> → Increase Objects</li>
           <li><b>N</b> → Toggle noise</li>
           <li><b>L</b> → Toggle layers</li>
-          <!-- <li><b>/</b> → Flip vertically</li>-->
-          <li><b>C</b> → Show/Hide this menu</li>
+          <li><b>/</b> → Flip vertically</li>
+          <li><b>F</b> → Toggle fullscreen</li>
+          <li><b>C</b> → Show/Hide this menu 😶‍🌫️</li>
         </ul>
       </div>
     </div>
@@ -36,7 +46,17 @@
 
 
   <script>
-
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "f" || e.key === "F") {
+        if (!document.fullscreenElement) {
+          // Enter fullscreen
+          document.documentElement.requestFullscreen();
+        } else {
+          // Exit fullscreen
+          document.exitFullscreen();
+        }
+      }
+    });
   </script>
 </body>
 
