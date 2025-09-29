@@ -1,3 +1,12 @@
+/*
+ Paradox triangle by Sayama:
+ https://openprocessing.org/sketch/953976
+
+ Adapted by Juan Carlos Ponce Campuzano
+ 29/Sep/2025
+ https://www.dynamicmath.xyz
+*/
+
 const Pallete = createCols("https://coolors.co/222222-ffffff-4b4e6d-c2cad3");
 let vPos, unitSize;
 const divNum = 3;
@@ -104,7 +113,6 @@ function writeText() {
   let line1 = createText("Mathematics isn't just about getting the right answers");
   let line2 = createText("—it's about discovery, exploration, and the curiosity");
   let line3 = createText("that sparks new questions.");
-  // let lineName = createText("Eugenia Cheng, Is Maths real? (2023)");
 
   let posX = 100;
   let posY = 100;
@@ -124,10 +132,4 @@ function writeText() {
   line3.fill(color(0));
   line3.size(sizeText);
   line3.play("write", 4.5, 6); //startTime = , endTime = 
-
-  // lineName.position(posX + 260, posY + 3 * 55);
-  // lineName.size(30);
-  // lineName.fill(color(0));
-  // lineName.style("font-weight", "bold");
-  // lineName.play("write", 6, 7); //startTime = , endTime = 
 }
