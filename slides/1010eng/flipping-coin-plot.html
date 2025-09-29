@@ -50,15 +50,29 @@
 				<h4>Flipping Coin Simulation 📈</h4>
 
 
-				<iframe scrolling="no" style="border:0px;" width="755" height="532"
+				<iframe  name="simulation" scrolling="no" style="border:0px;" width="755" height="532"
 					src="sketches/tossing-coin/"></iframe>
 
+				<!--
 				<div style="font-size:40%;margin-top:-25px">
 					<p>
 						Source: <a href="https://digitalfirst.bfwpub.com/stats_applet/stats_applet_10_prob.html"
 							target="_blank">Digital First <i class="fa fa-external-link-alt"></i></a>
 					</p>
+				</div>	
+				-->
+
+				<div style="font-size:16px;text-align:center;margin-top:-30px">
+						<p>
+							<span>
+								<button 
+									onclick="var ifr=document.getElementsByName('simulation')[0]; ifr.src=ifr.src;">
+									Reset &nbsp;<i class="fas fa-sync"></i></button>
+							</span>
+						</p> 
 				</div>
+
+				<br/>
 			</section>
 
 			<!-- Ends sections -->
