@@ -120,7 +120,7 @@ function writeText() {
   line1.position(posX, posY);
   line1.size(sizeText);
   line1.fill(color(0));
-  line1.play("write", 1.5, 3); //startTime = 0, endTime = 1.5 sec
+  line1.play("write", 1.5, 3); //startTime = 0, endTime = 
 
   line2.position(posX, posY + 50);
   line2.size(sizeText);
