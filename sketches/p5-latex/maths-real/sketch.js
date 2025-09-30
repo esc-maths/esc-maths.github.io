@@ -111,7 +111,7 @@ function createCols(_url) {
 
 function writeText() {
   let line1 = createText("Mathematics isn't just about getting the right answers");
-  let line2 = createText("—it's about discovery, exploration, and the curiosity");
+  let line2 = createText("—it's about exploration, discovery and the curiosity");
   let line3 = createText("that sparks new questions.");
 
   let posX = 100;
