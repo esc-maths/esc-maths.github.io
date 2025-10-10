@@ -20,4 +20,5 @@ function writeTeX() {
   
   // Animate the drawing of the LaTeX equation
   equation.play("createFill", 0, 5.5);
+  //equation.play('growFromCenter', 0, 1);
 }
