@@ -114,12 +114,12 @@ function calculatePoint(t) {
   }
   
   // Scale for better visualization
-  return createVector(x * 23, y * 23);
+  return createVector(x * 20, y * 20);
 }
 
 function drawCoordinateSystem() {
   push();
-  stroke(80);
+  stroke(40);
   strokeWeight(1);
   
   // Draw grid
@@ -131,8 +131,8 @@ function drawCoordinateSystem() {
   }
   
   // Draw axes
-  stroke(210);
-  strokeWeight(2);
+  stroke(150);
+  strokeWeight(1);
   line(width/2, 0, width/2, height);
   line(0, height/2, width, height/2);
   
@@ -169,10 +169,10 @@ function displayTimer() {
   let timeLeft = updateInterval - (millis() - lastUpdateTime);
   let secondsLeft = ceil(timeLeft / 1000);
   
-  let info = `N = ${N}\n`;
-  info += `Next curve in: ${secondsLeft}s\n\n`;
+  //let info = `N = ${N}\n`;
+  // info += `Next curve in: ${secondsLeft}s\n\n`;
   
-  info += 'Parameters:\n';
+  let info = 'Parameters:\n';
   for (let i = 0; i < N; i++) {
     info += `C${i+1} = ${C[i].real.toFixed(2)} ${C[i].imag >= 0 ? '+' : ''}${C[i].imag.toFixed(2)}i`;
     info += `, ω${i+1} = ${omega[i]}\n`;
@@ -193,9 +193,4 @@ function generateNewCurve() {
   // Generate new parameters and plot
   initializeParameters();
   plotCurve();
-}
-
-// Handle window resizing
-function windowResized() {
-  resizeCanvas(600, 500);
 }
