@@ -5,6 +5,8 @@ let maxTrace = 1500;
 
 let terms = [];
 let scaleFactor;
+let strokeSizeCurve;
+let strokeSizeEpicycles;
 
 function setup() {
   initCanvas();
@@ -16,6 +18,8 @@ function initCanvas() {
   createCanvas(s, s);
   angleMode(RADIANS);
   scaleFactor = s * 0.25;
+  strokeSizeCurve = s * 0.009;
+  strokeSizeEpicycles = s * 0.004;
 }
 
 function complexSetup() {
@@ -44,12 +48,12 @@ function draw() {
     let radius = contribution.abs() * scaleFactor;
 
     stroke(204, 0, 0);
-    strokeWeight(2);
+    strokeWeight(strokeSizeEpicycles);
     noFill();
     ellipse(prev.re * scaleFactor, -prev.im * scaleFactor, 2 * radius, 2 * radius);
 
     stroke(0);
-    strokeWeight(4);
+    strokeWeight(strokeSizeEpicycles);
     line(prev.re * scaleFactor, -prev.im * scaleFactor, pos.re * scaleFactor, -pos.im * scaleFactor);
   }
 
@@ -59,7 +63,7 @@ function draw() {
   if (trace.length > maxTrace) trace.shift();
 
   stroke(0, 0, 255);
-  strokeWeight(5);
+  strokeWeight(strokeSizeCurve);
   noFill();
   beginShape();
   for (let v of trace) vertex(v.x, v.y);
@@ -80,6 +84,8 @@ function windowResized() {
   done = false;
   resizeCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
   scaleFactor = min(windowWidth, windowHeight) * 0.25;
+  strokeSizeCurve = min(windowWidth, windowHeight) * 0.009;
+  strokeSizeEpicycles = min(windowWidth, windowHeight) * 0.004;
   background(255);
 }
 

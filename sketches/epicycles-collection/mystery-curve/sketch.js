@@ -16,6 +16,8 @@ function initCanvas() {
   createCanvas(s, s);
   angleMode(RADIANS);
   scaleFactor = s * 0.25;
+  strokeSizeCurve = s * 0.009;
+  strokeSizeEpicycles = s * 0.004;
 }
 
 function complexSetup() {
@@ -80,6 +82,8 @@ function windowResized() {
   done = false;
   resizeCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
   scaleFactor = min(windowWidth, windowHeight) * 0.25;
+  strokeSizeCurve = min(windowWidth, windowHeight) * 0.009;
+  strokeSizeEpicycles = min(windowWidth, windowHeight) * 0.004;
   background(255);
 }
 
