@@ -22,7 +22,7 @@ function complexSetup() {
 }
 
 function draw() {
-  background(0);
+  background(255);
   translate(width / 2, height / 2);
 
   let pos = new Complex(0, 0);
@@ -42,7 +42,7 @@ function draw() {
     noFill();
     ellipse(prev.re * scaleFactor, -prev.im * scaleFactor, 2 * radius, 2 * radius);
 
-    stroke(255);
+    stroke(0);
     line(prev.re * scaleFactor, -prev.im * scaleFactor, pos.re * scaleFactor, -pos.im * scaleFactor);
   }
 
@@ -51,8 +51,9 @@ function draw() {
   trace.push(endpoint);
   if (trace.length > maxTrace) trace.shift();
 
-  stroke(0, 255, 255);
+  stroke(0, 0, 255);
   noFill();
+  strokeWeight(3);
   beginShape();
   for (let v of trace) vertex(v.x, v.y);
   endShape();
@@ -60,7 +61,7 @@ function draw() {
   // Draw current endpoint
   fill(255, 0, 0);
   noStroke();
-  ellipse(endpoint.x, endpoint.y, 6);
+  ellipse(endpoint.x, endpoint.y, 8);
 
   t += dt;
 }
