@@ -36,12 +36,12 @@ function setup() {
   } else {
     scl = 0.04 * width;
   }
-  for (let i = 0; i < drawing.length; i += skip) {
-    const c = new Complex(scl * (drawing[i].x * size), -scl * (drawing[i].y * size));
+  for (let i = 0; i < densified.length; i += skip) {
+    const c = new Complex(scl * (densified[i].x * size), -scl * (densified[i].y * size));
     x.push(c);
   }
 
-  if (drawing.length % 2 === 0) {
+  if (densified.length % 2 === 0) {
     fourierX = dftEven(x); //DFT low frequencies even
   } else {
     fourierX = dftOdd(x); //DFT low frequencies odd

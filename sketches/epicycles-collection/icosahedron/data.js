@@ -1400,5 +1400,41 @@ let drawing = [{
     x: -3.219986746,
     y: -2.641335888
   }
-  
 ];
+
+function densifyData(data, targetPoints = 700) {
+  const newData = [];
+  const n = data.length;
+  if (n < 2) return data;
+
+  // How many total interpolations per segment (on average)
+  const totalNeeded = targetPoints - n;
+  const interpPerSegment = totalNeeded / (n - 1);
+
+  for (let i = 0; i < n - 1; i++) {
+    const p1 = data[i];
+    const p2 = data[i + 1];
+
+    newData.push(p1);
+
+    // number of interpolated points for this segment
+    const numInterp = Math.max(0, Math.round(interpPerSegment));
+    for (let j = 1; j <= numInterp; j++) {
+      const t = j / (numInterp + 1);
+      newData.push({
+        x: p1.x + t * (p2.x - p1.x),
+        y: p1.y + t * (p2.y - p1.y)
+      });
+    }
+  }
+
+  // Add last original point
+  newData.push(data[data.length - 1]);
+
+  // If it slightly exceeds target (due to rounding), trim
+  return newData.slice(0, targetPoints);
+}
+
+// Example usage:
+let densified = densifyData(drawing, 700);
+console.log(densified.length, "points generated");
