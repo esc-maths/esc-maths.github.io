@@ -7,6 +7,7 @@ let terms = [];
 let scaleFactor;
 let strokeSizeCurve;
 let strokeSizeEpicycles;
+let pointSizeCurve;
 
 function setup() {
   initCanvas();
@@ -17,29 +18,33 @@ function initCanvas() {
   let s = min(windowWidth, windowHeight);
   createCanvas(s, s);
   angleMode(RADIANS);
+  updateScale(s);
+  background(255);
+}
+
+function updateScale(s) {
   scaleFactor = s * 0.25;
   strokeSizeCurve = s * 0.009;
   strokeSizeEpicycles = s * 0.004;
+  pointSizeCurve = floor(s * 0.022);
 }
 
 function complexSetup() {
   terms = [
     { C: new Complex(1, 0), omega: 1 },
     { C: new Complex(0.5, 0), omega: 6 },
-    { C: new Complex(1/3, 0), omega: -14 },
+    { C: new Complex(1 / 3, 0), omega: -14 },
   ];
 }
 
 function draw() {
-  background(255)
-
+  background(255);
   translate(width / 2, height / 2);
 
   let pos = new Complex(0, 0);
 
-  // Draw epicycles
-  for (let k = 0; k < terms.length; k++) {
-    let term = terms[k];
+  // === Draw epicycles ===
+  for (let term of terms) {
     let prev = pos.copy();
     let e = Complex.exp(new Complex(0, term.omega * t));
     let contribution = Complex.mult(term.C, e);
@@ -57,7 +62,7 @@ function draw() {
     line(prev.re * scaleFactor, -prev.im * scaleFactor, pos.re * scaleFactor, -pos.im * scaleFactor);
   }
 
-  // Draw the endpoint and trace
+  // === Trace and endpoint ===
   let endpoint = createVector(pos.re * scaleFactor, -pos.im * scaleFactor);
   trace.push(endpoint);
   if (trace.length > maxTrace) trace.shift();
@@ -69,23 +74,18 @@ function draw() {
   for (let v of trace) vertex(v.x, v.y);
   endShape();
 
-  fill(0, 0, 0);
+  fill(0);
   noStroke();
-  ellipse(endpoint.x, endpoint.y, 15);
+  ellipse(endpoint.x, endpoint.y, pointSizeCurve);
 
   t += dt;
-
 }
 
 function windowResized() {
-  // Reset everything when resizing the window
-  trace = [];
-  //t = 0;
-  done = false;
-  resizeCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
-  scaleFactor = min(windowWidth, windowHeight) * 0.25;
-  strokeSizeCurve = min(windowWidth, windowHeight) * 0.009;
-  strokeSizeEpicycles = min(windowWidth, windowHeight) * 0.004;
+  trace = []; // reset curve
+  let s = min(windowWidth, windowHeight);
+  resizeCanvas(s, s);
+  updateScale(s);
   background(255);
 }
 
