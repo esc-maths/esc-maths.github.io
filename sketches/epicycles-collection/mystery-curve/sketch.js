@@ -5,6 +5,8 @@ let maxTrace = 1500;
 
 let terms = [];
 let scaleFactor;
+let strokeSizeCurve;
+let strokeSizeEpicycles;
 
 function setup() {
   initCanvas();
