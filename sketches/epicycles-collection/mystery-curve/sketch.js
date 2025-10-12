@@ -1,19 +1,25 @@
 let t = 0;
-let dt = 0.005;
+let dt = 0.01;
 let trace = [];
-let maxTrace = 1000;
+let maxTrace = 800;
 
 let terms = [];
-let scaleFactor = 150; // 👈 controls the overall size of epicycles
+let scaleFactor;
 
 function setup() {
-  createCanvas(600, 600);
-  angleMode(RADIANS);
+  initCanvas();
   complexSetup();
 }
 
+function initCanvas() {
+  let s = min(windowWidth, windowHeight);
+  createCanvas(s, s);
+  angleMode(RADIANS);
+  scaleFactor = s * 0.25;
+  background(255);
+}
+
 function complexSetup() {
-  // Define coefficients and frequencies
   terms = [
     { C: new Complex(1, 0), omega: 1 },
     { C: new Complex(0.5, 0), omega: 6 },
@@ -22,12 +28,13 @@ function complexSetup() {
 }
 
 function draw() {
-  background(255);
+  background(255)
+
   translate(width / 2, height / 2);
 
   let pos = new Complex(0, 0);
 
-  // Draw the system of epicycles
+  // Draw epicycles
   for (let k = 0; k < terms.length; k++) {
     let term = terms[k];
     let prev = pos.copy();
@@ -35,10 +42,9 @@ function draw() {
     let contribution = Complex.mult(term.C, e);
     pos.add(contribution);
 
-    // Scale everything for visibility
     let radius = contribution.abs() * scaleFactor;
 
-    stroke(120, 150);
+    stroke(180);
     noFill();
     ellipse(prev.re * scaleFactor, -prev.im * scaleFactor, 2 * radius, 2 * radius);
 
@@ -46,24 +52,35 @@ function draw() {
     line(prev.re * scaleFactor, -prev.im * scaleFactor, pos.re * scaleFactor, -pos.im * scaleFactor);
   }
 
-  // Draw the trace of the endpoint
+  // Draw the endpoint and trace
   let endpoint = createVector(pos.re * scaleFactor, -pos.im * scaleFactor);
   trace.push(endpoint);
   if (trace.length > maxTrace) trace.shift();
 
   stroke(0, 0, 255);
+  strokeWeight(2);
   noFill();
-  strokeWeight(3);
   beginShape();
   for (let v of trace) vertex(v.x, v.y);
   endShape();
 
-  // Draw current endpoint
+
   fill(255, 0, 0);
   noStroke();
   ellipse(endpoint.x, endpoint.y, 8);
 
   t += dt;
+
+}
+
+function windowResized() {
+  // Reset everything when resizing the window
+  trace = [];
+  t = 0;
+  done = false;
+  resizeCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
+  scaleFactor = min(windowWidth, windowHeight) * 0.25;
+  background(255);
 }
 
 // ======== Complex Number Utilities ========
