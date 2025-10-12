@@ -1,7 +1,7 @@
 let t = 0;
 let dt = 0.005;
 let trace = [];
-let maxTrace = 800;
+let maxTrace = 1500;
 
 let terms = [];
 let scaleFactor;
