@@ -1,5 +1,5 @@
 let t = 0;
-let dt = 0.01;
+let dt = 0.005;
 let trace = [];
 let maxTrace = 800;
 
@@ -44,11 +44,13 @@ function draw() {
 
     let radius = contribution.abs() * scaleFactor;
 
-    stroke(180);
+    stroke(204, 0, 0);
+    strokeWeight(2);
     noFill();
     ellipse(prev.re * scaleFactor, -prev.im * scaleFactor, 2 * radius, 2 * radius);
 
     stroke(0);
+    strokeWeight(4);
     line(prev.re * scaleFactor, -prev.im * scaleFactor, pos.re * scaleFactor, -pos.im * scaleFactor);
   }
 
@@ -58,12 +60,11 @@ function draw() {
   if (trace.length > maxTrace) trace.shift();
 
   stroke(0, 0, 255);
-  strokeWeight(2);
+  strokeWeight(5);
   noFill();
   beginShape();
   for (let v of trace) vertex(v.x, v.y);
   endShape();
-
 
   fill(255, 0, 0);
   noStroke();
