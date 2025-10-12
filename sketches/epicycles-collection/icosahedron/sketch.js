@@ -26,7 +26,6 @@ let scl;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  colorMode(HSB, 1, 1, 1);
 
   // Compute fourier coefficients with DFT
   const skip = 1;
@@ -60,7 +59,7 @@ function setup() {
   sel.style('font-size:16px');
   sel.changed(options);
 
-  sliderTerms = createSlider(1, fourierX.length, 1000, 1);
+  sliderTerms = createSlider(3, fourierX.length, 1000, 1);
   sliderTerms.style('width', '400px');
   sliderTerms.position(windowWidth / 2 - 200, windowHeight - 70);
   sliderTerms.changed(clearPath);
@@ -72,7 +71,7 @@ function setup() {
 
 function draw() {
 
-  background(1);
+  background(255);
   translate(width / 2 - 70, height / 2);
 
   if (show === true) {
@@ -87,7 +86,7 @@ function draw() {
     }
     beginShape();
     noFill();
-    strokeWeight(4);
+    strokeWeight(5);
     for (let i = 0; i < path.length; i++) {
       vertex(path[i].x, path[i].y);
     }
@@ -105,7 +104,7 @@ function draw() {
   } else {
 
     // The approximation curve
-    strokeWeight(4);
+    strokeWeight(5);
     stroke(0);
     strokeJoin(ROUND);
     noFill();
@@ -128,7 +127,7 @@ function draw() {
   }
 
   // Update time: two options
-  const dt = 0.005;
+  const dt = 0.006;
   //const dt = TWO_PI / fourierX.length;
   time += dt;
 
@@ -166,11 +165,12 @@ function epicycles(x, y, rotation, fourier, terms, t) {
     y += radius * sin(freq * t + phase + rotation);
 
 
-    strokeWeight(1.2);
-    stroke(0.7, 1, 1);
+    strokeWeight(1.5);
+    stroke(0, 0, 255);
     noFill();
     ellipse(prevx, prevy, radius * 2);
-    stroke(1, 1, 0);
+    stroke(20);
+    strokeWeight(2);
     line(prevx, prevy, x, y);
   }
   return createVector(x, y);
