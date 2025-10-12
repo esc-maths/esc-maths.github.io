@@ -66,9 +66,9 @@ function draw() {
   for (let v of trace) vertex(v.x, v.y);
   endShape();
 
-  fill(255, 0, 0);
+  fill(0, 0, 0);
   noStroke();
-  ellipse(endpoint.x, endpoint.y, 8);
+  ellipse(endpoint.x, endpoint.y, 15);
 
   t += dt;
 
