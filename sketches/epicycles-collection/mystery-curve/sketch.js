@@ -16,7 +16,6 @@ function initCanvas() {
   createCanvas(s, s);
   angleMode(RADIANS);
   scaleFactor = s * 0.25;
-  background(255);
 }
 
 function complexSetup() {
@@ -77,7 +76,7 @@ function draw() {
 function windowResized() {
   // Reset everything when resizing the window
   trace = [];
-  t = 0;
+  //t = 0;
   done = false;
   resizeCanvas(min(windowWidth, windowHeight), min(windowWidth, windowHeight));
   scaleFactor = min(windowWidth, windowHeight) * 0.25;
