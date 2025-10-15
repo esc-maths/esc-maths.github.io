@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link rel="manifest" href='data:application/manifest+json,{"display": "standalone", "name": "Gaussian elimination"}' />
+		<title>Gaussian elimination</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-palatino theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="8e87728f6462b1e5af29cd914539ed63" data-auto-animate="">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 277.5px; top: 270px;" data-block-id="af23539556122d6a103cda8fb9efafbe" data-name="math-6638bf"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 160px; top: 72px;" data-name="text-14eaf2" data-block-id="cf641e9bc08d6ffe4f146e5f16bc8480"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><h2>Solving system of linear equations by Gaussian elimination</h2></div></div></section><section data-auto-animate="" data-id="b218cd18082032cd70bf8f397f1021b2">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-6638bf" data-block-id="bc743ba057a6ef423fe121f1d3a7154d"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-block-id="23e31fd7a2a82450d5ff0efb6d88382c" data-name="math-248d61" data-auto-animate-delay="1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div></section><section data-auto-animate="" data-id="03eda644bc3eaeb2989eeee794ba2873">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-6638bf" data-block-id="f6890e94d455083f703c4a30062dc6a9"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 72px;" data-name="math-248d61" data-block-id="6da171e715b00a97af15d1d5e8144be5"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; -3
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 72px;" data-block-id="2b4a33e64fb4dd1e4bb4368dace8b85a" data-name="math-0bdae8" data-auto-animate-delay="1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; -3
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 143px;" data-name="line-f8d95a" data-block-id="0c9505a32d2d668928fbde45b7423674"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="4d2cd277c1ae5c65acffd9419c14c8e0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="6ead83050587a1a060aeafc0aebf9cb4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="caf4cd3f054ffbc8f1b4124743321c98">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-6638bf" data-block-id="ae20d6276c0f8319fbec3aa79eb1cac9"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 72px;" data-name="math-248d61" data-block-id="efca72e8d32b7c79449ddeaef0f67c89"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; -3
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 288px;" data-name="math-0bdae8" data-block-id="63b51fde8e3f9a838a948da9882c19d2"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 288px;" data-block-id="9c73632af2dde51fb393edcbba0ec5da" data-name="math-a23994" data-auto-animate-delay="1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 337.5px;" data-name="math-c5cc4c" data-block-id="89fee8b43e94978ca807f47fa3e9dc79"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 64%;"><div class="math-input">R2+ \tfrac{3}{2}R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 387px;" data-name="math-7e165d" data-block-id="d9c9d31dd3642b182e5070cdf2734136"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">R3+ R1</div></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 521px; height: 66px; left: 672px; top: 327px;" data-name="shape-cf7d9f" data-block-id="774365760f1192c44887c38ece310db2"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 16;" data-shape-stroke-color="#cc0000" data-shape-stroke-width="5px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 521 66"><defs><clippath id="shape-mask-21-1760477488115"><rect width="521" height="66" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10"></rect></clippath></defs><rect width="521" height="66" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10" clip-path="url(#shape-mask-21-1760477488115)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 427px; height: 51px; left: 653px; top: 115px;" data-block-id="c1fc0f5c48c1a7aac6cee1322f16d502" data-name="shape-e36707"><div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 17;" data-shape-stroke-color="#6aa84f" data-shape-stroke-width="5px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 427 51"><defs><clippath id="shape-mask-22-1760477488116"><rect width="427" height="51" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10"></rect></clippath></defs><rect width="427" height="51" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10" clip-path="url(#shape-mask-22-1760477488116)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 64px; height: 80px; left: 1016px; top: 319.5px;" data-block-id="a539b9808689f219b14dc32ff562434d" data-name="shape-436016"><div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 18;" data-shape-stroke-color="#6aa84f" data-shape-stroke-width="5px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 64 80"><defs><clippath id="shape-mask-23-1760477488117"><rect width="64" height="80" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10"></rect></clippath></defs><rect width="64" height="80" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10" clip-path="url(#shape-mask-23-1760477488117)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 427px; height: 51px; left: 653px; top: 72px;" data-block-id="2eeb8d6d409733dc28dbe17314b0a147" data-name="shape-eaf187"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 19;" data-shape-stroke-color="#6aa84f" data-shape-stroke-width="5px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 427 51"><defs><clippath id="shape-mask-24-1760477488117"><rect width="427" height="51" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10"></rect></clippath></defs><rect width="427" height="51" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10" clip-path="url(#shape-mask-24-1760477488117)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 50px; height: 80px; left: 1120px; top: 319.5px;" data-block-id="871286c60f48ffb7a4574b5042f8ffdc" data-name="shape-a7197f"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 20;" data-shape-stroke-color="#6aa84f" data-shape-stroke-width="5px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 50 80"><defs><clippath id="shape-mask-25-1760477488117"><rect width="50" height="80" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10"></rect></clippath></defs><rect width="50" height="80" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10" clip-path="url(#shape-mask-25-1760477488117)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 143px;" data-name="line-f8d95a" data-block-id="6fd8e7fc59c717556c10b44f98642bc9"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="0b62a96c65d1dfa549784d1e88342521"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="3941696bc62668e80d167c1daae7c11e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="23418bc7ab0f289649852ad43ca523a4">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-6638bf" data-block-id="36b6fdd2baec4ece0059a120bd6f1695"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 72px;" data-name="math-248d61" data-block-id="06a30d35c08d49fae3b6cb772b5a51d8"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; -3
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 288px;" data-name="math-0bdae8" data-block-id="96dc2bc7aab3d988528638f6df82d558"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 288px;" data-name="math-a23994" data-auto-animate-delay="1" data-block-id="a068c950130f372bfd8730f8833a7bfa"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 337.5px;" data-name="math-c5cc4c" data-block-id="0de13e82c8a9c1861365ce23eee22231"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 64%;"><div class="math-input">R2+ \tfrac{3}{2}R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 387px;" data-name="math-7e165d" data-block-id="4698d296d36d12772748ae82cbcbc9cd"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">R3+ R1</div></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 521px; height: 48.25px; left: 672px; top: 383.75px;" data-name="shape-cf7d9f" data-block-id="eac941057b1de05ada3c279e200a0de9"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 16;" data-shape-stroke-color="#cc0000" data-shape-stroke-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 521 48"><defs><clippath id="shape-mask-31-1760477528464"><rect width="521" height="48.25" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10"></rect></clippath></defs><rect width="521" height="48.25" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10" clip-path="url(#shape-mask-31-1760477528464)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 370px; height: 51px; left: 686px; top: 115px;" data-name="shape-e36707" data-block-id="802d931fc383493d80b6a62360605187"><div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 17;" data-shape-stroke-color="#6aa84f" data-shape-stroke-width="5px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 370 51"><defs><clippath id="shape-mask-32-1760477528465"><rect width="370" height="51" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10"></rect></clippath></defs><rect width="370" height="51" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10" clip-path="url(#shape-mask-32-1760477528465)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 64px; height: 69px; left: 1016px; top: 372.25px;" data-name="shape-436016" data-block-id="582efbbe2327794458df43cf563389cc"><div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 18;" data-shape-stroke-color="#6aa84f" data-shape-stroke-width="5px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 64 69"><defs><clippath id="shape-mask-33-1760477528465"><rect width="64" height="69" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10"></rect></clippath></defs><rect width="64" height="69" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10" clip-path="url(#shape-mask-33-1760477528465)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 370px; height: 51px; left: 686px; top: 72px;" data-name="shape-eaf187" data-block-id="ff7f8783c26656ccc6019babcd51c8f2"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 19;" data-shape-stroke-color="#6aa84f" data-shape-stroke-width="5px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 370 51"><defs><clippath id="shape-mask-34-1760477528465"><rect width="370" height="51" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10"></rect></clippath></defs><rect width="370" height="51" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10" clip-path="url(#shape-mask-34-1760477528465)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 50px; height: 69px; left: 1102px; top: 372.25px;" data-name="shape-a7197f" data-block-id="baa56d695ddcfda83a7482c78676f7e9"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 20;" data-shape-stroke-color="#6aa84f" data-shape-stroke-width="5px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 50 69"><defs><clippath id="shape-mask-35-1760477528465"><rect width="50" height="69" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10"></rect></clippath></defs><rect width="50" height="69" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#6aa84f" stroke-width="10" clip-path="url(#shape-mask-35-1760477528465)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 143px;" data-name="line-f8d95a" data-block-id="3c43adf5bb28aacd02bd3b7282dcd3ad"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="114842799f67ec865531846afea0b6a8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="8b3752d051a5794d32d4b4d396da2160"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="b25575cb533f9ba341319ea6984dec1f">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-6638bf" data-block-id="8b63d4ea60ec5e63e746b0de50923869"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 72px;" data-name="math-248d61" data-block-id="6514ec88efa5f100d91668e7aebead2a"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; -3
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 288px;" data-name="math-0bdae8" data-block-id="7d674c145c7624934064f521c6b50613"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 288px;" data-name="math-a23994" data-block-id="bd70cf3997b3db801151841a9b9df9b9"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp; 2y &amp; + &amp; z &amp; = &amp; 5
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 288px;" data-block-id="8836a1f348ae444877dbf138a0690d4a" data-name="math-5795e5"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 337.5px;" data-name="math-c5cc4c" data-block-id="560f8bcc3b5e024e9304377b4a38edf8"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">R2+ \tfrac{3}{2}R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 387px;" data-name="math-7e165d" data-block-id="38f270eb663773ab9e8534f8e0e7362e"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">R3+ R1</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 143px;" data-name="line-f8d95a" data-block-id="6c3541d26c47d9ab0b966823ae7f4ff2"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 360px;" data-name="line-b1d34f" data-block-id="91427eab90a6c57c177d1fe6cf14ead6"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="2f4f367ac259b660848c56d76381c8b2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="660c094eee671770441a1215f14c9df4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="137d029e76ff433c17070191efd4d189">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-6638bf" data-block-id="437e041b3a19f27de0cb40b04b485e31"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 72px;" data-name="math-248d61" data-block-id="016690fa4dd32594eb5de8e6819b8a2c"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; -3
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 288px;" data-name="math-0bdae8" data-block-id="61b200c1b436e40ddaa1a158009d97db"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 288px;" data-name="math-a23994" data-block-id="3d206ee9922a184c226fc956b3f26ab9"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp; 2y &amp; + &amp; z &amp; = &amp; 5
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 504px;" data-name="math-5795e5" data-block-id="d06dbaa7a07280b2e6a89f67f8845e5d"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 504px;" data-block-id="55a8f29279fae6d91f2e469b4b1db238" data-name="math-8f59dd" data-auto-animate-delay="1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 337.5px;" data-name="math-c5cc4c" data-block-id="da8c95d249f4cac03d54760bf3db81a6"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">R2+ \tfrac{3}{2}R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 387px;" data-name="math-7e165d" data-block-id="a6bfd28585f3de10c0e62296c493250d"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 17; font-size: 64%;"><div class="math-input">R3+R1</div></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 508px; height: 53.5px; left: 679px; top: 594.5px;" data-name="shape-cf7d9f" data-block-id="d3898e72b09a6fefea9a3fdba3fa87cc"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 18;" data-shape-stroke-color="#cc0000" data-shape-stroke-width="5px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 508 54"><defs><clippath id="shape-mask-41-1760477833391"><rect width="508" height="53.5" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10"></rect></clippath></defs><rect width="508" height="53.5" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10" clip-path="url(#shape-mask-41-1760477833391)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 304.5px; height: 66px; left: 661px; top: 327.5px;" data-name="shape-eaf187" data-block-id="f8f5668b3360d42ca215632173c22f69"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 19;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="5px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 305 66"><defs><clippath id="shape-mask-42-1760477833391"><rect width="304.5" height="66" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="10"></rect></clippath></defs><rect width="304.5" height="66" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="10" clip-path="url(#shape-mask-42-1760477833391)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 48px; height: 69px; left: 1117.5px; top: 586.75px;" data-name="shape-a7197f" data-block-id="2f150a606c55297fc076bb5438bea5b6"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 20;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="5px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 48 69"><defs><clippath id="shape-mask-43-1760477833391"><rect width="48" height="69" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="10"></rect></clippath></defs><rect width="48" height="69" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="10" clip-path="url(#shape-mask-43-1760477833391)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 603px;" data-name="math-cff430" data-block-id="c5da527ca7b1a6d1ef26d5a14bb64d45"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 21; font-size: 62%;"><div class="math-input">R3-4R2</div></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 304.5px; height: 51px; left: 661px; top: 381px;" data-name="shape-e36707" data-block-id="e9ba48a68a129049972d7842cbcc3d8e"><div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 22;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="5px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 305 51"><defs><clippath id="shape-mask-44-1760477833392"><rect width="304.5" height="51" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="10"></rect></clippath></defs><rect width="304.5" height="51" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="10" clip-path="url(#shape-mask-44-1760477833392)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 56px; height: 69px; left: 1019px; top: 586.75px;" data-name="shape-436016" data-block-id="9dc1a00b9f6c4d4b4e1bb86ed24d772b"><div class="sl-block-content fragment current-visible" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 23;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="5px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 56 69"><defs><clippath id="shape-mask-45-1760477833392"><rect width="56" height="69" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="10"></rect></clippath></defs><rect width="56" height="69" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="10" clip-path="url(#shape-mask-45-1760477833392)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 360px;" data-name="line-b1d34f" data-block-id="adfac1cd906d99775b3da188b7d37a5e"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 24;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 143px;" data-name="line-f8d95a" data-block-id="29bc3c28da18b8be22000ec9b6074da0"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 25;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="40bca5674ac920aa08731d24a05ad088"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="94a1c086ab842cc3e4faff609f0f0a21"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="eb8881686d9d127572956d533d6d79a9">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-6638bf" data-block-id="755b2901d7ae4d7a6f685b18e8e7e64c"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 72px;" data-name="math-248d61" data-block-id="0219bd73575fc96acb3df73d1d4cca0a"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+-3 &amp; -1 &amp; 2 &amp; -11 \\
+-2 &amp; 1 &amp; 2 &amp; -3
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 640px; top: 288px;" data-name="math-0bdae8" data-block-id="61332224a5812261a443e917677d5691"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 2 &amp; 1 &amp; 5
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 288px;" data-name="math-a23994" data-block-id="4367fd6d1923ce85701398154071b767"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp; 2y &amp; + &amp; z &amp; = &amp; 5
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 504px;" data-name="math-5795e5" data-block-id="68656e0899ec44898f549071486a0656"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 504px;" data-name="math-8f59dd" data-block-id="86b8ce5e22343078fdd06ee6d9c249bd"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 337.5px;" data-name="math-c5cc4c" data-block-id="274f124c6835d7a7f753d3d1aa4ed803"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">R2+ \tfrac{3}{2}R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 387px;" data-block-id="14fde4f5bc1434887666ca9280d99233" data-name="math-7e165d"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 17; font-size: 64%;"><div class="math-input">R3+R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 603px;" data-block-id="93259bb5923ffd678f5202dbec55a780" data-name="math-cff430"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 18; font-size: 62%;"><div class="math-input">R3-4R4</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 143px;" data-name="line-f8d95a" data-block-id="f24b71dd8026fc0e589996684406f01e"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 360px;" data-block-id="f7a3eeaa8b003f84027792e3c7b97bd8" data-name="line-b1d34f"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 585px; top: 576px;" data-block-id="310f7517c8d1507b5b2aeb8ffc1a6f72" data-name="line-27d533"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="50" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="50" height="1" viewbox="0 0 50 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M3.999 0.08 L46.001 0.92"></path><path stroke="#666666" stroke-width="4" d="M 10.434 -8.793 L 1.255 0.025 L 10.074 9.203 L 1.255 0.025" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 39.926 -8.203 L 48.745 0.975 L 39.566 9.793 L 48.745 0.975" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L50 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L50 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="3edceae8cfe6f33108940098770c6457"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="136b9a64055f5e859fc7863088bfd05c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="6f56bf940b708436cb721a0ce15d7919">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-5795e5" data-block-id="a023d31ac8c16a9ac6e2bd2909d2e510"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-8f59dd" data-block-id="587120f5407259fe08c8736f788c97da"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 171px;" data-name="math-cff430" data-block-id="33867e1854924d930d6276704cabc4bf"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 62%;"><div class="math-input">R3-4R4</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 912px; left: 184px; top: 288px;" data-name="text-ec2ed5" data-block-id="e0478367b15bbd393b653700b0ba308b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 168%;">
+<p><span style="color:rgb(32, 33, 34)">The matrix is now in <strong>row echelon form</strong> </span></p>
+
+<p><span style="color:rgb(32, 33, 34)">(also called triangular form)</span></p>
+</div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-block-id="04692d563a028a71d88139017078d04e" data-name="math-ade6d7" data-auto-animate-delay="1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-27d533" data-block-id="144f38b11c1d3513b690487e1bd85b57"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="29d2a6ab0de86db422a94e70243351c6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="303d0c347dc8610cde2cd0f89ad05969"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="2973daa41779a97c77ce2ca47a48f666">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-5795e5" data-block-id="34a7d48b662a848a4255af2132706ad4"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-8f59dd" data-block-id="8c18202f54fa91c3c952a1317a17da43"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 171px;" data-name="math-cff430" data-block-id="e7a722db288898c99eac45b908b1da1e"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 62%;"><div class="math-input">R3-4R4</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ade6d7" data-block-id="787212231c59cd6e016e5cf50dc22be7"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-27d533" data-block-id="689de486f05f8ac3a09331e0dccd73eb"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="9c499983da07dd4642bf3e17fca8f5a6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="aa2c9bf2bec1de096f8c443d92211ab9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="88b1207ff53e1de238ed612f8fd3c09f">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-5795e5" data-block-id="c1fad6f56128e6184aacfcd992475418"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-8f59dd" data-block-id="7609c7d5103e0d1bfd86f0a93f0f0c52"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 171px;" data-name="math-cff430" data-block-id="ff43f5604fbefe938136719a80f67c58"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 62%;"><div class="math-input">R3-4R4</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ade6d7" data-block-id="c4c0ad1efa0237a9dee6808cb62593f8"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 288px;" data-name="math-b3b0d1" data-block-id="a69faab7f0a8f68e6abae9df55d2b0e3"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 335px;" data-name="math-124231" data-block-id="fbb0658d887d5540c2823283d58220a8"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-27d533" data-block-id="db3a64a0245b61ec93e5a7834e690b71"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 502px; height: 53.5px; left: 683px; top: 281.5px;" data-name="shape-cf7d9f" data-block-id="4be0c512d16d2d1cf63b17dabe0181ae"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 17;" data-shape-stroke-color="#cc0000" data-shape-stroke-width="5px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 502 54"><defs><clippath id="shape-mask-50-1760480494810"><rect width="502" height="53.5" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10"></rect></clippath></defs><rect width="502" height="53.5" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10" clip-path="url(#shape-mask-50-1760480494810)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="bf81147e98d8da2ea57663ad8b7894cd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="e865340c415d1936aa0983eff1ae3b2e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="a17d9b157447850079aad8cef0ee26a5">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-5795e5" data-block-id="1325192e236af1fe525804c40cd618b8"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-8f59dd" data-block-id="b120f2656f8b1822005b6e278559562f"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 171px;" data-name="math-cff430" data-block-id="7edd928074e3af47ae9128934e8d7c8e"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 62%;"><div class="math-input">R3-4R4</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ade6d7" data-block-id="86e6dc1697431ee0356d5158b260b6d0"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-125de5" data-auto-animate-delay="1" data-block-id="014befed00ecd4567399f13ad88c9f23"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 288px;" data-name="math-b3b0d1" data-block-id="5e5791c25f11a54dab82cabf53f4326f"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 335px;" data-name="math-124231" data-block-id="48402d76177ddbb77d2f4561803518b1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 540px; top: 144px;" data-name="line-27d533" data-block-id="7a17b768620dc9a8efa27a3adc928c50"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 502px; height: 64.5px; left: 682px; top: 327.25px;" data-name="shape-cf7d9f" data-block-id="dd4dc9fa86ff3720c7f0259a757136d3"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 18;" data-shape-stroke-color="#cc0000" data-shape-stroke-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 502 65"><defs><clippath id="shape-mask-52-1760480568558"><rect width="502" height="64.5" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10"></rect></clippath></defs><rect width="502" height="64.5" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="10" clip-path="url(#shape-mask-52-1760480568558)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="087da69a44a696739defa35575bd032a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="8755dbf9ea87fcb744568cd896e08ce3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="19c0dcfff376cef8eee5814a0f2d45bd">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-5795e5" data-block-id="6a172c8da908ac1b5248dee30867150d"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; -1 &amp; 8 \\
+0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 1 \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-8f59dd" data-block-id="2dff395798550500ee200b56b140a21c"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+&amp;  &amp; \frac{1}{2}y &amp; + &amp; \frac{1}{2}z &amp; = &amp; 1 \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 171px;" data-name="math-cff430" data-block-id="af8aac597317715dbc676c673630becf"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 62%;"><div class="math-input">R3-4R4</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ade6d7" data-block-id="8a91a96cf94327f6096085fa42972227"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 288px;" data-name="math-125de5" data-block-id="f7401f3f2fced99d1cffde2f7ff58cbb"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; \frac{1}{2}y &amp;  &amp;  &amp; = &amp; \frac{3}{2} \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 288px;" data-name="math-b3b0d1" data-block-id="857be84f93d38ad2b44b6ff3551b88b1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 335px;" data-name="math-124231" data-block-id="ecf2186f6a00d9ba00449409ed48ecd8"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 359px;" data-name="line-e6f325" data-block-id="a3fe9abdb3c13f79642579e7881d79ca"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-27d533" data-block-id="3d13d3e0268e99a6783fe283b0c5501a"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="ca4ac168f4a9cd6413dd3c74f22184b1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="c5188766870898f8277a3ffc146f7f11"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="bc61d18173ff9a9b8592337530cf6ba6">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-ade6d7" data-block-id="2aee0d8814674be0c280b9cb48abe3cb"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-125de5" data-block-id="fbdf70fce47f31591b5a231b8cbff534"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; \frac{1}{2}y &amp;  &amp;  &amp; = &amp; \frac{3}{2} \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 72px;" data-name="math-b3b0d1" data-block-id="b0db01001fa4591d57bea6415a3aae64"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 119px;" data-name="math-124231" data-block-id="32cf136413d9e23c8f216a2e27f14a09"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-block-id="eaceab0dead48cbb4ae309bd09c032aa" data-name="math-ecfb3e" data-auto-animate-delay="1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-e6f325" data-block-id="d196f7d2d9fbb91661c8fd61f7d291e6"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="0dd459e566ccfae6f886a9b5e529d570"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="5bc3232de6f67d40eff61dc26c4a3172"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="7829d292f99b2d8186fe07c4741bf4f8">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-ade6d7" data-block-id="e75b7c604f13cc538796212baf687b4d"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-125de5" data-block-id="1dc3a16945c3ee08c06f88c711f44515"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; \frac{1}{2}y &amp;  &amp;  &amp; = &amp; \frac{3}{2} \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 72px;" data-name="math-b3b0d1" data-block-id="bba9af59d2f0e138ce36ef5ce54177f4"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 119px;" data-name="math-124231" data-block-id="affd9effcab4fb4eae5b1a0182eeb8b9"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ecfb3e" data-block-id="c81d51b83c1af1622abd6bb99ef19e76"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 336.5px;" data-name="math-320c4c" data-block-id="2c6d535258af2a0f2d3bfe716e430e23"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">2R2</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 385px;" data-name="math-9b9f8b" data-block-id="ec1c02ea65223e3ab50b81fc47b68575"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">-R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-block-id="c665787945ea161d91a9fd107f471e7d" data-name="math-d3d14a" data-auto-animate-delay="1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 17; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-e6f325" data-block-id="2a24b17f9db136a91859cd1744131dcc"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="8309505ef1b7d6a1ccc30591be0d01df"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="aa7be8ab18f9537305ea16b7b46b4343"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="9b2fb6f684bef8f4a6932f740c5b09a2">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-ade6d7" data-block-id="f0e739ab7826e1b75b0ca4b4b74d4e22"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-125de5" data-block-id="378f283c1d0fbe0ba3ca1bc4f0c7e980"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; \frac{1}{2}y &amp;  &amp;  &amp; = &amp; \frac{3}{2} \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 72px;" data-name="math-b3b0d1" data-block-id="6ce3b8858f7cfa84e4aae67607ab2339"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 119px;" data-name="math-124231" data-block-id="d9f28f63220cbbede4a4b7f46a5cb045"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ecfb3e" data-block-id="e92bc7437a409fcc0768d2dfd6339217"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 336.5px;" data-name="math-320c4c" data-block-id="3a095e7a029f23017632ced0cc5b171d"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">2R2</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 385px;" data-name="math-9b9f8b" data-block-id="1c7fb17909bd3cafa6265bd8f27eec88"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">-R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 27px; top: 288px;" data-name="math-d3d14a" data-block-id="e772421c6aff2a05d80015f24ab0b3f1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 17; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; y &amp;  &amp;  &amp; = &amp; 3 \\
+ &amp;  &amp;  &amp;  &amp; z &amp; = &amp; -1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-block-id="e70646e5bf3960545f7dbe7ece261a00" data-name="math-a15c00"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 18; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-e6f325" data-block-id="88234c06bbe649648f654463297cd61e"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 360.5px;" data-name="line-b4ded9" data-block-id="e88d73270a4b173048bed6beb5838564"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="976d5950d1b50c75e08f18706aa94c62"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="cbb8b259bd09daf21e6a542912a175e6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="eb407407932f9cd8b57426859d572367">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-ade6d7" data-block-id="ef7fa1fd4aade93e61b08c2e7162a63f"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-125de5" data-block-id="42720f6ceb24404ee5f814a031373656"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; \frac{1}{2}y &amp;  &amp;  &amp; = &amp; \frac{3}{2} \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 72px;" data-name="math-b3b0d1" data-block-id="a69c8a432a4621f45909dc1a28dea2c8"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 119px;" data-name="math-124231" data-block-id="fc9a7888cf299d4d1992fd9efe8ec2b5"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ecfb3e" data-block-id="9d02fd3ff05fc77648b5e51b9d77a4fc"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 336.5px;" data-name="math-320c4c" data-block-id="bb1dc6b0fdf8f3953a4c9daad6a4db79"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">2R2</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 385px;" data-name="math-9b9f8b" data-block-id="2bcf9a1c1ec21c14135e8f424df85ac0"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">-R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 27px; top: 288px;" data-name="math-d3d14a" data-block-id="259008c07416dee1b4c2079dbf2d00ba"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 17; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; y &amp;  &amp;  &amp; = &amp; 3 \\
+ &amp;  &amp;  &amp;  &amp; z &amp; = &amp; -1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 651.5px; top: 504px;" data-name="math-a15c00" data-block-id="d9b8d17d2b56b3afe68483dbdf4a658d"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 18; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 504px;" data-name="math-dcc569" data-block-id="52b15b5f1ab530d3bccb32deb0050535"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 19; font-size: 64%;"><div class="math-input">R1-R2,</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1170.5px; top: 504px;" data-name="math-cf8f0e" data-block-id="d17fee73aff6659dbb83f472eb4999a4"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 20; font-size: 64%;"><div class="math-input">\tfrac{1}{2}R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 651.5px; top: 504px;" data-block-id="e7cea1a6c43a4f812c286ec652ccd574" data-name="math-6a4998" data-auto-animate-delay="1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 21; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-e6f325" data-block-id="4d9452f7bce06229076ba1f9ba09c2f2"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 360.5px;" data-name="line-b4ded9" data-block-id="68d3d24a0d52c8a0dc5981d2adb6b47f"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="c37a0f16217169f8fdf37c910656ccb9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="f61f6cf7ab3c6c6654406cf092a671c6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="9c415da7032ace49d15da901dfbc5b4e">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-ade6d7" data-block-id="7b1a8b81872caac0536a2e5f1cb16c59"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-125de5" data-block-id="e10a44fc4b1e561c5669888d875a1407"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; \frac{1}{2}y &amp;  &amp;  &amp; = &amp; \frac{3}{2} \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 72px;" data-name="math-b3b0d1" data-block-id="b674a951406a1d0a60316cf27c7951cc"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 119px;" data-name="math-124231" data-block-id="37b3458d64ac10d7778134c60e62a911"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ecfb3e" data-block-id="40ddcd6f76d7d41cbafd66a51d7b75fd"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 336.5px;" data-name="math-320c4c" data-block-id="06dd54529fadc7385eab81caee166dd5"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">2R2</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 385px;" data-name="math-9b9f8b" data-block-id="558fab3fd5e5061e407b07c2e23ac6b8"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">-R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 27px; top: 288px;" data-name="math-d3d14a" data-block-id="81aba6dcd899d0aaccede0f87c9fdb8f"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 17; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; y &amp;  &amp;  &amp; = &amp; 3 \\
+ &amp;  &amp;  &amp;  &amp; z &amp; = &amp; -1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 651.5px; top: 504px;" data-name="math-a15c00" data-block-id="4b5e93c321e258101f4ca6f5e1f5b80a"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 18; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 504px;" data-name="math-dcc569" data-block-id="60aaf9759473561f85c2b4e94c407fc5"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 19; font-size: 64%;"><div class="math-input">R1-R2,</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1170.5px; top: 504px;" data-name="math-cf8f0e" data-block-id="7fb632de6decf41add1da2cddb05d372"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 20; font-size: 64%;"><div class="math-input">\tfrac{1}{2}R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 78px; top: 504px;" data-name="math-6a4998" data-block-id="4364599b08a548191d62d3642b27ac84"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 21; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+x &amp;  &amp;  &amp;  &amp;  &amp; = &amp; 2 \\
+&amp;  &amp; y &amp;  &amp;  &amp; = &amp; 3 \\
+ &amp;  &amp;  &amp;  &amp; z &amp; = &amp; -1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 149.5px; height: 61px; left: 1016px; top: 497px;" data-name="shape-c45293" data-block-id="7d7573d9e224a4d901bec19dcdeffaba"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 22;" data-shape-stroke-color="#cc0000" data-shape-stroke-width="6px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 150 61"><defs><clippath id="shape-mask-48-1760479971744"><rect width="149.5" height="61" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="12"></rect></clippath></defs><rect width="149.5" height="61" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="12" clip-path="url(#shape-mask-48-1760479971744)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-e6f325" data-block-id="f2b1e1b21fdc21f1b680a2564817e8f0"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 541px; top: 576px;" data-name="line-6d5def" data-block-id="91c03a0ea33b0fcbc4658607d42298cd"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 24;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 360.5px;" data-name="line-b4ded9" data-block-id="b10f9d98d437cb975447acc27dff595b"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 25;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="597e509808f9e62c356a6cda2304c7b6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="399999a7a3c15f00ed62b89d1d095027"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="b914524d5b0796cf307d4cba2ca44907">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 72px;" data-name="math-ade6d7" data-block-id="71be9922212a214d4be41e6e3626de17"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{3}{2} \\
+0 &amp; 0 &amp; -1 &amp; 1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 0px; top: 72px;" data-name="math-125de5" data-block-id="f44ec2480f7b3277967e4a8d34656523"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; \frac{1}{2}y &amp;  &amp;  &amp; = &amp; \frac{3}{2} \\
+ &amp;  &amp;  &amp; - &amp; z &amp; = &amp; 1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 72px;" data-name="math-b3b0d1" data-block-id="241fa1fe9f2cd30b735d0001d8bcb93b"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 12; font-size: 64%;"><div class="math-input">R1- R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 119px;" data-name="math-124231" data-block-id="1d5f7415ec38b69000715c603b855ff7"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 13; font-size: 64%;"><div class="math-input">R2+\tfrac{1}{2}R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 648px; top: 288px;" data-name="math-ecfb3e" data-block-id="951da6ab7c95c491e1407d535b3725f1"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 14; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+2 &amp; 1 &amp; 0 &amp; 7 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 336.5px;" data-name="math-320c4c" data-block-id="f1f5ca00aa2d38c32da5318fa51daa00"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 15; font-size: 64%;"><div class="math-input">2R2</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1030.5px; top: 385px;" data-name="math-9b9f8b" data-block-id="f3acfb9ab22b7f62c394d2958630ae86"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 16; font-size: 64%;"><div class="math-input">-R3</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 27px; top: 288px;" data-name="math-d3d14a" data-block-id="169751980756308d23463eb6235cdd7f"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 17; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp;  &amp;  &amp; = &amp; 7 \\
+&amp;  &amp; y &amp;  &amp;  &amp; = &amp; 3 \\
+ &amp;  &amp;  &amp;  &amp; z &amp; = &amp; -1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 651.5px; top: 504px;" data-name="math-a15c00" data-block-id="48094f59622b79e311f22cfdd7096efe"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 18; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1026.5px; top: 504px;" data-name="math-dcc569" data-block-id="c5de828a7ce9c9267ac5e6f7c98dd00e"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 19; font-size: 64%;"><div class="math-input">R1-R2,</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 1170.5px; top: 504px;" data-name="math-cf8f0e" data-block-id="e2856a2266573753609297d11668dc91"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 20; font-size: 64%;"><div class="math-input">\tfrac{1}{2}R1</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 78px; top: 504px;" data-name="math-6a4998" data-block-id="62df27aa86b565f9d0c76295acfd9cf6"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 21; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+x &amp;  &amp;  &amp;  &amp;  &amp; = &amp; 2 \\
+&amp;  &amp; y &amp;  &amp;  &amp; = &amp; 3 \\
+ &amp;  &amp;  &amp;  &amp; z &amp; = &amp; -1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 73.5px; height: 61px; left: 1165.5px; top: 497px;" data-name="shape-c45293" data-block-id="5a601c9d6a787f4e3159bef7021e878a"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 22;" data-shape-stroke-color="#cc0000" data-shape-stroke-width="6px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 74 61"><defs><clippath id="shape-mask-47-1760479938591"><rect width="73.5" height="61" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="12"></rect></clippath></defs><rect width="73.5" height="61" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#cc0000" stroke-width="12" clip-path="url(#shape-mask-47-1760479938591)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 541px; top: 576px;" data-block-id="905f2a55d5e7b1f9a188204532681718" data-name="line-6d5def"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 360.5px;" data-block-id="28150a22c5753ecc5310187b2eb2cc84" data-name="line-b4ded9"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 24;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 540px; top: 144px;" data-name="line-e6f325" data-block-id="58478e48b08a1e0fb80dd9e8f4067b25"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 25;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 454px; left: 640px; top: 24px;" data-name="text-547087" data-block-id="720b72b1931b393812b84a5d95f1e0bb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 0px; top: 24px;" data-name="text-549f66" data-block-id="cc7442479ecde63049d3e75941b63341"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="4e9520ead4db713bdac183737a6d60b8">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 756.25px; top: 72px;" data-name="math-a15c00" data-block-id="7fc2eb285324fcb12e05ceb68274198e"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10; font-size: 80%;"><div class="math-input">\left(
+\begin{array}{rrr|r}
+1 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 1 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 1 &amp; -1
+\end{array}
+\right)</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 182.75px; top: 72px;" data-name="math-6a4998" data-block-id="e480bd371c2ea9d4fe5e2b6368f81808"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11; font-size: 80%;"><div class="math-input">\begin{array}{rrrrrrr}
+x &amp;  &amp;  &amp;  &amp;  &amp; = &amp; 2 \\
+&amp;  &amp; y &amp;  &amp;  &amp; = &amp; 3 \\
+ &amp;  &amp;  &amp;  &amp; z &amp; = &amp; -1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 645.75px; top: 144px;" data-name="line-6d5def" data-block-id="d3fde702b8fe1014cf17b65a63f3cc99"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="74" data-line-y2="0" data-line-color="#666666" data-line-width="4px" data-line-start-type="line-arrow" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="74" height="1" viewbox="0 0 74 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M4 0 L70 0"></path><path stroke="#666666" stroke-width="4" d="M 10.256 -9 L 1.256 0 L 10.256 9 L 1.256 0" stroke-linecap="round" stroke-linejoin="round" class="line-start"></path><path stroke="#666666" stroke-width="4" d="M 63.744 -9 L 72.744 0 L 63.744 9 L 72.744 0" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L74 0"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L74 0"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 240px; top: 288px;" data-name="text-1cb7c0" data-block-id="5ea531cc28fdf0c9f2b3bafaba50bb5e"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 168%;" data-fragment-index="0">
+<p><span style="color:rgb(32, 33, 34)">The matrix is now in </span></p>
+
+<p><strong><span style="color:rgb(32, 33, 34)">reduced row echelon form</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 341px; left: 756.25px; top: 24px;" data-name="text-547087" data-block-id="a6fd85f1f6afc9d78a15545150c220ae"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p><strong>Augmented matrix</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 427px; left: 182.75px; top: 24px;" data-name="text-549f66" data-block-id="ac0de93fd6c1a05bd663ba01a2e50610"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><p><strong>System</strong></p></div></div></section><section data-auto-animate="" data-id="ae200c0057c3d26d0000c16566f26f35">
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 899px; top: 270px;" data-name="math-6a4998" data-block-id="2384a801a60bad920db2ccc468dd3006"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 10;"><div class="math-input">\begin{array}{rrr}
+x  &amp; = &amp; 2 \\
+y &amp; = &amp; 3 \\
+ z &amp; = &amp; -1
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 31.5px; top: 270px;" data-name="math-6638bf" data-block-id="769f5c49bac8c1630bdb73394596f0f5"><div class="sl-block-content notranslate" data-math-display="true" style="z-index: 11;"><div class="math-input">\begin{array}{rrrrrrr}
+2x &amp; + &amp; y &amp; - &amp; z &amp; = &amp; 8 \\
+-3x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; -11 \\
+-2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; -3
+\end{array}</div></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 783.5px; top: 360px;" data-name="line-0009a7" data-block-id="f27fce0f48f711dd7ec3486a6c16edc0"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="0" data-line-x2="85" data-line-y2="1" data-line-color="#666666" data-line-width="4px" data-line-start-type="none" data-line-end-type="line-arrow" data-line-style="solid-rounded" style="z-index: 12;" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="85" height="1" viewbox="0 0 85 1"><path class="line-element" fill="rgba(0,0,0,0)" stroke="#666666" stroke-width="4" stroke-linecap="round" d="M0 0 L81 0.953"></path><path stroke="#666666" stroke-width="4" d="M 74.851 -8.12 L 83.744 0.985 L 74.639 9.879 L 83.744 0.985" stroke-linecap="round" stroke-linejoin="round" class="line-end"></path><path class="line-skeleton" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" d="M0 0 L85 1"></path><path class="line-hitarea" fill="rgba(0,0,0,0)" stroke="rgba(0,0,0,0)" stroke-width="15" d="M0 0 L85 1"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 281px; left: 899px; top: 179.5px;" data-name="text-cc3a5c" data-block-id="13b1da2dcd211c9c8bb0d5cc9b91af2c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 147%;" data-fragment-index="0"><p><strong>Solution</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 234px; top: 187.5px;" data-block-id="4fd7422d586f947599d2aa78fb59b4d2" data-name="text-5cefec"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 147%;"><p><strong>System</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 160px; top: 72px;" data-name="text-b0e545" data-block-id="efa0b626f94acc83d0e41c5a165f63b0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><h2>Using Gaussian elimination</h2></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 289px; height: 211px; left: 895.5px; top: 254.5px;" data-name="shape-4f742d" data-block-id="370e5e3e032e02d187105bf38f5c391e"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 16;" data-shape-stroke-color="#0000ff" data-shape-stroke-width="6px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 289 211"><defs><clippath id="shape-mask-54-1760480939037"><rect width="289" height="211" rx="0" ry="0" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="12"></rect></clippath></defs><rect width="289" height="211" rx="0" ry="0" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#0000ff" stroke-width="12" clip-path="url(#shape-mask-54-1760480939037)"></rect></svg></div></div></section><section data-id="0087ef363f7c3dfce21b0fb6b829f4a4"><div class="sl-block" data-block-type="image" data-name="image-2647b8" style="width: 367.713px; height: 94.09px; left: 456.144px; top: 144px; min-width: 1px; min-height: 1px;" data-block-id="341852d952744880d3b999560dacb45c"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1786" data-natural-height="457" data-src="solving-linean-system-gaussian/74a751459780ea6f5d23832449ed80c5.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-e141e9" style="height: auto; width: 600px; left: 340px; top: 360px;" data-block-id="fb263c888bdf2819517333a06e3ff3c7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><strong>Made by</strong></p>
+
+<p>Juan Carlos Ponce Campuzano</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 340px; top: 465px;" data-name="text-ab06ec" data-block-id="232de3b1d353c126d4f9cd97fa6816b7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p><a href="https://www.jcponce.com/" target="_blank">jcponce.com</a></p></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 30px; height: 30px; left: 517px; top: 474px;" data-name="shape-f2e6e9" data-block-id="2cc58e83a9ae1b23cc69079dccdbc13a"><div class="sl-block-content" data-shape-type="symbol-globe" data-shape-fill-color="#000000" data-shape-stretch="true" style="z-index: 10;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 2 30 30"><g class="shape-element" fill="#000000" data-viewbox="0 2 30 30"><path d="M15 2c-8.284 0-15 6.716-15 15s6.716 15 15 15c8.284 0 15-6.716 15-15s-6.716-15-15-15zM23.487 22c0.268-1.264 0.437-2.606 0.492-4h3.983c-0.104 1.381-0.426 2.722-0.959 4h-3.516zM6.513 12c-0.268 1.264-0.437 2.606-0.492 4h-3.983c0.104-1.381 0.426-2.722 0.959-4h3.516zM21.439 12c0.3 1.28 0.481 2.62 0.54 4h-5.979v-4h5.439zM16 10v-5.854c0.456 0.133 0.908 0.355 1.351 0.668 0.831 0.586 1.625 1.488 2.298 2.609 0.465 0.775 0.867 1.638 1.203 2.578h-4.852zM10.351 7.422c0.673-1.121 1.467-2.023 2.298-2.609 0.443-0.313 0.895-0.535 1.351-0.668v5.854h-4.852c0.336-0.94 0.738-1.803 1.203-2.578zM14 12v4h-5.979c0.059-1.38 0.24-2.72 0.54-4h5.439zM2.997 22c-0.533-1.278-0.854-2.619-0.959-4h3.983c0.055 1.394 0.224 2.736 0.492 4h-3.516zM8.021 18h5.979v4h-5.439c-0.3-1.28-0.481-2.62-0.54-4zM14 24v5.854c-0.456-0.133-0.908-0.355-1.351-0.668-0.831-0.586-1.625-1.488-2.298-2.609-0.465-0.775-0.867-1.638-1.203-2.578h4.852zM19.649 26.578c-0.673 1.121-1.467 2.023-2.298 2.609-0.443 0.312-0.895 0.535-1.351 0.668v-5.854h4.852c-0.336 0.94-0.738 1.802-1.203 2.578zM16 22v-4h5.979c-0.059 1.38-0.24 2.72-0.54 4h-5.439zM23.98 16c-0.055-1.394-0.224-2.736-0.492-4h3.516c0.533 1.278 0.855 2.619 0.959 4h-3.983zM25.958 10h-2.997c-0.582-1.836-1.387-3.447-2.354-4.732 1.329 0.636 2.533 1.488 3.585 2.54 0.671 0.671 1.261 1.404 1.766 2.192zM5.808 7.808c1.052-1.052 2.256-1.904 3.585-2.54-0.967 1.285-1.771 2.896-2.354 4.732h-2.997c0.504-0.788 1.094-1.521 1.766-2.192zM4.042 24h2.997c0.583 1.836 1.387 3.447 2.354 4.732-1.329-0.636-2.533-1.488-3.585-2.54-0.671-0.671-1.261-1.404-1.766-2.192zM24.192 26.192c-1.052 1.052-2.256 1.904-3.585 2.54 0.967-1.285 1.771-2.896 2.354-4.732h2.997c-0.504 0.788-1.094 1.521-1.766 2.192z"></path></g></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 340px; top: 268.5px;" data-name="text-cf3d87" data-block-id="4d0b5de5128b2196be1652609026f92c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p><strong>School of Environment and Science</strong></p></div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":3478319,"slug":"solving-linean-system-gaussian","title":"Gaussian elimination","description":"","width":1280,"height":720,"margin":0.05,"visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/520580bfd34e3b5e07679272cf55a0fc/thumb.jpg?1760477072","view_count":0,"user":{"id":1304482,"username":"jcponce","name":"Juan Carlos Ponce Campuzano","description":"Mathematics Educator","thumbnail_url":"https://media.slid.es/avatars/1304482/bw-b-logo-twitter-geogebra_copy.jpg","account_type":"lite","team_id":null,"settings":{"id":5182188,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"fade","transition":"fade","theme_id":null,"theme_font":"palatino","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":false,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":22,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1760567666593,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"language":"en","notes":{}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 1280,
+				height: 720,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				scrollActivationWidth: null,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "fade",
+				backgroundTransition: "fade",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+
+	</body>
+</html>
