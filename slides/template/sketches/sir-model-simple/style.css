@@ -1,0 +1,83 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+
+/*Button to reset*/
+
+*{padding:0;margin:0;}
+
+body{
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:37px;
+    background-color:#CCC;
+}
+
+.float{
+    cursor: pointer;
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:120px;
+    right:40px;
+    background-color:#3399ff;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.my-floatBack{
+    cursor: pointer;
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:50px;
+    right:40px;
+    background-color:#3399ff;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.float:hover{
+    background-color:#5cbf2a;
+}
+
+.my-floatBack:hover{
+    background-color:#5cbf2a;
+}
+
+.my-float{
+    margin-top:12px;
+}
+
+.button {
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color:#ffffff;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 10px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+.button:hover {
+    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    background-color:#f6f6f6;
+}
+.bbutton:active {
+    position:relative;
+    top:1px;
+}

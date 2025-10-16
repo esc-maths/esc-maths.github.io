@@ -8,11 +8,7 @@
 			// Push each slide change to the browser history.  Implies `hash: true`
 			history: true,
 			
-			// Can be used to limit the contexts in which the slide number appears
-            // - "all":      Always show the slide number
-            // - "print":    Only when printing to PDF
-            // - "speaker":  Only in the speaker view
-            // - "c/t":  Flattened slide number / total slides
+			// Display the page number of the current slide
 			slideNumber: "c/t",
 
 			// Vertical centering of slides
