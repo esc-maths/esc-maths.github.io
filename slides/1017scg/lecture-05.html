@@ -1,0 +1,2090 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1017SCG - Week 5</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.strike-txt {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.strike-txt.visible {
+			font-weight: normal;
+			text-decoration: line-through;
+			text-decoration-color: red;
+		}
+		
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-bottom: 10px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-85">
+					<h2>Foundation Mathematics</h2>
+					<p style="font-weight: bold; font-size: 130%;">1017SCG</p>
+				</div>
+				<p style="font-size: 90%;">Week 5</p>
+				
+				<div style="margin-top: -20px;">
+					<img style="width: 400px;" src="images/fractal/fractal-05.svg">
+				</div>
+				<br/>
+			</section>
+
+			<section>
+				<h3>
+					Topics for Week 5
+				</h3>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Solving Linear Equations
+						</li>
+						<li>
+							Solving Quadratic Equations
+						</li>
+						<li>
+							Solving Logarithmic Equations
+						</li>
+						<li>
+							Solving Exponential Equations
+						</li>
+					</ul>
+
+				</div>
+
+
+				<br />
+				<br />
+				<br />
+			</section>
+
+
+
+			<!--
+			<section>
+				<h3>Solving Equations</h3>
+
+
+				<div class="">
+
+					<p class="fragment" data-fragment-index="0">
+						Solve: Find the value of the unknown.
+						\[
+						x+1= 3
+						\]
+
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						\[
+						x= 2
+						\]
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						\[
+						\text{Since }\;2 + 1 = 3
+						\]
+					</p>
+
+
+				</div>
+
+				<br />
+				<br />
+
+
+			</section>-->
+
+
+
+
+			<section>
+				<section data-auto-animate>
+					<h4>Solving Linear Equations</h4>
+
+					<div>
+						<p class="fragment" data-fragment-index="0">
+							👉 \(3x-7=9,\;\; 8y+2=9,\; 3n-1=-10\)
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							Allowed: \(\,x,\,\)
+							<span class="fragment" data-fragment-index="2">constants ✅</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							<strong>Not allowed:</strong> \(\,x^2,\,x^3,\, x^{1/2},\, \sin x,\, \log (x), \,3^x, \,\) ❌
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Solving Linear Equations</h4>
+
+
+					<div class="left-txt size-90">
+						<p>
+							Allowed: \(\,x,\,\)
+							<span>constants ✅</span>
+						</p>
+						<p>
+							<strong>Not allowed:</strong> \(\,x^2,\,x^3,\, x^{1/2},\, \sin x,\, \log (x), \,3^x, \,\) ❌
+						</p>
+					</div>
+
+					<div class="size-90">
+
+						<p>
+							This is a linear equation:
+						</p>
+						<p>
+							\(3x+5 = 17\)
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							\(3x+5-5 = 17-5\)
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							\(3x = 12\)
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							\(\dfrac{3x}{3} = \dfrac{12}{3}\)
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							\(x = 4\)
+						</p>
+					</div>
+
+
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving Linear Equations</h4>
+
+
+					<div class="left-txt size-90">
+						<p>
+							<strong>Example 1:</strong> Solve \(\,7 n - 10 = 2n + 15\)
+						</p>
+					</div>
+
+					<div class=" size-90">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="0">
+								<td style="border: none; text-align: right;">
+									\(7n - 10 + 10\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(2n + 15 + 10\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(7n\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(2n + 25\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(7n - 2n\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(2n - 2n + 25\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(5n\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(25\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{5n}{5}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\dfrac{25}{5}\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="5">
+								<td style="border: none; text-align: right;">
+									\(n\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(5\)
+									
+								</td>
+							</tr>
+						</table>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Solving Linear Equations</h4>
+
+
+					<div class="left-txt size-85">
+						<p>
+							<strong>Example 2:</strong> Solve \(\,\dfrac{3 y +8}{2} = \dfrac{10y+1}{3}\)
+						</p>
+					</div>
+
+					<div class=" size-85">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="0">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{3 y +8}{2}\times 2\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{10y+1}{3} \times 2\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(3 y +8 \)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\dfrac{2(10y+1)}{3} \)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\((3y+8)\times 3\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\dfrac{2(10y+1)}{3} \times 3\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(3(3y+8)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(2(10y+1)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(9y+ 24\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(20 y + 2\)
+								</td>
+							</tr>
+
+
+						</table>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Solving Linear Equations</h4>
+
+
+					<div class="left-txt size-85">
+						<p>
+							<strong>Example 2:</strong> Solve \(\,\dfrac{3 y +8}{2} = \dfrac{10y+1}{3}\)
+						</p>
+					</div>
+
+					<div class=" size-85">
+						<table style="border: none; text-align: center;">
+
+
+							<tr>
+								<td style="border: none; text-align: right;">
+									\(9y+ 24\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(20 y + 2\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="5">
+								<td style="border: none; text-align: right;">
+									\(24-2\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(20y - 9y\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="6">
+								<td style="border: none; text-align: right;">
+									\(22\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(11y\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="7">
+								<td style="border: none; text-align: right;">
+									\(y\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(2\)
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+
+					<div class="fragment" data-fragment-index="0">
+						<p>
+							\(3x^2-7=9,\;\; y^2-y+1=0,\; n^2-4=-2\)
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							Allowed: \(\,x^2,\,x,\,\) constants ✅
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<strong>Not allowed:</strong> \(\,x^3,\,x^4,\, x^{1/2},\, \sin x,\, \log (x), \,3^x, \,\)
+							etc. ❌
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+
+
+					<div class="left-txt size-90">
+						<p>
+							<strong>Example 1 (Factorising):</strong> Solve \(\,x^2-6x = 0\)
+						</p>
+					</div>
+
+					<div class="">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="0">
+								<td style="border: none; text-align: right;">
+									\(x(x-6)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(x=0\)
+								</td>
+								<td style="border: none; text-align: center;">
+									or
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x -6=0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+
+								</td>
+								<td style="border: none; text-align: center;">
+
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x = 6\)
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+
+
+					<div class="left-txt size-95">
+						<p>
+							<strong>Example 2 (Factorising):</strong> Solve \(\,3x^2+6x = 0\)
+						</p>
+					</div>
+
+					<div class=" size-95">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="0">
+								<td style="border: none; text-align: right;">
+									\(3x(x+2)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(3 x =0 \)
+								</td>
+								<td style="border: none; text-align: center;">
+									or
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x+2 =0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(x=0\)
+								</td>
+								<td style="border: none; text-align: center;">
+									or
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x=-2\)
+								</td>
+							</tr>
+
+
+						</table>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+
+
+					<div class="left-txt size-95">
+						<p>
+							<strong>Example 3 (Factorising):</strong> Solve \(\,x^2 + 5 x +4 =0\)
+						</p>
+					</div>
+
+					<div class=" size-95">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="0">
+								<td style="border: none; text-align: right;">
+									\((x+1)(x+4)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(x+1 =0 \)
+								</td>
+								<td style="border: none; text-align: center;">
+									or
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x+4 =0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(x=-1\)
+								</td>
+								<td style="border: none; text-align: center;">
+									or
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x=-4\)
+								</td>
+							</tr>
+
+
+						</table>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+
+
+					<div class="left-txt size-95">
+						<p>
+							<strong>Example 4 (Factorising):</strong> Solve \(\,2x^2 + 9 x +4 =0\)
+						</p>
+					</div>
+
+					<div class=" size-95">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="0">
+								<td style="border: none; text-align: right;">
+									\((2x+1)(x+4)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(2x+1 =0 \)
+								</td>
+								<td style="border: none; text-align: center;">
+									or
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x+4 =0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(2x=-1\)
+								</td>
+								<td style="border: none; text-align: center;">
+									or
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x=-4\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(x=-\dfrac{1}{2}\)
+								</td>
+								<td style="border: none; text-align: center;">
+
+								</td>
+								<td style="border: none; text-align: left;">
+
+								</td>
+							</tr>
+
+
+						</table>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>
+						What if we cannot easily factorise?
+					</h3>
+
+
+
+					<div>
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="220"
+								height="220">
+						</picture>
+					</div>
+
+					<p class="fragment" data-fragment-index="0">
+						Try this one for example:
+						<br />\(x^2+2x-2=0\)
+					</p>
+				</section>
+
+				<section>
+					<h3>The Quadratic formula</h3>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0">
+							If we have the quadratic equation
+							\[ax^2+bx+c=0,\]
+							<span class="fragment" data-fragment-index="1">then
+								\[
+								x=\dfrac{-b\pm \sqrt{b^2-4ac}}{2a}
+								\]
+							</span>
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="2">
+							<strong>Note: </strong>
+							Developed by Indian mathematician Brahmagupta (circa 6th century)
+							<a href="https://archive.org/details/historyofmathema0001davi/page/158/mode/2up"
+								target="_blank"><i class="fa fa-external-link-alt"></i></a>
+							and Śrīdhara (8th-9th century).
+							<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Sridhara/" target="_blank"><i
+									class="fa fa-external-link-alt"></i></a>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Derivation of the Quadratic formula 🤓</h4>
+
+
+					<div class=" size-90">
+						<table style="border: none; text-align: center;">
+							<tr>
+								<td style="border: none; text-align: right;">
+									\(ax^2+ bx+c \)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 0\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(ax^2 + bx \)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( -c\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									<span style="color: red;">\(4a\)</span>\(ax^2 \,+\)<span
+										style="color: red;">\(\,4a\)</span>\(bx \)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(-\)<span style="color: red;">\(\,4a\)</span>\(c\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(4a^2x^2 + 4abx\, +\)<span style="color: red;">\(\,b^2\)</span>
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( -4ac\,+\)<span style="color: red;">\(\,b^2\)</span>
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(\left(2ax+b\right)^2\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( b^2-4ac\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="5">
+								<td style="border: none; text-align: right;">
+									\(2ax+b\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \pm \sqrt{b^2-4ac}\)
+								</td>
+							</tr>
+
+							<tr class="fragment" data-fragment-index="6">
+								<td style="border: none; text-align: right;">
+									\(2ax\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( -b \pm \sqrt{b^2-4ac}\)
+								</td>
+							</tr>
+
+							<tr class="fragment" data-fragment-index="7">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{-b \pm \sqrt{b^2-4ac}}{2a}\)
+								</td>
+							</tr>
+
+
+
+						</table>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>The Quadratic formula</h3>
+
+					<div class="left-txt size-85">
+						<p>
+							If
+							\(ax^2+bx+c=0,\)
+							<span>then
+								\[
+								x=\dfrac{-b\pm \sqrt{b^2-4ac}}{2a}
+								\]
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							The symbol <span style="color:red;font-weight: bold;">\(\pm\)</span> means that we get two
+							solutions:
+						</p>
+						<p>
+
+							<span class="fragment" data-fragment-index="1">
+								\(
+								x=\dfrac{-b+ \sqrt{b^2-4ac}}{2a},\;\;\;
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								\(
+								x=\dfrac{-b- \sqrt{b^2-4ac}}{2a}
+								\)
+							</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+
+
+					<div class="left-txt size-90">
+						<p>
+							<strong>Example 5:</strong> Solve \(\,2x^2 -3 x -4 =0\)
+						</p>
+					</div>
+
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">👉 \(\;a = 2,\;\;\)</span>
+							<span class="fragment" data-fragment-index="1">\(b = -3,\;\;\)</span>
+							<span class="fragment" data-fragment-index="2">\(c = -4\)</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								\(x=\dfrac{-b\pm \sqrt{b^2-4ac}}{2a}\qquad \qquad\;\;\)
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							\(x = \dfrac{-(-3)\pm \sqrt{(-3)^2-4(2)(-4)}}{2(2)}\)
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							\(x = \dfrac{3\pm \sqrt{41}}{4}\qquad \qquad\qquad \quad\)
+						</p>
+					</div>
+
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+
+
+					<div class="left-txt size-90">
+						<p>
+							<strong>Example 6:</strong> Solve \(\,x^2 -6 x +9 =0\)
+						</p>
+					</div>
+
+					<div class="size-90">
+						<p>
+							<span class="fragment" data-fragment-index="0">👉 \(\;a = 1,\;\;\)</span>
+							<span class="fragment" data-fragment-index="1">\(b = -6,\;\;\)</span>
+							<span class="fragment" data-fragment-index="2">\(c = 9\)</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								\(x=\dfrac{-b\pm \sqrt{b^2-4ac}}{2a}\qquad \qquad \)
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							\(x = \dfrac{-(-6)\pm \sqrt{(-6)^2-4(1)(9)}}{2(1)}\)
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							\(x = \dfrac{6\pm \sqrt{0}}{2}\)
+							<span class="fragment" data-fragment-index="6">
+								\(= \dfrac{6}{2}\)
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								\(= 3 \qquad\quad \;\;\;\)
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="8">👉 Note that we have only one solution‼</p>
+
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+
+
+					<div class="left-txt size-90">
+						<p>
+							<strong>Example 6:</strong> Solve \(\,x^2 -6 x +9 =0\)
+						</p>
+					</div>
+
+					<div class="size-90">
+
+
+						<p>👉 Note that we have only one solution‼</p>
+						<p>We can solve this equation also by factorising!</p>
+						<p class="fragment" data-fragment-index="0">\((x-3)(x-3)=0\)
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Then \(\, x - 3 = 0 \,\) or \(\,x-3=0\)
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							This is just one equation \(\, x - 3 = 0 \)
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							Therefore \(\, x =3\)
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving Quadratic Equations</h4>
+					<div class="size-85">
+						<p>🤔 What is the best strategy to solve \(ax^2+ bx +c =0\)?</p>
+					</div>
+
+					<table style="width: 100%; font-size: 80%;">
+						<tr class="fragment" data-fragment-index="0">
+							<td style="width: 50%; text-align: center;border: none">
+								\(x^2-2x-2=0\)
+							</td>
+							<td style="width: 50%; text-align: center;border: none;">
+								\(x^2-7x+12=0\)
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 50%; text-align: center;border: none;" class="fragment"
+								data-fragment-index="3">
+								\(x=\dfrac{-(-2)\pm \sqrt{(-2)^2-4(1)(-2)}}{2(1)}\)
+							</td>
+							<td style="width: 50%; text-align: center;border: none;" class="fragment"
+								data-fragment-index="1">
+								\((x-3)(x-4)=0\)
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 50%; text-align: center;border: none;" class="fragment"
+								data-fragment-index="4">
+								\(x=1\pm \sqrt{3}\)
+							</td>
+							<td style="width: 50%; text-align: center;border: none;" class="fragment"
+								data-fragment-index="2">
+								\(x=3, \; x = 4\)
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Solving Quadratic Equations
+					</h4>
+
+					<div class="left-txt size-90">
+						<p><strong>Final remark:</strong>
+							<span class="fragment" data-fragment-index="0">
+								When solving a quadratic equation, there are 3 possibilities:
+							</span>
+						</p>
+
+						<ul style="line-height: 70px;">
+							<li class="fragment" data-fragment-index="1">There are 2 solutions: \(x^2-2x-2=0\)</li>
+							<li class="fragment" data-fragment-index="2">There is 1 solution: \(x^2-6x+9=0\)</li>
+							<li class="fragment" data-fragment-index="3">There are NO solutions: \(x^2+1=0\)</li>
+						</ul>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h4>Geometric interpretation</h4>
+
+					<div class="size-80">
+						<p class="r-stack fragment" data-fragment-index="0">Consider the cartesian coordinate system</p>
+					</div>
+
+					<div class="r-stack fragment" data-fragment-index="0">
+						<img style="width: 80%;" src="images/week-05/cases-03-sols.svg">
+					</div>
+					<br />
+				</section>
+				<section>
+					<h4>Geometric interpretation</h4>
+
+					<div class="left-txt size-80">
+						<p><strong>• 2 solutions:</strong> The parabola intersects the $x$-axis 2 times</p>
+					</div>
+
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 80%;"
+							src="images/week-05/cases-03-sols.svg">
+						<img class="fragment fad-in" data-fragment-index="0" style="width: 80%;"
+							src="images/week-05/cases-02-sols.svg">
+					</div>
+					<br />
+				</section>
+				<section>
+					<h4>Geometric interpretation</h4>
+
+					<div class="left-txt size-80">
+						<p><strong>• 1 solution:</strong> The parabola intersects the $x$-axis once</p>
+					</div>
+
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 80%;"
+							src="images/week-05/cases-03-sols.svg">
+						<img class="fragment fad-in" data-fragment-index="0" style="width: 80%;"
+							src="images/week-05/cases-01-sols.svg">
+					</div>
+
+					<br />
+				</section>
+				<section>
+					<h4>Geometric interpretation</h4>
+
+					<div class="left-txt size-80">
+						<p><strong>• 0 solutions:</strong> The parabola <strong>does not intersect</strong> the $x$-axis
+						</p>
+					</div>
+
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 80%;"
+							src="images/week-05/cases-03-sols.svg">
+						<img class="fragment fad-in" data-fragment-index="0" style="width: 80%;"
+							src="images/week-05/cases-00-sols.svg">
+					</div>
+
+
+					<br />
+				</section>
+			</section>
+
+
+
+			<section>
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<br />
+					<div>
+						<p class="fragment" data-fragment-index="0">
+							\(\log_{10}(100)\, \)
+							<span class="fragment" data-fragment-index="1">\(= 2\;\)</span>
+							<span class="fragment" data-fragment-index="2">
+								because \(\,10^2 = 100\)
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							\(\log_{2}(8)\, \)
+							<span class="fragment" data-fragment-index="4">\(= 3\;\)</span>
+							<span class="fragment" data-fragment-index="5">
+								because \(\,2^3 = 8\)
+							</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<div class="left-txt">
+						<p>
+							<strong>Example 1:</strong> Solve \(\,\log_{2}(x)=4 \)
+						</p>
+					</div>
+
+					<div class="">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(2^4\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( x\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(16\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(x\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 16\)
+								</td>
+							</tr>
+
+
+
+
+
+						</table>
+
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<div class="left-txt">
+						<p>
+							<strong>Example 2:</strong> Solve \(\,\log_{5}(2x)=3 \)
+						</p>
+					</div>
+
+					<div class="">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(5^3\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 2x\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(125\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(2x\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{125}{2}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{2x}{2}\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{125}{2}\)
+								</td>
+							</tr>
+
+
+
+						</table>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<div class="left-txt">
+						<p>
+							<strong>Example 3:</strong> Solve \(\,5\log_{2}(3x-1)=10 \)
+						</p>
+					</div>
+
+					<div class="">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{5\log_{2}(3x-1)}{5}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{10}{5}\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(\log_{2}(3x-1)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(2\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(2^2\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(3x-1\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(4\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 3x-1\)
+								</td>
+							</tr>
+
+
+
+						</table>
+
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<div class="left-txt">
+						<p>
+							<strong>Example 3:</strong> Solve \(\,5\log_{2}(3x-1)=10 \)
+						</p>
+					</div>
+
+					<div class="">
+						<table style="border: none; text-align: center;">
+
+							<tr>
+								<td style="border: none; text-align: right;">
+									\(4\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 3x-1\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(4+1\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 3x-1+1\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(5\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 3x\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{5}{3}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{3x}{3}\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="5">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{5}{3}\)
+								</td>
+							</tr>
+
+
+
+						</table>
+
+					</div>
+
+					<br />
+				</section>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h5>Solving Exponential Equations</h5>
+
+					<div class="left-txt size-90">
+						<p>
+							<strong>Example 1:</strong> Solve \(\,5^x=100 \)
+						</p>
+					</div>
+
+					<div class="size-90">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(\log_{10}\left(5^x\right) \)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \log_{10}(100)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(x\log_{10}\left(5\right)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\log_{10}(100)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(x\log_{10}\left(5\right)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(2\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{x\log_{10}\left(5\right)}{\log_{10}(5)}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{2}{\log_{10}(5)}\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="5">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{2}{\log_{10}(5)}\)
+									<span class="fragment" data-fragment-index="6">
+										\(\approx 2.86\)
+									</span>
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<div class="left-txt size-90">
+						<p>
+							<strong>Example 1:</strong> Solve \(\,5^x=100 \)
+						</p>
+					</div>
+					<div class="size-90 fragment custom strike-txt" data-fragment-index="0">
+						<p>
+							👉 log₁₀(5<em>ˣ</em>)= log₁₀(100)
+						</p>
+					</div>
+
+					<div class="size-90">
+						<table style="border: none; text-align: center;">
+
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(\;\log_{5}\left(5^x\right) \)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \log_{5}(100)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(x\log_{5}\left(5\right)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\log_{5}(100)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\log_{5}(100)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\dfrac{\log_{10}\left(100\right)}{\log_{10}(5)}\)
+									<span class="fragment" data-fragment-index="5">
+										\(=\dfrac{2}{\log_{10}(5)}\)
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										\(\approx 2.86\)
+									</span>
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<div class="left-txt">
+						<p>
+							<strong>Example 2:</strong> Solve \(\,e^{2x}=10 \)
+						</p>
+					</div>
+
+					<div class="">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(\ln\left(e^{2x}\right)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( 10\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(2x\ln\left(e\right)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\ln\left(10\right)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(2x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\ln\left(10\right)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{2x}{2}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{\ln\left(10\right)}{2}\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="5">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\dfrac{\ln\left(10\right)}{2}\)
+									<span class="fragment" data-fragment-index="6">
+										\(\approx 1.15\)
+									</span>
+								</td>
+							</tr>
+
+
+
+						</table>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<div class="left-txt size-95">
+						<p>
+							<strong>Example 3:</strong> Solve \(\,7e^{3x}=28 \)
+						</p>
+					</div>
+
+					<div class="size-95">
+						<table style="border: none; text-align: center;">
+							<tr class="fragment" data-fragment-index="1">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{7e^{3x}}{7}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{28}{7}\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="border: none; text-align: right;">
+									\(e^{3x}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(4\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="border: none; text-align: right;">
+									\(\ln\left(e^{3x}\right)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\ln(4)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="4">
+								<td style="border: none; text-align: right;">
+									\(3x\ln\left(e\right)\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\ln\left(4\right)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="5">
+								<td style="border: none; text-align: right;">
+									\(3x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\ln\left(4\right)\)
+								</td>
+							</tr>
+
+
+						</table>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Solving Logarithmic Equations</h5>
+
+					<div class="left-txt size-95">
+						<p>
+							<strong>Example 3:</strong> Solve \(\,7e^{3x}=28 \)
+						</p>
+					</div>
+
+					<div class="size-95">
+						<table style="border: none; text-align: center;">
+
+							<tr>
+								<td style="border: none; text-align: right;">
+									\(3x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\(\ln\left(4\right)\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="5">
+								<td style="border: none; text-align: right;">
+									\(\dfrac{3x}{3}\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{\ln\left(4\right)}{3}\)
+								</td>
+							</tr>
+							<tr class="fragment" data-fragment-index="6">
+								<td style="border: none; text-align: right;">
+									\(x\)
+								</td>
+								<td style="border: none; text-align: center;">
+									\(=\)
+								</td>
+								<td style="border: none; text-align: left;">
+									\( \dfrac{\ln\left(4\right)}{3}\)
+									<span class="fragment" data-fragment-index="7">
+										\(\approx 0.46\)
+									</span>
+								</td>
+							</tr>
+
+
+
+
+						</table>
+
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+			</section>
+
+
+			<section>
+				<section>
+					<h3>Why do we need to know how <br />
+						to solve equations anyway?</h3>
+
+					<div>
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="250"
+								height="250">
+						</picture>
+					</div>
+
+					<div class="size-80">
+						<p>\(2x-7=4,\;\; 2x^2-x+1=0,\;\; \log_3(2x) = 6,\;\; 4^x+2 = 3 \)</p>
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>📊 Linear Regression</h3>
+					<div class="size-70 left-txt">
+						<p><strong>Predicting height from age:</strong> Suppose we collect data from
+							children aged 2 to 13 and record their heights.</p>
+
+						<div style="text-align: center; margin-top: -20px;" class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="0" style="width: 60%;"
+								src="images/week-05/linear-regression.svg">
+							<img class="fragment fade-in" data-fragment-index="0" style="width: 60%;"
+								src="images/week-05/linear-regression-h.svg">
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>📊 Linear Regression</h3>
+					<div class="size-70 left-txt">
+						<p><strong>Predicting height from age:</strong></p>
+
+						<div style="text-align: center; margin-top: -20px;margin-bottom: -20px;"><img
+								style="width: 45%;" src="images/week-05/linear-regression-h.svg"></div>
+
+
+						<p style="font-size: 1em;">The data points suggest a linear trend:</p>
+						<p style="font-size: 1em;">\[ h(x) = m x + 70.36 \]</p>
+
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h3>📈 Linear Regression</h3>
+					<div class="size-75 left-txt">
+						<p><strong>Predicting height from age:</strong></p>
+
+						<p style="font-size: 1.2em;">The data points suggest a linear trend:</p>
+						<p style="font-size: 1.4em;">\[ h(x) = m x + 70.36 \]</p>
+
+						<ul>
+							<li class="fragment" data-fragment-index="0">\( x \): age in years</li>
+							<li class="fragment" data-fragment-index="1">\( h(x) \): predicted height in cm</li>
+							<li class="fragment" data-fragment-index="2">Slope \( m \): average growth per year</li>
+						</ul>
+
+						<p class="fragment" data-fragment-index="3">This line is the <strong>line of best fit</strong> —
+							found using linear regression.</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>🚀 Motion of Objects/Particles Affected by Gravity</h5>
+
+					<div>
+						<video muted loop style="width:80%;" data-autoplay
+							data-src="https://www.dynamicmath.xyz/math1052/images/lect-02/parabola-water.mov"></video>
+					</div>
+
+
+					<div style="font-size:80%;margin-top:-20px" class="fragment" data-fragment-index="1">
+						<p>$y(x) = \ds \frac{g}{2u^2} x^2+\frac{v}{u}x$</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>☕️ Law of Cooling & 🧫 Population Growth</h5>
+
+
+					<div>
+						<table style="font-size: 70%; text-align: center;">
+							<tr>
+								<td style="text-align: center;border: none;" class="fragment" data-fragment-index="0">
+									<img style="width:370px"
+										src="https://www.geogebra.org/resource/bjvchnzq/PjLWHuNlqlXBLwPI/material-bjvchnzq.png">
+								</td>
+								<td style="text-align: center;border: none;" class="fragment" data-fragment-index="1">
+									<img style="width:440px"
+										src="https://www.geogebra.org/resource/hwezty7d/VpBU7WG133ZjUQOG/material-hwezty7d.png">
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;" class="fragment" data-fragment-index="0">
+									\(T(t)=\left(T_0-T_m\right) e^{-kt} + T_m\)
+								</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="1">
+									$\ds P(t) = \frac{\theta P_0 e^{rt}}{\theta-P_0+P_0e^{rt}}$
+
+								</td>
+							</tr>
+						</table>
+					</div>
+
+
+
+					<br /><br />
+				</section>
+
+				<section>
+
+					<h5>
+						In summary
+					</h5>
+
+
+
+
+					<div class="left-txt size-75">
+						<p>
+							Solving equations teaches logical thinking and is a
+							powerful tool for predicting, designing, optimizing,
+							and understanding the world around us.
+						</p>
+					</div>
+
+					<div style="margin-top: -20px;">
+						<img style="width: 350px;" src="images/week-05/golden.gif">
+					</div>
+
+
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+
+					<h5>An example of modelling using functions</h5>
+
+
+
+					<div style="margin-top: 40px;">
+						<iframe style="width: 500px; height: 450px; border: none; margin-top: -20px;"
+							data-src="sketches/3d-heart"></iframe>
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate="">
+
+					<h5>An example of modelling using functions</h5>
+
+					<table style="width: 100%; margin-top: 20px;">
+						<tr>
+							<td style="width: 40%">
+								<iframe style="width: 100%; height: 450px; border: none; margin-top: -20px;"
+									data-src="sketches/3d-heart"></iframe>
+							</td>
+							<td style="width: 60%; font-size: 65%;text-align: center !important;">
+
+								<p style="text-align: left !important;">
+									The beauty of mathematics shows itself to patient followers.
+
+								</p>
+								<p style="text-align: right !important;margin-top: -20px;">
+									<strong><a href="https://www.quantamagazine.org/maryam-mirzakhani-is-first-woman-fields-medalist-20140812/" target="_blank">- Maryam Mirzakhani</a></strong>
+								</p>
+
+								<div class="fragment" data-fragment-index="1">
+
+									<p>
+										$R =13 + 3\left(\dfrac{1}{2} + \dfrac{1}{2} \sin \left(2\pi t +
+										\dfrac{z}{3}\right)\right)^4$
+									</p>
+
+									<p>
+										$y = z -\abs{x}\sqrt{ \dfrac{20 - \abs{x}}{35} }$
+									</p>
+
+									<p>
+										$x^{2}+y^{2}+z^{2}=R$
+									</p>
+
+									<br />
+
+									<p style="font-size: 60%;">
+										Open in Desmos <a href="https://www.desmos.com/3d/65c0162030" target="_blank"><i
+												class="fa fa-external-link-alt"></i></a>
+									</p>
+								</div>
+
+
+								<br />
+
+
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+				<!--
+				<section data-background-color="rgb(0,0,0)"
+					data-background-iframe="../../assets/sketches/seascape" 
+					data-background-interactive>
+
+					<h5>
+						A simple simulation of a galaxy 🌌
+					</h5>
+
+					
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				-->
+			</section>
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

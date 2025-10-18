@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1017SCG - Week 9</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-bottom: 10px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-85">
+					<h2>Foundation Mathematics</h2>
+					<p style="font-weight: bold; font-size: 130%;">1017SCG</p>
+				</div>
+				<p style="font-size: 90%;">Week 9</p>
+
+				<div style="margin-top: -20px;">
+					<img style="width: 400px;" src="images/fractal/fractal-09.svg">
+				</div>
+				<br />
+			</section>
+
+
+
+			<section>
+
+				<h4>Topics for Week 9</h4>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Graphing trigonometric functions (sin and cos)
+						</li>
+						<li>
+							Introduction to limits
+						</li>
+						<li>
+							Evaluating limits analytically
+						</li>
+						<li>
+							Continuity of functions
+						</li>
+					</ul>
+
+				</div>
+
+				<br />
+				<br />
+				<br />
+				<br />
+
+
+			</section>
+
+			<section>
+				<section>
+
+					<h6 style="font-size: 65%;">
+						Graphing trigonometric functions (sin)
+					</h6>
+
+					<div class="r-stack" style="margin-top: -20px;">
+						<img class="fragment fade-out" data-fragment-index="0"
+							src="images/week-09/unit-circle-values-sin-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							src="images/week-09/unit-circle-values-sin-02.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1"
+							src="images/week-09/unit-circle-values-sin-03.svg">
+						<img class="fragment fade-in" data-fragment-index="2"
+							src="images/week-09/unit-circle-values-sin-04.svg">
+					</div>
+					<br />
+				</section>
+
+				<section data-visibility="hidden">
+					<h6 style="font-size: 65%;">
+						Graphing trigonometric functions (sin)
+					</h6>
+
+					<div style="margin-top: -35px;">
+						<img style="width: 50%;" src="images/week-09/unit-circle.png">
+					</div>
+
+					<div style="margin-top: -30px;font-size: 60%;">
+						<table border="1" cellpadding="5" cellspacing="0">
+							<tr>
+								<th style="text-align: center;">θ</th>
+								<th style="text-align: center;">30°</th>
+								<th style="text-align: center;">60°</th>
+								<th style="text-align: center;">90°</th>
+								<th style="text-align: center;">120°</th>
+								<th style="text-align: center;">150°</th>
+								<th style="text-align: center;">180°</th>
+								<th style="text-align: center;">210°</th>
+								<th style="text-align: center;">240°</th>
+								<th style="text-align: center;">270°</th>
+								<th style="text-align: center;">300°</th>
+								<th style="text-align: center;">330°</th>
+								<th style="text-align: center;">360°</th>
+							</tr>
+							<tr>
+								<td style="text-align: center;">$\sin \theta$</td>
+								<td style="text-align: center;">$1/2$</td>
+								<td style="text-align: center;">$\sqrt{3}/2$</td>
+								<td style="text-align: center;">$1$</td>
+								<td style="text-align: center;">$\sqrt{3}/2$</td>
+								<td style="text-align: center;">$1/2$</td>
+								<td style="text-align: center;">$0$</td>
+								<td style="text-align: center;">$-1/2$</td>
+								<td style="text-align: center;">$-\sqrt{3}/2$</td>
+								<td style="text-align: center;">$-1$</td>
+								<td style="text-align: center;">$-\sqrt{3}/2$</td>
+								<td style="text-align: center;">$-1/2$</td>
+								<td style="text-align: center;">$0$</td>
+							</tr>
+						</table>
+
+					</div>
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h6>
+						Graphing trigonometric functions (sin)
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes.svg">
+					</div>
+
+
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h6>
+						Graphing trigonometric functions (sin)
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees.svg">
+					</div>
+
+
+
+					<br />
+
+
+				</section>
+				
+				<section>
+
+					<h6 style="font-size: 65%;">
+						Graphing trigonometric functions (cos)
+					</h6>
+
+					<div class="r-stack" style="margin-top: -20px;">
+						<img class="fragment fade-out" data-fragment-index="0"
+							src="images/week-09/unit-circle-values-cos-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							src="images/week-09/unit-circle-values-cos-02.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1"
+							src="images/week-09/unit-circle-values-cos-03.svg">
+						<img class="fragment fade-in" data-fragment-index="2"
+							src="images/week-09/unit-circle-values-cos-04.svg">
+					</div>
+					<br />
+				</section>
+
+				<section data-visibility="hidden">
+					<h6 style="font-size: 55%;">
+						Graphing trigonometric functions (cos)
+					</h6>
+
+					<div style="margin-top: -35px;">
+						<img style="width: 50%;" src="images/week-09/unit-circle.png">
+					</div>
+
+					<div style="margin-top: -30px;font-size: 65%;">
+						<table border="1" cellpadding="5" cellspacing="0">
+							<tr>
+								<th style="text-align: center;">θ</th>
+								<th style="text-align: center;">30°</th>
+								<th style="text-align: center;">60°</th>
+								<th style="text-align: center;">90°</th>
+								<th style="text-align: center;">120°</th>
+								<th style="text-align: center;">150°</th>
+								<th style="text-align: center;">180°</th>
+								<th style="text-align: center;">210°</th>
+								<th style="text-align: center;">240°</th>
+								<th style="text-align: center;">270°</th>
+								<th style="text-align: center;">300°</th>
+								<th style="text-align: center;">330°</th>
+								<th style="text-align: center;">360°</th>
+							</tr>
+							<tr>
+								<td>$\cos \theta$</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+
+					</div>
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h6>
+						Graphing trigonometric functions (cos)
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes.svg">
+					</div>
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h6>
+						Graphing trigonometric functions (cos)
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-cos-degrees.svg">
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<h5>
+						The unit circle and it's relationship with sin and cos
+					</h5>
+
+					<div style="margin-top: -10px;">
+						<iframe scrolling="no" title="Unit circle: sin and cos"
+							src="https://www.geogebra.org/material/iframe/id/vdnnsd5m/width/580/height/560/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+							width="580px" height="560px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br />
+
+				</section>
+
+				<section>
+					<h6>
+						Graphing trigonometric functions (sin & cos in degrees)
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 77%;" src="images/week-09/plot-axes-sin-deg-small.svg">
+					</div>
+					<div style="margin-top: -40px;">
+						<img style="width: 77%;" src="images/week-09/plot-axes-cos-deg-small.svg">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions (sin & cos in radians)
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 77%;" src="images/week-09/plot-axes-sin-radians.svg">
+					</div>
+					<div style="margin-top: -40px;">
+						<img style="width: 77%;" src="images/week-09/plot-axes-cos-radians.svg">
+					</div>
+
+				</section>
+				<section>
+					<h5>
+						The unit circle and Trigonometric functions
+					</h5>
+
+					<div style="margin-top: 0px;">
+						<iframe scrolling="no" title="Trigonometric functions"
+							src="https://www.geogebra.org/material/iframe/id/nnxyyqrq/width/928/height/488/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+							width="928px" height="488px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br />
+
+				</section>
+			</section>
+
+
+
+			<section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: Amplitude
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-amplitude.png">
+					</div>
+
+				</section>
+
+				<section>
+					<h6>
+						Graphing trigonometric functions: Amplitude
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-amplitude-a.png">
+					</div>
+
+				</section>
+
+				<section>
+					<h6>
+						Graphing trigonometric functions: Frequency
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-frequency.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: Frequency
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-frequency-a.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: Vertical shift
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-vert.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: Vertical shift
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-vert-a.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: Horizontal shift
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-hor.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: Horizontal shift
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-hor-a.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: Reflection
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-reflection.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: Reflection
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-sin-degrees-reflection-a.png">
+					</div>
+
+				</section>
+			</section>
+
+
+			<section>
+
+				<section>
+					<h6>
+						Graphing trigonometric functions: cos
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-cos-radians-all-transf.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: cos - Amplitude
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-cos-radians-all-transf-amplitude.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: cos - Frequency
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-cos-radians-all-transf-freq.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: cos - Vertical shift
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-cos-radians-all-transf-vert.png">
+					</div>
+
+				</section>
+				<section>
+					<h6>
+						Graphing trigonometric functions: cos - Horizontal shift
+					</h6>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-cos-radians-all-transf-hor.png">
+					</div>
+
+				</section>
+
+				<section>
+					<h4>Putting all together</h4>
+					<div class="size-80">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$ y = A \sin \big[B\left(x+C\right)\big] + D \;$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								or $\; y = A \cos
+								\big[B\left(x+C\right)\big] + D $
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<ul style="line-height: 80px;">
+							<li class="fragment" data-fragment-index="1">
+								Amplitude is $A$
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Period is $\dfrac{360^\circ}{B}$ or $\dfrac{2\pi}{B}$ (horizontal compression)
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Horizontal shift is $C$ (phase shift)
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								Vertical shift is $D$
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h6>
+						Example 1: $\;y = 2 \cos(x) -3$
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-example-01.svg">
+					</div>
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h6>
+						Example 2: $\;y = 3 \sin(x) +1$
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-example-02.svg">
+					</div>
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h6>
+						Example 3: Find the main features of the plot
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-example-03.svg">
+					</div>
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h6>
+						Example 4: Find the main features of the plot
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<img style="width: 100%;" src="images/week-09/plot-axes-example-04.svg">
+					</div>
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h6>
+						Explore more in Desmos <a href="https://www.desmos.com/calculator/btd6xal8hr" target="_blank"><i
+								class="fa fa-external-link-alt"></i></a>
+					</h6>
+
+					<div style="margin-top: -10px;">
+						<iframe style="width: 100%;height: 600px; border: none;"
+							src="https://www.desmos.com/calculator/btd6xal8hr"></iframe>
+					</div>
+
+					<br />
+
+
+				</section>
+
+			</section>
+
+			<section>
+				<section data-background-iframe="sketches/polar" data-background-interactive>
+					<h3>Why do we study trigonometric functions?</h3>
+
+					<div>
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="120"
+								height="120">
+						</picture>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Heart Rate & O2 Saturation graphs</h4>
+					<img style="width: 650px;" src="images/week-09/hear-beat-monitor.gif">
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Computer Graphics: Procedural Landscape Generation</h4>
+					<div class="size-50">
+						<p>\[
+							f(\mathbf{x}) = \sum_{i=0}^{N-1} A_i \cdot \big[\cos\left(2\pi \, \mathbf{k}_i \cdot
+							\mathbf{x} + \phi_i\right) + \sin\left(2\pi \, \mathbf{k}_i \cdot \mathbf{x} +
+							\theta_i\right)\big]
+							\]
+
+						</p>
+
+					</div>
+					<div>
+						<video muted loop style="width:75%;" data-autoplay
+							data-src="images/week-09/proc-lands-comp.mov"></video>
+					</div>
+					<br />
+				</section>
+
+
+				<section>
+					<h4>MRI (magnetic resonance imaging) scans</h4>
+
+					<div>
+						<iframe style="width: 100%; height: 580px; border: none;" src="sketches/scanner-head/"></iframe>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Sound Processing</h4>
+
+					<div>
+						<iframe style="width: 100%; height: 580px; border: none;" data-src="sketches/sound-viz/"></iframe>
+					</div>
+					<br />
+				</section>
+
+				<!--
+				 data-visibility="hidden"
+				-->
+				<section data-background-iframe="../../sketches/pablo" data-background-interactive data-visibility="hidden">
+
+				</section>
+
+
+			</section>
+
+			<section>
+
+				<section>
+					<h4>Limits</h4>
+					<div class="size-70">
+						<p>Consider the function \(f(x)=\dfrac{1}{x}\,\) near $\,x=0.$</p>
+					</div>
+					<div style="margin-top: -25px;" class="fragment" data-fragment-index="0">
+						<img style="width: 90%;" src="images/week-09/limits-oneoverx.svg">
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Limits</h4>
+					<div class="size-70">
+						<p>Consider the function \(f(x)=\dfrac{\sin (x)}{x}\,\) near $\,x=0.$</p>
+					</div>
+					<div class="fragment" data-fragment-index="0" style="margin-top: -25px;">
+						<img style="width: 100%;" src="images/week-09/limits-sinoverx.svg">
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Limits: Area under a curve</h4>
+					<div style="margin-top:40px">
+						<iframe scrolling="no" title="Chapter-23: Riemann Integral"
+							src="https://www.geogebra.org/material/iframe/id/u4swgtug/width/705/height/374/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+							width="705px" height="374px" style="border: 0px" allowfullscreen="" data-preload>
+						</iframe>
+					</div>
+
+					<div class="fragment" data-fragment-index="0">
+						<p class="size-70">
+							\(\ds \int_I f(x)dx = \lim \sum_{i=1}^{n} f(x_i^*)(x_i-x_{i-1}) \)
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Limits: Tangent line to curve</h4>
+					<div style="margin-top:40px">
+						<iframe scrolling="no" title="Limits: Tangent to curve"
+							src="https://www.geogebra.org/material/iframe/id/njjgy8uk/width/742/height/435/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+							width="742px" height="435px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Estimating a limit numerically</h4>
+					<div style="margin-top: -15px;width: 100%;">
+						<table>
+							<tr>
+								<td style="font-size: 110%; text-align: center; width: 50%;">
+
+									<p class="fragment" data-fragment-index="0">
+										Calculate
+										\[\ds\lim_{x\rightarrow 1}\frac{x^2-1}{x-1}\]
+									</p>
+									<br />
+									<br />
+									<br />
+								</td>
+								<td class="fragment" data-fragment-index="1">
+									<table style="font-size: 63%;border-collapse: collapse;">
+										<tr>
+											<th style="text-align: center;border: 1px solid black;">$x$</th>
+											<th style="text-align: center;border: 1px solid black;">$\left(x^2 -
+												1\right) /\left(x - 1\right)$</th>
+										</tr>
+										<!-- Left side (approaching 1 from below) -->
+
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="2">1</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.5</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="3">1.5</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.9</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="4">1.9</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.95</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="5">1.95</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.99</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="5">1.99</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.999</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="5">1.999</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1</td>
+											<td style="text-align: center;border: 1px solid black;"><b>???</b></td>
+										</tr>
+
+										<!-- Right side (approaching 1 from above) -->
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.001</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="9">2.001</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.01</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="9">2.01</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.05</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="8">2.05</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.1</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="7">2.1</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.5</td>
+											<td style="text-align: center;border: 1px solid black;" class="fragment"
+												data-fragment-index="6">2.5</td>
+										</tr>
+
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Estimating a limit numerically</h4>
+					<div style="margin-top: -15px;width: 100%;">
+						<table>
+							<tr>
+								<td style="font-size: 90%; text-align: center; width: 70%;">
+
+									<p>
+										<img style="width: 100%;" src="images/week-09/limits-rational-func.svg">
+									</p>
+								</td>
+								<td style="width: 30%;">
+									<table style="font-size: 63%;border-collapse: collapse;">
+										<tr>
+											<th style="text-align: center;border: 1px solid black;">$x$</th>
+											<th style="text-align: center;border: 1px solid black;">$f(x)$</th>
+										</tr>
+										<!-- Left side (approaching 1 from below) -->
+
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0</td>
+											<td style="text-align: center;border: 1px solid black;">1</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.5</td>
+											<td style="text-align: center;border: 1px solid black;">1.5</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.9</td>
+											<td style="text-align: center;border: 1px solid black;">1.9</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.95</td>
+											<td style="text-align: center;border: 1px solid black;">1.95</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.99</td>
+											<td style="text-align: center;border: 1px solid black;">1.99</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">0.999</td>
+											<td style="text-align: center;border: 1px solid black;">1.999</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1</td>
+											<td style="text-align: center;border: 1px solid black;"><b>???</b></td>
+										</tr>
+
+										<!-- Right side (approaching 1 from above) -->
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.001</td>
+											<td style="text-align: center;border: 1px solid black;">2.001</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.01</td>
+											<td style="text-align: center;border: 1px solid black;">2.01</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.05</td>
+											<td style="text-align: center;border: 1px solid black;">2.05</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.1</td>
+											<td style="text-align: center;border: 1px solid black;">2.1</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;border: 1px solid black;">1.5</td>
+											<td style="text-align: center;border: 1px solid black;">2.5</td>
+										</tr>
+
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Finding the limit analytically 🤓</h4>
+					<div style="margin-top: -15px;width: 100%;">
+						<table>
+							<tr>
+								<td style="font-size: 85%; text-align: center; width: 30%;">
+
+									<p>Our <b>goal</b> is to prove that:</p>
+									<p>
+										\[\ds\lim_{x\rightarrow 1}\frac{x^2-1}{x-1}=2\]
+									</p>
+
+									<picture>
+										<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f601/512.webp"
+											type="image/webp">
+										<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f601/512.gif" alt="😁"
+											width="64" height="64">
+									</picture>
+
+								</td>
+								<td style="width: 70%;">
+									<img style="width: 100%;" src="images/week-09/limits-rational-func.svg">
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Examples</h4>
+					<div class="left-txt">
+						<p>
+							<b>1. </b> $\,\ds \lim_{x\ra 1}(4x+3)$
+						</p>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<div class="left-txt">
+						<p>
+							<b>2. </b> $\,\ds \lim_{x\ra 1}5x^2$
+						</p>
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</section>
+
+				<section>
+					<h4>Example 3</h4>
+					<div class="left-txt size-85">
+						<p>
+							$\ds \lim_{x\ra -2}\frac{x^2+7x+10}{x+2}$
+						</p>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				<section>
+					<h4>Example 4</h4>
+					<div class="left-txt size-85">
+						<p>
+							$\ds \lim_{x\ra 10}\frac{x^2-100}{x-10}$
+						</p>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section>
+
+				<section>
+
+					<h4>
+						Continuity of functions (Intuitive notion)
+					</h4>
+
+					<div class="r-stack" style="margin-top: 0px;">
+						<img class="fragment fade-out" data-fragment-index="0" src="images/week-09/continuity-plot.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							src="images/week-09/continuity-plot-a.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1"
+							src="images/week-09/continuity-plot-b.svg">
+						<img class="fragment fade-in" data-fragment-index="2"
+							src="images/week-09/continuity-plot-c.svg">
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+
+					<h4>
+						Continuity of functions (Intuitive notion)
+					</h4>
+
+					<div class="r-stack" style="margin-top: 0px;">
+						<img class="fragment fade-out" data-fragment-index="0"
+							src="images/week-09/continuity-plot-example-one-side-limit.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							src="images/week-09/continuity-plot-example-one-side-limit-right.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1"
+							src="images/week-09/continuity-plot-example-one-side-limit-left.svg">
+						<img class="fragment fade" data-fragment-index="2"
+							src="images/week-09/continuity-plot-example-one-side-limit-both.svg">
+					</div>
+					<br />
+				</section>
+
+				<section>
+
+					<h4>
+						Definition of Continuity
+					</h4>
+
+					<div class="left-txt size-90">
+						<p>
+							For the function $f(x)$ to be continuous at
+							$x=a,$
+							<span class="fragment" data-fragment-index="0">
+								it must satisfy the following three criteria:
+							</span>
+						</p>
+						<ol style="line-height: 90px;">
+							<li class="fragment" data-fragment-index="1">
+								$f(a)$ must exist.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$\ds \lim_{x\ra a} f(x)$ must exist,
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								$\ds \lim_{x\ra a} f(x)= f(a).$
+							</li>
+						</ol>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+			</section>
+
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

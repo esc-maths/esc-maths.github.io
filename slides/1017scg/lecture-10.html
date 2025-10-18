@@ -1,0 +1,1677 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1017SCG - Week 10</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.float-text {
+			position: absolute;
+			top: 18%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			margin: 0;
+			font-size: 0.8em;
+			color: black;
+			/* change if background requires */
+			z-index: 2;
+			background-color: rgba(221, 221, 221, 0.9);
+			border-radius: 20px;
+		}
+
+		/* Custom slow fade for fragments */
+		.reveal .slides section .fragment.slow-fade {
+			opacity: 0;
+			transition: opacity 3s ease-in-out;
+			/* 2 seconds fade */
+		}
+
+		.reveal .slides section .fragment.slow-fade.visible {
+			opacity: 1;
+		}
+
+		.reveal .slides section .fragment.auto-fade {
+			opacity: 0;
+			transition: opacity 2s ease-in-out 1s;
+			/* fade over 2s, start 2s later */
+		}
+
+		.reveal .slides section .fragment.auto-fade.visible {
+			opacity: 1;
+		}
+
+		.fragment.strike-txt {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.strike-txt.visible {
+			font-weight: normal;
+			text-decoration: line-through;
+			text-decoration-color: red;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-bottom: 10px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-85">
+					<h2>Foundation Mathematics</h2>
+					<p style="font-weight: bold; font-size: 130%;">1017SCG</p>
+				</div>
+				<p style="font-size: 90%;">Week 10</p>
+
+				<div style="margin-top: -20px;">
+					<img style="width: 400px;" src="images/fractal/fractal-12.svg">
+				</div>
+				<br />
+			</section>
+
+			<section>
+
+				<h4>Topics</h4>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Definition of the Derivative (first principles)
+						</li>
+						<li>
+							Tables of Derivatives
+						</li>
+						<li>
+							Applications of Derivatives (Turning points, Greatest
+							and Least values, Tangent lines)
+						</li>
+					</ul>
+
+				</div>
+
+				<br />
+				<br />
+				<br />
+				<br />
+
+
+			</section>
+
+			<section>
+				<section>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+
+					<div>
+						<img style="width: 85%;" src="images/week-10/line.svg">
+					</div>
+				</section>
+				<section>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+					<div>
+						<img style="width: 85%;" src="images/week-10/parabola.svg">
+					</div>
+				</section>
+				<section>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+					<div style="position: relative; display: inline-block; text-align: center; width: 100%;">
+						<img style="width: 85%;" src="images/week-10/general-function.svg">
+
+						<!-- floating centered text -->
+						<p class="float-text">
+							What is the gradient of any possible function? 🤔
+						</p>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+					<div class="r-stack">
+						<img style="width: 70%;" src="images/week-10/ave-gradient-00.svg" class="fragment fade-out"
+							data-fragment-index="0">
+						<img style="width: 70%;" src="images/week-10/ave-gradient-01.svg"
+							class="fragment fade-in-then-out" data-fragment-index="0">
+						<img style="width: 70%;" src="images/week-10/ave-gradient-02.svg"
+							class="fragment fade-in-then-out" data-fragment-index="1">
+						<img style="width: 70%;" src="images/week-10/ave-gradient-03.svg"
+							class="fragment fade-in-then-out" data-fragment-index="2">
+						<img style="width: 70%;" src="images/week-10/ave-gradient-04.svg"
+							class="fragment fade-in-then-out" data-fragment-index="3">
+						<img style="width: 70%;" src="images/week-10/ave-gradient-05.svg" class="fragment fade-in"
+							data-fragment-index="4">
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 55%;">
+								<div>
+									<img style="width: 100%;" src="images/week-10/ave-gradient-05.svg">
+								</div>
+							</td>
+							<td style="width: 45%; text-align: center; font-size: 85%;">
+								<p>
+									<b>Average Gradient</b>
+
+								</p>
+								<p>
+									<span>
+										$\quad= \dfrac{f(x+h)-f(x)}{h}$
+									</span>
+								</p>
+								<br />
+								<br />
+
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 55%;">
+								<div>
+									<img style="width: 100%;" src="images/week-10/limit-gradient.gif">
+								</div>
+							</td>
+							<td style="width: 45%; text-align: center; font-size: 75%;">
+								<p>
+									<b>Average Gradient</b>
+
+								</p>
+								<p>
+									<span>
+										$\quad= \dfrac{f(x+h)-f(x)}{h}$
+									</span>
+								</p>
+								<div style="margin-top: 20px;" class="fragment" data-fragment-index="0">
+									<p>
+										<b>Gradient of the curve</b>
+
+									</p>
+									<p>
+										<span>
+											$=\ds\lim_{h\ra 0} \dfrac{f(x+h)-f(x)}{h}$
+										</span>
+									</p>
+								</div>
+								<br />
+								<br />
+
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h4>
+						Definition of the Derivative (first principles)
+					</h4>
+
+					<div class="left-txt size-90">
+						<p>
+							<b>Gradient of a curve </b>
+							<span class="fragment" data-fragment-index="1"> $\,\ra\,$ Slope of the tangent line</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							We call it the <b>instantaneous rate of change</b>.
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							The <b>Derivative</b> of the function $y=f(x)$ is given by:
+						</p>
+
+					</div>
+					<div>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\dfrac{dy}{dx}=$
+							</span>
+							<span>
+								$\ds \lim_{h\ra 0} \frac{f(x+h)-f(x)}{h}$
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Example 1</h4>
+					<div class="size-80 left-txt">
+						<p>
+							Compute the derivative of $y = 3x + 7$ using first principles.
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="1">
+							Write $\,f(x)= 3x+ 7 .$
+							<span class="fragment" data-fragment-index="2">Then</span>
+						</p>
+					</div>
+					<div class="size-80">
+						<p>
+							<span class="fragment" data-fragment-index="2">$f(x+h)$</span>
+							<span class="fragment" data-fragment-index="3">$=3(x+h) + 7$</span>
+							<span class="fragment" data-fragment-index="4">$=3x + 3h + 7$</span>
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="5">
+							Thus
+						</p>
+					</div>
+					<div class="size-75">
+						<p>
+							<span class="fragment" data-fragment-index="5">$\dfrac{f(x+h)-f(x)}{h}$</span>
+							<span class="fragment" data-fragment-index="6">$=\dfrac{(3x+3h+7) -(3x+7)}{h}$</span>
+							<span class="fragment" data-fragment-index="7">$=\dfrac{3h}{h}$</span>
+							<span class="fragment" data-fragment-index="8">$=3$</span>
+						</p>
+					</div>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="9">Hence
+							<span class="fragment" data-fragment-index="9">$\;\ds\frac{dy}{dx}= \lim_{h\ra
+								0}\dfrac{f(x+h)-f(x)}{h}$</span>
+							<span class="fragment" data-fragment-index="10">$=\ds \lim_{h\ra 0} 3$</span>
+							<span class="fragment" data-fragment-index="11">$=3$</span>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 2</h4>
+					<div class="size-80 left-txt">
+						<p>
+							Compute the derivative of $y = x^2$ using first principles.
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="1">
+							Write $\,f(x)= x^2.$
+							<span class="fragment" data-fragment-index="2">Then</span>
+						</p>
+					</div>
+					<div class="size-80">
+						<p>
+							<span class="fragment" data-fragment-index="2">$f(x+h)$</span>
+							<span class="fragment" data-fragment-index="3">$=(x+h)^2$</span>
+							<span class="fragment" data-fragment-index="4">$=x^2 + 2xh + h^2$</span>
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="5">
+							Thus
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="5">$\;\; \dfrac{f(x+h)-f(x)}{h}$</span>
+							<span class="fragment" data-fragment-index="6">$=\dfrac{\left(x^2 + 2xh + h^2\right)
+								-\left(x^2\right)}{h}$</span>
+
+						</p>
+						<p>
+
+							<span class="fragment" data-fragment-index="7">$\qquad \qquad \qquad \;\;\;\, =\dfrac{ 2xh +
+								h^2}{h}$</span>
+							<span class="fragment" data-fragment-index="8">$=\dfrac{ \left(2x + h\right)h}{h}$</span>
+							<span class="fragment" data-fragment-index="9">$=2x + h$</span>
+
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2</h4>
+					<div class="size-80 left-txt">
+						<p>
+							Compute the derivative of $y = x^2$ using first principles.
+						</p>
+					</div>
+					<div class="size-80 left-txt">
+						<p>
+							Write $\,f(x)= x^2.$
+							<span>Then</span>
+						</p>
+					</div>
+
+
+					<div class="size-90">
+						<p>
+							👉
+							<span>$\;\;\dfrac{f(x+h)-f(x)}{h}$</span>
+							<span>$=2x + h$</span>
+
+						</p>
+					</div>
+
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="9">
+							Hence
+						</p>
+					</div>
+
+					<div class="size-80">
+						<p>
+							<span class="fragment" data-fragment-index="9">$\;\ds \frac{dy}{dx} = \lim_{h\ra
+								0}\dfrac{f(x+h)-f(x)}{h}$</span>
+							<span class="fragment" data-fragment-index="10">$=\ds \lim_{h\ra 0} (2x + h)$</span>
+							<span class="fragment" data-fragment-index="11">$=2x$</span>
+						</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="11">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.gif" alt="😎" width="80"
+								height="80">
+						</picture>
+					</div>
+					<br />
+				</section>
+
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>Big question</h3>
+					<p>
+						Can we always compute the <b>derivative</b>
+						of any function $f(x)$ by computing the limit
+						\[
+						\ds \lim_{h\ra 0}\frac{f(x+h)-f(x)}{h}?
+						\]
+					</p>
+
+					<div class="r-stack">
+						<picture class="fragment fade-out" data-fragment-index="0">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="150"
+								height="150">
+						</picture>
+						<picture class="fragment fade-in" data-fragment-index="0">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃" width="150"
+								height="150">
+						</picture>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Consider $\;y=x^3$</h3>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="text-align: center;">
+								<div style="font-size: 80%;">
+
+									<p class="fragment" data-fragment-index="1">
+										\(
+										\begin{align*}
+										\frac{dy}{dx}
+										&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \qquad\qquad\qquad
+										\end{align*}
+										\)
+									</p>
+									<p class="fragment slow-fade" data-fragment-index="2">
+										\(
+										\begin{align*}
+										&= \lim_{h \to 0} \frac{(x+h)^3 - x^3}{h} \\
+										&= \lim_{h \to 0} \frac{x^3 + 3x^2h + 3xh^2 + h^3 - x^3}{h} \\
+										&= \lim_{h \to 0} \frac{3x^2h + 3xh^2 + h^3}{h} \\
+										&= \lim_{h \to 0} \left( 3x^2 + 3xh + h^2 \right) \\
+										&= 3x^2
+										\end{align*}
+										\)
+									</p>
+								</div>
+							</td>
+							<td>
+
+								<div class="fragment" data-fragment-index="2">
+									<picture>
+										<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+											type="image/webp">
+										<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬"
+											width="100" height="100">
+									</picture>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Now consider $\;y = x^4 - x^3 + 2x^2 - 1$</h5>
+
+					<table style="width: 100%; margin-top: -30px;">
+						<tr>
+							<td style="text-align: center;">
+								<div style="font-size: 50%;">
+									<p class="fragment" data-fragment-index="1">
+										\(
+										\begin{align*}
+										\frac{dy}{dx}
+										&= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \qquad \qquad \qquad \qquad \qquad
+										\qquad \qquad \qquad \qquad
+										\end{align*}
+										\)
+									</p>
+									<p class="fragment slow-fade" data-fragment-index="2">
+										\(
+										\begin{align*}
+										&= \lim_{h \to 0} \frac{(x+h)^4 - (x+h)^3 + 2(x+h)^2 - 1 \;-\; (x^4 - x^3 + 2x^2
+										- 1)}{h} \\
+										&= \lim_{h \to 0} \frac{(x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4) - (x^3 + 3x^2h +
+										3xh^2 +
+										h^3)}{h} \\
+										&\quad \quad \quad + \frac{(2x^2 + 4xh + 2h^2) - 1 - (x^4 - x^3 + 2x^2 - 1)}{h}
+										\\
+										&= \lim_{h \to 0} \frac{x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4 - x^3 - 3x^2h -
+										3xh^2 - h^3}{h}
+										\\
+										&\quad\quad \quad + \frac{2x^2 + 4xh + 2h^2 - 1 - x^4 + x^3 - 2x^2 + 1}{h} \\
+										&= \lim_{h \to 0} \frac{4x^3h + 6x^2h^2 + 4xh^3 + h^4 - 3x^2h - 3xh^2 - h^3 +
+										4xh + 2h^2}{h}
+										\\
+										&= \lim_{h \to 0} \frac{4x^3h - 3x^2h + (6x^2h^2 - 3xh^2 + 2h^2) + (4xh^3 - h^3)
+										+ h^4}{h}
+										\\
+										&= \lim_{h \to 0} \left( 4x^3 - 3x^2 + (6x^2 - 3x + 2)h + (4x - 1)h^2 + h^3
+										\right) \\
+										&= 4x^3 - 3x^2 + 4x
+										\end{align*}
+										\)
+									</p>
+								</div>
+							</td>
+							<td>
+								<div class="fragment" data-fragment-index="2">
+									<picture>
+										<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f631/512.webp"
+											type="image/webp">
+										<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f631/512.gif" alt="😱"
+											width="100" height="100">
+									</picture>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+
+
+
+					<br />
+				</section>
+
+				<section>
+					<h4>Table of Derivatives</h4>
+					<table style="width: 70%; font-size: 85%; border-collapse: collapse; border: 1px solid black;">
+						<tr style="width: 50%; text-align: center;">
+							<td style="text-align: center;font-weight: bold; border: 1px solid black;">
+								Function $(y)$
+							</td>
+							<td style="text-align: center;font-weight: bold; border: 1px solid black;">
+								Derivative $\left(\frac{dx}{dy}\right)$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="1">
+								$x^n$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="2">
+								$nx^{n-1}$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="3">
+								$ax^n$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="4">
+								$anx^{n-1}$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="5">
+								$c=$ constant
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="6">
+								$0$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="7">
+								$\sin(x)$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="8">
+								$\cos(x)$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="9">
+								$\cos(x)$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="10">
+								$-\sin(x)$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="11">
+								$e^x$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="12">
+								$e^x$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="13">
+								$\ln (x)$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="14">
+								$\dfrac{1}{x}$
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+				<section data-background-image="images/week-10/table-derivatives.svg">
+					<h4>
+						Examples: $ax^n$
+					</h4>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							• $y= 5x^4$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="3">$= (4) 5x^{4-1}$</span>
+							<span class="fragment" data-fragment-index="4">$= 20x^{3}$</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="5">
+							• $y= 124$
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							$\quad \ds \frac{dy}{dx} =0$
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="7">
+							• $y= x^4-x^3+2x^2-1$
+						</p>
+						<p class="fragment" data-fragment-index="8">
+							$\quad \ds \frac{dy}{dx}$
+							<span class="fragment" data-fragment-index="9">
+								$= 4x^{4-1}$
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								$ -\,3x^{3-1}$
+							</span>
+							<span class="fragment" data-fragment-index="11">
+								$+\,(2)2x^{2-1}$
+							</span>
+							<span class="fragment" data-fragment-index="12">
+								$-\,0$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="13">
+							$ \qquad \;\;=4x^3-3x^2+4x$
+						</p>
+					</div>
+					<br />
+				</section>
+				<section data-background-image="images/week-10/table-derivatives.svg">
+					<h4>
+						Examples: $a\sin(x),\,b \cos(x)$
+					</h4>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							• $y= 10 \cos(x)$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="3">$= 10\big(-\sin(x)\big)$</span>
+							<span class="fragment" data-fragment-index="4">$= -10\sin(x)$</span>
+
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="5">
+							• $y= -3 \sin(x)$
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							$\quad \ds \frac{dy}{dx} = -3 \cos(x)$
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="8">
+							• $y= 2\sin(x) + 3 \cos(x)$
+						</p>
+						<p class="fragment" data-fragment-index="9">
+							$\quad \ds \frac{dy}{dx} =2\cos(x) - 3 \sin(x)$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-background-image="images/week-10/table-derivatives.svg">
+					<h4>
+						Examples with $ae^x$
+					</h4>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							• $y= 2e^x$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="3">$= 2e^x$</span>
+
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="5">
+							• $y= -5 e^x$
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							$\quad \ds \frac{dy}{dx} = -5 e^x$
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-background-image="images/week-10/table-derivatives.svg">
+					<h4>
+						Examples with $a\ln(x)$
+					</h4>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							• $y= -3\ln(x)$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="3">$= -3\left(\dfrac{1}{x}\right)$</span>
+							<span class="fragment" data-fragment-index="4">$= -\dfrac{3}{x}$</span>
+
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="5">
+							• $y= 8\ln(x)$
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="7">$= 8\left(\dfrac{1}{x}\right)$</span>
+							<span class="fragment" data-fragment-index="8">$= \dfrac{8}{x}$</span>
+
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-background-image="images/week-10/table-derivatives.svg">
+					<h4>
+						More examples
+					</h4>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							• $y= 2x^5 + 3e^x + 5\sin(x)$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="3">$= (5)2x^{5-1}$</span>
+							<span class="fragment" data-fragment-index="4">$+ \,3e^x$</span>
+							<span class="fragment" data-fragment-index="5">$+\, 5\cos(x)$</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="6">$\quad \quad \;\;= 10 x^4 + 3e^x + 5
+								\cos(x)$</span>
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="7">
+							• $y= \dfrac{1}{x^5}+ 7\ln(x)$
+							<span class="fragment" data-fragment-index="8">
+								$=x^{-5}+ 7 \ln(x)$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="9">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="10">$= (-5)x^{-5-1}$</span>
+							<span class="fragment" data-fragment-index="11">$+ \,7\left(\dfrac{1}{x}\right)$</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="12">$\quad \quad \;\;= -5 x^{-6} +
+								\dfrac{7}{x}$</span>
+							<span class="fragment" data-fragment-index="13">$= -\dfrac{5}{x^6} + \dfrac{7}{x}$</span>
+						</p>
+					</div>
+
+
+					<br />
+				</section>
+				<section data-background-image="images/week-10/table-derivatives.svg">
+					<h4>
+						More examples
+					</h4>
+
+
+					<div class="left-txt size-90">
+						<p>
+							• $y= \sqrt{x}$
+							<span class="fragment" data-fragment-index="2">
+								$=x^{1/2}$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="4">$=
+								\ds\left(\frac{1}{2}\right)x^{1/2-1}$</span>
+							<span class="fragment" data-fragment-index="5">$= \ds\frac{1}{2}x^{-1/2}$</span>
+
+						</p>
+
+					</div>
+					<br>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="8">
+							• $y= \ln\left(x^3\right) $
+							<span class="fragment" data-fragment-index="9">
+								$=3 \ln\left(x\right)$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="10">
+							<span>$\quad \ds \frac{dy}{dx} $</span>
+							<span class="fragment" data-fragment-index="11">$= \ds 3 \left(\frac{1}{x}\right)$</span>
+							<span class="fragment" data-fragment-index="12">$= \ds\frac{3}{x}$</span>
+
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Applications: Turning points</h4>
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 93%; margin-top: -10px;"
+							src="images/week-10/parabola-turning-point-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							style="width: 93%; margin-top: -10px;" src="images/week-10/parabola-turning-point-02.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1"
+							style="width: 93%; margin-top: -10px;" src="images/week-10/parabola-turning-point-03.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="2"
+							style="width: 93%; margin-top: -10px;" src="images/week-10/parabola-turning-point-04.svg">
+						<img class="fragment fade-in" data-fragment-index="3" style="width: 93%; margin-top: -10px;"
+							src="images/week-10/parabola-turning-point-05.svg">
+					</div>
+
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Turning points</h4>
+					<div class="left-txt size-85">
+						<p>
+							<b>Example 1:</b>
+							Find the turning point of $y = x^2-6x+5.$
+						</p>
+					</div>
+					<div class=" size-85">
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$\dfrac{dy}{dx}$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$= 2x^{2-1}$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$ - \,6x^{1-1}$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$+\, 0$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="5"> $=2x-6\quad \;$</p>
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="6">
+							To find the turning point, let $\dfrac{dy}{dx}=0.$
+						</p>
+					</div>
+					<div class=" size-85">
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								$2x-6= 0 $
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$\;\Ra\; 2x - 6 + 6 = 0+ 6$
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="9">
+								$\;\Ra\; \dfrac{2x}{2} = \dfrac{6}{2}$
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								$\; \Ra \; x=3$
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Turning points</h4>
+					<div class="left-txt size-85">
+						<p>
+							<b>Example 1:</b>
+							Find the turning point of $y = x^2-6x+5.$
+						</p>
+					</div>
+
+					<div class="left-txt size-85">
+						<p>
+							When $\dfrac{dy}{dx}=0,$ we found that $x=3.$
+
+						</p>
+					</div>
+					<div class=" size-85">
+						<p>
+							<span class="fragment" data-fragment-index="6">Now, for $\,x=3\,$</span>
+							<span class="fragment" data-fragment-index="7">
+								we have $\,y = (3)^2- 6(3)+5$
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="9">
+								$y= 9-18+5$
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								$=-4\qquad $
+							</span>
+						</p>
+
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="11">
+							Therefore, the turning point is at $\,x=3,\,$ $y = -4$
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Turning points</h4>
+					<div class="left-txt size-85">
+						<p>
+							<b>Example 1:</b>
+							Find the turning point of $y = x^2-6x+5.$
+						</p>
+					</div>
+
+
+					<div class="size-75" style="margin-top: -10px;">
+						<p>
+							<b>Turning Point: </b>$\,x=3,\,$ $y = -4$
+						</p>
+					</div>
+
+					<div>
+						<img style="width: 78%;margin-top: -10px;" src="images/week-10/turning-point-example-01.svg">
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Applications: Turning points</h4>
+					<div class="left-txt size-80">
+						<p>
+							<b>Example 2:</b>
+							Find the turning point(s) of $y = 2x^3+3x^2-12x.$
+						</p>
+					</div>
+
+					<div class="r-stack">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							style="width: 85%; margin-top: -10px;" src="images/week-10/turning-point-example-02a.svg">
+						<img class="fragment fade-in" data-fragment-index="1" style="width: 85%; margin-top: -10px;"
+							src="images/week-10/turning-point-example-02b.svg">
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Turning points</h4>
+					<div class="left-txt size-80">
+						<p>
+							<b>Example 2:</b>
+							Find the turning point(s) of $y = 2x^3+3x^2-12x.$
+						</p>
+					</div>
+
+					<div class=" size-85">
+						<p>
+							<span>
+								$\dfrac{dy}{dx}$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$=6x^2+6x-12$
+							</span>
+						</p>
+
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								Let $\dfrac{dy}{dx} = 0.$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								So we have $6x^2+6x-12 = 0$
+							</span>
+						</p>
+
+					</div>
+					<div class=" size-85">
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$6(x^2+x-2) = 0$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="6">
+								$6(x+2)(x-1) = 0$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								So we obtain $x=-2,$ and $x=1.$
+							</span>
+						</p>
+
+					</div>
+
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Turning points</h4>
+					<div class="left-txt size-80">
+						<p>
+							<b>Example 2:</b>
+							Find the turning point(s) of $y = 2x^3+3x^2-12x.$
+						</p>
+					</div>
+
+
+					<div class=" size-85">
+
+						<p>
+							<span>
+								So we obtain $x=-2,$ and $x=1.$
+							</span>
+						</p>
+
+					</div>
+					<div class="left-txt size-85">
+
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								When $x=-2,$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\,y = 2(-2)^3+3(-2)^2-12(-2)$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$ = 20$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								When $x=1,$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\,y = 2(1)^3+3(1)^2-12(1)$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$ =-7$
+							</span>
+						</p>
+
+					</div>
+					<div class="left-txt size-85">
+
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								Therefore, the two turning points are:
+							</span>
+						</p>
+
+
+					</div>
+					<div class="size-85">
+
+						<p>
+							<span class="fragment" data-fragment-index="8">
+								$P_1:$ $\;x=-2,\,$ $y = 20$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="9">
+								$P_2:$ $\;x=1,\,$ $y = -7\;\;$
+							</span>
+						</p>
+
+					</div>
+
+
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Applications: Greatest & Least value</h4>
+
+					<div style="font-size: 70%;text-align: left;">
+						<p>Consider a continuous function $f(x)$ defined on $a\leq x \leq b.$</p>
+					</div>
+
+					<div class="r-stack" style="margin-top: -10px;">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-00a.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-00.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-02.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="3" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-03.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="4" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-04.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="5" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-05.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="6" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-06.svg">
+						<img class="fragment fade-in" data-fragment-index="7" style="width: 90%;"
+							src="images/week-10/glv-max-min-plot-07.svg">
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Applications: Greatest & Least value</h4>
+
+					<div style="font-size: 70%;text-align: left;">
+						<p>Consider a continuous function $f(x)$ defined on $a\leq x \leq b.$</p>
+					</div>
+
+					<div class="r-stack" style="margin-top: -10px;">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 90%;"
+							src="images/week-10/glv-max-single-plot-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 90%;"
+							src="images/week-10/glv-max-single-plot-02.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 90%;"
+							src="images/week-10/glv-max-single-plot-03.svg">
+						<img class="fragment fade-in" data-fragment-index="2" style="width: 90%;"
+							src="images/week-10/glv-max-single-plot-04.svg">
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Greatest & Least value</h4>
+
+					<div style="font-size: 80%;text-align: left;">
+						<p>Consider a continuous function $f(x)$ defined on $a\leq x \leq b.$</p>
+						<p>The greatest and least values of $f(x)$ will occur:</p>
+
+
+					</div>
+					<div style="font-size: 85%;text-align: left;">
+
+						<p class="fragment" data-fragment-index="1">
+							&nbsp;&nbsp;&nbsp; 1. at a turning point &nbsp;
+							<span class="fragment" data-fragment-index="4">✅</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							&nbsp;&nbsp;&nbsp; 2. at end points of the domain $(x=a,\; x=b)$ &nbsp;
+							<span class="fragment" data-fragment-index="4">✅</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							<span class="fragment fade-in custom strike-txt" data-fragment-index="5">&nbsp;&nbsp;&nbsp;
+								3. where the derivative is not defined (advanced) &nbsp;&nbsp;&nbsp;</span>
+						</p>
+
+
+
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example</h4>
+
+					<div class="left-txt size-90">
+						<p>
+							Find the greatest and least values of the function $y = x^2 - 6x +4$ where $0\leq x\leq 10.$
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							We start by finding turning point(s).
+
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							So, first compute $\dfrac{dy}{dx}$
+							<span class="fragment" data-fragment-index="2">$= 2x-6.$</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							To find turning point, let $\dfrac{dy}{dx}=0.$
+						</p>
+
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="4">
+							$2x-6=0$
+							<span class="fragment" data-fragment-index="5">$\;\Ra \; x = 3.$</span>
+						</p>
+
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Example</h4>
+
+					<div class="size-80">
+						<p>
+							Greatest & Least values: $y = x^2 - 6x +4\;$ on $\;0\leq x\leq 10.$
+						</p>
+
+
+					</div>
+					<div class="size-90">
+						<p>
+							<span>👉&nbsp; $x = 3$</span>
+						</p>
+						<p class="fragment" data-fragment-index="0">We must check also end values at $x=0$ and $x=10$
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							For $x=0,$
+							<span class="fragment" data-fragment-index="2">$\;y = (0)^2-6(0)+4$</span>
+							<span class="fragment" data-fragment-index="3">$\; = 4$</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							For $x=3,$
+							<span class="fragment" data-fragment-index="5">$\;y = (3)^2-6(3)+4$</span>
+							<span class="fragment" data-fragment-index="6">$\; = -5$</span>
+							<span class="fragment" data-fragment-index="12">$\;$ 👈 Least</span>
+						</p>
+						<p class="fragment" data-fragment-index="8">
+							For $x=10,$
+							<span class="fragment" data-fragment-index="9">$\;y = (10)^2-6(10)+4$</span>
+							<span class="fragment" data-fragment-index="10">$\; = 44$</span>
+							<span class="fragment" data-fragment-index="11">$\;$ 👈 Greatest</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Example</h4>
+
+					<div class="size-80">
+						<p>
+							Greatest & Least values: $y = x^2 - 6x +4\;$ on $\;0\leq x\leq 10.$
+						</p>
+
+
+					</div>
+
+					<div style="margin-top: -25px;">
+						<img style="width: 85%;" src="images/week-10/glv-max-min-example.svg">
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Applications: Tangent Line</h4>
+					<div style="margin-top:40px">
+						<iframe scrolling="no" title="Limits: Tangent to curve"
+							src="https://www.geogebra.org/material/iframe/id/njjgy8uk/width/742/height/435/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+							width="742px" height="435px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Applications: Tangent Line</h4>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width:60%">
+								<div>
+									<img style="width: 100%;" src="images/week-10/limit-gradient.gif">
+								</div>
+							</td>
+							<td style="text-align: center; width: 40%;" class="fragment" data-fragment-index="0">
+								<span style="font-size: 80%;">Slope of the <br /> tangent line at $P$<br /><br /></span>
+								<span style="font-size: 60%;">
+									$\dfrac{dy}{dx}= \ds\lim_{h\ra 0}\frac{f(x+h)-f(x)}{h}$
+								</span>
+								<br />
+								<br />
+								<br />
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Tangent Line</h4>
+
+					<div class="size-80">
+						<p>Find the equation of the tangent line to the function <br />$y= x^2 -5x\,$ at $\,x=3.$</p>
+					</div>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="0">
+							When $x=3,$
+							<span class="fragment" data-fragment-index="1">$\;y = (3)^2-5(3)$</span>
+							<span class="fragment" data-fragment-index="2">$=-6$</span>
+							<span class="fragment" data-fragment-index="3">$\;\Ra\; P =(3, -6)$</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							Now, $\dfrac{dy}{dx}$
+							<span class="fragment" data-fragment-index="5">$\; = 2x-5.\;$</span>
+							<span class="fragment" data-fragment-index="6">At $x=3,$</span>
+							<span class="fragment" data-fragment-index="7">we have</span>
+						</p>
+
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="9">$\dfrac{dy}{dx} = 2(3)-5$</span>
+							<span class="fragment" data-fragment-index="10">$= 1$</span>
+							<span class="fragment" data-fragment-index="11">$\;\;\Ra\;\; \text{Slope}=m =1$</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Tangent Line</h4>
+
+					<div class="size-80">
+						<p>Find the equation of the tangent line to the function <br />$y= x^2 -5x\,$ at $\,x=3.$</p>
+					</div>
+					<div class="size-85">
+						<p>
+
+							<span>👉&nbsp; $P =(3, -6)\;\;$ and </span>
+
+							<span>$\;\;\text{Slope}=m =1$</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							👉&nbsp; $y-y_1 = m(x-x_1)$
+						</p>
+					</div>
+					<div class="size-85">
+
+						<p class="fragment" data-fragment-index="2">
+							$\Ra\; y-(-6) = (1)(x-(3))$
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							$\Ra\; y+6 = x-3$
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							$\Ra\; y= x-9$
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Applications: Tangent Line</h4>
+
+					<div class="size-80">
+						<p>Find the equation of the tangent line to the function <br />$y= x^2 -5x\,$ at $\,x=3.$</p>
+					</div>
+					<div class="size-70" style="margin-top: -10px;">
+						<p>
+
+							<span>👉&nbsp; $P =(3, -6)\;\;$ and </span>
+
+							<span>$\;\; y= x-9$</span>
+						</p>
+					</div>
+					<div style="margin-top: -20px;">
+						<img style="width: 70%;" src="images/week-10/glv-max-min-example-tangent-line.svg">
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Applications: Tangent Line</h4>
+					<iframe scrolling="no" title="Explore tangent line"
+						data-src="https://www.geogebra.org/material/iframe/id/pv6cnfnz/width/730/height/470/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+						width="730px" height="470px" style="border:0px;"> </iframe>
+
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Real-world Applications of the Derivative</h4>
+
+					<div class="fragment" data-fragment-index="1">
+						<iframe style="border: none; width: 600px; height: 170px;"
+							data-src="sketches/p5-tex/derivative/"></iframe>
+					</div>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="text-align: center; width: 55%; font-size: 80%;">
+								<div>
+									<p class="fragment" data-fragment-index="1">
+										<b>Derivative</b><br />
+										<span class="fragment" data-fragment-index="2"><b>Instantaneous Rate of
+												Change</b></span><br />
+										<span class="fragment" data-fragment-index="3"><b>Slope of tangent line to a
+												curve</b></span>
+									</p>
+								</div>
+								<br />
+								<br />
+
+							</td>
+							<td style="text-align: center;width: 45%;" class="fragment" data-fragment-index="4">
+								<p style="font-size: 50%;">Calculus was developed in the late 1700s</p>
+								<table style="width: 100%; margin-top: -30px;">
+									<tr>
+										<td style="width: 50%; text-align: center; font-size: 50%;">
+											<img style="width: 90%;" src="images/week-11/newton.jpg">
+
+											<div style="margin-top: -40px;">
+												<p>
+													Isaac Newton<br />
+													&nbsp;
+												</p>
+											</div>
+										</td>
+										<td style="width: 50%; text-align: center; font-size: 50%;">
+											<img style="width: 90%;" src="images/week-11/leibniz.jpg">
+											<div style="margin-top: -40px;">
+												<p>
+													Gottfried W. Leibniz
+												</p>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+
+
+				</section>
+
+
+
+
+				<section data-auto-animate>
+					<h4>Real-world Applications of the Derivative</h4>
+					<div style="font-size: 75%; text-align: left;">
+						<p>
+							<b>Instantaneous rate of change:</b> We can easily
+							compute the <em>velocity</em> and <em>acceleration</em>
+							of objects,
+							<span class="fragment" data-fragment-index="1">
+								that is, the
+								<em>derivative of position</em> with respect to time
+								$\left(v(t)=\tfrac{dx}{dt}\right)$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								and the <em>derivative of the velocity</em> with respect to time
+								$\left(a(t)=\tfrac{dv}{dt}\right)$, respectively.
+							</span>
+
+						</p>
+					</div>
+
+					<div style="position: absolute; left: 70px; top: 50%;z-index:100">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀" width="100"
+								height="100">
+						</picture>
+					</div>
+
+					<iframe style="width: 100%; height: 350px; border: none;"
+						data-src="sketches/solar-system/"></iframe>
+					<div style="font-size: 45%;text-align: center;margin-top: -5px;">
+						👉 Check <a href="https://eyes.nasa.gov/apps/solar-system/" target="_blank">Nasa's
+							Solar System <i class="fa fa-external-link-alt"></i></a>
+					</div>
+					
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Real-world Applications of the Derivative</h4>
+					<div class="size-90 left-txt">
+						<p>
+							<b>Optimization:</b> Algorithms in Machine Learning use derivatives
+							(<a href="https://en.wikipedia.org/wiki/Gradient_descent" target="_blank">gradient
+								descent</a>), which show the direction and rate
+							of chance of a loss function.
+						</p>
+					</div>
+
+					<video style="width: 350px;" data-autoplay loop
+						data-src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Gradient_Descent_in_2D.webm"></video>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Real-world Applications of the Derivative</h4>
+					<div class="size-75 left-txt">
+						<p><b>Fluid dynamics:</b> Navier-Stokes equations (imcompressible)</p>
+					</div>
+					<div style="margin-top:-15px">
+						
+						<iframe style="border: none; width: 600px; height: 70px;"
+							data-src="sketches/p5-tex/navier-stokes/"></iframe>
+
+
+					</div>
+
+					<div style="text-align:center">
+
+						<iframe width="100%" height="400px" frameborder="0" name="simulation"
+							data-src="../../sketches/fluid-sim" allowfullscreen></iframe>
+
+					</div>
+
+					<div style="font-size:16px;text-align:center;margin-top:-30px">
+						<p>
+							<strong>Fluid simulation by</strong> <a href="https://apps.amandaghassaei.com/"
+								target="_blank">Amanda Ghassaei <i class="fa fa-external-link-alt"></i></a>
+							&nbsp;&nbsp;&nbsp;
+							<span>
+								<button 
+									onclick="var ifr=document.getElementsByName('simulation')[0]; ifr.src=ifr.src;">
+									Reset &nbsp;<i class="fas fa-sync"></i></button>
+							</span>
+						</p> 
+					</div>
+				</section>
+
+			</section>
+
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

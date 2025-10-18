@@ -1,0 +1,1582 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1017SCG - Week 2</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-bottom: 10px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-85">
+					<h2>Foundation Mathematics</h2>
+					<p style="font-weight: bold; font-size: 130%;">1017SCG</p>
+				</div>
+				<p style="font-size: 90%;">Week 2</p>
+
+				<div style="margin-top: -20px;">
+					<img style="width: 400px;" src="images/fractal/fractal-02.svg">
+				</div>
+				<br />
+			</section>
+
+			<section data-visibility="hidden">
+				<h3>
+					Topics from Week 1
+				</h3>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Order of Operations.
+						</li>
+						<li>
+							Index Laws.
+						</li>
+						<li>
+							Scientific Notation.
+						</li>
+					</ul>
+
+				</div>
+
+
+				<br />
+				<br />
+			</section>
+
+			<section>
+				<h3>
+					Topics for Week 2
+				</h3>
+
+
+				<div class="left-txt size-75">
+					<ul style="line-height: 55px;">
+						<li>
+							Logarithms
+
+							<ul>
+								<li>
+									Introduction to logarithms
+								</li>
+								<li>
+									Evaluating basic logarithms without a calculator
+								</li>
+								<li>
+									Logarithm laws (commonly known as log laws)
+								</li>
+								<li>
+									Change of base rule
+								</li>
+
+							</ul>
+						</li>
+						<li>
+							Triangles
+							<ul>
+								<li>
+									Pythagoras' theorem
+								</li>
+								<li>
+									$\sin$/$\cos$/$\tan$ ratios
+								</li>
+								<li>
+									Sine and Cosine rules
+								</li>
+							</ul>
+						</li>
+
+				</div>
+
+
+				<br />
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>Introduction to Logarithms</h3>
+
+					<div class="left-txt size-75">
+						<p class="fragment" data-fragment-index="0">
+							A logarithm is the inverse of an exponent.
+							<span class="fragment" data-fragment-index="1">
+								It tells us what power we need to raise a base to in order to get a certain number.
+							</span>
+
+
+						</p>
+					</div>
+
+					<div style="text-align: center;" class="fragment" data-fragment-index="2">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="250"
+								height="250">
+						</picture>
+					</div>
+
+					<br />
+					<br />
+					<br />
+
+
+				</section>
+				<section data-auto-animate>
+					<h3>Introduction to Logarithms</h3>
+
+					<div class="left-txt size-75">
+						<p>
+							A logarithm is the inverse of an exponent.
+							<span>
+								It tells us what power we need to raise a base to in order to get a certain number.
+							</span>
+
+
+						</p>
+					</div>
+
+					<div>
+						<iframe
+							style="width: 100%; height: 430px; border: 5px solid rgb(166, 166, 166); margin-top: -10px; border-radius: 20px;"
+							src="../revealjs-animations/log-animation/index.html"></iframe>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Introduction to Logarithms</h3>
+
+
+					<div style="font-size: 120%;">
+						<p>
+							If
+							\(
+							\;a^x = N,\;
+							\)
+							<span class="fragment" data-fragment-index="1">
+								then
+								\(
+								\;\log_a N = x\;
+								\)
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="2">
+							where $\;N\gt 0,\;$
+							<span class="fragment" data-fragment-index="3">
+								$a\gt 0,\;$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$a\neq 1.$
+							</span>
+						</p>
+
+
+					</div>
+
+					<div class="left-txt">
+						<ul style="line-height: 100px;">
+							<li class="fragment" data-fragment-index="5">\( \log_2 8 = 3\; \)
+								<span class="fragment" data-fragment-index="6">because \( \;2^3 = 8 \)</span>
+							</li>
+							<li class="fragment" data-fragment-index="7">\( \log_{10} 1000 = 3 \;\)
+								<span class="fragment" data-fragment-index="8">because \( \;10^3 = 1000 \)</span>
+							</li>
+						</ul>
+
+
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Evaluating Logarithms Without a Calculator</h3>
+
+					<div class="left-txt size-85">
+						<p>Simplify the following by thinking in terms of powers:</p>
+					</div>
+
+					<div class="left-txt">
+
+
+						<ul style="line-height: 80px;">
+							<li>\( \log_2 16 \)
+								<span class="fragment" data-fragment-index="1">
+									\(=4\;\)
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									because \(\; 2^4 = 16 \)
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="3">\( \log_3 81 \) </li>
+							<li class="fragment" data-fragment-index="4">\( \log_5 25 \) </li>
+							<li class="fragment" data-fragment-index="5">\( \log_{10} 1 \)</li>
+						</ul>
+
+						<!--
+						<ul style="line-height: 80px;">
+							<li class="fragment" data-fragment-index="0">\( \log_2 16 = 4 \) because \( 2^4 = 16 \)</li>
+							<li>\( \log_3 81 = 4 \) because \( 3^4 = 81 \)</li>
+							<li>\( \log_5 25 = 2 \) because \( 5^2 = 25 \)</li>
+							<li>\( \log_{10} 1 = 0 \) because \( 10^0 = 1 \)</li>
+						</ul>
+						-->
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section>
+					<h3>Logarithm Laws</h3>
+
+					<div class="left-txt size-90">
+
+						<p class="fragment" data-fragment-index="0">
+							<strong>Product Law:</strong>
+
+
+						</p>
+					</div>
+					<div style="font-size: 110%;">
+
+						<p class="fragment" data-fragment-index="0">
+
+
+							<span class="fragment" data-fragment-index="1">$\log_a\left(M\times N\right)$</span>
+							<span class="fragment" data-fragment-index="2">$ =\log_a M + \log_a N$</span>
+
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h3>Logarithm Laws</h3>
+
+					<div class="left-txt size-90">
+
+						<p>
+							<strong>Quotient Law:</strong>
+
+
+						</p>
+					</div>
+					<div style="font-size: 110%;">
+
+						<p>
+							<span class="fragment" data-fragment-index="4">$\log_a\left(\dfrac{M}{N}\right)$</span>
+							<span class="fragment" data-fragment-index="5">$=\log_a M - \log_a N$</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h3>Logarithm Laws</h3>
+
+					<div class="left-txt size-90">
+
+						<p>
+							<strong>Power Law:</strong>
+
+
+						</p>
+					</div>
+					<div style="font-size: 110%;">
+
+						<p>
+							<span class="fragment" data-fragment-index="7">$\log_a\left(N^p\right)$</span>
+							<span class="fragment" data-fragment-index="8">$= p \times \log_a (N)$</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h3>Logarithm Laws</h3>
+
+					<div class="left-txt size-90">
+
+						<p>
+							<strong>Trivial identities:</strong>
+
+
+						</p>
+					</div>
+					<div style="font-size: 110%;">
+
+						<p>
+							<span class="fragment" data-fragment-index="1">$ \log_a(a) = 1,\;$</span>
+							<span class="fragment" data-fragment-index="2"> because $\;a^1 = a$</span>
+						</p>
+						<br />
+						<p>
+							<span class="fragment" data-fragment-index="3">$\log_a(1) = 0,\;$</span>
+							<span class="fragment" data-fragment-index="4"> because $\;a^0 = 1$</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h3>Logarithm Laws</h3>
+
+					<div class="left-txt size-85">
+						<ul style="line-height: 90px;">
+							<li>
+								<strong>Product Law:</strong>
+
+								<span>$\;\log_a\left(M\times N\right)$</span>
+								<span>$=\log_a M + \log_a N$</span>
+
+							</li>
+							<li>
+								<strong>Quotient Law:</strong>
+								<span>$\;\log_a\left(\dfrac{M}{N}\right)$</span>
+								<span>$=\log_a M - \log_a N$</span>
+
+
+							</li>
+							<li>
+								<strong>Power Law:</strong>
+								<span>$\;\log_a\left(N^p\right)$</span>
+								<span>$= p \times \log_a (N)$</span>
+
+
+							</li>
+							<li>
+								<strong>Trivial identities:</strong>
+
+								$\;\log_a(a) = 1\;$
+								<span> and $\;\log_a(1) = 0 $</span>
+
+
+							</li>
+						</ul>
+
+						<p class="fragment" data-fragment-index="9">
+							These rules work for any base \( a > 0 ,\) \( a \ne 1 .\)
+						</p>
+
+					</div>
+					<br />
+				</section>
+
+
+				<section>
+					<h3>Using Log Laws - Examples</h3>
+
+					<div class="left-txt">
+						<ul style="line-height: 120px;">
+							<li>\( \log_2\left(8 \cdot 4\right) \)</li>
+							<li>\( \log_3\left(\dfrac{81}{3}\right) \)</li>
+							<li>\( \log_5\left(25^3\right) \)</li>
+						</ul>
+
+						<!--
+						<ul style="line-height: 120px;">
+							<li>\( \log_2\left(8 \cdot 4\right) = \log_2 8 + \log_2 4 = 3 + 2 = 5 \)</li>
+							<li>\( \log_3\left(\dfrac{81}{3}\right) = \log_3 81 - \log_3 3 = 4 - 1 = 3 \)</li>
+							<li>\( \log_5\left(25^3\right) = 3 \log_5 25 = 3 \times 2 = 6 \)</li>
+						</ul>
+						-->
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h3>Change of Base Rule</h3>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0">
+							If your calculator only has log base 10 or
+							natural log (ln),
+							<span class="fragment" data-fragment-index="1">
+								you can use the change of base
+								formula:
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							\[
+							\large \log_b (N) = \frac{\log_a (N)}{\log_a (b)}
+							\]
+
+							<span class="fragment" data-fragment-index="3">
+								where \( a \) can be 10 (common log) or \( e \) (natural log).
+							</span>
+						</p>
+
+
+					</div>
+
+
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate="">
+					<h3>Change of Base Rule</h3>
+
+					<div class="left-txt size-85">
+
+
+						<p>
+							\[
+							\large \log_b (N) = \frac{\log_a (N)}{\log_a (b)}
+							\]
+
+							<span>
+								where \( a \) can be 10 (common log) or \( e \) (natural log).
+							</span>
+						</p>
+
+
+					</div>
+
+					<div class="size-95">
+						<p>
+							<strong>Example:</strong>
+							<span class="fragment" data-fragment-index="5">$\log_2 10$</span>
+							<span class="fragment" data-fragment-index="6">$ =\dfrac{\log_{10} 10}{\log_{10} 2} $</span>
+							<span class="fragment" data-fragment-index="7">$ \approx \dfrac{1}{0.3010}$</span>
+							<span class="fragment" data-fragment-index="8">$\approx 3.32$</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section data-visibility="hidden">
+					<h3>Practice! 📝</h3>
+
+					<div class="left-txt size-95">
+						<ol style="line-height: 90px;">
+							<li>Evaluate: \( \log_4 64 \)</li>
+							<li>Simplify using laws: \( \log_2 8 + \log_2 4 \)</li>
+							<li>Simplify: \( \log_3 81 - \log_3 3 \)</li>
+							<li>Use change of base: \( \log_7 100 \) (use base 10)</li>
+						</ol>
+					</div>
+					<br />
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4 style="font-size: 105%;">Why do we need logarithms anyway?</h4>
+
+					<div>
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="250"
+								height="250">
+						</picture>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Why do we need logarithms anyway?</h4>
+
+
+
+
+					<div class="size-90">
+						<div class="left-txt">
+
+							<p>
+								Imagine we are living in 1823 and we need to compute
+								\[
+								x=\sqrt[3]{\frac{493.8\times \left(23.67\right)^2}{5.104}}.
+								\]
+							</p>
+
+
+
+
+
+						</div>
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								<span style="font-size:170%">😬</span>
+								&nbsp;
+								<span style="font-size:170%">❌🖥️</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">Why did you need to make such
+									calculation?</span>
+								<br />
+								<span class="fragment" data-fragment-index="2"
+									style="font-size:250%">🧭&nbsp;🗺️&nbsp;🌌&nbsp;🔭</span>
+							</p>
+						</div>
+						<div>
+
+						</div>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Why do we need logarithms anyway?</h4>
+
+
+
+
+					<div class="size-50">
+						<div class="left-txt">
+
+							<p>
+								Imagine we are living in 1823 and we need to compute
+								$
+								\ds x=\sqrt[3]{\frac{493.8\times \left(23.67\right)^2}{5.104}}.
+								$
+							</p>
+						</div>
+
+
+					</div>
+					<div style="margin-top:-20px">
+						<img style="width:70%" src="images/week-02/napier-log.jpg">
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Why do we need logarithms anyway?</h4>
+
+					<div class="size-50">
+						<div class="left-txt">
+
+							<p>
+								Imagine we are living in 1823 and we need to compute
+								$
+								\ds x=\sqrt[3]{\frac{493.8\times \left(23.67\right)^2}{5.104}}.
+								$
+							</p>
+						</div>
+
+
+					</div>
+					<div class="size-85">
+						<div class="left-txt">
+
+							<p>
+								We can write $\,\ds x=\left(\frac{493.8\times
+								\left(23.67\right)^2}{5.104}\right)^{1/3}.$
+							</p>
+							<p class="fragment" data-fragment-index="0">
+								Using the properties of the logarithms, we have
+
+							</p>
+
+						</div>
+						<div class="size-95">
+
+
+							<p class="fragment" data-fragment-index="0">
+								$
+								\ds \log x=\frac{1}{3}\bigg(\log (493.8)+2\log (23.67)-\log (5.104)\bigg).
+								$
+							</p>
+
+						</div>
+						<div class="left-txt">
+
+
+							<p class="fragment" data-fragment-index="1">
+								Then we find these values using the logarithmic tables <span
+									style="font-size:150%">📖</span>.
+							</p>
+
+						</div>
+
+
+
+					</div>
+
+					<div class="size-85">
+						<div class="">
+							<p class="fragment" data-fragment-index="2">
+								👉 $\;x\approx 37.84$
+							</p>
+						</div>
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Why do we need logarithms anyway?</h4>
+
+
+
+
+					<div class="size-50">
+						<div class="left-txt">
+
+							<p>
+								Imagine we are living in 1823 and we need to compute
+								$
+								\ds x = \sqrt{\frac{493.8\times (23.67)^2}{5.104}}
+								$
+							</p>
+						</div>
+
+
+					</div>
+
+
+					<div class="size-85">
+						<div class="">
+							<p>
+								👉 $\;x\approx 37.84$
+							</p>
+						</div>
+					</div>
+
+					<div style="margin-top:-20px">
+						<img style="width:80%"
+							src="https://3.bp.blogspot.com/-WdPH2PxChxg/VfAg1Ig1tJI/AAAAAAAAIto/SQN28f9-Ics/s1600/logcalculation.jpg">
+					</div>
+
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Why do we need logarithms anyway?</h4>
+
+
+
+
+
+					<div class="size-80">
+						<div class="left-txt">
+
+							<p>
+								Logarithms exists thanks to <a
+									href="https://mathshistory.st-andrews.ac.uk/Biographies/Napier/"
+									target="_blank">John Napier</a> and
+								<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Burgi/" target="_blank">Jost
+									Bürgi</a> who discovered
+								independently at the beginning of the XVII century.
+							</p>
+
+						</div>
+
+
+					</div>
+
+					<table>
+						<tr>
+							<td>
+								<img style="width: 270px;" src="images/week-02/napier.jpg">
+							</td>
+							<td>
+								<img style="width: 200px;" src="images/week-02/burgi.jpg">
+							</td>
+						</tr>
+					</table>
+
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Why do we need logarithms anyway?</h4>
+
+
+
+
+
+					<div class="size-80" style="margin-top: 60px;">
+						<div class="left-txt">
+
+							<p>
+
+								Since nothing is more tedious, fellow mathematicians,
+								in the practice of the mathematical arts, than
+								the great delays suffered in the tedium of
+								lengthy multiplications and divisions, the
+								finding of ratios, and in the extraction of
+								square and cube roots- and in which not only is there the
+								time delay to be considered, but also the annoyance
+								of the many slippery errors that can arise.
+
+							</p>
+
+						</div>
+
+					</div>
+
+					<div style="text-align: right;font-size: 70%;">
+						<p><strong>John Napier (1614)</strong></p>
+					</div>
+
+
+
+
+
+					<br /><br />
+				</section>
+			</section>
+
+			<section>
+
+				<section>
+					<h3>Pythagoras' Theorem</h3>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0">
+							The Pythagoras Theorem applies to <strong>right-angled triangles</strong>.
+							<span class="fragment" data-fragment-index="1">
+								It states that:
+								\[
+								a^2 + b^2 = c^2
+								\]
+							</span>
+
+						</p>
+
+						<p class="fragment" data-fragment-index="2">
+							where:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="2">\( a \) and \( b \) are the lengths of the two
+								shorter sides (legs)</li>
+							<li class="fragment" data-fragment-index="3">\( c \) is the length of the hypotenuse (the
+								side opposite the right angle)</li>
+						</ul>
+
+						<p class="fragment" data-fragment-index="4">This theorem allows us to calculate the length of
+							any side if the other two are known.</p>
+					</div>
+					<br />
+				</section>
+
+
+
+				<section>
+					<h3>Visualising the Theorem</h3>
+
+					<div class="left-txt size-75">
+						<p>
+							In a right-angled triangle,
+							<span class="fragment" data-fragment-index="0">the equation $a^2 + b^2 = c^2$ means
+								that:</span>
+						</p>
+						<ul class="fragment" data-fragment-index="1">
+							<li>The square on the hypotenuse has the same area as the sum of the squares on the other
+								two sides.</li>
+						</ul>
+
+
+					</div>
+
+					<div>
+
+					</div>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 50%;" class="fragment" data-fragment-index="1">
+								<iframe scrolling="no" title="Pythagoras theorem"
+									src="https://www.geogebra.org/material/iframe/id/fjcpy5b7/width/360/height/358/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+									width="360px" height="358px" style="border:0px;" allowfullscreen> </iframe>
+							</td>
+							<td style="width: 50%;" class="fragment" data-fragment-index="3">
+								<img width="100%" src="images/week-02/pythagoras-notation.svg">
+
+							</td>
+						</tr>
+					</table>
+
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Visualising the Theorem</h3>
+
+					<div class=" size-65">
+						<p>
+							A proof without words: $a^2 + b^2 = c^2$
+						</p>
+
+
+
+					</div>
+
+					<iframe scrolling="no" title="Pythagoras Theorem: Proof without words"
+						src="https://www.geogebra.org/material/iframe/id/a7vcmvya/width/563/height/508/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+						width="563px" height="508px" style="border:0px;" allowfullscreen> </iframe>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Cool facts! 🤓</h3>
+					<div class="size-65">
+						<p class="fragment" data-fragment-index="0">There are hundreds of proofs of the Pythagoras'
+							Theorem! 🤯</p>
+					</div>
+
+					<div class="">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 300px;"
+							src="images/week-02/loomis.png">
+					</div>
+
+					<div class="size-65">
+						<p class="fragment fade-in-then-out" data-fragment-index="1">Elisha S. Loomis (1940), includes
+							over 360 proofs
+							<a href="https://archive.org/details/in.ernet.dli.2015.84599" target="_blank"><i
+									class="fa fa-external-link-alt"></i></a>
+						</p>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section>
+					<h3>Cool facts! 🤓</h3>
+					<div class="size-65">
+						<p>There are hundreds of proofs of the Pythagoras'
+							Theorem! 🤯</p>
+					</div>
+
+					<div class="">
+						<img style="width: 315px;" src="images/week-02/euclid-pythagoras.png">
+					</div>
+
+					<div class="size-55">
+						<p>This diagram is from <em>The Elements</em> by Euclid more than 2300 years ago! <a
+								href="https://www.cut-the-knot.org/pythagoras/" target="_blank"><i
+									class="fa fa-external-link-alt"></i></a></p>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+
+				<section>
+					<h3>Cool facts! 🤓</h3>
+					<div class="size-65">
+						<p>Ancient civilizations already knew about it! </p>
+					</div>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 50%;">
+								<img class="fragment" data-fragment-index="1" style="width: 300px;"
+									src="images/week-02/Plimpton_322.jpg">
+								<p class="size-60  fragment" data-fragment-index="1">
+									Plimpton 322 is a Babylonian clay tablet, believed to have been written around 1800
+									BC.
+								</p>
+							</td>
+							<td style="width: 50%;">
+								<img class="fragment" data-fragment-index="3" style="width: 320px;"
+									src="images/week-02/chinese_pythagoras.jpg">
+								<p class="size-60 fragment" data-fragment-index="3">
+									Chinese geometric proof of the Pythagorean from roughly the 1st century BC.
+								</p>
+							</td>
+						</tr>
+					</table>
+
+
+
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>Example: Find the Hypotenuse</h3>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0">A triangle has legs of length \( a = 6 \) and \( b =
+							8 \).
+							<span class="fragment" data-fragment-index="1">
+								What is the length of the
+								hypotenuse \( c \)?
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="2">Using the Pythagoras Theorem:</p>
+
+					</div>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="2">
+							$c^2$
+							<span class="fragment" data-fragment-index="3">
+								$ = 6^2 + 8^2 $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ = 36 + 64 $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$ = 100$
+							</span>
+
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							$
+							c = \sqrt{100}
+							$
+							<span class="fragment" data-fragment-index="7">
+								$ = 10$
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="8">✅ So, the hypotenuse is 10 units.</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+				<section>
+					<h3>Example: Find a Missing Side</h3>
+
+					<div class="left-txt size-90">
+						<p>A right-angled triangle has a hypotenuse of length \( c = 13 \) and one leg of length \( a =
+							5 \). Find the other leg \( b \).</p>
+					</div>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="2">
+							$b^2 $
+							<span class="fragment" data-fragment-index="3">
+								$ = c^2 - a^2$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ = 13^2 - 5^2$
+							</span>
+
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$ = 169 - 25$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$ = 144$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							Therefore 
+							$\;b = \sqrt{144}$
+							<span class="fragment" data-fragment-index="8">
+								$ = 12$
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="9">✅ The missing side is 12 units.</p>
+					</div>
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h3>Try It Yourself 📝</h3>
+
+					<div class="left-txt size-90">
+						<ol style="line-height: 70px;">
+							<li>Find the hypotenuse of a triangle with legs 9 and 12.</li>
+							<li>A right triangle has a hypotenuse of 15 and one leg of 9. Find the other leg.</li>
+							<li>If \( a = 7 ,\,\) \( c = 25 ,\,\) find \(\, b \).</li>
+						</ol>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+			</section>
+
+			<section>
+				<section>
+					<h3>sin / cos / tan &nbsp; ratios</h3>
+					<div>
+						<iframe scrolling="no" title="Ratios on a triangle"
+							src="https://www.geogebra.org/material/iframe/id/krvdetpr/width/509/height/375/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+							width="509px" height="375px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+
+					<div>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								\(\sin \theta = \)
+							</span>
+							<span class="fragment" data-fragment-index="0">
+								\(\dfrac{BC}{AC}\)
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								\(=\)
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								\(\dfrac{DE}{AE}\)
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								\(=\)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								\(\dfrac{FG}{AG}\)
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h3>sin / cos / tan &nbsp; ratios</h3>
+					<div>
+						<img style="width: 600px;" src="images/week-02/ratios-02.svg">
+					</div>
+
+
+					<br />
+				</section>
+				<section data-auto-animate="">
+					<h3>sin / cos / tan &nbsp; ratios</h3>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 50%;">
+								<img style="width:100%;" src="images/week-02/ratios-02.svg">
+							</td>
+							<td style="width: 50%;">
+								<img style="width: 100%;" src="images/week-02/ratios-03.svg">
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h3>sin / cos / tan &nbsp; ratios</h3>
+
+					<table>
+
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td>
+											<img style="width: 350px;" src="images/week-02/ratios-02.svg">
+										</td>
+
+									</tr>
+									<tr>
+
+										<td>
+											<img style="width: 350px;" src="images/week-02/ratios-03.svg">
+										</td>
+									</tr>
+
+								</table>
+							</td>
+							<td>
+								<p class="fragment" data-fragment-index="1">
+									\(\sin\left(\theta \right) = \dfrac{\text{opposite}}{\text{hypotenuse}}\)
+								</p>
+								<p class="fragment" data-fragment-index="2">
+									\(\cos\left(\theta \right) = \dfrac{\text{adjacent}}{\text{hypotenuse}}\)
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									\(\tan\left(\theta \right) = \dfrac{\text{opposite}}{\text{adjacent}}\)
+								</p>
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+
+				<section>
+					<h3>Examples: Find the hypotenuse</h3>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td>
+								<img style="width: 350px;" src="images/week-02/ratios-04.svg">
+							</td>
+							<td>
+
+								<div class="size-75">
+									<p class="fragment" data-fragment-index="2">
+										\(\cos\left(\theta \right) = \dfrac{\text{adjacent}}{\text{hypotenuse}}\)
+									</p>
+									<p class="fragment" data-fragment-index="3">
+										\(\cos\left(50^{\circ} \right) = \dfrac{10 }{y}\)
+									</p>
+									<p class="fragment" data-fragment-index="4">
+										\(\cos\left(50^{\circ} \right) \times y= \dfrac{10 }{y}\times y\)
+									</p>
+									<p class="fragment" data-fragment-index="5">
+										\(\cos\left(50^{\circ} \right) \times y=10 \)
+									</p>
+									<p class="fragment" data-fragment-index="6">
+										\(\dfrac{\cos\left(50^{\circ} \right) \times y}{\cos\left(50^{\circ} \right)
+										}=\dfrac{10 }{\cos\left(50^{\circ} \right)}\)
+									</p>
+									<p class="fragment" data-fragment-index="7">
+										Hence \( y=\dfrac{10 }{\cos\left(50^{\circ} \right)}\)
+										<span class="fragment" data-fragment-index="8">
+											\(\approx 15.56\) cm
+										</span>
+									</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+				<section>
+					<h3>Examples: Find a side</h3>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td>
+								<img style="width: 350px;" src="images/week-02/ratios-05.svg">
+							</td>
+							<td>
+
+								<div class="size-80">
+									<p class="fragment" data-fragment-index="2">
+										\(\sin\left(\theta \right) = \dfrac{\text{opposite}}{\text{hypotenuse}}\)
+									</p>
+									<p class="fragment" data-fragment-index="3">
+										\(\sin\left(30^{\circ} \right) = \dfrac{x}{5}\)
+									</p>
+									<p class="fragment" data-fragment-index="4">
+										Find $x$ <br>
+										<picture>
+											<source
+												srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/270f_fe0f/512.webp"
+												type="image/webp">
+											<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/270f_fe0f/512.gif"
+												alt="✏" width="64" height="64">
+										</picture>
+
+									</p>
+
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+				<section>
+					<h3>Examples: Find an angle</h3>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td>
+								<img style="width: 350px;" src="images/week-02/ratios-06.svg">
+							</td>
+							<td>
+
+								<div class="size-80">
+									<p class="fragment" data-fragment-index="2">
+										\(\cos\left(\theta \right) = \dfrac{\text{adjacent}}{\text{hypotenuse}}\)
+									</p>
+									<p class="fragment" data-fragment-index="3">
+										\(\cos\left(\theta \right) = \dfrac{5}{12}\)
+									</p>
+									<p class="fragment" data-fragment-index="4">
+										\(\theta= \cos^{-1}\left(\dfrac{5}{12}\right)\)
+									</p>
+									<p class="fragment" data-fragment-index="5">
+										\(\theta= \arccos\left(\dfrac{5}{12}\right)\)
+									</p>
+									<p class="fragment" data-fragment-index="6">
+										Hence \(\theta\approx 65.38^{\circ}\)
+									</p>
+
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+
+			</section>
+
+
+			<section>
+				<section>
+					<h3>Sine and Cosine rules</h3>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td style="width: 40%;">
+								<img style="width: 100%;" src="images/week-02/sin-cos-rules.svg">
+							</td>
+							<td style="width: 60%;">
+
+								<div class="size-75">
+									<p class="fragment" data-fragment-index="2">
+										<strong>Sine rule:</strong>
+									</p>
+									<p>
+
+										<span class="fragment" data-fragment-index="3">
+											\(\dfrac{a}{\sin (A)} \)
+										</span>
+										<span class="fragment" data-fragment-index="4">
+											\(=\dfrac{b}{\sin (B)} \)
+										</span>
+										<span class="fragment" data-fragment-index="5">
+											\(=\dfrac{c}{\sin (C)} \)
+										</span>
+									</p>
+
+									&nbsp;
+
+									<p class="fragment" data-fragment-index="6">
+
+										<span>
+											\(\dfrac{\sin (A)}{a} \)
+										</span>
+										<span>
+											\(=\dfrac{\sin (B)}{b} \)
+										</span>
+										<span>
+											\(=\dfrac{\sin (C)}{c} \)
+										</span>
+									</p>
+
+									<p class="fragment" data-fragment-index="7">
+										<strong>Cosine rule:</strong>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="8">
+											\(c^2\)
+										</span>
+										<span class="fragment" data-fragment-index="9">
+											\(=a^2+b^2 - 2ab\cos(C) \)
+										</span>
+									</p>
+
+
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h3>Example: Find an angle</h3>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td style="width: 40%;">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="1" style="width: 100%;"
+										src="images/week-02/sin-cos-rules-ex-01.png">
+									<img class="fragment fade-in" data-fragment-index="1" style="width: 100%;"
+										src="images/week-02/sin-cos-rules-ex-01a.png">
+								</div>
+							</td>
+							<td style="width: 60%;">
+
+								<div class="size-75">
+									<p class="fragment" data-fragment-index="3">
+										<strong>We can use the sine rule:</strong>
+									</p>
+
+
+									<p class="fragment" data-fragment-index="4">
+										<span>
+											\(\dfrac{\sin (B)}{b} \)
+										</span>
+										<span>
+											\(=\dfrac{\sin (C)}{c} \)
+										</span>
+									</p>
+
+
+									<p class="fragment" data-fragment-index="5">
+										\(\dfrac{\sin (50^{\circ})}{10} =\dfrac{\sin (C)}{4}\)
+									</p>
+									<p class="fragment" data-fragment-index="6">
+										\(\dfrac{\sin (50^{\circ})}{10} \times 4=\dfrac{\sin (C)}{4} \times 4\)
+									</p>
+									<p class="fragment" data-fragment-index="7">
+										\(0.3064 = \sin (C)\)
+									</p>
+									<p class="fragment" data-fragment-index="8">
+										\(C = \sin^{-1}(0.3064)\)
+										<span class="fragment" data-fragment-index="9">\(\approx 17.84^{\circ}\)</span>
+									</p>
+
+
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h3>Example: Find a side</h3>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td style="width: 45%;">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="1" style="width: 100%;"
+										src="images/week-02/sin-cos-rules-ex-02.png">
+									<img class="fragment fade-in" data-fragment-index="1" style="width: 100%;"
+										src="images/week-02/sin-cos-rules-ex-02b.png">
+								</div>
+							</td>
+							<td style="width: 55%;">
+
+								<div class="size-80">
+									<p class="fragment" data-fragment-index="4">
+										<strong>We can use the sine rule again:</strong>
+									</p>
+
+
+									<p class="fragment" data-fragment-index="4">
+										<span>
+											\(\dfrac{p}{\sin \left(P\right)} \)
+										</span>
+										<span>
+											\(=\dfrac{r}{\sin \left(R\right)} \)
+										</span>
+									</p>
+
+
+									<p class="fragment" data-fragment-index="5">
+										\(\dfrac{p}{\sin \left(40^{\circ}\right)} = \dfrac{15}{\sin
+										\left(75^{\circ}\right)}\)
+									</p>
+									<p class="fragment" data-fragment-index="6">
+										\(p = \dfrac{15}{\sin \left(75^{\circ}\right)} \times
+										\sin\left(40^{\circ}\right)\)
+									</p>
+									<p class="fragment" data-fragment-index="7">
+										\(p \approx 9.98 \text{mm}\)
+									</p>
+
+
+
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h3>Example: Find a side</h3>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td style="width: 45%;">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="1" style="width: 100%;"
+										src="images/week-02/sin-cos-rules-ex-03.png">
+									<img class="fragment fade-in" data-fragment-index="1" style="width: 100%;"
+										src="images/week-02/sin-cos-rules-ex-03a.png">
+								</div>
+							</td>
+							<td style="width: 55%;">
+
+								<div class="size-80">
+									<p class="fragment" data-fragment-index="4">
+										<strong>Here we need the cosine rule:</strong>
+									</p>
+
+
+									<p class="fragment" data-fragment-index="4">
+										<span>
+											\(c^2=a^2+b^2 - 2ab\cos(C) \)
+										</span>
+									</p>
+
+
+									<p class="fragment" data-fragment-index="5">
+										\(c^2 = (10)^2 \)
+										<span class="fragment" data-fragment-index="6">
+											\(+\, (17)^2\)
+										</span>
+										<span class="fragment" data-fragment-index="7">
+											\(\qquad -\, 2 \times (10)(17)\times \cos \left(80^{\circ}\right)\)
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="8">
+										\(c^2 = 329.96\)
+									</p>
+									<p class="fragment" data-fragment-index="9">
+										\(c = \sqrt{329.96}\)
+									</p>
+									<p class="fragment" data-fragment-index="10">
+										\(c \approx 18.16\text{m}\)
+									</p>
+
+
+
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+					<br />
+
+				</section>
+			</section>
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

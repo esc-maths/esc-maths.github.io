@@ -1,0 +1,2313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1017SCG - Week 6</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+
+	<style>
+		/* GeoGebra Canvas */
+		.ggbElement {
+
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 5px;
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-bottom: 10px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-85">
+					<h2>Foundation Mathematics</h2>
+					<p style="font-weight: bold; font-size: 130%;">1017SCG</p>
+				</div>
+				<p style="font-size: 90%;">Week 6</p>
+				
+				<div style="margin-top: -20px;">
+					<img style="width: 400px;" src="images/fractal/fractal-06.svg">
+				</div>
+				<br/>
+			</section>
+
+			<section>
+
+				<h4>Topics for Week 6</h4>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Exponential Growth/Decay
+						</li>
+						<li>
+							Solving Trigonometric Equations
+						</li>
+						<li>
+							Introduction of Functions
+						</li>
+					</ul>
+
+				</div>
+
+				<br />
+				<br />
+				<br />
+				<br />
+
+
+			</section>
+
+			<section>
+				<section>
+					<h4>Population Modelling Scenario 🤔</h4>
+
+					<div class="left-txt">
+						<p>
+							Initially there were 50 animals. After 10 years,
+							the animal population had increased to 300.<br />
+							<br />
+							<span class="fragment highlight-red" data-fragment-index="0">
+								Make a predication of the animal population
+								after another 5 years has passed.
+							</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Linear Growth: $N = 50 + 25 t$
+					</h4>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td style="width: 35%;">
+
+								<table border="1" style="text-align: center; font-size: 50%;">
+									<thead>
+										<tr>
+											<th style="text-align: center;">Year ($t$)</th>
+											<th style="text-align: center;">Animal <br />population <br />($N$)</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="text-align: center;">0</td>
+											<td style="text-align: center;">50</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">1</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">75
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">2</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">100
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">3</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">125
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">4</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">150
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">5</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">175
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">6</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">200
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">7</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">225
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">8</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">250
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">9</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">275
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">10</td>
+											<td style="text-align: center;">300</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</td>
+
+							<td style="width: 65%;">
+
+								<div class="r-stack">
+									<img class="fragment fade-in-then-out" data-fragment-index="1"
+										src="images/week-06/linear-modela.png">
+									<img class="fragment fade-in" data-fragment-index="2"
+										src="images/week-06/linear-modelb.png">
+								</div>
+
+
+							</td>
+						</tr>
+
+					</table>
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Exponential Growth: $N = 50 e^{0.1792t }$
+					</h4>
+
+					<table style="width: 100%;">
+
+						<tr>
+							<td style="width: 35%;">
+
+								<table border="1" style="text-align: center; font-size: 50%;">
+									<thead>
+										<tr>
+											<th style="text-align: center;">Year ($t$)</th>
+											<th style="text-align: center;">Animal <br />population <br />($N$)</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="text-align: center;">0</td>
+											<td style="text-align: center;">50</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">1</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">60
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">2</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">72
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">3</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">86
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">4</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">102
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">5</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">122
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">6</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">147
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">7</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">175
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">8</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">210
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">9</td>
+											<td style="text-align: center;" class="fragment" data-fragment-index="0">251
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align: center;">10</td>
+											<td style="text-align: center;">300</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</td>
+
+							<td style="width: 65%;">
+
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="1"
+										src="images/week-06/linear-modela.png">
+									<img class="fragment fade-in-then-out" data-fragment-index="1"
+										src="images/week-06/exp-model.png">
+									<img class="fragment fade-in" data-fragment-index="2"
+										src="images/week-06/linear-exp-model.png">
+								</div>
+
+
+							</td>
+						</tr>
+
+					</table>
+					<br />
+				</section>
+
+				<section>
+					<h4>Linear vs Exponential Growth</h4>
+
+					<div>
+						<img style="width: 80%;" src="images/week-06/linear-exp-model-expanded.png">
+					</div>
+
+					<br />
+				</section>
+				<section>
+					<h4>Logistic Growth</h4>
+
+					<div>
+						<img style="width: 80%;" src="images/week-06/logistic-model-expanded.png">
+					</div>
+
+					<br />
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Exponential Growth/Decay</h4>
+
+					<div style="font-size: 130%;">
+						<p class="fragment" data-fragment-index="0">
+							\(N = N_0 e^{kt}\)
+						</p>
+					</div>
+
+					<div class="size-90 left-txt">
+
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="1">
+								$t\,$ is the amount of time that has passed
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$N_0\,$ is the initial amount
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								$N\,$ is the amount present at time $t$
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								$k\,$ is the growth/decay factor
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								<span>$e$</span>
+								<span class="fragment" data-fragment-index="6">$\approx 2.71828\;\; $</span>
+								<span>Euler's number
+								</span>
+								<span style="font-size: 60%;"><a
+										href="https://en.wikipedia.org/wiki/E_(mathematical_constant)"
+										target="_blank"><i class="fa fa-external-link-alt"></i></a></span>
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section id="exponential-growth">
+					<h5>Scenario 1</h5>
+
+
+					<div class="left-txt size-70" style="margin-top: -20px;">
+						<p>
+							The population of fish in a pond grows according the exponential
+							growth model
+						</p>
+
+					</div>
+					<div class=" size-70" style="margin-top: -25px;">
+						<p>
+
+							\(N = N_0 e^{kt}.\)
+						</p>
+
+					</div>
+					<div class="left-txt size-70" style="margin-top: -15px;">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Initially there were 50 fish in the pond.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Four weeks later, there were 80 fish in the pond.
+							</span>
+						</p>
+
+					</div>
+					<div class="" style="margin-top: -15px;">
+						<iframe style="border: none; width: 100%; height:380px"
+							data-src="../../sketches/my-pond/"></iframe>
+					</div>
+					<div style="font-size: 0.9rem;margin-top: -5px;">
+						<button><a href="https://www.dynamicmath.xyz/sketches/my-pond/" target="_blank">Open fullscreen
+								<i class="fa fa-external-link-alt"></i></a></button>
+
+					</div>
+					<br />
+				</section>
+				<section>
+					<h5>Exponential Growth</h5>
+					<div class="left-txt size-85">
+						<p>
+							The population of fish in a pond grows according the exponential
+							growth model
+						</p>
+
+					</div>
+					<div class=" size-85">
+						<p>
+
+							\(N = N_0 e^{kt}.\)
+						</p>
+
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								Initially there were 50 fish is the pond.
+							</span>
+							<span>
+								Four weeks later, there were 80 fish in the pond.
+							</span>
+						</p>
+						<ul style="line-height: 50px;">
+							<li class="fragment" data-fragment-index="1">Find the value of the growth factor $k.$</li>
+							<li class="fragment" data-fragment-index="2">What is the expected number of fish in the pond
+								after eight weeks?</li>
+							<li class="fragment" data-fragment-index="3">When would there be 200 fish in the pond?</li>
+
+						</ul>
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Growth</h5>
+					<div class="left-txt size-85">
+						<p>
+							The population of fish in a pond grows according the exponential
+							growth model
+						</p>
+
+					</div>
+					<div class=" size-85">
+						<p>
+
+							\(N = N_0 e^{kt}.\)
+						</p>
+
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								Initially there were 50 fish is the pond.
+							</span>
+							<span>
+								Four weeks later, there were 80 fish in the pond.
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="1">&nbsp;&nbsp; • Initial population $N_0=50$</p>
+						<p class="fragment" data-fragment-index="2">&nbsp;&nbsp; • Time passed $t=4$ (weeks)</p>
+						<p class="fragment" data-fragment-index="3">&nbsp;&nbsp; • At time $t=4,$ the population $N=80$
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Growth</h5>
+
+
+					<div class="size-70">
+
+						<p><strong>Data:</strong> $\,N_0=50,\;$ $t=4,\;$ $N=80$</p>
+					</div>
+
+					<div class="left-txt size-80">
+						<p>
+							• Find the value of the growth factor $k.$
+						</p>
+
+					</div>
+
+					<table style="font-size: 90%;">
+						<tr class="fragment" data-fragment-index="0">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\( N_0e^{kt}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(80\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\( 50e^{k(4)}\)
+								<span class="fragment" data-fragment-index="2">\(\, = 50e^{4k}\)</span>
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{80}{50}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\( \dfrac{50e^{4k}}{50}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="4">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{8}{5}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\( e^{4k}\)
+							</td>
+						</tr>
+
+					</table>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Growth</h5>
+
+
+					<div class="size-70">
+
+						<p><strong>Data:</strong> $\,N_0=50,\;$ $t=4,\;$ $N=80$</p>
+					</div>
+
+					<div class="left-txt size-60">
+						<p>
+							• Find the value of the growth factor $k.$
+						</p>
+
+					</div>
+
+					<table style="font-size: 85%;">
+
+
+						<tr>
+							<td style="border: none; text-align: right;">
+								\( e^{4k}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{8}{5}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="0">
+							<td style="border: none; text-align: right;">
+								\(\ln\left(e^{4k}\right)\)
+
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\ln\left( \dfrac{8}{5}\right)\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="5">
+							<td style="border: none; text-align: right;">
+								<span class="fragment" data-fragment-index="6">\( 4k=\,\)</span>
+								\(4k \ln\left(e\right)\)
+
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+
+								\(\ln\left( \dfrac{8}{5}\right)\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="7">
+							<td style="border: none; text-align: right;">
+								\(k\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{1}{4}\ln\left( \dfrac{8}{5}\right)\)
+								<span class="fragment" data-fragment-index="8">\(\,= 0.1175\)</span>
+
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Growth</h5>
+
+
+					<div class="size-70">
+
+						<p>👉 <strong>New Data:</strong> $\,N_0=50,\;$ $k = 0.1175$</p>
+					</div>
+
+					<div class="left-txt size-75">
+						<p class="fragment" data-fragment-index="0">
+							• What is the expected number of fish in the pond
+							after eight weeks?
+						</p>
+
+					</div>
+
+					<table style="font-size: 95%;">
+
+
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(N_0e^{kt}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(50e^{(0.1175)(8)}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(50e^{0.94}\)
+								<span class="fragment" data-fragment-index="4">
+									\(\approx 127.99\ldots \)
+								</span>
+							</td>
+						</tr>
+
+						<tr class="fragment" data-fragment-index="5">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(128\) fishes
+							</td>
+						</tr>
+					</table>
+
+					<div class="size-90 left-txt">
+						<p class="fragment" data-fragment-index="6">
+							After 8 weeks, it is predicted that there will
+							be 128 fish in the pond.
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Growth</h5>
+
+
+					<div class="size-70">
+
+						<p>👉 <strong>New Data:</strong> $\,N_0=50,\;$ $k = 0.1175$</p>
+					</div>
+
+					<div class="left-txt size-75">
+						<p>
+							• When would there be 200 fish in the pond?
+						</p>
+
+					</div>
+
+					<table style="font-size: 95%;">
+
+
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(N_0e^{kt}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="border: none; text-align: right;">
+								\(200\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(50e^{(0.1175)t}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{200}{50}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{50e^{0.1175}}{50}\)
+							</td>
+						</tr>
+
+						<tr class="fragment" data-fragment-index="4">
+							<td style="border: none; text-align: right;">
+								\(4\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(e^{0.1175 t}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="5">
+							<td style="border: none; text-align: right;">
+								\(\ln(4)\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\ln\left(e^{0.1175 t}\right)\)
+							</td>
+						</tr>
+
+					</table>
+
+
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Growth</h5>
+
+
+					<div class="size-70">
+
+						<p>👉 <strong>New Data:</strong> $\,N_0=50,\;$ $k = 0.1175$</p>
+					</div>
+
+					<div class="left-txt size-75">
+						<p>
+							• When would there be 200 fish in the pond?
+						</p>
+
+					</div>
+
+					<table style="font-size: 85%;">
+
+
+
+						<tr>
+							<td style="border: none; text-align: right;">
+								\(\ln(4)\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\ln\left(e^{0.1175 t}\right)\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(\ln(4)\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(0.1175 t\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{\ln(4)}{0.1175}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{0.1175 t}{0.1175}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(t\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{\ln(4)}{0.1175}\)
+								<span class="fragment" data-fragment-index="4">
+									\(= 11.80\) weeks
+								</span>
+							</td>
+						</tr>
+					</table>
+
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="5">
+							Therefore, it takes a little under 12 weeks for the population of fish
+							to reach 200.
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section id="exponential-decay">
+					<h5>Scenario 2</h5>
+
+					<div class="left-txt size-70" style="margin-top: -10px;">
+						<p>
+							A radioactive substance decays according to the exponential
+							decay model
+						</p>
+
+					</div>
+					<div class=" size-70" style="margin-top: -10px;">
+						<p>
+
+							\(N = N_0 e^{kt}.\)
+						</p>
+
+					</div>
+					<div class="left-txt size-70" style="margin-top: -10px;">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Initially, the radioactive substance had a mass
+								of 3 grams.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								After 200 years, it only had a mass of 2.5 grams.
+							</span>
+						</p>
+
+					</div>
+
+					<div style="margin-top: -10px;">
+						<iframe style="width: 100%; height: 390px; border: 1px solid grey"
+							data-src="../../sketches/naive-radioactive-decay/"></iframe>
+					</div>
+					<div style="font-size: 0.9rem; margin-top: -30px;">
+						<p>
+							<strong>Notes:</strong> <b>1.</b> Learn about a better representation of an atom
+							<a href="https://youtu.be/W2Xb2GFK2yc" target="_blank">here <i
+									class="fa fa-external-link-alt"></i></a>.
+							<b>2.</b> Learn more about Radioactive decay <a
+								href="https://teachchemistry.org/classroom-resources/radioactive-decay-simulation"
+								target="_blank"> here <i class="fa fa-external-link-alt"></i>.</a>
+						</p>
+					</div>
+					<br />
+
+					<!--
+					https://teachchemistry.org/classroom-resources/radioactive-decay-simulation
+					https://youtu.be/W2Xb2GFK2yc
+					https://www.snexplores.org/article/explainer-radiation-radioactive-decay-chemistry-isotopes
+					-->
+				</section>
+				<section>
+					<h5>Exponential Decay</h5>
+
+					<div class="left-txt size-85">
+						<p>
+							A radioactive substance decays according to the exponential
+							decay model
+						</p>
+
+					</div>
+					<div class=" size-85">
+						<p>
+
+							\(N = N_0 e^{kt}.\)
+						</p>
+
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								Initially, the radioactive substance had a mass
+								of 3 grams.
+							</span>
+							<span>
+								After 200 years, it only had a mass of 2.5 grams.
+							</span>
+						</p>
+						<ul style="line-height: 50px;">
+							<li class="fragment" data-fragment-index="1">Calculate the decay factor $k.$</li>
+							<li class="fragment" data-fragment-index="2">How much of the radioactive substance would be
+								left after 400 years?</li>
+							<li class="fragment" data-fragment-index="3">What is the half-life of the radioactive
+								substance?</li>
+
+						</ul>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>Exponential Decay</h5>
+
+					<div class="left-txt size-85">
+						<p>
+							A radioactive substance decays according to the exponential
+							decay model
+						</p>
+
+					</div>
+					<div class=" size-85">
+						<p>
+
+							\(N = N_0 e^{kt}.\)
+						</p>
+
+					</div>
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								Initially, the radioactive substance had a mass
+								of 3 grams.
+							</span>
+							<span>
+								After 200 years, it only had a mass of 2.5 grams.
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">&nbsp;&nbsp; • Initial mass $N_0=3$</p>
+						<p class="fragment" data-fragment-index="2">&nbsp;&nbsp; • Time passed $t=100$ (years)</p>
+						<p class="fragment" data-fragment-index="3">&nbsp;&nbsp; • At time $t=200,$ the mass is $N=2.5$
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Decay</h5>
+
+
+					<div class="size-70">
+
+						<p><strong>Data:</strong> $\,N_0=3,\;$ $t=200,\;$ $N=2.5$</p>
+					</div>
+
+					<div class="left-txt size-80">
+						<p>
+							• Calculate the decay factor $k.$
+						</p>
+
+					</div>
+
+					<table style="font-size: 90%;">
+						<tr class="fragment" data-fragment-index="0">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\( N_0e^{kt}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(2.5\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\( 3e^{k(200)}\)
+								<span class="fragment" data-fragment-index="2">\(\, = 3e^{200k}\)</span>
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{2.5}{3}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\( \dfrac{3e^{200k}}{3}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="4">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{2.5}{3}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\( e^{200k}\)
+							</td>
+						</tr>
+
+					</table>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Decay</h5>
+
+
+					<div class="size-70">
+
+						<p><strong>Data:</strong> $\,N_0=3,\;$ $t=200,\;$ $N=2.5$</p>
+					</div>
+
+					<div class="left-txt size-60">
+						<p>
+							• Calculate the decay factor $k.$
+						</p>
+
+					</div>
+
+					<table style="font-size: 85%;">
+
+
+						<tr>
+							<td style="border: none; text-align: right;">
+								\( e^{200k}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{2.5}{3}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="0">
+							<td style="border: none; text-align: right;">
+								\(\ln\left(e^{200k}\right)\)
+
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\ln\left( \dfrac{2.5}{3}\right)\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="5">
+							<td style="border: none; text-align: right;">
+								\( 200k=\)
+
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+
+								\(\ln\left( \dfrac{2.5}{3}\right)\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="7">
+							<td style="border: none; text-align: right;">
+								\(k\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{1}{200}\ln\left( \dfrac{2.5}{3}\right)\)
+								<span class="fragment" data-fragment-index="8">\(\,= -9.116\times 10^{-4}\)</span>
+
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Decay</h5>
+
+
+					<div class="size-70">
+
+						<p>👉 <strong>New Data:</strong> $\,N_0=3,\;$ $k = -9.116\times 10^{-4}$</p>
+					</div>
+
+					<div class="left-txt size-70">
+						<p class="fragment" data-fragment-index="0">
+							• How much of the radioactive substance would be
+							left after 400 years?
+						</p>
+
+					</div>
+
+					<table style="font-size: 95%;">
+
+
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(N_0e^{kt}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(3e^{\left(-9.116\times 10^{-4}\right)(400)}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(3e^{-0.36464}\)
+								<span class="fragment" data-fragment-index="4">
+									\(\approx 2.08334 \ldots \)
+								</span>
+							</td>
+						</tr>
+
+						<tr class="fragment" data-fragment-index="5">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(2.08\) grams
+							</td>
+						</tr>
+					</table>
+
+					<div class="size-90 left-txt">
+						<p class="fragment" data-fragment-index="6">
+							After 400 years, it is predicted that there will
+							be 2.08 grams remaining.
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Decay</h5>
+
+
+					<div class="size-70">
+
+						<p>👉 <strong>New Data:</strong> $\,N_0=3,\;$ $k = -9.116\times 10^{-4}$</p>
+					</div>
+
+					<div class="left-txt size-70">
+						<p>
+							• What is the half-life of the radioactive substance?
+						</p>
+
+					</div>
+
+					<table style="font-size: 95%;">
+
+
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(N\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(N_0e^{kt}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="border: none; text-align: right;">
+								\(1.5\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(3e^{\left(-9.116\times 10^{-4}\right)t}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{1.5}{3}\)
+							</td>
+							<td style="border: none; text-align: center;">
+
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{3e^{\left(-9.116\times 10^{-4}\right)t}}{3}\)
+							</td>
+						</tr>
+
+						<tr class="fragment" data-fragment-index="4">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{1.5}{3}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(e^{\left(-9.116\times 10^{-4}\right)t}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="5">
+							<td style="border: none; text-align: right;">
+								\(\ln\left(1.5\over3\right)\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\ln\left(e^{\left(-9.116\times 10^{-4}\right)t}\right)\)
+							</td>
+						</tr>
+
+					</table>
+
+
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h5>Exponential Decay</h5>
+
+
+					<div class="size-70">
+
+						<p>👉 <strong>New Data:</strong> $\,N_0=3,\;$ $k = -9.116\times 10^{-4}$</p>
+					</div>
+
+					<div class="left-txt size-70">
+						<p>
+							• What is the half-life of the radioactive substance?
+						</p>
+
+					</div>
+
+					<table style="font-size: 85%;">
+						<td style="border: none; text-align: right;">
+							\(\ln\left(1.5\over3\right)\)
+						</td>
+						<td style="border: none; text-align: center;">
+							\(=\)
+						</td>
+						<td style="border: none; text-align: left;">
+							\(\ln\left(e^{\left(-9.116\times 10^{-4}\right)t}\right)\)
+						</td>
+						<tr class="fragment" data-fragment-index="1">
+							<td style="border: none; text-align: right;">
+								\(\ln\left(1.5\over3\right)\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\left(-9.116\times 10^{-4}\right)t\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td style="border: none; text-align: right;">
+								\(\dfrac{\ln\left(1.5\over3\right)}{-9.116\times 10^{-4}}\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{\left(-9.116\times 10^{-4}\right)t}{-9.116\times 10^{-4}}\)
+							</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="3">
+							<td style="border: none; text-align: right;">
+								\(t\)
+							</td>
+							<td style="border: none; text-align: center;">
+								\(=\)
+							</td>
+							<td style="border: none; text-align: left;">
+								\(\dfrac{\ln\left(1.5\over3\right)}{-9.116\times 10^{-4}}\)
+								<span class="fragment" data-fragment-index="4">
+									\(= 760.36\) years
+								</span>
+							</td>
+						</tr>
+					</table>
+
+					<div class="size-75 left-txt">
+						<p class="fragment" data-fragment-index="5">
+							The half-life of this radioactive substance
+							is approx. 760 years.
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Exponential Growth/Decay
+					</h4>
+
+					<table style="border: none; width: 100%;">
+						<tr style="border: none; width: 50%;" class="fragment" data-fragment-index="0">
+							<td style="border: none;">
+								<img style="width: 100%;" src="images/week-06/exp-growth.png">
+								<div style="font-size: 80%; text-align: center; margin-top: -40px;">
+									<p>
+										Growth ($k>0$)
+									</p>
+								</div>
+							</td>
+							<td style="border: none;width: 50%" class="fragment" data-fragment-index="1">
+								<img style="width: 100%;" src="images/week-06/exp-decay.png">
+								<div style="font-size: 80%; text-align: center; margin-top: -40px;">
+									<p>
+										Decay ($k>0$)
+									</p>
+								</div>
+							</td>
+						</tr>
+
+					</table>
+
+					<br />
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div style="font-size: 80%;">
+						<p>
+							Solve \(\,\sin (x) = \dfrac{1}{2}.\)
+							<span class="fragment" data-fragment-index="1">
+								Then \(x = 30^\circ \)
+							</span>
+						</p>
+					</div>
+
+					<table>
+						<tr style="width: 100%;">
+							<td style="width: 35%;" class="fragment" data-fragment-index="0">
+								<img src="images/week-06/special-triangles-02-degrees.png">
+							</td>
+							<td style="width: 65%;" class="fragment" data-fragment-index="2">
+
+								<iframe scrolling="no" title="Multiple values of sin"
+									src="https://www.geogebra.org/material/iframe/id/tzkmp2pk/width/421/height/416/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+									width="421px" height="416px" style="border:0px;"> </iframe>
+
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div style="font-size: 80%;">
+						<p>
+							Solve \(\,\sin (x) = \dfrac{1}{2}.\)
+							<span>
+								Then \(x = 30^\circ \)
+							</span>
+						</p>
+					</div>
+
+					<table>
+						<tr style="width: 100%;">
+							<td style="width: 50%; font-size: 75%;">
+								<p class="fragment" data-fragment-index="1" style="color: rgb(194, 0, 0);">
+									\(x = 30^\circ + 360^\circ\)
+									<span class="fragment" data-fragment-index="2">
+										\(=390^\circ \)
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="3" style="color: rgb(0, 0, 255);">
+									\(x = 30^\circ + 2 \times360^\circ \)
+									<span class="fragment" data-fragment-index="4">
+										\( =750^\circ \)
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="5">
+									\(x = 30^\circ + 3 \times360^\circ \)
+									<span class="fragment" data-fragment-index="6">
+										\( =1080^\circ \)
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="6">
+									\(\qquad \qquad \vdots \)
+								</p>
+
+								<br />
+								<br />
+							</td>
+							<td style="width: 50%;">
+
+								<img src="images/week-06/sin-values-degrees.png">
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div style="font-size: 80%;">
+						<p>
+							Solve \(\,\sin (x) = \dfrac{1}{2}.\)
+							<span>
+								Then \(x = 30^\circ \)
+							</span>
+						</p>
+					</div>
+
+					<table>
+						<tr style="width: 100%;">
+							<td style="width: 50%; font-size: 75%;">
+								<p style="color: rgb(194, 0, 0);">
+									\(x = \dfrac{\pi}{6} + 2\pi\)
+									<span>
+										\(=\dfrac{13\pi}{6} \)
+									</span>
+								</p>
+								<p style="color: blue;">
+									\(x = \dfrac{\pi}{6} + 2 \times 2\pi \)
+									<span">
+										\( =\dfrac{25\pi}{6} \)
+										</span>
+								</p>
+								<p>
+									\(x = \dfrac{\pi}{6} + 3 \times 2\pi \)
+									<span>
+										\( =\dfrac{37\pi}{6} \)
+									</span>
+								</p>
+								<p>
+									\(\qquad \qquad \vdots \)
+								</p>
+
+							</td>
+							<td style="width: 50%;">
+
+								<img src="images/week-06/sin-values-radians.png">
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div style="font-size: 80%;">
+						<p>
+							Solve \(\,\sin (x) = \dfrac{1}{2}.\)
+							<span class="fragment" data-fragment-index="1">
+								Then \(x = -330^\circ \)
+							</span>
+						</p>
+					</div>
+
+					<table>
+						<tr style="width: 100%;">
+							<td style="width: 45%; font-size: 75%;">
+								<p class="fragment" data-fragment-index="1" style="color: rgb(194, 0, 0);">
+									\(x = -330^\circ\)
+								</p>
+								<p class="fragment" data-fragment-index="3" style="color: rgb(0, 0, 255);">
+									\(x = -330^\circ - 360^\circ \)
+
+								</p>
+								<p class="fragment" data-fragment-index="4" style="color: rgb(0, 0, 255);">
+									\( \;\;\, =-690^\circ \)
+								</p>
+								<p class="fragment" data-fragment-index="5">
+									\(x = -330^\circ - 2 \times360^\circ \)
+
+								</p>
+								<p class="fragment" data-fragment-index="6">
+									\(\;\;\, =-1050^\circ \)
+									</sp>
+								<p class="fragment" data-fragment-index="6">
+									\( \quad \vdots \)
+								</p>
+
+								<br />
+								<br />
+							</td>
+							<td style="width: 55%;">
+
+								<iframe scrolling="no" title="Multiple value of sine (negative)"
+									src="https://www.geogebra.org/material/iframe/id/pdqymm86/width/421/height/416/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+									width="421px" height="416px" style="border:0px;"> </iframe>
+
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div style="font-size: 80%;">
+						<p>
+							Solve \(\,\sin (x) = \dfrac{1}{2}.\)
+							<span class="fragment" data-fragment-index="0">
+								Then \(x = 150^\circ \)
+							</span>
+						</p>
+					</div>
+
+					<table>
+						<tr style="width: 100%;">
+							<td style="width: 50%; font-size: 78%;">
+								<p class="fragment" data-fragment-index="0">
+									\(x = 150^\circ\)
+								</p>
+								<p class="fragment" data-fragment-index="2" style="color: rgb(204, 0, 0);">
+									\(x = 150^\circ + 360^\circ \)
+									<span class="fragment" data-fragment-index="3">
+										\( =510^\circ \)
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="5" style="color: rgb(0, 0, 204);">
+									\(x = -210^\circ \)
+								</p>
+								<p class="fragment" data-fragment-index="7">
+									\(x = -210^\circ - 360^\circ \)
+									<span class="fragment" data-fragment-index="8">
+										\( =-570^\circ \)
+									</span>
+								</p>
+
+								<br />
+								<br />
+							</td>
+							<td style="width: 50%;">
+
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="1"
+										src="images/week-06/sin-values-extra-a.png">
+									<img class="fragment fade-in" data-fragment-index="1"
+										src="images/week-06/sin-values-extra-b.png">
+									<img class="fragment fade-in" data-fragment-index="4"
+										src="images/week-06/sin-values-extra-c.png">
+									<img class="fragment fade-in" data-fragment-index="6"
+										src="images/week-06/sin-values-extra-d.png">
+									<img class="fragment fade-in" data-fragment-index="9"
+										src="images/week-06/sin-values-extra-e.png">
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+				</section>
+
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div>
+						<p>
+							So, what is the solution of
+							$\sin \left(x\right)=\dfrac{1}{2}$?
+						</p>
+					</div>
+
+					<div class="r-stack">
+						<picture class="fragment fade-out" data-fragment-index="1">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="250"
+								height="250">
+						</picture>
+						<picture class="fragment fade-in" data-fragment-index="1">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬" width="250"
+								height="250">
+						</picture>
+					</div>
+
+					<div style="font-size: 95%;">
+						<p class="fragment" data-fragment-index="1">
+							Do we need to write an $\infty$ list of values of $x$?
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div class="size-90">
+						<p>
+							Solve $\sin (x) =\dfrac{1}{2},\,$
+							<span class="fragment" data-fragment-index="1">
+								where $\,0^\circ \leq x \leq 360^\circ$
+							</span>
+						</p>
+					</div>
+					<div class="size-90 left-txt">
+						<p class="fragment" data-fragment-index="2">
+							&nbsp&nbsp&nbsp;&nbsp; • $x = 30^\circ$
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							&nbsp&nbsp&nbsp;&nbsp; • $x = 150^\circ$
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							Is $x = 210^\circ$ a solution? 🤔
+						</p>
+					</div>
+					<div class="size-90">
+
+						<p class="fragment" data-fragment-index="5">
+							<strong>Answer:</strong>
+							No, because $\sin\left(210^\circ\right)=-\dfrac{1}{2}$
+
+						</p>
+					</div>
+
+
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div class="size-75">
+						<p>
+							<strong>Example 1:</strong> Solve $\tan (x) =\dfrac{1}{\sqrt{3}},\,$
+							<span>
+								where $\,0^\circ \leq x \leq 360^\circ$
+							</span>
+						</p>
+					</div>
+
+					<table>
+						<tr style="width: 100%;">
+							<td style="width: 35%;" class="fragment" data-fragment-index="0">
+								<img src="images/week-06/special-triangles-02-degrees.png">
+							</td>
+							<td style="width: 65%; font-size: 90%;">
+
+								<div class="r-stack">
+									<img style="width: 80%;" class="fragment fade-in-then-out" data-fragment-index="1"
+										src="images/week-06/sin-values-ex-01-a.png">
+									<img style="width: 80%;" class="fragment fade-in-then-out" data-fragment-index="2"
+										src="images/week-06/sin-values-ex-01-b.png">
+									<img style="width: 80%;" class="fragment fade-in-then-out" data-fragment-index="3"
+										src="images/week-06/sin-values-ex-01-c.png">
+									<img style="width: 80%;" class="fragment fade-in" data-fragment-index="4"
+										src="images/week-06/sin-values-ex-01-d.png">
+								</div>
+
+							</td>
+						</tr>
+					</table>
+
+
+
+
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div class="size-75">
+						<p>
+							<strong>Example 2:</strong> Solve $\cos (x) =\dfrac{1}{\sqrt{2}},\,$
+							<span>
+								where $\,0^\circ \leq x \leq 360^\circ$
+							</span>
+						</p>
+					</div>
+
+					<table>
+						<tr style="width: 100%;">
+							<td style="width: 35%;" class="fragment" data-fragment-index="0">
+								<img src="images/week-06/special-triangles-01-degrees.png">
+							</td>
+							<td style="width: 65%; font-size: 90%;">
+
+								<div class="r-stack">
+									<img style="width: 80%;" class="fragment fade-in-then-out" data-fragment-index="1"
+										src="images/week-06/sin-values-ex-02-a.png">
+									<img style="width: 80%;" class="fragment fade-in-then-out" data-fragment-index="2"
+										src="images/week-06/sin-values-ex-02-b.png">
+									<img style="width: 80%;" class="fragment fade-in-then-out" data-fragment-index="3"
+										src="images/week-06/sin-values-ex-02-c.png">
+									<img style="width: 80%;" class="fragment fade-in" data-fragment-index="4"
+										src="images/week-06/sin-values-ex-02-d.png">
+								</div>
+
+							</td>
+						</tr>
+					</table>
+
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h5>
+						Solving Trigonometric Equations
+					</h5>
+
+					<div class="size-70">
+						<p>
+							<strong>Example 3:</strong> Solve $\sin (x) =-\dfrac{\sqrt{3}}{2},\,$
+							<span>
+								where $\,0^\circ \leq x \leq 360^\circ$
+							</span>
+						</p>
+					</div>
+					<div class="size-65" style="margin-top: -20px;">
+						<p class="fragment" data-fragment-index="0">
+							👉 First solve $\sin (y) =\dfrac{\sqrt{3}}{2}$
+						</p>
+					</div>
+
+					<table style="margin-top: -20px;">
+						<tr style="width: 100%;">
+							<td style="width: 35%;" class="fragment" data-fragment-index="1">
+								<img src="images/week-06/special-triangles-02-degrees.png">
+							</td>
+							<td style="width: 65%; font-size: 90%;">
+
+								<div class="r-stack">
+									<img style="width: 75%;" class="fragment fade-in-then-out" data-fragment-index="1"
+										src="images/week-06/sin-values-ex-03-a.png">
+									<img style="width: 75%;" class="fragment fade-in-then-out" data-fragment-index="2"
+										src="images/week-06/sin-values-ex-03-b.png">
+									<img style="width: 75%;" class="fragment fade-in-then-out" data-fragment-index="3"
+										src="images/week-06/sin-values-ex-03-c.png">
+									<img style="width: 75%;" class="fragment fade-in" data-fragment-index="4"
+										src="images/week-06/sin-values-ex-03-d.png">
+								</div>
+
+							</td>
+						</tr>
+					</table>
+
+					<br />
+
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h5>Introduction to Functions</h5>
+
+					<br />
+
+					<p class="fragment" data-fragment-index="1" style="font-size: 120%;">What is a function? 🤔</p>
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+				<section id="function-machine">
+					<h5>Function Machine
+						<span style="font-size: 70%;"><a target="_blank" href="https://www.geogebra.org/m/tevvvqpj"><i
+									class="fa fa-external-link-alt"></i></a></span>
+					</h5>
+
+
+					<div class="ggbElement" id="ggb-element"></div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+
+
+					<!--
+						<iframe scrolling="no" title="Function Machine"
+							data-src="https://www.geogebra.org/material/iframe/id/tubmntyc/width/700/height/545/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/true/ctl/false"
+							width="700px" height="545px" style="border:0px;"> </iframe>-->
+
+
+
+				</section>
+				<section data-auto-animate>
+					<h5>Introduction to Functions</h5>
+
+					<div class="left-txt size-85">
+						<p>What is a function? 🤔</p>
+						<p class="fragment" data-fragment-index="1">
+							A function is a rule that associates a unique output to each input.
+						</p>
+					</div>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="2">
+							<strong>Definition:</strong>
+							A function assigns to each element of
+							$X$ (set of numbers) exactly one element of $Y$ (also a set of numbers).
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								The set $X$ is called the <strong>domain</strong>
+								of the function
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								and the set
+								$Y$ is called the <strong>range</strong> of
+								the function.
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>Introduction to Functions</h5>
+					<p>
+						$f(x) = 3x+2$
+					</p>
+					<table style="width: 100%; border-collapse: collapse;">
+
+						<tr>
+							<td style="width: 50%; border-right: 2px solid black; padding-right: 10px;">
+								<p class="fragment" data-fragment-index="2">
+									$f(3) = 3(3)+2$
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									$\quad\;\;\,\, =9 + 2$
+								</p>
+								<p class="fragment" data-fragment-index="4">
+									$\quad\;\;\,\, =11$
+								</p>
+							</td>
+							<td style="width: 50%;">
+								<p class="fragment" data-fragment-index="5">
+									$f(-5) = 3(-5)+2$
+								</p>
+								<p class="fragment" data-fragment-index="6">
+									$\quad\;\;\,\, = -15+2$
+								</p>
+								<p class="fragment" data-fragment-index="7">
+									$\quad\;\;\,\, = -13$
+								</p>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>Introduction to Functions</h5>
+					<p>
+						$f(x) = x^2+3$
+					</p>
+					<table style="width: 100%; border-collapse: collapse;">
+
+						<tr>
+							<td style="width: 50%; border-right: 2px solid black; padding-right: 10px;">
+								<p class="fragment" data-fragment-index="2">
+									$f(2) = (2)^2+3$
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									$\quad\;\;\,\, =4 + 3$
+								</p>
+								<p class="fragment" data-fragment-index="4">
+									$\quad\;\;\,\, =7$
+								</p>
+							</td>
+							<td style="width: 50%;">
+								<p class="fragment" data-fragment-index="5">
+									$f(-1) = (-1)^2+3$
+								</p>
+								<p class="fragment" data-fragment-index="6">
+									$\qquad\;\, = 1+3$
+								</p>
+								<p class="fragment" data-fragment-index="7">
+									$\qquad\;\, = 4$
+								</p>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>Introduction to Functions</h5>
+					<p>
+						$f(x) = x^2-2x+4$
+					</p>
+					<table style="width: 100%; border-collapse: collapse; font-size: 82%;">
+
+						<tr>
+							<td style="width: 50%; border-right: 2px solid black; padding-right: 10px;">
+								<p class="fragment" data-fragment-index="2">
+									$f(-4) = (-4)^2-2(-4)+4$
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									$\qquad\,\, =16 + 8+4$
+								</p>
+								<p class="fragment" data-fragment-index="4">
+									$\qquad\,\,=28$
+								</p>
+							</td>
+							<td style="width: 50%;">
+								<p class="fragment" data-fragment-index="5">
+									$f(2a) = (2a)^2-2(2a)+4$
+								</p>
+								<p class="fragment" data-fragment-index="6">
+									$\qquad\,\,= 4a^2-4a+4$
+								</p>
+								<p>
+									&nbsp;
+								</p>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h5>Introduction to Functions</h5>
+
+					<table style="width: 100%; font-size: 75%;">
+
+						<tr>
+							<td style="width: 55%;">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="0"
+										src="images/week-06/domain-range-a.png">
+									<img class="fragment fade-in" data-fragment-index="0"
+										src="images/week-06/domain-range-b.png">
+									<img class="fragment fade-in" data-fragment-index="2"
+										src="images/week-06/domain-range-c.png">
+								</div>
+							</td>
+							<td style="width: 45%;">
+								<p class="fragment" data-fragment-index="0">
+									The <strong>domain</strong> of $f(x)$ is
+									the set of
+									<span class="fragment highlight-red" data-fragment-index="1">
+										all possible values of $x$
+									</span>
+									for which the function is defined (i.e. all the values
+									of $x$ that can be
+									used with the function).
+								</p>
+								<p class="fragment" data-fragment-index="2">
+									The <strong>range</strong> of $f (x)$ is the set of
+									<span class="fragment highlight-red" data-fragment-index="3">
+										all possible values that can be returned
+									</span>
+									by the
+									function.
+								</p>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h5>Introduction to Functions</h5>
+
+					<p style="font-size: 90%;">
+						Consider the function $f(x)= \sqrt{x}$
+					</p>
+
+					<table style="width: 100%; font-size: 75%;">
+
+						<tr>
+							<td style="width: 55%;" class="fragment" data-fragment-index="9">
+								<img src="images/week-06/domain-range-sqrtx.svg">
+								<div style="text-align: center; font-size: 60%; margin-top: -40px;">
+									<p>
+										<a href="https://www.geogebra.org/calculator?command=f(x)=sqrt(x)"
+											target="_blank">
+											Open graph <i class="fa fa-external-link-alt"></i>
+										</a>
+									</p>
+								</div>
+
+							</td>
+							<td style="width: 45%;">
+								<p class="fragment" data-fragment-index="1">
+									$f(0) = 0$
+								</p>
+								<p class="fragment" data-fragment-index="2">
+									$f(2) = \sqrt{2}$
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									$f(9) = \sqrt{9}$
+								</p>
+								<p class="fragment" data-fragment-index="4">
+									$f(-4) = \sqrt{-4}\;$
+									<span style="color: red;" class="fragment" data-fragment-index="5">Not valid!</span>
+								</p>
+								<div class="r-stack">
+									<p class="fragment fade-in-then-out" data-fragment-index="6">
+										<strong>Domain:</strong> All positive values of $x,$ including $x=0.$
+									</p>
+									<p class="fragment fade-in" data-fragment-index="7">
+										<strong>Domain:</strong> $x\geq 0.\qquad \qquad\;\;$
+									</p>
+								</div>
+								<p class="fragment" data-fragment-index="8">
+									<strong>Range:</strong> $f(x)\geq 0 .$
+								</p>
+								<br />
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h5>Introduction to Functions</h5>
+
+					<p style="font-size: 70%;margin-top: -20px;">
+						Consider the function $f(x)= \dfrac{1}{x-5}$
+					</p>
+
+					<table style="width: 100%; font-size: 70%;margin-top: -30px;">
+
+						<tr>
+							<td style="width: 50%;" class="fragment" data-fragment-index="11">
+								<img src="images/week-06/domain-range-rational-func.svg">
+								<div style="text-align: center; font-size: 60%; margin-top: -40px;">
+									<p>
+										<a href="https://www.geogebra.org/calculator?command=f(x)=1/(x-5)"
+											target="_blank">
+											Open graph <i class="fa fa-external-link-alt"></i>
+										</a>
+									</p>
+								</div>
+								<br />
+								<br />
+
+							</td>
+							<td style="width: 50%;">
+								<p class="fragment" data-fragment-index="1">
+									$f(0) = \dfrac{1}{(0)-5}$
+									<span class="fragment" data-fragment-index="2">
+										$=-\dfrac{1}{5}$
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									$f(-2) = \dfrac{1}{(-2)-5}$
+									<span class="fragment" data-fragment-index="4">
+										$=-\dfrac{1}{7}$
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="5">
+									$f(9) = \dfrac{1}{(9)-5}$
+									<span class="fragment" data-fragment-index="6">
+										$=\dfrac{1}{4}$
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="7">
+									$f(5) = \,$
+									<span class="fragment" data-fragment-index="8" style="color: red;">
+										Not possible! 1/0!
+									</span>
+								</p>
+
+								<p class="fragment fade-in" data-fragment-index="9">
+									<strong>Domain:</strong> All real values of $x,$
+									except $x=5.$
+								</p>
+
+								<p class="fragment" data-fragment-index="10">
+									<strong>Range:</strong> All real values
+									except $0.$
+								</p>
+								<br />
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>
+						Mathematical art with basic functions
+					</h3>
+
+					<div>
+						<iframe scrolling="no" title="A retro cityscape with mathematics"
+							src="https://www.geogebra.org/material/iframe/id/wda8u3bd/width/617/height/440/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+							width="617px" height="440px" style="border:0px;"> </iframe>
+					</div>
+
+					<div style="font-size: 47%;margin-top: -30px;">
+
+						<p>
+							$f(x) = \sqrt{6^2-x^2},\,$
+							$g(x) = 2 + 2 \sin(\text{floor}(x-t) 4321),\,$
+							$h_k(x) = \dfrac{-5}{k}+\dfrac{2}{5}, \,$
+							$k=0,1,\ldots,10$
+						</p>
+					</div>
+
+					<div style="font-size: 50%; text-align: center;margin-top: -0px;">
+
+						<p>
+							<a target="_blank" href="https://www.geogebra.org/m/euphvddm">GeoGebra <i
+									class="fa fa-external-link-alt"></i></a> &nbsp; - &nbsp;
+							<a target="_blank" href="https://www.desmos.com/calculator/k3autov2zp">Desmos <i
+									class="fa fa-external-link-alt"></i></a> &nbsp; - &nbsp;
+							<a target="_blank"
+								href="https://graphtoy.com/?f1(x,t)=2+2*sin(floor(x+t)*4321)&v1=true&f2(x,t)=max(sqrt(8%5E2-x%5E2),f1(x,t))&v2=true&f3(x,t)=-1&v3=true&f4(x,t)=-2&v4=true&f5(x,t)=-4&v5=true&f6(x,t)=-6&v6=true&grid=1&coords=0,0,12">Graphtoy
+								<i class="fa fa-external-link-alt"></i></a>
+						</p>
+					</div>
+					
+
+
+				</section>
+
+			</section>
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+	<script>
+		let params = {
+			"width": 700,
+			"height": 545,
+			"material_id": "tevvvqpj",
+			"borderColor": "888888",
+			"playButton": false,
+			"showFullscreenButton": false,
+			"enableShiftDragZoom": true,
+			"showResetIcon": false,
+			"showKeyboardOnFocus": false
+		};
+		let applet = new GGBApplet(params, true);
+		window.addEventListener("load", () => {
+			applet.inject('ggb-element');
+		});
+	</script>
+
+
+</body>
+
+</html>

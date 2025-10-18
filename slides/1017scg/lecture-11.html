@@ -1,0 +1,1329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1017SCG - Week 11</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-bottom: 10px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-85">
+					<h2>Foundation Mathematics</h2>
+					<p style="font-weight: bold; font-size: 130%;">1017SCG</p>
+				</div>
+				<p style="font-size: 90%;">Week 11</p>
+
+				<div style="margin-top: -20px;">
+					<img style="width: 400px;" src="images/fractal/fractal-11.svg">
+				</div>
+				<br />
+			</section>
+
+
+
+			<section>
+
+				<h4>Topics</h4>
+
+				<br />
+
+				<div class="left-txt size-85">
+					<ul style="line-height: 60px;">
+						<li>
+							Introduction to Integration
+						</li>
+						<li>
+							Tables of Integrals
+						</li>
+						<li>
+							Definite Integrals (Area Under Curve)
+						</li>
+					</ul>
+
+				</div>
+
+				<br />
+				<br />
+				<br />
+				<br />
+
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Introduction to Integration</h4>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0">Consider the function:
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								$\;y= 3x^2-4x+5$
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="1">Recall how we computed the derivative</p>
+					</div>
+					<div class=" size-85">
+						<p class="fragment" data-fragment-index="1">
+							$\ds \frac{dy}{dx}$
+							<span class="fragment" data-fragment-index="2">
+								$= 6x-4$
+							</span>
+						</p>
+					</div>
+
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Introduction to Integration</h4>
+
+
+					<div class="size-85">
+						<p>
+							<span style="filter: blur(5px);">
+								$\;y= 3x^2-4x+5$
+							</span>
+						</p>
+					</div>
+
+					<div class="r-stack" style="margin-top: -20px;">
+						<picture class="fragment fade-out" data-fragment-index="1">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1fae3/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1fae3/512.gif" alt="🫣" width="90"
+								height="90">
+						</picture>
+						<picture class="fragment fade-in" data-fragment-index="1">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="90"
+								height="90">
+						</picture>
+					</div>
+
+
+					<div class="size-85" style="margin-top: -20px;">
+						<p class="fragment" data-fragment-index="0">
+							<b>Question:</b> If we know the derivative
+						</p>
+					</div>
+
+					<div class=" size-85">
+						<p>
+							$\ds \frac{dy}{dx}$
+							<span>
+								$= 6x-4$
+							</span>
+						</p>
+					</div>
+
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="1">is it possible to recover back $y$?</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="2">👉 $\;y = 3x^2-4x+C,$ with $C$ a
+								constant.</span>
+						</p>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Introduction to Integration</h4>
+
+					<div class="left-txt size-85">
+						<p>Thus, if $\,\ds \frac{dy}{dx} = 6x-4,\,$
+							<span class="fragment" data-fragment-index="0">
+								we have $\,\ds y = 3x^2-4x + C$
+							</span>
+						</p>
+					</div>
+
+					<div class="">
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$\ds \int$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$ 6x - 4$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$dx$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$ = 3x^2-4x + C$
+							</span>
+						</p>
+					</div>
+
+					<div class="">
+						<p class="fragment" data-fragment-index="4">
+							This process is called:
+						</p>
+					</div>
+					<div style="margin-top: -20px;">
+						<p class="fragment" data-fragment-index="4">
+							<b>Anti-differentiation</b>
+							<span>
+								= <b>Integration</b>
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Introduction to Integration</h4>
+					<div>
+						<iframe style="border: none; width: 600px; height: 130px;"
+							data-src="sketches/p5-tex/antiderivative/"></iframe>
+					</div>
+
+					<div style="margin-top: -20px;font-size: 70%;">
+						<p>
+							A process developed in the late 1700s <br />
+
+						</p>
+					</div>
+					<div style="margin-top: -20px;font-size: 70%;">
+						<p>
+							<b>Anti-differentiation</b>
+							<span>
+								= <b>Integration</b>
+							</span>
+						</p>
+					</div>
+					<table style="width: 60%; margin-top: -30px;" class="fragment" data-fragment-index="0">
+						<tr>
+							<td style="width: 50%; text-align: center; font-size: 50%;">
+								<img style="width: 80%;" src="images/week-11/newton.jpg">
+
+								<div style="margin-top: -40px;">
+									<p>
+										Isaac Newton
+									</p>
+								</div>
+							</td>
+							<td style="width: 50%; text-align: center; font-size: 50%;">
+								<img style="width: 80%;" src="images/week-11/leibniz.jpg">
+								<div style="margin-top: -40px;">
+									<p>
+										Gottfried Wilhelm Leibniz
+									</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h3>Big question</h3>
+					<div style="font-size: 115%;">
+						<p>
+							Can we compute the integral <br />
+							of any given function $f(x)$?
+						</p>
+					</div>
+
+					<div class="r-stack">
+						<picture class="fragment fade-out" data-fragment-index="0">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="80"
+								height="80">
+						</picture>
+						<picture class="fragment fade-in" data-fragment-index="0">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.gif" alt="😀" width="80"
+								height="80">
+						</picture>
+					</div>
+
+					<div style="font-size: 100%;">
+						<p class="fragment" data-fragment-index="0">
+							The answer is <b>"Yes"</b>,<br />
+							<span class="fragment" data-fragment-index="1">as long as the function $f(x)$ is
+								continuous.</span>
+						</p>
+					</div>
+					<div class="fragment" data-fragment-index="2">
+						<p><span style="color: brown;">Warning!</span>
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6a8/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6a8/512.gif" alt="🚨"
+									width="32" height="32">
+							</picture>
+						</p>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Remark about computing anti-derivatives❗️</h3>
+					<div class="fragment" data-fragment-index="0">
+						<p>
+							Although the theory says the integral
+						</p>
+					</div>
+					<div class="fragment" data-fragment-index="0">
+						<p>
+							$
+							\ds \int f(x)\, dx = F(x) + C
+							$
+						</p>
+					</div>
+					<div class="fragment" data-fragment-index="0">
+						<p>
+							exists for $f(x)$ continuous functions,
+						</p>
+					</div>
+					<div>
+						<p>
+							<span class="fragment" data-fragment-index="1"><b>we cannot always find a formula for
+									$F(x)$</b></span>
+						</p>
+					</div>
+
+					<div class="r-stack">
+						<picture class="fragment fade-in-then-out" data-fragment-index="0">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f600/512.gif" alt="😀" width="100"
+								height="100">
+						</picture>
+						<picture class="fragment fade-in" data-fragment-index="1">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f627/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f627/512.gif" alt="😧" width="100"
+								height="100">
+						</picture>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Remark about computing anti-derivatives❗️</h3>
+					<div class="size-65">
+						<p>
+							Although the theory says the integral
+							$
+							\ds \int f(x)\, dx = F(x) + C
+							$ <br />
+							exists for $f(x)$ continuous functions,
+						</p>
+					</div>
+					<div>
+						<p>
+							<span><b>we cannot always find a formula for
+									$F(x)$</b></span>
+						</p>
+					</div>
+
+					<div style="font-size: 90%;">
+						<p>Here are some examples:</p>
+						<p>
+							$\ds\int e^{-x^2}\, dx,\;$ $\ds\int\sin\left(x^2\right)\, dx,\;$
+							$\ds\int\cos\left(x^2\right)\, dx$
+						</p>
+
+					</div>
+					<div style="font-size: 75%;">
+
+						<p class="fragment" data-fragment-index="0">
+							These are known as <a href="https://en.wikipedia.org/wiki/Nonelementary_integral"
+								target="_blank">non-elementary integrals <i class="fa fa-external-link-alt"></i></a>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							<b>Good news!</b> This topic is outside the scope of this course.
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							<b>Here we consider only basic, elementary functions! 😃</b>
+						</p>
+					</div>
+					<br />
+				</section>
+				<section>
+					<h4>
+						Table of integrals
+					</h4>
+					<table style="width: 70%; font-size: 80%; border-collapse: collapse; border: 1px solid black;">
+						<tr style="width: 50%; text-align: center;">
+							<td style="text-align: center;font-weight: bold; border: 1px solid black;">
+								$f(x)$
+							</td>
+							<td style="text-align: center;font-weight: bold; border: 1px solid black;">
+								$\ds \int f(x)\,dx$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="1">
+								$x^n$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="2">
+								$\dfrac{x^{n+1}}{n+1}+C$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="3">
+								$ax^n$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="4">
+								$\dfrac{ax^{n+1}}{n+1}+C$
+							</td>
+						</tr>
+
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="7">
+								$\sin(x)$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="8">
+								$-\cos(x)+C$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="9">
+								$\cos(x)$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="10">
+								$\sin(x)+C$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="11">
+								$e^x$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="12">
+								$e^x+C$
+							</td>
+						</tr>
+						<tr style="width: 50%;">
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="13">
+								$\dfrac{1}{x}$
+							</td>
+							<td style="text-align: center; border: 1px solid black;" class="fragment"
+								data-fragment-index="14">
+								$\ln |x|+C$
+							</td>
+						</tr>
+					</table>
+					<br />
+
+				</section>
+
+				<section data-background-image="images/week-11/table-integrals.svg">
+					<h4>Examples: $x^n$</h4>
+
+					<br />
+					<div class="left-txt size-90">
+
+						<p class="fragment" data-fragment-index="2">
+							<span>• $\ds \int x^2 \,dx$</span>
+							<span class="fragment" data-fragment-index="3">$= \dfrac{x^{2+1}}{2+1}+C$</span>
+							<span class="fragment" data-fragment-index="4">$= \dfrac{x^{3}}{3}+C$</span>
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-90">
+						<p><span class="fragment" data-fragment-index="5">• $\ds \int x^4 \,dx$</span>
+							<span class="fragment" data-fragment-index="6">$= \dfrac{x^{4+1}}{4+1}+C$</span>
+							<span class="fragment" data-fragment-index="7">$= \dfrac{x^{5}}{5}+C$</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-background-image="images/week-11/table-integrals.svg">
+					<h4>Examples: $a x^n$</h4>
+
+					<div class="left-txt size-85">
+
+						<p class="fragment" data-fragment-index="2">
+							<span>• $\ds \int 2x^4 \,dx$</span>
+							<span class="fragment" data-fragment-index="3">$= \dfrac{2x^{4+1}}{4+1}+C$</span>
+							<span class="fragment" data-fragment-index="4">$= \dfrac{2x^{5}}{5}+C$</span>
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-85">
+						<p><span class="fragment" data-fragment-index="5">• $\ds \int 6x \,dx$</span>
+							<span class="fragment" data-fragment-index="6">$= \dfrac{6x^{1+1}}{1+1}+C$</span>
+							<span class="fragment" data-fragment-index="7">$= \dfrac{6x^{2}}{2}+C$</span>
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-85">
+						<p><span class="fragment" data-fragment-index="8">• $\ds \int 2x^2-4x+5 \,dx$</span>
+							<span class="fragment" data-fragment-index="9">$= \dfrac{2x^{3}}{3}$</span>
+							<span class="fragment" data-fragment-index="10">$-\,\dfrac{4x^{2}}{2}$</span>
+							<span class="fragment" data-fragment-index="11">$+\,5x$</span>
+							<span class="fragment" data-fragment-index="12">$+\,C$</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-background-image="images/week-11/table-integrals.svg">
+					<h4>Examples: $a\sin(x),\,b \cos(x)$</h4>
+
+					<div class="left-txt size-75">
+
+						<p class="fragment" data-fragment-index="2">
+							<span>•$\ds \int 2\cos(x) \,dx$</span>
+							<span class="fragment" data-fragment-index="3">$=2\sin(x)+C$</span>
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-75">
+						<p><span class="fragment" data-fragment-index="5">•$\ds \int 3\sin(x) \,dx$</span>
+							<span class="fragment" data-fragment-index="6">$=3(-\cos(x))+C$</span>
+							<span class="fragment" data-fragment-index="7">$=-3\cos(x)+C$</span>
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-75">
+						<p><span class="fragment" data-fragment-index="8">•$\ds \int -7\cos(x) + 3\sin(x) \,dx$</span>
+							<span class="fragment" data-fragment-index="9">$= -7\sin(x)$</span>
+							<span class="fragment" data-fragment-index="10">$-3\,\cos(x)+C$</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-background-image="images/week-11/table-integrals.svg">
+					<h4>Examples: $ae^x$ and $a/x$</h4>
+
+					<div class="left-txt size-85">
+
+						<p class="fragment" data-fragment-index="2">
+							<span>• $\ds \int 2e^x \,dx$</span>
+							<span class="fragment" data-fragment-index="3">$=2e^x+C$</span>
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-85">
+						<p><span class="fragment" data-fragment-index="5">• $\ds \int \frac{4}{x} \,dx$</span>
+							<span class="fragment" data-fragment-index="6">$=4\ln|x|+C$</span>
+						</p>
+					</div>
+					<br />
+					<div class="left-txt size-85">
+						<p><span class="fragment" data-fragment-index="8">• $\ds \int -7e^x + \frac{3}{x} \,dx$</span>
+							<span class="fragment" data-fragment-index="9">$= -7e^x$</span>
+							<span class="fragment" data-fragment-index="10">$+\,3\ln|x|+C$</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-background-image="images/week-11/table-integrals.svg">
+					<h4>One more example</h4>
+
+					<br />
+
+					<div class="left-txt size-80">
+
+						<p>
+							<span>$\ds \int x^2 + 2\sin(x)+ 3\cos(x)+ 5e^x +\frac{7}{x} \,dx$</span>
+						</p>
+					</div>
+					<div class="left-txt size-80">
+						<p><span class="fragment" data-fragment-index="2">$\ds = \frac{x^3}{3}$</span>
+							<span class="fragment" data-fragment-index="3">$+\,2(-\cos(x))$</span>
+							<span class="fragment" data-fragment-index="4">$+\,3\sin(x)$</span>
+							<span class="fragment" data-fragment-index="5">$+\,5e^x$</span>
+							<span class="fragment" data-fragment-index="6">$+\,7\ln|x|$</span>
+							<span class="fragment" data-fragment-index="7">$+\,C$</span>
+						</p>
+					</div>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="8">
+							<span>$\ds = \frac{x^3}{3}$</span>
+							<span>$-\,2\cos(x)$</span>
+							<span>$+\,3\sin(x)$</span>
+							<span>$+\,5e^x$</span>
+							<span>$+\,7\ln|x|$</span>
+							<span>$+\,C$</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h4>
+						Definite Integrals
+					</h4>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="1">
+							Consider the continuous function $f(x)$ on $[a,b]$
+							<span class="fragment" data-fragment-index="2">and $F(x)$ is function such that $F'(x)=f(x)$
+								for every $x\in[a,b],$
+							</span>
+							<span class="fragment" data-fragment-index="3">then</span>
+						</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="3">
+						<iframe style="border: none; width: 600px; height: 150px;"
+							data-src="sketches/p5-tex/ftc/"></iframe>
+					</div>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="4">
+							• We call $F(x)$ an <b>anti-derivative</b>.
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							• This fact is known as <em>The Fundamental Theorem of Calculus.</em>
+						</p>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Definite Integrals: Example 1
+					</h4>
+
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								$\ds \int_1^3 x^2 \, dx$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\ds = \left[\dfrac{x^3}{3}+C\right]_1^3$
+							</span>
+							<span style="color: rgb(196, 6, 6);" class="fragment" data-fragment-index="0">
+								$\qquad \quad \quad\; F(x) = \dfrac{x^3}{3}+C\;$ 👈
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$\qquad \qquad \ds = \underbrace{\left[\dfrac{(3)^3}{3}+C\right]}_{F(3)} -
+								\underbrace{\left[\dfrac{(1)^3}{3}+C\right]}_{F(1)}$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\qquad \qquad \ds = \dfrac{27}{3}+C $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ -\, \dfrac{1}{3}-C$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$\qquad \qquad \ds = \dfrac{26}{3}$
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Definite Integrals: Example 1
+					</h4>
+
+					<div class="left-txt size-85">
+						<p>
+							<span>
+								$\ds \int_1^3 x^2 \, dx$
+							</span>
+							<span>
+								$\ds = \left[\dfrac{x^3}{3}\right]_1^3$
+							</span>
+							<span style="color: rgb(196, 6, 6);">
+								$\qquad \quad \quad\; F(x) = \dfrac{x^3}{3}+C\;$ 👈
+							</span>
+						</p>
+						<p>
+							<span>
+								$\qquad \qquad \ds = \underbrace{\left[\dfrac{(3)^3}{3}\right]}_{F(3)} -
+								\underbrace{\left[\dfrac{(1)^3}{3}\right]}_{F(1)}$
+							</span>
+						</p>
+						<p>
+							<span>
+								$\qquad \qquad \ds = \dfrac{27}{3} $
+							</span>
+							<span>
+								$ -\, \dfrac{1}{3}$
+							</span>
+
+							
+						</p>
+						<p>
+							<span>
+								$\qquad \qquad \ds = \dfrac{26}{3}$
+							</span>
+						</p>
+					</div>
+					<p style="font-size: 60%;position: absolute;top: 50%;left:70%; font-weight: bold;">
+						<span>👉 Note we don't need to write the constant $C$. </span>
+					</p>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Definite Integrals: Example 1
+					</h4>
+
+
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 35%;">
+								<div class="left-txt size-85">
+									<p>
+										<span>
+											$\ds \int_1^3 x^2 \, dx= \dfrac{26}{3}$
+										</span>
+									</p>
+									<br /><br />
+								</div>
+							</td>
+							<td style="width: 65%; text-align: center;font-size: 80%;">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="0" style="width: 100%;"
+										src="images/week-11/integral-ex-01a.svg">
+									<img class="fragment fade-in" data-fragment-index="0" style="width: 100%;"
+										src="images/week-11/integral-ex-01b.svg">
+								</div>
+								<p>$f(x)=x^2$</p>
+							</td>
+						</tr>
+					</table>
+
+
+				</section>
+				<section>
+					<h4>
+						Definite Integrals: Example 2
+					</h4>
+
+
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 50%;">
+								<div class="left-txt size-80">
+									<p>
+										<span>
+											$\ds \int_{-3}^3 2x \, dx $
+										</span>
+										<span class="fragment" data-fragment-index="1">
+											$=\ds \left[x^2+C\right]_{-3}^3$
+										</span>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="3">
+											$\quad =\ds \left[(3)^2+C\right]-\left[(-3)^2+C\right]$
+										</span>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="4">
+											$\quad =\ds \left[9+C\right]-\left[9+C\right]$
+										</span>
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="5">
+											$\quad =\ds 9+C-9-C$
+										</span>
+
+									</p>
+									<p>
+										<span class="fragment" data-fragment-index="6">
+											$\quad =\ds 0$
+										</span>
+									</p>
+								</div>
+								<br/>
+							</td>
+							<td style="width: 50%; text-align: center;font-size: 80%;">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="7" style="width: 100%;"
+										src="images/week-11/integral-ex-02a.svg">
+									<img class="fragment fade-in-then-out" data-fragment-index="7" style="width: 100%;"
+										src="images/week-11/integral-ex-02b.svg">
+									<img class="fragment fade-in-then-out" data-fragment-index="8" style="width: 100%;"
+										src="images/week-11/integral-ex-02c.svg">
+									<img class="fragment fade-in" data-fragment-index="9" style="width: 100%;"
+										src="images/week-11/integral-ex-02d.svg">
+								</div>
+								<p>$f(x)=2x$</p>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Definite Integrals: Example 3
+					</h4>
+
+					<div class="left-txt size-80">
+						<p>
+							<span>
+								$\ds \int_{0}^{\frac{3\pi}{2}} 2\cos(x) \, dx $
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$=\ds \bigg[2\sin(x)\bigg]_0^{\frac{3\pi}{2}}$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ =\ds 2\sin\left(\frac{3\pi}{2}\right)-2\sin\left(0\right)$
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\qquad \qquad\qquad=\ds 2(-1)-2(0)$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ =\ds -2$
+							</span>
+						</p>
+
+					</div>
+
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="7" style="width: 70%;"
+							src="images/week-11/integral-ex-03a.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="7" style="width: 70%;"
+							src="images/week-11/integral-ex-03b.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="8" style="width: 70%;"
+							src="images/week-11/integral-ex-03c.svg">
+						<img class="fragment fade-in" data-fragment-index="9" style="width: 70%;"
+							src="images/week-11/integral-ex-03d.svg">
+					</div>
+
+
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Definite Integrals: Example 3
+					</h4>
+
+					<div class="left-txt size-70">
+						<p>
+							If we want to find the <b>total area</b> bounded by the curve $y=2\cos(x)$ and
+							between $x=0$ and $x=\dfrac{3\pi}{2},$
+							<span>
+								then we need to compute two integrals:
+							</span>
+
+						</p>
+
+					</div>
+					<div class="size-80">
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\ds \int_{0}^{\frac{\pi}{2}} 2\cos(x) \, dx$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$\ds=2\;\;$
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								and $\;\; \ds \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} 2\cos(x) \, dx$
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$=-4$
+							</span>
+						</p>
+					</div>
+
+					<img style="width: 60%;margin-top: 0px;" src="images/week-11/integral-ex-03b.svg">
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Definite Integrals: Example 3
+					</h4>
+
+					<div class="size-70">
+						<p>
+							Therefore, the <b>total area</b> (<b>TA</b>) bounded by the curve $y=2\cos(x)$ <br />
+							and between $\,x=0\,$ and $\,x=\dfrac{3\pi}{2}\,$
+							<span class="fragment" data-fragment-index="3">
+								is:
+							</span>
+						</p>
+					</div>
+					<div style="font-size: 75%; margin-top: -10px;">
+						<p class="fragment" data-fragment-index="3">
+							<b>TA =</b>
+							<span>
+								$\ds\left|\int_{0}^{\frac{\pi}{2}} 2\cos(x) \,
+								dx\right|+\left|\int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} 2\cos(x) \, dx\right| $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$=|2|+ |-4|$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$=6$
+							</span>
+						</p>
+					</div>
+
+					<img style="width: 60%;margin-top: px;" src="images/week-11/integral-ex-03b.svg">
+					<br />
+
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Final remarks</h4>
+
+					<div style="font-size: 90%;" class="fragment" data-fragment-index="0">
+						<p>From <em>Calculus</em> we have</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="0">
+						<iframe style="border: none; width: 600px; height: 150px;"
+							data-src="sketches/p5-tex/ftc/"></iframe>
+					</div>
+
+					<div class="fragment" data-fragment-index="0">
+						<iframe style="border: none; width: 600px; height: 170px;"
+							data-src="sketches/p5-tex/derivative/"></iframe>
+					</div>
+
+					<div style="font-size: 90%;">
+						<p class="fragment" data-fragment-index="1">
+							<em>Integration</em> and <em>Differentiation</em> have been key <br />
+							to the development of modern science and technology.
+						</p>
+					</div>
+
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Final remarks</h4>
+
+
+					<div style="font-size: 85%;">
+						<p>
+							The invention of <em>Calculus</em> is often attributed to
+						</p>
+					</div>
+
+					<table style="width: 60%; margin-top: -30px;">
+						<tr>
+							<td style="width: 50%; text-align: center; font-size: 50%;">
+								<img style="width: 80%;" src="images/week-11/newton.jpg">
+
+								<div style="margin-top: -40px;">
+									<p>
+										Isaac Newton
+									</p>
+								</div>
+							</td>
+							<td style="width: 50%; text-align: center; font-size: 50%;">
+								<img style="width: 80%;" src="images/week-11/leibniz.jpg">
+								<div style="margin-top: -40px;">
+									<p>
+										Gottfried Wilhelm Leibniz
+									</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+
+					<div style="font-size: 81%;margin-top: -10px;">
+						<p class="fragment" data-fragment-index="1">
+							However, this is an oversimplification, as <em>Calculus</em> is
+							the result of a long evolution in which both played
+							a decisive role.
+						</p>
+					</div>
+
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Final remarks</h4>
+
+					<div style="font-size: 80%;">
+						<p>Newton and Leibniz were highly criticised! 🤬</p>
+					</div>
+
+					<div style="font-size: 75%; color: rgb(17, 17, 189);">
+						<div class="fragment left-txt" data-fragment-index="0">
+							<p>
+								Let $y = x^2.\,$
+								<span class="fragment" data-fragment-index="1">
+									Using Newton & Leibniz's method to compute the derivative
+									we consider $h$ to be an <b>infinitesimal increment</b>:
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$\ds \dfrac{f(x+h)-f(x)}{h} $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\ds = \dfrac{\left(x^2 + 2xh + h^2\right)
+									-\left(x^2\right)}{h} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \ds = \ds \dfrac{ 2xh + h^2}{h}$
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$\ds = \dfrac{ \left(2x + h\right)h}{h}$
+								</span>
+
+								<span class="fragment" data-fragment-index="6">
+									$\ds =2x+h .\;$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									Therefore $\;\ds \frac{dy}{dx} = 2x$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div style="font-size: 75%;">
+
+					</div>
+
+
+					<div style="font-size: 70%;margin-top: 0px; text-align: left;">
+						<p class="fragment" data-fragment-index="8">
+							George Berkeley (1685-1753) argued that <b>it was logically inconsistent</b>
+							to introduce an infinitesimal
+							increment $h$ in order to perform calculations,
+							and then to let $h$ vanish at the end of the process.
+						</p>
+					</div>
+					<div style="font-size: 55%;margin-top: -10px;">
+						<p class="fragment" data-fragment-index="8">
+
+							<a href="https://en.wikipedia.org/wiki/The_Analyst" target="_blank"><em>The Analyst
+									(1734)</em> <i class="fa fa-external-link-alt"></i></a>
+						</p>
+					</div>
+
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>Final remarks</h4>
+
+					<div style="font-size: 80%; text-align: left;">
+						<p>Fortunately, the issue was solved a few years later with <br />
+							the introduction of the formal <b>definition of limit</b>.</p>
+					</div>
+
+
+					<div style="font-size: 75%;">
+						<div class="left-txt">
+							<p>
+								Let $y = x^2.\,$
+								<span class="fragment" data-fragment-index="0">
+									Using limits we have
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span>
+									$ \dfrac{f(x+h)-f(x)}{h}$
+								</span>
+								<span>
+									$\ds = $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span>
+									$\ds\dfrac{\left(x^2 + 2xh + h^2\right)
+									-\left(x^2\right)}{h} $
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									$\qquad \ds = $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span>
+									$\ds \dfrac{ 2xh +
+									h^2}{h}$
+								</span>
+								<span>
+									$\ds = $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span>
+									$\ds \dfrac{ \left(2x + h\right)h}{h}$
+								</span>
+
+								<span>
+									$\ds = $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds \lim_{h\ra 0} $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds\left(\right. $
+								</span>
+								<span>
+									$\ds 2x+h$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds\left.\right) $
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$\ds=2x$
+								</span>
+							</p>
+						</div>
+					</div>
+
+
+					<div style="font-size: 80%;margin-top: 0px;">
+						<p class="fragment" data-fragment-index="9">
+							Now we can properly say that $\ds\frac{dy}{dx}=2x.$
+						</p>
+					</div>
+
+					<div style="margin-top: -20px;">
+						<picture class="fragment" data-fragment-index="9">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60c/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f60c/512.gif" alt="😌" width="80"
+								height="80">
+						</picture>
+					</div>
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Final remarks</h4>
+
+					<table style="width: 60%; margin-top: -10px;">
+						<tr>
+							<td style="width: 50%; text-align: center; font-size: 50%;">
+								<img style="width: 80%;" src="images/week-11/newton.jpg">
+
+								<div style="margin-top: -40px;">
+									<p>
+										Isaac Newton
+									</p>
+								</div>
+							</td>
+							<td style="width: 50%; text-align: center; font-size: 50%;">
+								<img style="width: 80%;" src="images/week-11/leibniz.jpg">
+								<div style="margin-top: -40px;">
+									<p>
+										Gottfried Wilhelm Leibniz
+									</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<div style="font-size: 100%; text-align: left;">
+						<p>The <em>Calculus</em>, next to the Euclidian geometry,
+							is the greatest creation in all mathematics.</p>
+					</div>
+					<div style="font-size: 80%; text-align: right;">
+						<p><b>Moris Kline, 1972.</b></p>
+
+					</div>
+
+					<br />
+
+
+				</section>
+
+				<section>
+					<h3>References</h3>
+
+					<ol style="text-align: justify; font-size: 63%; line-height: 45px;">
+						<li>
+							Boyer, C. B. (1949). <em>The History of the Calculus and its Conceptual
+								Development.</em> Dover Publications, Inc. New York.
+								<a href="https://archive.org/details/dli.ernet.176891" target="_blank"><i
+									class="fa fa-external-link-alt"></i></a>
+						</li>
+						<li>
+							Edwards, C. H. (1979). <em>The Historical Development of the Calculus.</em> New York
+							Springer-Verlag. <a href="https://archive.org/details/historicaldevelo0000edwa" target="_blank"><i
+									class="fa fa-external-link-alt"></i></a>
+						</li>
+						<li>
+							Kline, M. (1972). <em>Mathematical Thought from Ancient to Modern Times.</em> New
+							York. Oxford University Press. <a href="https://archive.org/details/mathematicalthou0000unse" target="_blank"><i
+									class="fa fa-external-link-alt"></i></a>
+						</li>
+						<li>
+							Whiteside, D. T. (1960). Patterns of mathematical thought in the later
+							seventeenth century. <em>Archive for History of Exact Sciences</em>. 1, 179-388.
+							<a href="https://www.jstor.org/stable/41133216" target="_blank"><i
+									class="fa fa-external-link-alt"></i></a>
+						</li>
+					</ol>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section data-background-color="#bec6cf" data-auto-animate>
+
+				<iframe style="width: 100%;height: 600px;border: none"
+					data-src="../../sketches/p5-latex/maths-real"></iframe>
+				<br />
+				<br />
+			</section>
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
