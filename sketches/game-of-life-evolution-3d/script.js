@@ -9,8 +9,8 @@
 //////// SETUP
 const side = 64;
 const height = 64;
-const scale = 0.02;
-const y_offset = 0.97;
+const scale = 0.022;
+const y_offset = 1.37;
 // total number of cubes
 const N = side * side * height;
 // texture side
@@ -148,7 +148,7 @@ const mesh = (() => {
 
     // radius from center
     float r = length(vec2(id.xz) / ${side}.0 - 0.5);
-    r = min(1.0, r * 2.0);
+    r = min(1.0, r * 0.2);
     r = mix(1.0, r, sqrt(1.0 - h) - 0.1);
 
     h = mix(h, 1.0, (l + h) / 5.0);
@@ -156,7 +156,7 @@ const mesh = (() => {
     //color = vec3(l * r * sqrt(h));
     color = palette(1.0 - l * r * sqrt(h));
     color *= color;
-    color = 0.2 + color * (1.0 - 0.1); // Changes color
+    color = 0.3 + color * (1.0 - 0.1); // Changes color
 
     // LIGHT
 
