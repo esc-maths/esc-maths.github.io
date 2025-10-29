@@ -855,37 +855,34 @@
 
 					</div>
 
-					<div class="size-60" style="margin-top:-20px">
-						<p>
+					<div style="margin-top:px">
+						
+						<iframe style="border: none; width: 600px; height: 70px;"
+							data-src="sketches/p5-tex/navier-stokes/"></iframe>
 
-							<span>
-
-								\[
-								\rho \left(\frac{\partial \v}{\partial t} + \v \cdot \nabla \v \right) =
-								-\nabla p + \mu \nabla^2 \v + \F, \quad \nabla \cdot \v = 0.
-								\]
-							</span>
-						</p>
 
 					</div>
 
 					<div style="text-align:center">
 
-						<iframe width="1000" height="400" frameborder="0" name="simulation"
-							data-src="https://apps.amandaghassaei.com/VortexShedding/" allowfullscreen></iframe>
+						<iframe width="80%" height="430px" frameborder="0" name="simulation"
+							data-src="../../sketches/fluid-sim" allowfullscreen></iframe>
 
 					</div>
 
-					<p style="font-size:16px;text-align:center;margin-top:-7px"><strong>Fluid simulation by</strong> <a
-							href="https://apps.amandaghassaei.com/" target="_blank">Amanda Ghassaei</a>
-						&nbsp;&nbsp;&nbsp;
-						<span>
-							<a style="font-size:20px;"
-								onclick="var ifr=document.getElementsByName('simulation')[0]; ifr.src=ifr.src;">🔄
-								(Reset/Re-start)</a>
-						</span>
-					</p>
-					<br />
+					<div style="font-size:16px;text-align:center;margin-top:-30px">
+						<p>
+							<strong>Fluid simulation by</strong> <a href="https://apps.amandaghassaei.com/"
+								target="_blank">Amanda Ghassaei <i class="fa fa-external-link-alt"></i></a>
+							&nbsp;&nbsp;&nbsp;
+							<span>
+								<button 
+									onclick="var ifr=document.getElementsByName('simulation')[0]; ifr.src=ifr.src;">
+									Reset &nbsp;<i class="fas fa-sync"></i></button>
+							</span>
+						</p> 
+					</div>
+					<br/>
 
 				</section>
 				<section data-auto-animate>
