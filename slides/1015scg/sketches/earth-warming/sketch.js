@@ -1,3 +1,11 @@
+/*
+ https://edhawkins.org/
+
+ Data from NASA:
+ https://data.giss.nasa.gov/gistemp/
+ https://data.giss.nasa.gov/gistemp/faq/
+*/
+
 // Data properties
 const anomin  = -1.0;        // anomaly value at the origin (must be < 0)
 const anomax  =  1.5;        // anomaly value at the edge (must be > 0)
@@ -290,8 +298,8 @@ function draw() {
 
     // Next animation step
     if (running) {
-        if (index < maxindex)
-            ++index;
+        if (index < maxindex - 2)
+            index = index + 2;
         else
             running = false;
     }
