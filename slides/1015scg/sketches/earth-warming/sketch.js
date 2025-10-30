@@ -1,9 +1,16 @@
 /*
+ Data Visualisation: Global warming
  https://edhawkins.org/
 
  Data from NASA:
  https://data.giss.nasa.gov/gistemp/
  https://data.giss.nasa.gov/gistemp/faq/
+
+ Coding Challenge # 178
+ https://thecodingtrain.com/challenges/178-climate-spiral
+
+ This code was adapted from edni's sketch
+ https://editor.p5js.org/ednl/sketches/tPGzWFOOH
 */
 
 // Data properties
