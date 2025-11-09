@@ -189,8 +189,8 @@
 							</td>
 						</tr>
 					</table>
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 			</section>
 
@@ -221,29 +221,32 @@
 		const ctx = document.getElementById('myChart');
 
 		const data = {
-			datasets: [{
-				label: 'Scatter Dataset',
-				data: [{
-					x: 1,
-					y: 1.621
-				}, {
-					x: 2,
-					y: 1.603
-				}, {
-					x: 3,
-					y: 1.659
-				}, {
-					x: 4,
-					y: 1.673
-				}, {
-					x: 5,
-					y: 1.610
-				}, {
-					x: 6,
-					y: 1.694
-				}],
-				backgroundColor: 'rgb(255, 99, 132)'
-			}],
+			datasets: [
+				{
+					label: 'Dataset A',
+					data: [
+						{ x: 1, y: 1.621 },
+						{ x: 2, y: 1.603 },
+						{ x: 3, y: 1.659 },
+						{ x: 4, y: 1.673 },
+						{ x: 5, y: 1.610 },
+						{ x: 6, y: 1.694 },
+					],
+					backgroundColor: 'rgb(255, 99, 132)',
+				},
+				{
+					label: 'Dataset B',
+					data: [
+						{ x: 1, y: 1.649906 },
+						{ x: 2, y: 1.647898 },
+						{ x: 3, y: 1.648590 },
+						{ x: 4, y: 1.647875 },
+						{ x: 5, y: 1.647744 },
+						{ x: 6, y: 1.650007 },
+					],
+					backgroundColor: 'rgb(54, 162, 235)',
+				},
+			],
 		};
 
 		new Chart(ctx, {
@@ -253,11 +256,17 @@
 				scales: {
 					x: {
 						type: 'linear',
-						position: 'bottom'
+						position: 'bottom',
+						min: 0,   // 👈 start at 0
+						max: 7,   // 👈 end at 7
+						title: { display: true, text: 'Experiment number' }
+					},
+					y: {
+						title: { display: true, text: 'Time (s)' }
 					}
 				},
 				radius: 5,
-			}
+			},
 		});
 	</script>
 
