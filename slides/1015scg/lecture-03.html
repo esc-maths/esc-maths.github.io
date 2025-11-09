@@ -87,7 +87,7 @@
 					<h4>Errors</h4>
 					<div>
 						<p>Every measurement comes with an error</p>
-						<ul>
+						<ul style="line-height: 1.7;">
 							<li>
 								Have an idea of how large your error is;
 							</li>
@@ -99,10 +99,13 @@
 							</li>
 						</ul>
 					</div>
+					<br />
+					<br />
+					<br />
 				</section>
 				<section>
 					<h4>Types of Errors</h4>
-					<div>
+					<div class="size-85 left-txt">
 						<p>Measurement errors</p>
 						<ul>
 							<li>
@@ -135,28 +138,10 @@
 							</li>
 						</ul>
 					</div>
+					<br />
+					<br />
 				</section>
 
-				<section>
-					<h4>
-						Experiment
-					</h4>
-					<div>
-						<p>
-							Two groups of student are sliding the block down the incline. They are
-							measuring the time it takes the block to slide on the smooth surface.
-						</p>
-						<p>
-							Group 1 – uses stopwatch to measure time
-						</p>
-						<p>
-							Group 2 – uses fancy photogate
-						</p>
-						<p>
-							Each group repeats the measurement 6 times.
-						</p>
-					</div>
-				</section>
 				<section>
 					<h4>
 						Experiment
@@ -164,7 +149,7 @@
 					<table>
 						<tr>
 							<td style="width: 40%;">
-								<div style="font-size: 60%;">
+								<div class="size-60 left-txt">
 									<p>
 										Two groups of student are sliding the block down the incline. They are
 										measuring the time it takes the block to slide on the smooth surface.
@@ -181,11 +166,355 @@
 								</div>
 							</td>
 							<td style="width: 60%;">
-								<div>
-									<canvas id="myChart"></canvas>
+								<table style="border-collapse:collapse; width:100%; text-align:center; font-size: 70%;"
+									border="1">
+									<thead>
+										<tr>
+											<td>
+
+											</td>
+											<td>
+												Group 1
+											</td>
+											<td>
+												Group 2
+											</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												Trial
+											</td>
+											<td>
+												time (s)
+											</td>
+											<td>
+												time (s)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												1
+											</td>
+											<td>
+												1.621
+											</td>
+											<td>
+												1.649906
+											</td>
+										</tr>
+										<tr>
+											<td>
+												2
+											</td>
+											<td>
+												1.603
+											</td>
+											<td>
+												1.648798
+											</td>
+										</tr>
+										<tr>
+											<td>
+												3
+											</td>
+											<td>
+												1.659
+											</td>
+											<td>
+												1.648590
+											</td>
+										</tr>
+										<tr>
+											<td>
+												4
+											</td>
+											<td>
+												1.673
+											</td>
+											<td>
+												1.647875
+											</td>
+										</tr>
+										<tr>
+											<td>
+												5
+											</td>
+											<td>
+												1.610
+											</td>
+											<td>
+												1.647744
+											</td>
+										</tr>
+										<tr>
+											<td>
+												6
+											</td>
+											<td>
+												1.694
+											</td>
+											<td>
+												1.650007
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Best estimate from repeated measurements</h4>
+					<div class="size-90 left-txt">
+						<p>Mean or average or best estimate</p>
+					</div>
+
+					<div>
+						<p>\(\bar{t}=\mu = \dfrac{t_1 + t_2 + \cdots + t_n}{n}\)
+							<span>
+								\(=\dfrac{ \sum_{i=1}^{n}t_i}{n}\)
+							</span>
+						</p>
+					</div>
+
+					<div class="size-90 left-txt">
+						<p>\(n\) - number of experiments</p>
+						<p>\(t_i\) - result of the experiment number \(i,\) where $i = 1, 2, \ldots, n$</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>
+						Experiment
+					</h4>
+					<table>
+						<tr>
+							<td style="width: 40%;">
+
+								<div class="size-70 left-txt">
+									<p>Find the average/mean, best estimate</p>
 								</div>
 
+								<div class="size-75">
+									<p>\(\bar{t}=\dfrac{t_1 + t_2 + t_3 + t_4 + t_5 + t_6}{6}\)
 
+									</p>
+								</div>
+							</td>
+							<td style="width: 60%;">
+								<table style="border-collapse:collapse; width:100%; text-align:center; font-size: 70%;"
+									border="1">
+									<thead>
+										<tr>
+											<td>
+
+											</td>
+											<td>
+												Group 1
+											</td>
+											<td>
+												Group 2
+											</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												Trial
+											</td>
+											<td>
+												time (s)
+											</td>
+											<td>
+												time (s)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												1
+											</td>
+											<td>
+												1.621
+											</td>
+											<td>
+												1.649906
+											</td>
+										</tr>
+										<tr>
+											<td>
+												2
+											</td>
+											<td>
+												1.603
+											</td>
+											<td>
+												1.648798
+											</td>
+										</tr>
+										<tr>
+											<td>
+												3
+											</td>
+											<td>
+												1.659
+											</td>
+											<td>
+												1.648590
+											</td>
+										</tr>
+										<tr>
+											<td>
+												4
+											</td>
+											<td>
+												1.673
+											</td>
+											<td>
+												1.647875
+											</td>
+										</tr>
+										<tr>
+											<td>
+												5
+											</td>
+											<td>
+												1.610
+											</td>
+											<td>
+												1.647744
+											</td>
+										</tr>
+										<tr>
+											<td>
+												6
+											</td>
+											<td>
+												1.694
+											</td>
+											<td>
+												1.650007
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</section>
+
+
+				<section>
+					<h4>
+						Experiment
+					</h4>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 40%;">
+								<table style="border-collapse:collapse; width:100%; text-align:center; font-size: 70%;"
+									border="1">
+									<thead>
+										<tr>
+											<td>
+
+											</td>
+											<td>
+												Group 1
+											</td>
+											<td>
+												Group 2
+											</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												Trial
+											</td>
+											<td>
+												time (s)
+											</td>
+											<td>
+												time (s)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												1
+											</td>
+											<td>
+												1.621
+											</td>
+											<td>
+												1.649906
+											</td>
+										</tr>
+										<tr>
+											<td>
+												2
+											</td>
+											<td>
+												1.603
+											</td>
+											<td>
+												1.648798
+											</td>
+										</tr>
+										<tr>
+											<td>
+												3
+											</td>
+											<td>
+												1.659
+											</td>
+											<td>
+												1.648590
+											</td>
+										</tr>
+										<tr>
+											<td>
+												4
+											</td>
+											<td>
+												1.673
+											</td>
+											<td>
+												1.647875
+											</td>
+										</tr>
+										<tr>
+											<td>
+												5
+											</td>
+											<td>
+												1.610
+											</td>
+											<td>
+												1.647744
+											</td>
+										</tr>
+										<tr>
+											<td>
+												6
+											</td>
+											<td>
+												1.694
+											</td>
+											<td>
+												1.650007
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td style="width: 60%;">
+								<img style="width: 100%;" src="images/lec-03/plot-01.svg">
 							</td>
 						</tr>
 					</table>
@@ -214,60 +543,6 @@
 
 	<script>
 		includeHTML();
-	</script>
-
-
-	<script>
-		const ctx = document.getElementById('myChart');
-
-		const data = {
-			datasets: [
-				{
-					label: 'Dataset A',
-					data: [
-						{ x: 1, y: 1.621 },
-						{ x: 2, y: 1.603 },
-						{ x: 3, y: 1.659 },
-						{ x: 4, y: 1.673 },
-						{ x: 5, y: 1.610 },
-						{ x: 6, y: 1.694 },
-					],
-					backgroundColor: 'rgb(255, 99, 132)',
-				},
-				{
-					label: 'Dataset B',
-					data: [
-						{ x: 1, y: 1.649906 },
-						{ x: 2, y: 1.647898 },
-						{ x: 3, y: 1.648590 },
-						{ x: 4, y: 1.647875 },
-						{ x: 5, y: 1.647744 },
-						{ x: 6, y: 1.650007 },
-					],
-					backgroundColor: 'rgb(54, 162, 235)',
-				},
-			],
-		};
-
-		new Chart(ctx, {
-			type: 'scatter',
-			data: data,
-			options: {
-				scales: {
-					x: {
-						type: 'linear',
-						position: 'bottom',
-						min: 0,   // 👈 start at 0
-						max: 7,   // 👈 end at 7
-						title: { display: true, text: 'Experiment number' }
-					},
-					y: {
-						title: { display: true, text: 'Time (s)' }
-					}
-				},
-				radius: 5,
-			},
-		});
 	</script>
 
 
