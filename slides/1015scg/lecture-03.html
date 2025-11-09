@@ -38,6 +38,8 @@
 		gtag('config', 'G-8GQQBCYTB5');
 	</script>
 
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 	<style>
 		.fragment.emph {
 			font-weight: normal;
@@ -76,6 +78,122 @@
 				<br />
 			</section>
 
+			<section>
+				<section>
+					<h2>Errors</h2>
+				</section>
+
+				<section>
+					<h4>Errors</h4>
+					<div>
+						<p>Every measurement comes with an error</p>
+						<ul>
+							<li>
+								Have an idea of how large your error is;
+							</li>
+							<li>
+								Design the experiments to minimize the errors;
+							</li>
+							<li>
+								Report errors.
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h4>Types of Errors</h4>
+					<div>
+						<p>Measurement errors</p>
+						<ul>
+							<li>
+								Random – uncontrolled fluctuations in the measurement
+								<ul>
+									<li>
+										usually, precision of the apparatus or technique related
+									</li>
+								</ul>
+							</li>
+							<li>
+								Systematic – biased, often one sided
+								<ul>
+									<li>
+										poor experiment design/technique or not calibrating the equipment
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<p>Sampling error</p>
+						<ul>
+							<li>
+								Small sample size or poor sampling
+								<ul>
+									<li>
+										e.g. sample too small or not diverse enough to be representative of the
+										population
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<h4>
+						Experiment
+					</h4>
+					<div>
+						<p>
+							Two groups of student are sliding the block down the incline. They are
+							measuring the time it takes the block to slide on the smooth surface.
+						</p>
+						<p>
+							Group 1 – uses stopwatch to measure time
+						</p>
+						<p>
+							Group 2 – uses fancy photogate
+						</p>
+						<p>
+							Each group repeats the measurement 6 times.
+						</p>
+					</div>
+				</section>
+				<section>
+					<h4>
+						Experiment
+					</h4>
+					<table>
+						<tr>
+							<td style="width: 50%;">
+								<div style="font-size: 60%;">
+									<p>
+										Two groups of student are sliding the block down the incline. They are
+										measuring the time it takes the block to slide on the smooth surface.
+									</p>
+									<p>
+										Group 1 – uses stopwatch to measure time
+									</p>
+									<p>
+										Group 2 – uses fancy photogate
+									</p>
+									<p>
+										Each group repeats the measurement 6 times.
+									</p>
+								</div>
+							</td>
+							<td style="width: 50%;">
+								<div>
+									<canvas id="myChart"></canvas>
+								</div>
+
+
+
+
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
 
 
 			<!-- Ends sections -->
@@ -96,6 +214,30 @@
 
 	<script>
 		includeHTML();
+	</script>
+
+
+	<script>
+		const ctx = document.getElementById('myChart');
+
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+				datasets: [{
+					label: '# of Votes',
+					data: [12, 19, 3, 5, 2, 3],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				}
+			}
+		});
 	</script>
 
 
