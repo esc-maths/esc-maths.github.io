@@ -8,6 +8,10 @@
   			width: 1280,
   			height: 720,
 
+			// Factor of the display size that should remain empty around
+			// // the content
+			margin: 0.07,
+
 			// Display presentation control arrows
 			controls: true,
 
