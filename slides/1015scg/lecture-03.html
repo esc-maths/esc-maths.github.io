@@ -86,16 +86,16 @@
 
 				<section>
 					<h4>Errors</h4>
-					<div>
+					<div class="left-txt">
 						<p>Every measurement comes with an error</p>
 						<ul style="line-height: 1.7;">
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								Have an idea of how large your error is;
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								Design the experiments to minimize the errors;
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								Report errors.
 							</li>
 						</ul>
@@ -107,28 +107,28 @@
 				<section>
 					<h4>Types of Errors</h4>
 					<div class="size-85 left-txt">
-						<p>Measurement errors</p>
+						<p class="fragment" data-fragment-index="0">Measurement errors:</p>
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								Random – uncontrolled fluctuations in the measurement
 								<ul>
-									<li>
+									<li class="fragment" data-fragment-index="1">
 										usually, precision of the apparatus or technique related
 									</li>
 								</ul>
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								Systematic – biased, often one sided
 								<ul>
-									<li>
+									<li class="fragment" data-fragment-index="3">
 										poor experiment design/technique or not calibrating the equipment
 									</li>
 								</ul>
 							</li>
 						</ul>
-						<p>Sampling error</p>
+						<p class="fragment" data-fragment-index="5">Sampling error:</p>
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="6">
 								Small sample size or poor sampling
 								<ul>
 									<li>
@@ -155,13 +155,13 @@
 										Two groups of student are sliding the block down the incline. They are
 										measuring the time it takes the block to slide on the smooth surface.
 									</p>
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										Group 1 – uses stopwatch to measure time
 									</p>
-									<p>
+									<p class="fragment" data-fragment-index="1">
 										Group 2 – uses fancy photogate
 									</p>
-									<p>
+									<p class="fragment" data-fragment-index="2">
 										Each group repeats the measurement 6 times.
 									</p>
 								</div>
@@ -416,25 +416,25 @@
 				</section>
 
 				<section id="average">
-					<h4>Best estimate from repeated measurements</h4>
+					<h4>Average from repeated measurements</h4>
 					<div class="size-90 left-txt">
-						<p><b>Average</b> is defined as </p>
+						<p class="fragment" data-fragment-index="0"><b>Average</b> is defined as </p>
 					</div>
 
 					<div>
-						<p>
-							<span>\(\mu=\)</span>
+						<p class="fragment" data-fragment-index="0">
+							<span class="fragment" data-fragment-index="3">\(\mu=\)</span>
 							\(\bar{x} = \dfrac{x_1 + x_2 + \cdots + x_n}{n}\)
-							<span>
+							<span class="fragment" data-fragment-index="2">
 								\(=\ds \frac{1}{n} \sum_{i=1}^{n}x_i\)
 							</span>
 						</p>
 					</div>
 
 					<div class="size-90 left-txt">
-						<p>\(n\) - number of experiments</p>
-						<p>\(x_i\) - result of the experiment number \(i,\) where $i = 1, 2, \ldots, n$</p>
-						<p>It is also known as the <b>mean</b> or <b>best estimate</b></p>
+						<p class="fragment" data-fragment-index="4">\(n\) - number of experiments</p>
+						<p class="fragment" data-fragment-index="5">\(x_i\) - result of the experiment number \(i,\) where $i = 1, 2, \ldots, n$</p>
+						<p class="fragment" data-fragment-index="6"><b>Note:</b> It is also known as the <b>mean</b> or <b>best estimate</b></p>
 					</div>
 
 					<br />
@@ -454,7 +454,7 @@
 									<p>Find the average</p>
 								</div>
 
-								<div class="size-95">
+								<div style="font-size: 90%; text-align: center;">
 									<p>
 										\(\bar{x}=\dfrac{1}{6}\ds \sum_{i=1}^{6}x_i\)
 									</p>
@@ -596,13 +596,13 @@
 											<td style="background: rgb(230, 230, 230);">
 												<tt>9</tt>
 											</td>
-											<td>
+											<td class="fragment" data-fragment-index="0">
 												<b>Average</b>
 											</td>
-											<td>
+											<td class="fragment" data-fragment-index="0">
 												<tt>=AVERAGE(B3:B8)</tt>
 											</td>
-											<td>
+											<td class="fragment" data-fragment-index="1">
 												<tt>=AVERAGE(C3:C8)</tt>
 											</td>
 										</tr>
@@ -892,50 +892,50 @@
 
 				<section id="variance-standard-deviation">
 					<h4>
-						(Sample) Variance and Standard Deviation
+						Variance and Standard Deviation
 					</h4>
 
 					<table style="font-size: 75%;">
 						<tr>
-							<td style="width: 60%;">
-								<div>
+							<td style="width: 62%;">
+								<div class="fragment" data-fragment-index="0">
 									<p>
 										For a data set of \(n\) observations, the
 										sample <b>variance</b> is:
 									</p>
 								</div>
 								<div style="text-align: center;">
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										\(\ds \sigma^2 = \frac{\left(x_1-\bar{x}\right)^2+
 										\left(x_2-\bar{x}\right)^2+\cdots + \left(x_n-\bar{x}\right)^2}{n-1}\)
 									</p>
-									<p>
+									<p class="fragment" data-fragment-index="1">
 										\(\ds =\frac{1}{n-1}\sum_{i=1}^{n}\left(x_i-\bar{x}\right)^2\qquad \qquad \qquad
 										\)
 									</p>
 								</div>
-								<div>
+								<div class="fragment" data-fragment-index="2">
 									<p>
 										The sample <b>standard deviation</b> (SD) is its
 										square root:
 									</p>
 								</div>
 								<div style="text-align: center;">
-									<p>
+									<p class="fragment" data-fragment-index="2">
 										\(\sigma = \ds \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(x_i-\bar{x}\right)^2}\)
 									</p>
 								</div>
 							</td>
-							<td style="width: 40%;">
+							<td style="width: 38%;">
 
 								<div>
-									<p>FAQ: Why \(n-1\)?</p>
-									<p>
+									<p class="fragment" data-fragment-index="3"><b>FAQ:</b> Why \(n-1\)? 🤔</p>
+									<p class="fragment" data-fragment-index="4">
 										Because "SD" is shift-invariant so you lose
 										one "degree of freedom" (or data point).
 									</p>
-									<p>
-										Alternatively: you can't have the SD of only
+									<p class="fragment" data-fragment-index="5">
+										Also, you can't have the SD of only
 										one data point!
 									</p>
 								</div>
@@ -958,7 +958,7 @@
 									<p>Find the SD</p>
 								</div>
 
-								<div class="size-80">
+								<div style="font-size: 78%; text-align: center;">
 
 									<p>
 										\( \sigma = \ds \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(x_i-\bar{x}\right)^2} \)
@@ -1115,13 +1115,13 @@
 											<td style="background: rgb(230, 230, 230);">
 												<tt>10</tt>
 											</td>
-											<td>
+											<td class="fragment" data-fragment-index="0">
 												<b>SD</b>
 											</td>
-											<td>
+											<td class="fragment" data-fragment-index="0">
 												<tt>=STDEV(B3:B8)</tt>
 											</td>
-											<td>
+											<td class="fragment" data-fragment-index="0">
 												<tt>=STDEV(C3:C8)</tt>
 											</td>
 										</tr>
@@ -1455,20 +1455,21 @@
 					<h4>Standard Error</h4>
 
 					<div class="left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							For a data set of $n$ observations,
-							<span>
+							<span class="fragment" data-fragment-index="1">
 								the <b>Standard Error</b> of the sample average is
 							</span>
 						</p>
 					</div>
 					<div style="font-size: 120%;">
-						<p>
-							\(\sigma_{\bar{x}}= \ds \frac{\sigma}{\sqrt{n}}\)
+						<p class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="3">\(\text{SE} = \)</span>
+							\(\sigma_{\bar{x}}= \ds \frac{\sigma}{\sqrt{n}}\qquad\)
 						</p>
 					</div>
 					<div class="left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							that is, it is the standard
 							deviation divided by square
 							root of sample size.
@@ -1609,13 +1610,13 @@
 								<td style="background: rgb(230, 230, 230);">
 									<tt>11</tt>
 								</td>
-								<td>
+								<td class="fragment" data-fragment-index="0">
 									<b>SE</b>
 								</td>
-								<td>
+								<td class="fragment" data-fragment-index="0">
 									<tt>=STDEV(B3:B8)/SQRT(COUNT((B3:B8)))</tt>
 								</td>
-								<td>
+								<td class="fragment" data-fragment-index="0">
 									<tt>=STDEV(C3:C8)/SQRT(COUNT((C3:C8)))</tt>
 								</td>
 							</tr>
@@ -1811,7 +1812,7 @@
 								<div style="font-size: 85%;">
 									<p>
 										respectively.
-										<span>
+										<span class="fragment" data-fragment-index="0">
 											Thus,
 											the <b>interval</b> around the mean that indicates
 											the <b>precision of the estimate</b> is
@@ -1822,15 +1823,15 @@
 								</div>
 
 								<div style="font-size: 90%; text-align: center;">
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										\( x = 1.643333 \pm 0.015198 \, \text{s}\)
 									</p>
 								</div>
 
-								<hr />
+								<hr  class="fragment" data-fragment-index="1" />
 
 								<div style="font-size: 85%;">
-									<p>
+									<p class="fragment" data-fragment-index="1">
 										For Group 2, the interval is
 									</p>
 								</div>
@@ -1838,7 +1839,7 @@
 
 
 								<div style="font-size: 90%; text-align: center;">
-									<p>
+									<p class="fragment" data-fragment-index="1">
 										\( x = 1.648820 \pm 0.000395 \, \text{s}\)
 									</p>
 								</div>
@@ -1996,11 +1997,11 @@
 					</div>
 
 					<div style="text-align: left; font-size: 90%;">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							- round the <b>error</b> to <span style="color: rgb(172, 7, 40);">1 or 2 significant
 								figures</span>
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							- round the <b>average</b> to <span style="color: rgb(172, 7, 40);">the same number of
 								decimal places as the error</span>
 						</p>
@@ -2014,21 +2015,21 @@
 										<td>
 
 										</td>
-										<td>
+										<td class="fragment" data-fragment-index="2">
 											1 s.f.
 										</td>
-										<td>
+										<td class="fragment" data-fragment-index="8">
 											2 s.f.
 										</td>
 									</tr>
 									<tr>
-										<td>
+										<td class="fragment" data-fragment-index="3">
 											\(\Delta x\)
 										</td>
-										<td>
+										<td class="fragment" data-fragment-index="3">
 											0.02
 										</td>
-										<td>
+										<td class="fragment" data-fragment-index="8">
 											0.015
 										</td>
 									</tr>
@@ -2036,21 +2037,21 @@
 										<td>
 
 										</td>
-										<td>
+										<td class="fragment" data-fragment-index="5">
 											2 d.p.
 										</td>
-										<td>
+										<td class="fragment" data-fragment-index="10">
 											3 d.p.
 										</td>
 									</tr>
 									<tr>
-										<td>
+										<td class="fragment" data-fragment-index="5">
 											\(\bar{x}\)
 										</td>
-										<td>
+										<td class="fragment" data-fragment-index="5">
 											1.64
 										</td>
-										<td>
+										<td class="fragment" data-fragment-index="10">
 											1.643
 										</td>
 									</tr>
@@ -2059,18 +2060,22 @@
 							<td>
 
 								<div style="font-size: 90%;">
-									<p>
-										1 s.f. \(\rightarrow\) \(\Delta x = 0.02,\,\) \(\bar{x} = 1.64 \)
+									<p class="fragment" data-fragment-index="4">
+										1 s.f. \(\rightarrow\) \(\Delta x = 0.02,\,\) 
+										<span class="fragment" data-fragment-index="6">\(\bar{x} = 1.64 \)</span>
+										
 									</p>
-									<p>
+									<p class="fragment" data-fragment-index="7">
 										\(\qquad \Ra x = 1.64\pm 0.02 \, \text{s}\)
 									</p>
 								</div>
 								<div style="font-size: 90%;">
-									<p>
-										2 s.f. \(\rightarrow\) \(\Delta x = 0.015,\,\) \(\bar{x} = 1.643 \)
+									<p class="fragment" data-fragment-index="9">
+										2 s.f. \(\rightarrow\) \(\Delta x = 0.015,\,\) 
+										<span class="fragment" data-fragment-index="11">\(\bar{x} = 1.643 \)</span>
+										
 									</p>
-									<p>
+									<p class="fragment" data-fragment-index="12">
 										\(\qquad \Ra x = 1.643\pm 0.015 \, \text{s}\)
 									</p>
 								</div>
@@ -2208,7 +2213,7 @@
 								
 								<div class="left-txt">
 									<p>
-										With 68.2% confidence the true value \(x\) lies between
+										With 68.26% confidence the true value \(x\) lies between
 									</p>
 								</div>
 								<div style="text-align: center;">
@@ -2217,23 +2222,23 @@
 									</p>
 								</div>
 								<div class="left-txt">
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										\(\mu\) is the best estimate and \(\text{SE}\) is the standard error
-										With 95.4% confidence the true value \(x\) lies between
+										With 95.44% confidence the true value \(x\) lies between
 									</p>
 								</div>
 								<div style="text-align: center;">
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										\(\mu - 2\text{SE}\lt x \lt \mu +2\text{SE}\)
 									</p>
 								</div>
 								<div class="left-txt">
-									<p>
-										With 99.7% confidence the true value \(x\) lies between
+									<p class="fragment" data-fragment-index="1">
+										With 99.72% confidence the true value \(x\) lies between
 									</p>
 								</div>
 								<div style="text-align: center;">
-									<p>
+									<p class="fragment" data-fragment-index="1">
 										\(\mu - 3\text{SE}\lt x \lt \mu +3\text{SE}\)
 									</p>
 								</div>
