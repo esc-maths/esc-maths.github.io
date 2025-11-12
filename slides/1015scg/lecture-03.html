@@ -2644,45 +2644,48 @@
 						Error propagation - Special cases
 					</h4>
 
-					<div class="left-txt size-75">
-						<p>
-							For two variables $x+\Delta x $ and $y + \Delta y$, <span>we have:</span>
-						</p>
+					<table border="1" cellpadding="8" cellspacing="0"
+						style="border-collapse: collapse; text-align: center; width: 100%; font-size: 70%;">
+						<thead style="background-color: #f2f2f2;">
+							<tr>
+								<th>Process</th>
+								<th>Value</th>
+								<th>Uncertainty</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Average</td>
+								<td>\(\bar x = \dfrac{x_1+x_2+\cdots+x_n}{n}\)</td>
+								<td>\(\Delta x = \ds \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(x_i-\bar{x}\right)^2}\)</td>
+							</tr>
+							<tr>
+								<td>Constant factor</td>
+								<td>\(\bar{z} = A\bar{x} ,\) with \(A\) a constant</td>
+								<td>\(\Delta z  = A\Delta x \)</td>
+							</tr>
+							<tr>
+								<td>Addition / Subtraction</td>
+								<td>\(\bar{z} = A\bar{x} ± B\bar{y}\)</td>
+								<td>\(\Delta z  = \sqrt{A^2\Delta x^2+B^2\Delta y^2} \)</td>
+							</tr>
+							<tr>
+								<td>Multiplication / Division</td>
+								<td>\(\bar{z} = \bar{x}  \times \bar{y}\) or \(\bar{z} = \dfrac{\bar{x}  }{ \bar{y}}\) </td>
+								<td>\(\Delta z = \bar{z}\sqrt{\left(\dfrac{\Delta x}{\bar{y}}\right)^2+\left(\dfrac{\Delta
+								y}{\bar{y}}\right)^2}\)</td>
+							</tr>
+							
+							<tr>
+								<td>Function</td>
+								<td>\(\bar{z} = f(x)\)</td>
+								<td>\(\Delta z = \left|\dfrac{\partial f(x) }{\partial x}\right|\Delta x\)</td>
+							</tr>
+						</tbody>
+					</table>
 
-						<ul style="line-height: 3;">
-							<li>
-								\(a =c x\), where $c$ is us a number without error,
-								\(
-								\;\Ra \;\Delta a = c \Delta x
-								\)
-							</li>
-							<li>
-								\(b = x\pm y \)
-								\(
-								\;\Ra \;\Delta b = \sqrt{\Delta x^2+\Delta y^2}
-								\)
-							</li>
-							<li>
-								\(b = Ax\pm By \)
-								\(
-								\;\Ra \;\Delta b = \sqrt{A^2\Delta x^2+B^2\Delta y^2}
-								\)
-							</li>
-							<li>
-								\(c = x\times y \)
-								\(
-								\;\Ra \;\Delta c = c\sqrt{\left(\dfrac{\Delta x}{x}\right)^2+\left(\dfrac{\Delta
-								y}{y}\right)^2}
-								\)
-							</li>
-							<li>
-								\(d = f(x) \)
-								\(
-								\;\Ra \;\Delta d = \left|\dfrac{\partial f(x) }{\partial x}\right|\Delta x
-								\)
-							</li>
-						</ul>
-					</div>
+
+					<br />
 					<br />
 				</section>
 
@@ -2693,7 +2696,7 @@
 
 					<div class="left-txt size-75">
 						<p>
-							We have a function of independent variables
+							If we have a general function of independent variables
 							\[f\left(x_1,x_2,\cdots, x_n\right)\]
 						</p>
 
@@ -2708,7 +2711,7 @@
 
 						</p>
 
-						
+
 
 					</div>
 
