@@ -2858,13 +2858,14 @@
 							</li>
 						</ol>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
 					<h4>Example 1 — Total volume</h4>
 					<div class="size-85">
-						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> = \(30.0 \pm
+						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> =
+							\(30.0 \pm
 							0.4\, \text{ml}\).</p>
 						<p>
 							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
@@ -2873,9 +2874,11 @@
 							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
 						</p>
 						<p><em>Sum (addition) — uncertainties combined in quadrature (independent errors):</em></p>
-						<p>\[ V_{\text{tot}} = V_w + V_m = 70.0\, \text{ml}+ 30.0 \, \text{ml} = 100.0 \, \text{ml}\]</p>
+						<p>\[ V_{\text{tot}} = V_w + V_m = 70.0\, \text{ml}+ 30.0 \, \text{ml} = 100.0 \, \text{ml}\]
+						</p>
 						<p>
-							\( \Delta{V_{\text{tot}}}=\sqrt{(0.5\, \text{ml})^{2}+(0.4\, \text{ml})^{2}} =\sqrt{0.25\, \text{ml}^2+0.16\, \text{ml}^2}\)
+							\( \Delta{V_{\text{tot}}}=\sqrt{(0.5\, \text{ml})^{2}+(0.4\, \text{ml})^{2}} =\sqrt{0.25\,
+							\text{ml}^2+0.16\, \text{ml}^2}\)
 						</p>
 						<p>
 							\( =\sqrt{0.41\, \text{ml}^2}=0.64\, \text{ml}\
@@ -2883,41 +2886,89 @@
 						</p>
 						<p><strong>Answer:</strong> \(V_{\text{tot}} = 100.0 \pm 0.6\) ml.</p>
 					</div>
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>Example 2 — % v/v methanol</h4>
-					<div class="size-70">
-						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> = \(30.0 \pm
+
+					<div class="size-60">
+						<p>
+						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> =
+							\(30.0 \pm
 							0.4\, \text{ml}\).</p>
 						<p>
 							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
-						</p>
-						<p>
+						    &nbsp; - &nbsp;
 							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
 						</p>
-						<p>Fraction of methanol: \(\displaystyle
-							z = \frac{V_m}{V_{\text{tot}}}=\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times 100\%=30\%\).</p>
-						<p>
-							<em>Division: </em>
-							</p>
-						<p>\[ f=\frac{V_m}{V_w+V_m},\quad \frac{\partial f}{\partial V_m}=\frac{V_w}{(V_w+V_m)^2},\quad
-							\frac{\partial f}{\partial V_w}=-\frac{V_m}{(V_w+V_m)^2} \]</p>
-						<p>Evaluate at \(V_w=70.0,\ V_m=30.0\):</p>
-						<p>\[ \sigma_f=\sqrt{( \tfrac{70}{100^2}\cdot 0.4 )^2 + ( \tfrac{30}{100^2}\cdot 0.5 )^2}
-							\approx 0.00318 \]</p>
-						<p>Convert to percent: \(f\times 100 = 30.0\%\). Uncertainty:
-							\(0.00318\times100\approx0.318\%\), round sensibly to one significant figure in the
-							uncertainty → \(0.3\%\).</p>
-						<p><strong>Answer:</strong> Methanol ≈ \(30.0\% \pm 0.3\%\) (v/v).</p>
+						</p>
 					</div>
-					<br/>
+					<div class="size-80">
+
+						<p>Fraction of methanol: \(\displaystyle
+							f = \frac{V_m}{V_{\text{tot}}}=\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
+							100\%=30\%\).</p>
+						<p>
+							<em>Propagate uncertainty using partial derivatives <br/>(since \(V_m\) appears in numerator and
+								denominator):</em>
+						</p>
+						<p>
+							\(\ds f=\frac{V_m}{V_w+V_m},\quad \)
+							<span>
+								\(\ds \frac{\partial f}{\partial V_m}=\frac{V_w}{(V_w+V_m)^2},\quad\)
+							</span>
+							<span>
+								\(\ds 
+							\frac{\partial f}{\partial V_w}=-\frac{V_m}{(V_w+V_m)^2} \)
+							</span>
+						</p>
+						<p>Evaluate at \(V_w=70.0,\ V_m=30.0\):</p>
+						<p>\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left( \tfrac{30}{100^2}\cdot 0.5 \right)^2}
+							\approx 0.00318 \)</p>
+						
+					</div>
+					<br />
 				</section>
+				<section data-auto-animate>
+					<h4>Example 2 — % v/v methanol</h4>
+
+					<div class="size-60">
+						<p>
+						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> =
+							\(30.0 \pm
+							0.4\, \text{ml}\).</p>
+						<p>
+							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
+						    &nbsp; - &nbsp;
+							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
+						</p>
+						</p>
+					</div>
+					<div class="size-80">
+
+						<p>Fraction of methanol: \(\displaystyle
+							f = \frac{V_m}{V_{\text{tot}}}=\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
+							100\%=30\%\).</p>
+						
+						
+						<p>\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left( \tfrac{30}{100^2}\cdot 0.5 \right)^2}
+							\approx 0.00318 \)</p>
+						<p>
+							Uncertainty as percentage:
+							\(0.00318\times100\approx0.318\%\), <br/>
+							<span>round sensibly to one significant figure in the
+							uncertainty → \(0.3\%\).</span>
+						</p>
+						<p>Therefore, Methanol = \(30.0\pm 0.3\, \%\) (%v/v).</p>
+					</div>
+					<br />
+				</section>
+
 				<section>
 					<h4>Example 3 — Mixture remaining after removing part</h4>
-					<div class="size-60">
+					<div class="size-70">
 						<p>We remove \(15 \pm 5\) from the total \(100.0 \pm 0.64\).</p>
 						<p>Remaining volume: \[ R = V_{\text{tot}} - V_{\text{removed}} = 100.0 - 15.0 = 85.0 \]</p>
 						<p>Uncertainty (independent errors, subtraction → quadrature):</p>
@@ -2959,18 +3010,18 @@
 
 							</li>
 							<li>
-								
+
 								Calculated from data
-								
-							</li>
-							<li>
-								
-								Estimated from precision
-								
 
 							</li>
 							<li>
-								
+
+								Estimated from precision
+
+
+							</li>
+							<li>
+
 								Estimated from context
 
 							</li>
@@ -2985,7 +3036,7 @@
 							<li>
 								Use the Rule of s.f. - report answer to lowest s.f. appearing in data
 							</li>
-							
+
 						</ul>
 					</div>
 				</section>
