@@ -2834,7 +2834,7 @@
 						Examples
 					</h4>
 
-					<div>
+					<div style="line-height: 1.8;">
 						<ol>
 							<li>
 								I mix 70.0 ± 0.5 ml of water to 30.0 ± 0.4 ml of methanol. How
@@ -2851,11 +2851,7 @@
 								much mixture I have left?
 
 							</li>
-							<li>
-								How much ethanol is in the mixture that is left after part c) of the
-								question?
 
-							</li>
 						</ol>
 					</div>
 					<br />
@@ -2900,7 +2896,7 @@
 							0.4\, \text{ml}\).</p>
 						<p>
 							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
-						    &nbsp; - &nbsp;
+							&nbsp; - &nbsp;
 							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
 						</p>
 						</p>
@@ -2911,7 +2907,8 @@
 							f = \frac{V_m}{V_{\text{tot}}}=\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
 							100\%=30\%\).</p>
 						<p>
-							<em>Propagate uncertainty using partial derivatives <br/>(since \(V_m\) appears in numerator and
+							<em>Propagate uncertainty using partial derivatives <br />(since \(V_m\) appears in
+								numerator and
 								denominator):</em>
 						</p>
 						<p>
@@ -2920,14 +2917,15 @@
 								\(\ds \frac{\partial f}{\partial V_m}=\frac{V_w}{(V_w+V_m)^2},\quad\)
 							</span>
 							<span>
-								\(\ds 
-							\frac{\partial f}{\partial V_w}=-\frac{V_m}{(V_w+V_m)^2} \)
+								\(\ds
+								\frac{\partial f}{\partial V_w}=-\frac{V_m}{(V_w+V_m)^2} \)
 							</span>
 						</p>
 						<p>Evaluate at \(V_w=70.0,\ V_m=30.0\):</p>
-						<p>\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left( \tfrac{30}{100^2}\cdot 0.5 \right)^2}
+						<p>\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
+							\tfrac{30}{100^2}\cdot 0.5 \right)^2}
 							\approx 0.00318 \)</p>
-						
+
 					</div>
 					<br />
 				</section>
@@ -2941,7 +2939,7 @@
 							0.4\, \text{ml}\).</p>
 						<p>
 							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
-						    &nbsp; - &nbsp;
+							&nbsp; - &nbsp;
 							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
 						</p>
 						</p>
@@ -2951,40 +2949,76 @@
 						<p>Fraction of methanol: \(\displaystyle
 							f = \frac{V_m}{V_{\text{tot}}}=\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
 							100\%=30\%\).</p>
-						
-						
-						<p>\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left( \tfrac{30}{100^2}\cdot 0.5 \right)^2}
+
+
+						<p>\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
+							\tfrac{30}{100^2}\cdot 0.5 \right)^2}
 							\approx 0.00318 \)</p>
 						<p>
 							Uncertainty as percentage:
-							\(0.00318\times100\approx0.318\%\), <br/>
+							\(0.00318\times100\approx0.318\%\), <br />
 							<span>round sensibly to one significant figure in the
-							uncertainty → \(0.3\%\).</span>
+								uncertainty → \(0.3\%\).</span>
 						</p>
 						<p>Therefore, Methanol = \(30.0\pm 0.3\, \%\) (%v/v).</p>
 					</div>
+					<br />
 					<br />
 				</section>
 
 				<section>
 					<h4>Example 3 — Mixture remaining after removing part</h4>
-					<div class="size-70">
-						<p>We remove \(15 \pm 5\) from the total \(100.0 \pm 0.64\).</p>
-						<p>Remaining volume: \[ R = V_{\text{tot}} - V_{\text{removed}} = 100.0 - 15.0 = 85.0 \]</p>
-						<p>Uncertainty (independent errors, subtraction → quadrature):</p>
-						<p>\[ \sigma_R=\sqrt{0.64^2 + 5.0^2}=\sqrt{0.4096+25}=5.04\ (\text{approx.}) \]</p>
+					<div class="size-80">
+						<p>We remove \(15 \pm 5 \, \text{ml}\) from the total \(100.0 \pm 0.64 \, \text{ml}\).</p>
+						<p>
+							Remaining volume:
+						</p>
+						<p>
+							<span>
+								\( R = V_{\text{tot}} - V_{\text{removed}} \)
+							</span>
+							<span>
+								\( = 100.0\, \text{ml} - 15.0 \, \text{ml} \)
+							</span>
+							<span>
+								\( = 85.0 \, \text{ml}\)
+							</span>
+						</p>
+						<p>
+							Uncertainty (independent errors, subtraction → quadrature):
+						</p>
+						<p>
+							<span>
+								\(\Delta R=\sqrt{0.64^2\, \text{ml}^2 + 5.0^2\, \text{ml}^2} \)
+							</span>
+							<span>
+								\(=\sqrt{0.4096\, \text{ml}^2+25\, \text{ml}^2} \)
+							</span>
+						</p>
+						<p>
+
+							<span>
+								\(=5.04\, \text{ml}\ (\text{approx.}) \)
+							</span>
+						</p>
 						<p>Round uncertainty to one significant figure → \(5\). Align value to same precision.</p>
-						<p><strong>Answer:</strong> Remaining mixture = \(85 \pm 5\) (same units).</p>
+						<p>Hence, the remaining mixture \(\,= 85 \pm 5\, \text{ml}\) .</p>
 					</div>
 				</section>
-				<section>
+
+				<section data-visibility="hidden">
 					<h4>Example 4 — How much methanol is left?</h4>
-					<div class="size-60">
-						<p><em>Note:</em> I treat “ethanol” in the question as a typo and compute amount of
-							<strong>methanol</strong> left.
+					<div class="size-80">
+
+						<p>
+							Methanol fraction from (2): \(f = 0.300 \pm 0.00318\, \text{ml}\).
+
 						</p>
-						<p>Methanol fraction from (2): \(f = 0.300 \pm 0.00318\). Remaining volume from (3): \(R = 85.0
-							\pm 5.04\).</p>
+						<p>
+							Remaining volume from (3): \(R = 85.0
+							\pm 5.04\, \text{ml}\)
+						</p>
+
 						<p>Amount of methanol left: \[ M_{\text{left}} = f\cdot R = 0.300\times 85.0 = 25.5 \]</p>
 						<p>Propagate uncertainty for product (treating \(f\) and \(R\) as independent here):</p>
 						<p>\[ \sigma_{M}=\sqrt{(R\,\sigma_f)^2 + (f\,\sigma_R)^2} =\sqrt{(85\cdot 0.00318)^2 +
@@ -2996,9 +3030,9 @@
 				</section>
 
 				<section>
-					<h4>
+					<h3>
 						Summary, how to deal with errors
-					</h4>
+					</h3>
 
 					<div class="left-txt">
 						<p>
@@ -3039,6 +3073,37 @@
 
 						</ul>
 					</div>
+					<br/>
+				</section>
+				<section>
+					<h3>
+						Summary, reporting the values
+					</h3>
+
+					<div class="left-txt">
+						
+						<ul>
+							<li>
+								Do not over report significance - it will affect the precision of reported
+							value
+							</li>
+							<li>
+								Be careful with trailing zeros, use scientific notation for clarity,
+								carefully consider the context
+							</li>
+							<li>
+
+								Use full accuracy for calculations but report the right number of
+								significant figures
+
+							</li>
+
+						</ul>
+					</div>
+					<br/>
+					<br/>
+					<br/>
+
 				</section>
 
 
