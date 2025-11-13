@@ -7,7 +7,7 @@ let delay = 20;
 function setup() {
   createCanvas(420, 380);
   
-  textFont('Menlo');
+  textFont('Courier New');
   textSize(20);
   textAlign(CENTER, CENTER);
   frameRate(60);

@@ -2646,11 +2646,14 @@
 
 					<div style="font-size: 90%;text-align: left;">
 						<p>
-							When dealing with uncertainties based on a large 
-							collection of numbers the manipulation of measured
-							quantities and the error associated with each 
-							quantity will contribute to the error in the 
-							final answer. 
+							When dealing with uncertainties based on a large
+							collection of numbers
+							<span class="fragment" data-fragment-index="0">
+								the manipulation of measured
+								quantities and the error associated with each
+								quantity will contribute to the error in the
+								final answer.
+							</span>
 						</p>
 					</div>
 
@@ -2666,11 +2669,11 @@
 
 					<div style="font-size: 60%;text-align: left;">
 						<p>
-							The following formulae are a 
-							good approximation of the error and become 
-							increasingly accurate as the number of 
-							measurements increase or when the cross 
-							terms between the contributing errors are 
+							The following formulae are a
+							good approximation of the error and become
+							increasingly accurate as the number of
+							measurements increase or when the cross
+							terms between the contributing errors are
 							reasonably small.
 						</p>
 					</div>
@@ -2690,24 +2693,26 @@
 								<td>\(\bar x = \dfrac{x_1+x_2+\cdots+x_n}{n}\)</td>
 								<td>\(\Delta x = \ds \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(x_i-\bar{x}\right)^2}\)</td>
 							</tr>
-							<tr>
+							<tr class="fragment" data-fragment-index="0">
 								<td>Constant factor</td>
 								<td>\(\bar{z} = A\bar{x} ,\) with \(A\) a constant</td>
-								<td>\(\Delta z  = A\Delta x \)</td>
+								<td>\(\Delta z = A\Delta x \)</td>
 							</tr>
-							<tr>
+							<tr class="fragment" data-fragment-index="1">
 								<td>Addition / Subtraction</td>
 								<td>\(\bar{z} = A\bar{x} ± B\bar{y}\)</td>
-								<td>\(\Delta z  = \sqrt{A^2\Delta x^2+B^2\Delta y^2} \)</td>
+								<td>\(\Delta z = \sqrt{A^2\Delta x^2+B^2\Delta y^2} \)</td>
 							</tr>
-							<tr>
+							<tr class="fragment" data-fragment-index="2">
 								<td>Multiplication / Division</td>
-								<td>\(\bar{z} = \bar{x}  \times \bar{y}\) or \(\bar{z} = \dfrac{\bar{x}  }{ \bar{y}}\) </td>
-								<td>\(\Delta z = \bar{z}\sqrt{\left(\dfrac{\Delta x}{\bar{y}}\right)^2+\left(\dfrac{\Delta
-								y}{\bar{y}}\right)^2}\)</td>
+								<td>\(\bar{z} = \bar{x} \times \bar{y}\) or \(\bar{z} = \dfrac{\bar{x} }{ \bar{y}}\)
+								</td>
+								<td>\(\Delta z = \bar{z}\sqrt{\left(\dfrac{\Delta
+									x}{\bar{y}}\right)^2+\left(\dfrac{\Delta
+									y}{\bar{y}}\right)^2}\)</td>
 							</tr>
-							
-							<tr>
+
+							<tr class="fragment" data-fragment-index="3">
 								<td>Function</td>
 								<td>\(f(x)\)</td>
 								<td>\(\Delta f = \left|\dfrac{\partial f(x) }{\partial x}\right|\Delta x\)</td>
@@ -2732,10 +2737,10 @@
 						</p>
 
 
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							- Each variable has an error $x_i \pm \Delta x_i$
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							- The error of the function is
 
 
@@ -2747,10 +2752,10 @@
 					</div>
 
 					<div class="size-80">
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							$\ds \Delta f = \sqrt{\left(\dfrac{\partial f(x) }{\partial x_1}\Delta x_1\right)^2+ \cdots+
 							\left(\dfrac{\partial f(x) }{\partial x_n}\Delta x_2\right)^2} $
-							<span>
+							<span class="fragment" data-fragment-index="2">
 								$=\ds \sqrt{\sum_{i=1}^{n}\left(\dfrac{\partial f(x) }{\partial x_i}\Delta x_i\right)^2
 								}$
 							</span>
