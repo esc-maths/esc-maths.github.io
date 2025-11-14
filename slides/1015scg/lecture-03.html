@@ -3129,63 +3129,83 @@
 			</section>
 
 			<section>
-				<section>
-					<h4 style="font-size: 180%;">
+				<section data-auto-animate>
+					<h4 style="font-size: 190%;">
 						Correlation
 					</h4>
+
+					<div style="margin-top: 0px;">
+						<iframe style="width: 450px; height: 450px; border: none;" data-src="sketches/data-correlation-loop"></iframe>
+					</div>
+					<br/>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>
 						Correlation
 					</h4>
-					<div>
+					<div class="left-txt size-85">
 
 						<p>
-							Measures the relationship between two or more variables, indicating how they change
+							Measures the relationship between two, or more variables, indicating how they change
 							together.
 						</p>
-						<p>
+
+						
+					</div>
+
+					<div style="margin-top: -40px;">
+						<iframe style="width: 450px; height: 450px; border: none;" data-src="sketches/data-correlation-loop"></iframe>
+					</div>
+
+
+					<div class="size-85">
+
+						<p class="fragment" data-fragment-index="0">
 							It is used to understand the relationship between variables.
 						</p>
 					</div>
+
+					<br/>
 				</section>
 
 				<section>
-					<h4>
-						Positive Correlation
+					<h4 class="fragment" data-fragment-index="0">
+					    📈 Positive Correlation
 					</h4>
 					<div>
-
-						Plot
+						<img style="width: 65%;" src="images/lec-03/correlation-positive.svg">
 					</div>
+					<br/>
 				</section>
 				<section>
-					<h4>
-						Negative Correlation
+					<h4 class="fragment" data-fragment-index="0">
+						📉 Negative Correlation
 					</h4>
 					<div>
-
-						Plot
+						<img style="width: 65%;" src="images/lec-03/correlation-negative.svg">
 					</div>
+					<br/>
 				</section>
 
 				<section>
-					<h4>
-						Weak/No Correlation
+					<h4  class="fragment" data-fragment-index="0">
+						❌ Weak/No Correlation
 					</h4>
 					<div>
-
-						Plot
+						<img style="width: 65%;" src="images/lec-03/correlation-no-correlation.svg">
 					</div>
+					<br/>
 				</section>
 
 
 				<section data-auto-animate>
-					<h4>
+					<h4 class="fragment" data-fragment-index="0">
 						Correlation Coefficient
 					</h4>
 
-					<br />
+					<div>
+						<p>To measure correlation between variables we use the formula:</p>
+					</div>
 
 					<table>
 						<tr>
@@ -3216,11 +3236,16 @@
 					<table>
 						<tr>
 							<td>
-								<div class="size-80">
+								<div class="size-75">
 									<p>
 										\(r = \frac{\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}
 										{\sqrt{\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})^2}
 										\sqrt{\displaystyle\sum_{i=1}^{n} (y_i - \bar{y})^2}}\)
+									</p>
+									<br/>
+									<p class="fragment" data-fragment-index="0">In Excel we use the function:</p>
+									<p class="fragment" data-fragment-index="0">
+										<tt>=CORREL(A1:A10,B1:B10)</tt>
 									</p>
 								</div>
 
@@ -3239,11 +3264,11 @@
 
 				<section data-auto-animate>
 					<h4>
-						Correlation $\neq$ Causation
+						⚠️ Correlation $\neq$ Causation
 					</h4>
 
 					<table>
-						<tr style="border: none;">
+						<tr style="border: none;" class="fragment" data-fragment-index="0">
 							<td style="border: none;text-align: right;">
 								<div style="font-size: 400%;">
 									<p>
@@ -3255,9 +3280,9 @@
 								Sales of Ice cream 
 							</td>
 						</tr>
-						<tr style="border: none;">
+						<tr style="border: none;" class="fragment" data-fragment-index="1">
 							<td>
-								No. of People getting ☀️ sun burn
+								No. of people getting ☀️ sun burn
 							</td>
 							<td>
 								<div style="font-size: 300%;">
@@ -3274,7 +3299,7 @@
 				</section>
 				<section data-auto-animate>
 					<h4>
-						Correlation $\neq$ Causation
+						⚠️ Correlation $\neq$ Causation
 					</h4>
 
 					<table style="width: 60%;">
@@ -3310,7 +3335,7 @@
 
 				<section data-auto-animate>
 					<h4>
-						Correlation $\neq$ Causation
+						⚠️ Correlation $\neq$ Causation
 					</h4>
 
 
@@ -3338,7 +3363,7 @@
 
 				<section data-auto-animate>
 					<h4>
-						Correlation $\neq$ Causation
+						⚠️ Correlation $\neq$ Causation
 					</h4>
 
 					<div>
