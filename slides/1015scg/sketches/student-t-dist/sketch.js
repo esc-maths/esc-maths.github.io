@@ -1,6 +1,8 @@
 // Plot Normal and Student's t-distributions with left y-axis ticks and right legend
 // Juan Carlos — 2025
 
+// https://emoji.aranja.com/
+
 function setup() {
   createCanvas(600, 500);
   background(255);
