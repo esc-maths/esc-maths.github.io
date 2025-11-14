@@ -410,7 +410,7 @@
 									</tbody>
 								</table>
 							</td>
-							<td style="width: 60%;">
+							<td style="width: 60%;" class="fragment" data-fragment-index="0">
 								<img style="width: 100%;" src="images/lec-03/plot-01.svg">
 							</td>
 						</tr>
@@ -901,9 +901,9 @@
 						Variance and Standard Deviation
 					</h4>
 
-					<table style="font-size: 75%;">
+					<table style="margin-top: -20px;">
 						<tr>
-							<td style="width: 62%;">
+							<td style="width: 70%;font-size: 80%;">
 								<div class="fragment" data-fragment-index="0">
 									<p>
 										For a data set of \(n\) observations, the
@@ -932,7 +932,7 @@
 									</p>
 								</div>
 							</td>
-							<td style="width: 38%;">
+							<td style="width: 30%;font-size: 70%;">
 
 								<div>
 									<p class="fragment" data-fragment-index="3"><b>FAQ:</b> Why \(n-1\)? 🤔</p>
@@ -2435,24 +2435,29 @@
 						What if the value does not have an error?
 					</h4>
 					<div class="left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							What is the difference between 12.3 and 12.30?
 						</p>
-						<p>
-							12.3 can be any number from 12.25 to 12.34 rounded to 3
-							s.f.
+						<ul style="line-height: 2;">
+							<li class="fragment" data-fragment-index="1">
+								12.3 can be any number from 12.25 to 12.34 rounded to 3
+								s.f.
 
-						</p>
-						<p>
-							12.30 can be any number from 12. 295 to 12.304 rounded
-							to 4 s.f.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								12.30 can be any number from 12. 295 to 12.304 rounded
+								to 4 s.f.
 
-						</p>
+							</li>
+						</ul>
 
-						<p>
-							<b>Significant figures reflect the precision to which a value is reported.</b>
-						</p>
+
 					</div>
+					<p class="fragment" data-fragment-index="3">
+						<b>Significant figures reflect the precision <br />to which a value is reported.</b>
+					</p>
+					<br />
+					<br />
 				</section>
 
 				<section>
@@ -2464,30 +2469,32 @@
 							If errors are not given:
 						</p>
 
-						<ul>
-							<li>
+						<ul style="line-height: 1.5;">
+							<li class="fragment" data-fragment-index="0">
 								One value - keep the same number of significant figures in
-								calculations
+								calculations.
 
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								More values - <b>rule of s.f.</b> — report answer to the lowest s.f. appearing
-								in question data
+								in question data.
 
 							</li>
 						</ul>
-						<p>
-							If errors are given — error propagation
+						<p class="fragment" data-fragment-index="3">
+							If errors are given, we must consider error propagation.
 						</p>
 
 					</div>
+
+					<br />
 				</section>
 
 				<section>
 					<h4>
 						Example
 					</h4>
-					<div class="left-txt size-85">
+					<div class="left-txt size-90">
 						<p>
 							Find the age of universe \(( t= 1.4 \times 10^{10}\,\text{years} )\) in weeks.
 						</p>
@@ -2497,43 +2504,46 @@
 					</div>
 
 					<div class="left-txt size-85">
-						<p>First, note that the value \(1.4 \times 10^{10}\,\text{years}\) has 2 s.f.</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">First, note that the value \(1.4 \times
+							10^{10}\,\text{years}\) has 2 s.f.</p>
+						<p class="fragment" data-fragment-index="1">
 							Now, $\,1 \,\text{year} = 52 \, \text{weeks}$
-							<span>\(\;\Ra\; 1 = \dfrac{52\, \text{weeks}}{1 \,\text{year}}\)</span>
+							<span class="fragment" data-fragment-index="2">\(\;\Ra\; 1 = \dfrac{52\, \text{weeks}}{1
+								\,\text{year}}\)</span>
 						</p>
 
 
 
 					</div>
 					<div class="left-txt size-85">
-						<p>
+						<p class="fragment" data-fragment-index="3">
 							Then $\, t = 1.4 \times 10^{10}\,\text{years}$
-							<span>\( =1.4 \times 10^{10}\,\text{years} \times \dfrac{52\, \text{weeks}}{1
+							<span class="fragment" data-fragment-index="4">\( =1.4 \times 10^{10}\,\text{years} \times
+								\dfrac{52\, \text{weeks}}{1
 								\,\text{year}}\)</span>
 						</p>
 						<p>
-							<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\( =1.4 \times
+							<span class="fragment"
+								data-fragment-index="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(
+								=1.4 \times
 								52 \times 10^{10}\text{weeks}\)</span>
-							<span>\( =72.8\times 10^{10}\,\text{weeks}\)</span>
+							<span class="fragment" data-fragment-index="6">\( =72.8\times 10^{10}\,\text{weeks}\)</span>
 						</p>
-						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(= 7.28\times
-							10^{11}\,\text{weeks}\;\;\) <span>(it has 3 s.f.) 👈</span>
+						<p class="fragment" data-fragment-index="7">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(= 7.28\times
+							10^{11}\,\text{weeks}\;\;\)
+							<span class="fragment" data-fragment-index="8">(it has 3 s.f.) 👈</span>
 
 						</p>
-						<p>&nbsp;&nbsp;&nbsp;&nbsp;Round it up so we consider 2 s.f. \(\rightarrow 7.3\times
+						<p class="fragment" data-fragment-index="9">&nbsp;&nbsp;&nbsp;&nbsp;Round it up so we consider 2
+							s.f. \(\rightarrow 7.3\times
 							10^{11}\,\text{weeks}\)</p>
 
 
 					</div>
 
 
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
+
 					<br />
 					<br />
 				</section>
@@ -2545,7 +2555,7 @@
 
 					<div class="left-txt size-95">
 						<p>
-							1203 people attend a concert, and spend $74,403.20
+							<b>1.</b> 1203 people attend a concert, and spend $74,403.20
 						</p>
 						<ul>
 							<li>
@@ -2558,7 +2568,7 @@
 					</div>
 					<div class="left-txt size-95">
 						<p>
-							1200 people attend a concert, and spend $74,000
+							<b>2.</b> 1200 people attend a concert, and spend $74,000
 						</p>
 						<ul>
 							<li>
@@ -2570,39 +2580,50 @@
 						</ul>
 					</div>
 
+					<br />
+					<br />
+					<br />
+					<br />
+
 				</section>
 
 				<section>
-					<h4>Solution – Example 1</h4>
+					<h4>Solution - Practice 1</h4>
 
-					<div class="left-txt size-85">
+					<div class="left-txt size-90">
 						<p>
 							<strong>Given:</strong><br>
 							1203 people attend, total spend = $74,403.20
 						</p>
 
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								<strong>Significant figures:</strong><br>
-								– 1203 → <strong>4 significant figures</strong><br>
-								– 74,403.20 → <strong>7 significant figures</strong> (all digits including trailing zero
-								after the decimal)
+								<span class="fragment" data-fragment-index="1">
+									– 1203 → <strong>4 significant figures</strong><br>
+								</span>
+								<span class="fragment" data-fragment-index="2">– 74,403.20 → <strong>7 significant
+										figures</strong> (all digits including trailing zero
+									after the decimal)</span>
 							</li>
 
-							<li class="fragment fade-in">
+							<li class="fragment" data-fragment-index="3">
 								<strong>Average spend per person:</strong>
 								<div style="text-align: center;">
-									<p>
+									<p class="fragment" data-fragment-index="4">
 										$\dfrac{74{,}403.20}{1203}$
-										<span>
+										<span class="fragment" data-fragment-index="5">
 											$= 61.848046...$
 										</span>
-										<span>
+										<span class="fragment" data-fragment-index="6">
 											$\approx 61.85$
 										</span>
 									</p>
 								</div>
-								So the average spend is <strong>$61.86 per person</strong>.
+								<span class="fragment" data-fragment-index="7">
+									So the average spend is <strong>$61.86 per person</strong>.
+								</span>
+
 							</li>
 						</ul>
 					</div>
@@ -2611,7 +2632,7 @@
 				</section>
 
 				<section>
-					<h4>Solution – Example 2</h4>
+					<h4>Solution - Practice 2</h4>
 
 					<div class="left-txt size-85">
 						<p>
@@ -2620,27 +2641,37 @@
 						</p>
 
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								<strong>Significant figures:</strong><br>
-								– 1200 → likely <strong>2 significant figures</strong> (unless the zeros are shown as
-								measured, e.g., 1200.)<br>
-								– 74,000 → <strong>2 significant figures</strong> (same reasoning)
+								<span class="fragment" data-fragment-index="1">
+									– 1200 → likely <strong>2 significant figures</strong> (unless the zeros are shown
+									as
+									measured, e.g., 1200.)<br>
+								</span>
+								<span class="fragment" data-fragment-index="2">– 74,000 → <strong>2 significant
+										figures</strong> (same reasoning)</span>
 							</li>
 
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								<strong>Average spend per person:</strong>
 								<div style="text-align: center;">
-									<p>
+									<p class="fragment" data-fragment-index="4">
 										$\dfrac{74{,}000}{1200}$
-										<span>
+										<span class="fragment" data-fragment-index="5">
 											$= 61.666...$
 										</span>
 									</p>
 								</div>
-								With 2 significant figures → <strong>$62 per person</strong>.
-								<p>
-									What will be the average if you consider $7.4\times 10^{5}$? 🤔
-								</p>
+								<span class="fragment" data-fragment-index="6">
+									With 2 significant figures → <strong>$62 per person</strong>.
+								</span>
+								<span class="fragment" data-fragment-index="7">
+
+									<p>
+										What will be the average if you consider $7.4\times 10^{5}$? 🤔
+									</p>
+								</span>
+
 							</li>
 						</ul>
 					</div>
@@ -2783,63 +2814,65 @@
 						Example - Unit conversion
 					</h4>
 
-					<div class="size-80">
+					<div class="size-85">
 						<p>
-							The bucket contains $5.23 \pm 0.07$ of water. How many gallons it is?
+							A bucket contains $5.23 \pm 0.07$ of water. How many gallons it is?
 						</p>
 
 					</div>
-					<div class="size-80">
+					<div class="size-85">
 						<p>
 							👉 \(1\,\text{gallon} = 3.79\, \text{L}\)
 						</p>
 
 					</div>
-					<div class="size-80">
-						<p>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
 							Change units in both the value and the error!
 						</p>
 					</div>
-					<div class="size-80">
-						<p>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="1">
 							\(\text{V} = 5.23 \,\text{L}\)
-							<span>
+							<span class="fragment" data-fragment-index="2">
 								\(=5.23 \,\text{L} \times \dfrac{1\,\text{gl}}{3.79\, \text{L}}\)
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="3">
 								\(=1.379947 \,\text{gl}\)
 							</span>
 						</p>
 					</div>
-					<div class="size-80">
-						<p>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="4">
 							\(\Delta \text{V} = 0.07 \,\text{L}\)
-							<span>
+							<span class="fragment" data-fragment-index="5">
 								\(=0.07 \,\text{L} \times \dfrac{1\,\text{gl}}{3.79\, \text{L}}\)
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="6">
 								\(=0.018469 \,\text{gl}\)
 							</span>
 						</p>
 					</div>
-					<div class="size-80">
-						<p>
-							Thus \(\text{V} = 1.38 \,\text{gl}\)
-							<span>
-								and \(\Delta \text{V} = 0.07 \,\text{gl}\)
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="7">
+							Thus \(\text{V} = 1.38 \,\text{gl}\;\)
+							<span class="fragment" data-fragment-index="8">
+								and \(\;\Delta \text{V} = 0.07 \,\text{gl}\)
 							</span>
 
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="9">
 							\(\Ra \text{V} = 1.38 \pm 0.07\,\text{gl} \)
 						</p>
 					</div>
+
+					<br />
 
 				</section>
 
 				<section>
 					<h4>
-						Examples
+						📝 More Examples 😃
 					</h4>
 
 					<div style="line-height: 1.8;">
@@ -2863,6 +2896,7 @@
 						</ol>
 					</div>
 					<br />
+					<br />
 				</section>
 
 				<section>
@@ -2871,33 +2905,44 @@
 						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> =
 							\(30.0 \pm
 							0.4\, \text{ml}\).</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
 						</p>
-						<p><em>Sum (addition) — uncertainties combined in quadrature (independent errors):</em></p>
+						<p class="fragment" data-fragment-index="2"><b>Sum (addition)</b> — uncertainties combined in
+							quadrature (independent errors):</p>
 						<p>
-							<span>
+							<span class="fragment" data-fragment-index="3">
 								\(V_{\text{tot}} = V_w + V_m \)
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="4">
 								\(= 70.0\, \text{ml}+ 30.0 \, \text{ml} \)
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="5">
 								\(= 100.0 \, \text{ml}\)
 							</span>
 						</p>
 						<p>
-							\( \Delta{V_{\text{tot}}}=\sqrt{(0.5\, \text{ml})^{2}+(0.4\, \text{ml})^{2}} =\sqrt{0.25\,
-							\text{ml}^2+0.16\, \text{ml}^2}\)
+							<span class="fragment" data-fragment-index="6">
+								\( \Delta{V_{\text{tot}}}=\sqrt{(0.5\, \text{ml})^{2}+(0.4\, \text{ml})^{2}} \)
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								\( =\sqrt{0.25\, \text{ml}^2+0.16\, \text{ml}^2}\)
+							</span>
+
 						</p>
 						<p>
-							\( =\sqrt{0.41\, \text{ml}^2}=0.64\, \text{ml}\
-							(\text{approx.}) \)
+							<span class="fragment" data-fragment-index="8">
+								\( =\sqrt{0.41\, \text{ml}^2} \)
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								\( =0.64\, \text{ml}\;(\text{approx.}) \)
+							</span>
+
 						</p>
-						<p>Hence, \(V_{\text{tot}} = 100.0 \pm 0.6\) ml.</p>
+						<p class="fragment" data-fragment-index="10">Hence, \(V_{\text{tot}} = 100.0 \pm 0.6\) ml.</p>
 					</div>
 					<br />
 				</section>
@@ -2919,28 +2964,47 @@
 					</div>
 					<div class="size-80">
 
-						<p>Fraction of methanol: \(\displaystyle
-							f = \frac{V_m}{V_{\text{tot}}}=\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
-							100\%=30\%\).</p>
 						<p>
-							<em>Propagate uncertainty using partial derivatives <br />(since \(V_m\) appears in
-								numerator and
-								denominator):</em>
+							<span class="fragment" data-fragment-index="0">
+								Fraction of methanol: \(\displaystyle
+								f = \frac{V_m}{V_{\text{tot}}}\)
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								 \(\displaystyle =\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
+								100\%\)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								 \(\displaystyle=30\%\).
+							</span>
+
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="3">
+							<b>Propagate uncertainty using partial derivatives</b> <br />(since \(V_m\) appears in
+								numerator and
+								denominator):
+						</p>
+						<p class="fragment" data-fragment-index="4">
 							\(\ds f=\frac{V_m}{V_w+V_m},\quad \)
-							<span>
+							<span class="fragment" data-fragment-index="5">
 								\(\ds \frac{\partial f}{\partial V_m}=\frac{V_w}{(V_w+V_m)^2},\quad\)
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="6">
 								\(\ds
 								\frac{\partial f}{\partial V_w}=-\frac{V_m}{(V_w+V_m)^2} \)
-							</span>
+							</span class="fragment" data-fragment-index="7">
 						</p>
-						<p>Evaluate at \(V_w=70.0,\ V_m=30.0\):</p>
-						<p>\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
-							\tfrac{30}{100^2}\cdot 0.5 \right)^2}
-							\approx 0.00318 \)</p>
+						<p class="fragment" data-fragment-index="8">Evaluate at \(V_w=70.0,\ V_m=30.0\):</p>
+						<p>
+							<span class="fragment" data-fragment-index="9">
+								\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
+							\tfrac{30}{100^2}\cdot 0.5 \right)^2} \)
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								\( \ds 
+							\approx 0.00318 \)
+							</span>
+							
+						</p>
 
 					</div>
 					<br />
@@ -2962,64 +3026,86 @@
 					</div>
 					<div class="size-80">
 
-						<p>Fraction of methanol: \(\displaystyle
-							f = \frac{V_m}{V_{\text{tot}}}=\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
-							100\%=30\%\).</p>
-
-
-						<p>\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
-							\tfrac{30}{100^2}\cdot 0.5 \right)^2}
-							\approx 0.00318 \)</p>
 						<p>
+							<span>
+								Fraction of methanol: \(\displaystyle
+								f = \frac{V_m}{V_{\text{tot}}}\)
+							</span>
+							<span>
+								 \(\displaystyle =\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
+								100\%\)
+							</span>
+							<span>
+								 \(\displaystyle=30\%\).
+							</span>
+
+						</p>
+						<p>
+							<span>
+								\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
+							\tfrac{30}{100^2}\cdot 0.5 \right)^2} \)
+							</span>
+							<span>
+								\( \ds 
+							\approx 0.00318 \)
+							</span>
+							
+						</p>
+
+						<p class="fragment" data-fragment-index="0">
 							Uncertainty as percentage:
 							\(0.00318\times100\approx0.318\%\), <br />
-							<span>round sensibly to one significant figure in the
+							<span class="fragment" data-fragment-index="1">round sensibly to one significant figure in the
 								uncertainty → \(0.3\%\).</span>
 						</p>
-						<p>Therefore, Methanol = \(30.0\pm 0.3\, \%\) (%v/v).</p>
+						<p class="fragment" data-fragment-index="2">Therefore, Methanol = \(30.0\pm 0.3\, \%\) (%v/v).</p>
+
 					</div>
 					<br />
 					<br />
+					<br />
 				</section>
+				
 
 				<section>
 					<h4>Example 3 — Mixture remaining after removing part</h4>
-					<div class="size-80">
+					<div class="size-85">
 						<p>We remove \(15 \pm 5 \, \text{ml}\) from the total \(100.0 \pm 0.64 \, \text{ml}\).</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							Remaining volume:
 						</p>
 						<p>
-							<span>
+							<span class="fragment" data-fragment-index="1">
 								\( R = V_{\text{tot}} - V_{\text{removed}} \)
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="2">
 								\( = 100.0\, \text{ml} - 15.0 \, \text{ml} \)
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="3">
 								\( = 85.0 \, \text{ml}\)
 							</span>
 						</p>
-						<p>
-							Uncertainty (independent errors, subtraction → quadrature):
+						<p class="fragment" data-fragment-index="4">
+							<b>Subtraction</b> - Independent errors → quadrature:
 						</p>
 						<p>
-							<span>
+							<span class="fragment" data-fragment-index="5">
 								\(\Delta R=\sqrt{0.64^2\, \text{ml}^2 + 5.0^2\, \text{ml}^2} \)
 							</span>
-							<span>
+							<span class="fragment" data-fragment-index="6">
 								\(=\sqrt{0.4096\, \text{ml}^2+25\, \text{ml}^2} \)
 							</span>
 						</p>
 						<p>
 
-							<span>
+							<span class="fragment" data-fragment-index="7">
 								\(=5.04\, \text{ml}\ (\text{approx.}) \)
 							</span>
 						</p>
-						<p>Round uncertainty to one significant figure → \(5\). Align value to same precision.</p>
-						<p>Thus, the remaining mixture \(\,= 85 \pm 5\, \text{ml}\) .</p>
+						<p class="fragment" data-fragment-index="8">Round uncertainty to one significant figure → \(5\). Align value to same precision.</p>
+						<p class="fragment" data-fragment-index="9">Thus, the remaining mixture \(\,= 85 \pm 5\, \text{ml}\) .</p>
 					</div>
+					<br />
 					<br />
 				</section>
 
@@ -3044,6 +3130,7 @@
 							precision to one decimal.</p>
 						<p><strong>Answer:</strong> Methanol left ≈ \(25.5 \pm 1.5\) (same units).</p>
 					</div>
+					<br/>
 				</section>
 
 				<section>
@@ -3052,10 +3139,10 @@
 					</h3>
 
 					<div class="left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							Where they come from?
 						</p>
-						<ul>
+						<ul class="fragment" data-fragment-index="2">
 							<li>
 								Sometimes given
 
@@ -3079,8 +3166,8 @@
 						</ul>
 					</div>
 					<div class="left-txt">
-						<p>How to propagate them?</p>
-						<ul>
+						<p class="fragment" data-fragment-index="3">How to propagate them?</p>
+						<ul class="fragment" data-fragment-index="4">
 							<li>
 								Keep the same number of s.f.
 							</li>
@@ -3104,11 +3191,11 @@
 								Do not over report significance - it will affect the precision of reported
 								value
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								Be careful with trailing zeros, use scientific notation for clarity,
 								carefully consider the context
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="4">
 
 								Use full accuracy for calculations but report the right number of
 								significant figures
@@ -3135,9 +3222,10 @@
 					</h4>
 
 					<div style="margin-top: 0px;">
-						<iframe style="width: 450px; height: 450px; border: none;" data-src="sketches/data-correlation-loop"></iframe>
+						<iframe style="width: 450px; height: 450px; border: none;"
+							data-src="sketches/data-correlation-loop"></iframe>
 					</div>
-					<br/>
+					<br />
 				</section>
 				<section data-auto-animate>
 					<h4>
@@ -3150,11 +3238,12 @@
 							together.
 						</p>
 
-						
+
 					</div>
 
 					<div style="margin-top: -40px;">
-						<iframe style="width: 450px; height: 450px; border: none;" data-src="sketches/data-correlation-loop"></iframe>
+						<iframe style="width: 450px; height: 450px; border: none;"
+							data-src="sketches/data-correlation-loop"></iframe>
 					</div>
 
 
@@ -3165,17 +3254,17 @@
 						</p>
 					</div>
 
-					<br/>
+					<br />
 				</section>
 
 				<section>
 					<h4 class="fragment" data-fragment-index="0">
-					    📈 Positive Correlation
+						📈 Positive Correlation
 					</h4>
 					<div>
 						<img style="width: 65%;" src="images/lec-03/correlation-positive.svg">
 					</div>
-					<br/>
+					<br />
 				</section>
 				<section>
 					<h4 class="fragment" data-fragment-index="0">
@@ -3184,17 +3273,17 @@
 					<div>
 						<img style="width: 65%;" src="images/lec-03/correlation-negative.svg">
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
-					<h4  class="fragment" data-fragment-index="0">
+					<h4 class="fragment" data-fragment-index="0">
 						❌ Weak/No Correlation
 					</h4>
 					<div>
 						<img style="width: 65%;" src="images/lec-03/correlation-no-correlation.svg">
 					</div>
-					<br/>
+					<br />
 				</section>
 
 
@@ -3242,7 +3331,7 @@
 										{\sqrt{\displaystyle\sum_{i=1}^{n} (x_i - \bar{x})^2}
 										\sqrt{\displaystyle\sum_{i=1}^{n} (y_i - \bar{y})^2}}\)
 									</p>
-									<br/>
+									<br />
 									<p class="fragment" data-fragment-index="0">In Excel we use the function:</p>
 									<p class="fragment" data-fragment-index="0">
 										<tt>=CORREL(A1:A10,B1:B10)</tt>
@@ -3277,7 +3366,7 @@
 								</div>
 							</td>
 							<td style="border: none;">
-								Sales of Ice cream 
+								Sales of Ice cream
 							</td>
 						</tr>
 						<tr style="border: none;" class="fragment" data-fragment-index="1">
@@ -3294,8 +3383,8 @@
 						</tr>
 					</table>
 
-					<br/>
-					
+					<br />
+
 				</section>
 				<section data-auto-animate>
 					<h4>
@@ -3340,25 +3429,28 @@
 
 
 					<div class="r-stack">
-						<img class="fragment fade-out" data-fragment-index="0" src="images/lec-03/correlation-no-causation-emojis-01.svg">
-						<img class="fragment fade-in-then-out" data-fragment-index="0" src="images/lec-03/correlation-no-causation-emojis-02.svg">
-						<img class="fragment fade-in" data-fragment-index="1" src="images/lec-03/correlation-no-causation-emojis-03.svg">
+						<img class="fragment fade-out" data-fragment-index="0"
+							src="images/lec-03/correlation-no-causation-emojis-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							src="images/lec-03/correlation-no-causation-emojis-02.svg">
+						<img class="fragment fade-in" data-fragment-index="1"
+							src="images/lec-03/correlation-no-causation-emojis-03.svg">
 					</div>
 					<div class="r-stack">
-						<p class="fragment fade-out" data-fragment-index="0" >
+						<p class="fragment fade-out" data-fragment-index="0">
 							Ice cream is not causing sun burn‼️
 						</p>
-						<p class="fragment fade-in-then-out" data-fragment-index="0" >
+						<p class="fragment fade-in-then-out" data-fragment-index="0">
 							We must consider an external factor: The Sun ☀️
 						</p>
-						<p class="fragment fade-in" data-fragment-index="1" >
-							The Sun ☀️ might be increasing the sales of ice cream <br/>
+						<p class="fragment fade-in" data-fragment-index="1">
+							The Sun ☀️ might be increasing the sales of ice cream <br />
 							and also sun burns on people.
 						</p>
 					</div>
 
-					<br/>
-					
+					<br />
+
 				</section>
 
 				<section data-auto-animate>
@@ -3370,9 +3462,9 @@
 						<img style="width: 100%;" src="images/lec-03/death-cage.png">
 					</div>
 
-					<br/>
+					<br />
 
-					
+
 				</section>
 
 				<section>
