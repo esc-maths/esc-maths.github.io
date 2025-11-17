@@ -137,7 +137,7 @@
 								</div>
 								<div style="text-align: center;">
 									<p>
-										\(\varepsilon_i= y_i - \hat{y}\)
+										\(e_i= y_i - \hat{y}\)
 									</p>
 								</div>
 								<div>
@@ -155,9 +155,9 @@
 										<span>
 											\( \ds \sum_{i}\)
 										</span>
-										\(\varepsilon_i^2\)
+										\(e_i^2\)
 										<span>
-											\(= \ds \sum_{i}(y_i - \hat{y})\)
+											\(= \ds \sum_{i}\left(y_i - \hat{y}\right)^2\)
 										</span>
 									</p>
 								</div>
@@ -221,19 +221,19 @@
 
 					<div class="left-txt size-80">
 						<p>For a dataset of pairs \((x_i, y_i)\), we assume that the relationship
-							between \(x\) and \(y\) can be described by a straight line plus some noise.</p>
+							between \(x\) and \(y\) can be described by a straight line.</p>
 
 					</div>
 					<div class="size-80">
 						<p>
 							\(
-							y_i = b + m x_i + \varepsilon_i
+							y_i = m x_i + b
 							\)
 						</p>
 					</div>
 
 
-					<div style="font-size:60%;text-align: left;">
+					<div style="font-size:80%;text-align: left;">
 
 
 						<p><strong>• \(b\) (intercept):</strong> the predicted value of \(y\) when \(x=0\).</p>
@@ -241,21 +241,21 @@
 						<p><strong>• \(m\) (slope):</strong> how much the predicted value of \(y\) changes
 							for each 1-unit increase in \(x\).</p>
 
-						<p><strong>• \(\varepsilon_i\) (error term):</strong> the random deviation of each data point
-							from the line — it represents noise or unexplained variation.</p>
-
+				
 					</div>
-					<div class="size-80">
-						<p><strong>Least-squares estimates:</strong></p>
-						<p>
-							\[
-							\hat{m} =
+					<div class="size-85">
+						<p><strong>Least-squares estimates:</strong>
+							\(\;\ds
+							m =
 							\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2},
-							\qquad
-							\hat{b} = \bar{y} - \hat{m}\,\bar{x}
-							\]
+							\;\,
+							b = \bar{y} - \hat{m}\,\bar{x}
+							\)
 						</p>
 					</div>
+					<br/>
+					<br/>
+					
 				</section>
 
 
