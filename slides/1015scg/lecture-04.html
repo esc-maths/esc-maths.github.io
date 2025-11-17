@@ -126,41 +126,41 @@
 								</div>
 								<div style="text-align: center;">
 									<p>
-										\(y = mx + b\)
+										\(\hat{y} = mx + b\)
 									</p>
 								</div>
+
 								<div>
 									<p>
-										Slope and averages form:
+										Residuals:
 									</p>
 								</div>
 								<div style="text-align: center;">
 									<p>
-										\(y - \bar{y} = m (x - \bar{x}) \)
+										\(\varepsilon_i= y_i - \hat{y}\)
 									</p>
 								</div>
 								<div>
 									<p>
-										Actual data:
+										where \(\ds \hat{y} = m x_i + c\)
+									</p>
+								</div>
+								<div>
+									<p>
+										We want to minimize
 									</p>
 								</div>
 								<div style="text-align: center;">
 									<p>
-										\(y_i - \bar{y} = m (x_i - \bar{x}) + \varepsilon_i \)
+										<span>
+											\( \ds \sum_{i}\)
+										</span>
+										\(\varepsilon_i^2\)
+										<span>
+											\(= \ds \sum_{i}(y_i - \hat{y})\)
+										</span>
 									</p>
 								</div>
-								<div>
-									<p>
-										\(\varepsilon_i= y_i - \bar{y}\) are the <b>residuals</b>!
-									</p>
-								</div>
-								<div>
-									<p>
-										We want to minimise \(\ds \sum_{i}\varepsilon_i^2\)
-									</p>
-								</div>
-
-
 							</td>
 							<td>
 								<div class="r-stack">
@@ -185,39 +185,14 @@
 						data-src="https://www.geogebra.org/material/iframe/id/ujbbvhgq/width/719/height/500/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
 						width="719px" height="500px" style="border:0px;" allowfullscreen> </iframe>
 
-						<br/>
-						<br/>
-				</section>
-
-				<section>
-					<h4>The linear model – least squares solution</h4>
-
-					<p>Model: \( y_i = \beta_0 + \beta_1 x_i + \varepsilon_i \)</p>
-
-					<div style="font-size:90%">
-
-						<p>Least-squares objective:</p>
-						<p>\[
-							S(\beta_0,\beta_1)=\sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2
-							\]</p>
-
-						<p>Closed-form solution using averages:</p>
-
-						<p>\[
-							\hat{\beta}_1
-							=\frac{\overline{xy}-\bar{x}\,\bar{y}}
-							{\overline{x^2}-\bar{x}^{\,2}}
-							\]</p>
-
-						<p>\[
-							\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\,\bar{x}
-							\]</p>
-
-					</div>
+					<br />
+					<br />
 				</section>
 
 
-				<section>
+
+
+				<section data-visibility="hidden">
 					<h4>The linear model - least squares solution</h4>
 
 					<p>Model: \( y_i = \beta_0 + \beta_1 x_i + \varepsilon_i \)</p>
@@ -244,34 +219,40 @@
 				<section>
 					<h4>The Linear Regression Model</h4>
 
-					<p style="font-size: 1.9rem;">For a dataset of pairs \((x_i, y_i)\), we assume that the relationship
-						between \(x\) and \(y\) can be described by a straight line plus some noise.</p>
+					<div class="left-txt size-80">
+						<p>For a dataset of pairs \((x_i, y_i)\), we assume that the relationship
+							between \(x\) and \(y\) can be described by a straight line plus some noise.</p>
 
-					<p style="font-size: 1.8rem;">
-						\[
-						y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
-						\]
-					</p>
+					</div>
+					<div class="size-80">
+						<p>
+							\(
+							y_i = b + m x_i + \varepsilon_i
+							\)
+						</p>
+					</div>
 
-					<div style="font-size:70%">
-						<p><strong>Interpretation:</strong></p>
 
-						<p><strong>• \(\beta_0\) (intercept):</strong> the predicted value of \(y\) when \(x=0\).</p>
+					<div style="font-size:60%;text-align: left;">
 
-						<p><strong>• \(\beta_1\) (slope):</strong> how much the predicted value of \(y\) changes
+
+						<p><strong>• \(b\) (intercept):</strong> the predicted value of \(y\) when \(x=0\).</p>
+
+						<p><strong>• \(m\) (slope):</strong> how much the predicted value of \(y\) changes
 							for each 1-unit increase in \(x\).</p>
 
 						<p><strong>• \(\varepsilon_i\) (error term):</strong> the random deviation of each data point
 							from the line — it represents noise or unexplained variation.</p>
 
+					</div>
+					<div class="size-80">
 						<p><strong>Least-squares estimates:</strong></p>
-
 						<p>
 							\[
-							\hat{\beta}_1 =
+							\hat{m} =
 							\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2},
 							\qquad
-							\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\,\bar{x}
+							\hat{b} = \bar{y} - \hat{m}\,\bar{x}
 							\]
 						</p>
 					</div>
