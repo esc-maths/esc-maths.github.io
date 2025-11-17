@@ -117,54 +117,63 @@
 
 					<table>
 						<tr>
-							<td style="font-size: 80%;">
+							<td style="font-size: 70%;width: 50%;">
 
 								<div>
 									<p>
-										Slope and intercept form
-									</p>
-								</div>
-								<div style="text-align: center;">
-									<p>
-										\(\hat{y} = mx + b\)
+										Slope and intercept form:
+										\(y = mx + b\)
 									</p>
 								</div>
 
 								<div>
 									<p>
-										Residuals:
+										Simple linear regression:
 									</p>
 								</div>
 								<div style="text-align: center;">
 									<p>
-										\(e_i= y_i - \hat{y}\)
+										\(\hat{y} = \beta_1 x + \beta_0\)
 									</p>
 								</div>
+
 								<div>
 									<p>
-										where \(\ds \hat{y} = m x_i + c\)
-									</p>
-								</div>
-								<div>
-									<p>
-										We want to minimize
+										If \(\hat{y_i} = \beta_1 x_i + \beta_0,\)
+										we define the
+										<b>residuals</b> as
 									</p>
 								</div>
 								<div style="text-align: center;">
 									<p>
-										<span>
-											\( \ds \sum_{i}\)
-										</span>
-										\(e_i^2\)
-										<span>
-											\(= \ds \sum_{i}\left(y_i - \hat{y}\right)^2\)
-										</span>
+										\(e_i= y_i - \hat{y_i}\)
+									</p>
+								</div>
+
+								<div>
+									<p>
+										Then the
+										<b>
+											residual sum of squares
+										</b>
+										(RSS) is
+									</p>
+								</div>
+								<div style="text-align: center;">
+									<p>
+										\( \ds \sum_{i} e_i^2\)
+									</p>
+								</div>
+								<div>
+									<p>
+										The least squares approach chooses
+										$\beta_1\,$ and $\,\beta_0$ to minimize the RSS.
 									</p>
 								</div>
 							</td>
 							<td>
 								<div class="r-stack">
-									<img style="width: 600px;" src="images/lec-04/plot-001.svg">
+									<img style="width: 100%;" src="images/lec-04/plot-001.svg">
 								</div>
 
 
@@ -189,46 +198,34 @@
 					<br />
 				</section>
 
-
-
-
-				<section data-visibility="hidden">
-					<h4>The linear model - least squares solution</h4>
-
-					<p>Model: \( y_i = \beta_0 + \beta_1 x_i + \varepsilon_i \)</p>
-					<div style="font-size:90%">
-
-
-						<p>Least-squares objective (minimise sum of squared residuals):</p>
-						<p>\[
-							\min_{\beta_0,\beta_1} \; S(\beta_0,\beta_1)
-							\quad\text{where}\quad
-							S(\beta_0,\beta_1)=\sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2
-							\]</p>
-
-						<p>Closed-form solution (best-fit slope and intercept):</p>
-						<p>\[
-							\hat\beta_1 = \frac{\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}
-							{\sum_{i=1}^n (x_i-\bar{x})^2},
-							\quad\quad
-							\hat\beta_0 = \bar{y} - \hat\beta_1 \bar{x}
-							\]</p>
-					</div>
-				</section>
-
 				<section>
 					<h4>The Linear Regression Model</h4>
 
 					<div class="left-txt size-80">
-						<p>For a dataset of pairs \((x_i, y_i)\), we assume that the relationship
-							between \(x\) and \(y\) can be described by a straight line plus a random 
-							"error":</p>
+						<p>For a dataset of pairs
+						</p>
 
 					</div>
 					<div class="size-80">
 						<p>
 							\(
-							y_i = m x_i + b + \varepsilon_i
+							(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n),
+							\)
+						</p>
+
+					</div>
+					<div class="left-txt size-80">
+						<p>
+							we assume that the relationship
+							between \(x\) and \(y\) can be described by a straight line plus a random
+							"error":
+						</p>
+
+					</div>
+					<div class="size-80">
+						<p>
+							\(
+							y_i = \beta_1 x_i + \beta_0 + \varepsilon_i
 							\)
 						</p>
 					</div>
@@ -237,33 +234,68 @@
 					<div style="font-size:80%;text-align: left;">
 
 
-						<p><strong>• \(b\) (intercept):</strong> the predicted value of \(y\) when \(x=0\).</p>
+						<p><strong>• \(\beta_0\) (intercept):</strong> the predicted value of \(y\) when \(x=0\).</p>
 
-						<p><strong>• \(m\) (slope):</strong> how much the predicted value of \(y\) changes
+						<p><strong>• \(\beta_1\) (slope):</strong> how much the predicted value of \(y\) changes
 							for each 1-unit increase in \(x\).</p>
 
-						<p><strong>• \(\varepsilon_i\) (deviation):</strong> The "error" term does not imply a 
-							mistake, but a <em>deviation</em> from the underlying straight 
+						<p><strong>• \(\varepsilon_i\) (deviation):</strong> The "error" term does not imply a
+							mistake, but a <em>deviation</em> from the underlying straight
 							line model. It captures anything that may affect
 							\(y_i\) other than \(x_i.\)</p>
-
-				
 					</div>
-					<div class="size-85">
+
+					<br />
+
+				</section>
+
+				<section>
+					<h4>The Linear Regression Model</h4>
+
+					<div class="left-txt size-75">
+						<p>For a dataset of pairs
+						
+							\(
+							(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n),
+							\)
+						
+							we assume that the relationship
+							between \(x\) and \(y\) can be described by a straight line plus a random
+							"error":
+						</p>
+
+					</div>
+					<div class="size-75">
+						<p>
+							\(
+							y_i = \beta_1 x_i + \beta_0 + \varepsilon_i
+							\)
+						</p>
+					</div>
+
+
+
+					<div class="size-90">
+						<p>
+							<strong>Least-squares coefficient estimates</strong>
+						</p>
 						<p>
 							\(\;\ds
-							m =
-							\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2},
-							\;\,
-							b = \bar{y} - \hat{m}\,\bar{x}
+							\beta_1 =
+							\frac{\ds\sum_{i=1}^{n} (x_i-\bar{x})(y_i-\bar{y})}{\ds\sum_{i=1}^{n} (x_i-\bar{x})^2},
+							\;\;\;\;
+							\beta_0 = \bar{y} - \beta_1 \,\bar{x}
 							\)
 						</p>
 						<p>
-							<strong>Least-squares estimates</strong>
+							where \(\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\) and \(\bar{y} =
+							\frac{1}{n}\sum_{i=1}^{n}y_i\)
 						</p>
+
 					</div>
-					<br/>
-					
+					<br />
+					<br />
+
 				</section>
 
 
