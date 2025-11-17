@@ -2240,7 +2240,8 @@
 								</div>
 								<div class="left-txt">
 									<p class="fragment" data-fragment-index="1">
-										\(\mu\) is the <em>mean</em>/<em>average</em> and \(\text{SE}\) is the standard error
+										\(\mu\) is the <em>mean</em>/<em>average</em> and \(\text{SE}\) is the standard
+										error
 										With 95.44% confidence the true value \(x\) lies between
 									</p>
 								</div>
@@ -2305,8 +2306,8 @@
 
 					<table style="width: 100%;">
 						<tr>
-							<td style="width: 50%;">
-								<div style="font-size: 70%;">
+							<td style="width: 60%;">
+								<div style="font-size: 75%;">
 									<p>
 										A research study was conducted to examine
 										the differences between older and younger
@@ -2324,10 +2325,29 @@
 										old and young adults.
 									</p>
 
+
+
 								</div>
 
+								<div style="font-size: 65%;">
+									<p>
+										<tt>
+											AVERAGE(A1:A10)
+										</tt>
+										<br/>
+										<tt>
+											STDEVA(A1:A10)
+										</tt>
+										<br/>
+										<tt>
+											STDEV(A1:A10)/SQRT(COUNT((A1:A10)))
+										</tt>
+									</p>
+								</div>
+								<br/>
+
 							</td>
-							<td>
+							<td style="width: 40%;">
 								<table border="1" cellpadding="8" cellspacing="0"
 									style="border-collapse: collapse; text-align: center; margin: auto; font-size: 55%;">
 									<thead style="background-color: #f2f2f2;">
@@ -2400,13 +2420,12 @@
 										</tr>
 									</tbody>
 								</table>
+								<div class="size-60" style="text-align: center;">
+									<p>✨<b>Note:</b> Data available in your Excel file.</p>
+								</div>
 							</td>
 						</tr>
 					</table>
-
-					<div class="size-70">
-						<p>✨<b>Note:</b> Data available in your Excel file.</p>
-					</div>
 
 
 
@@ -2968,18 +2987,18 @@
 								f = \frac{V_m}{V_{\text{tot}}}\)
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								 \(\displaystyle =\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
+								\(\displaystyle =\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
 								100\%\)
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								 \(\displaystyle=30\%\).
+								\(\displaystyle=30\%\).
 							</span>
 
 						</p>
 						<p class="fragment" data-fragment-index="3">
 							<b>Propagate uncertainty using partial derivatives</b> <br />(since \(V_m\) appears in
-								numerator and
-								denominator):
+							numerator and
+							denominator):
 						</p>
 						<p class="fragment" data-fragment-index="4">
 							\(\ds f=\frac{V_m}{V_w+V_m},\quad \)
@@ -2995,13 +3014,13 @@
 						<p>
 							<span class="fragment" data-fragment-index="9">
 								\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
-							\tfrac{30}{100^2}\cdot 0.5 \right)^2} \)
+								\tfrac{30}{100^2}\cdot 0.5 \right)^2} \)
 							</span>
 							<span class="fragment" data-fragment-index="10">
-								\( \ds 
-							\approx 0.00318 \)
+								\( \ds
+								\approx 0.00318 \)
 							</span>
-							
+
 						</p>
 
 					</div>
@@ -3030,40 +3049,42 @@
 								f = \frac{V_m}{V_{\text{tot}}}\)
 							</span>
 							<span>
-								 \(\displaystyle =\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
+								\(\displaystyle =\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
 								100\%\)
 							</span>
 							<span>
-								 \(\displaystyle=30\%\).
+								\(\displaystyle=30\%\).
 							</span>
 
 						</p>
 						<p>
 							<span>
 								\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
-							\tfrac{30}{100^2}\cdot 0.5 \right)^2} \)
+								\tfrac{30}{100^2}\cdot 0.5 \right)^2} \)
 							</span>
 							<span>
-								\( \ds 
-							\approx 0.00318 \)
+								\( \ds
+								\approx 0.00318 \)
 							</span>
-							
+
 						</p>
 
 						<p class="fragment" data-fragment-index="0">
 							Uncertainty as percentage:
 							\(0.00318\times100\approx0.318\%\), <br />
-							<span class="fragment" data-fragment-index="1">round sensibly to one significant figure in the
+							<span class="fragment" data-fragment-index="1">round sensibly to one significant figure in
+								the
 								uncertainty → \(0.3\%\).</span>
 						</p>
-						<p class="fragment" data-fragment-index="2">Therefore, Methanol = \(30.0\pm 0.3\, \%\) (%v/v).</p>
+						<p class="fragment" data-fragment-index="2">Therefore, Methanol = \(30.0\pm 0.3\, \%\) (%v/v).
+						</p>
 
 					</div>
 					<br />
 					<br />
 					<br />
 				</section>
-				
+
 
 				<section>
 					<h4>Example 3 — Mixture remaining after removing part</h4>
@@ -3100,8 +3121,10 @@
 								\(=5.04\, \text{ml}\ (\text{approx.}) \)
 							</span>
 						</p>
-						<p class="fragment" data-fragment-index="8">Round uncertainty to one significant figure → \(5\). Align value to same precision.</p>
-						<p class="fragment" data-fragment-index="9">Thus, the remaining mixture \(\,= 85 \pm 5\, \text{ml}\) .</p>
+						<p class="fragment" data-fragment-index="8">Round uncertainty to one significant figure → \(5\).
+							Align value to same precision.</p>
+						<p class="fragment" data-fragment-index="9">Thus, the remaining mixture \(\,= 85 \pm 5\,
+							\text{ml}\) .</p>
 					</div>
 					<br />
 					<br />
@@ -3128,7 +3151,7 @@
 							precision to one decimal.</p>
 						<p><strong>Answer:</strong> Methanol left ≈ \(25.5 \pm 1.5\) (same units).</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
