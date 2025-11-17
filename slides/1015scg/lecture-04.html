@@ -221,13 +221,14 @@
 
 					<div class="left-txt size-80">
 						<p>For a dataset of pairs \((x_i, y_i)\), we assume that the relationship
-							between \(x\) and \(y\) can be described by a straight line.</p>
+							between \(x\) and \(y\) can be described by a straight line plus a random 
+							"error":</p>
 
 					</div>
 					<div class="size-80">
 						<p>
 							\(
-							y_i = m x_i + b
+							y_i = m x_i + b + \varepsilon_i
 							\)
 						</p>
 					</div>
@@ -241,10 +242,15 @@
 						<p><strong>• \(m\) (slope):</strong> how much the predicted value of \(y\) changes
 							for each 1-unit increase in \(x\).</p>
 
+						<p><strong>• \(\varepsilon_i\) (deviation):</strong> The "error" term does not imply a 
+							mistake, but a <em>deviation</em> from the underlying straight 
+							line model. It captures anything that may affect
+							\(y_i\) other than \(x_i.\)</p>
+
 				
 					</div>
 					<div class="size-85">
-						<p><strong>Least-squares estimates:</strong>
+						<p>
 							\(\;\ds
 							m =
 							\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2},
@@ -252,8 +258,10 @@
 							b = \bar{y} - \hat{m}\,\bar{x}
 							\)
 						</p>
+						<p>
+							<strong>Least-squares estimates</strong>
+						</p>
 					</div>
-					<br/>
 					<br/>
 					
 				</section>
