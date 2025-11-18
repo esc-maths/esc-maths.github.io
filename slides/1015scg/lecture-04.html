@@ -254,11 +254,11 @@
 
 					<div class="left-txt size-75">
 						<p>For a dataset of pairs
-						
+
 							\(
 							(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n),
 							\)
-						
+
 							we assume that the relationship
 							between \(x\) and \(y\) can be described by a straight line plus a random
 							"error":
@@ -298,6 +298,144 @@
 
 				</section>
 
+				<section>
+					<h4>📝 Example 💻 📈</h4>
+
+					<div style="font-size: 78%; text-align: left;">
+						<p>
+							The data in the <b>Lecture sheets → workshop tab</b> gives the
+							<em>workshop attendance, workshop mark, Inference/Maths Task mark, Scientific
+								Critique Task</em> mark and overall course mark (total marks). 
+						</p>
+
+						<ul>
+							<li>
+								Pearson coefficient: students' <b>attendance</b> and
+								the <b>overall course mark</b> ✅
+							</li>
+							<li>
+								Using regression, establish a linear relation between attendance ($x$-axis) and the
+								total marks ($y$-axis). Find the plot with a fit, the gradient and intercept with
+								errors, $r^2$ and residual standard error.
+							</li>
+							<li>
+								Using the regression model, on average, what is the change in overall course
+								mark for each additional workshop a student attended, with an error range?
+							</li>
+							<li>
+								What is the average total mark with an error for a student that attended 3.5
+								workshops?
+							</li>
+						</ul>
+					</div>
+					<div style="font-size: 70%;">
+						<p><b>Excel Instructions:</b> </p>
+						<p>
+							<a href="excel-regresion-toolpak.html">Regression Analysis <i class="fa fa-external-link-alt"></i></a> &nbsp; - &nbsp;  
+							<a href="excel-linear-regression.html">Linear regression <i class="fa fa-external-link-alt"></i></a>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>What do we learn from Data analysis tool?</h4>
+					<div style="font-size: 85%; text-align: left;">
+						<p>
+							The line of best fit to our data
+							\[
+							\hat{y} = \beta_1 x + \beta_0
+							\]
+						</p>
+
+						<ul style="line-height: 1.7;">
+							<li>
+								Plot of data with the line of best fit. ✅
+							</li>
+							<li>
+								Gradient and its error: $\beta_1 + \Delta \beta_1$ ✅
+							</li>
+							<li>
+								$y$-intercept and its error: $\beta_0 + \Delta \beta_0$ ✅
+							</li>
+							<li>
+								$r^2$ - Square of the Pearson coefficient, how well the fit matches the
+								data. ✅
+							</li>
+							<li>
+								Standard residual error - what is an error in $y$
+								when we predict the $y$
+								value from our model for some specific value of $x.$ ✅
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h3>Remember</h3>
+					<div style="font-size: 85%; text-align: left;">
+
+
+						<ul style="line-height: 1.3;">
+							<li>
+								Do not fit line to the data that is
+								not linear
+							</li>
+							<li>
+								Regression only works for the
+								range of data we have - we can
+								interpolate but extrapolation
+								might not work
+							</li>
+
+						</ul>
+					</div>
+					<div>
+						<img style="width: 650px;" src="images/lec-04/linear_regression_2x.png">
+					</div>
+					<div style="margin-top: -40px; font-size: 50%;">
+						<p>Source: <a href="https://xkcd.com/1725/" target="_blank">xkcd.com/1725</a></p>
+					</div>
+
+				</section>
+
+
+				<section>
+					<h4>📝 Practice 💻 📈</h4>
+
+					<div style="font-size: 90%; text-align: left;">
+						<p>
+							Look at the Lecture sheets Excel file, tab <b>fatalities</b>.
+						</p>
+
+						<ul style="line-height: 1.6;">
+							<li>
+								Plot the data.
+							</li>
+							<li>
+								What two trends you can see in the data?
+							</li>
+							<li>
+								Find the regression for the full data set, does it make sense?
+							</li>
+							<li>
+								Find the regression for the decreasing data, does this fit make sense?
+							</li>
+							<li>
+								Find the predicted fatalities in year 2010 with an error. Is the value
+								similar to the recorded value?
+							</li>
+							<li>
+
+								Find the predicted fatalities in year 2040 with an error. Does this
+								value make sense? Why not?
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
 
 
 			</section>
