@@ -119,38 +119,38 @@
 						<tr>
 							<td style="font-size: 70%;width: 50%;">
 
-								<div>
+								<div class="fragment" data-fragment-index="0" >
 									<p>
 										Slope and intercept form:
 										\(y = mx + b\)
 									</p>
 								</div>
 
-								<div>
+								<div class="fragment" data-fragment-index="1" >
 									<p>
 										Simple linear regression:
 									</p>
 								</div>
-								<div style="text-align: center;">
+								<div style="text-align: center;" class="fragment" data-fragment-index="1">
 									<p>
 										\(\hat{y} = \beta_1 x + \beta_0\)
 									</p>
 								</div>
 
-								<div>
+								<div class="fragment" data-fragment-index="2">
 									<p>
 										If \(\hat{y_i} = \beta_1 x_i + \beta_0,\)
 										we define the
 										<b>residuals</b> as
 									</p>
 								</div>
-								<div style="text-align: center;">
+								<div style="text-align: center;" class="fragment" data-fragment-index="2">
 									<p>
 										\(e_i= y_i - \hat{y_i}\)
 									</p>
 								</div>
 
-								<div>
+								<div class="fragment" data-fragment-index="3">
 									<p>
 										Then the
 										<b>
@@ -159,14 +159,14 @@
 										(RSS) is
 									</p>
 								</div>
-								<div style="text-align: center;">
+								<div style="text-align: center;" class="fragment" data-fragment-index="3">
 									<p>
 										\( \ds \sum_{i} e_i^2\)
 									</p>
 								</div>
-								<div>
+								<div class="fragment" data-fragment-index="4">
 									<p>
-										The least squares approach chooses
+										The <b>least squares</b> approach chooses
 										$\beta_1\,$ and $\,\beta_0$ to minimize the RSS.
 									</p>
 								</div>
@@ -215,7 +215,7 @@
 
 					</div>
 					<div class="left-txt size-80">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							we assume that the relationship
 							between \(x\) and \(y\) can be described by a straight line plus a random
 							"error":
@@ -223,7 +223,7 @@
 
 					</div>
 					<div class="size-80">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							\(
 							y_i = \beta_1 x_i + \beta_0 + \varepsilon_i
 							\)
@@ -233,16 +233,28 @@
 
 					<div style="font-size:80%;text-align: left;">
 
-
-						<p><strong>• \(\beta_0\) (intercept):</strong> the predicted value of \(y\) when \(x=0\).</p>
-
-						<p><strong>• \(\beta_1\) (slope):</strong> how much the predicted value of \(y\) changes
-							for each 1-unit increase in \(x\).</p>
-
-						<p><strong>• \(\varepsilon_i\) (deviation):</strong> The "error" term does not imply a
+						<ul>
+							<li class="fragment" data-fragment-index="1">
+								<strong>
+								\(\beta_0\) (intercept):
+							</strong>
+							 the predicted value of \(y\) when \(x=0\).
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<strong>\(\beta_1\) (slope):</strong>
+								how much the predicted value of \(y\) changes
+							for each 1-unit increase in \(x\).
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<strong>\(\varepsilon_i\) (deviation):</strong>
+								The "error" term does not imply a
 							mistake, but a <em>deviation</em> from the underlying straight
 							line model. It captures anything that may affect
-							\(y_i\) other than \(x_i.\)</p>
+							\(y_i\) other than \(x_i.\)
+							</li>
+						</ul>
+
+						
 					</div>
 
 					<br />
@@ -279,16 +291,18 @@
 						<p>
 							<strong>Least-squares coefficient estimates</strong>
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							\(\;\ds
 							\beta_1 =
-							\frac{\ds\sum_{i=1}^{n} (x_i-\bar{x})(y_i-\bar{y})}{\ds\sum_{i=1}^{n} (x_i-\bar{x})^2},
-							\;\;\;\;
+							\frac{\ds\sum_{i=1}^{n} (x_i-\bar{x})(y_i-\bar{y})}{\ds\sum_{i=1}^{n} (x_i-\bar{x})^2},\)
+							<span class="fragment" data-fragment-index="1">
+								\(\;\;\;\;
 							\beta_0 = \bar{y} - \beta_1 \,\bar{x}
 							\)
+							</span>
 						</p>
-						<p>
-							where \(\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\) and \(\bar{y} =
+						<p class="fragment" data-fragment-index="2">
+							where \(\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\;\) and \(\;\bar{y} =
 							\frac{1}{n}\sum_{i=1}^{n}y_i\)
 						</p>
 
@@ -310,8 +324,7 @@
 
 						<ul>
 							<li>
-								Pearson coefficient: students' <b>attendance</b> and
-								the <b>overall course mark</b> ✅
+								✅Pearson/Correlation coefficient: students' <b>attendance</b> vs <b>overall course mark</b>.
 							</li>
 							<li>
 								Using regression, establish a linear relation between attendance ($x$-axis) and the
@@ -340,30 +353,30 @@
 				</section>
 
 				<section>
-					<h4>What do we learn from Data analysis tool?</h4>
+					<h4>What do we learn from the Data analysis tool? 🤔</h4>
 					<div style="font-size: 85%; text-align: left;">
-						<p>
-							The line of best fit to our data
+						<p class="fragment" data-fragment-index="0">
+							The line of best fit to our data is
 							\[
 							\hat{y} = \beta_1 x + \beta_0
 							\]
 						</p>
 
 						<ul style="line-height: 1.7;">
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								Plot of data with the line of best fit. ✅
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								Gradient and its error: $\beta_1 + \Delta \beta_1$ ✅
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								$y$-intercept and its error: $\beta_0 + \Delta \beta_0$ ✅
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="4">
 								$r^2$ - Square of the Pearson coefficient, how well the fit matches the
 								data. ✅
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="5">
 								Standard residual error - what is an error in $y$
 								when we predict the $y$
 								value from our model for some specific value of $x.$ ✅
@@ -379,25 +392,28 @@
 
 
 						<ul style="line-height: 1.3;">
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								Do not fit line to the data that is
-								not linear
+								not linear!
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								Regression only works for the
 								range of data we have - we can
 								interpolate but extrapolation
-								might not work
+								might not work.
 							</li>
 
 						</ul>
 					</div>
-					<div style="margin-top: -10px;">
+					<div class="fragment" data-fragment-index="0">
+						<div style="margin-top: -10px;">
 						<img style="width: 680px;" src="images/lec-04/linear_regression_2x.png">
 					</div>
 					<div style="margin-top: -50px; font-size: 45%;">
 						<p>Source: Randal Munroe <a href="https://xkcd.com/1725/" target="_blank">xkcd.com/1725</a></p>
 					</div>
+					</div>
+					
 
 				</section>
 
