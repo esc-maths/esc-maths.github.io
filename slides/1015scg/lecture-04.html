@@ -844,6 +844,10 @@
 						</ul>
 					</div>
 
+					<div style="position: absolute; top: 290px; right: 0px; width: 350px;">
+						<img style="opacity: calc(0.7);" src="images/lec-01/diagram-scientific-method.jpg">
+					</div>
+
 					<br /><br />
 				</section>
 
@@ -852,7 +856,7 @@
 						Two-sided Student t-test
 					</h4>
 
-					<div class="size-90 left-txt">
+					<div class="size-80 left-txt">
 						<p>
 							Does the estimate \( \mu \) match the expected or theoretical value \( \mu_0 \)?
 						</p>
@@ -860,23 +864,175 @@
 						<ul>
 							<li>Have an expected/theoretical value \( \mu_0 \)</li>
 							<li>Repeat the experiment \( n \) times</li>
-							<li>Calculate the best estimate \( \mu \) and the standard error \( SE \)</li>
-							<li>Choose a confidence level \( CL \)</li>
-							<li>Find the number of degrees of freedom: \( df = n - 1 \)</li>
-							<li>Find the t-factor \( t^* \) for the given \( CL \) and \( df \) (from a table or Excel)
+							<li>Calculate the best estimate \( \mu \) and the standard error \( \text{SE} \)</li>
+							<li>Choose a confidence level \( \text{CL} \)</li>
+							<li>Find the number of degrees of freedom: \( \text{d}f = n - 1 \)</li>
+							<li>
+								Find the $t$-factor \( t^f \) for the given \( \text{CL} \) and \( \text{d}f \) (from a
+								table or Excel)
 							</li>
-							<li>Check the agreement – two equivalent mathematical approaches</li>
+							<li>
+								Check - two options, mathematically equivalent:
+								<ol>
+									<li>Check if \(\mu- t_f \text{SE} \leq _mu_0 \leq \mu+ t_f \text{SE}\), confidence
+										interval \(\text{CI}\)</li>
+									<li>
+										Check if $t$-statistics is smaller than \(t\)-factor: \(\ds t = \frac{|\mu -
+										\mu_0|}{\text{SE}}\leq t_f\)
+									</li>
+								</ol>
+							</li>
+							<li>Check the agreement - two equivalent mathematical approaches</li>
 						</ul>
 
 						<p>
-							If yes – the estimate \( \mu \) agrees with the expected/theoretical value \( \mu_0 \)
+							If yes - the estimate \( \mu \) agrees with the expected/theoretical value \( \mu_0 \)
 							<br />
-							If not – the estimate \( \mu \) does not agree with the expected/theoretical value \( \mu_0
+							If not - the estimate \( \mu \) does not agree with the expected/theoretical value \( \mu_0
 							\)
 						</p>
 					</div>
 
 					<br /><br />
+				</section>
+
+				<section>
+					<h4>
+						Table of $t$-factors based on confidence and $n$
+					</h4>
+					<table border="1" cellpadding="6" cellspacing="0" style="font-size: 70%;">
+						<thead style="background-color: #f2f2f2;">
+							<tr>
+								<th>$\text{d}f$</th>
+								<th>50%</th>
+								<th>60%</th>
+								<th>70%</th>
+								<th>80%</th>
+								<th>90%</th>
+								<th>95%</th>
+								<th>98%</th>
+								<th>99%</th>
+								<th>99.5%</th>
+								<th>99.8%</th>
+								<th>99.9%</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>1</th>
+								<td>1.000</td>
+								<td>1.376</td>
+								<td>1.963</td>
+								<td>3.078</td>
+								<td>6.314</td>
+								<td>12.706</td>
+								<td>31.821</td>
+								<td>63.657</td>
+								<td>127.321</td>
+								<td>318.309</td>
+								<td>636.619</td>
+							</tr>
+							<tr>
+								<th>2</th>
+								<td>0.816</td>
+								<td>1.061</td>
+								<td>1.386</td>
+								<td>1.886</td>
+								<td>2.920</td>
+								<td>4.303</td>
+								<td>6.965</td>
+								<td>9.925</td>
+								<td>14.089</td>
+								<td>22.327</td>
+								<td>31.599</td>
+							</tr>
+							<tr>
+								<th>3</th>
+								<td>0.765</td>
+								<td>0.978</td>
+								<td>1.250</td>
+								<td>1.638</td>
+								<td>2.353</td>
+								<td>3.182</td>
+								<td>4.541</td>
+								<td>5.841</td>
+								<td>7.453</td>
+								<td>10.215</td>
+								<td>12.924</td>
+							</tr>
+							<tr>
+								<th>4</th>
+								<td>0.741</td>
+								<td>0.941</td>
+								<td>1.190</td>
+								<td>1.533</td>
+								<td>2.132</td>
+								<td>2.776</td>
+								<td>3.747</td>
+								<td>4.604</td>
+								<td>5.598</td>
+								<td>7.173</td>
+								<td>8.610</td>
+							</tr>
+							<tr>
+								<th>5</th>
+								<td>0.727</td>
+								<td>0.920</td>
+								<td>1.156</td>
+								<td>1.476</td>
+								<td>2.015</td>
+								<td>2.571</td>
+								<td>3.365</td>
+								<td>4.032</td>
+								<td>4.773</td>
+								<td>5.893</td>
+								<td>6.869</td>
+							</tr>
+							<tr>
+								<th>20</th>
+								<td>0.687</td>
+								<td>0.860</td>
+								<td>1.064</td>
+								<td>1.325</td>
+								<td>1.725</td>
+								<td>2.086</td>
+								<td>2.528</td>
+								<td>2.845</td>
+								<td>3.153</td>
+								<td>3.552</td>
+								<td>3.850</td>
+							</tr>
+							<tr>
+								<th>100</th>
+								<td>0.677</td>
+								<td>0.845</td>
+								<td>1.042</td>
+								<td>1.290</td>
+								<td>1.660</td>
+								<td>1.984</td>
+								<td>2.364</td>
+								<td>2.626</td>
+								<td>2.871</td>
+								<td>3.174</td>
+								<td>3.390</td>
+							</tr>
+							<tr>
+								<th>∞</th>
+								<td>0.674</td>
+								<td>0.842</td>
+								<td>1.036</td>
+								<td>1.282</td>
+								<td>1.645</td>
+								<td>1.960</td>
+								<td>2.326</td>
+								<td>2.576</td>
+								<td>2.807</td>
+								<td>3.090</td>
+								<td>3.291</td>
+							</tr>
+						</tbody>
+					</table>
+
 				</section>
 
 
