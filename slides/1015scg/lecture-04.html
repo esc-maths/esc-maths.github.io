@@ -119,14 +119,14 @@
 						<tr>
 							<td style="font-size: 70%;width: 50%;">
 
-								<div class="fragment" data-fragment-index="0" >
+								<div class="fragment" data-fragment-index="0">
 									<p>
 										Slope and intercept form:
 										\(y = mx + b\)
 									</p>
 								</div>
 
-								<div class="fragment" data-fragment-index="1" >
+								<div class="fragment" data-fragment-index="1">
 									<p>
 										Simple linear regression:
 									</p>
@@ -236,25 +236,25 @@
 						<ul>
 							<li class="fragment" data-fragment-index="1">
 								<strong>
-								\(\beta_0\) (intercept):
-							</strong>
-							 the predicted value of \(y\) when \(x=0\).
+									\(\beta_0\) (intercept):
+								</strong>
+								the predicted value of \(y\) when \(x=0\).
 							</li>
 							<li class="fragment" data-fragment-index="2">
 								<strong>\(\beta_1\) (slope):</strong>
 								how much the predicted value of \(y\) changes
-							for each 1-unit increase in \(x\).
+								for each 1-unit increase in \(x\).
 							</li>
 							<li class="fragment" data-fragment-index="3">
 								<strong>\(\varepsilon_i\) (deviation):</strong>
 								The "error" term does not imply a
-							mistake, but a <em>deviation</em> from the underlying straight
-							line model. It captures anything that may affect
-							\(y_i\) other than \(x_i.\)
+								mistake, but a <em>deviation</em> from the underlying straight
+								line model. It captures anything that may affect
+								\(y_i\) other than \(x_i.\)
 							</li>
 						</ul>
 
-						
+
 					</div>
 
 					<br />
@@ -297,8 +297,8 @@
 							\frac{\ds\sum_{i=1}^{n} (x_i-\bar{x})(y_i-\bar{y})}{\ds\sum_{i=1}^{n} (x_i-\bar{x})^2},\)
 							<span class="fragment" data-fragment-index="1">
 								\(\;\;\;\;
-							\beta_0 = \bar{y} - \beta_1 \,\bar{x}
-							\)
+								\beta_0 = \bar{y} - \beta_1 \,\bar{x}
+								\)
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="2">
@@ -319,12 +319,13 @@
 						<p>
 							The data in the <b>Lecture sheets → workshop tab</b> gives the
 							<em>workshop attendance, workshop mark, Inference/Maths Task mark, Scientific
-								Critique Task</em> mark and overall course mark (total marks). 
+								Critique Task</em> mark and overall course mark (total marks).
 						</p>
 
 						<ul>
 							<li>
-								✅Pearson/Correlation coefficient: students' <b>attendance</b> vs <b>overall course mark</b>.
+								✅Pearson/Correlation coefficient: students' <b>attendance</b> vs <b>overall course
+									mark</b>.
 							</li>
 							<li>
 								Using regression, establish a linear relation between attendance ($x$-axis) and the
@@ -344,8 +345,10 @@
 					<div style="font-size: 70%;">
 						<p><b>Excel Instructions:</b> </p>
 						<p>
-							<a href="excel-regresion-toolpak.html">Regression Analysis <i class="fa fa-external-link-alt"></i></a> &nbsp; - &nbsp;  
-							<a href="excel-linear-regression.html">Linear regression <i class="fa fa-external-link-alt"></i></a>
+							<a href="excel-regresion-toolpak.html">Regression Analysis <i
+									class="fa fa-external-link-alt"></i></a> &nbsp; - &nbsp;
+							<a href="excel-linear-regression.html">Linear regression <i
+									class="fa fa-external-link-alt"></i></a>
 						</p>
 					</div>
 					<br />
@@ -407,13 +410,14 @@
 					</div>
 					<div class="fragment" data-fragment-index="0">
 						<div style="margin-top: -10px;">
-						<img style="width: 680px;" src="images/lec-04/linear_regression_2x.png">
+							<img style="width: 680px;" src="images/lec-04/linear_regression_2x.png">
+						</div>
+						<div style="margin-top: -50px; font-size: 45%;">
+							<p>Source: Randal Munroe <a href="https://xkcd.com/1725/" target="_blank">xkcd.com/1725</a>
+							</p>
+						</div>
 					</div>
-					<div style="margin-top: -50px; font-size: 45%;">
-						<p>Source: Randal Munroe <a href="https://xkcd.com/1725/" target="_blank">xkcd.com/1725</a></p>
-					</div>
-					</div>
-					
+
 
 				</section>
 
@@ -452,6 +456,429 @@
 					</div>
 					<br />
 				</section>
+
+
+			</section>
+
+			<section>
+				<section>
+					<h4 style="font-size: 160%;">Hypothesis testing</h4>
+				</section>
+				<section>
+					<h4>The incline problem from week 3</h4>
+
+					<table style="width: 100%;margin-top: -20px;">
+						<tr>
+							<td style="width: 40%;">
+								<table style="border-collapse:collapse; width:100%; text-align:center; font-size: 65%;"
+									border="1">
+									<thead>
+										<tr>
+											<td>
+
+											</td>
+											<td>
+												Group 1 🔷
+											</td>
+											<td>
+												Group 2 🔴
+											</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												Trial
+											</td>
+											<td>
+												time (s)
+											</td>
+											<td>
+												time (s)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												1
+											</td>
+											<td>
+												1.621
+											</td>
+											<td>
+												1.649906
+											</td>
+										</tr>
+										<tr>
+											<td>
+												2
+											</td>
+											<td>
+												1.603
+											</td>
+											<td>
+												1.648798
+											</td>
+										</tr>
+										<tr>
+											<td>
+												3
+											</td>
+											<td>
+												1.659
+											</td>
+											<td>
+												1.648590
+											</td>
+										</tr>
+										<tr>
+											<td>
+												4
+											</td>
+											<td>
+												1.673
+											</td>
+											<td>
+												1.647875
+											</td>
+										</tr>
+										<tr>
+											<td>
+												5
+											</td>
+											<td>
+												1.610
+											</td>
+											<td>
+												1.647744
+											</td>
+										</tr>
+										<tr>
+											<td>
+												6
+											</td>
+											<td>
+												1.694
+											</td>
+											<td>
+												1.650007
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<b>Average</b>
+											</td>
+											<td>
+
+												1.643333
+												<div
+													style="color: rgb(1, 12, 220); margin-top: -40px;margin-bottom: -15px;font-weight: bold;">
+													<p>_ _ _ _ _</p>
+												</div>
+
+											</td>
+											<td>
+
+												1.648820
+												<div
+													style="color: rgb(220, 1, 1); margin-top: -40px;margin-bottom: -15px;font-weight: bold;">
+													<p>_______</p>
+												</div>
+
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<b>SD</b>
+											</td>
+											<td>
+
+												0.037227
+
+											</td>
+											<td>
+
+												0.000969
+
+
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<b>SE</b>
+											</td>
+											<td>
+
+												0.015198
+
+
+											</td>
+											<td>
+
+												0.000395
+
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td style="width: 60%;">
+
+								<div style="font-size: 80%;">
+									<p>
+										Group 1 results:
+									</p>
+								</div>
+
+								<div style="font-size: 80%; text-align: center;">
+									<p class="fragment" data-fragment-index="0">
+										\( x = 1.643 \pm 0.015 \, \text{s}\)
+									</p>
+								</div>
+
+								<hr class="fragment" data-fragment-index="1" />
+
+								<div style="font-size: 80%;">
+									<p class="fragment" data-fragment-index="1">
+										Group 2 results:
+									</p>
+								</div>
+
+								<div style="font-size: 80%; text-align: center;">
+									<p class="fragment" data-fragment-index="1">
+										\( x = 1.64882 \pm 0.00040 \, \text{s}\)
+									</p>
+								</div>
+								<hr>
+
+								<div style="font-size: 85%;">
+									<p class="fragment" data-fragment-index="1">
+										The theory says that
+									</p>
+								</div>
+
+								<div style="font-size: 90%; text-align: center;">
+									<p class="fragment" data-fragment-index="1">
+										\(t = \ds \sqrt{\dfrac{2L^2}{h \times g}}\)
+										<span>\(= 1.648731\, \text{s}\)</span>
+									</p>
+								</div>
+
+								<div style="font-size: 80%;">
+									<p class="fragment" data-fragment-index="1">
+										where $g = 9.81\, \text{m}/\text{s}^2,$ $h= 0.3\, \text{m}$ and
+										$L = 2\,\text{m}.$
+									</p>
+								</div>
+
+								<br />
+
+
+
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Statistical Hypothesis
+					</h4>
+
+					<div class="size-90 left-txt">
+						<p>
+							Hypothesis testing - part of the scientific method
+						</p>
+
+						<p>
+							In statistics, we frame the questions as a hypothesis
+						</p>
+
+						<ul>
+							<li>
+								Do the experimental results agree with the expected value
+							</li>
+							<li>
+								Do the experimental results agree with each other
+							</li>
+						</ul>
+
+						<p>
+							We start with Null hypothesis $\text{H}_0$ - hypothesis that matches our
+							predictions
+						</p>
+
+						<p>
+							Then we use statistical methods to accept or reject the hypothesis
+						</p>
+					</div>
+
+					<div style="position: absolute; top: -90px; right: 0px; width: 350px;">
+						<img style="opacity: calc(0.7);" src="images/lec-01/diagram-scientific-method.jpg">
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						What does it mean?
+					</h4>
+
+					<div class="size-90 left-txt">
+
+
+						<p>
+							Do the experimental results agree with
+							the expected value.
+						</p>
+
+
+						<p>
+							There is true/expected value for our
+							experimental result $\mu_T.$
+						</p>
+
+						<p>
+							Repeat measurement $n$ times.
+						</p>
+
+						<p>
+							It is more likely than the measurements
+							are scattered about the true value than
+							biased.
+						</p>
+
+						<p>
+							I can estimate how likely it is that the
+							true value matches our experiment with given $\mu_T$ and $\text{SE}.$
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Confidence Level, Confidence Interval, and Significance
+					</h4>
+
+					<div class="size-75 left-txt">
+						<p>
+							How likely is it that the true value \( \mu_T \) matches our experiment?
+						</p>
+
+						<p>
+							Example: The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \) (95% CL)
+						</p>
+
+						<ul>
+							<li>I performed the experiment</li>
+							<li>I obtained the best estimate and its error from the experimental data</li>
+							<li>The confidence level is 95%</li>
+							<li>
+								From this information, we can determine a confidence interval—a range of values
+								derived from our measurements (we will show how to calculate it soon)
+							</li>
+						</ul>
+
+						<p>
+							What it means:
+						</p>
+
+						<ul>
+							<li>If we were to repeat the experiment many times…</li>
+							<li>… and calculate the confidence interval in the same way each time…</li>
+							<li>
+								… the true value would lie within this interval 95% of the time (the confidence level)
+							</li>
+							<li>
+								Therefore, it would lie outside this interval only 5% (0.05) of the time — the
+								statistical significance
+							</li>
+						</ul>
+					</div>
+
+					<br /><br />
+				</section>
+
+				<section>
+					<h4>
+						Confidence Level, Confidence Interval, and Significance
+					</h4>
+
+					<div class="size-90 left-txt">
+						<p>
+							There are two ways to approach confidence levels and confidence intervals:
+						</p>
+
+						<ul>
+							<li>
+								Choose a confidence interval and determine the corresponding confidence level
+							</li>
+							<li>
+								Choose a confidence level and determine the corresponding confidence interval
+							</li>
+						</ul>
+					</div>
+
+					<br /><br />
+				</section>
+
+				<section>
+					<h4>
+						Hypothesis Testing
+					</h4>
+
+					<div class="size-90 left-txt">
+						<ul>
+							<li>
+								<strong>Two-sided Student t-test</strong><br />
+								“Do the experimental results agree with the expected value?”
+							</li>
+
+							<li>
+								<strong>Welch t-test</strong><br />
+								“Do the two experimental results agree with each other?”
+							</li>
+						</ul>
+					</div>
+
+					<br /><br />
+				</section>
+
+				<section>
+					<h4>
+						Two-sided Student t-test
+					</h4>
+
+					<div class="size-90 left-txt">
+						<p>
+							Does the estimate \( \mu \) match the expected or theoretical value \( \mu_0 \)?
+						</p>
+
+						<ul>
+							<li>Have an expected/theoretical value \( \mu_0 \)</li>
+							<li>Repeat the experiment \( n \) times</li>
+							<li>Calculate the best estimate \( \mu \) and the standard error \( SE \)</li>
+							<li>Choose a confidence level \( CL \)</li>
+							<li>Find the number of degrees of freedom: \( df = n - 1 \)</li>
+							<li>Find the t-factor \( t^* \) for the given \( CL \) and \( df \) (from a table or Excel)
+							</li>
+							<li>Check the agreement – two equivalent mathematical approaches</li>
+						</ul>
+
+						<p>
+							If yes – the estimate \( \mu \) agrees with the expected/theoretical value \( \mu_0 \)
+							<br />
+							If not – the estimate \( \mu \) does not agree with the expected/theoretical value \( \mu_0
+							\)
+						</p>
+					</div>
+
+					<br /><br />
+				</section>
+
 
 
 			</section>
