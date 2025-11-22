@@ -512,11 +512,9 @@
 			</section>
 
 			<section>
+
 				<section>
-					<h4 style="font-size: 160%;">Hypothesis testing</h4>
-				</section>
-				<section>
-					<h4>The incline problem from week 3</h4>
+					<h4>Recall: The incline problem from week 3</h4>
 
 					<table style="width: 100%;margin-top: -20px;">
 						<tr>
@@ -675,28 +673,30 @@
 							<td style="width: 60%;">
 
 								<div style="font-size: 80%;">
-									<p class="fragment" data-fragment-index="0">
+									<p>
 										Group 1 results:
 									</p>
 								</div>
 
 								<div style="font-size: 80%; text-align: center;">
-									<p class="fragment" data-fragment-index="0">
-										\( x = 1.643 \pm 0.015 \, \text{s}\)
+									<p>
+										\( x = 1.643 \pm 0.015 \, \text{s}\;\) <span class="fragment"
+											data-fragment-index="0">👈</span>
 									</p>
 								</div>
 
-								<hr class="fragment" data-fragment-index="1" />
+								<hr />
 
 								<div style="font-size: 80%;">
-									<p class="fragment" data-fragment-index="1">
+									<p>
 										Group 2 results:
 									</p>
 								</div>
 
 								<div style="font-size: 80%; text-align: center;">
-									<p class="fragment" data-fragment-index="1">
-										\( x = 1.64882 \pm 0.00040 \, \text{s}\)
+									<p>
+										\( x = 1.64882 \pm 0.00040 \, \text{s}\;\) <span class="fragment"
+											data-fragment-index="1">👈</span>
 									</p>
 								</div>
 								<hr class="fragment" data-fragment-index="2">
@@ -731,6 +731,61 @@
 					<br />
 				</section>
 
+				<section data-auto-animate>
+					<h4 style="font-size: 130%;" class="fragment" data-fragment-index="4">
+						Hypothesis testing
+					</h4>
+
+					<table>
+						<thead>
+							<tr>
+								<td></td>
+								<td style="text-align: center;">Results (s)</td>
+							</tr>
+						</thead>
+						<tr>
+							<td>
+								Group 1
+							</td>
+							<td>\(  1.643 \pm 0.015\) </td>
+						</tr>
+						<tr>
+							<td>
+								Group 2
+							</td>
+							<td>\(  1.64882 \pm 0.00040 \) </td>
+						</tr>
+						<tr>
+							<td>
+								Theory
+							</td>
+							<td>\(\ds 1.648731\)</td>
+						</tr>
+					</table>
+
+					<div>
+						<p class="fragment" data-fragment-index="0"><b>Claim:</b> Experimental results agree with the theory.</p>
+						<p class="fragment" data-fragment-index="1">🤔 Is this claim true? False?</p>
+					</div>
+
+					<br/>
+					<br/>
+
+				
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size: 150%;">Hypothesis testing</h4>
+
+					<img style="width: 700px;" src="images/lec-04/t-distibution.jpg">
+
+					<div class="size-80" style="margin-top: -30px;">
+						<p>We will use theoretical probability distributions to test our hypothesis.</p>
+					</div>
+					<br/>
+				</section>
+
+
 				<section>
 					<h4>
 						Statistical Hypothesis
@@ -755,7 +810,7 @@
 						</ul>
 
 						<p class="fragment" data-fragment-index="4">
-							We start with Null hypothesis $\text{H}_0$ - hypothesis that matches our
+							We start with <b>Null hypothesis</b> $\text{H}_0$ - hypothesis that matches our
 							predictions.
 						</p>
 
@@ -816,14 +871,14 @@
 						Confidence Level, Confidence Interval, and Significance
 					</h4>
 
-					<div class="size-90 left-txt">
+					<div class="size-85 left-txt">
 						<p>
 							How likely is it that the true value \( \mu_T \) matches our experiment?
 						</p>
 
 						<p class="fragment" data-fragment-index="0">
-							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \), 95%
-							<b>confidence level</b> ($\text{CL}$)
+							<b>Example:</b> The true value lies in the range \[ 1.1 \pm 0.4 \,\text{m},\] with 95%
+							<b>confidence level</b> ($\text{CL}$).
 						</p>
 
 						<ul>
@@ -884,7 +939,7 @@
 								...the true value would lie within this interval 95% of the time (the confidence level)
 							</li>
 							<li class="fragment" data-fragment-index="4">
-								Therefore, it would lie outside this interval only 5% (0.05) of the time — the
+								Therefore, it would lie outside this interval only 5% (0.05) of the time - the
 								statistical significance
 							</li>
 						</ul>
@@ -905,10 +960,10 @@
 
 						<ul>
 							<li class="fragment" data-fragment-index="0">
-								Choose a <em>confidence interval</em> and determine the corresponding confidence level.
+								Choose a <span style="color: blue;">confidence interval</span> and determine the corresponding <b>confidence level</b>.
 							</li>
 							<li class="fragment" data-fragment-index="1">
-								Choose a <em>confidence level</em> and determine the corresponding confidence interval.
+								Choose a <span style="color: blue;">confidence level</span> and determine the corresponding <b>confidence interval</b>.
 							</li>
 						</ul>
 					</div>
@@ -1765,7 +1820,7 @@
 									Group 2
 								</td>
 							</tr>
-							
+
 
 							<tr>
 								<td style="background: rgb(230, 230, 230);">
@@ -1897,10 +1952,10 @@
 					</table>
 					<div style="font-size: 70%;">
 						<p>
-							Compare  <b>t-stat</b> against <b>t-factor</b>.
+							Compare <b>t-stat</b> against <b>t-factor</b>.
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
