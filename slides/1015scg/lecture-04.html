@@ -1732,6 +1732,178 @@
 				</section>
 
 				<section>
+					<h4>Two-sided Student $t$-test 📊 💻 - Solution</h4>
+					<table style="border-collapse:collapse; width:100%; text-align:center; font-size: 60%;" border="1">
+						<thead>
+							<tr style="background: rgb(230, 230, 230);">
+								<td style="text-align: center;">
+
+								</td>
+								<td style="text-align: center;">
+									<tt>A</tt>
+								</td>
+								<td style="text-align: center;">
+									<tt>B</tt>
+								</td>
+								<td style="text-align: center;">
+									<tt>C</tt>
+								</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>1</tt>
+								</td>
+								<td>
+
+								</td>
+								<td>
+									Group 1
+								</td>
+								<td>
+									Group 2
+								</td>
+							</tr>
+							
+
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									\(\vdots\)
+								</td>
+								<td>
+									\(\vdots\)
+								</td>
+								<td>
+									\(\vdots\)
+								</td>
+								<td>
+									\(\vdots\)
+								</td>
+							</tr>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>8</tt>
+								</td>
+								<td>
+									6
+								</td>
+								<td>
+									1.694
+								</td>
+								<td>
+									1.650007
+								</td>
+							</tr>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>9</tt>
+								</td>
+								<td>
+									<b>Average</b>
+								</td>
+								<td>
+									<tt>=AVERAGE(B3:B8)</tt>
+								</td>
+								<td>
+									<tt>=AVERAGE(C3:C8)</tt>
+								</td>
+							</tr>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>10</tt>
+								</td>
+								<td>
+									<b>SD</b>
+								</td>
+								<td>
+									<tt>=STDEV(B3:B8)</tt>
+								</td>
+								<td>
+									<tt>=STDEV(C3:C8)</tt>
+								</td>
+							</tr>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>11</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<b>n</b>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=COUNT(B3:B8)</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=COUNT(C3:C8)</tt>
+								</td>
+							</tr>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>12</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<b>SE</b>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=STDEV(B3:B8)/SQRT(B11)</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=STDEV(C3:C8)/SQRT(C11)</tt>
+								</td>
+							</tr>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>13</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<b>Confidence Level</b>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=0.95</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=0.95</tt>
+								</td>
+							</tr>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>14</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<b>t-factor</b>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=T.INV.2T(1-B13, B11-1)</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=T.INV.2T(1-C13, C11-1)</tt>
+								</td>
+							</tr>
+							<tr>
+								<td style="background: rgb(230, 230, 230);">
+									<tt>15</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<b>t-stat</b>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=ABS(B9-1.648731)/B12</tt>
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									<tt>=ABS(C9-1.648731)/C12</tt>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div style="font-size: 70%;">
+						<p>
+							Compare  <b>t-stat</b> against <b>t-factor</b>.
+						</p>
+					</div>
+					<br/>
+				</section>
+
+				<section>
 					<h3>
 						Final remarks!
 					</h3>
