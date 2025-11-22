@@ -9,6 +9,9 @@
   Made by Juan Carlos Ponce Campuzano
   Date: 22/Nov/2025
   https://www.patreon.com/jcponce
+
+   In p5.js 2 we need to use async, await
+   https://beta.p5js.org/reference/p5/loadtable/
 */
 
 
