@@ -317,7 +317,7 @@
 								Critique Task</em> mark and overall course mark (total marks).
 						</p>
 
-						<ul>
+						<ol>
 							<li>
 								✅Pearson/Correlation coefficient: students' <b>attendance</b> vs <b>overall course
 									mark</b>.
@@ -334,7 +334,7 @@
 							<li>
 								How many workshops with an error does a student has to attend to pass the course?
 							</li>
-						</ul>
+						</ol>
 					</div>
 					<div style="font-size: 70%;">
 						<p><b>Excel Instructions:</b> </p>
@@ -345,6 +345,63 @@
 									class="fa fa-external-link-alt"></i></a>
 						</p>
 					</div>
+					<br />
+					<br />
+				</section>
+				<section>
+					<h4>📝 Example 💻 📈 - Solutions</h4>
+
+					<div style="font-size: 75%; text-align: left;">
+
+
+						<ol>
+							<li>
+								✅Pearson/Correlation coefficient: students' <b>attendance</b> vs <b>overall course
+									mark</b>.<br />
+								<span class="fragment" data-fragment-index="0">
+									<b>Ans.</b> 0.79
+								</span>
+							</li>
+							<li>
+								Using regression, establish a linear relation between attendance ($x$-axis) and the
+								total marks ($y$-axis). Find the plot with a fit, the gradient and intercept with
+								errors, $r^2$ and residual standard error.
+								<br />
+								<span class="fragment" data-fragment-index="1">
+									<b>Ans.</b> Intercept: 14.11 /  Standard Error: 2.31 <br/>
+
+									Gradient: 12.20 / Standard Error: 0.47 / $r^2:$ 0.63 / SE: 16.25
+								</span>
+							</li>
+							<li>
+								Using the regression model, on average, what is the change in overall course
+								mark for each additional workshop a student attended, with an error range?
+								<br/>
+								<span class="fragment" data-fragment-index="2">
+									<b>Ans.</b> 12.20 $\pm$ 0.47
+								</span>
+							</li>
+							<li>
+								How many workshops with an error does a student has to attend to pass the course?
+								<br/>
+								<span class="fragment" data-fragment-index="3">
+									<b>Ans.</b> Solve $50 = 12.20 x + 14.11$. Implies $x = 2.943$
+								</span>
+								<br/>
+								<span class="fragment" data-fragment-index="4">
+									Error propagation: $\Delta x = 2.943\sqrt{(2.31/14.11)^2+ (0.47/12.20)^2}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=0.491$
+								</span> <br/>
+								<span class="fragment" data-fragment-index="6">
+									Then $x = 2.94 \pm 0.49.$
+								</span>
+
+							</li>
+						</ol>
+					</div>
+					
 					<br />
 					<br />
 				</section>
@@ -424,7 +481,7 @@
 							Look at the Lecture sheets Excel file, tab <b>fatalities</b>.
 						</p>
 
-						<ul style="line-height: 1.6;">
+						<ol style="line-height: 1.6;">
 							<li>
 								Plot the data.
 							</li>
@@ -446,7 +503,7 @@
 								Find the predicted fatalities in year 2040 with an error. Does this
 								value make sense? Why not?
 							</li>
-						</ul>
+						</ol>
 					</div>
 					<br />
 				</section>
@@ -642,7 +699,7 @@
 										\( x = 1.64882 \pm 0.00040 \, \text{s}\)
 									</p>
 								</div>
-								<hr  class="fragment" data-fragment-index="2">
+								<hr class="fragment" data-fragment-index="2">
 
 								<div style="font-size: 85%;">
 									<p class="fragment" data-fragment-index="2">
@@ -1124,6 +1181,8 @@
 						</p>
 
 						<p class="fragment" data-fragment-index="3">👉 \(\text{CL}=\) Confidence level</p>
+						
+						<p class="fragment" data-fragment-index="4">👉 <tt>deg_freedom</tt>  $=n-1$</p>
 
 					</div>
 					<br />
@@ -1152,8 +1211,8 @@
 									</p>
 
 									<p class="fragment" data-fragment-index="0">
-										The average scores from 20 years ago were 45 for old people
-										and 37 for young people.
+										The scores from 20 years ago were 45 
+										for old people and 37 for young people.
 									</p>
 
 									<p class="fragment" data-fragment-index="1">
@@ -1452,7 +1511,7 @@
 				</section>
 
 				<section>
-					<h4>The incline problem from week 3  📊 💻</h4>
+					<h4>The incline problem from week 3 📊 💻</h4>
 
 					<table style="width: 100%;margin-top: -20px;">
 						<tr>
