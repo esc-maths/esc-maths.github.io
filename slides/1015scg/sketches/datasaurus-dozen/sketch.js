@@ -1,3 +1,18 @@
+/*
+  Visualization of the Datasaurus Dozen
+  by J. Matejka & G. Fitzmaurice (2017)
+  DOI: https://doi.org/10.1145/3025453.3025912
+  
+  The data set is available here:
+  https://www.openintro.org/data/index.php?data=datasaurus
+  
+  Made by Juan Carlos Ponce Campuzano
+  Date: 22/Nov/2025
+  https://www.patreon.com/jcponce
+
+*/
+
+
 let table;
 let datasets = {};
 let names = [];
