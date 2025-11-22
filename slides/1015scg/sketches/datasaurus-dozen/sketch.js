@@ -9,7 +9,6 @@
   Made by Juan Carlos Ponce Campuzano
   Date: 22/Nov/2025
   https://www.patreon.com/jcponce
-
 */
 
 
