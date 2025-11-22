@@ -170,7 +170,7 @@ function drawStatsPanel(points, name) {
   text(`SD Y:   ${sdY}`, panelX, 180);
   text(`Corr: ${r}`, panelX, 210);
   
-  text(`\n\nBy J. Matejka \n& G. Fitzmaurice 2017`, panelX, 240);
+  text(`\n\nThe Datasaurus Dozen \nby J. Matejka & \nG. Fitzmaurice \n(2017)`, panelX, 240);
 
   pop();
 }
