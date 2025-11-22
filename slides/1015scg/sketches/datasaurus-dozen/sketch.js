@@ -95,7 +95,7 @@ function drawMorph(aPoints, bPoints, t) {
     let x = lerp(pa.x, pb.x, t);
     let y = lerp(pa.y, pb.y, t);
 
-    let px = map(x, 0, 100, plotLeft, plotLeft + plotSize);
+    let px = map(x, 10, 100, plotLeft, plotLeft + plotSize);
     let py = map(y, 0, 100, height / 2 + plotSize / 2, height / 2 - plotSize / 2);
 
 
