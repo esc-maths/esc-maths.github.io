@@ -368,7 +368,7 @@
 								errors, $r^2$ and residual standard error.
 								<br />
 								<span class="fragment" data-fragment-index="1">
-									<b>Ans.</b> Intercept: 14.11 /  Standard Error: 2.31 <br/>
+									<b>Ans.</b> Intercept: 14.11 / Standard Error: 2.31 <br />
 
 									Gradient: 12.20 / Standard Error: 0.47 / $r^2:$ 0.63 / SE: 16.25
 								</span>
@@ -376,24 +376,24 @@
 							<li>
 								Using the regression model, on average, what is the change in overall course
 								mark for each additional workshop a student attended, with an error range?
-								<br/>
+								<br />
 								<span class="fragment" data-fragment-index="2">
 									<b>Ans.</b> 12.20 $\pm$ 0.47
 								</span>
 							</li>
 							<li>
 								How many workshops with an error does a student has to attend to pass the course?
-								<br/>
+								<br />
 								<span class="fragment" data-fragment-index="3">
 									<b>Ans.</b> Solve $50 = 12.20 x + 14.11$. Implies $x = 2.943$
 								</span>
-								<br/>
+								<br />
 								<span class="fragment" data-fragment-index="4">
 									Error propagation: $\Delta x = 2.943\sqrt{(2.31/14.11)^2+ (0.47/12.20)^2}$
 								</span>
 								<span class="fragment" data-fragment-index="5">
 									$=0.491$
-								</span> <br/>
+								</span> <br />
 								<span class="fragment" data-fragment-index="6">
 									Then $x = 2.94 \pm 0.49.$
 								</span>
@@ -401,7 +401,7 @@
 							</li>
 						</ol>
 					</div>
-					
+
 					<br />
 					<br />
 				</section>
@@ -979,14 +979,14 @@
 									</li>
 								</ol>
 							</li>
-							<li>Check the agreement - two equivalent mathematical approaches.</li>
 						</ol>
 
 						<p>
-							<span style="color: rgb(8, 152, 8);">If yes - the estimate \( \mu \) agrees with the
+							<span style="color: rgb(6, 147, 6);">If $t$-factor $\leq t_f,$ the estimate \( \mu \) agrees
+								with the
 								expected/theoretical value \( \mu_0 .\)</span>
 							<br />
-							<span style="color: rgb(190, 10, 10);">If not - the estimate \( \mu \) does not agree with
+							<span style="color: rgb(190, 10, 10);">If not, the estimate \( \mu \) does not agree with
 								the expected/theoretical value \( \mu_0.\)</span>
 						</p>
 					</div>
@@ -1181,8 +1181,8 @@
 						</p>
 
 						<p class="fragment" data-fragment-index="3">👉 \(\text{CL}=\) Confidence level</p>
-						
-						<p class="fragment" data-fragment-index="4">👉 <tt>deg_freedom</tt>  $=n-1$</p>
+
+						<p class="fragment" data-fragment-index="4">👉 <tt>deg_freedom</tt> $=n-1$</p>
 
 					</div>
 					<br />
@@ -1210,17 +1210,17 @@
 										indicative of low life satisfaction.
 									</p>
 
-									<p class="fragment" data-fragment-index="0">
-										The scores from 20 years ago were 45 
+									<p>
+										The scores from 20 years ago were 45
 										for old people and 37 for young people.
 									</p>
 
-									<p class="fragment" data-fragment-index="1">
+									<p>
 										Compare if life satisfaction scores for both old and
 										young adults are the same now?
 									</p>
 
-									<p class="fragment" data-fragment-index="2">Use \(\text{CI}\) 95%.</p>
+									<p>Use \(\text{CI}\) 95%.</p>
 
 
 								</div>
@@ -1328,23 +1328,28 @@
 							<li>Find best estimate and standard error for each experiment - $\mu_1, \text{SE}_1$ and
 								$\mu_2, \text{SE}_2.$</li>
 							<li>Choose a confidence level \( \text{CL} \)</li>
-							<li>Calculate $t$-statistic \( \ds t = \frac{|\mu -
-								\mu_0|}{\left(\text{SE}_1\right)^2+\left(\text{SE}_2\right)^2}.\)</li>
+							<li>Calculate $t$-statistic \( \ds t = \frac{\mu_1 -
+								\mu_2}{\left(\text{SE}_1\right)^2/n_1+\left(\text{SE}_2\right)^2/n_2}.\)</li>
 							<li>
-								Find number of degrees of freedom \(\ds \text{df} =
-								\frac{\left(\left(\text{SE}_1\right)^2+\left(\text{SE}_2\right)^2\right)^2}{\frac{\left(\text{SE}_1\right)^4}{n_1
-								- 1} + \frac{\left(\text{SE}_2\right)^4}{n_2 - 1}},\)
-								round down for more conservative estimate.
+								Find number of degrees of freedom
+								\(\ds \text{df} =
+								\frac{
+								\left( \text{SE}_1^{2} + \text{SE}_2^{2} \right)^2
+								}{
+								\frac{(\text{SE}_1)^{4}}{n_1 - 1}
+								+
+								\frac{(\text{SE}_2)^{4}}{n_2 - 1}
+								}.\)
 							</li>
 							<li>
-								Find the t-factor $t$-factor $t_f$ for given $\text{CL}$ and $\text{df}$ (from a table
+								Find the $t$-factor $t_f$ for given $\text{CL}$ and $\text{df}$ (from a table
 								or Excel).
 							</li>
 							<li>Check if $t\leq t_f.$</li>
 						</ol>
 
 						<p>
-							<span style="color: rgb(8, 152, 8);">If yes - the experiments agree with each other to the
+							<span style="color: rgb(6, 147, 6);">If yes - the experiments agree with each other to the
 								$\text{CL}$
 							</span>
 							<br />
