@@ -1007,9 +1007,9 @@
 						Two-sided Student $t$-test
 					</h4>
 
-					<img style="width: 800px; margin-top: -0px;" src="images/lec-04/t-distibution.jpg">
+					<img style="width: 800px; margin-top: -10px;" src="images/lec-04/t-distibution.jpg">
 
-					<div class="size-90" style="margin-top: -40px;">
+					<div style="margin-top: -40px; font-size: 90%;" class="fragment" data-fragment-index="0">
 						<p><b>Goal:</b> To determine and compare two values <br/> 1.<b> $t$-critical</b> value and 2. <b>$t$-statistic value</b>.</p>
 					</div>
 					
@@ -1027,36 +1027,36 @@
 							Does the estimate \( \mu \) match the expected or theoretical value \( \mu_0 \)?
 						</p>
 
-						<ol style="margin-top: -15px;">
-							<li>Have an expected/theoretical value \( \mu_0 .\)</li>
-							<li>Repeat the experiment \( n \) times.</li>
-							<li>Calculate the best estimate \( \mu \) and the standard error \( \text{SE} .\)</li>
-							<li>Choose a confidence level \( \text{CL} .\)</li>
-							<li>Find the number of degrees of freedom: \( \text{df} = n - 1 .\)</li>
-							<li>
-								Find the $t$-factor \( t_f \) for the given \( \text{CL} \) and \( \text{d}f \) (from a
-								table or Excel).
+						<ol style="margin-top: -15px; line-height: 1.5;">
+							
+							<li class="fragment" data-fragment-index="0">Calculate the average \( \mu \) and the standard error \( \text{SE} .\)</li>
+							<li class="fragment" data-fragment-index="1">Choose a confidence level \( \text{CL} .\)</li>
+							<li class="fragment" data-fragment-index="2">Find the number of degrees of freedom: \( \text{df} = n - 1 .\)</li>
+							<li class="fragment" data-fragment-index="3">
+								Find the <b>$t$-critical</b> value (\( t_c \)) for the given \( \text{CL} \) and \( \text{df} \) (from a
+								table or Excel). This is the <em>theoretical value based on a probability distribution</em>.
 							</li>
-							<li>
-								Check - two options, mathematically equivalent:
-								<ol>
-									<li>Check if \(\mu- t_f \times \text{SE} \leq \mu_0 \leq \mu+ t_f \times\text{SE}\),
+							<li class="fragment" data-fragment-index="4">
+								Then there are two mathematically equivalent  options:
+								<ul>
+									<li class="fragment" data-fragment-index="5">Check if \(\mu- t_f \times \text{SE} \leq \mu_0 \leq \mu+ t_f \times\text{SE}\),
 										confidence
 										interval \(\text{CI}.\)</li>
-									<li>
-										Check if $t$-statistics is smaller than \(t\)-factor: \(\ds t = \frac{|\mu -
-										\mu_0|}{\text{SE}}\leq t_f.\)
+									<li class="fragment" data-fragment-index="6">
+										Check if <b>$t$-statistics</b>  value  \(\ds t = \frac{|\mu -
+										\mu_0|}{\text{SE}}\) is smaller than <b>\(t\)-critical</b>: \(\ds t \leq t_c.\)
+										<span class="fragment" data-fragment-index="7">👈</span>
 									</li>
-								</ol>
+								</ul>
 							</li>
 						</ol>
 
 						<p>
-							<span style="color: rgb(6, 147, 6);">If $t$-factor $\leq t_f,$ the estimate \( \mu \) agrees
+							<span style="color: rgb(6, 147, 6);" class="fragment" data-fragment-index="8">If $t$-factor $\leq t_c,$ the estimate \( \mu \) agrees
 								with the
 								expected/theoretical value \( \mu_0 .\)</span>
 							<br />
-							<span style="color: rgb(190, 10, 10);">If not, the estimate \( \mu \) does not agree with
+							<span style="color: rgb(190, 10, 10);" class="fragment" data-fragment-index="9">If not, the estimate \( \mu \) does not agree with
 								the expected/theoretical value \( \mu_0.\)</span>
 						</p>
 					</div>
@@ -1234,7 +1234,7 @@
 
 					<br />
 
-					<div class="fragment" data-fragment-index="0">
+					<div>
 						<p>
 							<tt>=T.INV.2T(probability, deg_freedom)</tt>
 						</p>
@@ -1290,7 +1290,7 @@
 										young adults are the same now?
 									</p>
 
-									<p>Use \(\text{CI}\) 95%.</p>
+									<p>Use \(\text{CL}\) 95%.</p>
 
 
 								</div>
@@ -1393,14 +1393,14 @@
 							Do the two experiments agree?
 						</p>
 
-						<ol style="margin-top: -15px;">
-							<li>Repeat each experiment - $n_1$ and $n_2.$</li>
-							<li>Find best estimate and standard error for each experiment - $\mu_1, \text{SE}_1$ and
+						<ol style="margin-top: -15px; line-height: 1.5;">
+							
+							<li class="fragment" data-fragment-index="1">Find best estimate and standard error for each experiment - $\mu_1, \text{SE}_1$ and
 								$\mu_2, \text{SE}_2.$</li>
-							<li>Choose a confidence level \( \text{CL} \)</li>
-							<li>Calculate $t$-statistic \( \ds t = \frac{\mu_1 -
+							<li class="fragment" data-fragment-index="2">Choose a confidence level \( \text{CL} .\)</li>
+							<li class="fragment" data-fragment-index="3">Calculate <b>$t$-statistic</b>  defined as: \( \ds t = \frac{\mu_1 -
 								\mu_2}{\left(\text{SE}_1\right)^2/n_1+\left(\text{SE}_2\right)^2/n_2}.\)</li>
-							<li>
+							<li class="fragment" data-fragment-index="4">
 								Find number of degrees of freedom
 								\(\ds \text{df} =
 								\frac{
@@ -1411,19 +1411,19 @@
 								\frac{(\text{SE}_2)^{4}}{n_2 - 1}
 								}.\)
 							</li>
-							<li>
-								Find the $t$-factor $t_f$ for given $\text{CL}$ and $\text{df}$ (from a table
+							<li class="fragment" data-fragment-index="5">
+								Find the <b>$t$-critical</b> value ($t_c$) for given $\text{CL}$ and $\text{df}$ (from a table
 								or Excel).
 							</li>
-							<li>Check if $t\leq t_f.$</li>
+							<li class="fragment" data-fragment-index="6">Check if $t\leq t_c.$</li>
 						</ol>
 
 						<p>
-							<span style="color: rgb(6, 147, 6);">If yes - the experiments agree with each other to the
+							<span style="color: rgb(6, 147, 6);" class="fragment" data-fragment-index="7">If yes - the experiments agree with each other to the
 								$\text{CL}$
 							</span>
 							<br />
-							<span style="color: rgb(190, 10, 10);">If not - the experiments do not agree with each
+							<span style="color: rgb(190, 10, 10);" class="fragment" data-fragment-index="8">If not - the experiments do not agree with each
 								other.</span>
 						</p>
 
@@ -1446,13 +1446,16 @@
 						</p>
 					</div>
 					<br />
-					<div class="left-txt">
+					<div >
 
-						<p class="fragment" data-fragment-index="0">
+						<p class="fragment left-txt" data-fragment-index="0">
 							<b>Welch $t$-test Data</b>
 							<span class="fragment" data-fragment-index="1">
 								→ Data Analysis
 							</span>
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							
 							<span class="fragment" data-fragment-index="2">
 								→ t-Test: Two-Sample Assuming
 								Unequal Variances
@@ -1897,27 +1900,27 @@
 								<td style="background: rgb(230, 230, 230);">
 									<tt>11</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<b>n</b>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=COUNT(B3:B8)</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=COUNT(C3:C8)</tt>
 								</td>
 							</tr>
 							<tr>
-								<td style="background: rgb(230, 230, 230);">
+								<td>
 									<tt>12</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<b>SE</b>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=STDEV(B3:B8)/SQRT(B11)</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=STDEV(C3:C8)/SQRT(C11)</tt>
 								</td>
 							</tr>
@@ -1925,13 +1928,13 @@
 								<td style="background: rgb(230, 230, 230);">
 									<tt>13</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<b>Confidence Level</b>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=0.95</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=0.95</tt>
 								</td>
 							</tr>
@@ -1939,13 +1942,13 @@
 								<td style="background: rgb(230, 230, 230);">
 									<tt>14</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<b>t-factor</b>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=T.INV.2T(1-B13, B11-1)</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=T.INV.2T(1-C13, C11-1)</tt>
 								</td>
 							</tr>
@@ -1953,13 +1956,13 @@
 								<td style="background: rgb(230, 230, 230);">
 									<tt>15</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<b>t-stat</b>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=ABS(B9-1.648731)/B12</tt>
 								</td>
-								<td class="fragment" data-fragment-index="0">
+								<td>
 									<tt>=ABS(C9-1.648731)/C12</tt>
 								</td>
 							</tr>
@@ -1967,7 +1970,7 @@
 					</table>
 					<div style="font-size: 70%;">
 						<p>
-							Compare <b>t-stat</b> against <b>t-factor</b>.
+							Compare the values <b>t-stat</b> and <b>t-critical</b>.
 						</p>
 					</div>
 					<br />
@@ -2000,7 +2003,7 @@
 										Student's $t$-test - compare data to expected value.
 									</li>
 									<li>
-										Welch $t$-test - compare two sets pf data with each other.
+										Welch $t$-test - compare two sets of data with each other.
 									</li>
 								</ul>
 
@@ -2022,7 +2025,7 @@
 
 			<section data-transition="fade" data-background-iframe="sketches/datasaurus-dozen">
 				<div
-					style="background: rgba(200,200,200,0.9);position: absolute;bottom:220px;left: 8%;transform: translateX(-50%);width:25%; padding: 0.5em 0.2em 0.1em;border-radius: 20px;font-size: 50%;">
+					style="background: rgba(200,200,200,0.9);position: absolute;bottom:220px;left: 10%;transform: translateX(-50%);width:25%; padding: 0.5em 0.2em 0.1em;border-radius: 20px;font-size: 50%;">
 					<h2>That's all for today!</h2>
 
 					<p>See you in Week 5!</p>
