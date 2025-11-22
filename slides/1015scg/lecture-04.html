@@ -642,7 +642,7 @@
 										\( x = 1.64882 \pm 0.00040 \, \text{s}\)
 									</p>
 								</div>
-								<hr>
+								<hr  class="fragment" data-fragment-index="2">
 
 								<div style="font-size: 85%;">
 									<p class="fragment" data-fragment-index="2">
@@ -765,23 +765,26 @@
 						</p>
 
 						<p class="fragment" data-fragment-index="0">
-							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \), 95% <b>confidence level</b> ($\text{CL}$)
+							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \), 95%
+							<b>confidence level</b> ($\text{CL}$)
 						</p>
 
 						<ul>
 							<li class="fragment" data-fragment-index="1">I performed the experiment.</li>
-							<li class="fragment" data-fragment-index="2">I obtained the best estimate and its error from the experimental data.</li>
+							<li class="fragment" data-fragment-index="2">I obtained the best estimate and its error from
+								the experimental data.</li>
 							<li class="fragment" data-fragment-index="3">The confidence level is 95%.</li>
 							<li class="fragment" data-fragment-index="4">
-								From this information, we can determine a <b>confidence interval</b> $\text{CI}$ —a range of values
+								From this information, we can determine a <b>confidence interval</b> $\text{CI}$ —a
+								range of values
 								derived from our measurements (we will show how to calculate it soon).
 							</li>
 						</ul>
 
-						
+
 					</div>
 
-					<br /><br /><br/>
+					<br /><br /><br />
 				</section>
 				<section data-auto-animate>
 					<h4>
@@ -794,7 +797,8 @@
 						</p>
 
 						<p>
-							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \), 95% $\text{CL}$
+							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \), 95%
+							$\text{CL}$
 						</p>
 
 						<ul>
@@ -802,13 +806,14 @@
 							<li>I obtained the best estimate and its error from the experimental data$.$</li>
 							<li>The confidence level is 95%$.$</li>
 							<li>
-								From this information, we can determine a  <b>confidence interval</b> $\text{CI}$ —a range of values
+								From this information, we can determine a <b>confidence interval</b> $\text{CI}$ —a
+								range of values
 								derived from our measurements (we will show how to calculate it soon)$.$
 							</li>
 						</ul>
 					</div>
 					<div class="size-85 left-txt">
-						
+
 
 						<p>
 							What it means:
@@ -816,7 +821,8 @@
 
 						<ul style="margin-top: -20px;">
 							<li>If we were to repeat the experiment many times...</li>
-							<li class="fragment" data-fragment-index="2">...and calculate the confidence interval in the same way each time...</li>
+							<li class="fragment" data-fragment-index="2">...and calculate the confidence interval in the
+								same way each time...</li>
 							<li class="fragment" data-fragment-index="3">
 								...the true value would lie within this interval 95% of the time (the confidence level)
 							</li>
@@ -869,7 +875,8 @@
 
 							<li class="fragment" data-fragment-index="1">
 								<strong>Welch $t$-test</strong><br />
-								<span class="fragment" data-fragment-index="3">“Do the two experimental results agree with each other?”</span>
+								<span class="fragment" data-fragment-index="3">“Do the two experimental results agree
+									with each other?”</span>
 							</li>
 						</ul>
 					</div>
@@ -906,7 +913,8 @@
 							<li>
 								Check - two options, mathematically equivalent:
 								<ol>
-									<li>Check if \(\mu- t_f \times \text{SE} \leq \mu_0 \leq \mu+ t_f \times\text{SE}\), confidence
+									<li>Check if \(\mu- t_f \times \text{SE} \leq \mu_0 \leq \mu+ t_f \times\text{SE}\),
+										confidence
 										interval \(\text{CI}.\)</li>
 									<li>
 										Check if $t$-statistics is smaller than \(t\)-factor: \(\ds t = \frac{|\mu -
@@ -1097,7 +1105,7 @@
 						Excel: $\;t$-factor
 					</h3>
 
-					<br/>
+					<br />
 
 					<div class="fragment" data-fragment-index="0">
 						<p>
@@ -1112,7 +1120,7 @@
 					<div>
 
 						<p class="fragment" data-fragment-index="2">
-							probability = \(\ds 1 = \frac{\text{CL}}{100\%}\)
+							probability = \(\ds 1 -\frac{\text{CL}}{100\%}\)
 						</p>
 
 						<p class="fragment" data-fragment-index="3">👉 \(\text{CL}=\) Confidence level</p>
@@ -1144,7 +1152,7 @@
 									</p>
 
 									<p class="fragment" data-fragment-index="0">
-										The scores from 20 years ago were 45 for old people
+										The average scores from 20 years ago were 45 for old people
 										and 37 for young people.
 									</p>
 
@@ -1277,8 +1285,9 @@
 						</ol>
 
 						<p>
-							<span style="color: rgb(8, 152, 8);">If yes - the experiments agree with each other to the $\text{CL}$
-								</span>
+							<span style="color: rgb(8, 152, 8);">If yes - the experiments agree with each other to the
+								$\text{CL}$
+							</span>
 							<br />
 							<span style="color: rgb(190, 10, 10);">If not - the experiments do not agree with each
 								other.</span>
@@ -1295,7 +1304,7 @@
 						Excel: $\;t$-factor & Welch $t$-test
 					</h3>
 
-					<br/>
+					<br />
 
 					<div>
 						<p>
@@ -1306,9 +1315,9 @@
 					<div class="left-txt">
 
 						<p class="fragment" data-fragment-index="0">
-							<b>Welch t-test Data</b>
+							<b>Welch $t$-test Data</b>
 							<span class="fragment" data-fragment-index="1">
-								→ Data Analysis 
+								→ Data Analysis
 							</span>
 							<span class="fragment" data-fragment-index="2">
 								→ t-Test: Two-Sample Assuming
@@ -1443,7 +1452,7 @@
 				</section>
 
 				<section>
-					<h4>The incline problem from week 3</h4>
+					<h4>The incline problem from week 3  📊 💻</h4>
 
 					<table style="width: 100%;margin-top: -20px;">
 						<tr>
@@ -1613,7 +1622,7 @@
 									</p>
 								</div>
 
-								<hr/>
+								<hr />
 
 								<div style="font-size: 80%;">
 									<p>
@@ -1707,11 +1716,10 @@
 
 			<section data-transition="fade" data-background-iframe="sketches/datasaurus-dozen">
 				<div
-					style="background: rgba(200,200,200,0.9);position: absolute;bottom:220px;left: 8%;transform: translateX(-50%);width:30%; padding: 0.3em;border-radius: 20px;font-size: 55%;">
+					style="background: rgba(200,200,200,0.9);position: absolute;bottom:220px;left: 8%;transform: translateX(-50%);width:25%; padding: 0.5em 0.2em 0.1em;border-radius: 20px;font-size: 50%;">
 					<h2>That's all for today!</h2>
 
 					<p>See you in Week 5!</p>
-
 				</div>
 			</section>
 
