@@ -682,7 +682,7 @@
 
 					<div class="size-90 left-txt">
 						<p class="fragment" data-fragment-index="0">
-							Hypothesis testing - part of the scientific method
+							Hypothesis testing - part of the scientific method.
 						</p>
 
 						<p class="fragment" data-fragment-index="1">
@@ -691,20 +691,20 @@
 
 						<ul>
 							<li class="fragment" data-fragment-index="2">
-								Do the experimental results agree with the expected value
+								<b>Do the experimental results agree with the expected value.</b>
 							</li>
 							<li class="fragment" data-fragment-index="3">
-								Do the experimental results agree with each other
+								<b>Do the experimental results agree with each other.</b>
 							</li>
 						</ul>
 
 						<p class="fragment" data-fragment-index="4">
 							We start with Null hypothesis $\text{H}_0$ - hypothesis that matches our
-							predictions
+							predictions.
 						</p>
 
 						<p class="fragment" data-fragment-index="5">
-							Then we use statistical methods to accept or reject the hypothesis
+							Then we use statistical methods to accept or reject the hypothesis.
 						</p>
 					</div>
 
@@ -755,41 +755,73 @@
 					<br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>
 						Confidence Level, Confidence Interval, and Significance
 					</h4>
 
-					<div class="size-75 left-txt">
+					<div class="size-90 left-txt">
 						<p>
 							How likely is it that the true value \( \mu_T \) matches our experiment?
 						</p>
 
 						<p class="fragment" data-fragment-index="0">
-							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \) (95% CL)
+							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \), 95% <b>confidence level</b> ($\text{CL}$)
 						</p>
 
-						<ul class="fragment" data-fragment-index="1">
-							<li>I performed the experiment</li>
-							<li>I obtained the best estimate and its error from the experimental data</li>
-							<li>The confidence level is 95%</li>
-							<li>
-								From this information, we can determine a confidence interval—a range of values
-								derived from our measurements (we will show how to calculate it soon)
+						<ul>
+							<li class="fragment" data-fragment-index="1">I performed the experiment.</li>
+							<li class="fragment" data-fragment-index="2">I obtained the best estimate and its error from the experimental data.</li>
+							<li class="fragment" data-fragment-index="3">The confidence level is 95%.</li>
+							<li class="fragment" data-fragment-index="4">
+								From this information, we can determine a <b>confidence interval</b> $\text{CI}$ —a range of values
+								derived from our measurements (we will show how to calculate it soon).
 							</li>
 						</ul>
 
-						<p class="fragment" data-fragment-index="2">
+						
+					</div>
+
+					<br /><br /><br/>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Confidence Level, Confidence Interval, and Significance
+					</h4>
+
+					<div class="size-55 left-txt">
+						<p>
+							How likely is it that the true value \( \mu_T \) matches our experiment?
+						</p>
+
+						<p>
+							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \), 95% $\text{CL}$
+						</p>
+
+						<ul>
+							<li>I performed the experiment$.$</li>
+							<li>I obtained the best estimate and its error from the experimental data$.$</li>
+							<li>The confidence level is 95%$.$</li>
+							<li>
+								From this information, we can determine a  <b>confidence interval</b> $\text{CI}$ —a range of values
+								derived from our measurements (we will show how to calculate it soon)$.$
+							</li>
+						</ul>
+					</div>
+					<div class="size-85 left-txt">
+						
+
+						<p>
 							What it means:
 						</p>
 
-						<ul class="fragment" data-fragment-index="3">
+						<ul style="margin-top: -20px;">
 							<li>If we were to repeat the experiment many times...</li>
-							<li>...and calculate the confidence interval in the same way each time...</li>
-							<li>
+							<li class="fragment" data-fragment-index="2">...and calculate the confidence interval in the same way each time...</li>
+							<li class="fragment" data-fragment-index="3">
 								...the true value would lie within this interval 95% of the time (the confidence level)
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="4">
 								Therefore, it would lie outside this interval only 5% (0.05) of the time — the
 								statistical significance
 							</li>
@@ -799,22 +831,22 @@
 					<br /><br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>
 						Confidence Level, Confidence Interval, and Significance
 					</h4>
 
 					<div class=" left-txt">
 						<p>
-							There are two ways to approach confidence levels and confidence intervals:
+							There are two ways to approach <em>confidence levels</em> and <em>confidence intervals</em>:
 						</p>
 
 						<ul>
 							<li class="fragment" data-fragment-index="0">
-								Choose a confidence interval and determine the corresponding confidence level
+								Choose a <em>confidence interval</em> and determine the corresponding confidence level.
 							</li>
 							<li class="fragment" data-fragment-index="1">
-								Choose a confidence level and determine the corresponding confidence interval
+								Choose a <em>confidence level</em> and determine the corresponding confidence interval.
 							</li>
 						</ul>
 					</div>
@@ -831,17 +863,19 @@
 						<ul style="line-height: 1.9;">
 							<li class="fragment" data-fragment-index="0">
 								<strong>Two-sided Student t-test</strong><br />
-								“Do the experimental results agree with the expected value?”
+								<span class="fragment" data-fragment-index="2">
+									“Do the experimental results agree with the expected value?”
+								</span>
 							</li>
 
 							<li class="fragment" data-fragment-index="1">
 								<strong>Welch t-test</strong><br />
-								“Do the two experimental results agree with each other?”
+								<span class="fragment" data-fragment-index="3">“Do the two experimental results agree with each other?”</span>
 							</li>
 						</ul>
 					</div>
 
-					<div style="position: absolute; bottom:0px; right: 0px; width: 350px;">
+					<div style="position: absolute; bottom:30px; right: 0px; width: 360px;">
 						<img style="opacity: calc(0.95);" src="images/lec-01/diagram-scientific-method.jpg">
 					</div>
 
@@ -1268,8 +1302,6 @@
 						<p>
 							👉 $t$-factor <tt>=T.INV.2T(probability, deg_freedom)</tt>
 						</p>
-
-
 					</div>
 					<br />
 					<div class="left-txt">
@@ -1413,25 +1445,25 @@
 
 				<section>
 					<h3>
-						Remember
+						Final remarks!
 					</h3>
 
 					<div class="left-txt">
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								We can not be absolutely sure - confidence level $\lt 100 \%.$
 							</li>
-							<li class="fragment" data-fragment-index="0">
+							<li class="fragment" data-fragment-index="1">
 								We can only say if the results match with a certain level of confidence.
 							</li>
-							<li class="fragment" data-fragment-index="1">
+							<li class="fragment" data-fragment-index="2">
 								Hypothesis is based on the experimental results.
 							</li>
 							<li class="fragment" data-fragment-index="2">
 								Which statistical test we use to test the hypothesis depends on the
 								experiment, data and questions we ask.
 							</li>
-							<li class="fragment" data-fragment-index="3">
+							<li class="fragment" data-fragment-index="4">
 								Two examples in this course
 								<ul>
 									<li>
@@ -1442,7 +1474,7 @@
 									</li>
 								</ul>
 
-								<p class="fragment" data-fragment-index="4">
+								<p class="fragment" data-fragment-index="5">
 									<b>But there are many more...</b>
 								</p>
 							</li>
