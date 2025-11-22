@@ -169,6 +169,8 @@ function drawStatsPanel(points, name) {
   text(`SD X:   ${sdX}`, panelX, 150);
   text(`SD Y:   ${sdY}`, panelX, 180);
   text(`Corr: ${r}`, panelX, 210);
+  
+  text(`\n\nBy J. Matejka \n& G. Fitzmaurice 2017`, panelX, 240);
 
   pop();
 }

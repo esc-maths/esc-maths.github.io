@@ -198,31 +198,25 @@
 					<br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>The Linear Regression Model</h4>
 
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						<p>For a dataset of pairs
-						</p>
 
-					</div>
-					<div class="size-80">
-						<p>
 							\(
 							(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n),
 							\)
+							<span class="fragment" data-fragment-index="0">
+								we assume that the relationship
+								between \(x\) and \(y\) can be described by a straight line plus a random
+								"error":
+							</span>
 						</p>
 
 					</div>
-					<div class="left-txt size-80">
-						<p class="fragment" data-fragment-index="0">
-							we assume that the relationship
-							between \(x\) and \(y\) can be described by a straight line plus a random
-							"error":
-						</p>
 
-					</div>
-					<div class="size-80">
+					<div class="size-85">
 						<p class="fragment" data-fragment-index="0">
 							\(
 							y_i = \beta_1 x_i + \beta_0 + \varepsilon_i
@@ -231,7 +225,7 @@
 					</div>
 
 
-					<div style="font-size:80%;text-align: left;">
+					<div style="font-size:85%;text-align: left;">
 
 						<ul>
 							<li class="fragment" data-fragment-index="1">
@@ -258,10 +252,11 @@
 					</div>
 
 					<br />
+					<br />
 
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>The Linear Regression Model</h4>
 
 					<div class="left-txt size-75">
@@ -624,7 +619,7 @@
 							<td style="width: 60%;">
 
 								<div style="font-size: 80%;">
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										Group 1 results:
 									</p>
 								</div>
@@ -651,20 +646,20 @@
 								<hr>
 
 								<div style="font-size: 85%;">
-									<p class="fragment" data-fragment-index="1">
+									<p class="fragment" data-fragment-index="2">
 										The theory says that
 									</p>
 								</div>
 
 								<div style="font-size: 90%; text-align: center;">
-									<p class="fragment" data-fragment-index="1">
+									<p class="fragment" data-fragment-index="2">
 										\(t = \ds \sqrt{\dfrac{2L^2}{h \times g}}\)
-										<span>\(= 1.648731\, \text{s}\)</span>
+										<span class="fragment" data-fragment-index="3">\(= 1.648731\, \text{s}\)</span>
 									</p>
 								</div>
 
 								<div style="font-size: 80%;">
-									<p class="fragment" data-fragment-index="1">
+									<p class="fragment" data-fragment-index="4">
 										where $g = 9.81\, \text{m}/\text{s}^2,$ $h= 0.3\, \text{m}$ and
 										$L = 2\,\text{m}.$
 									</p>
@@ -686,38 +681,40 @@
 					</h4>
 
 					<div class="size-90 left-txt">
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							Hypothesis testing - part of the scientific method
 						</p>
 
-						<p>
-							In statistics, we frame the questions as a hypothesis
+						<p class="fragment" data-fragment-index="1">
+							In statistics, we frame the questions as a hypothesis:
 						</p>
 
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								Do the experimental results agree with the expected value
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								Do the experimental results agree with each other
 							</li>
 						</ul>
 
-						<p>
+						<p class="fragment" data-fragment-index="4">
 							We start with Null hypothesis $\text{H}_0$ - hypothesis that matches our
 							predictions
 						</p>
 
-						<p>
+						<p class="fragment" data-fragment-index="5">
 							Then we use statistical methods to accept or reject the hypothesis
 						</p>
 					</div>
 
-					<div style="position: absolute; top: -90px; right: 0px; width: 350px;">
-						<img style="opacity: calc(0.7);" src="images/lec-01/diagram-scientific-method.jpg">
+					<div style="position: absolute; top: -90px; right: 0px; width: 350px;" class="fragment"
+						data-fragment-index="0">
+						<img style="opacity: calc(0.95);" src="images/lec-01/diagram-scientific-method.jpg">
 					</div>
 					<br />
 					<br />
+
 				</section>
 
 				<section>
@@ -728,28 +725,28 @@
 					<div class="size-90 left-txt">
 
 
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							Do the experimental results agree with
 							the expected value.
 						</p>
 
 
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							There is true/expected value for our
 							experimental result $\mu_T.$
 						</p>
 
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							Repeat measurement $n$ times.
 						</p>
 
-						<p>
+						<p class="fragment" data-fragment-index="3">
 							It is more likely than the measurements
 							are scattered about the true value than
 							biased.
 						</p>
 
-						<p>
+						<p class="fragment" data-fragment-index="4">
 							I can estimate how likely it is that the
 							true value matches our experiment with given $\mu_T$ and $\text{SE}.$
 						</p>
@@ -768,11 +765,11 @@
 							How likely is it that the true value \( \mu_T \) matches our experiment?
 						</p>
 
-						<p>
-							Example: The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \) (95% CL)
+						<p class="fragment" data-fragment-index="0">
+							<b>Example:</b> The true value lies in the range \( 1.1 \pm 0.4 \,\text{m} \) (95% CL)
 						</p>
 
-						<ul>
+						<ul class="fragment" data-fragment-index="1">
 							<li>I performed the experiment</li>
 							<li>I obtained the best estimate and its error from the experimental data</li>
 							<li>The confidence level is 95%</li>
@@ -782,15 +779,15 @@
 							</li>
 						</ul>
 
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							What it means:
 						</p>
 
-						<ul>
-							<li>If we were to repeat the experiment many times…</li>
-							<li>… and calculate the confidence interval in the same way each time…</li>
+						<ul class="fragment" data-fragment-index="3">
+							<li>If we were to repeat the experiment many times...</li>
+							<li>...and calculate the confidence interval in the same way each time...</li>
 							<li>
-								… the true value would lie within this interval 95% of the time (the confidence level)
+								...the true value would lie within this interval 95% of the time (the confidence level)
 							</li>
 							<li>
 								Therefore, it would lie outside this interval only 5% (0.05) of the time — the
@@ -807,22 +804,22 @@
 						Confidence Level, Confidence Interval, and Significance
 					</h4>
 
-					<div class="size-90 left-txt">
+					<div class=" left-txt">
 						<p>
 							There are two ways to approach confidence levels and confidence intervals:
 						</p>
 
 						<ul>
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								Choose a confidence interval and determine the corresponding confidence level
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								Choose a confidence level and determine the corresponding confidence interval
 							</li>
 						</ul>
 					</div>
 
-					<br /><br />
+					<br /><br /><br />
 				</section>
 
 				<section>
@@ -832,12 +829,12 @@
 
 					<div class="size-90 left-txt">
 						<ul style="line-height: 1.9;">
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								<strong>Two-sided Student t-test</strong><br />
 								“Do the experimental results agree with the expected value?”
 							</li>
 
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								<strong>Welch t-test</strong><br />
 								“Do the two experimental results agree with each other?”
 							</li>
@@ -845,7 +842,7 @@
 					</div>
 
 					<div style="position: absolute; bottom:0px; right: 0px; width: 350px;">
-						<img style="opacity: calc(0.7);" src="images/lec-01/diagram-scientific-method.jpg">
+						<img style="opacity: calc(0.95);" src="images/lec-01/diagram-scientific-method.jpg">
 					</div>
 
 					<br /><br />
@@ -863,35 +860,36 @@
 							Does the estimate \( \mu \) match the expected or theoretical value \( \mu_0 \)?
 						</p>
 
-						<ul style="margin-top: -15px;">
-							<li>Have an expected/theoretical value \( \mu_0 \)</li>
-							<li>Repeat the experiment \( n \) times</li>
-							<li>Calculate the best estimate \( \mu \) and the standard error \( \text{SE} \)</li>
-							<li>Choose a confidence level \( \text{CL} \)</li>
-							<li>Find the number of degrees of freedom: \( \text{df} = n - 1 \)</li>
+						<ol style="margin-top: -15px;">
+							<li>Have an expected/theoretical value \( \mu_0 .\)</li>
+							<li>Repeat the experiment \( n \) times.</li>
+							<li>Calculate the best estimate \( \mu \) and the standard error \( \text{SE} .\)</li>
+							<li>Choose a confidence level \( \text{CL} .\)</li>
+							<li>Find the number of degrees of freedom: \( \text{df} = n - 1 .\)</li>
 							<li>
 								Find the $t$-factor \( t_f \) for the given \( \text{CL} \) and \( \text{d}f \) (from a
-								table or Excel)
+								table or Excel).
 							</li>
 							<li>
 								Check - two options, mathematically equivalent:
 								<ol>
 									<li>Check if \(\mu- t_f \text{SE} \leq _mu_0 \leq \mu+ t_f \text{SE}\), confidence
-										interval \(\text{CI}\)</li>
+										interval \(\text{CI}.\)</li>
 									<li>
 										Check if $t$-statistics is smaller than \(t\)-factor: \(\ds t = \frac{|\mu -
-										\mu_0|}{\text{SE}}\leq t_f\)
+										\mu_0|}{\text{SE}}\leq t_f.\)
 									</li>
 								</ol>
 							</li>
-							<li>Check the agreement - two equivalent mathematical approaches</li>
-						</ul>
+							<li>Check the agreement - two equivalent mathematical approaches.</li>
+						</ol>
 
 						<p>
-							If yes - the estimate \( \mu \) agrees with the expected/theoretical value \( \mu_0 \)
+							<span style="color: rgb(8, 152, 8);">If yes - the estimate \( \mu \) agrees with the
+								expected/theoretical value \( \mu_0 .\)</span>
 							<br />
-							If not - the estimate \( \mu \) does not agree with the expected/theoretical value \( \mu_0
-							\)
+							<span style="color: rgb(190, 10, 10);">If not - the estimate \( \mu \) does not agree with
+								the expected/theoretical value \( \mu_0.\)</span>
 						</p>
 					</div>
 
@@ -1051,7 +1049,9 @@
 
 							</li>
 							<li>
-								Student's $t$-distribution - <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution#Table_of_selected_values" target="_blank">Wikipedia <i class="fa fa-external-link-alt"></i></a>
+								Student's $t$-distribution - <a
+									href="https://en.wikipedia.org/wiki/Student%27s_t-distribution#Table_of_selected_values"
+									target="_blank">Wikipedia <i class="fa fa-external-link-alt"></i></a>
 							</li>
 						</ul>
 					</div>
@@ -1061,28 +1061,31 @@
 
 				<section>
 					<h3>
-						Excel - $t$-factor
+						Excel: $\;t$-factor
 					</h3>
 
-					<div>
+					<br/>
+
+					<div class="fragment" data-fragment-index="0">
 						<p>
 							<tt>=T.INV.2T(probability, deg_freedom)</tt>
 						</p>
 
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							probability - number from 0 to 1, statistical significance
 						</p>
 
 					</div>
 					<div>
 
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							probability = \(\ds 1 = \frac{\text{CL}}{100\%}\)
 						</p>
 
-						<p>👉 \(\text{CL}=\) Confidence level</p>
+						<p class="fragment" data-fragment-index="3">👉 \(\text{CL}=\) Confidence level</p>
 
 					</div>
+					<br />
 					<br />
 					<br />
 				</section>
@@ -1107,17 +1110,17 @@
 										indicative of low life satisfaction.
 									</p>
 
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										The scores from 20 years ago were 45 for old people
 										and 37 for young people.
 									</p>
 
-									<p>
+									<p class="fragment" data-fragment-index="1">
 										Compare if life satisfaction scores for both old and
 										young adults are the same now?
 									</p>
 
-									<p>Use \(\text{CI}\) 95%.</p>
+									<p class="fragment" data-fragment-index="2">Use \(\text{CI}\) 95%.</p>
 
 
 								</div>
@@ -1221,30 +1224,34 @@
 						</p>
 
 						<ol style="margin-top: -15px;">
-							<li>Repeat each experiment - $n_1$ and $n_2$</li>
+							<li>Repeat each experiment - $n_1$ and $n_2.$</li>
 							<li>Find best estimate and standard error for each experiment - $\mu_1, \text{SE}_1$ and
-								$\mu_2, \text{SE}_2$</li>
+								$\mu_2, \text{SE}_2.$</li>
 							<li>Choose a confidence level \( \text{CL} \)</li>
 							<li>Calculate $t$-statistic \( \ds t = \frac{|\mu -
-								\mu_0|}{\left(\text{SE}_1\right)^2+\left(\text{SE}_2\right)^2}\)</li>
+								\mu_0|}{\left(\text{SE}_1\right)^2+\left(\text{SE}_2\right)^2}.\)</li>
 							<li>
 								Find number of degrees of freedom \(\ds \text{df} =
 								\frac{\left(\left(\text{SE}_1\right)^2+\left(\text{SE}_2\right)^2\right)^2}{\frac{\left(\text{SE}_1\right)^4}{n_1
-								- 1} + \frac{\left(\text{SE}_2\right)^4}{n_2 - 1}}\)
-								(round down for more conservative estimate)
+								- 1} + \frac{\left(\text{SE}_2\right)^4}{n_2 - 1}},\)
+								round down for more conservative estimate.
 							</li>
 							<li>
 								Find the t-factor $t$-factor $t_f$ for given $\text{CL}$ and $\text{df}$ (from a table
-								or Excel)
+								or Excel).
 							</li>
-							<li>Check if $t\leq t_f$</li>
+							<li>Check if $t\leq t_f.$</li>
 						</ol>
 
 						<p>
-							If yes - the experiments agree with each other to 95% confidence
+							<span style="color: rgb(8, 152, 8);">If yes - the experiments agree with each other to 95%
+								confidence.</span>
 							<br />
-							If not - the experiments do not agree with each other
+							<span style="color: rgb(190, 10, 10);">If not - the experiments do not agree with each
+								other.</span>
 						</p>
+
+
 					</div>
 
 					<br /><br />
@@ -1252,12 +1259,14 @@
 
 				<section>
 					<h3>
-						Excel - $t$-factor & Welch $t$-test
+						Excel: $\;t$-factor & Welch $t$-test
 					</h3>
 
-					<div class="left-txt">
+					<br/>
+
+					<div>
 						<p>
-							t-factor <tt>=T.INV.2T(probability, deg_freedom)</tt>
+							👉 $t$-factor <tt>=T.INV.2T(probability, deg_freedom)</tt>
 						</p>
 
 
@@ -1265,12 +1274,19 @@
 					<br />
 					<div class="left-txt">
 
-						<p>
-							Welch t-test Data → Data Analysis → t-Test: Two-Sample Assuming
-							Unequal Variances
+						<p class="fragment" data-fragment-index="0">
+							<b>Welch t-test Data</b>
+							<span class="fragment" data-fragment-index="1">
+								→ Data Analysis 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								→ t-Test: Two-Sample Assuming
+								Unequal Variances
+							</span>
 						</p>
 
 					</div>
+					<br />
 					<br />
 					<br />
 				</section>
@@ -1295,7 +1311,7 @@
 										indicative of low life satisfaction.
 									</p>
 
-									<p>
+									<p class="fragment" data-fragment-index="0">
 										Can you say with 98% confidence
 										interval that the life satisfaction scores
 										are the same between these two
@@ -1307,6 +1323,7 @@
 								</div>
 
 
+								<br />
 								<br />
 
 							</td>
@@ -1396,43 +1413,43 @@
 
 				<section>
 					<h3>
-						Remember 
+						Remember
 					</h3>
 
 					<div class="left-txt">
 						<ul>
 							<li>
-								We can not be absolutely sure – confidence level $\lt 100 \%$
+								We can not be absolutely sure - confidence level $\lt 100 \%.$
 							</li>
-							<li>
-								We can only say if the results match with a certain level of confidence
+							<li class="fragment" data-fragment-index="0">
+								We can only say if the results match with a certain level of confidence.
 							</li>
-							<li>
-								Hypothesis is based on the experimental results
+							<li class="fragment" data-fragment-index="1">
+								Hypothesis is based on the experimental results.
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								Which statistical test we use to test the hypothesis depends on the
-								experiment, data and questions we ask
+								experiment, data and questions we ask.
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								Two examples in this course
 								<ul>
 									<li>
-										Student's $t$-test - compare data to expected value
+										Student's $t$-test - compare data to expected value.
 									</li>
 									<li>
-										Welch $t$-test - compare two sets pf data with each other
+										Welch $t$-test - compare two sets pf data with each other.
 									</li>
 								</ul>
 
-								<p>
+								<p class="fragment" data-fragment-index="4">
 									<b>But there are many more...</b>
 								</p>
 							</li>
 
 						</ul>
 					</div>
-					<br/>
+					<br />
 
 
 				</section>
@@ -1441,8 +1458,7 @@
 
 			</section>
 
-			<section data-transition="fade" 
-				data-background-iframe="sketches/datasaurus-dozen">
+			<section data-transition="fade" data-background-iframe="sketches/datasaurus-dozen">
 				<div
 					style="background: rgba(200,200,200,0.9);position: absolute;bottom:220px;left: 8%;transform: translateX(-50%);width:30%; padding: 0.3em;border-radius: 20px;font-size: 55%;">
 					<h2>That's all for today!</h2>
