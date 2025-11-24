@@ -5,17 +5,23 @@
   by Juan Carlos Ponce Campuzano
   
   Meinjin Delta Brisbane, Australia, November 23-28, 2025
-  Part II: Translation Example
+  Part III: Motion
 */
 
+let angle = 0.0;
+let amplitude = 100;
+let offset = 100;
+let vel = 0.05;
+
+let diameter = 80;
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(450, 200);
 }
- 
+
 function draw() {
-  background(204);
-  
-  translate(mouseX, mouseY);
-  rect(0, 0, 50, 50)
- 
+  background(0);
+  let y = offset + sin(angle + 0.5) * (amplitude - diameter/2);
+  circle(width/2, y, diameter);
+  angle += vel;
 }
