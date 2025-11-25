@@ -5,7 +5,7 @@
   by Juan Carlos Ponce Campuzano
   
   Meinjin Delta Brisbane, Australia, November 23-28, 2025
-  Part III: 2D grid with a for loop
+  Part III: 2D grid with a for loop, challenge
 */
 
 function setup() {
