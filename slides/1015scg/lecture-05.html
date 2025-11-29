@@ -608,7 +608,7 @@
 									</td>
 								</tr>
 
-								
+
 								<tr>
 									<td style="text-align: center;">
 										Exponentials
@@ -625,7 +625,7 @@
 										\(\ln x, \;\log_b(x)\)
 									</td>
 								</tr>
-								
+
 
 								<tr>
 									<td style="text-align: center;">
@@ -956,7 +956,7 @@
 						<div style="text-align: center; margin-top: -40px;margin-bottom: -40px;"><img
 								style="width: 55%;" src="images/lec-05/diminishing_returns.png"></div>
 
-						<p>This model shows how learning improves quickly at first and then slows over time, 
+						<p>This model shows how learning improves quickly at first and then slows over time,
 							a classic example of diminishing returns in skill acquisition.</p>
 					</div>
 					<br />
@@ -1121,6 +1121,150 @@
 					<br /><br />
 
 				</section>
+			</section>
+
+			<section>
+				<section>
+					<h3 style="font-size: 150%;">📝 Practice</h3>
+
+				</section>
+				<section>
+					<h3>📝 Practice: Logarithms</h3>
+
+					<div class="left-txt">
+						<p>Find without the calculator:</p>
+						<ul style="line-height: 1.7;">
+							<li>
+								\(\log(1000)\)
+							</li>
+							<li>
+								\(\ln \left(e^3\right)\)
+							</li>
+							<li>
+								\(10^{\log(3)}\)
+							</li>
+							<li>
+								\(e^{\ln(4)}\)
+							</li>
+							<li>
+								\(\log(25)+ \log(4)\)
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>📝 Practice: Exponential functions</h3>
+
+					<div class="left-txt size-80">
+						<p>The bacteria population is described by the following equation:
+							\[ P(t) = 500 \times 10 ^{0.2 t}\]
+							$t$ is measured in years.</p>
+						<ol style="line-height: 1.7;">
+							<li>
+								Write this as an exponent with base $e$.
+							</li>
+							<li>
+								Is the population growing or shrinking?
+							</li>
+							<li>
+								What will be the population of bacteria after 3 years?
+							</li>
+							<li>
+								After how long does it double or halve? - pick one based on
+								answers to part 1.
+							</li>
+							<li>
+								When would it reach a population of 200? of 2000? -pick one
+								based on answers to part 1.
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<!-- Part 1 -->
+				<section>
+					<h3>1️⃣ Write with base <em>e</em></h3>
+
+					<p>We rewrite:</p>
+					<p>\[ 10^{0.2t} = e^{0.2t \ln(10)} \]</p>
+
+					<p>So:</p>
+					<p>\[ P(t) = 500\, e^{(0.2\ln 10)\, t} \]</p>
+
+					<p>Since \(0.2\ln 10 \approx 0.4605\):</p>
+					<p>\[ P(t) \approx 500\, e^{0.4605 t} \]</p>
+				</section>
+
+				<!-- Part 2 -->
+				<section>
+					<h3>2️⃣ Growing or shrinking?</h3>
+
+					<p>The exponent coefficient is positive:</p>
+					<p>\[ 0.2 > 0 \quad \Rightarrow \quad \text{population grows.} \]</p>
+
+					<p>So the bacteria population is <strong>growing</strong>.</p>
+				</section>
+
+				<!-- Part 3 -->
+				<section>
+					<h3>3️⃣ Population after 3 years</h3>
+
+					<p>Compute:</p>
+					<p>\[ P(3) = 500 \times 10^{0.6} \]</p>
+
+					<p>\(10^{0.6} \approx 3.981\)</p>
+
+					<p>\[ P(3) \approx 500 \times 3.981 = 1990.5 \]</p>
+
+					<p>So after 3 years:
+						<strong>\(\approx 1991\) bacteria</strong>
+					</p>
+				</section>
+
+				<!-- Part 4 -->
+				<section>
+					<h3>4️⃣ Doubling time</h3>
+
+					<p>We solve:</p>
+					<p>\[ 500 \times 10^{0.2t} = 1000 \]</p>
+
+					<p>Divide both sides by 500:</p>
+					<p>\[ 10^{0.2t} = 2 \]</p>
+
+					<p>Take log base 10:</p>
+					<p>\[ 0.2t = \log_{10}(2) \]</p>
+
+					<p>\[ t = \frac{\log_{10}(2)}{0.2} \approx \frac{0.3010}{0.2} = 1.505 \]</p>
+
+					<p>Doubling time ≈ <strong>1.51 years</strong></p>
+				</section>
+
+				<!-- Part 5 -->
+				<section>
+					<h3>5️⃣ When does it reach a chosen population?</h3>
+
+					<h4>Example: Population = 2000</h4>
+
+					<p>Solve:</p>
+					<p>\[ 500 \times 10^{0.2t} = 2000 \]</p>
+
+					<p>Divide both sides by 500:</p>
+					<p>\[ 10^{0.2t} = 4 \]</p>
+
+					<p>Take log base 10:</p>
+					<p>\[ 0.2t = \log_{10}(4) = 0.6021 \]</p>
+
+					<p>\[ t = \frac{0.6021}{0.2} = 3.01 \]</p>
+
+					<p>So the population reaches 2000 after
+						<strong>≈ 3.0 years</strong>.
+					</p>
+				</section>
+
 			</section>
 
 
