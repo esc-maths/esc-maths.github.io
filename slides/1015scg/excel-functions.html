@@ -47,9 +47,9 @@
             <!-- Any section element inside of this container is displayed as a slide -->
 
             <section>
-                <h3>Frequently used Excel functions</h3>
+                <h3 style="font-size: 80%;">Frequently used Excel functions</h3>
 
-                <table style="border-collapse:collapse; width:100%; font-family: Arial, sans-serif; font-size: 52%;">
+                <table style="border-collapse:collapse; width:100%; font-family: Arial, sans-serif; font-size: 52%; margin-top: -10px;">
                     <thead>
                         <tr>
                             <th style="border:1px solid #ddd; padding:8px; text-align:left; background:#f4f4f4;">
@@ -68,15 +68,19 @@
                             <td style="border:1px solid #ddd; padding:8px;"><code>AVERAGE(range)</code></td>
                             <td style="border:1px solid #ddd; padding:8px;"><code>=AVERAGE(B2:B31)</code></td>
                             <td style="border:1px solid #ddd; padding:8px;">Returns the arithmetic mean of the numbers
-                                in the range.</td>
+                                in the range.
+                                <a href="https://support.microsoft.com/en-au/office/average-function-047bac88-d466-426c-a32b-8f33eb960cf6" target="_blank"><i class="fa fa-external-link-alt"></i></a>
+                            </td>
                         </tr>
 
                         <tr>
                             <td style="border:1px solid #ddd; padding:8px;">Standard deviation</td>
-                            <td style="border:1px solid #ddd; padding:8px;"><code>STDEV(range)</code></td>
-                            <td style="border:1px solid #ddd; padding:8px;"><code>=STDEV(B2:B31)</code></td>
+                            <td style="border:1px solid #ddd; padding:8px;"><code>STDEV.S(range)</code></td>
+                            <td style="border:1px solid #ddd; padding:8px;"><code>=STDEV.S(B2:B31)</code></td>
                             <td style="border:1px solid #ddd; padding:8px;">Measures how spread out the values are from
-                                the mean.</td>
+                                the mean.
+                                <a href="https://support.microsoft.com/en-au/office/stdev-function-51fecaaa-231e-4bbb-9230-33650a72c9b0" target="_blank"><i class="fa fa-external-link-alt"></i></a>
+                            </td>
                         </tr>
 
                         <tr>
@@ -86,7 +90,9 @@
                             <td style="border:1px solid #ddd; padding:8px;">
                                 <code>=STDEV(B2:B31)/SQRT(COUNT(B2:B31))</code></td>
                             <td style="border:1px solid #ddd; padding:8px;">Estimates the variability of the sample
-                                mean.</td>
+                                mean.
+                                 <a href="https://support.microsoft.com/en-au/office/count-function-a59cd7fc-b623-4d93-87a4-d23bf411294c" target="_blank"><i class="fa fa-external-link-alt"></i></a>
+                            </td>
                         </tr>
 
                         <tr>
@@ -94,7 +100,18 @@
                             <td style="border:1px solid #ddd; padding:8px;"><code>CORREL(range1, range2)</code></td>
                             <td style="border:1px solid #ddd; padding:8px;"><code>=CORREL(B2:B31, C2:C31)</code></td>
                             <td style="border:1px solid #ddd; padding:8px;">Returns Pearson's correlation coefficient r
-                                (-1 to 1). Positive = variables vary together; negative = they vary oppositely.</td>
+                                (-1 to 1). Positive = variables vary together; negative = they vary oppositely.
+                                <a href="https://support.microsoft.com/en-au/office/correl-function-995dcef7-0c0a-4bed-a3fb-239d7b68ca92" target="_blank"><i class="fa fa-external-link-alt"></i></a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid #ddd; padding:8px;">Student's t-distribution</td>
+                            <td style="border:1px solid #ddd; padding:8px;"><code>T.INV.2T(prob, deg_freedom)</code></td>
+                            <td style="border:1px solid #ddd; padding:8px;"><code>=T.INV.2T(0.05, 4)</code></td>
+                            <td style="border:1px solid #ddd; padding:8px;">Returns the two-tailed inverse of the Student's t-distribution.
+                                <a href="https://support.microsoft.com/en-au/office/t-inv-2t-function-ce72ea19-ec6c-4be7-bed2-b9baf2264f17" target="_blank"><i class="fa fa-external-link-alt"></i></a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
