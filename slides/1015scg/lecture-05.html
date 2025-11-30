@@ -1125,7 +1125,7 @@
 
 			<section>
 				<section>
-					<h3 style="font-size: 150%;">📝 Practice</h3>
+					<h3 style="font-size: 150%;">📝 Practice 😃</h3>
 
 				</section>
 				<section>
@@ -1133,7 +1133,7 @@
 
 					<div class="left-txt">
 						<p>Find without the calculator:</p>
-						<ul style="line-height: 1.7;">
+						<ul style="line-height: 2;">
 							<li>
 								\(\log(1000)\)
 							</li>
@@ -1159,9 +1159,16 @@
 					<h3>📝 Practice: Exponential functions</h3>
 
 					<div class="left-txt size-80">
-						<p>The bacteria population is described by the following equation:
-							\[ P(t) = 500 \times 10 ^{0.2 t}\]
-							$t$ is measured in years.</p>
+						<p>The 🦠 bacteria population is described by the following equation:</p>
+					</div>
+					<div class="size-80">
+						<p>\(P(t) = 500 \times 10 ^{0.2 t}\)</p>
+					</div>
+					<div class="left-txt size-80">
+						<p>$t$ is measured in years.</p>
+					</div>
+
+					<div class="left-txt size-80">
 						<ol style="line-height: 1.7;">
 							<li>
 								Write this as an exponent with base $e$.
@@ -1187,95 +1194,138 @@
 
 				<!-- Part 1 -->
 				<section>
-					<h3>1️⃣ Write with base <em>e</em></h3>
+					<h3>Solution part 1: Write with base <em>e</em></h3>
 
-					<p>We rewrite:</p>
-					<p>\[ 10^{0.2t} = e^{0.2t \ln(10)} \]</p>
+					<p>\(P(t) = 500 \times 10 ^{0.2 t}\)</p>
 
-					
-					<p>So \( P(t) = 500\, e^{(0.2\ln 10)\, t} \)</p>
+					<p class="fragment" data-fragment-index="0">We rewrite:</p>
+					<p class="fragment" data-fragment-index="0">\( 10^{0.2t} = e^{0.2t \ln(10)} \)</p>
 
-					<p>Since \(0.2\ln 10 \approx 0.4605\):</p>
-					<p>\[ P(t) \approx 500\, e^{0.4605 t} \]</p>
-					<br/>
-					<br/>
+
+					<p class="fragment" data-fragment-index="1">So \(\; P(t) = 500\, e^{(0.2\ln 10)\, t} \)</p>
+
+
+					<p class="fragment" data-fragment-index="2">Since \(0.2\ln (10) \approx 0.4605\):</p>
+					<p class="fragment" data-fragment-index="3">\( P(t) \approx 500\, e^{0.4605 t} \)</p>
+					<br />
+					<br />
 				</section>
 
 				<!-- Part 2 -->
 				<section>
-					<h3>2️⃣ Growing or shrinking?</h3>
+					<h3>Solution part 2: Growing or shrinking?</h3>
 
-					<p>The exponent coefficient is positive:</p>
-					<p>\[ 0.2 > 0 \quad \Rightarrow \quad \text{population grows.} \]</p>
+					<p>\(P(t) = 500 \times 10 ^{0.2 t}\)</p>
 
-					<p>So the bacteria population is <strong>growing</strong>.</p>
+					<p class="fragment" data-fragment-index="0">The exponent coefficient is positive:</p>
+					<p class="fragment" data-fragment-index="0">\(0.2 > 0\;\; \)
+						<span class="fragment" data-fragment-index="1">\(\Rightarrow \;\; \) population grows.</span>
+					</p>
 
-					<br/>
-					<br/>
-					<br/>
+					<p class="fragment" data-fragment-index="2">So the bacteria population is <strong>growing</strong>.
+					</p>
+
+					<br />
+					<br />
+					<br />
+					<br />
 				</section>
 
 				<!-- Part 3 -->
 				<section>
-					<h3>3️⃣ Population after 3 years</h3>
+					<h3>Solution part 3: Population after 3 years</h3>
 
-					<p>Compute:</p>
-					<p>\[ P(3) = 500 \times 10^{0.6} \]</p>
+					<p>\(P(t) = 500 \times 10 ^{0.2 t}\)</p>
 
-					<p>\(10^{0.6} \approx 3.981\)</p>
+					<p class="fragment" data-fragment-index="0">Compute:</p>
+					<p class="fragment" data-fragment-index="0">\( P(3) = 500 \times 10^{0.2 (3)} \)
+						<span class="fragment" data-fragment-index="1">
+							\( = 500 \times 10^{0.6} \)
+						</span>
+					</p>
 
-					<p>\[ P(3) \approx 500 \times 3.981 = 1990.5 \]</p>
+					<p class="fragment" data-fragment-index="2">\(10^{0.6} \approx 3.981\)</p>
 
-					<p>So after 3 years:
+					<p class="fragment" data-fragment-index="3">\[ P(3) \approx 500 \times 3.981 = 1990.5 \]</p>
+
+					<p class="fragment" data-fragment-index="4">So after 3 years:
 						<strong>\(\approx 1991\) bacteria</strong>
 					</p>
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 				<!-- Part 4 -->
 				<section>
-					<h3>4️⃣ Doubling time</h3>
+					<h3>Solution part 4: Doubling time</h3>
 
-					<div class="left-txt size-85">
-						<p>We solve: $ 500 \times 10^{0.2t} = 1000 $</p>
+					<div class="left-txt size-95">
+						<p class="fragment" data-fragment-index="0">Here we need to solve: $ 500 \times 10^{0.2t} = 1000
+							$</p>
 
-						<p>Divide both sides by 500:</p>
-						<p>\[ 10^{0.2t} = 2 \]</p>
+						<p class="fragment" data-fragment-index="1">Divide both sides by 500:\(\; 10^{0.2t} = 2 \)</p>
 
-						<p>Take log base 10:</p>
-						<p>\[ 0.2t = \log_{10}(2) \]</p>
+						<p class="fragment" data-fragment-index="2">Take log base 10:</p>
+						<p class="fragment" data-fragment-index="2">\[ 0.2t = \log_{10}(2) \]</p>
 
-						<p>\[ t = \frac{\log_{10}(2)}{0.2} \approx \frac{0.3010}{0.2} = 1.505 \]</p>
 
-						<p>Doubling time ≈ <strong>1.51 years</strong></p>
 					</div>
+					<div class="size-95">
+						<p class="fragment" data-fragment-index="3">\( \Ra \;t = \dfrac{\log_{10}(2)}{0.2} \)
+							<span class="fragment" data-fragment-index="4">
+								\(\approx \dfrac{0.3010}{0.2} \)
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								\( = 1.505 \)
+							</span>
+						</p>
+					</div>
+					<div class="left-txt size-95">
+
+						<p class="fragment" data-fragment-index="6">Doubling time ≈ <strong>1.51 years</strong></p>
+
+					</div>
+					<br />
 				</section>
 
 				<!-- Part 5 -->
 				<section>
-					<h3>5️⃣ When does it reach a chosen population?</h3>
+					<h3>Solution part 5: When does it reach a chosen population?</h3>
 
-					<div class="size-85 left-txt">
-						<p>Example: Population = 2000. Solve: $500 \times 10^{0.2t} = 2000 $</p>
+					<div class="size-95 left-txt">
+						<p class="fragment" data-fragment-index="1">Consider population = $2000.$
+							<span class="fragment" data-fragment-index="2">
+								Solve: $500 \times 10^{0.2t} = 2000 $
+							</span>
+						</p>
 
-						<p>Divide both sides by 500:</p>
-						<p>\[ 10^{0.2t} = 4 \]</p>
+						<p class="fragment" data-fragment-index="3">Divide both sides by 500:\(\; 10^{0.2t} = 4 \)</p>
 
-						<p>Take log base 10:</p>
-						<p>\[ 0.2t = \log_{10}(4) = 0.6021 \]</p>
+						<p class="fragment" data-fragment-index="4">Take log base 10: \(\;0.2t = \log_{10}(4) = 0.6021
+							\)</p>
 
-						<p>\[ t = \frac{0.6021}{0.2} = 3.01 \]</p>
+						<p class="fragment" data-fragment-index="5">\[ t = \frac{0.6021}{0.2} = 3.01 \]</p>
 
-						<p>So the population reaches 2000 after
+						<p class="fragment" data-fragment-index="6">So the population reaches 2000 after
 							<strong>≈ 3.0 years</strong>.
 						</p>
 					</div>
+					<br />
+					<br />
 				</section>
 
 			</section>
 
+			<section data-transition="fade" data-background-color="rgb(0,0,0)"
+				data-background-iframe="../../sketches/matrix">
+				<div
+					style="background: rgba(0,0,0,0.5);position: absolute;bottom:-600px;left: 50%;transform: translateX(-50%);width:37%; padding: 0.3em;border-radius: 20px;font-size: 70%;">
+					<h2>That's all for today!</h2>
 
+					<p>See you in Week 5!</p>
+
+				</div>
+			</section>
 
 			<!-- Ends sections -->
 
