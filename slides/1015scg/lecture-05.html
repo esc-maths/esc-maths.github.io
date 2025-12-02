@@ -1241,14 +1241,24 @@
 					<p>\(P(t) = 500 \times 10 ^{0.2 t}\)</p>
 
 					<p class="fragment" data-fragment-index="0">We rewrite:</p>
-					<p class="fragment" data-fragment-index="0">\( 10^{0.2t} = e^{0.2t \ln(10)} \)</p>
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							\( 10^{0.2t} = \exp\left( \ln\left(10^{0.2 t} \right) \right) \) 
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							\( = \exp\big( 0.2 t\ln\left(10 \right) \big) \)
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							\( = e^{0.2t \ln(10)} \)
+						</span>
+					</p>
 
 
-					<p class="fragment" data-fragment-index="1">So \(\; P(t) = 500\, e^{(0.2\ln 10)\, t} \)</p>
+					<p class="fragment" data-fragment-index="3">So \(\; P(t) = 500\, e^{(0.2\ln 10)\, t} \)</p>
 
 
-					<p class="fragment" data-fragment-index="2">Since \(0.2\ln (10) \approx 0.4605\):</p>
-					<p class="fragment" data-fragment-index="3">\( P(t) \approx 500\, e^{0.4605 t} \)</p>
+					<p class="fragment" data-fragment-index="4">Since \(0.2\ln (10) \approx 0.4605\):</p>
+					<p class="fragment" data-fragment-index="5">\( P(t) \approx 500\, e^{0.4605 t} \)</p>
 					<br />
 					<br />
 				</section>
