@@ -33,7 +33,7 @@ class Particle {
     this.size = this.effect.gap;
     this.vx = 0; //random() * 2 - 1;
     this.vy = 0; //random() * 2 - 1;
-    this.ease = 0.05;
+    this.ease = 0.03;
     this.dx = 0;
     this.dy = 0;
     this.friction = 0.8;
