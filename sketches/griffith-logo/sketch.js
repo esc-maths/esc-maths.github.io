@@ -38,7 +38,7 @@ class Particle {
     this.dy = 0;
     this.friction = 0.8;
     this.force = 0;
-    this.angle= 0;
+    this.angle = 0;
   }
 
   show() {
@@ -48,7 +48,6 @@ class Particle {
   }
 
   update() {
-    
     this.dx = this.effect.mouse.x - this.x; 
     this.dy = this.effect.mouse.y - this.y;
     this.distance = this.dx * this.dx + this.dy * this.dy;
@@ -89,7 +88,7 @@ class Effect {
     this.image_.loadPixels();
     //image(this.image_, this.x, this.y);
 
-    loadPixels();
+    //loadPixels();
 
     for (let y = 0; y < this.image_.height; y += this.gap) {
       for (let x = 0; x < this.image_.width; x += this.gap) {
