@@ -78,7 +78,7 @@ class Effect {
     this.y = this.centerY - this.image_.height * 0.5;
     this.gap = 2;
     this.mouse = {
-      radius: 2000,
+      radius: 3000,
       x: undefined,
       y: undefined
     }
