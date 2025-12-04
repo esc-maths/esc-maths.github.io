@@ -52,7 +52,7 @@ class Particle {
     this.dy = this.effect.mouse.y - this.y;
     this.distance = this.dx * this.dx + this.dy * this.dy;
     
-    this.force = -this.effect.mouse.radius / this.distance;
+    this.force = - this.effect.mouse.radius / this.distance;
     
     if(this.distance < this.effect.mouse.radius){
       this.angle = atan2(this.dy, this.dx);
