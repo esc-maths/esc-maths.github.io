@@ -119,7 +119,6 @@ class Effect {
     this.particlesArray.forEach((particle) => particle.update());
     this.mouse.x = mouseX;
     this.mouse.y = mouseY;
-    //console.log(this.mouse.x)
   }
 }
 
