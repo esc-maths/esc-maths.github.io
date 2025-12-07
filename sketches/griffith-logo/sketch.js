@@ -72,7 +72,7 @@ class Effect {
     this.height_ = height_;
     this.particlesArray = [];
     this.image_ = image_;
-    this.gap = 3;
+    this.gap = 2;
     this.mouse = {
       radius: 5000,
       x: undefined,
@@ -113,7 +113,7 @@ class Effect {
     this.scaledImage.loadPixels();
     //image(this.image_, this.x, this.y);
 
-    loadPixels();
+    //loadPixels();
 
     for (let y = 0; y < this.scaledImage.height; y += this.gap) {
       for (let x = 0; x < this.scaledImage.width; x += this.gap) {
@@ -151,7 +151,7 @@ class Effect {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  effect = new Effect(width, height);
+  effect = new Effect(width, height, img);
   effect.init();
 }
 
