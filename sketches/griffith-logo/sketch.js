@@ -5,9 +5,6 @@
   04/Dec/2025
   https://www.patreon.com/jcponce
   
-  Image made in GeoGebra:
-  https://www.geogebra.org/m/jvuhdfjd
-  
   Still work in progress. :) 
   I will update it soon!
 */
