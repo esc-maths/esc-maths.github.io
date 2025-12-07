@@ -38,7 +38,7 @@ class Particle {
     this.dy = 0;
     this.friction = 0.8;
     this.force = 0;
-    this.angle = 0;
+    this.angle= 0;
   }
 
   show() {
@@ -48,11 +48,12 @@ class Particle {
   }
 
   update() {
+    
     this.dx = this.effect.mouse.x - this.x; 
     this.dy = this.effect.mouse.y - this.y;
     this.distance = this.dx * this.dx + this.dy * this.dy;
     
-    this.force = - this.effect.mouse.radius / this.distance;
+    this.force = -this.effect.mouse.radius / this.distance;
     
     if(this.distance < this.effect.mouse.radius){
       this.angle = atan2(this.dy, this.dx);
@@ -71,34 +72,61 @@ class Effect {
     this.height_ = height_;
     this.particlesArray = [];
     this.image_ = img;
-    this.centerX = this.width_ * 0.5;
-    this.centerY = this.height_ * 0.5;
-    this.x = this.centerX - this.image_.width * 0.5;
-    this.y = this.centerY - this.image_.height * 0.5;
-    this.gap = 2;
+    //this.centerX = this.width_ * 0.5;
+    //this.centerY = this.height_ * 0.5;
+    //this.x = this.centerX - this.image_.width * 0.5;
+    //this.y = this.centerY - this.image_.height * 0.5;
+    this.gap = 3;
     this.mouse = {
-      radius: 3000,
+      radius: 5000,
       x: undefined,
       y: undefined
     }
     
+    this.scaleAndCenterImage();
+    
+  }
+  
+  scaleAndCenterImage() {
+    const scaleFactor = min(
+      this.width_ / this.image_.width,
+      this.height_ / this.image_.height
+    );
+
+    const newW = floor(this.image_.width * scaleFactor * 0.55);
+    const newH = floor(this.image_.height * scaleFactor * 0.55);
+
+    // Create scaled copy
+    this.scaledImage = createImage(newW, newH);
+    this.scaledImage.copy(
+      this.image_,
+      0, 0, this.image_.width, this.image_.height,
+      0, 0, newW, newH
+    );
+
+    // Center the new image
+    const half = 0.5;
+    this.centerX = this.width_ * half;
+    this.centerY = this.height_ * half;
+    this.x = this.centerX - newW * half;
+    this.y = this.centerY - newH * half;
   }
 
   init() {
-    this.image_.loadPixels();
+    this.scaledImage.loadPixels();
     //image(this.image_, this.x, this.y);
 
-    //loadPixels();
+    loadPixels();
 
-    for (let y = 0; y < this.image_.height; y += this.gap) {
-      for (let x = 0; x < this.image_.width; x += this.gap) {
+    for (let y = 0; y < this.scaledImage.height; y += this.gap) {
+      for (let x = 0; x < this.scaledImage.width; x += this.gap) {
         // Convert to index
-        const index = 4 * (y * this.image_.width + x);
+        const index = 4 * (y * this.scaledImage.width + x);
 
-        const r = this.image_.pixels[index + 0];
-        const g = this.image_.pixels[index + 1];
-        const b = this.image_.pixels[index + 2];
-        const a = this.image_.pixels[index + 3];
+        const r = this.scaledImage.pixels[index + 0];
+        const g = this.scaledImage.pixels[index + 1];
+        const b = this.scaledImage.pixels[index + 2];
+        const a = this.scaledImage.pixels[index + 3];
 
         if (a > 0) {
           const color_ = color(r, g, b);
@@ -119,7 +147,14 @@ class Effect {
     this.particlesArray.forEach((particle) => particle.update());
     this.mouse.x = mouseX;
     this.mouse.y = mouseY;
+    //console.log(this.mouse.x)
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  effect = new Effect(width, height);
+  effect.init();
 }
 
 // Load the image and create a p5.Image object.
