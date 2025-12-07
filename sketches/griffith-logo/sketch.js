@@ -38,7 +38,7 @@ class Particle {
     this.dy = 0;
     this.friction = 0.8;
     this.force = 0;
-    this.angle= 0;
+    this.angle = 0;
   }
 
   show() {
@@ -48,19 +48,19 @@ class Particle {
   }
 
   update() {
-    
-    this.dx = this.effect.mouse.x - this.x; 
+
+    this.dx = this.effect.mouse.x - this.x;
     this.dy = this.effect.mouse.y - this.y;
     this.distance = this.dx * this.dx + this.dy * this.dy;
-    
+
     this.force = -this.effect.mouse.radius / this.distance;
-    
-    if(this.distance < this.effect.mouse.radius){
+
+    if (this.distance < this.effect.mouse.radius) {
       this.angle = atan2(this.dy, this.dx);
       this.vx += this.force * cos(this.angle);
       this.vy += this.force * sin(this.angle)
     }
-    
+
     this.x += (this.vx *= this.friction) + (this.originX - this.x) * this.ease;
     this.y += (this.vy *= this.friction) + (this.originY - this.y) * this.ease;
   }
@@ -78,20 +78,20 @@ class Effect {
       x: undefined,
       y: undefined
     }
-    
+
     this.scaleAndCenterImage();
-    
+
   }
-  
+
   scaleAndCenterImage() {
-    const scaleFactor = min(
+    const scaleFactor = 0.6 * min(
       this.width_ / this.image_.width,
       this.height_ / this.image_.height
     );
 
     // New dimensions
-    const newW = floor(this.image_.width * scaleFactor * 0.52);
-    const newH = floor(this.image_.height * scaleFactor * 0.52);
+    const newW = floor(this.image_.width * scaleFactor);
+    const newH = floor(this.image_.height * scaleFactor);
 
     // Create scaled copy
     this.scaledImage = createImage(newW, newH);
@@ -124,6 +124,7 @@ class Effect {
         const g = this.scaledImage.pixels[index + 1];
         const b = this.scaledImage.pixels[index + 2];
         const a = this.scaledImage.pixels[index + 3];
+
 
         if (a > 0) {
           const color_ = color(r, g, b);
@@ -164,7 +165,7 @@ async function setup() {
 
   effect = new Effect(width, height, img);
   effect.init();
-  
+
   cursor('pointer');
 }
 
