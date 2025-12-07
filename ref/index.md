@@ -1,4 +1,4 @@
-# Some notes to navigate through the GU system
+# Some notes to navigate through the Griffith University system
 
 ## Assessment mapping
 
