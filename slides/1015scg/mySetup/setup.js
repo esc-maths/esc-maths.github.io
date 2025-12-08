@@ -10,7 +10,7 @@
 
 			// Factor of the display size that should remain empty around
 			// the content
-			margin: 0.07,
+			margin: 0.09,
 
 			// Display presentation control arrows
 			controls: true,
