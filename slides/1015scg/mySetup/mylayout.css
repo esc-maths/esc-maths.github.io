@@ -70,6 +70,10 @@
   font-size: 90%;
 }
 
+.size-95 {
+  font-size: 95%;
+}
+
 /* Class for proof on table */
 .proof-table {
   text-align: left;
