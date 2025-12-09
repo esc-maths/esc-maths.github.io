@@ -261,7 +261,7 @@
 					<br />
 				</section>
 
-				
+
 
 				<section>
 					<h3>Fallacies</h3>
@@ -285,9 +285,9 @@
 						<ul style="line-height: 2;">
 							<li>A implies B: A ⇒ B</li>
 							<li>If A is true, then B is true as well</li>
-							<li>Example: 
+							<li>Example:
 								<p>
-									If it is raining, 
+									If it is raining,
 									<span>then the ground is wet.</span>
 								</p>
 							</li>
@@ -300,12 +300,13 @@
 				</section>
 
 				<section>
-					<h3>Implications</h3>
+					<h3>Implications: Chain rule</h3>
 					<div class="left-txt">
+						<p>We can chain implications:</p>
 						<ul style="line-height: 2;">
-							<li>We can chain implications</li>
+
 							<li>If A ⇒ B and B ⇒ C, <span>then A ⇒ C</span></li>
-							<li>Example chain: 
+							<li>Example:
 								<p>
 									If it is raining,
 									<span>
@@ -341,14 +342,15 @@
 							<li>Anyone born in the US is an American citizen.</li>
 						</ul>
 						<p>
-							Are the following true?
+							Are the following statements true?
 						</p>
 						<ul style="line-height: 1.5;">
-							
-							<li>Any American citizen can become President of the US? (question)</li>
-							<li>Any President is an American citizen? (question)</li>
+
+							<li>Any American citizen can become President of the US?</li>
+							<li>Any President is an American citizen?</li>
 						</ul>
 					</div>
+					<br />
 					<br />
 					<br />
 				</section>
@@ -356,34 +358,61 @@
 				<section>
 					<h3>Sufficient condition</h3>
 					<div class="left-txt">
-						<ul>
+						<ul style="line-height: 1.8;">
 							<li>A ⇒ B means A is a sufficient condition for B.</li>
 							<li>If A is true, B must be true.</li>
 							<li>But B true does not imply A true.</li>
-							<li>Example: “If I live in Gold Coast then I live in Australia.”</li>
+							<li>Example:
+								<p>
+									If I live in Gold Coast,
+									<span>then I live in Australia.</span>
+								</p>
+							</li>
 						</ul>
 					</div>
+					<br />
+					<br />
 					<br />
 				</section>
 
 				<section>
 					<h3>Necessary condition</h3>
 					<div class="left-txt">
-						<ul>
-							<li>A is a necessary condition for B if A ⇐ B.</li>
+						<ul style="line-height: 1.8;">
+							<li>A is a necessary condition for B means that B implies A (B ⇒ A).</li>
 							<li>B cannot be true unless A is also true.</li>
-							<li>Example: “If you pass the exam then you had sat the exam.”</li>
+							<li>Example:
+								<p>
+									If you pass the exam,
+									<span> then you had sat the exam.</span>
+								</p>
+							</li>
 						</ul>
 					</div>
+					<br />
+					<br />
+					<br />
 					<br />
 				</section>
 
 				<section>
 					<h3>Necessary and Sufficient conditions</h3>
 					<div class="left-txt">
-						<ul>
+						<ul style="line-height: 1.8;">
 							<li>If A is both necessary and sufficient for B: A ⇔ B</li>
-							<li>Example: square ↔ four equal sides and four right angles</li>
+							<li>A ⇔ B can be also written as A iff B (<b>iff</b> short for <b>if and only if</b>)</li>
+							
+							<li>Example:
+								<p>
+									A quadrilateral is a square
+									<span>⇔ it has four equal sides and four right angles.</span>
+								</p>
+								<p>
+									A quadrilateral has four equal sides and four right angles
+									<span>⇔ it is a square.</span>
+								</p>
+
+							</li>
 						</ul>
 					</div>
 					<br />
@@ -392,28 +421,109 @@
 				<section>
 					<h3>Necessary and Sufficient conditions</h3>
 					<div class="left-txt">
-						<ul>
-							<li>A necessary but not sufficient</li>
-							<li>A sufficient but not necessary</li>
-							<li>A equivalent to B</li>
-							<li>A neither necessary nor sufficient</li>
+						<ul style="line-height: 1.8;">
+							<li>A necessary but not sufficient for B</li>
+							<li>A sufficient but not necessary for A</li>
+							<li>A equivalent to B (A is both necessary and sufficient for B)</li>
+							<li>A neither necessary nor sufficient for B</li>
 						</ul>
 					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+				<section>
+					<h3>Logical relationships between statements \(A\) and \(B\)</h3>
+
+
+					<table
+						style="width:100%; border-collapse:collapse; font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; font-size: 80%;">
+						
+
+						<thead>
+							<tr>
+								<th style="border-bottom:2px solid #ddd; text-align:left; padding:6px 8px;">Relationship
+								</th>
+								<th style="border-bottom:2px solid #ddd; text-align:left; padding:6px 8px;">Symbolic
+									form</th>
+								<th style="border-bottom:2px solid #ddd; text-align:left; padding:6px 8px;">Notes /
+									equivalent</th>
+							</tr>
+						</thead>
+
+						<tbody>
+
+							<tr>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									A necessary <br/>but not sufficient for B
+								</td>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									\( (B \Rightarrow A)\;\land\;\lnot(A \Rightarrow B) \)
+								</td>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									B implies A, <br/>but A does not imply B.
+								</td>
+							</tr>
+
+							<tr>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									A sufficient <br/>but not necessary for B
+								</td>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									\( (A \Rightarrow B)\;\land\;\lnot(B \Rightarrow A) \)
+								</td>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									A implies B, <br/>but B does not imply A.
+								</td>
+							</tr>
+
+							<tr>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									A equivalent to B
+								</td>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									\( A \iff B \) <br />
+									(or \( (A\Rightarrow B)\land(B\Rightarrow A) \))
+								</td>
+								<td style="padding:6px 8px; border-bottom:1px solid #eee;">
+									Both implications hold: <br/> A iff B.
+								</td>
+							</tr>
+
+							<tr>
+								<td style="padding:6px 8px;">
+									A neither necessary <br/>nor sufficient for B
+								</td>
+								<td style="padding:6px 8px;">
+									\( \lnot(A \Rightarrow B)\;\land\;\lnot(B \Rightarrow A) \)
+								</td>
+								<td style="padding:6px 8px;">
+									Neither implication holds.
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+
+					<br />
 					<br />
 				</section>
 
 				<section>
-					<h3>Examples</h3>
-					<div class="left-txt">
-						<ul>
+					<h3>📝 Practice 😃: Necessary and/or Sufficient</h3>
+					<div class="left-txt size-90">
+						<ul style="line-height: 2.5;">
 							<li>a) Watering a plant is a ______ condition for the plant to grow</li>
-							<li>b) >=50% in SUP is a ______ condition for passing</li>
+							<li>b) Getting $\geq 50\%$ in SUP is a ______ condition for passing</li>
 							<li>c) Winning numbers ticket is a ______ condition for winning lotto</li>
-							<li>d) Degree is a ______ condition for making lots of money</li>
-							<li>e) Australian parents is a ______ condition for being Australian</li>
-							<li>f) Having been Australian is a ______ condition for having Australian parents</li>
+							<li>d) Getting a degree is a ______ condition for making lots of money</li>
+							
 						</ul>
 					</div>
+					<br />
+					<br />
 					<br />
 				</section>
 
