@@ -9,7 +9,7 @@
 
 const Pallete = createCols("https://coolors.co/222222-ffffff-4b4e6d-c2cad3");
 let vPos, unitSize;
-const divNum = 3;
+const divNum = 4;
 const cycle = 150;
 let bg;
 
@@ -22,9 +22,9 @@ function setup() {
 
   noStroke();
 
-  size = min(width, height) * 0.35;
+  size = min(width, height) * 0.4;
   radius = size * sqrt(3) / 3;
-  centerPos = createVector(width / 2, height / 2 - radius * 0.15 );
+  centerPos = createVector(width / 2, height / 2 - radius * 0.15 - 50);
   unitSize = size / (divNum - 1) * 0.5;
   vPos = [
     createVector(size / 2, -radius / 2).add(centerPos),
@@ -35,13 +35,13 @@ function setup() {
   bg = createGraphics(width, height);
   bg.noStroke();
   bg.fill(lerpColor(color(Pallete[3] + "20"), color(0, 10), 0.2));
-  // for (let i = 0; i < 100000; i++) {
-  //   let x = random(width);
-  //   let y = random(height);
-  //   let s = noise(x * 0.01, y * 0.01) * 1 + 1;
+  for (let i = 0; i < 100000; i++) {
+    let x = random(width);
+    let y = random(height);
+    let s = noise(x * 0.01, y * 0.01) * 1 + 1;
 
-  //   bg.rect(x, y, s, s);
-  // }
+    bg.rect(x, y, s, s);
+  }
   bg.rect(0, 0, width, height);
 
 }
