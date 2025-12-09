@@ -22,7 +22,7 @@ let images = [];
 let snowflakes = [];
 let noiseval = 0.01;
 let size = 6;
-let numMax = 31;
+let numMax = 40;
 
 function preload() {
   for (let i = 0; i < size; i++) {
