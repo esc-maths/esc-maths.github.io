@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Torus Donuts</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.180.0/build/three.module.min.js",
+                "three/addons/": "https://unpkg.com/three@0.180.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body,
+        canvas.webgl {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden
+        }
+    </style>
+</head>
+
+<body>
+     <canvas class="webgl"></canvas>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        /* ----------------------------------
+           Renderer
+        ---------------------------------- */
+        const canvas = document.querySelector('canvas.webgl');
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias: true
+        });
+        renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x130e16);
+
+        /* ----------------------------------
+           Scene & Camera
+        ---------------------------------- */
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(
+            35,
+            window.innerWidth / window.innerHeight,
+            1,
+            500
+        );
+        camera.position.set(0, 8, 10);
+
+        const cameraGroup = new THREE.Group();
+        cameraGroup.add(camera);
+        scene.add(cameraGroup);
+
+        const controls = new OrbitControls(camera, canvas);
+        controls.enableDamping = true;
+        controls.zoomSpeed = 0.4;
+
+        /* ----------------------------------
+           Star field
+        ---------------------------------- */
+        const STAR_COUNT = 10_000;
+
+        const starPositions = new Float32Array(STAR_COUNT * 3);
+        const starSizes = new Float32Array(STAR_COUNT);
+        const starColors = new Float32Array(STAR_COUNT * 3);
+
+        for (let i = 0; i < STAR_COUNT; i++) {
+            const i3 = i * 3;
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+
+            starPositions[i3 + 0] = Math.cos(theta) * Math.sin(phi) * 400;
+            starPositions[i3 + 1] = Math.sin(theta) * Math.sin(phi) * 400;
+            starPositions[i3 + 2] = Math.cos(phi) * 400;
+
+            starSizes[i] = 0.5 + Math.random() * 30;
+
+            const color = new THREE.Color(`hsl(${Math.random() * 360},100%,85%)`);
+            starColors[i3 + 0] = color.r;
+            starColors[i3 + 1] = color.g;
+            starColors[i3 + 2] = color.b;
+        }
+
+        const starGeometry = new THREE.BufferGeometry();
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+        starGeometry.setAttribute('size', new THREE.BufferAttribute(starSizes, 1));
+        starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+
+        const starMaterial = new THREE.ShaderMaterial({
+    transparent: true,
+    vertexColors: true,   // 👈 REQUIRED
+    vertexShader: `
+        attribute float size;
+        varying vec3 vColor;
+
+        void main() {
+            vColor = color;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            gl_PointSize = size;
+        }
+    `,
+    fragmentShader: `
+        varying vec3 vColor;
+
+        void main() {
+            float d = length(gl_PointCoord - 0.5);
+            float alpha = 0.02 / d;
+            alpha *= 1.0 - d * 2.0;
+            gl_FragColor = vec4(vColor, alpha);
+        }
+    `
+});
+
+
+        const stars = new THREE.Points(starGeometry, starMaterial);
+        scene.add(stars);
+
+        /* ----------------------------------
+           Accretion disc
+        ---------------------------------- */
+        const discGradient = createGradientTexture();
+
+        const discGeometry = new THREE.CylinderGeometry(
+            1.5, 6, 0.1, 64, 1, true
+        );
+
+        const discMaterial = new THREE.ShaderMaterial({
+            transparent: true,
+            side: THREE.DoubleSide,
+            uniforms: {
+                uTime: { value: 0 },
+                uGradient: { value: discGradient }
+            },
+            vertexShader: `
+            varying vec2 vUv;
+
+void main() {
+    vUv = uv;
+
+    gl_Position = projectionMatrix
+                * modelViewMatrix
+                * vec4(position, 1.0);
+}
+
+            `,
+            fragmentShader: `
+            uniform float uTime;
+uniform sampler2D uGradient;
+
+varying vec2 vUv;
+
+float inverseLerp(float v, float a, float b) {
+    return (v - a) / (b - a);
+}
+
+float remap(float v, float inA, float inB, float outA, float outB) {
+    return mix(outA, outB, inverseLerp(v, inA, inB));
+}
+
+void main() {
+    // Convert UV to polar-ish coordinates
+    vec2 centeredUv = vUv - 0.5;
+    float radius = length(centeredUv);
+
+    // Vertical masking (disc thickness)
+    float thickness = smoothstep(0.0, 0.15, vUv.y)
+                    * smoothstep(1.0, 0.85, vUv.y);
+
+    // Animated turbulent flow
+    float flow =
+        sin(radius * 40.0 - uTime * 3.0) * 0.5 + 0.5;
+
+    // Radial falloff (inner + outer edge)
+    float inner = smoothstep(0.1, 0.3, radius);
+    float outer = smoothstep(1.0, 0.7, radius);
+    float falloff = inner * outer;
+
+    // Final intensity
+    float intensity = flow * falloff * thickness;
+
+    // Sample color gradient
+    vec4 color = texture2D(uGradient, vec2(intensity, 0.5));
+    color.a *= intensity;
+
+    gl_FragColor = color;
+}
+            `
+        });
+
+        const disc = new THREE.Mesh(discGeometry, discMaterial);
+        scene.add(disc);
+
+        function createGradientTexture() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 1;
+
+    const ctx = canvas.getContext('2d');
+    const grad = ctx.createLinearGradient(0, 0, 256, 0);
+
+    grad.addColorStop(0.0, '#000000');
+    grad.addColorStop(0.2, '#4b0082');
+    grad.addColorStop(0.4, '#ff4500');
+    grad.addColorStop(0.7, '#ffd700');
+    grad.addColorStop(1.0, '#ffffff');
+
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 256, 1);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.wrapS = THREE.ClampToEdgeWrapping;
+    texture.wrapT = THREE.ClampToEdgeWrapping;
+    texture.needsUpdate = true;
+
+    return texture;
+}
+
+
+        /* ----------------------------------
+           Clock & loop
+        ---------------------------------- */
+        const clock = new THREE.Clock();
+
+        function animate() {
+            const t = clock.getElapsedTime();
+
+            discMaterial.uniforms.uTime.value = t;
+
+            cameraGroup.rotation.z += 0.002;
+
+            controls.update();
+            renderer.render(scene, camera);
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        /* ----------------------------------
+           Resize
+        ---------------------------------- */
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+
+</html>
