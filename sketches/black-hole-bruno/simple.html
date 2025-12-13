@@ -32,7 +32,7 @@
 </head>
 
 <body>
-     <canvas class="webgl"></canvas>
+    <canvas class="webgl"></canvas>
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -103,19 +103,20 @@
         starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
 
         const starMaterial = new THREE.ShaderMaterial({
-    transparent: true,
-    vertexColors: true,   // 👈 REQUIRED
-    vertexShader: `
+            transparent: true,
+            vertexColors: true,   // 👈 REQUIRED
+            vertexShader: `
         attribute float size;
         varying vec3 vColor;
 
         void main() {
             vColor = color;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-            gl_PointSize = size;
+            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+            gl_Position = projectionMatrix * mvPosition;
+            gl_PointSize = size * (300.0 / -mvPosition.z);
         }
-    `,
-    fragmentShader: `
+        `,
+            fragmentShader: `
         varying vec3 vColor;
 
         void main() {
@@ -124,8 +125,8 @@
             alpha *= 1.0 - d * 2.0;
             gl_FragColor = vec4(vColor, alpha);
         }
-    `
-});
+        `
+        });
 
 
         const stars = new THREE.Points(starGeometry, starMaterial);
@@ -150,28 +151,24 @@
             vertexShader: `
             varying vec2 vUv;
 
-void main() {
-    vUv = uv;
+            void main() {
+            vUv = uv;
 
-    gl_Position = projectionMatrix
+            gl_Position = projectionMatrix
                 * modelViewMatrix
                 * vec4(position, 1.0);
-}
-
+            }
             `,
             fragmentShader: `
             uniform float uTime;
-uniform sampler2D uGradient;
-
-varying vec2 vUv;
-
-float inverseLerp(float v, float a, float b) {
-    return (v - a) / (b - a);
-}
-
-float remap(float v, float inA, float inB, float outA, float outB) {
-    return mix(outA, outB, inverseLerp(v, inA, inB));
-}
+            uniform sampler2D uGradient;
+            varying vec2 vUv;
+            float inverseLerp(float v, float a, float b) {
+            return (v - a) / (b - a);
+            }
+            float remap(float v, float inA, float inB, float outA, float outB) {
+            return mix(outA, outB, inverseLerp(v, inA, inB));
+        }
 
 void main() {
     // Convert UV to polar-ish coordinates
@@ -207,29 +204,29 @@ void main() {
         scene.add(disc);
 
         function createGradientTexture() {
-    const canvas = document.createElement('canvas');
-    canvas.width = 256;
-    canvas.height = 1;
+            const canvas = document.createElement('canvas');
+            canvas.width = 256;
+            canvas.height = 1;
 
-    const ctx = canvas.getContext('2d');
-    const grad = ctx.createLinearGradient(0, 0, 256, 0);
+            const ctx = canvas.getContext('2d');
+            const grad = ctx.createLinearGradient(0, 0, 256, 0);
 
-    grad.addColorStop(0.0, '#000000');
-    grad.addColorStop(0.2, '#4b0082');
-    grad.addColorStop(0.4, '#ff4500');
-    grad.addColorStop(0.7, '#ffd700');
-    grad.addColorStop(1.0, '#ffffff');
+            grad.addColorStop(0.0, '#000000');
+            grad.addColorStop(0.2, '#4b0082');
+            grad.addColorStop(0.4, '#ff4500');
+            grad.addColorStop(0.7, '#ffd700');
+            grad.addColorStop(1.0, '#ffffff');
 
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 256, 1);
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 256, 1);
 
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.wrapS = THREE.ClampToEdgeWrapping;
-    texture.wrapT = THREE.ClampToEdgeWrapping;
-    texture.needsUpdate = true;
+            const texture = new THREE.CanvasTexture(canvas);
+            texture.wrapS = THREE.ClampToEdgeWrapping;
+            texture.wrapT = THREE.ClampToEdgeWrapping;
+            texture.needsUpdate = true;
 
-    return texture;
-}
+            return texture;
+        }
 
 
         /* ----------------------------------
