@@ -1,264 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js Torus Donuts</title>
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.180.0/build/three.module.min.js",
-                "three/addons/": "https://unpkg.com/three@0.180.0/examples/jsm/"
-            }
-        }
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
-        }
+<meta charset="UTF-8" />
+<title>Black Hole – Screen Space</title>
 
-        html,
-        body,
-        canvas.webgl {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden
-        }
-    </style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.180.0/build/three.module.min.js"
+  }
+}
+</script>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: black;
+}
+canvas { display: block; }
+</style>
 </head>
 
 <body>
-    <canvas class="webgl"></canvas>
-    <script type="module">
-        import * as THREE from 'three';
-        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+<canvas id="c"></canvas>
 
-        /* ----------------------------------
-           Renderer
-        ---------------------------------- */
-        const canvas = document.querySelector('canvas.webgl');
+<script type="module">
+import * as THREE from 'three';
 
-        const renderer = new THREE.WebGLRenderer({
-            canvas,
-            antialias: true
-        });
-        renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x130e16);
+/* ================= THREE SETUP ================= */
 
-        /* ----------------------------------
-           Scene & Camera
-        ---------------------------------- */
-        const scene = new THREE.Scene();
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(2, devicePixelRatio));
 
-        const camera = new THREE.PerspectiveCamera(
-            35,
-            window.innerWidth / window.innerHeight,
-            1,
-            500
-        );
-        camera.position.set(0, 8, 10);
+const scene = new THREE.Scene();
+const camera = new THREE.OrthographicCamera(-1,1,1,-1,0,1);
 
-        const cameraGroup = new THREE.Group();
-        cameraGroup.add(camera);
-        scene.add(cameraGroup);
+/* ================= SHADER ================= */
 
-        const controls = new OrbitControls(camera, canvas);
-        controls.enableDamping = true;
-        controls.zoomSpeed = 0.4;
+const material = new THREE.ShaderMaterial({
+  uniforms: {
+    uTime: { value: 0 },
+    uRes: { value: new THREE.Vector2(innerWidth, innerHeight) }
+  },
+  vertexShader: `
+    void main() {
+      gl_Position = vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    precision highp float;
 
-        /* ----------------------------------
-           Star field
-        ---------------------------------- */
-        const STAR_COUNT = 10_000;
+    uniform float uTime;
+    uniform vec2 uRes;
 
-        const starPositions = new Float32Array(STAR_COUNT * 3);
-        const starSizes = new Float32Array(STAR_COUNT);
-        const starColors = new Float32Array(STAR_COUNT * 3);
+    // smooth noise
+    float noise(vec2 p) {
+      return sin(p.x)*sin(p.y);
+    }
 
-        for (let i = 0; i < STAR_COUNT; i++) {
-            const i3 = i * 3;
-            const theta = Math.random() * Math.PI * 2;
-            const phi = Math.acos(2 * Math.random() - 1);
+    vec3 stars(vec2 uv) {
+      float n = noise(uv * 40.0);
+      float s = smoothstep(0.95, 1.0, n);
+      return vec3(s);
+    }
 
-            starPositions[i3 + 0] = Math.cos(theta) * Math.sin(phi) * 400;
-            starPositions[i3 + 1] = Math.sin(theta) * Math.sin(phi) * 400;
-            starPositions[i3 + 2] = Math.cos(phi) * 400;
+    void main() {
+      // normalized coordinates
+      vec2 uv = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
+      float r = length(uv);
 
-            starSizes[i] = 0.5 + Math.random() * 30;
+      // gravitational lensing
+      float bend = 0.35 / (r*r + 0.05);
+      vec2 bentUV = uv + normalize(uv) * bend;
 
-            const color = new THREE.Color(`hsl(${Math.random() * 360},100%,85%)`);
-            starColors[i3 + 0] = color.r;
-            starColors[i3 + 1] = color.g;
-            starColors[i3 + 2] = color.b;
-        }
+      // background stars
+      vec3 col = stars(bentUV + uTime * 0.02);
 
-        const starGeometry = new THREE.BufferGeometry();
-        starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-        starGeometry.setAttribute('size', new THREE.BufferAttribute(starSizes, 1));
-        starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+      // accretion disc
+      float disc =
+        smoothstep(0.35, 0.32, abs(uv.y)) *
+        smoothstep(0.20, 0.35, r) *
+        smoothstep(0.80, 0.50, r);
 
-        const starMaterial = new THREE.ShaderMaterial({
-            transparent: true,
-            vertexColors: true,   // 👈 REQUIRED
-            vertexShader: `
-        attribute float size;
-        varying vec3 vColor;
+      float swirl = sin(atan(uv.y, uv.x) * 12.0 + uTime * 2.0);
+      vec3 discCol = vec3(1.0, 0.5, 0.15) * (swirl * 0.5 + 0.5);
 
-        void main() {
-            vColor = color;
-            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-            gl_Position = projectionMatrix * mvPosition;
-            gl_PointSize = size * (300.0 / -mvPosition.z);
-        }
-        `,
-            fragmentShader: `
-        varying vec3 vColor;
+      col += discCol * disc * 1.2;
 
-        void main() {
-            float d = length(gl_PointCoord - 0.5);
-            float alpha = 0.02 / d;
-            alpha *= 1.0 - d * 2.0;
-            gl_FragColor = vec4(vColor, alpha);
-        }
-        `
-        });
+      // photon ring
+      float ring = smoothstep(0.28, 0.26, r) * smoothstep(0.22, 0.24, r);
+      col += vec3(1.0, 0.9, 0.5) * ring * 1.5;
 
+      // event horizon
+      float horizon = smoothstep(0.18, 0.21, r);
+      col *= horizon;
 
-        const stars = new THREE.Points(starGeometry, starMaterial);
-        scene.add(stars);
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `
+});
 
-        /* ----------------------------------
-           Accretion disc
-        ---------------------------------- */
-        const discGradient = createGradientTexture();
+/* ================= QUAD ================= */
 
-        const discGeometry = new THREE.CylinderGeometry(
-            1.5, 6, 0.1, 64, 1, true
-        );
+scene.add(new THREE.Mesh(
+  new THREE.PlaneGeometry(2,2),
+  material
+));
 
-        const discMaterial = new THREE.ShaderMaterial({
-            transparent: true,
-            side: THREE.DoubleSide,
-            uniforms: {
-                uTime: { value: 0 },
-                uGradient: { value: discGradient }
-            },
-            vertexShader: `
-            varying vec2 vUv;
+/* ================= LOOP ================= */
 
-            void main() {
-            vUv = uv;
+const clock = new THREE.Clock();
 
-            gl_Position = projectionMatrix
-                * modelViewMatrix
-                * vec4(position, 1.0);
-            }
-            `,
-            fragmentShader: `
-            uniform float uTime;
-            uniform sampler2D uGradient;
-            varying vec2 vUv;
-            float inverseLerp(float v, float a, float b) {
-            return (v - a) / (b - a);
-            }
-            float remap(float v, float inA, float inB, float outA, float outB) {
-            return mix(outA, outB, inverseLerp(v, inA, inB));
-        }
-
-void main() {
-    // Convert UV to polar-ish coordinates
-    vec2 centeredUv = vUv - 0.5;
-    float radius = length(centeredUv);
-
-    // Vertical masking (disc thickness)
-    float thickness = smoothstep(0.0, 0.15, vUv.y)
-                    * smoothstep(1.0, 0.85, vUv.y);
-
-    // Animated turbulent flow
-    float flow =
-        sin(radius * 40.0 - uTime * 3.0) * 0.5 + 0.5;
-
-    // Radial falloff (inner + outer edge)
-    float inner = smoothstep(0.1, 0.3, radius);
-    float outer = smoothstep(1.0, 0.7, radius);
-    float falloff = inner * outer;
-
-    // Final intensity
-    float intensity = flow * falloff * thickness;
-
-    // Sample color gradient
-    vec4 color = texture2D(uGradient, vec2(intensity, 0.5));
-    color.a *= intensity;
-
-    gl_FragColor = color;
+function animate() {
+  material.uniforms.uTime.value = clock.getElapsedTime();
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
 }
-            `
-        });
+animate();
 
-        const disc = new THREE.Mesh(discGeometry, discMaterial);
-        scene.add(disc);
-
-        function createGradientTexture() {
-            const canvas = document.createElement('canvas');
-            canvas.width = 256;
-            canvas.height = 1;
-
-            const ctx = canvas.getContext('2d');
-            const grad = ctx.createLinearGradient(0, 0, 256, 0);
-
-            grad.addColorStop(0.0, '#000000');
-            grad.addColorStop(0.2, '#4b0082');
-            grad.addColorStop(0.4, '#ff4500');
-            grad.addColorStop(0.7, '#ffd700');
-            grad.addColorStop(1.0, '#ffffff');
-
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, 256, 1);
-
-            const texture = new THREE.CanvasTexture(canvas);
-            texture.wrapS = THREE.ClampToEdgeWrapping;
-            texture.wrapT = THREE.ClampToEdgeWrapping;
-            texture.needsUpdate = true;
-
-            return texture;
-        }
-
-
-        /* ----------------------------------
-           Clock & loop
-        ---------------------------------- */
-        const clock = new THREE.Clock();
-
-        function animate() {
-            const t = clock.getElapsedTime();
-
-            discMaterial.uniforms.uTime.value = t;
-
-            cameraGroup.rotation.z += 0.002;
-
-            controls.update();
-            renderer.render(scene, camera);
-
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        /* ----------------------------------
-           Resize
-        ---------------------------------- */
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-    </script>
+addEventListener('resize', () => {
+  renderer.setSize(innerWidth, innerHeight);
+  material.uniforms.uRes.value.set(innerWidth, innerHeight);
+});
+</script>
 </body>
-
 </html>
