@@ -813,7 +813,7 @@
 
 					<div class="left-txt size-95">
 
-						
+
 						<ul style="line-height: 1.9;">
 							<li class="fragment" data-fragment-index="4">
 								<b>A self-referential paradox</b>
@@ -842,7 +842,7 @@
 						</p>
 
 					</div>
-						<div class="left-txt">
+					<div class="left-txt">
 
 						<p>
 							If it is true, then it must be false;
@@ -854,7 +854,7 @@
 							Therefore, it cannot be classified as either true or false. 🤯
 						</p>
 					</div>
-	
+
 
 
 
@@ -863,18 +863,18 @@
 						<p>
 
 							<a href="https://youtu.be/I4pQbo5MQOs" target="_blank">
-							
-									Gödel's Incompleteness
-									Theorem <i class="fa fa-external-link-alt"></i> 🎥 
-								
+
+								Gödel's Incompleteness
+								Theorem <i class="fa fa-external-link-alt"></i> 🎥
+
 							</a>
 						</p>
 
 					</div>
 
-					<img style="width: 120px"  src="images/penrose-triangle.gif" />
+					<img style="width: 120px" src="images/penrose-triangle.gif" />
 
-					
+
 					<br />
 				</section>
 
@@ -896,13 +896,14 @@
 					<h3>Presentation - assignments, exams, homework…</h3>
 					<div class="left-txt size-95">
 						<ul style="line-height: 1.6;margin-left: 0px;">
-							<li>How you present your work matters:</li>
+							<li class="fragment" data-fragment-index="0">How you present your work matters:</li>
 							<ul>
-								<li>It affects understanding and marks.</li>
+								<li class="fragment" data-fragment-index="0">It affects understanding and marks.</li>
 
 							</ul>
-							<li>In many cases showing working is as important as your final result</li>
-							<ul>
+							<li class="fragment" data-fragment-index="1">In many cases showing working is as important
+								as your final result</li>
+							<ul class="fragment" data-fragment-index="1">
 								<li>
 									A wrong final answer doesn't mean your work is useless if your reasoning is clear.
 								</li>
@@ -910,7 +911,7 @@
 									It shows how well you understand the ideas involved.
 								</li>
 							</ul>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								You are responsible for presenting your solutions clearly;
 								markers are not required to interpret unclear or incomplete work.
 							</li>
@@ -919,21 +920,49 @@
 					<br />
 				</section>
 
-				<section>
-					<h3>Presentation</h3>
+				<section data-auto-animate>
+					<h3>Using software 💻</h3>
 					<div class="left-txt">
 						<ul style="line-height: 1.7;">
-							<li>If you use software, say what you used (e. g. Excel, WolframAlpha, Python, etc. ).</li>
-							<li>If you use built-in functions from a specific software,
+							<li class="fragment" data-fragment-index="0">If you use software, say what you used (e. g.
+								Excel, WolframAlpha, Python, etc. ).</li>
+							<li class="fragment" data-fragment-index="1">If you use built-in functions from a specific
+								software,
 								state which ones and on what data.
-								<p><b>Example:</b>
-									"I have used <tt>STDEV.S</tt> function on
-									the number of <em>possums</em> data to find the
-									standard deviation."</p>
+
 							</li>
 						</ul>
+						<p class="fragment" data-fragment-index="2"><b>Example:</b>
+							"I have used <tt>STDEV.S</tt> function on
+							the number of <em>possums</em> data to find the
+							standard deviation."</p>
 					</div>
 					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Using software 💻</h3>
+					<div class="left-txt">
+						<ul style="line-height: 1.7;">
+							<li>If you use built-in functions from a specific software,
+								state which ones and on what data.
+
+							</li>
+						</ul>
+						<p style="font-size: 90%;">
+							If you use a programming language to make some computations,
+							you can comment it in your document and add the full 
+							code as an Appendix.
+						</p>
+						<pre style="font-size: 80%;"><code>x = (0:0.25:1);
+for j = 1:100
+   t = j/25;
+   z = sin(pi * x) * cos(2 * pi * t);
+   plot(x, z); axis([0,1,-1,1]);
+   M(j) = getframe;
+end
+</code></pre>
+					</div>
 					<br />
 				</section>
 
