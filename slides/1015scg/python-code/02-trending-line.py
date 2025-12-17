@@ -46,11 +46,11 @@ plt.grid(True)
 plt.show()
 
 # ----- Output results -----
-print(f"Exponential model: y = {A:.3f} * exp({k:.3f} x)")
+print(f"Exponential model: A(t) = {A:.3f} * exp({k:.3f} t)")
 print(f"R^2 = {r_squared:.4f}")
 
 t0 = 0
 y_at_0 = A * np.exp(k * t0)
 
-print(f"y(0) = {y_at_0:.3f}")
+print(f"A(0) = {y_at_0:.3f}")
 print(f"Decay rate = {k:.3f}")
