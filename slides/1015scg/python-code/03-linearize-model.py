@@ -71,6 +71,20 @@ plt.show()
 t_half = np.log(2) / -k
 t_half_err = np.log(2) / k**2 * k_err
 
+# -----------------------------
+# Prediction at t = 5.535 s
+# -----------------------------
+t_pred = 5.535
+A = np.exp(lnA)
+
+# Uncertainty propagation
+sigma_A = A * lnA_err
+sigma_y = np.sqrt( (np.exp(k * t_pred) * sigma_A)**2 + (A * t_pred * np.exp(k * t_pred) * k_err)**2 )
+
+# Predicted value
+y_pred = A * np.exp(k * t_pred)
+
+
 
 # -----------------------------
 # Output results
@@ -85,3 +99,6 @@ print("Equivalent exponential model:")
 print(f"y = {np.exp(lnA):.4f} * exp({k:.4f} t)")
 print()
 print(f"Half-life t_1/2 = {t_half:.4f} ± {t_half_err:.4f}")
+print()
+print(f"Prediction at t = {t_pred:.3f} s:")
+print(f"y = {y_pred:.4f} ± {sigma_y:.4f}")
