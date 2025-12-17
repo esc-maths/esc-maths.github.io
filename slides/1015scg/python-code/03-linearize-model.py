@@ -84,12 +84,13 @@ sigma_y = np.sqrt( (np.exp(k * t_pred) * sigma_A)**2 + (A * t_pred * np.exp(k * 
 # Predicted value
 y_pred = A * np.exp(k * t_pred)
 
-
-
 # -----------------------------
 # Output results
 # -----------------------------
-print("Linearised model:")
+print("-----------------------")
+print("Parts 7, 8, 9 & 10")
+print("-----------------------")
+print("Linearised Model with Uncertanty:")
 print(f"ln(y) = ({k:.4f} ± {k_err:.4f}) t + ({lnA:.4f} ± {lnA_err:.4f})")
 print()
 print(f"R^2 = {r_squared:.4f}")
@@ -97,8 +98,16 @@ print(f"Standard error of regression = {s:.4f}")
 print()
 print("Equivalent exponential model:")
 print(f"y = {np.exp(lnA):.4f} * exp({k:.4f} t)")
+
 print()
-print(f"Half-life t_1/2 = {t_half:.4f} ± {t_half_err:.4f}")
-print()
+print("-----------------------")
+print("Part 11")
+print("-----------------------")
 print(f"Prediction at t = {t_pred:.3f} s:")
 print(f"y = {y_pred:.4f} ± {sigma_y:.4f}")
+print()
+print("-----------------------")
+print("Part 12")
+print("-----------------------")
+print(f"Half-life t_1/2 = {t_half:.4f} ± {t_half_err:.4f}")
+print()
