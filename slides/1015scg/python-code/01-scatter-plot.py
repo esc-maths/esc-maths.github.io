@@ -1,27 +1,36 @@
-import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats
 
-# URL of the CSV file
-url = "https://esc-maths.github.io/assets/data-sets/decay3.csv"
+# -------------------------
+# Data (entered directly)
+# -------------------------
+time = np.array([
+    0.246, 0.492, 0.738, 0.984, 1.23, 1.476, 1.722, 1.968, 2.214, 2.46,
+    2.706, 2.952, 3.198, 3.444, 3.69, 3.936, 4.182, 4.428, 4.674, 4.92,
+    5.166, 5.412, 5.658, 5.904, 6.15, 6.396, 6.642, 6.888, 7.134, 7.38,
+    7.626, 7.872, 8.118, 8.364, 8.61, 8.856, 9.102, 9.348, 9.594, 9.84
+])
 
-# Read CSV
-df = pd.read_csv(url)
+activity = np.array([
+    908.3475159, 788.1263257, 668.9006718, 554.6124143, 521.6023327,
+    392.2851028, 406.7494851, 323.1341532, 282.4183865, 236.0078351,
+    200.7706532, 199.8517187, 169.289558, 148.5259409, 127.8568286,
+    98.33976068, 87.93068585, 87.27796212, 73.97245838, 66.69058729,
+    56.82525099, 50.73912403, 39.4075143, 34.33557193, 32.61742786,
+    25.96560655, 22.36805436, 19.64146032, 16.71665582, 14.63554653,
+    12.49930957, 12.4940735, 9.520718439, 8.135601522, 7.562147198,
+    6.250336563, 5.376122231, 4.91574392, 4.449048126, 3.892785478
+])
 
-# Convert first two columns to numeric (force errors to NaN)
-x = pd.to_numeric(df.iloc[:, 0], errors="coerce")
-y = pd.to_numeric(df.iloc[:, 1], errors="coerce")
-
-# Remove rows with missing values
-mask = x.notna() & y.notna()
-x = x[mask]
-y = y[mask]
-
+# -------------------------
 # Scatter plot
+# -------------------------
 plt.figure(figsize=(6, 4))
-plt.scatter(x, y, s=40, alpha=0.7)
+plt.scatter(time, activity, s=40, alpha=0.7)
 
-plt.xlabel(df.columns[0])
-plt.ylabel(df.columns[1])
-plt.title("Scatter plot of decay3.csv")
+plt.xlabel("time [sec]")
+plt.ylabel("activity [decays/sec]")
+plt.title("Radioactive decay data")
 plt.grid(True)
 plt.show()
