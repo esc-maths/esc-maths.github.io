@@ -126,7 +126,6 @@ function draw() {
   }
 }
 
-
 function getColor(y) {
   if (y < 5) 
     return color(255);                    // Binary header (top numbers)
