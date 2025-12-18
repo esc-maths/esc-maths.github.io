@@ -90,7 +90,9 @@ let resetDelay = 5000;    // ms (5 seconds)
 
 function setup() {
   createCanvas(cols * cell, rows * cell);
-  noStroke();
+  //noStroke();
+  strokeWeight(1);
+  stroke(0);
   frameRate(60);
 }
 
@@ -126,13 +128,30 @@ function draw() {
 
 
 function getColor(y) {
-  if (y < 5)  return color(255);             // Binary header
-  if (y < 11) return color(200, 200, 255);   // Elements & nucleotides
-  if (y < 23) return color(255, 120, 120);   // DNA / double helix
-  if (y < 35) return color(120, 255, 120);   // Human & DNA count
-  if (y < 47) return color(255, 255, 120);   // Solar system
-  if (y < 60) return color(180, 180, 255);   // Telescope dish
-  return color(200, 120, 80);                // Telescope base / signal
+  if (y < 5) 
+    return color(255);                    // Binary header (top numbers)
+  
+  if (y >= 5 && y <= 10) 
+    return color(10, 180, 255);          // 
+  
+  if (y >= 11 && y <= 22) 
+    return color(255, 120, 120);          // 
+  
+  if (y >= 23 && y <= 34) 
+    return color(120, 255, 120);          // 
+  
+  if (y >= 35 && y <= 46) 
+    return color(255, 255, 120);          // 
+  
+  if (y >= 47 && y <= 55) 
+    return color(10, 180, 255);           // 
+  
+  if (y >= 56 && y <= 59) 
+    return color(255);                    // 
+  
+  if (y >= 60 && y <= 70) 
+    return color(200, 120, 80);           // 
+  
+  if (y > 70) 
+    return color(255, 100, 100);          // Last two rows (telescope base / signal)
 }
-
-
