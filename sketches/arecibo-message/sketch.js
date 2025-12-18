@@ -128,29 +128,29 @@ function draw() {
 
 function getColor(y) {
   if (y < 5) 
-    return color(255);                    // Binary header (top numbers)
+    return color(255);                    // Numbers 1 t0 10
   
   if (y >= 5 && y <= 10) 
-    return color(10, 180, 255);          // 
+    return color(10, 180, 255);           // Atomic numbers of elements
   
-  if (y >= 11 && y <= 22) 
-    return color(255, 120, 120);          // 
+  if (y >= 11 && y <= 30) 
+    return color(255, 120, 120);          // Formulas for the chemical building blocks of DNA
   
-  if (y >= 23 && y <= 34) 
-    return color(120, 255, 120);          // 
+  if (y >= 31 && y <= 34) 
+    return color(120, 255, 120);          // DNA helix representation
   
   if (y >= 35 && y <= 46) 
-    return color(255, 255, 120);          // 
+    return color(255, 255, 120);          // DNA helix representation
   
   if (y >= 47 && y <= 55) 
-    return color(10, 180, 255);           // 
+    return color(10, 180, 255);           // Stick figure, population of Earth, height, and others measurements
   
   if (y >= 56 && y <= 59) 
-    return color(255);                    // 
+    return color(255);                    // Solar system
   
   if (y >= 60 && y <= 70) 
-    return color(200, 120, 80);           // 
+    return color(255, 0, 255);           // Arecibo radio telescope
   
   if (y > 70) 
-    return color(255, 100, 100);          // Last two rows (telescope base / signal)
+    return color(102, 255, 102);          // Last two rows (telescope base / signal)
 }
