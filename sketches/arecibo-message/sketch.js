@@ -1,3 +1,7 @@
+// Is there anybody out there? 👾
+// Juan Carlos Ponce Campuzano
+// 18/Dec/2025
+// https://www.patreon.com/jcponce
 // Arecibo Message — 1679 bits from Wikipedia
 // Arranged in 73 rows of 23 bits each (exactly as shown on Wikipedia)
 // Data source: https://en.wikipedia.org/wiki/Arecibo_message
