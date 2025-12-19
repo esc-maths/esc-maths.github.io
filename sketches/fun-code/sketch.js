@@ -1,12 +1,14 @@
 let codeLines = [];
 let fontSize = 20;
+let lineHeight = 30;
 let margin = 70;
+
 let scrollSpeed = 35; // frames between new lines
 let frameCounter = 0;
 let nextY;
 
 // Typing state
-let typingSpeed = 2; // frames per character (smaller = faster)
+let typingSpeed = 1; // frames per character
 let typingCounter = 0;
 let currentSnippet = "";
 let currentIndex = 0;
@@ -56,27 +58,28 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(0, 70);
 
-  // Draw existing lines
+  // Draw all lines
   for (let line of codeLines) {
     drawGlowingText(line.text, line.x, line.y);
   }
 
-  // Cursor blinking
+  // Cursor blink logic
   cursorCounter++;
   if (cursorCounter >= cursorBlinkSpeed) {
     cursorCounter = 0;
     cursorVisible = !cursorVisible;
   }
 
-  // Typing logic
+  // Start typing a new line after a pause
   frameCounter++;
   if (frameCounter >= scrollSpeed && !isTyping) {
     frameCounter = 0;
     startTyping();
   }
 
+  // Type characters
   if (isTyping) {
     typeCharacter();
   }
@@ -113,7 +116,7 @@ function typeCharacter() {
 
   if (currentIndex >= currentSnippet.length) {
     isTyping = false;
-    nextY += fontSize;
+    nextY += lineHeight;
     handleScroll();
   }
 }
@@ -122,14 +125,16 @@ function typeCharacter() {
 // Scrolling logic
 // -------------------------
 function handleScroll() {
-  if (nextY + fontSize > height - margin) {
+  if (nextY + lineHeight > height - margin) {
     for (let line of codeLines) {
-      line.y -= fontSize;
+      line.y -= lineHeight;
     }
-    nextY -= fontSize;
+    nextY -= lineHeight;
   }
 
-  codeLines = codeLines.filter(line => line.y > margin - fontSize);
+  codeLines = codeLines.filter(
+    line => line.y > margin - lineHeight
+  );
 }
 
 // -------------------------
