@@ -23,7 +23,7 @@ let cursorSize = 16;
 let funSnippets = [
   "while(alive) { code(); }",
   "if(coffee) { awake = true; }",
-  "for(let i=0; i<infinity; i++) { debug(); }",
+  "for(let i = 0; i < Infinity; i++) { debug(); }",
   "function sleep() { dream(); }",
   "try { hack(); } catch(e) { panic(); }",
   "const happiness = Math.random() > 0.5 ? 'yes' : 'no';",
@@ -36,16 +36,18 @@ let funSnippets = [
   "const coffee = getCoffee();",
   "if(nap) { dreamOfCode(); }",
   "console.warn('Too many bugs!');",
-  "for(let day=0; day<7; day++) { code(); }",
+  "for(let day = 0; day < 7; day++) { code(); }",
   "try { finishProject(); } catch(e) { startOver(); }",
   "debug(); debug(); debug();",
   "while(!weekend) { survive(); }",
   "const mood = Math.random() > 0.5 ? 'happy' : 'confused';",
   "console.log('Debugging life...');",
   "if(lunch) { eat(); } else { code(); }",
-  "for(let bug=0; bug<Infinity; bug++) { fix(); }",
+  "for(let bug = 0; bug < Infinity; bug++) { fix(); }",
   "function procrastinate() { avoidResponsibility(); }",
-  "while(true) { code(); sleep(); repeat(); }"
+  "while(true) { code(); sleep(); repeat(); }",
+  "<(• . • )>",
+  "(•ㅅ•)"
 ];
 
 function setup() {
