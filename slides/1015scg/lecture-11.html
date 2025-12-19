@@ -583,7 +583,7 @@ cat("t-critical (two-tailed, alpha = 0.02):", t_critical, "\n")\</code></pre>
 				</section>
 				<section>
 					<h5>Scatter plot</h5>
-					<pre class="copyable" style="width: 1100px;height: 620px; font-size: 55%;margin-top: -15px;">
+					<pre class="copyable" style="width: 1100px;height: 620px; font-size: 52%;margin-top: -15px;">
 						<code data-trim data-noescape  class="language-python" ># -------------------------
 # Load data
 # -------------------------
@@ -717,7 +717,6 @@ cat(sprintf("A(0) = %.3f\n", A0))</code></pre>
 						<code data-trim data-noescape  class="language-python" ># -------------------------
 # Load data
 # -------------------------
-
 getwd()          # Display current working directory (diagnostic)
 list.files()     # List files in the current working directory
 
@@ -726,7 +725,6 @@ setwd("C:/Users/YourUserName/Folder/R-code")
 
 # Read the CSV file into a data frame
 data <- read.csv("decay3.csv", header = TRUE)
-
 
 # -------------------------
 # Extract columns safely
@@ -875,11 +873,10 @@ cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre
 				</section>
 				<section>
 					<h5>One Sample Student t-test</h5>
-					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 52%;margin-top: -15px;">
+					<pre class="copyable" style="width: 1100px;height: 650px; font-size: 52%;margin-top: -15px;">
 						<code data-trim data-noescape  class="language-python" ># -------------------------
 # Data
 # -------------------------
-
 # Sample data (observed measurements)
 data <- c(275.0266497, 255.0311768, 293.8473708, 267.1938408, 242.3487616)
 
