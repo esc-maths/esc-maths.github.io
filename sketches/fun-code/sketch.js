@@ -8,7 +8,7 @@ let frameCounter = 0;
 let nextY;
 
 // Typing state
-let typingSpeed = 1; // frames per character
+let typingSpeed = 1.5; // frames per character
 let typingCounter = 0;
 let currentSnippet = "";
 let currentIndex = 0;
