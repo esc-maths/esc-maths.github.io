@@ -48,6 +48,7 @@
 			font-weight: bold;
 			text-decoration: underline;
 		}
+
 		.copy-btn {
 			position: absolute;
 			top: 5px;
@@ -95,6 +96,165 @@
 
 			<section>
 				<section>
+					<h3>What is <tt>R</tt>?</h3>
+					<div class="left-txt size-85">
+						<p>
+							<tt>R</tt> is a programming language for:
+						</p>
+						<ul>
+							<li>
+								Statistical computing
+							</li>
+							<li>
+								Data analysis
+							</li>
+							<li>
+								Data visualisation
+							</li>
+						</ul>
+						<p>
+							It is widely used in:
+						</p>
+						<ul>
+							<li>
+								Statistics
+							</li>
+							<li>
+								Data science
+							</li>
+							<li>
+								Scientific research
+							</li>
+							<li>
+								Education
+							</li>
+						</ul>
+
+					</div>
+					<p>
+						<tt>R</tt> is open-source and free! 😀
+					</p>
+					<br />
+				</section>
+
+				<section>
+					<h4>Basic <tt>R</tt>  Syntax</h4>
+					<table style="width: 100%; border-collapse: collapse; font-size: 90%;margin-top: -20px;" border="0">
+  <thead>
+    <tr>
+      <th style="width: 50%; text-align: center;">Code</th>
+      <th style="width: 50%; text-align: center;">Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="width: 50%;">
+        <pre style="width: 500px;height: 120px; font-size: 85%;margin-top: 5px;">
+<code data-trim data-noescape class="language-python">
+# Assign values using <-
+x <- 5
+y <- 2</code>
+        </pre>
+      </td>
+      <td style="width: 50%;"></td>
+    </tr>
+    <tr>
+      <td style="width: 50%;">
+        <pre style="width: 500px;height: 170px; font-size: 85%;margin-top: 5px;">
+<code data-trim data-noescape class="language-python">
+# Basic arithmetic
+x + y
+x * y
+x / y</code>
+        </pre>
+      </td>
+      <td style="width: 50%;">
+        <tt>> 7</tt> <br/>
+        <tt>> 10</tt> <br/>
+        <tt>> 2.5</tt>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 50%;">
+        <pre style="width: 500px;height: 150px; font-size: 85%;margin-top: 5px;">
+<code data-trim data-noescape class="language-python">
+# Create a vector
+v <- c(1, 2, 3, 4, 5)
+mean(v)</code>
+        </pre>
+      </td>
+      <td style="width: 50%;">
+        <tt>> 3</tt>
+		<br/><br/><br/>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+
+				</section>
+
+				<section>
+					<h4>Working with Data</h4>
+
+					<table style="width: 100%; border-collapse: collapse; font-size: 80%;margin-top: -20px;" border="0">
+  <thead>
+    <tr>
+      <th style="width: 50%; text-align: center;">Code</th>
+      <th style="width: 50%; text-align: center;">Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="width: 50%;">
+        <pre style="width: 550px;height: 120px; font-size: 80%;margin-top: 5px;">
+<code data-trim data-noescape class="language-python">
+# Create a data frame
+data <- data.frame(
+  time = c(1, 2, 3, 4),
+  value = c(10, 12, 15, 20)
+)
+
+# View data
+data
+summary(data)
+
+# Simple plot
+plot(data$time, data$value)</code>
+        </pre>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+      </td>
+      <td style="width: 50%;">
+
+		<div style="text-align: center; margin-top: -10px;">
+			<img style="width: 80%;"  src="images/lect-11/r-simple-plot-output.png">
+		</div>
+
+		<div style="text-align: center; margin-top: -40px;">
+			<img style="width: 60%;" src="images/lect-11/simple-plot.png">
+		</div>
+
+	  </td>
+    </tr>
+   
+  </tbody>
+</table>
+
+					
+				</section>
+
+			</section>
+
+			<section>
+				<section>
 					<h2><tt>R</tt> code</h2>
 					<p>
 						Include data manually
@@ -129,15 +289,15 @@ y <- c(
 # Scatter plot
 # -------------------------
 plot(time, activity,
-     pch = 19,              # solid circle
-     cex = 1.5,             # size of points
-     col = rgb(0,0,0.7,0.7),# blueish with transparency
-     xlab = "time [sec]",
-     ylab = "activity [decays/sec]",
-     main = "Radioactive decay data",
-     las = 1)                # make axis labels horizontal
+     pch = 19,                        # Solid circular plotting symbol
+     cex = 1.5,                       # Size of the plotting points
+     col = rgb(0, 0, 0.7, 0.7),       # Blue colour with transparency
+     xlab = "time [sec]",             # Label for the x-axis
+     ylab = "activity [decays/sec]",  # Label for the y-axis
+     main = "Radioactive decay data", # Title of the plot
+     las = 1)                         # Axis labels drawn horizontally
 
-grid()</code></pre>
+grid()                                # Add a background grid to the plot</code></pre>
 				</section>
 				<section>
 					<h5>Scatter plot & Trending line</h5>
@@ -164,97 +324,79 @@ y <- c(
   6.250336563, 5.376122231, 4.91574392, 4.449048126, 3.892785478
 )
 
-# Provide reasonable starting values
-start_vals <- list(A = max(y), k = -0.5)
+# Provide reasonable starting values for the parameters
+start_vals <- list(
+  A = max(y),    # initial activity (approximate)
+  k = -0.5       # decay constant (negative for decay)
+)
 
-nls_fit <- nls(y ~ A * exp(k * t), start = start_vals)
+# Fit exponential decay model y = A * exp(kx)
+nls_fit <- nls(y ~ A * exp(k * x), start = start_vals)
 
-# Extract parameters
+# Extract fitted parameters
 coef_fit <- coef(nls_fit)
 A <- coef_fit["A"]
 k <- coef_fit["k"]
 
-# Confidence intervals (approx. standard errors)
+# Confidence intervals for parameters
 conf <- confint(nls_fit)
-A_err <- (conf["A",2] - conf["A",1]) / 4  # roughly 1σ ≈ (upper-lower)/4
-k_err <- (conf["k",2] - conf["k",1]) / 4
 
-# Fitted curve
-y_fit <- A * exp(k * t)
+# Approximate standard errors (1σ) from 95% confidence intervals
+A_err <- (conf["A", 2] - conf["A", 1]) / 4
+k_err <- (conf["k", 2] - conf["k", 1]) / 4
 
-# ±4σ error curves
-y_fit_upper <- (A + 4*A_err) * exp((k + 4*k_err) * t)
-y_fit_lower <- (A - 4*A_err) * exp((k - 4*k_err) * t)
+
+# -------------------------
+# Fitted curves
+# -------------------------
+# Best-fit curve
+y_fit <- A * exp(k * x)
+# ±4σ uncertainty envelopes
+y_fit_upper <- (A + 4 * A_err) * exp((k + 4 * k_err) * x)
+y_fit_lower <- (A - 4 * A_err) * exp((k - 4 * k_err) * x)
+
 
 # -------------------------
 # Plot
 # -------------------------
-plot(t, y,
-     pch = 19, cex = 1.5, col = rgb(0,0,0.7,0.7),
+plot(x, y,
+     pch = 19,
+     cex = 1.5,
+     col = rgb(0, 0, 0.7, 0.7),
      xlab = "time [sec]",
      ylab = "activity [decays/sec]",
      main = "Exponential decay fit (nls) with ±4σ",
      las = 1)
+
 grid()
-lines(t, y_fit, col = "red", lwd = 2)
-lines(t, y_fit_upper, col = "orange", lty = 2, lwd = 1.5)
-lines(t, y_fit_lower, col = "orange", lty = 2, lwd = 1.5)
+
+lines(x, y_fit, col = "red", lwd = 2)
+lines(x, y_fit_upper, col = "blue", lty = 2, lwd = 1.5)
+lines(x, y_fit_lower, col = "blue", lty = 2, lwd = 1.5)
 
 legend("topright",
        legend = c("Data", "Best fit", "±4σ"),
-       col = c(rgb(0,0,0.7,0.7), "red", "orange"),
+       col = c(rgb(0,0,0.7,0.7), "red", "blue"),
        pch = c(19, NA, NA),
        lty = c(NA, 1, 2),
        lwd = c(NA, 2, 1.5),
        bty = "n")
+
 
 # -------------------------
 # Output results
 # -------------------------
 cat("Exponential model (nls):\n")
 cat(sprintf("A(t) = %.3f * exp(%.4f * t)\n", A, k))
-cat(sprintf("Estimated ±1σ: A = %.3f ± %.3f, k = %.4f ± %.4f\n", A, A_err, k, k_err))
+cat(sprintf("Estimated ±1σ: A = %.3f ± %.3f, k = %.4f ± %.4f\n",
+            A, A_err, k, k_err))
 
-# Value at t = 0
+# Value of the fitted model at t = 0
 t0 <- 0
 A0 <- A * exp(k * t0)
-cat(sprintf("A(0) = %.3f\n", A0))
-
-# -------------------------
-# Data - Same as before
-# -------------------------
-# Linearisation: ln(y) = ln(A) + k*t
-# -------------------------
-lny <- log(y)
-lin_fit <- lm(lny ~ t)
-
-# Regression parameters
-k <- coef(lin_fit)[2]
-lnA <- coef(lin_fit)[1]
-A <- exp(lnA)
-# Standard errors
-se <- summary(lin_fit)$coefficients[, "Std. Error"]
-k_err <- se[2]
-lnA_err <- se[1]
-A_err <- A * lnA_err  # propagated error
-# R-squared
-r_squared <- summary(lin_fit)$r.squared
-# Fitted line
-lny_fit <- lnA + k * t
-y_fit <- A * exp(k * t)
-
-# -------------------------
-# Standard error of regression
-# -------------------------
-n <- length(t)
-residuals <- lny - lny_fit
-s <- sqrt(sum(residuals^2) / (n - 2))
-t_mean <- mean(t)
-Sxx <- sum((t - t_mean)^2)
-k_err_alt <- s / sqrt(Sxx)
-lnA_err_alt <- s * sqrt(1/n + t_mean^2 / Sxx)</code></pre>
+cat(sprintf("A(0) = %.3f\n", A0))</code></pre>
 				</section>
-				
+
 				<section>
 					<h5>Linearisation</h5>
 					<pre class="copyable" style="width: 1000px;height: 650px; font-size: 47%;margin-top: -15px;">
@@ -370,10 +512,10 @@ cat(sprintf("y = %.4f ± %.4f\n\n", y_pred, sigma_y))
 cat("-----------------------\n")
 cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre>
 				</section>
-				
+
 				<section>
 					<h5>One Sample Student t-test</h5>
-					<pre class="copyable" style="width: 1000px;height: 650px; font-size: 48%;margin-top: -15px;">
+					<pre class="copyable" style="width: 1000px;height: 650px; font-size: 49%;margin-top: -15px;">
 						<code data-trim data-noescape  class="language-python" ># -------------------------
 # Data
 # -------------------------
@@ -542,7 +684,7 @@ cat(sprintf("A(0) = %.3f\n", A0))</code></pre>
 				</section>
 				<section>
 					<h5>Linearisation</h5>
-					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 45%;margin-top: -15px;">
+					<pre class="copyable" style="width: 1100px;height: 620px; font-size: 52%;margin-top: -15px;">
 						<code data-trim data-noescape  class="language-python" ># -------------------------
 # Load data
 # -------------------------
@@ -571,7 +713,6 @@ if (!("time" %in% colnames(data)) | !("activity" %in% colnames(data))) {
   activity <- data$activity
 }
 
-
 # -------------------------
 # Linearisation: ln(y) = ln(A) + k t
 # -------------------------
@@ -581,14 +722,12 @@ lny <- log(activity)
 # Perform linear regression on the linearised model
 lin_fit <- lm(lny ~ time)
 
-
 # -------------------------
 # Extract regression parameters
 # -------------------------
 k   <- coef(lin_fit)[2]   # slope (decay constant)
 lnA <- coef(lin_fit)[1]   # intercept
 A   <- exp(lnA)           # recover A from ln(A)
-
 
 # -------------------------
 # Parameter uncertainties
@@ -602,12 +741,10 @@ lnA_err <- se[1]          # uncertainty in ln(A)
 # Propagate uncertainty from ln(A) to A
 A_err <- A * lnA_err
 
-
 # -------------------------
 # Goodness of fit
 # -------------------------
 r_squared <- summary(lin_fit)$r.squared
-
 
 # -------------------------
 # Fitted models
@@ -617,7 +754,6 @@ lny_fit <- lnA + k * time
 
 # Corresponding exponential model
 y_fit <- A * exp(k * time)
-
 
 # -------------------------
 # Standard error of regression
@@ -634,7 +770,6 @@ Sxx <- sum((time - t_mean)^2)
 
 k_err_alt   <- s / sqrt(Sxx)
 lnA_err_alt <- s * sqrt(1 / n + t_mean^2 / Sxx)
-
 
 # -------------------------
 # Plot (force refresh)
@@ -661,7 +796,6 @@ legend("topright",
        lwd = c(NA, 2),
        bty = "n")
 
-
 # -------------------------
 # Half-life computation
 # -------------------------
@@ -670,7 +804,6 @@ t_half <- log(2) / -k
 
 # Uncertainty in half-life (propagation)
 t_half_err <- log(2) / k^2 * k_err
-
 
 # -------------------------
 # Prediction at a specific time
@@ -686,7 +819,6 @@ sigma_y <- sqrt(
 
 # Predicted activity
 y_pred <- A * exp(k * t_pred)
-
 
 # -------------------------
 # Output results
@@ -714,7 +846,7 @@ cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre
 				</section>
 				<section>
 					<h5>One Sample Student t-test</h5>
-					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 47%;margin-top: -15px;">
+					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 52%;margin-top: -15px;">
 						<code data-trim data-noescape  class="language-python" ># -------------------------
 # Data
 # -------------------------
@@ -724,7 +856,6 @@ data <- c(275.0266497, 255.0311768, 293.8473708, 267.1938408, 242.3487616)
 
 # Hypothesised population mean under H0
 mu0 <- 246.966
-
 
 # -------------------------
 # One-sample t-test
@@ -751,7 +882,6 @@ alpha <- 0.02
 # Two-tailed critical t-value:
 # used for rejection region |t| > t_critical
 t_critical <- qt(1 - alpha / 2, df)
-
 
 # -------------------------
 # Output results
