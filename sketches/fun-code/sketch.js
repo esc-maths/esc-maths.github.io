@@ -46,6 +46,16 @@ let funSnippets = [
   "for(let bug = 0; bug < Infinity; bug++) { fix(); }",
   "function procrastinate() { avoidResponsibility(); }",
   "while(true) { code(); sleep(); repeat(); }",
+  "if(brain === null) { reboot(); }",
+  "while(!coffee) { complain(); }",
+  "const bug = features.pop();",
+  "try { understand(); } catch(e) { google(); }",
+  "for(let i = 0; i < deadline; i++) { panic++; }",
+  "console.error('Reality not found');",
+  "function refactor() { breakEverything(); }",
+  "if(commit) { pray(); }",
+  "while(stackOverflow) { copyPaste(); }",
+  "return nap || coffee;",
   "<(• . • )>",
   "(•ㅅ•)"
 ];
