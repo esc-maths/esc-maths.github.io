@@ -169,5 +169,21 @@ function drawGlowingText(txt, x, y) {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+
+  // Clear all previous lines
+  codeLines = [];
+
+  // Reset typing state
+  isTyping = false;
+  currentSnippet = "";
+  currentIndex = 0;
+  typingCounter = 0;
+  frameCounter = 0;
+
+  // Reset cursor
+  cursorCounter = 0;
+  cursorVisible = true;
+
+  // Reset starting position
   nextY = height / 2;
 }
