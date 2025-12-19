@@ -48,6 +48,23 @@
 			font-weight: bold;
 			text-decoration: underline;
 		}
+		.copy-btn {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			padding: 4px 8px;
+			font-size: 12px;
+			cursor: pointer;
+			background: #444;
+			color: white;
+			border: none;
+			border-radius: 4px;
+		}
+
+		pre.copyable {
+			position: relative;
+			/* so the button positions correctly */
+		}
 	</style>
 
 </head>
@@ -76,18 +93,688 @@
 				<br />
 			</section>
 
-			
+			<section>
+				<section>
+					<h2><tt>R</tt> code</h2>
+					<p>
+						Include data manually
+					</p>
+				</section>
+				<section>
+					<h5>Scatter plot</h5>
+					<pre class="copyable" style="width: 1000px;height: 650px; font-size: 36.5%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python" ># -------------------------
+# Data (entered directly)
+# -------------------------
+# Time variable
+t <- c(
+  0.246, 0.492, 0.738, 0.984, 1.23, 1.476, 1.722, 1.968, 2.214, 2.46,
+  2.706, 2.952, 3.198, 3.444, 3.69, 3.936, 4.182, 4.428, 4.674, 4.92,
+  5.166, 5.412, 5.658, 5.904, 6.15, 6.396, 6.642, 6.888, 7.134, 7.38,
+  7.626, 7.872, 8.118, 8.364, 8.61, 8.856, 9.102, 9.348, 9.594, 9.84
+)
+# Activity variable
+y <- c(
+  908.3475159, 788.1263257, 668.9006718, 554.6124143, 521.6023327,
+  392.2851028, 406.7494851, 323.1341532, 282.4183865, 236.0078351,
+  200.7706532, 199.8517187, 169.289558, 148.5259409, 127.8568286,
+  98.33976068, 87.93068585, 87.27796212, 73.97245838, 66.69058729,
+  56.82525099, 50.73912403, 39.4075143, 34.33557193, 32.61742786,
+  25.96560655, 22.36805436, 19.64146032, 16.71665582, 14.63554653,
+  12.49930957, 12.4940735, 9.520718439, 8.135601522, 7.562147198,
+  6.250336563, 5.376122231, 4.91574392, 4.449048126, 3.892785478
+)
+
+# -------------------------
+# Scatter plot
+# -------------------------
+plot(time, activity,
+     pch = 19,              # solid circle
+     cex = 1.5,             # size of points
+     col = rgb(0,0,0.7,0.7),# blueish with transparency
+     xlab = "time [sec]",
+     ylab = "activity [decays/sec]",
+     main = "Radioactive decay data",
+     las = 1)                # make axis labels horizontal
+
+grid()</code></pre>
+				</section>
+				<section>
+					<h5>Scatter plot & Trending line</h5>
+					<pre class="copyable" style="width: 1000px;height: 650px; font-size: 47%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python" ># -------------------------
+# Data (entered directly)
+# -------------------------
+# Time variable
+t <- c(
+  0.246, 0.492, 0.738, 0.984, 1.23, 1.476, 1.722, 1.968, 2.214, 2.46,
+  2.706, 2.952, 3.198, 3.444, 3.69, 3.936, 4.182, 4.428, 4.674, 4.92,
+  5.166, 5.412, 5.658, 5.904, 6.15, 6.396, 6.642, 6.888, 7.134, 7.38,
+  7.626, 7.872, 8.118, 8.364, 8.61, 8.856, 9.102, 9.348, 9.594, 9.84
+)
+# Activity variable
+y <- c(
+  908.3475159, 788.1263257, 668.9006718, 554.6124143, 521.6023327,
+  392.2851028, 406.7494851, 323.1341532, 282.4183865, 236.0078351,
+  200.7706532, 199.8517187, 169.289558, 148.5259409, 127.8568286,
+  98.33976068, 87.93068585, 87.27796212, 73.97245838, 66.69058729,
+  56.82525099, 50.73912403, 39.4075143, 34.33557193, 32.61742786,
+  25.96560655, 22.36805436, 19.64146032, 16.71665582, 14.63554653,
+  12.49930957, 12.4940735, 9.520718439, 8.135601522, 7.562147198,
+  6.250336563, 5.376122231, 4.91574392, 4.449048126, 3.892785478
+)
+
+# Provide reasonable starting values
+start_vals <- list(A = max(y), k = -0.5)
+
+nls_fit <- nls(y ~ A * exp(k * t), start = start_vals)
+
+# Extract parameters
+coef_fit <- coef(nls_fit)
+A <- coef_fit["A"]
+k <- coef_fit["k"]
+
+# Confidence intervals (approx. standard errors)
+conf <- confint(nls_fit)
+A_err <- (conf["A",2] - conf["A",1]) / 4  # roughly 1σ ≈ (upper-lower)/4
+k_err <- (conf["k",2] - conf["k",1]) / 4
+
+# Fitted curve
+y_fit <- A * exp(k * t)
+
+# ±4σ error curves
+y_fit_upper <- (A + 4*A_err) * exp((k + 4*k_err) * t)
+y_fit_lower <- (A - 4*A_err) * exp((k - 4*k_err) * t)
+
+# -------------------------
+# Plot
+# -------------------------
+plot(t, y,
+     pch = 19, cex = 1.5, col = rgb(0,0,0.7,0.7),
+     xlab = "time [sec]",
+     ylab = "activity [decays/sec]",
+     main = "Exponential decay fit (nls) with ±4σ",
+     las = 1)
+grid()
+lines(t, y_fit, col = "red", lwd = 2)
+lines(t, y_fit_upper, col = "orange", lty = 2, lwd = 1.5)
+lines(t, y_fit_lower, col = "orange", lty = 2, lwd = 1.5)
+
+legend("topright",
+       legend = c("Data", "Best fit", "±4σ"),
+       col = c(rgb(0,0,0.7,0.7), "red", "orange"),
+       pch = c(19, NA, NA),
+       lty = c(NA, 1, 2),
+       lwd = c(NA, 2, 1.5),
+       bty = "n")
+
+# -------------------------
+# Output results
+# -------------------------
+cat("Exponential model (nls):\n")
+cat(sprintf("A(t) = %.3f * exp(%.4f * t)\n", A, k))
+cat(sprintf("Estimated ±1σ: A = %.3f ± %.3f, k = %.4f ± %.4f\n", A, A_err, k, k_err))
+
+# Value at t = 0
+t0 <- 0
+A0 <- A * exp(k * t0)
+cat(sprintf("A(0) = %.3f\n", A0))
+
+# -------------------------
+# Data - Same as before
+# -------------------------
+# Linearisation: ln(y) = ln(A) + k*t
+# -------------------------
+lny <- log(y)
+lin_fit <- lm(lny ~ t)
+
+# Regression parameters
+k <- coef(lin_fit)[2]
+lnA <- coef(lin_fit)[1]
+A <- exp(lnA)
+# Standard errors
+se <- summary(lin_fit)$coefficients[, "Std. Error"]
+k_err <- se[2]
+lnA_err <- se[1]
+A_err <- A * lnA_err  # propagated error
+# R-squared
+r_squared <- summary(lin_fit)$r.squared
+# Fitted line
+lny_fit <- lnA + k * t
+y_fit <- A * exp(k * t)
+
+# -------------------------
+# Standard error of regression
+# -------------------------
+n <- length(t)
+residuals <- lny - lny_fit
+s <- sqrt(sum(residuals^2) / (n - 2))
+t_mean <- mean(t)
+Sxx <- sum((t - t_mean)^2)
+k_err_alt <- s / sqrt(Sxx)
+lnA_err_alt <- s * sqrt(1/n + t_mean^2 / Sxx)</code></pre>
+				</section>
+				
+				<section>
+					<h5>Linearisation</h5>
+					<pre class="copyable" style="width: 1000px;height: 650px; font-size: 47%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python" ># -------------------------
+# Data (entered directly)
+# -------------------------
+t <- c(
+  0.246, 0.492, 0.738, 0.984, 1.23, 1.476, 1.722, 1.968, 2.214, 2.46,
+  2.706, 2.952, 3.198, 3.444, 3.69, 3.936, 4.182, 4.428, 4.674, 4.92,
+  5.166, 5.412, 5.658, 5.904, 6.15, 6.396, 6.642, 6.888, 7.134, 7.38,
+  7.626, 7.872, 8.118, 8.364, 8.61, 8.856, 9.102, 9.348, 9.594, 9.84
+)
+
+y <- c(
+  908.3475159, 788.1263257, 668.9006718, 554.6124143, 521.6023327,
+  392.2851028, 406.7494851, 323.1341532, 282.4183865, 236.0078351,
+  200.7706532, 199.8517187, 169.289558, 148.5259409, 127.8568286,
+  98.33976068, 87.93068585, 87.27796212, 73.97245838, 66.69058729,
+  56.82525099, 50.73912403, 39.4075143, 34.33557193, 32.61742786,
+  25.96560655, 22.36805436, 19.64146032, 16.71665582, 14.63554653,
+  12.49930957, 12.4940735, 9.520718439, 8.135601522, 7.562147198,
+  6.250336563, 5.376122231, 4.91574392, 4.449048126, 3.892785478
+)
+
+# -------------------------
+# Linearisation: ln(y) = ln(A) + k*t
+# -------------------------
+lny <- log(y)
+lin_fit <- lm(lny ~ t)
+
+# Regression parameters
+k <- coef(lin_fit)[2]
+lnA <- coef(lin_fit)[1]
+A <- exp(lnA)
+
+# Standard errors
+se <- summary(lin_fit)$coefficients[, "Std. Error"]
+k_err <- se[2]
+lnA_err <- se[1]
+A_err <- A * lnA_err  # propagated error
+
+# R-squared
+r_squared <- summary(lin_fit)$r.squared
+
+# Fitted line
+lny_fit <- lnA + k * t
+y_fit <- A * exp(k * t)
+
+# -------------------------
+# Standard error of regression
+# -------------------------
+n <- length(t)
+residuals <- lny - lny_fit
+s <- sqrt(sum(residuals^2) / (n - 2))
+t_mean <- mean(t)
+Sxx <- sum((t - t_mean)^2)
+k_err_alt <- s / sqrt(Sxx)
+lnA_err_alt <- s * sqrt(1/n + t_mean^2 / Sxx)
+
+# -------------------------
+# Plot
+# -------------------------
+plot(t, lny,
+     pch = 19, cex = 1.5, col = rgb(0,0,0.7,0.7),
+     xlab = "t [s]",
+     ylab = "ln(y) [ln(decays/sec)]",
+     main = "Linearised exponential decay with regression",
+     las = 1)
+grid()
+lines(t, lny_fit, col = "red", lwd = 2)
+legend("topright",
+       legend = c("Linearised data", "Best fit line"),
+       col = c(rgb(0,0,0.7,0.7), "red"),
+       pch = c(19, NA),
+       lty = c(NA, 1),
+       lwd = c(NA, 2),
+       bty = "n")
+
+# -------------------------
+# Half-life computation
+# -------------------------
+t_half <- log(2) / -k
+t_half_err <- log(2) / k^2 * k_err
+
+# -------------------------
+# Prediction at t = 5.535 s
+# -------------------------
+t_pred <- 5.535
+sigma_A <- A * lnA_err
+sigma_y <- sqrt( (exp(k*t_pred) * sigma_A)^2 + (A * t_pred * exp(k*t_pred) * k_err)^2 )
+y_pred <- A * exp(k * t_pred)
+
+# -------------------------
+# Output results
+# -------------------------
+cat("-----------------------\n")
+cat("Linearised Model with Uncertainty\n")
+cat("-----------------------\n")
+cat(sprintf("ln(y) = (%.4f ± %.4f) * t + (%.4f ± %.4f)\n", k, k_err, lnA, lnA_err))
+cat(sprintf("R² = %.4f\n", r_squared))
+cat(sprintf("Standard error of regression = %.4f\n", s))
+cat(sprintf("A = %.4f ± %.4f\n\n", A, A_err))
+
+cat("-----------------------\n")
+cat("Exponential Model\n")
+cat("-----------------------\n")
+cat(sprintf("y = %.4f * exp(%.4f * t)\n\n", A, k))
+
+cat("-----------------------\n")
+cat(sprintf("Prediction at t = %.3f s:\n", t_pred))
+cat(sprintf("y = %.4f ± %.4f\n\n", y_pred, sigma_y))
+
+cat("-----------------------\n")
+cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre>
+				</section>
+				
+				<section>
+					<h5>One Sample Student t-test</h5>
+					<pre class="copyable" style="width: 1000px;height: 650px; font-size: 48%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python" ># -------------------------
+# Data
+# -------------------------
+data <- c(275.0266497, 255.0311768, 293.8473708, 267.1938408, 242.3487616)
+mu0 <- 246.966  # hypothesised mean
+
+# -------------------------
+# One-sample t-test
+# -------------------------
+t_test <- t.test(data, mu = mu0)
+
+# Extract t-statistic
+t_stat <- t_test$statistic
+
+# Degrees of freedom
+df <- t_test$parameter
+
+# Two-tailed t-critical value (alpha = 0.02)
+alpha <- 0.02
+t_critical <- qt(1 - alpha/2, df)
+
+# -------------------------
+# Output results
+# -------------------------
+cat("t-statistic:", t_stat, "\n")
+cat("t-critical (two-tailed, alpha = 0.02):", t_critical, "\n")\</code></pre>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2><tt>R</tt> code</h2>
+					<p>
+						Load data from local folder
+					</p>
+				</section>
+				<section>
+					<h5>Scatter plot</h5>
+					<pre class="copyable" style="width: 1100px;height: 620px; font-size: 55%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python" ># -------------------------
+# Load data
+# -------------------------
+getwd()          # Display the current working directory
+list.files()     # List all files in the current working directory
+
+# Set the working directory to the folder containing decay3.csv
+setwd("C:/Users/YourUserName/Folder/R-code")
+
+# Read the CSV file into a data frame
+data <- read.csv("decay3.csv")
+
+# Show the data in the csv file
+View(data)
+
+# Extract the first column (time values)
+time <- data[[1]]
+
+# Extract the second column (activity values)
+activity <- data[[2]]
+
+# -------------------------
+# Scatter plot
+# -------------------------
+
+plot(time, activity,
+     pch = 19,                        # Solid circular plotting symbol
+     cex = 1.5,                       # Size of the plotting points
+     col = rgb(0, 0, 0.7, 0.7),       # Blue colour with transparency
+     xlab = "time [sec]",             # Label for the x-axis
+     ylab = "activity [decays/sec]",  # Label for the y-axis
+     main = "Radioactive decay data", # Title of the plot
+     las = 1)                         # Axis labels drawn horizontally
+
+grid()                                # Add a background grid to the plot</code></pre>
+				</section>
+				<section>
+					<h5>Scatter plot & Trending line</h5>
+					<pre class="copyable" style="width: 1100px;height: 620px; font-size: 52%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python"  ># -------------------------
+# Load data
+# -------------------------
+getwd()          # Show current working directory (diagnostic)
+list.files()     # Show files in the current working directory
+
+# Set working directory to where decay3.csv is stored
+setwd("C:/Users/YourUserName/Folder/R-code")
+
+# Read the CSV file into a data frame
+data <- read.csv("decay3.csv")
+
+# Assign columns to variables used in the model
+x <- data[[1]]   # time values
+y <- data[[2]]   # activity values
+
+
+# -------------------------
+# Non-linear fit using nls
+# -------------------------
+# Provide reasonable starting values for the parameters
+start_vals <- list(
+  A = max(y),    # initial activity (approximate)
+  k = -0.5       # decay constant (negative for decay)
+)
+# Fit exponential decay model y = A * exp(kx)
+nls_fit <- nls(y ~ A * exp(k * x), start = start_vals)
+# Extract fitted parameters
+coef_fit <- coef(nls_fit)
+A <- coef_fit["A"]
+k <- coef_fit["k"]
+# Confidence intervals for parameters
+conf <- confint(nls_fit)
+# Approximate standard errors (1σ) from 95% confidence intervals
+A_err <- (conf["A", 2] - conf["A", 1]) / 4
+k_err <- (conf["k", 2] - conf["k", 1]) / 4
+
+
+# -------------------------
+# Fitted curves
+# -------------------------
+# Best-fit curve
+y_fit <- A * exp(k * x)
+# ±4σ uncertainty envelopes
+y_fit_upper <- (A + 4 * A_err) * exp((k + 4 * k_err) * x)
+y_fit_lower <- (A - 4 * A_err) * exp((k - 4 * k_err) * x)
+
+
+# -------------------------
+# Plot
+# -------------------------
+plot(x, y,
+     pch = 19,
+     cex = 1.5,
+     col = rgb(0, 0, 0.7, 0.7),
+     xlab = "time [sec]",
+     ylab = "activity [decays/sec]",
+     main = "Exponential decay fit (nls) with ±4σ",
+     las = 1)
+
+grid()
+
+lines(x, y_fit, col = "red", lwd = 2)
+lines(x, y_fit_upper, col = "blue", lty = 2, lwd = 1.5)
+lines(x, y_fit_lower, col = "blue", lty = 2, lwd = 1.5)
+
+legend("topright",
+       legend = c("Data", "Best fit", "±4σ"),
+       col = c(rgb(0,0,0.7,0.7), "red", "blue"),
+       pch = c(19, NA, NA),
+       lty = c(NA, 1, 2),
+       lwd = c(NA, 2, 1.5),
+       bty = "n")
+
+
+# -------------------------
+# Output results
+# -------------------------
+cat("Exponential model (nls):\n")
+cat(sprintf("A(t) = %.3f * exp(%.4f * t)\n", A, k))
+cat(sprintf("Estimated ±1σ: A = %.3f ± %.3f, k = %.4f ± %.4f\n",
+            A, A_err, k, k_err))
+
+# Value of the fitted model at t = 0
+t0 <- 0
+A0 <- A * exp(k * t0)
+cat(sprintf("A(0) = %.3f\n", A0))</code></pre>
+				</section>
+				<section>
+					<h5>Linearisation</h5>
+					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 45%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python" ># -------------------------
+# Load data
+# -------------------------
+
+getwd()          # Display current working directory (diagnostic)
+list.files()     # List files in the current working directory
+
+# Set working directory to the folder containing decay3.csv
+setwd("C:/Users/YourUserName/Folder/R-code")
+
+# Read the CSV file into a data frame
+data <- read.csv("decay3.csv", header = TRUE)
+
+
+# -------------------------
+# Extract columns safely
+# -------------------------
+# If the CSV file has column names "time" and "activity",
+# use them; otherwise, assume the first two columns
+
+if (!("time" %in% colnames(data)) | !("activity" %in% colnames(data))) {
+  time <- data[, 1]      # first column: time
+  activity <- data[, 2]  # second column: activity
+} else {
+  time <- data$time
+  activity <- data$activity
+}
+
+
+# -------------------------
+# Linearisation: ln(y) = ln(A) + k t
+# -------------------------
+# Take the natural logarithm of the activity data
+lny <- log(activity)
+
+# Perform linear regression on the linearised model
+lin_fit <- lm(lny ~ time)
+
+
+# -------------------------
+# Extract regression parameters
+# -------------------------
+k   <- coef(lin_fit)[2]   # slope (decay constant)
+lnA <- coef(lin_fit)[1]   # intercept
+A   <- exp(lnA)           # recover A from ln(A)
+
+
+# -------------------------
+# Parameter uncertainties
+# -------------------------
+# Standard errors from regression output
+se <- summary(lin_fit)$coefficients[, "Std. Error"]
+
+k_err   <- se[2]          # uncertainty in k
+lnA_err <- se[1]          # uncertainty in ln(A)
+
+# Propagate uncertainty from ln(A) to A
+A_err <- A * lnA_err
+
+
+# -------------------------
+# Goodness of fit
+# -------------------------
+r_squared <- summary(lin_fit)$r.squared
+
+
+# -------------------------
+# Fitted models
+# -------------------------
+# Linearised fitted line
+lny_fit <- lnA + k * time
+
+# Corresponding exponential model
+y_fit <- A * exp(k * time)
+
+
+# -------------------------
+# Standard error of regression
+# -------------------------
+n <- length(time)                 # number of data points
+residuals <- lny - lny_fit        # residuals of linearised fit
+
+# Standard error of the regression
+s <- sqrt(sum(residuals^2) / (n - 2))
+
+# Alternative expressions for parameter uncertainties
+t_mean <- mean(time)
+Sxx <- sum((time - t_mean)^2)
+
+k_err_alt   <- s / sqrt(Sxx)
+lnA_err_alt <- s * sqrt(1 / n + t_mean^2 / Sxx)
+
+
+# -------------------------
+# Plot (force refresh)
+# -------------------------
+graphics.off()   # Close any existing graphics device
+
+plot(time, lny,
+     pch = 19,
+     cex = 1.5,
+     col = rgb(0, 0, 0.7, 0.7),
+     xlab = "t [s]",
+     ylab = "ln(y) [ln(decays/sec)]",
+     main = "Linearised exponential decay with regression",
+     las = 1)
+
+grid()
+lines(time, lny_fit, col = "red", lwd = 2)
+
+legend("topright",
+       legend = c("Linearised data", "Best fit line"),
+       col = c(rgb(0,0,0.7,0.7), "red"),
+       pch = c(19, NA),
+       lty = c(NA, 1),
+       lwd = c(NA, 2),
+       bty = "n")
+
+
+# -------------------------
+# Half-life computation
+# -------------------------
+# Half-life for exponential decay: t_1/2 = ln(2)/|k|
+t_half <- log(2) / -k
+
+# Uncertainty in half-life (propagation)
+t_half_err <- log(2) / k^2 * k_err
+
+
+# -------------------------
+# Prediction at a specific time
+# -------------------------
+t_pred <- 5.535
+
+# Propagate uncertainty in A and k
+sigma_A <- A * lnA_err
+sigma_y <- sqrt(
+  (exp(k * t_pred) * sigma_A)^2 +
+    (A * t_pred * exp(k * t_pred) * k_err)^2
+)
+
+# Predicted activity
+y_pred <- A * exp(k * t_pred)
+
+
+# -------------------------
+# Output results
+# -------------------------
+cat("-----------------------\n")
+cat("Linearised Model with Uncertainty\n")
+cat("-----------------------\n")
+cat(sprintf("ln(y) = (%.4f ± %.4f) t + (%.4f ± %.4f)\n",
+            k, k_err, lnA, lnA_err))
+cat(sprintf("R² = %.4f\n", r_squared))
+cat(sprintf("Standard error of regression = %.4f\n", s))
+cat(sprintf("A = %.4f ± %.4f\n\n", A, A_err))
+
+cat("-----------------------\n")
+cat("Exponential Model\n")
+cat("-----------------------\n")
+cat(sprintf("y = %.4f * exp(%.4f t)\n\n", A, k))
+
+cat("-----------------------\n")
+cat(sprintf("Prediction at t = %.3f s:\n", t_pred))
+cat(sprintf("y = %.4f ± %.4f\n\n", y_pred, sigma_y))
+
+cat("-----------------------\n")
+cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre>
+				</section>
+				<section>
+					<h5>One Sample Student t-test</h5>
+					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 47%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python" ># -------------------------
+# Data
+# -------------------------
+
+# Sample data (observed measurements)
+data <- c(275.0266497, 255.0311768, 293.8473708, 267.1938408, 242.3487616)
+
+# Hypothesised population mean under H0
+mu0 <- 246.966
+
+
+# -------------------------
+# One-sample t-test
+# -------------------------
+
+# Perform a one-sample Student t-test:
+# H0: true mean = mu0
+# H1: true mean ≠ mu0 (two-tailed by default)
+t_test <- t.test(data, mu = mu0)
+
+# Extract the t-statistic from the test result
+t_stat <- t_test$statistic
+
+# Degrees of freedom (n − 1 for one-sample t-test)
+df <- t_test$parameter
+
+# -------------------------
+# Critical value
+# -------------------------
+
+# Significance level (alpha = 0.02 corresponds to a 98% confidence level)
+alpha <- 0.02
+
+# Two-tailed critical t-value:
+# used for rejection region |t| > t_critical
+t_critical <- qt(1 - alpha / 2, df)
+
+
+# -------------------------
+# Output results
+# -------------------------
+
+cat("t-statistic:", t_stat, "\n")
+cat("t-critical (two-tailed, alpha = 0.02):", t_critical, "\n")</code></pre>
+				</section>
+			</section>
 
 
 			<section>
 
 				<section>
-					<h2>Python code</h2>
+					<h2><tt>Python</tt> code</h2>
+					<p>
+						Include data manually
+					</p>
 				</section>
 				<section>
 					<h5>Scatter plot</h5>
 					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 50%;margin-top: -15px;">
-						<code data-trim data-noescape  class="language-python" data-line-numbers="1-24|26-36" >import numpy as np
+						<code data-trim data-noescape  class="language-python" >import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
@@ -129,7 +816,7 @@ plt.show()
 				<section>
 					<h5>Scatter plot & Trending line</h5>
 					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 50%;margin-top: -15px;">
-						<code data-trim data-noescape  class="language-python" data-line-numbers="1-24|26-45|47-56|62-84|87-100">import numpy as np
+						<code data-trim data-noescape  class="language-python" >import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
@@ -233,7 +920,7 @@ print(f"A(0) = {A0:.3f}")</code></pre>
 				<section>
 					<h5>Linearisation</h5>
 					<pre class="copyable" style="width: 1200px;height: 620px; font-size: 47%;margin-top: -15px;">
-						<code data-trim data-noescape  class="language-python" data-line-numbers="1-24|26-46|49-58|60-71|73-85|87-109">import numpy as np
+						<code data-trim data-noescape  class="language-python" >import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
@@ -347,7 +1034,7 @@ print()</code></pre>
 				<section>
 					<h5>One Sample Student t-test</h5>
 					<pre class="copyable" style="width: 1000px;height: 600px; font-size: 52%;margin-top: -15px;">
-						<code data-trim data-noescape  class="language-python" data-line-numbers="1-22|1-2|4-9|11-19|21-22">import numpy as np
+						<code data-trim data-noescape  class="language-python" >import numpy as np
 from scipy import stats
 
 # Given data
@@ -374,279 +1061,6 @@ print("t-critical:", t_critical)</code></pre>
 
 
 
-			<section>
-				<section>
-					<h2>R code</h2>
-				</section>
-				<section>
-					<h5>Scatter plot</h5>
-					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 53%;margin-top: -15px;">
-						<code data-trim data-noescape  class="language-python" ># -------------------------
-# Data (entered directly)
-# -------------------------
-time <- c(
-  0.246, 0.492, 0.738, 0.984, 1.23, 1.476, 1.722, 1.968, 2.214, 2.46,
-  2.706, 2.952, 3.198, 3.444, 3.69, 3.936, 4.182, 4.428, 4.674, 4.92,
-  5.166, 5.412, 5.658, 5.904, 6.15, 6.396, 6.642, 6.888, 7.134, 7.38,
-  7.626, 7.872, 8.118, 8.364, 8.61, 8.856, 9.102, 9.348, 9.594, 9.84
-)
-
-activity <- c(
-  908.3475159, 788.1263257, 668.9006718, 554.6124143, 521.6023327,
-  392.2851028, 406.7494851, 323.1341532, 282.4183865, 236.0078351,
-  200.7706532, 199.8517187, 169.289558, 148.5259409, 127.8568286,
-  98.33976068, 87.93068585, 87.27796212, 73.97245838, 66.69058729,
-  56.82525099, 50.73912403, 39.4075143, 34.33557193, 32.61742786,
-  25.96560655, 22.36805436, 19.64146032, 16.71665582, 14.63554653,
-  12.49930957, 12.4940735, 9.520718439, 8.135601522, 7.562147198,
-  6.250336563, 5.376122231, 4.91574392, 4.449048126, 3.892785478
-)
-
-# -------------------------
-# Scatter plot
-# -------------------------
-plot(time, activity,
-     pch = 19,              # solid circle
-     cex = 1.5,             # size of points
-     col = rgb(0,0,0.7,0.7),# blueish with transparency
-     xlab = "time [sec]",
-     ylab = "activity [decays/sec]",
-     main = "Radioactive decay data",
-     las = 1)                # make axis labels horizontal
-
-grid()</code></pre>
-				</section>
-				<section>
-					<h5>Scatter plot & Trending line</h5>
-					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 45%;margin-top: -15px;">
-						<code data-trim data-noescape  class="language-python" ># -------------------------
-# Data
-# -------------------------
-x <- c(
-  0.246, 0.492, 0.738, 0.984, 1.23, 1.476, 1.722, 1.968, 2.214, 2.46,
-  2.706, 2.952, 3.198, 3.444, 3.69, 3.936, 4.182, 4.428, 4.674, 4.92,
-  5.166, 5.412, 5.658, 5.904, 6.15, 6.396, 6.642, 6.888, 7.134, 7.38,
-  7.626, 7.872, 8.118, 8.364, 8.61, 8.856, 9.102, 9.348, 9.594, 9.84
-)
-
-y <- c(
-  908.3475159, 788.1263257, 668.9006718, 554.6124143, 521.6023327,
-  392.2851028, 406.7494851, 323.1341532, 282.4183865, 236.0078351,
-  200.7706532, 199.8517187, 169.289558, 148.5259409, 127.8568286,
-  98.33976068, 87.93068585, 87.27796212, 73.97245838, 66.69058729,
-  56.82525099, 50.73912403, 39.4075143, 34.33557193, 32.61742786,
-  25.96560655, 22.36805436, 19.64146032, 16.71665582, 14.63554653,
-  12.49930957, 12.4940735, 9.520718439, 8.135601522, 7.562147198,
-  6.250336563, 5.376122231, 4.91574392, 4.449048126, 3.892785478
-)
-
-# -------------------------
-# Non-linear fit using nls
-# -------------------------
-# Provide reasonable starting values
-start_vals <- list(A = max(y), k = -0.5)
-
-nls_fit <- nls(y ~ A * exp(k * x), start = start_vals)
-
-# Extract parameters
-coef_fit <- coef(nls_fit)
-A <- coef_fit["A"]
-k <- coef_fit["k"]
-
-# Confidence intervals (approx. standard errors)
-conf <- confint(nls_fit)
-A_err <- (conf["A",2] - conf["A",1]) / 4  # roughly 1σ ≈ (upper-lower)/4
-k_err <- (conf["k",2] - conf["k",1]) / 4
-
-# Fitted curve
-y_fit <- A * exp(k * x)
-
-# ±4σ error curves
-y_fit_upper <- (A + 4*A_err) * exp((k + 4*k_err) * x)
-y_fit_lower <- (A - 4*A_err) * exp((k - 4*k_err) * x)
-
-# -------------------------
-# Plot
-# -------------------------
-plot(x, y,
-     pch = 19, cex = 1.5, col = rgb(0,0,0.7,0.7),
-     xlab = "time [sec]",
-     ylab = "activity [decays/sec]",
-     main = "Exponential decay fit (nls) with ±4σ",
-     las = 1)
-grid()
-lines(x, y_fit, col = "red", lwd = 2)
-lines(x, y_fit_upper, col = "orange", lty = 2, lwd = 1.5)
-lines(x, y_fit_lower, col = "orange", lty = 2, lwd = 1.5)
-
-legend("topright",
-       legend = c("Data", "Best fit", "±4σ"),
-       col = c(rgb(0,0,0.7,0.7), "red", "orange"),
-       pch = c(19, NA, NA),
-       lty = c(NA, 1, 2),
-       lwd = c(NA, 2, 1.5),
-       bty = "n")
-
-# -------------------------
-# Output results
-# -------------------------
-cat("Exponential model (nls):\n")
-cat(sprintf("A(t) = %.3f * exp(%.4f * t)\n", A, k))
-cat(sprintf("Estimated ±1σ: A = %.3f ± %.3f, k = %.4f ± %.4f\n", A, A_err, k, k_err))
-
-# Value at t = 0
-t0 <- 0
-A0 <- A * exp(k * t0)
-cat(sprintf("A(0) = %.3f\n", A0))</code></pre>
-				</section>
-				<section>
-					<h5>Linearisation</h5>
-					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 45%;margin-top: -15px;">
-						<code data-trim data-noescape  class="language-python" ># -------------------------
-# Data (entered directly)
-# -------------------------
-t <- c(
-  0.246, 0.492, 0.738, 0.984, 1.23, 1.476, 1.722, 1.968, 2.214, 2.46,
-  2.706, 2.952, 3.198, 3.444, 3.69, 3.936, 4.182, 4.428, 4.674, 4.92,
-  5.166, 5.412, 5.658, 5.904, 6.15, 6.396, 6.642, 6.888, 7.134, 7.38,
-  7.626, 7.872, 8.118, 8.364, 8.61, 8.856, 9.102, 9.348, 9.594, 9.84
-)
-
-y <- c(
-  908.3475159, 788.1263257, 668.9006718, 554.6124143, 521.6023327,
-  392.2851028, 406.7494851, 323.1341532, 282.4183865, 236.0078351,
-  200.7706532, 199.8517187, 169.289558, 148.5259409, 127.8568286,
-  98.33976068, 87.93068585, 87.27796212, 73.97245838, 66.69058729,
-  56.82525099, 50.73912403, 39.4075143, 34.33557193, 32.61742786,
-  25.96560655, 22.36805436, 19.64146032, 16.71665582, 14.63554653,
-  12.49930957, 12.4940735, 9.520718439, 8.135601522, 7.562147198,
-  6.250336563, 5.376122231, 4.91574392, 4.449048126, 3.892785478
-)
-
-# -------------------------
-# Linearisation: ln(y) = ln(A) + k*t
-# -------------------------
-lny <- log(y)
-lin_fit <- lm(lny ~ t)
-
-# Regression parameters
-k <- coef(lin_fit)[2]
-lnA <- coef(lin_fit)[1]
-A <- exp(lnA)
-
-# Standard errors
-se <- summary(lin_fit)$coefficients[, "Std. Error"]
-k_err <- se[2]
-lnA_err <- se[1]
-A_err <- A * lnA_err  # propagated error
-
-# R-squared
-r_squared <- summary(lin_fit)$r.squared
-
-# Fitted line
-lny_fit <- lnA + k * t
-y_fit <- A * exp(k * t)
-
-# -------------------------
-# Standard error of regression
-# -------------------------
-n <- length(t)
-residuals <- lny - lny_fit
-s <- sqrt(sum(residuals^2) / (n - 2))
-t_mean <- mean(t)
-Sxx <- sum((t - t_mean)^2)
-k_err_alt <- s / sqrt(Sxx)
-lnA_err_alt <- s * sqrt(1/n + t_mean^2 / Sxx)
-
-# -------------------------
-# Plot
-# -------------------------
-plot(t, lny,
-     pch = 19, cex = 1.5, col = rgb(0,0,0.7,0.7),
-     xlab = "t [s]",
-     ylab = "ln(y) [ln(decays/sec)]",
-     main = "Linearised exponential decay with regression",
-     las = 1)
-grid()
-lines(t, lny_fit, col = "red", lwd = 2)
-legend("topright",
-       legend = c("Linearised data", "Best fit line"),
-       col = c(rgb(0,0,0.7,0.7), "red"),
-       pch = c(19, NA),
-       lty = c(NA, 1),
-       lwd = c(NA, 2),
-       bty = "n")
-
-# -------------------------
-# Half-life computation
-# -------------------------
-t_half <- log(2) / -k
-t_half_err <- log(2) / k^2 * k_err
-
-# -------------------------
-# Prediction at t = 5.535 s
-# -------------------------
-t_pred <- 5.535
-sigma_A <- A * lnA_err
-sigma_y <- sqrt( (exp(k*t_pred) * sigma_A)^2 + (A * t_pred * exp(k*t_pred) * k_err)^2 )
-y_pred <- A * exp(k * t_pred)
-
-# -------------------------
-# Output results
-# -------------------------
-cat("-----------------------\n")
-cat("Linearised Model with Uncertainty\n")
-cat("-----------------------\n")
-cat(sprintf("ln(y) = (%.4f ± %.4f) * t + (%.4f ± %.4f)\n", k, k_err, lnA, lnA_err))
-cat(sprintf("R² = %.4f\n", r_squared))
-cat(sprintf("Standard error of regression = %.4f\n", s))
-cat(sprintf("A = %.4f ± %.4f\n\n", A, A_err))
-
-cat("-----------------------\n")
-cat("Exponential Model\n")
-cat("-----------------------\n")
-cat(sprintf("y = %.4f * exp(%.4f * t)\n\n", A, k))
-
-cat("-----------------------\n")
-cat(sprintf("Prediction at t = %.3f s:\n", t_pred))
-cat(sprintf("y = %.4f ± %.4f\n\n", y_pred, sigma_y))
-
-cat("-----------------------\n")
-cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre>
-				</section>
-				<section>
-					<h5>One Sample Student t-test</h5>
-					<pre class="copyable" style="width: 1000px;height: 620px; font-size: 47%;margin-top: -15px;">
-						<code data-trim data-noescape  class="language-python" ># -------------------------
-# Data
-# -------------------------
-data <- c(275.0266497, 255.0311768, 293.8473708, 267.1938408, 242.3487616)
-mu0 <- 246.966  # hypothesised mean
-
-# -------------------------
-# One-sample t-test
-# -------------------------
-t_test <- t.test(data, mu = mu0)
-
-# Extract t-statistic
-t_stat <- t_test$statistic
-
-# Degrees of freedom
-df <- t_test$parameter
-
-# Two-tailed t-critical value (alpha = 0.02)
-alpha <- 0.02
-t_critical <- qt(1 - alpha/2, df)
-
-# -------------------------
-# Output results
-# -------------------------
-cat("t-statistic:", t_stat, "\n")
-cat("t-critical (two-tailed, alpha = 0.02):", t_critical, "\n")\</code></pre>
-				</section>
-			</section>
-
-
 			<!-- Ends sections -->
 
 		</div>
@@ -665,6 +1079,24 @@ cat("t-critical (two-tailed, alpha = 0.02):", t_critical, "\n")\</code></pre>
 
 	<script>
 		includeHTML();
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			document.querySelectorAll("pre.copyable code").forEach((block) => {
+				const btn = document.createElement("button");
+				btn.className = "copy-btn";
+				btn.innerText = "Copy";
+				block.parentNode.appendChild(btn);
+
+				btn.addEventListener("click", () => {
+					navigator.clipboard.writeText(block.innerText).then(() => {
+						btn.innerText = "Copied!";
+						setTimeout(() => (btn.innerText = "Copy"), 2000);
+					});
+				});
+			});
+		});
 	</script>
 
 
