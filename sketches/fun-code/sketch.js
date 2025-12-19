@@ -1,10 +1,22 @@
 let codeLines = [];
-let maxLines;
 let fontSize = 20;
 let margin = 70;
-let scrollSpeed = 35; // Number of frames per line scroll (smaller = faster)
+let scrollSpeed = 35; // frames between new lines
 let frameCounter = 0;
-let nextY; // y-position for the next line
+let nextY;
+
+// Typing state
+let typingSpeed = 2; // frames per character (smaller = faster)
+let typingCounter = 0;
+let currentSnippet = "";
+let currentIndex = 0;
+let isTyping = false;
+
+// Cursor
+let cursorBlinkSpeed = 10;
+let cursorVisible = true;
+let cursorCounter = 0;
+let cursorSize = 16;
 
 let funSnippets = [
   "while(alive) { code(); }",
@@ -36,61 +48,111 @@ let funSnippets = [
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  textFont('monospace');
+  textFont("monospace");
   textSize(fontSize);
   frameRate(60);
 
-  // start y in the middle of the canvas
   nextY = height / 2;
 }
 
 function draw() {
   background(0);
-  // green glowing color
-  // drawingContext.shadowBlur = 3;        // intensity of glow
-  // drawingContext.shadowColor = color(102, 255, 102);
 
-  // Draw all lines
-  for (let i = 0; i < codeLines.length; i++) {
-    drawGlowingText(codeLines[i].text, codeLines[i].x, codeLines[i].y);
+  // Draw existing lines
+  for (let line of codeLines) {
+    drawGlowingText(line.text, line.x, line.y);
   }
 
-  // Scroll based on speed
+  // Cursor blinking
+  cursorCounter++;
+  if (cursorCounter >= cursorBlinkSpeed) {
+    cursorCounter = 0;
+    cursorVisible = !cursorVisible;
+  }
+
+  // Typing logic
   frameCounter++;
-  if (frameCounter >= scrollSpeed) {
+  if (frameCounter >= scrollSpeed && !isTyping) {
     frameCounter = 0;
+    startTyping();
+  }
 
-    // Add a new random line at nextY
-    let newLine = {
-      text: random(funSnippets),
-      x: margin,
-      y: nextY
-    };
-    codeLines.push(newLine);
+  if (isTyping) {
+    typeCharacter();
+  }
 
-    // Move nextY down by font size
-    nextY += fontSize;
-
-    // If the next line would go below canvas, scroll all lines up
-    if (nextY + fontSize > height - margin) {
-      for (let i = 0; i < codeLines.length; i++) {
-        codeLines[i].y -= fontSize;
-      }
-      nextY -= fontSize;
-    }
-
-    // Optionally remove lines that move above the top margin
-    codeLines = codeLines.filter(line => line.y > margin - fontSize);
+  // Draw cursor
+  if (cursorVisible && codeLines.length > 0) {
+    drawCursor();
   }
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  // reset nextY to middle
-  nextY = height / 2;
+// -------------------------
+// Typing control
+// -------------------------
+function startTyping() {
+  currentSnippet = random(funSnippets);
+  currentIndex = 0;
+  isTyping = true;
+
+  codeLines.push({
+    text: "",
+    x: margin,
+    y: nextY
+  });
 }
 
-// Draw glowing text
+function typeCharacter() {
+  typingCounter++;
+  if (typingCounter < typingSpeed) return;
+  typingCounter = 0;
+
+  let currentLine = codeLines[codeLines.length - 1];
+  currentLine.text += currentSnippet[currentIndex];
+  currentIndex++;
+
+  if (currentIndex >= currentSnippet.length) {
+    isTyping = false;
+    nextY += fontSize;
+    handleScroll();
+  }
+}
+
+// -------------------------
+// Scrolling logic
+// -------------------------
+function handleScroll() {
+  if (nextY + fontSize > height - margin) {
+    for (let line of codeLines) {
+      line.y -= fontSize;
+    }
+    nextY -= fontSize;
+  }
+
+  codeLines = codeLines.filter(line => line.y > margin - fontSize);
+}
+
+// -------------------------
+// Cursor
+// -------------------------
+function drawCursor() {
+  let lastLine = codeLines[codeLines.length - 1];
+  let cursorX = lastLine.x + textWidth(lastLine.text) + 6;
+  let cursorY = lastLine.y - fontSize + 4;
+
+  drawingContext.shadowBlur = 6;
+  drawingContext.shadowColor = color(0, 255, 70);
+
+  noStroke();
+  fill(0, 255, 70);
+  rect(cursorX, cursorY, cursorSize, cursorSize);
+
+  drawingContext.shadowBlur = 0;
+}
+
+// -------------------------
+// Glowing text
+// -------------------------
 function drawGlowingText(txt, x, y) {
   for (let i = 4; i > 0; i--) {
     fill(0, 255, 70, 40 * i);
@@ -98,4 +160,9 @@ function drawGlowingText(txt, x, y) {
   }
   fill(0, 255, 70);
   text(txt, x, y);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  nextY = height / 2;
 }
