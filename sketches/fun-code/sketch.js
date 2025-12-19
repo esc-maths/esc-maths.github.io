@@ -1,6 +1,6 @@
 let codeLines = [];
 let maxLines;
-let fontSize = 18;
+let fontSize = 20;
 let margin = 70;
 let scrollSpeed = 35; // Number of frames per line scroll (smaller = faster)
 let frameCounter = 0;
@@ -46,6 +46,9 @@ function setup() {
 
 function draw() {
   background(0);
+  // green glowing color
+  // drawingContext.shadowBlur = 3;        // intensity of glow
+  // drawingContext.shadowColor = color(102, 255, 102);
 
   // Draw all lines
   for (let i = 0; i < codeLines.length; i++) {
