@@ -96,188 +96,218 @@
 
 			<section>
 				<section data-auto-animate>
-					<h3 style="font-size: 140%;">A brief intro to <tt>R</tt></h3>
+					<h3 style="font-size: 160%;">A brief intro to <tt>R</tt></h3>
 
-					
-					<img style="width: 65%;" src="images/lect-11/rstudio_interface.png">
 				</section>
+
 				<section data-auto-animate>
 					<h3>What is <tt>R</tt>?</h3>
-					<div class="left-txt size-85">
-						<p>
-							<tt>R</tt> is a programming language for:
-						</p>
-						<ul>
-							<li>
-								Statistical computing
-							</li>
-							<li>
-								Data analysis
-							</li>
-							<li>
-								Data visualisation
-							</li>
-						</ul>
-						<p>
-							It is widely used in:
-						</p>
-						<ul>
-							<li>
-								Statistics
-							</li>
-							<li>
-								Data science
-							</li>
-							<li>
-								Scientific research
-							</li>
-							<li>
-								Education
-							</li>
-						</ul>
 
-					</div>
-					<p>
-						<tt>R</tt> is open-source and free! 😀
-					</p>
+					<table style="width: 90%; margin-top: -20px;">
+						<tr>
+							<td>
+								<div class="left-txt size-95">
+									<p class="fragment" data-fragment-index="0">
+										<tt>R</tt> is a programming language for:
+									</p>
+									<ul>
+										<li class="fragment" data-fragment-index="1">
+											Statistical computing
+										</li>
+										<li class="fragment" data-fragment-index="2">
+											Data analysis
+										</li>
+										<li class="fragment" data-fragment-index="3">
+											Data visualisation
+										</li>
+									</ul>
+									<p class="fragment" data-fragment-index="4">
+										It is widely used in:
+									</p>
+									<ul class="fragment" data-fragment-index="5">
+										<li>
+											Statistics
+										</li>
+										<li>
+											Data science
+										</li>
+										<li>
+											Scientific research
+										</li>
+										<li>
+											Education
+										</li>
+									</ul>
+
+								</div>
+							</td>
+							<td style="text-align: center; font-size: 110%;"  class="fragment" data-fragment-index="6">
+								<p>
+									<tt>R</tt> is open-source <br/> and free! 😀
+								</p>
+
+								<p>
+									
+									<a href="https://rdrr.io/snippets/" target="_blank">rdrr.io <i class="fa fa-external-link-alt"></i></a>
+								</p>
+							</td>
+						</tr>
+					</table>
+
+
+					<br />
 					<br />
 				</section>
 
 				<section>
-					<h4>Basic <tt>R</tt>  Syntax</h4>
+					<h4>Basic <tt>R</tt> Syntax</h4>
 					<table style="width: 100%; border-collapse: collapse; font-size: 90%;margin-top: -20px;" border="0">
-  <thead>
-    <tr>
-      <th style="width: 50%; text-align: center;">Code</th>
-      <th style="width: 50%; text-align: center;">Output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="width: 50%;">
-        <pre style="width: 500px;height: 120px; font-size: 85%;margin-top: 5px;">
+						<thead>
+							<tr>
+								<th style="width: 50%; text-align: center;">Code</th>
+								<th style="width: 50%; text-align: center;">Output</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="width: 50%;" class="fragment" data-fragment-index="0">
+									<pre style="width: 500px;height: 120px; font-size: 85%;margin-top: 5px;">
 <code data-trim data-noescape class="language-python">
 # Assign values using <-
 x <- 5
 y <- 2</code>
         </pre>
-      </td>
-      <td style="width: 50%;"></td>
-    </tr>
-    <tr>
-      <td style="width: 50%;">
-        <pre style="width: 500px;height: 170px; font-size: 85%;margin-top: 5px;">
+								</td>
+								<td style="width: 50%;"></td>
+							</tr>
+							<tr>
+								<td style="width: 50%;" class="fragment" data-fragment-index="1">
+									<pre style="width: 500px;height: 170px; font-size: 85%;margin-top: 5px;">
 <code data-trim data-noescape class="language-python">
 # Basic arithmetic
 x + y
 x * y
 x / y</code>
         </pre>
-      </td>
-      <td style="width: 50%;">
-        <tt>> 7</tt> <br/>
-        <tt>> 10</tt> <br/>
-        <tt>> 2.5</tt>
-      </td>
-    </tr>
-    <tr>
-      <td style="width: 50%;">
-        <pre style="width: 500px;height: 150px; font-size: 85%;margin-top: 5px;">
+								</td>
+								<td style="width: 50%;" class="fragment" data-fragment-index="2">
+									<tt>> 7</tt> <br />
+									<tt>> 10</tt> <br />
+									<tt>> 2.5</tt>
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 50%;" class="fragment" data-fragment-index="3">
+									<pre style="width: 500px;height: 150px; font-size: 85%;margin-top: 5px;">
 <code data-trim data-noescape class="language-python">
 # Create a vector
 v <- c(1, 2, 3, 4, 5)
 mean(v)</code>
         </pre>
-      </td>
-      <td style="width: 50%;">
-        <tt>> 3</tt>
-		<br/><br/><br/>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<br/>
+								</td>
+								<td style="width: 50%;" class="fragment" data-fragment-index="4">
+									<tt>> 3</tt>
+									<br /><br /><br />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
 
 				</section>
 
-				<section>
-					<h4>Working with Data</h4>
+				<section data-auto-animate>
+					<h3 style="font-size: 140%;"><tt>R</tt> studio</h3>
+					<img style="width: 75%;margin-top: -10px;" src="images/lect-11/rstudio_interface.png">
+					<br/>
+					<br/>
+				</section>
 
-					<table style="width: 100%; border-collapse: collapse; font-size: 80%;margin-top: -20px;" border="0">
-  <thead>
-    <tr>
-      <th style="width: 50%; text-align: center;">Code</th>
-      <th style="width: 50%; text-align: center;">Output</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="width: 50%;">
-        <pre style="width: 550px;height: 120px; font-size: 80%;margin-top: 5px;">
+				<section>
+					<h4 style="font-size: 60%;">Working with Data</h4>
+
+					<table style="width: 100%; border-collapse: collapse; font-size: 75%;margin-top: -30px;" border="0">
+						<thead>
+							<tr>
+								<th style="width: 50%; text-align: center;">Code</th>
+								<th style="width: 50%; text-align: center;">Output</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="width: 50%;">
+									<pre class="fragment" data-fragment-index="0" style="width: 550px;height: 120px; font-size: 80%;margin-top: 5px;">
 <code data-trim data-noescape class="language-python">
 # Create a data frame
 data <- data.frame(
   time = c(1, 2, 3, 4),
   value = c(10, 12, 15, 20)
-)
-
+)</code></pre>
+<br/>
+									<pre class="fragment" data-fragment-index="1" style="width: 550px;height: 120px; font-size: 80%;margin-top: 5px;">
+<code data-trim data-noescape class="language-python">
 # View data
 data
-summary(data)
-
+summary(data)</code></pre>
+									<pre class="fragment" data-fragment-index="4" style="width: 550px;height: 100px; font-size: 80%;margin-top: 40px;">
+<code data-trim data-noescape class="language-python">
 # Simple plot
-plot(data$time, data$value)</code>
-        </pre>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-      </td>
-      <td style="width: 50%;">
+plot(data$time, data$value)</code> </pre>
+									<br />
+									<br />
+									<br />
+									<br />
+								</td>
+								<td style="width: 50%;">
 
-		<div style="text-align: center; margin-top: -10px;">
-			<img style="width: 80%;"  src="images/lect-11/r-simple-plot-output.png">
-		</div>
+									<div class="fragment" data-fragment-index="2" style="text-align: center; margin-top: -20px;">
+										<img style="width: 98%;" src="images/lect-11/r-simple-plot-output-01.png">
+									</div>
+									<div class="fragment" data-fragment-index="3" style="text-align: center; margin-top: -40px;">
+										<img style="width: 98%;" src="images/lect-11/r-simple-plot-output-02.png">
+									</div>
+									<div class="fragment" data-fragment-index="5" style="text-align: center; margin-top: -40px;">
+										<img style="width: 98%;" src="images/lect-11/r-simple-plot-output-03.png">
+									</div>
 
-		<div style="text-align: center; margin-top: -40px;">
-			<img style="width: 60%;" src="images/lect-11/simple-plot.png">
-		</div>
+									<div class="fragment" data-fragment-index="5" style="text-align: center; margin-top: -40px;">
+										<img style="width: 59%;" src="images/lect-11/simple-plot.png">
+									</div>
 
-	  </td>
-    </tr>
-   
-  </tbody>
-</table>
+								</td>
+							</tr>
 
-					
+						</tbody>
+					</table>
+
+
 				</section>
 
 				<section>
 					<h3>📖 Documentation</h3>
 					<ul style="line-height: 1.6;">
 						<li>
-							<a href="https://www.r-project.org/" target="_blank">The R Project for Statistical Computing <i class="fa fa-external-link-alt"></i></a>
+							<a href="https://www.r-project.org/" target="_blank">The R Project for Statistical Computing
+								<i class="fa fa-external-link-alt"></i></a>
 						</li>
 						<li>
-							<a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank">R (programming language) <i class="fa fa-external-link-alt"></i></a>
+							<a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank">R
+								(programming language) <i class="fa fa-external-link-alt"></i></a>
 						</li>
 						<li>
-							<a href="https://biocorecrg.github.io/CRG_RIntroduction/" target="_blank">R Introduction <i class="fa fa-external-link-alt"></i></a>
+							<a href="https://biocorecrg.github.io/CRG_RIntroduction/" target="_blank">R Introduction <i
+									class="fa fa-external-link-alt"></i></a>
 						</li>
 					</ul>
-					<br/>
-					<br/>
+					<br />
+					<br />
 
 					<div>
 						<img width="150px" src="images/lect-11/Rlogo.png">
 					</div>
-					
-					<br/>
+
+					<br />
+					<br />
 				</section>
 
 			</section>
@@ -1215,10 +1245,11 @@ print("t-critical:", t_critical)</code></pre>
 				</section>
 			</section>
 
-			<section data-transition="fade" data-background-iframe="../../sketches/fun-code" data-background-color="rgb(0,0,0)">
+			<section data-transition="fade" data-background-iframe="../../sketches/fun-code"
+				data-background-color="rgb(0,0,0)">
 				<div
 					style=" position: absolute;bottom:-150px;left: 67%;transform: translateX(-50%);width:37%; padding: 0.3em;font-size: 70%;">
-					<h2 >That's all for today!</h2>
+					<h2>That's all for today!</h2>
 
 					<p>See you next time!</p>
 
