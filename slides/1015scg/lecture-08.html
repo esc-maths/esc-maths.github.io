@@ -559,7 +559,7 @@
 								\(\dfrac{80 \text{ L}}{2 \text{ mL}}\)
 							</span>
 							<span class="fragment" data-fragment-index="6">
-								\(=\dfrac{80 \text{ L}}{2 \text{ mL}} \times \dfrac{1000 \text{ L}}{1 \text{ mL}}\)
+								\(=\dfrac{80 \text{ L}}{2 \text{ mL}} \times \dfrac{1000 \text{ mL}}{1 \text{ L}}\)
 							</span>
 							<span class="fragment" data-fragment-index="7">
 								\(=\dfrac{80\,000 }{2 }\)
@@ -571,9 +571,12 @@
 								\(=4\times 10^4\)
 							</span>
 						</p>
+						<br/>
+						<p class="fragment" data-fragment-index="9">
+							There are about 4 orders of magnitude between 2 mL and 80 L
+						</p>
 					</div>
-					<br />
-					<br />
+					
 					<br />
 					<br />
 					<br />
@@ -721,6 +724,9 @@
 							<span>
 								$\approx 4.47$
 							</span>
+							<span class="fragment" data-fragment-index="6">
+								$\approx 4$
+							</span>
 						</p>
 					</div>
 					<br />
@@ -775,7 +781,7 @@
 							</span>
 						</p>
 						<p>
-							Assume: $\;200 \dfrac{\text{sheets}}{\text{roll}}$
+							🧻 Assume: $\;200 \dfrac{\text{sheets}}{\text{roll}}$
 						</p>
 						<p class="fragment" data-fragment-index="4">
 							Then we have
@@ -811,7 +817,7 @@
 								$=2.8\times 10^7$
 							</span>
 						</p>
-						<p class="fragment" data-fragment-index="4">
+						<p>
 
 							<span>
 								👉$\;\; 37 \dfrac{\text{rolls}}{\text{year}}$ per person
@@ -860,30 +866,31 @@
 			<section>
 				<section>
 					<h4>Taylor series</h4>
-					<div>
+					<div class="left-txt">
 						<p>
 							Any function $f(x)$ can be rewritten as an infinite sum
+							\[f(x)= a_0 + a_1 x + a_2x^2 + a_3x^3+\cdots a_nx^n + \cdots\]
 						</p>
 					</div>
-					<div>
-						<p>
-							\(f(x)= a_0 + a_1 x + a_2x^2 + a_3x^3+\cdots a_nx^n + \cdots\)
-						</p>
-					</div>
-					<div>
-						<p>
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="0">
 							where $n! = 1 \times 2 \times 3 \times \cdots \times (n-1) \times n.$
 						</p>
 					</div>
-					<div>
+					<div class="fragment" data-fragment-index="1">
 						<p>
 							<b>Example:</b>
 						</p>
 					</div>
 
-					<div>
+					<div >
 						<p>
-							\(e^x = 1 +x + \dfrac{x^2}{2!}+ \dfrac{x^3}{3!} + \cdots + \dfrac{x^n}{n!}+ \cdots\)
+							<span class="fragment" data-fragment-index="1">
+								\(e^x \)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								\(= 1 +x + \dfrac{x^2}{2!}+ \dfrac{x^3}{3!} + \cdots + \dfrac{x^n}{n!}+ \cdots\)
+							</span>
 						</p>
 					</div>
 
@@ -896,7 +903,7 @@
 				<section>
 					<h4>Taylor series: Useful approximations, if $x$ is small</h4>
 
-					<div class="size-80">
+					<div class="size-75">
 						<p>
 							Truncating the Taylor series at second order gives useful approximations:
 						</p>
@@ -913,39 +920,39 @@
 						<tbody>
 							<tr>
 								<td style="text-align: center;">$e^x$</td>
-								<td style="text-align: center;">$1 + x + \dfrac{x^2}{2}$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="1">$1 + x + \dfrac{x^2}{2}$</td>
 							</tr>
 
 							<tr>
 								<td style="text-align: center;">$(1+x)^n$</td>
-								<td style="text-align: center;">$1 + nx + \dfrac{n(n-1)}{2}x^2$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="2">$1 + nx + \dfrac{n(n-1)}{2}x^2$</td>
 							</tr>
 
 							<tr>
 								<td style="text-align: center;">$\ln(1+x)$</td>
-								<td style="text-align: center;">$x - \dfrac{x^2}{2}$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="3">$x - \dfrac{x^2}{2}$</td>
 							</tr>
 
 							<tr>
 								<td style="text-align: center;">$\sin x$</td>
-								<td style="text-align: center;">$x$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="4">$x$</td>
 							</tr>
 
 							<tr>
 								<td style="text-align: center;">$\cos x$</td>
-								<td style="text-align: center;">$1 - \dfrac{x^2}{2}$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="5">$1 - \dfrac{x^2}{2}$</td>
 							</tr>
 
 							<tr>
 								<td style="text-align: center;">$\tan x$</td>
-								<td style="text-align: center;">$x$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="6">$x$</td>
 							</tr>
 						</tbody>
 					</table>
 
 
 
-					<div>
+					<div class="fragment" data-fragment-index="8">
 						<p style="font-size: 70%;">
 							These approximations are valid when $|x| \ll 1$.
 						</p>
@@ -958,7 +965,7 @@
 
 
 
-					<div>
+					<div class="fragment" data-fragment-index="1">
 						<p>
 							\(
 							\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
@@ -977,33 +984,33 @@
 
 						<tbody>
 							<tr>
-								<td>First order</td>
-								<td>$1 + x$</td>
-								<td>$1 + 0.05 = 1.05$</td>
+								<td class="fragment" data-fragment-index="2">First order</td>
+								<td class="fragment" data-fragment-index="3">$1 + x$</td>
+								<td class="fragment" data-fragment-index="4">$1 + 0.05$<span class="fragment" data-fragment-index="5">$\,=1.05$</span></td>
 							</tr>
 
 							<tr>
-								<td>Second order</td>
-								<td>$1 + x + \dfrac{x^2}{2}$</td>
-								<td>$1 + 0.05 + \dfrac{(0.05)^2}{2} = 1.05125$</td>
+								<td class="fragment" data-fragment-index="6">Second order</td>
+								<td class="fragment" data-fragment-index="7">$1 + x + \dfrac{x^2}{2}$</td>
+								<td class="fragment" data-fragment-index="8">$1 + 0.05 + \dfrac{(0.05)^2}{2}$<span class="fragment" data-fragment-index="9">$\,=1.05125$</span></td>
 							</tr>
 
-							<tr>
+							<tr class="fragment" data-fragment-index="10">
 								<td>Third order</td>
 								<td>$1 + x + \dfrac{x^2}{2} + \dfrac{x^3}{6}$</td>
 								<td>$1.05125 + \dfrac{(0.05)^3}{6} \approx 1.05127$</td>
 							</tr>
 
-							<tr>
+							<tr class="fragment" data-fragment-index="11">
 								<td>Calculator</td>
-								<td>Exact value</td>
-								<td>$e^{0.05} \approx 1.051271096376024\ldots$</td>
+								<td>$e^{0.05}$</td>
+								<td>$\approx 1.051271096376024\ldots$</td>
 							</tr>
 						</tbody>
 					</table>
 
 
-					<div>
+					<div class="fragment" data-fragment-index="12">
 						<p style="font-size: 80%;">
 							Higher-order approximations give better accuracy for small $x$.
 						</p>
