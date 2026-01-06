@@ -571,12 +571,12 @@
 								\(=4\times 10^4\)
 							</span>
 						</p>
-						<br/>
+						<br />
 						<p class="fragment" data-fragment-index="9">
 							There are about 4 orders of magnitude between 2 mL and 80 L
 						</p>
 					</div>
-					
+
 					<br />
 					<br />
 					<br />
@@ -883,7 +883,7 @@
 						</p>
 					</div>
 
-					<div >
+					<div>
 						<p>
 							<span class="fragment" data-fragment-index="1">
 								\(e^x \)
@@ -920,17 +920,20 @@
 						<tbody>
 							<tr>
 								<td style="text-align: center;">$e^x$</td>
-								<td style="text-align: center;" class="fragment" data-fragment-index="1">$1 + x + \dfrac{x^2}{2}$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="1">$1 + x +
+									\dfrac{x^2}{2}$</td>
 							</tr>
 
 							<tr>
 								<td style="text-align: center;">$(1+x)^n$</td>
-								<td style="text-align: center;" class="fragment" data-fragment-index="2">$1 + nx + \dfrac{n(n-1)}{2}x^2$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="2">$1 + nx +
+									\dfrac{n(n-1)}{2}x^2$</td>
 							</tr>
 
 							<tr>
 								<td style="text-align: center;">$\ln(1+x)$</td>
-								<td style="text-align: center;" class="fragment" data-fragment-index="3">$x - \dfrac{x^2}{2}$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="3">$x -
+									\dfrac{x^2}{2}$</td>
 							</tr>
 
 							<tr>
@@ -940,7 +943,8 @@
 
 							<tr>
 								<td style="text-align: center;">$\cos x$</td>
-								<td style="text-align: center;" class="fragment" data-fragment-index="5">$1 - \dfrac{x^2}{2}$</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="5">$1 -
+									\dfrac{x^2}{2}$</td>
 							</tr>
 
 							<tr>
@@ -986,13 +990,15 @@
 							<tr>
 								<td class="fragment" data-fragment-index="2">First order</td>
 								<td class="fragment" data-fragment-index="3">$1 + x$</td>
-								<td class="fragment" data-fragment-index="4">$1 + 0.05$<span class="fragment" data-fragment-index="5">$\,=1.05$</span></td>
+								<td class="fragment" data-fragment-index="4">$1 + 0.05$<span class="fragment"
+										data-fragment-index="5">$\,=1.05$</span></td>
 							</tr>
 
 							<tr>
 								<td class="fragment" data-fragment-index="6">Second order</td>
 								<td class="fragment" data-fragment-index="7">$1 + x + \dfrac{x^2}{2}$</td>
-								<td class="fragment" data-fragment-index="8">$1 + 0.05 + \dfrac{(0.05)^2}{2}$<span class="fragment" data-fragment-index="9">$\,=1.05125$</span></td>
+								<td class="fragment" data-fragment-index="8">$1 + 0.05 + \dfrac{(0.05)^2}{2}$<span
+										class="fragment" data-fragment-index="9">$\,=1.05125$</span></td>
 							</tr>
 
 							<tr class="fragment" data-fragment-index="10">
@@ -1017,7 +1023,7 @@
 					</div>
 				</section>
 
-				
+
 
 				<section>
 					<h4>📝 Practice: Estimate $\cos(0.1)$ using Taylor approximations</h4>
@@ -1030,7 +1036,8 @@
 						</p>
 					</div>
 
-					<table border="1" cellpadding="8" cellspacing="0" style="font-size: 85%; margin: auto; width: 100%;">
+					<table border="1" cellpadding="8" cellspacing="0"
+						style="font-size: 85%; margin: auto; width: 100%;">
 						<thead>
 							<tr>
 								<td style="width: 32%;"><b>Approximation order</b></td>
@@ -1071,7 +1078,7 @@
 							Odd-power terms vanish for $\cos x$, so first- and third-order approximations coincide.
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 				<section data-visibility="hidden">
 					<h4>Estimating $\cos(0.1)$ using Taylor approximations</h4>
@@ -1127,6 +1134,83 @@
 					</div>
 				</section>
 
+				<section>
+					<h4>
+						📝 Practice: Population
+					</h4>
+					<div class="left-txt">
+						<p>
+							The population of the bacteria in the sample is given by
+							\[
+							\large P(t) = 500 e^{0.001t}
+							\]
+							where $t$ is given in weeks.
+						</p>
+						<p>
+							Consider a second order approximation of $e^t$.
+						</p>
+						<ul>
+							<li>
+								What will be population after 2 weeks?
+							</li>
+							<li>
+								When will the population reach 505?
+							</li>
+							<li>
+								Compare results to the exact values.
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-visibility="hidden">
+					<h4>
+						📝 Practice: Population — Solution
+					</h4>
+
+					<div class="left-txt size-85">
+						
+
+						<p>
+							Using a second-order Taylor approximation for \( e^t\):
+							\(
+							\ds \;e^x \approx 1 + x + \frac{x^2}{2}.
+							\)
+						</p>
+
+						<ul>
+							<li>
+								<strong>Population after 2 weeks:</strong><br />
+								\[
+								P(2) \approx 501.001
+								\quad (\text{Exact: } 501.001001)
+								\]
+							</li>
+
+							
+
+							<li>
+								<strong>Time when the population reaches 505:</strong><br />
+								\[
+								t \approx 9.95 \text{ weeks}
+								\quad (\text{Exact: } 9.95033 \text{ weeks})
+								\]
+							</li>
+
+							
+
+							<li>
+								<strong>Comparison:</strong><br />
+								The Taylor approximation gives values virtually identical to the exact model.
+							</li>
+						</ul>
+					</div>
+
+					<br />
+					<br />
+				</section>
 
 
 
