@@ -135,6 +135,9 @@
 								<div style="width: 50%; text-align: right;">
 									<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Arecibo_message.svg">
 								</div>
+								<div style="font-size: 50%; text-align: left; margin-top: -35px;">
+									<p><a href="https://en.wikipedia.org/wiki/Arecibo_message" target="_blank">Arecibo Message</a></p>
+								</div>
 							</td>
 						</tr>
 					</table>
@@ -147,7 +150,7 @@
 							Fermi problems are estimation questions that use rough assumptions and simple
 							calculations to obtain approximate answers.
 						</p>
-						<ul>
+						<ul style="line-height: 1.6;">
 							<li class="fragment" data-fragment-index="1">Emphasise order-of-magnitude reasoning.</li>
 							<li class="fragment" data-fragment-index="2">Encourage critical thinking and modelling.</li>
 							<li class="fragment" data-fragment-index="3">Common in physics and mathematics education.
@@ -179,10 +182,10 @@
 				</section>
 
 				<section>
-					<h4>Not good for Fermi problems</h4>
+					<h4>Not good for Fermi problems ❌</h4>
 
 					<div>
-						<ul>
+						<ul style="line-height: 1.8;">
 							<li>
 								How much Panadol can I take in a day?
 							</li>
@@ -199,10 +202,10 @@
 					<br />
 				</section>
 				<section>
-					<h4>Good for Fermi problems</h4>
+					<h4>Good for Fermi problems ✅</h4>
 
 					<div>
-						<ul>
+						<ul style="line-height: 1.8;">
 							<li>
 								Is it more expensive to go to Melbourne by plane or by car?
 							</li>
@@ -223,7 +226,7 @@
 
 					<div class="left-txt size-95">
 						<ol>
-							<li class="fragment" data-fragment-index="1">
+							<li class="fragment" data-fragment-index="0">
 								Work out what the question is asking you.
 							</li>
 							<li class="fragment" data-fragment-index="1">
@@ -398,7 +401,7 @@
 						<p>
 							How to estimate unknown values?
 						</p>
-						<ul>
+						<ul style="line-height: 1.7;">
 							<li class="fragment" data-fragment-index="1">
 								Find underestimate.
 							</li>
@@ -616,11 +619,9 @@
 					<div class="size-85">
 
 						<p>
-							<span class="fragment" data-fragment-index="5">
-								\(\sqrt{40000 \times 0.00006}\)
-							</span>
+							
 							<span class="fragment" data-fragment-index="6">
-								\(=\sqrt{4\times 10^4 \times 6\times 10^{-5}}\)
+								\(\sqrt{4\times 10^4 \times 6\times 10^{-5}}\)
 							</span>
 							<span class="fragment" data-fragment-index="7">
 								\(=\sqrt{24\times 10^{-1}}\)
@@ -629,7 +630,7 @@
 								\(=\sqrt{2.4}\)
 							</span>
 							<span class="fragment" data-fragment-index="9">
-								\(=4\times 10^4\)
+								\(\approx 1.5\)
 							</span>
 						</p>
 					</div>
@@ -687,12 +688,15 @@
 						</p>
 
 						<p class="fragment" data-fragment-index="4">
-							Underestimate: $1 \dfrac{\text{visit}}{\text{day}}$<br />
-							Overestimate: $25 \dfrac{\text{visit}}{\text{day}}$
+							Underestimate: $\;1 \dfrac{\text{visit}}{\text{day}}$<br />
+							Overestimate: $\;25 \dfrac{\text{visit}}{\text{day}}$
 
 						</p>
 						<p class="fragment" data-fragment-index="5">
 							$N_t = \sqrt{25}$
+							<span class="fragment" data-fragment-index="6">
+								$=5$
+							</span>
 						</p>
 					</div>
 					<br />
@@ -715,16 +719,16 @@
 						</p>
 
 						<p class="fragment" data-fragment-index="4">
-							Underestimate: $1 \dfrac{\text{sheet}}{\text{visit}}$<br />
-							Overestimate: $20 \dfrac{\text{sheet}}{\text{visit}}$
+							Underestimate: $\;1 \dfrac{\text{sheet}}{\text{visit}}$<br />
+							Overestimate: $\;20 \dfrac{\text{sheet}}{\text{visit}}$
 
 						</p>
 						<p class="fragment" data-fragment-index="5">
 							$N_p = \sqrt{20}$
-							<span>
+							<span class="fragment" data-fragment-index="6">
 								$\approx 4.47$
 							</span>
-							<span class="fragment" data-fragment-index="6">
+							<span class="fragment" data-fragment-index="7">
 								$\approx 4$
 							</span>
 						</p>
@@ -872,11 +876,7 @@
 							\[f(x)= a_0 + a_1 x + a_2x^2 + a_3x^3+\cdots a_nx^n + \cdots\]
 						</p>
 					</div>
-					<div class="left-txt">
-						<p class="fragment" data-fragment-index="0">
-							where $n! = 1 \times 2 \times 3 \times \cdots \times (n-1) \times n.$
-						</p>
-					</div>
+					
 					<div class="fragment" data-fragment-index="1">
 						<p>
 							<b>Example:</b>
@@ -891,6 +891,11 @@
 							<span class="fragment" data-fragment-index="2">
 								\(= 1 +x + \dfrac{x^2}{2!}+ \dfrac{x^3}{3!} + \cdots + \dfrac{x^n}{n!}+ \cdots\)
 							</span>
+						</p>
+					</div>
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="3">
+							where $n! = 1 \times 2 \times 3 \times \cdots \times (n-1) \times n.$
 						</p>
 					</div>
 
@@ -1025,7 +1030,7 @@
 
 
 
-				<section>
+				<section data-visibility="hidden">
 					<h4>📝 Practice: Estimate $\cos(0.1)$ using Taylor approximations</h4>
 
 					<div>
@@ -1080,7 +1085,7 @@
 					</div>
 					<br />
 				</section>
-				<section data-visibility="hidden">
+				<section>
 					<h4>Estimating $\cos(0.1)$ using Taylor approximations</h4>
 
 					<div>
@@ -1165,7 +1170,7 @@
 					<br />
 				</section>
 
-				<section data-visibility="hidden">
+				<section>
 					<h4>
 						📝 Practice: Population — Solution
 					</h4>
