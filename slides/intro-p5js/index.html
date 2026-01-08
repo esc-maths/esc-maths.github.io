@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link rel="manifest" href='data:application/manifest+json,{"display": "standalone", "name": "A brief introduction to programming with p5js"}' />
+		<title>A brief introduction to programming with p5js</title>
+
+		<meta name="description" content="A bried introduction to programming with p5js">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="8368d9f0e5ef024e59501f1186b184f6" data-background-image="intro-p5js/12fe6b505bfd14e254c7f8af8536bcef.png" data-background-position="50% 100%" data-background-opacity="0.1" data-background-transition="fade"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 114.978px; height: auto;" data-block-id="e9400376b4b8464c7422232ddf6308a0"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(0, 0, 0);"><h2>A brief introduction to programming with </h2></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-1a48fb" data-block-id="490967fa9a738a5d110fc790c5fd4a70" style="height: auto; width: 600px; left: 180px; top: 533px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 110%;"><p>Juan Carlos Ponce Campuzano</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 175.864px; height: 45px; left: 392.068px; top: 36px; min-width: 1px; min-height: 1px;" data-name="image-be75fe" data-block-id="f86f1350c80736bdcd9623bf0bc0c525"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1786" data-natural-height="457" data-lazy-loaded="" data-src="intro-p5js/74a751459780ea6f5d23832449ed80c5.png"></div></div>
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 450.5px;" data-name="text-b4101e" data-block-id="2644f88ca6d4d76730f47543c14923ab"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 130%;"><p>Workshop</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 328.8px; height: 149.933px; left: 315.6px; top: 285.034px; min-width: 1px; min-height: 1px;" data-name="image-a9d2b6" data-block-id="80494ef76f904cafe2ce79296561cbb3"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="250" data-natural-height="114" data-lazy-loaded="" data-src="intro-p5js/c55fffd691bf594915cb7aa79ff5407c.svg"></div></div></section><section data-id="42a91bdba4998b46c2f2e707301c74d1" data-auto-animate=""><div class="sl-block" data-block-type="text" data-name="text-5727ef" data-block-id="48ce357405232e2d0e2be80dd2f38f70" style="height: auto; width: 880px; left: 80px; top: 117px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left">• What is p5.js?</p></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-fb47c0" data-block-id="8f8bbab10209a20c2839de294f1b5d34" style="height: auto; width: 600px; left: 180px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><h3>What do we cover?</h3></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 240px; left: 80px; top: 72px;" data-name="text-a56e2b" data-block-id="4eee71e5b9476aefde75cfe65398a19d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 130%;"><p style="text-align:left"><strong>Part I</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 80px; top: 297.5px;" data-block-id="6b5cd399b568f7fc129d794e6019165f" data-name="text-ff90d6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 130%; line-height: 1.235;" data-has-line-height="">
+<p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• </span>Geometric transformations:</p>
+
+<p style="text-align:left">   Translation, Rotation, and Scaling</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 240px; left: 80px; top: 432px;" data-block-id="d2899f1a7ad3bad5d21db7069ab2adf0" data-name="text-a08f6e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 130%;"><p style="text-align:left"><strong>Part III</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 80px; top: 487px;" data-block-id="a03c5458270d11defabd65ee06584042" data-name="text-31a4f8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• The <code>for</code> l</span>oop</p></div></div>
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 80px; top: 168px;" data-block-id="dfeee37c3146e0d116b8911459a0fbdd" data-name="text-d4a062"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• </span><span style="color:rgb(0, 0, 0); text-align:left">A brief introduction to the online editor</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 80px; top: 542px;" data-block-id="228ab23d3c2e894d13cf61c212779f69" data-name="text-704a92"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• </span>Motion</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 80px; top: 600px;" data-block-id="e12c0b79d89346443269bf2a146731f2" data-name="text-c0ea45"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• F</span>unctions (If time allows it)</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 240px; left: 80px; top: 246.5px;" data-name="text-9c0b2d" data-block-id="b7d261cd18816cb71be387d81e6d5ab2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; font-size: 130%;"><p style="text-align: left;"><strong>Part II</strong></p></div></div></section><section class="stack" data-id="fd8ae2b513158b46e891750f335708d1"><section data-id="923d05ab75ae3720837080c4e3a975dd" data-auto-animate="" id="part-1">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 320px; top: 190.5px;" data-name="text-a56e2b" data-block-id="0f599f3083eb4f2408ffb1dd56e7dbae"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 250%;"><p><strong>Part I</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 757px; left: 101.5px; top: 288px;" data-block-id="141e558a78db04c2be85a598bbe242ce" data-name="text-0b4b07"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left">• What is p5.js?</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 757px; left: 101.5px; top: 339px;" data-name="text-d4a062" data-block-id="2f9daeccde77024dee8b8c51871cdc92"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• </span><span style="color:rgb(0, 0, 0); text-align:left">A brief introduction to the online editor</span></p></div></div></section><section data-id="40ade5034af5e9a3c4133ab473eac718"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-block-id="897ea9164e26692f1ac3bef30ec6f452" data-name="text-10ffe6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong><span style="color:#000000">What is p5.js?</span></strong></p></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-d9a2bc" data-block-id="b45fa5b201e4cac04e6891c1b9b604d9" style="height: auto; width: 960px; left: -0.478px; top: 73px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 121%;"><p style="text-align:justify">p5.js is a library and a set of tools that make it easier to use the <code>JavaScript</code> programming language for creative coding.</p></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-5aca20" data-block-id="9f42d946c1aa0434939997a81ac98c11" style="width: 480.478px; height: 360px; left: 480px; top: 226px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0"><img style="" data-natural-width="670" data-natural-height="502" data-lazy-loaded="" data-src="intro-p5js/e67007c4745052476e696e0217b4692e.jpeg"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-9d5bc2" data-block-id="3286fc668d53243d30c22ceff16adabc" style="height: auto; width: 436px; left: 0px; top: 288px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; line-height: 1.209;" data-fragment-index="0" data-has-line-height="">
+<p>Written by</p>
+
+<p><a href="https://lauren-mccarthy.com/" target="_blank">Lauren McCarthy</a></p>
+
+<p><span style="font-size:0.7em">American artist &amp; Computer programmer</span></p>
+
+<p>2013</p>
+</div></div></section><section data-id="73613dd187c35a7c677fdf3487142e58" data-auto-animate="">
+
+<div class="sl-block" data-block-type="text" data-name="text-2fa183" style="height: auto; width: 800px; left: 80px; top: 457.392px;" data-block-id="c3b7ae2ffffd335a28bd4e030a9de251"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<p><strong>2013:</strong> Lauren McCarthy</p>
+
+<p><span style="color:rgb(0, 0, 0)">Programming language based on</span></p>
+
+<p><code><span style="color:rgb(0, 0, 0)">JavaScript</span></code></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-10ffe6" data-block-id="9ab63abdc47055f3d778e77648af634e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><strong><span style="color:#000000">What is p5.js?</span></strong></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 563.45px; height: 256.933px; left: 198.275px; top: 188.978px; min-width: 1px; min-height: 1px;" data-name="image-a9d2b6" data-block-id="13d9c6c14d67849df66135ba4f65fbd1"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="250" data-natural-height="114" data-lazy-loaded="" data-src="intro-p5js/c55fffd691bf594915cb7aa79ff5407c.svg"></div></div></section><section data-auto-animate="" data-id="568bde2fe3cc92c2e36c395785bf6604">
+<div class="sl-block" data-block-type="image" data-name="image-4eda22" style="width: 291.858px; height: 291.858px; left: 34.071px; top: 92px; min-width: 1px; min-height: 1px;" data-block-id="8191f0d2f34d2af656f392ac52998637"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="800" data-natural-height="800" data-lazy-loaded="" data-src="intro-p5js/73cc9e057e7cba28be6233e5e7429e36.svg"></div></div>
+
+<div class="sl-block" data-block-type="text" data-name="text-2fa183" data-block-id="f929464f27751197dccc13808e3ef010" style="height: auto; width: 473.684px; left: 486.316px; top: 399px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="color:rgb(0, 0, 0)"><strong>2013:</strong> Lauren McCarthy</p>
+
+<p style="color:rgb(0, 0, 0)">Programming language based on</p>
+
+<p style="color:rgb(0, 0, 0)"><code>JavaScript</code></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 400px; left: 0px; top: 399px;" data-block-id="0045d597b37df2cd67d5b1f17860d62a" data-name="text-2daf1a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><strong>2001:</strong> <span style="color:rgb(0, 0, 0)">Casey Reas &amp; Ben Fry</span></p>
+
+<p><span style="color:rgb(0, 0, 0)">creators of </span><em>Processing</em></p>
+
+<p>Programming language based on <code>Java</code></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-10ffe6" data-block-id="65a8e94cebb6aa2da8671e26769298f6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p><strong><span style="color:#000000">What is p5.js?</span></strong></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 473.684px; height: 216px; left: 486.316px; top: 147.858px; min-width: 1px; min-height: 1px;" data-name="image-a9d2b6" data-block-id="ae184f1a941091884924bef7799bb95c"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="250" data-natural-height="114" data-lazy-loaded="" data-src="intro-p5js/c55fffd691bf594915cb7aa79ff5407c.svg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 597px;" data-name="text-ea03ea" data-block-id="feecb8bc7f65b43e461ae514f53d4970"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; line-height: 0.702;" data-has-line-height="" data-fragment-index="0">
+<p style="color:rgb(0, 0, 0)">Inspired by <code>Logo</code> (1967)</p>
+
+<p style="color:rgb(0, 0, 0)"><span style="font-size:0.7em">Wally Feurzeig, Seymour Papert, and Cynthia Solomon.</span></p>
+</div></div></section><section data-id="d9629acbc9c43b9568a5ea3f3f309756">
+<div class="sl-block" data-block-type="image" data-name="image-b1250e" data-block-id="99def25d206a231b48d94998ef93d19d" style="width: 220.106px; height: 355px; left: 371.076px; top: 216px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 10;"><img style="left: -211px; top: 0px; width: 640px; height: 355px;" data-natural-width="2560" data-natural-height="1420" data-crop-x="0.329806" data-crop-y="0" data-crop-width="0.343915" data-crop-height="1" data-lazy-loaded="" data-src="intro-p5js/943a22e60736291324694cd58df7360b.jpeg"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a8f2b4" data-block-id="f4626a758e327bcafc6ed34d4c5a8681" style="height: auto; width: 960px; left: 0px; top: 105px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>An advantage of using p5.js is that it is based on</p>
+
+<p><code>JavaScript</code></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-b52dbd" data-block-id="8d20c85f73936073fcb4b1df419af797" style="height: auto; width: 240px; left: 360.129px; top: 486px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 132%;" data-fragment-index="0"><p>Open source</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-10ffe6" data-block-id="ae23f2ddb19935dccbbfe9082731caff"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p><strong><span style="color:#000000">What is p5.js?</span></strong></p></div></div></section><section data-id="d66374ce42a7c92625d1e683b168c222">
+<div class="sl-block" data-block-type="image" data-name="image-b1250e" style="width: 640px; height: 355px; left: 160px; top: 216px; min-width: 1px; min-height: 1px;" data-block-id="76edef8de89ec44dc1aa977a68892e14"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="2560" data-natural-height="1420" data-lazy-loaded="" data-src="intro-p5js/943a22e60736291324694cd58df7360b.jpeg"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a8f2b4" style="height: auto; width: 960px; left: 0px; top: 105px;" data-block-id="ee5d6689a0c73ec52a805d1fabbb577c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="color:rgb(0, 0, 0)">An advantage of using p5.js is that it is based on</p>
+
+<p style="color:rgb(0, 0, 0)"><code>JavaScript</code></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-e9b811" data-block-id="268a1f3ea5ac43ef5729c85a9dad9dc7" style="height: auto; width: 800px; left: 80px; top: 576px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p>The three main components of almost every website!</p></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-b52dbd" style="height: auto; width: 240px; left: 360px; top: 486px;" data-block-id="b229dcaa92428230bdd0b71fd774f674"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 132%;"><p>Open source</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-10ffe6" data-block-id="0c6e5deeedd7d9cc9820ad8e0765c855"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p><strong><span style="color:#000000">What is p5.js?</span></strong></p></div></div></section><section data-id="3379d93435a2e51d9b67f8c69d0aac42" data-auto-animate="">
+<div class="sl-block" data-block-type="text" data-name="text-660462" data-block-id="dfe6ac37275b9599ed4b2537084c1135" style="height: auto; width: 720px; left: 120px; top: 216px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 125%; text-align: left;"><p>The <strong>main goal of p5.js</strong> (and Processing) is to learn programming through simple instructions.</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-10ffe6" data-block-id="7d4be93b0c1f119402a329ac921f962a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><strong><span style="color:#000000">What is p5.js?</span></strong></p></div></div></section><section data-auto-animate="" data-id="8c9975ef04d2cec5793b96693f215edd">
+<div class="sl-block" data-block-type="image" data-name="image-4acc66" data-block-id="3c41b035fdd6e2ae1e4708b9cb3af715" style="width: 637.424px; height: 406.794px; left: 322.576px; top: 241.206px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1498" data-natural-height="956" data-lazy-loaded="" data-src="intro-p5js/05e3ddeb42802ecfffd5fdabfed9b3ba.png"></div></div>
+
+
+<div class="sl-block" data-block-type="text" data-name="text-a9ed9b" data-block-id="059281fb26c86503db4216b4d6816dbe" style="height: auto; width: 149.714px; left: 85.143px; top: 288px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 180%;">
+<p>???</p>
+</div></div>
+
+<div class="sl-block" data-block-type="text" data-name="text-660462" style="height: auto; width: 720px; left: 120px; top: 72px;" data-block-id="e8f93741c5bc7a47253f4883c3346960"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 125%; text-align: left;"><p>The <strong>main goal of p5.js</strong> (and Processing) is to learn programming through simple instructions.</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-10ffe6" data-block-id="f09774f10d7dda65a8c24df9ca3b3156"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p><strong><span style="color:#000000">What is p5.js?</span></strong></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 160px; height: 160px; left: 80px; top: 360px; min-width: 1px; min-height: 1px;" data-name="image-38b4a4" data-block-id="203aa015e75bcf11ce1b244ebae06fab"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="intro-p5js/206b45d4318cfb52ef12714809bd485d.gif"></div></div></section><section data-auto-animate="" data-id="9b0fe99efb2d1a92877bf0b0b181cefb">
+
+
+<div class="sl-block" data-block-type="image" data-name="image-87866c" data-block-id="61e0f72758a9d68046a573d887f1d9f5" style="width: 721.841px; height: 470.4px; left: 238.159px; top: 177.3px; min-width: 1px; min-height: 1px;" data-auto-animate-delay="1"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1200" data-natural-height="782" data-lazy-loaded="" data-src="intro-p5js/32d6f988f56a596fe2fa3dc637c8e3de.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-50ef45" data-block-id="c5b013a948a810fac25f00a4ea4ab3f2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p><strong>Brief intro to the online editor</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 240px; top: 647.7px;" data-name="text-80cd2b" data-block-id="ae052ea6a71ff1866ac4ce8118bb72f2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p>Sketch</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 160px; height: 160px; left: 38.2775px; top: 288px; min-width: 1px; min-height: 1px;" data-name="image-8a2f69" data-block-id="324a4888730329c340f36f12f3cacbbb" data-auto-animate-delay="1"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="intro-p5js/dba3b888961b5b19802a288f06b051d0.gif"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 160px; height: 160px; left: 38.2775px; top: 288px; min-width: 1px; min-height: 1px;" data-name="image-38b4a4" data-block-id="74fc05cdb9c9341061fa72e5c56adc08"><div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="intro-p5js/206b45d4318cfb52ef12714809bd485d.gif"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 416.606px; left: 271.697px; top: 72px;" data-name="text-53f3ef" data-block-id="a3353b91c2de3c3b8eb0da105a738f76"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 184%;" data-fragment-index="0"><p><a href="https://editor.p5js.org/" target="_blank">editor.p5js.org</a></p></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 85.1956px; height: 29.468px; left: 186.501px; top: 93.266px;" data-name="shape-a8108d" data-block-id="ae311dd7333bb2a7811e621f5a157050"><div class="sl-block-content fragment" data-shape-type="arrow-right" data-shape-fill-color="rgb(204, 0, 0)" data-shape-stretch="true" style="z-index: 16;" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 85 29"><polygon points="0,8.840399999999999 42.5978,8.840399999999999 42.5978,0 85.1956,14.734 42.5978,29.468 42.5978,20.627599999999997 0,20.627599999999997" class="shape-element" fill="rgb(204, 0, 0)"></polygon></svg></div></div></section><section data-id="d14e181e346c6151afbe7b9eff77c028"><div class="sl-block" data-block-type="code" data-name="code-cdc6e4" data-block-id="15521e03c6d459563f9ecc771ba28ab0" style="width: 526.57px; height: 292.515px; left: 0px; top: 213.743px;"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 10;"><pre style="font-size: 25px; line-height: 30px;" class="javascript"><code data-line-numbers="">function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(128, 191, 255);
+  rect(80, 190, 180, 100);
+  ellipse(130, 130, 200, 200);
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-36724e" data-block-id="0a20d9472c4e4460245570e151d219f4" style="height: auto; width: 600px; left: 180px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><h3>Sketch: Example 1</h3></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-fc6ca8" data-block-id="a57c2fb8b3ee94818c5e2c83a58f58af" style="width: 399.56px; height: 400px; left: 560px; top: 152px;"><div class="sl-block-content" style="z-index: 12;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/shapes" __gchrome_childframeremotetoken="3ab39b0a6e9e5c67bfd0a1c4a331739a"></iframe></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 100px; top: 518.336px;" data-block-id="151d20238cd780a3fb486b7b77746315"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 179.135px; left: 113.433px; top: 517.684px;" data-block-id="c117700890f6ef3ef178c38f7578fc98"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/DoaECpJK6" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></section><section data-id="599739cbc1fa6d5a5f9607c3fd268857"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 52.5px;" data-name="text-ec17b9" data-block-id="c09ddf84a58539f8eca537bbeb227084"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p>Sketch on paper</p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 672px; height: 504px; left: 144px; top: 108px; min-width: 1px; min-height: 1px;" data-name="image-6e8709" data-block-id="678bb62c0ab9e878a83b4d17dd7e1efd"><div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="1800" data-natural-height="1350" data-lazy-loaded="" data-src="intro-p5js/f005ac48a5a2bd347dd477ff7632f56a.jpg"></div></div></section><section data-id="359011806a7e96fe1961fbc50362fc5a"><div class="sl-block" data-block-type="code" data-name="code-cdc6e4" style="width: 526.57px; height: 468.29px; left: 0px; top: 121.355px;" data-block-id="526ed8d3699be376477a9904bf843cc9"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 10;"><pre style="font-size: 20px; line-height: 24px;" class="javascript"><code data-line-numbers="">function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(249, 199, 79);
+  fill(248, 150, 30);
+  strokeWeight(10);
+  stroke(243, 114, 44);
+  rect(80, 190, 180, 100);
+  fill(144, 190, 109);
+  strokeWeight(20)
+  stroke(87, 117, 144);
+  ellipse(130, 130, 200, 200);
+  fill(67, 170, 139);
+  strokeWeight(25);
+  stroke(249, 65, 68);
+  rect(210, 250, 120, 120);
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-36724e" style="height: auto; width: 600px; left: 180px; top: 0px;" data-block-id="8aebf35cc0b67aed1ce4bec7689196d3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><h3>Sketch: Example 2</h3></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-fc6ca8" style="width: 399.56px; height: 400px; left: 560px; top: 133.968px;" data-block-id="58b7bfd89b5cfd313ce53379be61e938"><div class="sl-block-content" style="z-index: 12;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/shapes-colors" __gchrome_childframeremotetoken="6489bb8ecacd9bd268436e867dd78154"></iframe></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 136.715px; top: 589.645px;" data-block-id="baee4685d8ea7cc3594121e2dda069f0"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 153.135px; left: 170.148px; top: 590.993px;" data-block-id="d0b3a9fe2a1e1069c1222d31542355d5"><div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/pJICHp8K9" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></div></section></section><section class="stack" data-id="98056de419c96289134e606b7d1fc9c0"><section data-auto-animate="" data-id="80e4ab51aa2aec32b3b297882a237570" id="part-2">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 320px; top: 190.5px;" data-name="text-a56e2b" data-block-id="d35fbcdeb8b0018f811073ac47ad9596"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 250%;"><p><strong>Part II</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 690px; left: 135px; top: 288.5px;" data-name="text-ff90d6" data-block-id="49dbb69601ed2c7b1b640ec9f41c8f75"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 130%; line-height: 1.235;" data-has-line-height="">
+<p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• </span>Geometric transformations:</p>
+
+<p style="text-align:left">   Translation, Rotation, and Scaling</p>
+</div></div></section><section data-id="ce915a21a5fa8d0db00c1b8286dfd40d"><div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="96ad3c98ab64e5913639a6a193477580"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Translation</strong></p></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-029dd3" style="width: 599.933px; height: 400px; left: 180.034px; top: 160px;" data-block-id="c44c0c80a2aafc5325b4efe8f9ef27b7"><div class="sl-block-content" style="z-index: 11;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/translation-demo" __gchrome_childframeremotetoken="398f647b77d2bb55e2a6a804d1d84ec5"></iframe></div></div></section><section data-id="fce34ecba8a3db5e3e32992e6aa9fb4e">
+<div class="sl-block" data-block-type="code" data-name="code-cdc6e4" style="width: 480px; height: 325.129px; left: 0px; top: 178.871px;" data-block-id="9153cd18ece4ed2b5cd3df5f153de1fe"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 10;"><pre style="font-size: 23px; line-height: 28px;" class="javascript"><code data-line-numbers="">function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(204);
+  
+  translate(mouseX, mouseY);
+  rect(0, 0, 50, 50)
+
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-e39fc1" style="width: 400px; height: 400px; left: 559.382px; top: 144px;" data-block-id="bb36a70979bfe57217caa6e9f6947d3b"><div class="sl-block-content" style="z-index: 11;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/translate" __gchrome_childframeremotetoken="7e9c31af2e884deb2eb2c3a436ef0851"></iframe></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="b1efaa88f659bf91cc87be4817c916aa"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Translation</strong></p></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 130px; top: 504px;" data-block-id="efb3cebef735266f0226c7b319921e34"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 153.135px; left: 163.433px; top: 505.348px;" data-block-id="56ca3916c1f5b527b13bc5322d3fd7fa"><div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/1G70wwVjt" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-ea9e57" style="height: auto; width: 400.618px; left: 558.764px; top: 545.696px;" data-block-id="72042e8c92cfc546357757b5c9700b7a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 87%;"><p>Move the mouse on the Canvas</p></div></div></section><section data-id="9fbe9a27f2fec2942bfea7e3f342efda">
+
+<div class="sl-block" data-block-type="text" data-name="text-e11f36" style="height: auto; width: 960px; left: 0px; top: 114.5px;" data-block-id="0d2c0acd7a129a84f83d8f96e8f352da"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 150%;"><p><strong>Activity 1</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 216px;" data-name="text-4727a4" data-block-id="f8138456289fa4e75d770622b3b77e85"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="color:rgb(0, 0, 0); text-align:left">Observe what happens when we change the position coordinates of the rectangle from</p>
+
+<p style="color: rgb(0, 0, 0);"><code>(0, 0)</code> to <code>(-15, -15)</code>,</p>
+
+<p style="color:rgb(0, 0, 0); text-align:left">that is, <code>rect(-15, -15, 30, 30)</code></p>
+
+<p style="color:rgb(0, 0, 0); text-align:left"> </p>
+
+<p style="color:rgb(0, 0, 0); text-align:left">Also, explore other values in the <code>translate()</code> function in your code and observe how the defined translation behaves.</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="287efa5e4ab9a5c0bfa243df448fdff3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Translation</strong></p></div></div></section><section data-id="a5536f9a064726ab8ee9707b966ec811">
+<div class="sl-block" data-block-type="iframe" data-name="iframe-ed1aa3" style="width: 600.068px; height: 400px; left: 179.966px; top: 160px;" data-block-id="95bc3cf79f9a5008302292e590b2476a"><div class="sl-block-content" style="z-index: 10;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/rotation-demo" __gchrome_childframeremotetoken="7dc388747c8b88beb6da9392805c555b"></iframe></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="22d142979bcda556e49b9ef35290bdac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Rotation</strong></p></div></div></section><section data-id="cb8955a0a4d38c1c23b48c24ea255b3c">
+<div class="sl-block" data-block-type="code" data-name="code-cdc6e4" style="width: 454.57px; height: 347.257px; left: 0px; top: 144.871px;" data-block-id="4b3ea25c0391e3e203b1fb2b49e31526"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 10;"><pre style="font-size: 25px; line-height: 30px;" class="javascript"><code data-line-numbers="">function setup() {
+  createCanvas(400, 400);
+}
+ 
+function draw() {
+  background(204);
+  
+  rotate(mouseX/100);
+  rect(120, 120, 160, 20)
+ 
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-e39fc1" style="width: 400px; height: 400px; left: 559.382px; top: 126.097px;" data-block-id="3c70eb7de2d1e9bb1fb51b154920c299"><div class="sl-block-content" style="z-index: 11;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/rotate" __gchrome_childframeremotetoken="aa23e5698d0afd5eed83ba62a0ea0dc5"></iframe></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-ea9e57" style="height: auto; width: 400.618px; left: 559.382px; top: 528.696px;" data-block-id="65283aa8bf35c98932aa06234f80b60e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 87%;"><p>Move the mouse on the Canvas</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="0b2137ddca7034f9f83b9bd976eecde3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Rotation</strong></p></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 130px; top: 504px;" data-block-id="0f93195ac7b04744800d024b1681b8f8"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 14;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 153.135px; left: 163.433px; top: 505.348px;" data-block-id="fa04f89ce92e51a01051da647d333f80"><div class="sl-block-style" style="z-index: 15; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/vbnkd5ehe" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></div></section><section data-id="eb59df12ea85a20bd041545141b1a6d5">
+
+
+<div class="sl-block" data-block-type="text" data-name="text-f1d93a" style="height: auto; width: 640px; left: 160px; top: 114.5px;" data-block-id="8bf8bd318efc5c71c3a8c2e8925cf955"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 150%;"><p><strong>Activity 2</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 216px;" data-name="text-edfd3d" data-block-id="cc510a758e9d1ac7979e2af4ce29fffc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="text-align:left">Observe what happens when we change the position coordinates of the rectangle from</p>
+
+<p><code>(120, 100) </code>to <code>(-80, -10)</code>,</p>
+
+<p style="text-align:left">that is, <code>rect(-80, -10, 160, 20)</code></p>
+
+<p style="text-align:left"> </p>
+
+<p style="text-align:left">With this change, where is the origin <code>(0, 0)</code>?</p>
+
+<p style="text-align:left">With respect to which point will the figure rotate?</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="cb9c714a2b25211c48560ed7bd8b71a9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Rotation</strong></p></div></div></section><section data-id="63f6480236e72cccad3eddf6400fa7a6"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="d807c4ae8b1cb1b386ff6d557f5211c1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong>Translation and then Scaling</strong></p></div></div>
+
+
+<div class="sl-block" data-block-type="code" data-name="code-cdc6e4" style="width: 373.488px; height: 42.1089px; left: 79.9992px; top: 106.946px;" data-block-id="ef0c3b056ad209e6dfe2228cf3f8c774"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 11;"><pre style="font-size: 25px; line-height: 30px; tab-size: 4;" class="javascript"><code>let angle = 0;</code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="width: 480px; height: 144.841px; left: 79.9992px; top: 199.159px;" data-name="code-d4a6e4" data-block-id="5f29b11b12187493ff500f845e0913a8"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 12;"><pre style="font-size: 25px; line-height: 30px; tab-size: 4;" class="javascript"><code>translate(mouseX, mouseY); 
+rotate(angle);
+rect(-15, -15, 30, 30); 
+angle += 0.1;</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-c11a4e" style="height: auto; width: 801.461px; left: 78.5387px; top: 56px;" data-block-id="75046f5dceec6e5642a21eeed17db2f2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p style="text-align:left">Define a variable:</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 801.461px; left: 78.5387px; top: 160px;" data-name="text-c0df68" data-block-id="1d5301f3e6c5b8825d778f082b28839e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p style="text-align:left">In the <code>draw()</code> write the following:</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 79.2692px; top: 344px;" data-name="text-ecf2b5" data-block-id="b31776552bce223db196b7ff6c1bd0b7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; font-size: 70%;"><p style="text-align:left">A <strong>variable</strong> stores a value in memory so it can be used later in a program. It can be reused multiple times, and its value can be easily changed while the program runs.</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 801.462px; left: 79.9992px; top: 444px;" data-name="text-564fc8" data-block-id="bb4f858b510c97f81802925b3813f130"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;">
+<p style="text-align:left">In the previous example, change the order of the <code>translate()</code> and <code>rotate()</code> functions. Observe what happens.</p>
+
+<p style="text-align:left">With respect to which point does the figure rotate in this case? Where does the figure move to?</p>
+</div></div></section><section data-id="9300eed0894746012e5ce271c4512382">
+<div class="sl-block" data-block-type="iframe" data-name="iframe-a09949" style="width: 600.068px; height: 400px; left: 179.966px; top: 160px;" data-block-id="23af18f332b5cb1aa348925c18616a4f"><div class="sl-block-content" style="z-index: 10;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/scaling-demo" __gchrome_childframeremotetoken="a57467d46a39de85fa6f64263af14fce"></iframe></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="f22602c693b8e18c989341203f905b0a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Scaling</strong></p></div></div></section><section data-id="0d4b0b19d4f0f4d9c7457c91d2dbcb1e">
+<div class="sl-block" data-block-type="code" data-name="code-cdc6e4" style="width: 480px; height: 378.515px; left: 0px; top: 144px;" data-block-id="6943c19e5fc7da5d5a27f8fd27144bda"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 10;"><pre style="font-size: 25px; line-height: 30px;" class="javascript"><code data-line-numbers="">function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(204);
+  
+  translate(mouseX, mouseY);
+  scale(mouseX/100);
+  rect(0, 0, 50, 50)
+
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-e39fc1" style="width: 400.618px; height: 400px; left: 559.382px; top: 116.177px;" data-block-id="3678366de629f03a89f2a1147c187d6f"><div class="sl-block-content" style="z-index: 11;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/scale" __gchrome_childframeremotetoken="b49c97ae781011528d1ff831f4ae6e55"></iframe></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-ea9e57" style="height: auto; width: 400.618px; left: 559.382px; top: 522.863px;" data-block-id="e60e4998182c01acacfc338e160fca3f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 87%;"><p><span style="color:rgb(0, 0, 0); font-size:26.1px">Move the mouse on the Canvas</span></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="bad328ebc98dec9ab69b2803b85b47db"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Scaling</strong></p></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 130px; top: 521.515px;" data-block-id="f9355d74d5ca147fea5c30eaa3df4651"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 14;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 153.135px; left: 163.433px; top: 522.863px;" data-block-id="85ccbb3afb1558532ba036afab0f6b00"><div class="sl-block-style" style="z-index: 15; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/jXq7GQ6aE" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></div></section><section data-id="2909b9b0cc315dc60b25eeb1dd29f4b9">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 40px; top: 52px;" data-name="text-77e3ee" data-block-id="0b0b908dbb1894b42a409464805739a5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p style="text-align:left"><strong>Activity 3</strong> - Notice that in the previous example, the <code>scale() </code>function also affects the square's border, when the scale value increases, the border becomes thicker, and vice versa. To keep the border consistent as the figure changes size, divide the border thickness by the scale factor. To do this, define the following variable inside the <code>draw()</code> function:</p></div></div>
+<div class="sl-block" data-block-type="code" data-name="code-cdc6e4" style="width: 533.488px; height: 42.1089px; left: 52.512px; top: 301px;" data-block-id="a4ab4f913cc18b001fab8b449137c309"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 11;"><pre style="font-size: 25px; line-height: 30px; tab-size: 4;" class="javascript"><code>let scalarFactor = mouseX / 200;</code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="width: 532.744px; height: 113.827px; left: 52.512px; top: 419.087px;" data-name="code-d4a6e4" data-block-id="87d9d67b27bd73bd58dfc1099c4c4f1f"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 12;"><pre style="font-size: 25px; line-height: 30px; tab-size: 4;" class="javascript"><code>scale(scalarFactor); 
+strokeWeight(1 / scalarFactor); 
+rect(-15, -15, 30, 30);</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 40px; top: 372.5px;" data-name="text-3216ac" data-block-id="206f9438c8052161ac8500a2a01c408b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p style="text-align: left;">Then modify the code as follows:</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 40px; top: 540.914px;" data-name="text-40f6fc" data-block-id="629845f81ebc6172dd3a6d97fbc49008"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p style="text-align: left;">Explore and analyze what happens on the canvas with these changes. Why do we divide the variable mouseX by 200? Can we divide it by a different value? What happens if we change this number?</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 160px; top: 0px;" data-name="text-0c701c" data-block-id="36144331791b41e0f8b0fcd5ba77cdc0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><p><strong><span style="color:rgb(0, 0, 0); text-align:left">Geometric transformations: </span>Scaling</strong></p></div></div></section><section data-id="a080c2c4110b4990fb352d69b0f9a03d"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="b7eea1281787e018b703665d72cb3801"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong>A little Challenge</strong></p></div></div>
+
+<div class="sl-block" data-block-type="iframe" data-name="iframe-e39fc1" style="width: 400.618px; height: 400px; left: 559.382px; top: 116.177px;" data-block-id="5aef46fc09f57c9c1dffec4e60a25fe7"><div class="sl-block-content" style="z-index: 11;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/rot-trans-scale-challenge" __gchrome_childframeremotetoken="38405179e66f9635e280eaa9509c9c61"></iframe></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-ea9e57" style="height: auto; width: 400.618px; left: 560px; top: 516.177px;" data-block-id="32ec39bf94298f67e63426a447c6999c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 87%;"><p><span style="color:rgb(0, 0, 0); font-size:26.1px">Move the mouse on the Canvas</span></p></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-9a1d06" style="height: auto; width: 480.618px; left: 0px; top: 144px;" data-block-id="0b12010b7ca52cadc00b6173fa76fec9"><div class="sl-block-style" style="z-index: 13; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p style="text-align: left;">In the sketch on the right, an animation appears when the mouse moves over the canvas.</p></div></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-e64b54" style="height: auto; width: 480.618px; left: 0px; top: 360px;" data-block-id="b58aa693ae46c63b970f25e84eaa5f73"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p style="text-align:left">How could you recreate this same animation using the functions covered in this session?<span style="font-size:1.0em"><span style="color:rgb(0, 0, 0)"> </span></span></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 99.8px; height: 99.8px; left: 190.1px; top: 519.922px; min-width: 1px; min-height: 1px;" data-name="image-ba9f00" data-block-id="fa2ffff869ec1a57e035acbf61aaeba2"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="intro-p5js/a199c58d3118adfb83e539c7279253ea.gif"></div></div></section></section><section class="stack" data-id="e0b95ca53c3f755b1655d572d368766e"><section data-auto-animate="" data-id="6939ae63d1e20b6983b51b2a58f252f5" id="part-3">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 320px; left: 320px; top: 190.5px;" data-name="text-a56e2b" data-block-id="bf4843a03d2e3aeefd68c9ca1473908e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 250%;"><p><strong>Part III</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 200px; top: 288.5px;" data-name="text-31a4f8" data-block-id="7cc05b4520ca915af7eafd3b0d1f19ba"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• The <code>for</code> l</span>oop</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 200px; top: 343.5px;" data-name="text-704a92" data-block-id="ca266b4e4e64327702142cf3d3637eda"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• </span>Motion</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 200px; top: 401.5px;" data-name="text-c0ea45" data-block-id="225ddd3271ee4acdeb0c44e6b4dbf948"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 130%; line-height: 1.235;" data-has-line-height=""><p style="text-align:left"><span style="color:rgb(0, 0, 0); text-align:left">• F</span>unctions (If time allows it)</p></div></div></section><section data-id="a1d009d5143474a870137332b56ba2cb"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="be6abb19dc151810e2ede6e8d1765bf6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong>The <code>for</code> loop</strong></p></div></div>
+<div class="sl-block" data-block-type="code" data-name="code-cdc6e4" style="width: 648px; height: 354.055px; left: 0px; top: 53px;" data-block-id="929b6f155ff6f23a2eec559def8cdb95"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 11;"><pre style="font-size: 18px; line-height: 22px;" class="javascript"><code data-line-numbers="">function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+
+  for (let y = 32; y &lt; height; y += 8) {//vertical
+    for (let x = 12; x &lt; width; x += 15) {// horizontal
+      fill(25, 55, 255, 140);
+      ellipse(x, y, 16 - y / 10, 16 - y /10);
+    }
+  }
+  
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-418eaf" style="width: 400px; height: 400px; left: 542px; top: 260px;" data-block-id="86de8553ee44a85aaf6e8fac9f8bbd9c"><div class="sl-block-content" style="z-index: 12;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/2d-grid-example" __gchrome_childframeremotetoken="d906fab9d000fbbcda586fcbb542d34b"></iframe></div></div></section><section data-id="5e1cdc326eca9ca341db029c2bec15e7">
+<div class="sl-block" data-block-type="iframe" data-name="iframe-0ab731" style="width: 500.154px; height: 500px; left: 229.923px; top: 118px;" data-block-id="0cae9b1adcd5a8a2264e2cd1b2a39310"><div class="sl-block-content" style="z-index: 10;"><iframe sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/2d-grid-challenge" __gchrome_childframeremotetoken="53ebf715791a8b7d653e2663067ea2bc"></iframe></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 72px;" data-name="text-cbbcad" data-block-id="7a07f197dcdbafc710c0c30c8f5c5522"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p>How would you do this?</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="282f7d6534fa3f84677ef7ef9f024920"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p><strong>The <code>for</code> loop</strong></p></div></div></section><section data-id="8cb265baff6058eafb5835d4b6300e4b" data-auto-animate=""><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 33px;" data-name="text-0c701c" data-block-id="561677aa64cb5709fe59ffe2e132f24f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 199%;"><p><strong>Motion</strong></p></div></div>
+<div class="sl-block" data-block-type="code" data-name="code-b85364" style="width: 960px; height: 320.5px; left: 0px; top: 144px;" data-block-id="542e0bc51f89fd1fd8c739a6defd3616"><div class="sl-block-content notranslate" data-highlight-theme="obsidian" data-code-frame="none" style="z-index: 11;"><pre style="font-size: 28px; line-height: 34px; tab-size: 4;" class="javascript"><code data-line-numbers="1-9|1-5|6-9">function setup() {
+  // Instructions to get the sketch ready
+  // Runs once
+}
+
+function draw() {
+  // Instructions for drawing, calculating, etc...
+  // Runs continuously
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="width: 853px; height: 150px; left: 39px; top: 313.5px;" data-name="code-6fba88" data-block-id="71057bfaaa505337f4a2998253be506f"><div class="sl-block-content notranslate" data-highlight-theme="xcode" data-code-frame="none" style="z-index: 10;"><pre class="javascript" style="font-size: 28px; line-height: 34px; tab-size: 4;"><code>function draw() {
+  // Instructions for drawing, calculating, etc...
+  // Runs continuously
+}</code></pre></div></div></section><section data-id="5c3d27685faff79410c201f975e27a15" data-auto-animate="">
+<div class="sl-block" data-block-type="image" data-name="image-43d5ee" style="width: 720px; height: 404.8px; left: 120px; top: 72px; min-width: 1px; min-height: 1px;" data-block-id="53ee6140353aadc3ec2494e12ae75626"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="450" data-natural-height="253" data-lazy-loaded="" data-src="intro-p5js/dd588240a6d780f905560eebcd5f826b.gif"></div></div>
+<div class="sl-block" data-block-type="code" style="width: 853px; height: 150px; left: 53.5px; top: 504px;" data-name="code-6fba88" data-block-id="cd701fc1dc3646fe0507ea65a99d40db"><div class="sl-block-content notranslate" data-highlight-theme="obsidian" data-code-frame="none" style="z-index: 11;"><pre class="javascript" style="font-size: 28px; line-height: 34px; tab-size: 4;"><code>function draw() {
+  // Instructions for drawing, calculating, etc...
+  // Runs continuously
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="e6688adaba119ac176b64823f7ca4258"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p><strong>Motion</strong></p></div></div></section><section data-auto-animate="" data-id="15190397c2c3ee0b06b3e0d21bbed7b6">
+<div class="sl-block" data-block-type="image" data-name="image-43d5ee" style="width: 360px; height: 202.4px; left: 25px; top: 144px; min-width: 1px; min-height: 1px;" data-block-id="e0e89051c9fff2979115f3c6f35742fe"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="450" data-natural-height="253" data-lazy-loaded="" data-src="intro-p5js/dd588240a6d780f905560eebcd5f826b.gif"></div></div>
+<div class="sl-block" data-block-type="code" style="width: 410px; height: 83px; left: 0px; top: 360px;" data-name="code-6fba88" data-block-id="19f9a51959585079d79f7d8d5741c5dd"><div class="sl-block-content notranslate" data-highlight-theme="obsidian" data-code-frame="none" style="z-index: 11;"><pre class="javascript" style="font-size: 13px; line-height: 16px; tab-size: 4;"><code>function draw() {
+  // Instructions for drawing, calculating, etc...
+  // Runs continuously
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-79d5c7" style="height: auto; width: 480px; left: 480px; top: 72px;" data-block-id="70afc2311f0f7a1772faa05aa67f50d2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; font-size: 95%;"><p>To create smooth motion, p5.js tries to run the code inside the <code>draw()</code> function at a rate of 60 frames per second.</p></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-04fdd0" style="height: auto; width: 480px; left: 480px; top: 271.4px;" data-block-id="753ced1cccb6960d975a7ad7b4f1b765"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 95%;" data-fragment-index="0"><p style="text-align:left">A frame is one execution of the <code>draw()</code> function, and the frame rate indicates how many frames are drawn per second.<span style="color:rgb(0, 0, 0); text-align:left"> </span></p></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-fb5a7c" style="height: auto; width: 480px; left: 480px; top: 470.4px;" data-block-id="6d0f2bdb6ec9a337a33d2ac7222ba7b5"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 95%;" data-fragment-index="1"><p style="text-align:left">So, a program that draws 60 frames per second executes all the code inside the <code>draw()</code> function 60 times per second.</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="bb1464b58d7da1501545f86534f1baf8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;"><p><strong>Motion</strong></p></div></div></section><section data-auto-animate="" data-id="2035ae3014ae2d40ecf392bf7ed06541">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="a671d221d676e411aab861e313533ae1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong>Motion</strong></p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 360px;" data-name="text-46458f" data-block-id="455100b5c9fc9cabed12a51f3c235c5f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 132%;">
+<p>How this animation works?</p>
+
+<p>What mathematics can I use to make it?</p>
+</div></div>
+<div class="sl-block" data-block-type="iframe" style="width: 450px; height: 200px; left: 255px; top: 144px;" data-block-id="ff01f3bb36f8c9ef561a0bb677b62d50" data-name="iframe-41e7de"><div class="sl-block-content" style="z-index: 12;"><iframe allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" data-preload="true" __gchrome_childframeremotetoken="b79843bcd158fa6e3e2bb9324fa8fe70" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/ball-up-down/"></iframe></div></div>
+<div class="sl-block" data-block-type="image" style="width: 131.4px; height: 131.4px; left: 414.3px; top: 504px; min-width: 1px; min-height: 1px;" data-name="image-72768e" data-block-id="0878c9190fc29a34587010651fd71f8e"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="intro-p5js/a199c58d3118adfb83e539c7279253ea.gif"></div></div></section><section data-auto-animate="" data-id="77f47f314cc58dd924b8f4d52503dfaa">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="f5c35f9b6e7d9a5a185363b51f8684c2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><strong>Motion</strong></p></div></div>
+<div class="sl-block" data-block-type="image" style="width: 620px; height: 391.694px; left: 170px; top: 288px; min-width: 1px; min-height: 1px;" data-name="image-5fc482" data-block-id="09e7b36f7040f80db02224d25df5a993"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1800" data-natural-height="1350" data-lazy-loaded="" data-crop-x="0" data-crop-y="0.101176" data-crop-width="1" data-crop-height="0.842353" style="left: 0px; top: -47px; width: 620px; height: 465px;" data-src="intro-p5js/6f952ec81ecb13a75f67950b65f1c3d1.jpg"></div></div>
+<div class="sl-block" data-block-type="iframe" style="width: 450px; height: 200px; left: 255px; top: 72px;" data-block-id="8b475571d0d930fab75f61edc7074831" data-name="iframe-3ad238"><div class="sl-block-content" style="z-index: 13;"><iframe allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" data-preload="true" __gchrome_childframeremotetoken="a3bffe9ccad1a5ff14da13d14c093144" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/ball-up-down/"></iframe></div></div></section><section data-auto-animate="" data-id="d3138f26f54cc9b75d8b0008f811390b">
+<div class="sl-block" data-block-type="code" data-name="code-b85364" style="width: 856px; height: 438.5px; left: 0px; top: 137.5px;" data-block-id="5fb976e8fedb3a804f4e5e031b0a0af0"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 10;"><pre style="font-size: 21px; line-height: 25px; tab-size: 4;" class="javascript"><code data-line-numbers="">let angle = 0;
+let amplitude = 100;
+let offset = 100;
+let vel = 0.05;
+
+let diameter = 80;
+
+function setup() {
+  createCanvas(450, 200);
+}
+
+function draw() {
+  background(0);
+  let y = offset + sin(angle + 0.5) * (amplitude - diameter/2);
+  circle(width/2, y, diameter);
+  angle += vel;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-63aacb" style="width: 450px; height: 200px; left: 480px; top: 137.5px;" data-block-id="4393e98c2f2beeba4db0f80f47347950"><div class="sl-block-content" style="z-index: 11;"><iframe allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" data-preload="true" __gchrome_childframeremotetoken="d7273d81c42debdf5a9625606f613648" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/ball-up-down/"></iframe></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="04118fd3dba8fa7b7bc85cdc91b86f88"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p><strong>Motion</strong></p></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 595px; top: 339.152px;" data-block-id="791ed6c62189e123f894e7a87dff8645"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 153.135px; left: 628.433px; top: 340.5px;" data-block-id="7926a693e66bce46fdcb6421503211ad"><div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/D3aJTqHba" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></div></section><section data-auto-animate="" data-id="e04d9b24a81afbc19baec2efadb72eb2">
+<div class="sl-block" data-block-type="code" data-name="code-b85364" style="width: 686px; height: 655px; left: 0px; top: 57px;" data-block-id="c9e69421f29984349ecda53bb1222668"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 10;"><pre style="font-size: 19px; line-height: 23px; tab-size: 4;" class="javascript"><code data-line-numbers="">let x = 50;
+let speed = 1.5;
+let direction = 1;
+
+let diameter = 80;
+
+function setup() {
+  createCanvas(500, 200);
+}
+
+function draw() {
+  background(0);
+  x += speed * direction;
+  if (x &gt; width - diameter / 2 || x &lt; diameter / 2) {
+    direction = -direction; // Change direction
+  }
+  if (direction == 1) { // Moving to the right
+    fill(255, 255, 0);
+    circle(x, 100, diameter);
+    fill(0);
+    circle(x + 10, 80, 10);
+  } else { // Moving to the left
+    fill(255, 255, 0);
+    circle(x, 100, diameter);
+    fill(0);
+    circle(x - 10, 80, 10);
+  }
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-63aacb" style="width: 500px; height: 200px; left: 460px; top: 57px;" data-block-id="933e52f508917455d954d5d94e6b8689"><div class="sl-block-content" style="z-index: 11;"><iframe allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/ball-left-right" __gchrome_childframeremotetoken="c806d0dce79b55413ebcfc47bda1dd7f"></iframe></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="f9aa19515edb9835a6bc6de4c9a95f58"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p><strong>Motion using conditionals</strong></p></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 600px; top: 267.152px;" data-block-id="6c622caab3c6f9c37125ee2cfc405130"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 153.135px; left: 633.433px; top: 268.5px;" data-block-id="591af4b09051e5bcc82fdc21a1dc3081"><div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/RFG4Lsfgs" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></div></section><section data-id="1cb23ae3560df4e5f9009da86a00b635"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="320449eb8e7cb52a2d789be5c55ea1c6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong>Functions</strong></p></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-fa3f7b" style="height: auto; width: 320px; left: 20px; top: 199.413px;" data-block-id="f3e13a69e8389636908b794d7c56cd48"><div class="sl-block-style" style="z-index: 11; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><ul>
+	<li style="text-align:left"><code>setup()</code></li>
+	<li style="text-align:left"><code>draw()</code></li>
+	<li style="text-align:left"><code>createCanvas()</code></li>
+	<li style="text-align:left"><code>line()</code></li>
+	<li style="text-align:left"><code>ellipse()</code></li>
+	<li style="text-align:left"><code>fill()</code></li>
+	<li style="text-align:left"><code>etc...</code></li>
+</ul></div></div></div>
+<div class="sl-block" data-block-type="code" data-name="code-b85364" style="width: 470px; height: 155.8px; left: 480px; top: 257px;" data-block-id="a4482490761506d2bfda69eb84ab4cb0"><div class="sl-block-content notranslate fragment" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 12;" data-fragment-index="0"><pre style="font-size: 28px; line-height: 34px; tab-size: 4;" class="javascript"><code data-line-numbers="">function myFuncion() {
+  // My instructions
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-7967f9" style="height: auto; width: 480px; left: 480px; top: 144px;" data-block-id="8ca48801a190234c484a451415bb8ebb"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0"><p style="text-align:left">It i possible to define our own functions:</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 400px; left: 0px; top: 144px;" data-name="text-00f073" data-block-id="23a57cf57cb9ceddd7bd7cf992d040a8"><div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p><strong>Built-in functions in p5.js</strong></p></div></div></div></section><section data-id="aba0408f201170be60a1ce9424de977f"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="86a03ce5dbc822b4b0ee56894789ea8a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong>Functions</strong></p></div></div>
+<div class="sl-block" data-block-type="code" data-name="code-b85364" style="width: 451px; height: 257px; left: 509px; top: 231.5px;" data-block-id="6b2fdaa69c8566b2fa7f401dda7d216a"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 11;"><pre style="font-size: 28px; line-height: 34px; tab-size: 4;" class="javascript"><code data-line-numbers="">function setup() {
+  myFuncion();
+}
+
+function myFuncion() {
+  // My instructions
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 448px; left: 0px; top: 144px;" data-name="text-856912" data-block-id="b25892d11c686620e88d819cb3651f66"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;"><p style="text-align: left;">A computer executes programs sequentially, that is, one line of code at a time.</p></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 448px; left: 0px; top: 360px;" data-name="text-b2a07b" data-block-id="93727b4aa5977f88a9a9c207fd6c6748"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;"><p style="text-align: left;">When a function is executed, the computer jumps to where the function is defined and runs the code there, then returns to where it was previously.</p></div></div></section><section data-id="d9859ea47544ae831be8bd5917d70c4a"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0c701c" data-block-id="4420587392f78a6dd8294c9e828014df"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><p><strong>How to define functions?</strong></p></div></div>
+<div class="sl-block" data-block-type="code" data-name="code-b85364" style="width: 560px; height: 592px; left: 0px; top: 71px;" data-block-id="9817d5240cbb808edca903973f59a884"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 11;"><pre style="font-size: 21px; line-height: 25px; tab-size: 4;" class="javascript"><code data-line-numbers="">function setup() {
+  createCanvas(500, 200);
+}
+
+function draw() {
+  background(220);
+  
+  for(let x = 50; x &lt;= width; x+=100){
+    pacman(x, 100, x/300);
+  } 
+}
+
+function pacman(x, y, s){ 
+  // x, y = position
+  // s = scaling factor
+  
+  push();
+  translate(x,y);
+  scale(s);
+  arc(0, 0, 50, 50, 3.67, 8.9)
+  pop();
+  
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-b3dcd3" style="width: 500px; height: 200px; left: 460px; top: 313px;" data-block-id="ded288bb0778d7340ae99ca92d60eeb7"><div class="sl-block-content" style="z-index: 12;"><iframe allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-preload="true" data-lazy-loaded="" __gchrome_childframeremotetoken="8c8e316ddb6c616dea049356d8f03d15" data-src="https://esc-maths.github.io/sketches/p5js-basic-examples/pacmans"></iframe></div></div>
+<div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 600px; top: 521px;" data-block-id="9e2eed9ff449fd3d4d72c1759bd8a24a"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 153.135px; left: 633.433px; top: 522.348px;" data-block-id="199518ede182f2a8c9e7755deac540e2"><div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/hQoLhAkW0" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></div></section></section><section class="stack" data-id="c093a145786963d1f01fffdadc4b2b6d"><section data-id="c5f3a5dfb8b9499550911b160c37c526"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0031df" data-block-id="e162b3994ef2ae817610c3a41bebf2a4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><h3>Documentation</h3></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 589px;" data-name="text-cc2eed" data-block-id="8490607fd8e00566b253ab26783a0014"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p>🔗 <a href="https://p5js.org/reference/" target="_blank">p5js.org/reference/</a></p></div></div>
+<div class="sl-block" data-block-type="iframe" style="width: 960px; height: 517px; left: 0px; top: 72px;" data-name="iframe-d24049" data-block-id="9810338c4a83950fa884a2f3aafa4da1"><div class="sl-block-content" style="z-index: 12;"><iframe allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-preload="true" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" __gchrome_childframeremotetoken="4f1097bd5d2624a6f42a56d9b06d6230" data-src="https://p5js.org/reference/"></iframe></div></div></section><section data-id="f1099dae7899069d595eab6d26623da2"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0031df" data-block-id="e3b5b701733b14ed6b285b1f455acfd7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><h3>Tutorials</h3></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 589px;" data-name="text-cc2eed" data-block-id="cbdd78976687d09696e825b658e4f40f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><span style="color:rgb(0, 0, 0)">🔗 </span><a href="https://p5js.org/tutorials/" target="_blank">p5js.org/tutorials/</a></p></div></div>
+<div class="sl-block" data-block-type="iframe" style="width: 960px; height: 517px; left: 0px; top: 72px;" data-name="iframe-d24049" data-block-id="e40756eb9b1b9365052a00fafe941bc5"><div class="sl-block-content" style="z-index: 12;"><iframe allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-preload="true" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" __gchrome_childframeremotetoken="1091b3b21fe5237fdbe9214ca01fb1e4" data-src="https://p5js.org/tutorials/"></iframe></div></div></section><section data-id="1d23bc1a5f3ef7e77dd9b3f1e77cd1da"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 0px;" data-name="text-0031df" data-block-id="24f17a5468f9e8de1c3ad6bff1855cba"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;"><h3>Community</h3></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 504px;" data-name="text-cc2eed" data-block-id="5f0fa6f1ff0d240706800c8536a34b08"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;"><p><span style="color:rgb(0, 0, 0)">🔗 </span><a href="https://p5js.org/about/#community-statement" target="_blank">p5js.org/about/#community-statement</a></p></div></div>
+<div class="sl-block" data-block-type="iframe" style="width: 960px; height: 407px; left: 0px; top: 72px;" data-name="iframe-d24049" data-block-id="152293ea5e83ed13bf414d49bdd44cbe"><div class="sl-block-content" style="z-index: 12;"><iframe allow="fullscreen; autoplay; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" data-preload="true" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-lazy-loaded="" __gchrome_childframeremotetoken="9f100d8a5c23c8e0f89eaff43a7840e2" data-src="https://p5js.org/about/#community-statement"></iframe></div></div></section></section><section data-id="a2e680c73304213031e60a0a2d7e7d55" data-auto-animate="" data-background-transition="fade" data-background-interactive="true" data-background-iframe="https://esc-maths.github.io/sketches/griffith-logo/"><div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 546.5px;" data-name="text-c1b265" data-block-id="a30598156fbea6895c9f9f676d8202a4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(0, 0, 0); font-size: 150%;"><p>Thanks everybody!</p></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 560px; left: 200px; top: 630.5px;" data-name="text-8d78d5" data-block-id="4d9d460156bf00577a387bcd10180b1f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; font-size: 90%;"><p><span style="color:rgb(0, 0, 0)">🔗</span><span style="color:#FFFFFF"> </span><a href="https://www.dynamicmath.xyz/sketches/" target="_blank"><span style="color:#0000FF">dynamicmath.xyz</span></a></p></div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":3519895,"slug":"intro-p5js","title":"A brief introduction to programming with p5js","description":"A bried introduction to programming with p5js","width":960,"height":720,"margin":0.05,"visibility":"self","published_at":"2026-01-06T07:00:57.782Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/7057c0a558a663cfb8b4cb0ff31a90b8/thumb.jpg?1767682951","view_count":0,"user":{"id":1304482,"username":"jcponce","name":"Juan Carlos Ponce Campuzano","description":"Mathematics Educator","thumbnail_url":"https://media.slid.es/avatars/1304482/bw-b-logo-twitter-geogebra_copy.jpg","account_type":"lite","team_id":null,"settings":{"id":5182188,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"fade","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":false,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":47,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1767843242158,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"language":"en","notes":{}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 720,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				scrollActivationWidth: null,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "fade",
+				backgroundTransition: "slide",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+
+	</body>
+</html>
