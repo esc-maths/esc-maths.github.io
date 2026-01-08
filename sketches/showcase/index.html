@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESC Maths - Contents</title>
+
+  <link rel="icon" type="image/png" href="../assets/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../assets/icon/infinity16.png" sizes="16x16">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: block;
+    }
+
+    body {
+      margin: 0;
+      background-color: #ffffff;
+      color: #fff;
+      font-family: Monospace;
+      font-size: 1.1rem;
+      line-height: 2em;
+      overscroll-behavior: none;
+
+      position: relative;
+      /* key for absolute children */
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    a,
+    button,
+    input,
+    select {
+      pointer-events: auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    /* Overlay card */
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+      width: 50%;
+      max-width: 350px;
+      text-align: center;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .card li {
+      text-align: left;
+    }
+
+    .card a {
+      color: rgb(255, 255, 255);
+    }
+
+    .card a:hover {
+      color: rgb(119, 230, 255);
+    }
+
+    /* Responsive adjustments for smaller devices */
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 1rem;
+        /* Slightly smaller font for mobile */
+        line-height: 1.6em;
+        /* Tighter line height */
+      }
+
+      .card {
+        width: 90%;
+        /* Wider relative width on mobile */
+        padding: 1rem;
+        /* Less padding */
+        border-radius: 0.8rem;
+        /* Slightly smaller radius */
+      }
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media screen and (max-width: 600px) {
+      body {
+        font-size: 0.9rem;
+        /* Even smaller font for very small screens */
+      }
+
+      .card {
+        width: 95%;
+        /* Nearly full width on very small screens */
+        max-width: none;
+        /* Override the max-width on smallest screens */
+        padding: 0.8rem;
+        /* Minimal padding */
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8GQQBCYTB5');
+  </script>
+
+</head>
+
+<body>
+
+  <!--
+  
+  
+  
+  -->
+  <iframe id="randomFrame"></iframe>
+
+
+
+  <script>
+    const links = [
+      "https://www.dynamicmath.xyz/sketches/monkey-pi-digits/",
+      "https://www.dynamicmath.xyz/sketches/tesseract/",
+      "https://www.dynamicmath.xyz/sketches/shaders/noise-rings/",
+      "https://www.dynamicmath.xyz/sketches/flow-field-noise",
+      "https://www.dynamicmath.xyz/sketches/moebius/",
+      "https://www.dynamicmath.xyz/sketches/my-pond/",
+      "escher-infinite-frame",
+      "../my-pond",
+      "../triangle-paradox",
+      "../matrix",
+      "../one-million-pi-digits",
+      "../fun-code",
+      "../griffith-logo"
+      
+    ];
+
+    // Pick a random link
+    const randomLink = links[Math.floor(Math.random() * links.length)];
+
+    // Set iframe source
+    document.getElementById("randomFrame").src = randomLink;
+  </script>
+
+</body>
+
+</html>
