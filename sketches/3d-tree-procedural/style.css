@@ -6,3 +6,34 @@ html, body {
 canvas {
   display: block;
 }
+
+.bottom-banner {
+  position: fixed;
+  left: 50%;
+  bottom: calc(30px + env(safe-area-inset-bottom));
+  /* iOS safe area friendly */
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  /* look */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+  font-size: 1.1rem;
+  color: #f1f1f1;
+  font-weight: 350;
+  text-align: center;
+  padding: .5rem 1rem;
+  background: rgba(0, 0, 0, .4);
+  border-radius: .5rem;
+  line-height: 1.8rem;
+
+  /* disappear after 10s (instant switch) */
+  animation: hideAfter 10s steps(1, end) forwards;
+}
+
+@keyframes hideAfter {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
