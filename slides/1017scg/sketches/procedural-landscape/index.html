@@ -303,9 +303,11 @@
           expression: (x, y) =>
             [x,
               octave(x, y, 1) * 0.8 +
-              octave(x, y, 2) * 0.4 +
+              octave(x, y, 2) * 0.4 * Math.cos(x * 0.5) * 0.5 + 0.5 + // Add cosine modulation +
               octave(x, y, 4) * 0.22 +
-              octave(x, y, 8) * 0.125,
+              octave(x, y, 8) * 0.125 +
+              octave(x, y, 16) * 0.0625 +  // Add this for more detail
+              octave(x, y, 32) * 0.03125, // Add this for even finer detail
               y],
         }, { duration: 1000 }],
         ['animate', 'camera', {
