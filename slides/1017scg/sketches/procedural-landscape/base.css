@@ -8,8 +8,8 @@ canvas { display: block }
   bottom: 50px;
   z-index: 20;
 
-  width: 300px;
-  margin-left: -150px;
+  width: 500px;
+  margin-left: -250px;
 
   padding: 25px;
   background: rgba(0, 0, 0, .5);

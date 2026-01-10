@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>MathBox - Example: Procedural Landscape Generation</title>
@@ -23,6 +22,10 @@
   </script>
 
   <script type="text/javascript">
+    // Global variable to track current step
+    var currentStep = 0;
+    var hasStarted = false;
+    
     /**
      * Bootstrap
      */
@@ -62,22 +65,48 @@
         // Show info if not iframed.
         if (top == window) {
           document.getElementById('info').style.opacity = 1;
+          updateInfo();
         }
 
         // Arrow controls
         // Controls for stand-alone
         window.addEventListener('touchstart', function (e) {
-          director.forward();
-          document.getElementById('info').style.opacity = '0';
+          if (!hasStarted) {
+            hasStarted = true;
+            director.forward();
+            currentStep = 1;
+          } else if (currentStep < 6) {
+            currentStep++;
+            director.forward();
+          }
+          updateInfo();
         });
+        
         window.addEventListener('keydown', function (e) {
-          if (e.keyCode == 38 || e.keyCode == 37) director.back();
-          else if (e.keyCode == 40 || e.keyCode == 39) director.forward();
-          else {
+          if (e.keyCode == 38 || e.keyCode == 37) {
+            // Back arrow or left arrow
+            if (!hasStarted) return; // Can't go back from start
+            
+            if (currentStep > 1) {
+              currentStep--;
+              director.back();
+              updateInfo();
+            }
+          } else if (e.keyCode == 40 || e.keyCode == 39) {
+            // Forward arrow or right arrow
+            if (!hasStarted) {
+              // First time pressing forward - start the demo
+              hasStarted = true;
+              director.forward();
+              currentStep = 1;
+            } else if (currentStep < 6) {
+              currentStep++;
+              director.forward();
+            }
+            updateInfo();
+          } else {
             return;
           }
-
-          document.getElementById('info').style.opacity = 0;
         });
       });
     });
@@ -104,6 +133,41 @@
       var y1 = y11 + (y12 - y11) * dx;
       var y2 = y21 + (y22 - y21) * dx;
       return y1 + (y2 - y1) * dy;
+    }
+
+    // Step descriptions
+    var stepDescriptions = [
+      "", // Empty for step 0 (before start)
+      "Step 1: Flat grid - Starting surface",
+      "Step 2: Simple bump using 4 corner sine values",
+      "Step 3: Noise at scale 1 - Sine functions create height variation",
+      "Step 4: Smooth interpolation with cosine",
+      "Step 5: Adding medium details with scale 2 noise",
+      "Step 6: Fractal landscape - Multiple scales combined"
+    ];
+
+    // Function to update info text
+    function updateInfo() {
+      var info = document.getElementById('info');
+      
+      if (!hasStarted) {
+        // Show initial instruction
+        info.innerHTML = 'Use the <kbd>←</kbd><kbd>→</kbd> keys to step through.';
+      } else {
+        // Ensure currentStep is within bounds
+        if (currentStep >= stepDescriptions.length) currentStep = stepDescriptions.length - 1;
+        if (currentStep < 1) currentStep = 1;
+        
+        info.innerHTML = stepDescriptions[currentStep] + '';
+      }
+      
+      info.style.opacity = 1;
+      
+      // Auto-hide after 5 seconds
+      clearTimeout(window.infoTimeout);
+      window.infoTimeout = setTimeout(function() {
+        info.style.opacity = 0;
+      }, 5000);
     }
 
     var script = [
@@ -248,24 +312,18 @@
           phi: τ / 6,
           theta: .45,
         }, { delay: 1000, duration: 4000 }]
-      ],
-
-      // Step 7: Expand to larger surface region
-      // To add later maybe
-
-      //[],
+      ]
 
     ];
 
   </script>
-
 
   <link href="base.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
 
 <body>
-  <div id="info" class="transition">Use the <kbd>←</kbd><kbd>→</kbd> keys to step through.</div>
+  <div id="info" class="transition"></div>
 </body>
 
 </html>
