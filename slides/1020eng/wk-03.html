@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>1020ENG/1202SCG - Table of contents</title>
+	<title>1020ENG/1202SCG - Workshop 3</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -38,6 +38,18 @@
 		gtag('config', 'G-8GQQBCYTB5');
 	</script>
 
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
 </head>
 
 <body>
@@ -45,73 +57,104 @@
 		<div class="slides">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
-
 			<section>
-				<h3 style="font-size:95%">1020ENG/1202SCG</h3>
-				<div style="font-size:67%;text-align:left">
-					<table style="width: 100%;">
-						<tr>
-
-							<th style="text-align: center;width: 20%;">Lectures</th>
-							<th style="text-align: center;width: 20%;">Quizzes</th>
-							<th style="text-align: center;width: 50%;">Extras &amp; Applets</th>
-						</tr>
-						<tr class="toc">
-
-							<td style="text-align: center;">
-
-								<!--<a href="week-00.html" target="_blank">Week 0</a><br />-->
-								<a href="music.html" target="_blank">Week 1 ❌</a><br />
-								<a href="pond.html" target="_blank">Week 2 ❌</a><br />
-								<a href="wk-03.html" target="_blank">Week 3</a><br />
-								<a href="pond.html" target="_blank">Week 4 ❌</a><br />
-								<a href="music.html" target="_blank">Week 5 ❌</a><br />
-								<a href="pond.html" target="_blank">Week 6 ❌</a><br />
-								<a href="music.html" target="_blank">Week 7 ❌</a><br />
-								<a href="pond.html" target="_blank">Week 8 ❌</a><br />
-								<a href="music.html" target="_blank">Week 9 ❌</a><br />
-								<a href="pond.html" target="_blank">Week 10 ❌</a><br />
-								<a href="music.html" target="_blank">Week 11 ❌</a><br />
-								<a href="music.html" target="_blank">Week 12 ❌</a><br />
-
-								
-
-							</td>
 
 
-							<td style="text-align: center;">
-								<a href="quiz-01.html" target="_blank">Quiz 1</a><br />
-								<a href="quiz-02.html" target="_blank">Quiz 2</a><br />
-								<a href="quiz-03.html" target="_blank">Quiz 3</a><br />
-								<a href="quiz-04.html" target="_blank">Quiz 4</a><br />
-							</td>
-
-
-							<td>
-
-								
-
-							</td>
-
-
-						</tr>
-
-					</table>
-
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
 				</div>
 
-				<br/>
-				
+				<h2>
+					<span class="size-85">
+						Calculus I <br />
+						&amp;
+						<br />
+						Engineering Mathematics 2
+					</span>
+				</h2>
 
 
+				<p style="margin-top: 50px;">Workshop 3</p>
+
+				<br />
 			</section>
 
+			<section>
+
+				<div class="left-txt size-85">
+					<p>
+						<b>Definition:</b> The derivative of a function $f(x)$ is defined as
+					</p>
+				</div>
+
+				<div class="size-90">
+
+					<p>
+						\(\ds f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h}\)
+					</p>
+				</div>
+
+				<div class="size-85">
+					<p>
+						<b>Derivative Rules</b>
+					</p>
+				</div>
+
+				<table style="width: 100%; font-size: 85%;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 30%;">Rule</td>
+						<td style="width: 35%;">Function</td>
+						<td style="width: 35%;">Derivative</td>
+					</tr>
+
+					<tr>
+						<td>
+							Product Rule
+						</td>
+						<td style="text-align: center;">
+							\( y = u \cdot v \)
+						</td>
+						<td style="text-align: center;">
+							\( \dfrac{dy}{dx} = u'v + uv' \)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Quotient Rule
+						</td>
+						<td style="text-align: center;">
+							\( y = \dfrac{u}{v} \)
+						</td>
+						<td style="text-align: center;">
+							\( \dfrac{dy}{dx} = \dfrac{u'v - uv'}{v^2} \)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Chain Rule
+						</td>
+						<td style="text-align: center;">
+							\( y = f(u), \; u = g(x) \)
+						</td>
+						<td style="text-align: center;">
+							\( \dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx} \)
+						</td>
+					</tr>
+				</table>
+
+				<br />
+
+			</section>
 
 
 			<!-- Ends sections -->
 
 		</div>
 	</div>
+
 
 	<script src="../revealjs/dist/reveal.js"></script>
 	<script src="../revealjs/plugin/math/math.js"></script>
@@ -126,6 +169,7 @@
 	<script>
 		includeHTML();
 	</script>
+
 
 </body>
 
