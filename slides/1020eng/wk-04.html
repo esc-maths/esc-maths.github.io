@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1020ENG/1202SCG - Workshop 4</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<h2>
+					<span class="size-85">
+						Calculus I <br />
+						&amp;
+						<br />
+						Engineering Mathematics 2
+					</span>
+				</h2>
+
+
+				<p style="margin-top: 50px;">Workshop 4</p>
+
+				<br />
+			</section>
+
+			<section>
+
+				<div class="left-txt size-95">
+					<p>
+						<b>Derivative Tests:</b> Derivative tests use the first and second derivatives of a function to
+						analyse
+						its behaviour and classify stationary points.
+					</p>
+				</div>
+
+				<div class="size-95">
+					<p>
+						A <em>critical point</em> occurs where \( f'(x) = 0 \) <br /> or where \( f'(x) \) does not
+						exist.
+					</p>
+				</div>
+
+
+
+				<br />
+				<br />
+
+			</section>
+
+			<section>
+
+				<div class="size-85">
+					<p>
+						<b>First Derivative Test</b>
+					</p>
+				</div>
+
+				<table style="width: 100%; font-size: 80%;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 50%;">Behaviour of \(f'(x)\)</td>
+						<td style="width: 50%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							Changes from positive to negative
+						</td>
+						<td style="text-align: center;">
+							Local maximum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							Changes from negative to positive
+						</td>
+						<td style="text-align: center;">
+							Local minimum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							No sign change
+						</td>
+						<td style="text-align: center;">
+							Stationary point of inflection
+						</td>
+					</tr>
+				</table>
+
+
+
+				<div class="size-85">
+					<p>
+						<b>Second Derivative Test</b>
+					</p>
+				</div>
+
+				<table style="width: 100%; font-size: 80%;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 50%;">Condition at \(x = a\)</td>
+						<td style="width: 50%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) > 0 \)
+						</td>
+						<td style="text-align: center;">
+							Local minimum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) < 0 \) </td>
+						<td style="text-align: center;">
+							Local maximum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) = 0 \)
+						</td>
+						<td style="text-align: center;">
+							Test inconclusive
+						</td>
+					</tr>
+				</table>
+
+				<br />
+
+			</section>
+
+			<section>
+
+				<div class="size-85">
+					<p>
+						<b>Concavity</b>
+					</p>
+				</div>
+
+				<table style="width: 100%; font-size: 80%;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 50%;">Condition on \(f''(x)\)</td>
+						<td style="width: 50%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f''(x) > 0 \)
+						</td>
+						<td style="text-align: center;">
+							Concave upwards
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f''(x) < 0 \) </td>
+						<td style="text-align: center;">
+							Concave downwards
+						</td>
+					</tr>
+				</table>
+
+				<br />
+
+				<div class="size-85">
+					<p>
+						<b>Points of Inflection</b>
+					</p>
+				</div>
+
+				<table style="width: 100%; font-size: 80%;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 50%;">Condition at \(x = a\)</td>
+						<td style="width: 50%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f''(a) = 0 \) and concavity changes
+						</td>
+						<td style="text-align: center;">
+							Point of inflection
+						</td>
+					</tr>
+				</table>
+
+				<br />
+				<br />
+				<br />
+
+			</section>
+
+			<section>
+
+				<div style="font-size: 60%;margin-top: -20px;">
+					<p>
+						<b>First Derivative Test</b>
+					</p>
+				</div>
+
+				<table style="width: 100%; font-size: 60%;margin-top: -20px;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 50%;">Behaviour of \(f'(x)\)</td>
+						<td style="width: 50%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							Changes from positive to negative
+						</td>
+						<td style="text-align: center;">
+							Local maximum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							Changes from negative to positive
+						</td>
+						<td style="text-align: center;">
+							Local minimum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							No sign change
+						</td>
+						<td style="text-align: center;">
+							Stationary point of inflection
+						</td>
+					</tr>
+				</table>
+
+
+
+				<div style="font-size: 60%;">
+					<p>
+						<b>Second Derivative Test</b>
+					</p>
+				</div>
+
+				<table style="width: 100%; font-size: 60%;margin-top: -20px;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 50%;">Condition at \(x = a\)</td>
+						<td style="width: 50%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) > 0 \)
+						</td>
+						<td style="text-align: center;">
+							Local minimum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) < 0 \) </td>
+						<td style="text-align: center;">
+							Local maximum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) = 0 \)
+						</td>
+						<td style="text-align: center;">
+							Test inconclusive
+						</td>
+					</tr>
+				</table>
+				<table style="width: 100%; font-size: 60%; margin-top: 30px;" border="1" cellpadding="8">
+
+					<tr style="text-align: center; font-weight: bold;">
+						<td colspan="2">Concavity</td>
+						<td colspan="2">Inflection Points</td>
+					</tr>
+
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 25%;">Condition on \(f''(x)\)</td>
+						<td style="width: 25%;">Conclusion</td>
+						<td style="width: 25%;">Condition at \(x = a\)</td>
+						<td style="width: 25%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f''(x) > 0 \)
+						</td>
+						<td style="text-align: center;">
+							Concave upwards
+						</td>
+						<td style="text-align: center;">
+							\( f''(a) = 0 \) and concavity changes
+						</td>
+						<td style="text-align: center;">
+							Point of inflection
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f''(x) < 0 \) </td>
+						<td style="text-align: center;">
+							Concave downwards
+						</td>
+						<td style="text-align: center;">
+							No change in concavity
+						</td>
+						<td style="text-align: center;">
+							No point of inflection
+						</td>
+					</tr>
+
+				</table>
+
+				<br />
+				<br />
+				<br />
+
+			</section>
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
