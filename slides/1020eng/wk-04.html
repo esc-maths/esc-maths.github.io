@@ -82,7 +82,7 @@
 
 			<section>
 
-				<div class="left-txt size-95">
+				<div class="left-txt size-85">
 					<p>
 						<b>Derivative Tests:</b> Derivative tests use the first and second derivatives of a function to
 						analyse
@@ -90,12 +90,26 @@
 					</p>
 				</div>
 
-				<div class="size-95">
-					<p>
-						A <em>critical point</em> occurs where \( f'(x) = 0 \) <br /> or where \( f'(x) \) does not
+				<div class="size-85">
+					<p class="fragment" data-fragment-index="1">
+						A <em>critical point</em> occurs where \( f'(x) = 0 \) <br />
+						<span class="fragment" data-fragment-index="2">
+							or where \( f'(x) \) does not
 						exist.
+						</span> 
 					</p>
 				</div>
+
+				<table style="width: 80%;">
+					<tr>
+						<td style="width: 50%;" class="fragment" data-fragment-index="1">
+							<img style="width: 100%;"src="images/quizzes/critical-points-quadratic.svg">
+						</td>
+						<td style="width: 50%;" class="fragment" data-fragment-index="2">
+							<img style="width: 100%;" src="images/quizzes/critical-points-abs.svg">
+						</td>
+					</tr>
+				</table>
 
 
 
@@ -119,28 +133,28 @@
 					</tr>
 
 					<tr>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="1">
 							Changes from positive to negative
 						</td>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="2">
 							Local maximum
 						</td>
 					</tr>
 
 					<tr>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="3">
 							Changes from negative to positive
 						</td>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="4">
 							Local minimum
 						</td>
 					</tr>
 
 					<tr>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="5">
 							No sign change
 						</td>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="6">
 							Stationary point of inflection
 						</td>
 					</tr>
@@ -149,39 +163,39 @@
 
 
 				<div class="size-85">
-					<p>
+					<p class="fragment" data-fragment-index="7">
 						<b>Second Derivative Test</b>
 					</p>
 				</div>
 
-				<table style="width: 100%; font-size: 80%;" border="1" cellpadding="8">
-					<tr style="text-align: center; font-weight: bold;">
+				<table style="width: 100%; font-size: 80%;" border="1" cellpadding="8" class="fragment" data-fragment-index="7">
+					<tr style="text-align: center; font-weight: bold;" class="fragment" data-fragment-index="7">
 						<td style="width: 50%;">Condition at \(x = a\)</td>
 						<td style="width: 50%;">Conclusion</td>
 					</tr>
 
-					<tr>
-						<td style="text-align: center;">
+					<tr class="fragment" data-fragment-index="7">
+						<td style="text-align: center;" >
 							\( f'(a)=0 \) and \( f''(a) > 0 \)
 						</td>
-						<td style="text-align: center;">
+						<td style="text-align: center;" >
 							Local minimum
 						</td>
 					</tr>
 
 					<tr>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="10">
 							\( f'(a)=0 \) and \( f''(a) < 0 \) </td>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="11">
 							Local maximum
 						</td>
 					</tr>
 
 					<tr>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="12">
 							\( f'(a)=0 \) and \( f''(a) = 0 \)
 						</td>
-						<td style="text-align: center;">
+						<td style="text-align: center;" class="fragment" data-fragment-index="13">
 							Test inconclusive
 						</td>
 					</tr>
@@ -206,19 +220,19 @@
 					</tr>
 
 					<tr>
-						<td style="text-align: center;">
-							\( f''(x) > 0 \)
+						<td style="text-align: center;" class="fragment" data-fragment-index="1">
+							\( f''(x) \gt 0 \)
 						</td>
-						<td style="text-align: center;">
-							Concave upwards
+						<td style="text-align: center;" class="fragment" data-fragment-index="2">
+							Concave upwards \(\cup\)
 						</td>
 					</tr>
 
 					<tr>
-						<td style="text-align: center;">
-							\( f''(x) < 0 \) </td>
-						<td style="text-align: center;">
-							Concave downwards
+						<td style="text-align: center;" class="fragment" data-fragment-index="3">
+							\( f''(x) \lt 0 \) </td>
+						<td style="text-align: center;" class="fragment" data-fragment-index="4">
+							Concave downwards \(\cap\)
 						</td>
 					</tr>
 				</table>
@@ -226,18 +240,18 @@
 				<br />
 
 				<div class="size-85">
-					<p>
+					<p class="fragment" data-fragment-index="5">
 						<b>Points of Inflection</b>
 					</p>
 				</div>
 
-				<table style="width: 100%; font-size: 80%;" border="1" cellpadding="8">
-					<tr style="text-align: center; font-weight: bold;">
-						<td style="width: 50%;">Condition at \(x = a\)</td>
+				<table style="width: 100%; font-size: 80%;" border="1" cellpadding="8" class="fragment" data-fragment-index="5">
+					<tr style="text-align: center; font-weight: bold;" class="fragment" data-fragment-index="5">
+						<td  style="width: 50%;">Condition at \(x = a\)</td>
 						<td style="width: 50%;">Conclusion</td>
 					</tr>
 
-					<tr>
+					<tr class="fragment" data-fragment-index="5">
 						<td style="text-align: center;">
 							\( f''(a) = 0 \) and concavity changes
 						</td>
