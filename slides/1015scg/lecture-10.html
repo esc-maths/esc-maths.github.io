@@ -479,18 +479,32 @@
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
+					<h4 style="font-size: 120%;">
+						Tables
+					</h4>
+
+
+
+
+					<div>
+						<img src="images/lec-10/tables-2-3-2-4.png">
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
 					<h4>
 						Tables
 					</h4>
 
 					<table style="font-size: 80%; width: 100%;">
 						<tr>
-							<td style="width: 52%;" class="fragment" data-fragment-index="2">Reference tables:
+							<td style="width: 52%;">Reference tables:
 								<ul>
 									<li>Unadjusted collected data</li>
 								</ul>
-								<br/>
+								<br />
 							</td>
 							<td class="fragment" data-fragment-index="3">Summary tables:
 								<ul>
@@ -537,6 +551,7 @@
 					<h4>
 						The importance of columns
 					</h4>
+					<br />
 
 					<table style="width: 100%; font-size: 50%; border: none;">
 						<tr style="border: none;">
@@ -557,12 +572,14 @@
 						</tr>
 
 					</table>
-					<br/>
+					<br />
+					<br />
 				</section>
 				<section>
 					<h4>
 						Separating data
 					</h4>
+					<br />
 
 					<table style="width: 100%; font-size: 50%; border: none;">
 						<tr style="border: none;">
@@ -583,21 +600,103 @@
 						</tr>
 
 					</table>
-					<br/>
+					<br />
+					<br />
 				</section>
 			</section>
 
 			<section>
-				<section>
+				<section data-auto-animate>
+					<h4 style="font-size: 120%;">
+						Visual principles
+					</h4>
+
+					<div style="margin-top: -20px;">
+						<canvas id="bar-chart-01" style="max-height: 550px;"></canvas>
+					</div>
+
+					<br />
+					<br />
+
+					<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+					<script>
+						// ---------- global presentation defaults ----------
+						Chart.defaults.font.size = 16;
+						Chart.defaults.font.family = 'sans-serif';
+
+						const ctx = document.getElementById('bar-chart-01');
+
+						// ---------- helper (replacement for Utils) ----------
+						function randomNumbers(count, min, max) {
+							return Array.from({ length: count }, () =>
+								Math.floor(Math.random() * (max - min + 1)) + min
+							);
+						}
+
+						// ---------- data ----------
+						const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+
+						const data = {
+							labels: labels,
+							datasets: [
+								{
+									label: 'Dataset 1',
+									data: randomNumbers(labels.length, -100, 100),
+									backgroundColor: 'rgba(255, 99, 132, 0.7)',
+									borderWidth: 2
+								},
+								{
+									label: 'Dataset 2',
+									data: randomNumbers(labels.length, -100, 100),
+									backgroundColor: 'rgba(54, 162, 235, 0.7)',
+									borderWidth: 2
+								}
+							]
+						};
+
+						// ---------- delayed animation ----------
+						let delayed = false;
+
+						new Chart(ctx, {
+							type: 'bar',
+							data: data,
+							options: {
+								indexAxis: 'y',
+								// Elements options apply to all of the options unless overridden in a dataset
+								// In this case, we are setting the border of each horizontal bar to be 2px wide
+								elements: {
+									bar: {
+										borderWidth: 2,
+									}
+								},
+								responsive: true,
+								plugins: {
+									legend: {
+										position: 'right',
+									},
+									title: {
+										display: true,
+										text: 'Horizontal Bar Chart'
+									}
+								}
+							},
+						});
+					</script>
+				</section>
+
+				<section data-auto-animate>
 					<h4>
 						Visual principles
 					</h4>
 
-					<div class="left-txt size-90">
-						<p class="fragment" data-fragment-index="0">
+					<br />
+
+					<div class="left-txt">
+						<p>
 							Research on visual perception guides effective graph design
 						</p>
-						<ul>
+						<ul style="line-height: 1.8;">
 							<li class="fragment" data-fragment-index="1">
 								We compare positions better than angles or areas
 							</li>
@@ -609,6 +708,7 @@
 							</li>
 						</ul>
 					</div>
+					<br />
 					<br />
 					<br />
 					<br />
@@ -678,6 +778,7 @@
 							</span>
 						</p>
 					</div>
+					<br />
 				</section>
 
 				<section>
@@ -699,6 +800,7 @@
 					<h4>
 						Graphs: good practice
 					</h4>
+					<br />
 
 					<div class="left-txt">
 						<ul style="line-height: 1.8;">
@@ -734,6 +836,7 @@
 					</div>
 
 					<br />
+					<br />
 				</section>
 				<section data-auto-animate>
 					<h4>
@@ -763,82 +866,80 @@
 				</section>
 			</section>
 
-
-
 			<section>
-				<h4>
-					Summary
-				</h4>
+				<section>
+					<h4>
+						Summary
+					</h4>
 
-				<div class="left-txt">
-					<ul style="line-height: 1.8;">
-						<li class="fragment" data-fragment-index="0">
-							Write to be accurate, brief, and clear.
-						</li>
-						<li class="fragment" data-fragment-index="1">
-							Numbers support the story.
-						</li>
-						<li class="fragment" data-fragment-index="2">
-							Make tables and graphs easy to interpret.
-						</li>
-						<li class="fragment" data-fragment-index="3">
-							Reference figures and tables clearly in the text.
-						</li>
-					</ul>
-				</div>
-				<br />
-				<br />
-				<br />
-			</section>
+					<br/>
 
-			<section>
-				<h3>References</h3>
+					<div class="left-txt">
+						<ul style="line-height: 1.8;">
+							<li class="fragment" data-fragment-index="0">
+								Write to be accurate, brief, and clear.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Numbers support the story.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Make tables and graphs easy to interpret.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Reference figures and tables clearly in the text.
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
 
-				<table style="border-collapse: collapse;">
-					<tr>
-						<td style="width: 50%; border-right: 1px solid #bcbcbc; border-top: none; border-bottom: none;">
-							<div style="font-size: 80%;">
-								<p style="margin: 0;">
-									<b>Presenting data : how to communicate your message effectively</b> (2014)<br>
-									by Ed Swires-Hennessy.
-									<a href="https://www.oreilly.com/library/view/presenting-data-how/9781118901847/"
-										target="_blank">
-										<i class="fa fa-solid fa-external-link-alt"></i>
-									</a>
-								</p>
-							</div>
-						</td>
-						<td style="width: 50%; border: none;">
-							<div style="font-size: 80%;">
-								<p style="margin: 0;">
-									<b>Creating more effective graphs</b> (2013)<br>
-									by <a href="https://www.washstat.org/presentations/20170420/NBRhandout20Apr.pdf" target="_blank">Naomi B. Robbins</a>.
-									<a href="https://www.amazon.com.au/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123"
-										target="_blank">
-										<i class="fa fa-solid fa-external-link-alt"></i>
-									</a>
-								</p>
-								<br />
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td style="text-align: center; border-right: 1px solid #bcbcbc; border-top: none;">
-							<img style="width: 40%;" src="images/lec-10/data-book.png">
-						</td>
-						<td style="text-align: center; border: none;">
-							<img style="width: 40%;" src="images/lec-10/robbings-create-graphs.png">
-						</td>
-					</tr>
-				</table>
+				<section>
+					<h3>References</h3>
 
+					<table style="border-collapse: collapse;">
+						<tr>
+							<td
+								style="width: 50%; border-right: 1px solid #bcbcbc; border-top: none; border-bottom: none;">
+								<div style="font-size: 80%;">
+									<p style="margin: 0;">
+										<b>Presenting data : how to communicate your message effectively</b> (2014)<br>
+										by Ed Swires-Hennessy.
+										<a href="https://www.oreilly.com/library/view/presenting-data-how/9781118901847/"
+											target="_blank">
+											<i class="fa fa-solid fa-external-link-alt"></i>
+										</a>
+									</p>
+								</div>
+							</td>
+							<td style="width: 50%; border: none;">
+								<div style="font-size: 80%;">
+									<p style="margin: 0;">
+										<b>Creating more effective graphs</b> (2013)<br>
+										by <a href="https://www.washstat.org/presentations/20170420/NBRhandout20Apr.pdf"
+											target="_blank">Naomi B. Robbins</a>.
+										<a href="https://www.amazon.com.au/Creating-Effective-Graphs-Naomi-Robbins/dp/0985911123"
+											target="_blank">
+											<i class="fa fa-solid fa-external-link-alt"></i>
+										</a>
+									</p>
+									<br />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: center; border-right: 1px solid #bcbcbc; border-top: none;">
+								<img style="width: 40%;" src="images/lec-10/data-book.png">
+							</td>
+							<td style="text-align: center; border: none;">
+								<img style="width: 40%;" src="images/lec-10/robbings-create-graphs.png">
+							</td>
+						</tr>
+					</table>
+					<br />
 
-
-
-
-
-				<br />
-
+				</section>
 			</section>
 
 			<section data-transition="fade" data-background-iframe="../../sketches/transformations-3d"
