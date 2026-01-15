@@ -58,7 +58,7 @@
         Powered by <a href="http://www.chromeexperiments.com/globe/">WebGL Globe</a><br />
         Data from <a href="http://resources.arcgis.com/en/help/main/10.1/009t/009t00000244000000.htm">Esri</a> processed
         by <a href="http://newnaw.com">diligentpig</a><br />
-        Released under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License</a><br/>
+        Released under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License</a><br />
         Source code: <a href="https://experiments.withgoogle.com/chrome/globe">The WebGL Globe</a>
     </div>
 
@@ -154,7 +154,7 @@
         var vector, mesh, atmosphere, point, points, pointsGeometry;
 
         var mouse = { x: 0, y: 0 }, mouseOnDown = { x: 0, y: 0 };
-        var rotation = { x: 0, y: 0 }, target = { x: 0, y: 0 }, targetOnDown = { x: 0, y: 0 };
+        var rotation = { x: -Math.PI / 4 + 0.1, y: 0.1 }, target = { x: -Math.PI / 4 + 0.1, y: 0.1 }, targetOnDown = { x: 0, y: 0 };
         var distance = 1500, distanceTarget = 1100;
 
         var PI_HALF = Math.PI / 2;
@@ -168,7 +168,9 @@
             container = document.getElementById('container');
 
             camera = new THREE.Camera(30, window.innerWidth / window.innerHeight, 1, 10000);
+
             camera.position.z = distance;
+
 
             vector = new THREE.Vector3();
 
@@ -209,6 +211,7 @@
             });
 
             mesh = new THREE.Mesh(geometry, material);
+
             mesh.scale.x = mesh.scale.y = mesh.scale.z = 1.1;
             mesh.flipSided = true;
             sceneAtmosphere.addObject(mesh);
