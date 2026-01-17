@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1020ENG/1202SCG - Quiz 6</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<h2>
+					<span class="size-85">
+						Calculus I <br />
+						&amp;
+						<br />
+						Engineering Mathematics 2
+					</span>
+				</h2>
+
+
+				<p style="margin-top: 50px;">Quiz 6</p>
+
+				<br />
+			</section>
+
+
+			<section>
+
+				<div class="left-txt size-85">
+					<p>
+						<b>Question 1</b>
+					</p>
+					<p>
+						Evaluate the following integral: $\ds \int_0^3 \left(x+1\right)^4\, dx.$
+					</p>
+
+					<hr>
+					<br />
+					<br />
+					<p>
+						<b>Question 2</b>
+					</p>
+					<p>
+						Find the value of $k$ such that: $\ds \int_0^k x^2\, dx = 9.$
+					</p>
+
+
+				</div>
+				<br />
+				<br />
+			</section>
+
+			<section>
+
+				<div class="left-txt size-80">
+					<p>
+						<b>Solution Question 1</b>
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						Consider the function $F(x) = \ds\frac{1}{5}(x+1)^5$.
+						<span class="fragment" data-fragment-index="1">
+							Notice that $F'(x) = \left(x+1\right)^4.$
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							Thus
+						</span>
+					</p>
+
+
+				</div>
+				<div class="size-80">
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							\(\ds \int_0^3 \left(x+1\right)^4\, dx =\ds \left[\frac{1}{5}(x+1)^5\right]_0^{3}\)
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							\( \ds = \frac{1}{5}(\mathbf 3+1)^5 - \frac{1}{5}(\mathbf 0+1)^5 \qquad\quad\)
+						</span>
+
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="5">
+							\( \ds = \frac{4^5}{5} - \frac{1^5}{5} \)
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							\( \ds = \frac{1024}{5} - \frac{1}{5} \)
+						</span>
+						<span class="fragment" data-fragment-index="7">
+							\( \ds = \frac{1023}{5} .\)
+						</span>
+					</p>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+			</section>
+
+			<section>
+
+				<div class="left-txt size-80">
+					<p>
+						<b>Solution Question 2</b>
+					</p>
+					<p>
+						Find the value of $k$ such that: $\ds \int_0^k x^2\, dx = 9.$
+					</p>
+					<p>
+
+						<span class="fragment" data-fragment-index="0">
+							Now consider $F(x) = \ds \frac{x^3}{3}.$
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							Notice that $F'(x) = x^2.$
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							Thus
+						</span>
+					</p>
+
+
+				</div>
+				<div class="size-80">
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							$\ds \int_0^k x^2\, dx =\ds \left[\frac{x^3}{3}\right]_0^{k}$
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							\( \ds = \frac{k^3}{3} - \frac{0^3}{3}\)
+						</span>
+						<span class="fragment" data-fragment-index="5">
+							\( \ds = \frac{k^3}{3} \)
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							\( \ds = 9 \)
+						</span>
+					</p>
+					
+				</div>
+				<div class="left-txt size-80">
+					<p>
+						<span class="fragment" data-fragment-index="7">
+							From equation $\ds \frac{k^3}{3}=9$ we solve for $k.$
+						</span>
+						<span class="fragment" data-fragment-index="8">
+							That is \( k^3 = 27.\) 
+						</span>
+						<span class="fragment" data-fragment-index="9">
+							Therefore \( k = 9.\) 
+						</span>
+						
+					</p>
+				</div>
+				<br />
+				<br />
+			</section>
+
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

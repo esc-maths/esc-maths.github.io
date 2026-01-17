@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1020ENG/1202SCG - Quiz 5</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<h2>
+					<span class="size-85">
+						Calculus I <br />
+						&amp;
+						<br />
+						Engineering Mathematics 2
+					</span>
+				</h2>
+
+
+				<p style="margin-top: 50px;">Quiz 5</p>
+
+				<br />
+			</section>
+
+
+			<section>
+
+				<div class="left-txt size-75">
+					<p>
+						<b>Question 1</b>
+					</p>
+					<p>Determine the intervals where the graphs of the following functions are concave upwards and where
+						they are concave downward </p>
+					<ol style="line-height: 1.7;">
+						<li>
+							$f(x)= x^2-x+12$
+						</li>
+
+						<li>
+							$f(x) = x^3 +15x^2+6x+1$
+						</li>
+					</ol>
+					<hr>
+					<p>
+						<b>Question 2</b>
+					</p>
+					<p>
+						Find the derivative of the functions $f(x) =\sqrt{4-\sqrt{4+x}}$
+					</p>
+					
+
+				</div>
+				<br />
+				<br />
+			</section>
+
+			<section>
+
+				<div class="left-txt size-70">
+					<p>
+						<b>Solution Question 1</b>
+					</p>
+
+					<ol style="line-height: 1.7;">
+						<li class="fragment" data-fragment-index="0">
+							$f(x)= x^2-x+12$
+							<span  class="fragment" data-fragment-index="1">
+								$\Ra f'(x) = 2x-1\,$  
+							</span>
+							<span  class="fragment" data-fragment-index="2">
+								 and $\,f''(x) = 2$ 
+							</span>
+							<br />
+							<span class="fragment" data-fragment-index="3">
+								Since the second derivative is always positive, the graph is always
+							concave upward and there are no points of inflection.
+							</span>
+							
+
+						</li>
+
+						<li class="fragment" data-fragment-index="4">
+							$f(x) = x^3 +15x^2+6x+1$
+							<span  class="fragment" data-fragment-index="5">
+								$\Ra f'(x) = 3x^2+30x+6\,$  
+							</span>
+							<span  class="fragment" data-fragment-index="6">
+								 and $\,f''(x) = 6x+30$ 
+							</span>
+							<br>
+							<span class="fragment" data-fragment-index="7">
+								When $x\gt -5$ the graph is concave upwards, 
+							</span>
+							<span class="fragment" data-fragment-index="8">
+							when $x\lt -5$ the graph
+							is concave downwards.
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								 There is a point of inflection where the concavity changes at
+							$(-5,221).$
+							</span>
+						</li>
+					</ol>
+					<hr>
+					<p class="fragment" data-fragment-index="10">
+						<b>Solution Question 2</b>
+					</p>
+
+					
+						
+					<p>
+						Consider $f(x) =\sqrt{4-\sqrt{4+x}} $
+						<span class="fragment" data-fragment-index="11">$= \left(4-(4+x)^{1/2}\right)^{1/2},\,$</span>
+						<span class="fragment" data-fragment-index="12">then</span>
+					</p>
+							
+				
+				</div>
+				<div class="size-70">
+					<p>
+						<span class="fragment" data-fragment-index="13">
+							\(f'(x) = \ds \frac{1}{2}\left(4-(4+x)^{1/2}\right)^{-1/2}\)
+						</span>
+						<span class="fragment" data-fragment-index="13">
+							\( \ds \left[-\frac{1}{2}(4+x)^{-1/2}\right]\)
+						</span>
+						<span class="fragment" data-fragment-index="13">
+							\( \ds -\frac{1}{4} \frac{1}{\sqrt{4-\sqrt{4+x}} \sqrt{4+x}} \)
+						</span>
+					</p>
+				</div>
+				<br />
+				<br />
+			</section>
+
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
