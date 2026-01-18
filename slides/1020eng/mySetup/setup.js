@@ -86,7 +86,6 @@
 						artanh: "\\mbox{artanh}\\,",
 						sech: "\\mbox{sech}\\,",
 						csch: "\\mbox{csch}\\,",
-						arctanh: "\\mbox{arctanh}\\,",
 						dup: "{\\hspace{1pt}\\text{d}}",
 						mat: ["{\\left(\\begin{array}{#1} #2\\end{array}\\right)}", 2],
 						dif: ["{\\frac{\\text{d}\\hspace{1pt}#1}{\\text{d}\\hspace{1pt}#2}}", 2],
