@@ -87,7 +87,7 @@
 			<section>
 
 				<h4>First Derivative Test</h4>
-				<table style="width: 80%; font-size: 70%;margin-top: -20px;" border="1" cellpadding="8">
+				<table style="width: 70%; font-size: 65%;margin-top: -10px;" border="1" cellpadding="8">
 					<tr style="text-align: center; font-weight: bold;">
 						<td style="width: 50%;">Behaviour of \(f'(x)\)</td>
 						<td style="width: 50%;">Conclusion</td>
@@ -142,7 +142,7 @@
 
 				<h4>Second Derivative Test</h4>
 
-				<table style="width: 80%; font-size: 70%;margin-top: -20px;" border="1" cellpadding="8">
+				<table style="width: 70%; font-size: 65%;margin-top: -10px;" border="1" cellpadding="8">
 					<tr style="text-align: center; font-weight: bold;">
 						<td style="width: 50%;">Condition at \(x = a\)</td>
 						<td style="width: 50%;">Conclusion</td>
@@ -223,90 +223,94 @@
 				<br />
 			</section>
 
-			<section data-auto-animate>
-				<h4>Taylor series</h4>
+			<section>
+				<section data-auto-animate>
+					<h4>Taylor series</h4>
 
-				<div class="left-txt size-85">
-					<p class="fragment" data-fragment-index="1">
-						Let $a\in \mathbb R$ and $f(x)$ be and infinitely differentiable function on an interval $I$
-						containing $a$.
-						<span class="fragment" data-fragment-index="2">
-							Then the one-dimensional Taylor series of $f$ around $a$ is given by
-						</span>
-					</p>
-				</div>
-				<div class="size-85">
-					<p class="fragment" data-fragment-index="2">
-						\(\ds f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+\cdots\)
-					</p>
-				</div>
-				<div class="left-txt size-85">
-					<p class="fragment" data-fragment-index="3">
-						which can be written in the most compact form:
-					</p>
-				</div>
-				<div class="size-90">
-					<p class="fragment" data-fragment-index="3">
-						\(\ds f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n.\)
-					</p>
-				</div>
-				<br />
-				<br />
-				<br />
-			</section>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="1">
+							Let $a\in \mathbb R$ and $f(x)$ be and infinitely differentiable function on an interval $I$
+							containing $a$.
+							<span class="fragment" data-fragment-index="2">
+								Then the one-dimensional Taylor series of $f$ around $a$ is given by
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="2">
+							\(\ds f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+\cdots\)
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="3">
+							which can be written in the most compact form:
+						</p>
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="3">
+							\(\ds f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n.\)
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
 
-			<section data-auto-animate>
-				<h4>Taylor series</h4>
+				<section data-auto-animate>
+					<h4>Taylor series</h4>
 
 
-				<div class="size-70">
-					<p>
-						\(\ds f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n.\)
-					</p>
-				</div>
-				<div class="size-85 left-txt">
-					<p>For example, <em>the best linear approximation</em> for $f(x)$
-						is
-					</p>
-				</div>
-				<div class="size-85">
-					<p>
-						$f(x)\approx f(a)+f'(a)(x-a).$
-					</p>
-				</div>
-				<div class="size-85 left-txt">
-					<p class="fragment" data-fragment-index="1">
+					<div class="size-70">
+						<p>
+							\(\ds f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n.\)
+						</p>
+					</div>
+					<div class="size-85 left-txt">
+						<p>For example, <em>the best linear approximation</em> for $f(x)$
+							is
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							$f(x)\approx f(a)+f'(a)(x-a).$
+						</p>
+					</div>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="1">
 
-						This linear approximation fits $f(x)$ with a line through $x=a$ that matches the slope of $f$ at
-						$a$.
-					</p>
-				</div>
-				<div class="size-85 left-txt">
-					<p class="fragment" data-fragment-index="2">
-						For a better approximation we can add other terms in the expansion.
-						For instance, <em>the best quadratic approximation</em> is
-					</p>
-				</div>
-				<div class="size-85">
-					<p class="fragment" data-fragment-index="2">
-						$\ds f(x)\approx f(a)+f'(a)(x-a)+\frac12 f''(a)(x-a)^2.$
-					</p>
-				</div>
+							This linear approximation fits $f(x)$ with a line through $x=a$ that matches the slope of
+							$f$ at
+							$a$.
+						</p>
+					</div>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="2">
+							For a better approximation we can add other terms in the expansion.
+							For instance, <em>the best quadratic approximation</em> is
+						</p>
+					</div>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="2">
+							$\ds f(x)\approx f(a)+f'(a)(x-a)+\frac12 f''(a)(x-a)^2.$
+						</p>
+					</div>
 
-				<br />
-			</section>
-			<section data-auto-animate>
-				<h4>Taylor series</h4>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Taylor series</h4>
 
-				<iframe scrolling="no" title="Taylor series"
-					src="https://www.geogebra.org/material/iframe/id/njawpmcw/width/790/height/487/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-					width="790px" height="487px" style="border:0px;"> </iframe>
+					<iframe scrolling="no" title="Taylor series"
+						src="https://www.geogebra.org/material/iframe/id/njawpmcw/width/790/height/487/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+						width="790px" height="487px" style="border:0px;"> </iframe>
 
-				<div style="font-size: 55%;margin-top: -20px;">
-					<p>Change the function in the input box. Drag slider to increase the number of terms in the Taylor
-						series.</p>
-				</div>
-				<br />
+					<div style="font-size: 55%;margin-top: -20px;">
+						<p>Change the function in the input box. Drag slider to increase the number of terms in the
+							Taylor
+							series.</p>
+					</div>
+					<br />
+				</section>
 			</section>
 
 			<section>
