@@ -83,19 +83,22 @@
 
 			<section>
 
-				<div class="left-txt size-75">
+				<div class="left-txt size-85">
 					<p>
 						<b>Question 1</b>
 					</p>
-					<p>Determine the intervals where the graphs of the following functions are concave upwards and where
-						they are concave downward </p>
-					<ol style="line-height: 1.7;">
+					<ol style="line-height: 1.9;margin-top: -20px;">
 						<li>
-							$f(x)= x^2-x+12$
+							Evaluate the following limit using L'Hopital's rule:
+							\(
+							\ds \;\lim_{x\to 0}\frac{\sin(5x)}{x}.
+							\)
 						</li>
 
 						<li>
-							$f(x) = x^3 +15x^2+6x+1$
+							Use the second-order Taylor polynomials for $\cos(x)$ around $x=0$
+							to prove that
+							\(\ds \lim_{x\to 0} \frac{1-\cos(x)}{x^2}= \frac{1}{2}.\)
 						</li>
 					</ol>
 					<hr>
@@ -103,9 +106,16 @@
 						<b>Question 2</b>
 					</p>
 					<p>
-						Find the derivative of the functions $f(x) =\sqrt{4-\sqrt{4+x}}$
+						The radius of a circular metal disk is measured to be 2 cm.
+						If the radius increases by 0.02 cm,
 					</p>
-					
+					<ol style="line-height: 1.8;margin-top: -20px;">
+						<li>estimate the corresponding increase in the disk area,</li>
+						<li>
+							estimate the new area of the disk.
+						</li>
+					</ol>
+
 
 				</div>
 				<br />
@@ -114,82 +124,131 @@
 
 			<section>
 
-				<div class="left-txt size-70">
+				<div class="left-txt size-80">
 					<p>
 						<b>Solution Question 1</b>
 					</p>
 
 					<ol style="line-height: 1.7;">
 						<li class="fragment" data-fragment-index="0">
-							$f(x)= x^2-x+12$
-							<span  class="fragment" data-fragment-index="1">
-								$\Ra f'(x) = 2x-1\,$  
+							As $x\to 0,$ $\sin(5x)\to 0$ and $x\to 0$.
+							<span class="fragment" data-fragment-index="1">
+								Using L'Hopital's rule we have that
 							</span>
-							<span  class="fragment" data-fragment-index="2">
-								 and $\,f''(x) = 2$ 
-							</span>
-							<br />
-							<span class="fragment" data-fragment-index="3">
-								Since the second derivative is always positive, the graph is always
-							concave upward and there are no points of inflection.
-							</span>
-							
+							<p class="fragment" data-fragment-index="2">
+								$\ds \;\lim_{x\to 0}\frac{\sin(5x)}{x}$
+								<span class="fragment" data-fragment-index="3">
+									\(\ds =\lim_{x\to 0}\frac{5\cos(5x)}{1}\)
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									\(\ds =\lim_{x\to 0}5\cos(5(0))\)
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									\(\ds =5.\)
+								</span>
+							</p>
+							<br/>
+
 
 						</li>
 
-						<li class="fragment" data-fragment-index="4">
-							$f(x) = x^3 +15x^2+6x+1$
-							<span  class="fragment" data-fragment-index="5">
-								$\Ra f'(x) = 3x^2+30x+6\,$  
-							</span>
-							<span  class="fragment" data-fragment-index="6">
-								 and $\,f''(x) = 6x+30$ 
-							</span>
-							<br>
-							<span class="fragment" data-fragment-index="7">
-								When $x\gt -5$ the graph is concave upwards, 
-							</span>
-							<span class="fragment" data-fragment-index="8">
-							when $x\lt -5$ the graph
-							is concave downwards.
-							</span>
-							<span class="fragment" data-fragment-index="9">
-								 There is a point of inflection where the concavity changes at
-							$(-5,221).$
-							</span>
+						<li class="fragment" data-fragment-index="5">
+							We must prove that \(\ds \lim_{x\to 0} \frac{1-\cos(x)}{x^2}= \frac{1}{2}.\)
+							<p class="fragment" data-fragment-index="6">
+								The second order Taylor polynomial of $\cos(x)$ is $x-\dfrac{x^2}{2}.$
+								
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								Then \(\ds\; \lim_{x\to 0} \frac{1-\cos(x)}{x^2} \)
+								<span class="fragment" data-fragment-index="8">
+									\(\ds =\lim_{x\to 0} \frac{\dfrac{x^2}{2}}{x^2}\)
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									\(\ds=\lim_{x\to 0} \frac{1}{2}\)
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									\(\ds=\frac{1}{2}.\)
+								</span>
+							</p>
 						</li>
 					</ol>
-					<hr>
-					<p class="fragment" data-fragment-index="10">
-						<b>Solution Question 2</b>
+					
+
+
+				</div>
+				
+				<br />
+			</section>
+
+			<section>
+
+				<div class="left-txt size-85">
+					<p>
+						<b>Solution Question 2:</b>
+						Given radius $r = 2$ cm and $\Delta r = 0.02$ cm.
 					</p>
 
-					
-						
-					<p>
-						Consider $f(x) =\sqrt{4-\sqrt{4+x}} $
-						<span class="fragment" data-fragment-index="11">$= \left(4-(4+x)^{1/2}\right)^{1/2},\,$</span>
-						<span class="fragment" data-fragment-index="12">then</span>
-					</p>
-							
 				
+					<ol style="line-height: 1.8;margin-top: -20px;">
+						<li>Estimate the corresponding increase in the disk area:
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Since \(\,\ds \frac{\Delta A}{\Delta r} \approx \frac{dA}{dr}\,\) 
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									 then $\,\ds \Delta A \approx  \frac{dA}{dr}\ \Delta r.$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">Also, since $\,A = \pi r^2\,$ then $ \,\ds \frac{dA}{dr}\  = 2\pi r.$</p>
+							<p class="fragment" data-fragment-index="3">
+								Thus \(\Delta A \approx 2\pi r  \Delta r\)
+								
+								<span class="fragment" data-fragment-index="4">
+									\(=\ds 2\pi (2)(0.02) \)
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									\(=\ds \frac{2\pi}{25} \)
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									\(\approx \ds 0.25 \)
+								</span>
+
+							</p>
+
+
+						</li>
+						<li class="fragment" data-fragment-index="7">
+							Estimate the new area of the disk:
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									Compute \(\,A + \Delta A\)
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									\(= \pi(2)^2  + \dfrac{2\pi}{25}\)
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									\(= 4\pi  + \dfrac{2\pi}{25}\)
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									\(=  \dfrac{102\pi}{25}\)
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									\(\approx 12.81\)
+								</span>
+							</p>
+						</li>
+					</ol>
+					
+
+
 				</div>
-				<div class="size-70">
-					<p>
-						<span class="fragment" data-fragment-index="13">
-							\(f'(x) = \ds \frac{1}{2}\left(4-(4+x)^{1/2}\right)^{-1/2}\)
-						</span>
-						<span class="fragment" data-fragment-index="14">
-							\( \ds \left[-\frac{1}{2}(4+x)^{-1/2}\right]\)
-						</span>
-						<span class="fragment" data-fragment-index="15">
-							\( =\ds -\frac{1}{4} \frac{1}{\sqrt{4-\sqrt{4+x}} \sqrt{4+x}} \)
-						</span>
-					</p>
-				</div>
+				
 				<br />
 				<br />
 			</section>
+
+
 
 
 
