@@ -129,7 +129,7 @@
 						<b>Solution Question 1</b>
 					</p>
 
-					<ol style="line-height: 1.7;">
+					<ol style="line-height: 1.7;margin-top: -20px;">
 						<li class="fragment" data-fragment-index="0">
 							As $x\to 0,$ $\sin(5x)\to 0$ and $x\to 0$.
 							<span class="fragment" data-fragment-index="1">
@@ -155,26 +155,27 @@
 						<li class="fragment" data-fragment-index="5">
 							We must prove that \(\ds \lim_{x\to 0} \frac{1-\cos(x)}{x^2}= \frac{1}{2}.\)
 							<p class="fragment" data-fragment-index="6">
-								The second order Taylor polynomial of $\cos(x)$ is $x-\dfrac{x^2}{2}.$
+								The second order Taylor polynomial of $\cos(x)$ is $1-\dfrac{x^2}{2}.$
 								
 							</p>
 							<p class="fragment" data-fragment-index="7">
 								Then \(\ds\; \lim_{x\to 0} \frac{1-\cos(x)}{x^2} \)
 								<span class="fragment" data-fragment-index="8">
-									\(\ds =\lim_{x\to 0} \frac{\dfrac{x^2}{2}}{x^2}\)
+									\(\ds =\lim_{x\to 0} \frac{1-\left(1-\dfrac{x^2}{2}\right)}{x^2}\)
 								</span>
 								<span class="fragment" data-fragment-index="9">
-									\(\ds=\lim_{x\to 0} \frac{1}{2}\)
+									\(\ds =\lim_{x\to 0} \frac{\dfrac{x^2}{2}}{x^2}\)
 								</span>
 								<span class="fragment" data-fragment-index="10">
+									\(\ds=\lim_{x\to 0} \frac{1}{2}\)
+								</span>
+								<span class="fragment" data-fragment-index="11">
 									\(\ds=\frac{1}{2}.\)
 								</span>
 							</p>
 						</li>
 					</ol>
 					
-
-
 				</div>
 				
 				<br />
