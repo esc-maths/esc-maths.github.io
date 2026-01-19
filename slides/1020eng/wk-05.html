@@ -86,13 +86,13 @@
 
 			<section>
 
-				<div style="font-size: 60%;margin-top: -20px;">
+				<div style="font-size: 70%;margin-top: -20px;">
 					<p>
 						<b>First Derivative Test</b>
 					</p>
 				</div>
 
-				<table style="width: 80%; font-size: 60%;margin-top: -20px;" border="1" cellpadding="8">
+				<table style="width: 80%; font-size: 70%;margin-top: -20px;" border="1" cellpadding="8">
 					<tr style="text-align: center; font-weight: bold;">
 						<td style="width: 50%;">Behaviour of \(f'(x)\)</td>
 						<td style="width: 50%;">Conclusion</td>
@@ -128,13 +128,13 @@
 
 
 
-				<div style="font-size: 60%;">
+				<div style="font-size: 70%;">
 					<p>
 						<b>Second Derivative Test</b>
 					</p>
 				</div>
 
-				<table style="width: 80%; font-size: 60%;margin-top: -20px;" border="1" cellpadding="8">
+				<table style="width: 80%; font-size: 70%;margin-top: -20px;" border="1" cellpadding="8">
 					<tr style="text-align: center; font-weight: bold;">
 						<td style="width: 50%;">Condition at \(x = a\)</td>
 						<td style="width: 50%;">Conclusion</td>
@@ -166,53 +166,38 @@
 						</td>
 					</tr>
 				</table>
-				<table style="width: 90%; font-size: 60%; margin-top: 20px;" border="1" cellpadding="8">
-
-					<tr style="text-align: center; font-weight: bold;;">
-						<td colspan="2" style=" text-align: center">Concavity</td>
-						<td colspan="2" style=" text-align: center">Inflection Points</td>
-					</tr>
-
-					<tr style="text-align: center; font-weight: bold;">
-						<td style="width: 25%;">Condition on \(f''(x)\)</td>
-						<td style="width: 25%;">Conclusion</td>
-						<td style="width: 25%;">Condition at \(x = a\)</td>
-						<td style="width: 25%;">Conclusion</td>
-					</tr>
-
-					<tr>
-						<td style="text-align: center;">
-							\( f''(x) \gt 0 \)
-						</td>
-						<td style="text-align: center;">
-							Concave upwards
-						</td>
-						<td style="text-align: center;">
-							\( f''(a) = 0 \) and concavity changes
-						</td>
-						<td style="text-align: center;">
-							Point of inflection
-						</td>
-					</tr>
-
-					<tr>
-						<td style="text-align: center;">
-							\( f''(x) \lt 0 \) </td>
-						<td style="text-align: center;">
-							Concave downwards
-						</td>
-						<td style="text-align: center;">
-							No change in concavity
-						</td>
-						<td style="text-align: center;">
-							No point of inflection
-						</td>
-					</tr>
-
-				</table>
+				
 
 				<br />
+				<br />
+				<br />
 
+			</section>
+
+			<section>
+				<h4>Small change formula</h4>
+
+				<div class="left-txt size-90">
+					<p class="fragment" data-fragment-index="1">From the definition of derivative $\ds \frac{dy}{dx} =
+						\lim_{\Delta x \to 0}\frac{\Delta y}{\Delta x}.$</p>
+					<p class="fragment" data-fragment-index="2">If $\Delta y $ and $\Delta x$ are small,
+						<span class="fragment" data-fragment-index="3">
+							then
+						</span>
+					</p>
+
+				</div>
+				<div class="size-90">
+					<p class="fragment" data-fragment-index="3">
+						$\ds \frac{\Delta y}{ \Delta x} \approx \frac{dy}{dx}\,$
+						<span class="fragment" data-fragment-index="4">
+							and so $\,\ds \Delta y \approx \frac{dy}{ dx}\Delta x$
+						</span>
+					</p>
+				</div>
+				<br />
+				<br />
+				<br />
 			</section>
 
 			<section data-auto-animate>
@@ -299,6 +284,114 @@
 						series.</p>
 				</div>
 				<br />
+			</section>
+
+			<section>
+
+				<div style="font-size: 60%;margin-top: -20px;">
+					<p>
+						<b>First Derivative Test</b>
+					</p>
+				</div>
+
+				<table style="width: 80%; font-size: 60%;margin-top: -20px;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 50%;">Behaviour of \(f'(x)\)</td>
+						<td style="width: 50%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							Changes from positive to negative
+						</td>
+						<td style="text-align: center;">
+							Local maximum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							Changes from negative to positive
+						</td>
+						<td style="text-align: center;">
+							Local minimum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							No sign change
+						</td>
+						<td style="text-align: center;">
+							Stationary point of inflection
+						</td>
+					</tr>
+				</table>
+
+
+
+				<div style="font-size: 60%;margin-top: -10px;">
+					<p>
+						<b>Second Derivative Test</b>
+					</p>
+				</div>
+
+				<table style="width: 80%; font-size: 60%;margin-top: -20px;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 50%;">Condition at \(x = a\)</td>
+						<td style="width: 50%;">Conclusion</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) \gt 0 \)
+						</td>
+						<td style="text-align: center;">
+							Local minimum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) \lt 0 \) </td>
+						<td style="text-align: center;">
+							Local maximum
+						</td>
+					</tr>
+
+					<tr>
+						<td style="text-align: center;">
+							\( f'(a)=0 \) and \( f''(a) = 0 \)
+						</td>
+						<td style="text-align: center;">
+							Test inconclusive
+						</td>
+					</tr>
+				</table>
+
+				
+				<div class="size-60">
+					
+					<p>
+						<b>Small change formula:</b>
+						For $\Delta y $ and $\Delta x$ are small,
+						
+						$\ds \frac{\Delta y}{ \Delta x} \approx \frac{dy}{dx}\,$
+						<span>
+							implies $\,\ds \Delta y \approx \frac{dy}{ dx}\Delta x$
+						</span>
+					</p>
+				</div>
+
+				<hr/>
+				
+				<div class="size-60">
+					
+					<p>
+						<b>Taylor series:</b> \(\;\ds f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n.\)
+					</p>
+				</div>
+				<br/>
 			</section>
 
 			<section>
