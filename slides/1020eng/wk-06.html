@@ -269,14 +269,54 @@
 			</section>
 
 			<section>
+				<h3>Integration rules</h3>
 
+				<div>
+					<p class="fragment" data-fragment-index="0">
+						Integration by substitution
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						\(\ds \int f\left(g\left(x\right)\right)\, dx \)
+						<span class="fragment" data-fragment-index="2">
+							\(= \int f(u)\, du\,\)
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							where \(\,u = g(x).\)
+						</span>
+					</p>
+				</div>
+				<hr class="fragment" data-fragment-index="4">
 
+				<div>
+					<p class="fragment" data-fragment-index="4">
+						Integration by parts
+					</p>
+					<p class="fragment" data-fragment-index="5">
+						\(\ds \int \frac{df\left(x\right)}{dx}g\left(x\right)\, dx \)
+						<span class="fragment" data-fragment-index="6">
+							\(\ds = f\left(x\right)g\left(x\right)
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="7">
+							\(\ds \,
+							- \int f\left(x\right)\frac{dg\left(x\right)}{dx}\, du\)
+						</span>
+					</p>
+				</div>
+
+				<br>
+				<br>
+				<br>
+
+			</section>
+		
+
+			<section>
 				<h5>
-					Some Basic Indefinite Integrals
+					Some Standard Indefinite Integrals
 				</h5>
 
-
-				<table style="width: 100%;font-size: 68%;margin-top: -10px;">
+				<table style="width: 100%;font-size: 65%;margin-top: -10px;">
 					<tr>
 						<td style="width: 50%; vertical-align: top; ">
 							<ul>
@@ -286,22 +326,40 @@
 								<li>\(\displaystyle \int \sin x\,dx = -\cos x + C\)</li>
 								<li>\(\displaystyle \int \cos x\,dx = \sin x + C\)</li>
 								<li>\(\displaystyle \int \sec^2 x\,dx = \tan x + C\)</li>
-								<li>\(\displaystyle \int \dfrac{1}{1+x^2}\,dx = \arctan x + C\)</li>
-								<li>\(\displaystyle \int \dfrac{1}{\sqrt{1-x^2}}\,dx = \arcsin x + C\)</li>
+								
 							</ul>
 						</td>
 
 						<td style="width: 50%; vertical-align: top;">
 							<ul>
+								<li>\(\displaystyle \int \dfrac{1}{1+x^2}\,dx = \arctan x + C\)</li>
+								<li>\(\displaystyle \int \dfrac{1}{\sqrt{1-x^2}}\,dx = \arcsin x + C\)</li>
 								<li>\(\displaystyle \int \sinh x\,dx = \cosh x + C\)</li>
 								<li>\(\displaystyle \int \cosh x\,dx = \sinh x + C\)</li>
 								<li>\(\displaystyle \int \sech^2 x\,dx = \tanh x + C\)</li>
 								<li>\(\displaystyle \int \csch^2 x\,dx = -\coth x + C\)</li>
-								<li>\(\displaystyle \int \sech x\,\tanh x\,dx = -\sech x + C\)</li>
-								<li>\(\displaystyle \int \csch x\,\coth x\,dx = -\csch x + C\)</li>
-								<li>\(\displaystyle \int \tanh x\,dx = \ln(\cosh x) + C\)</li>
-								<li>\(\displaystyle \int \coth x\,dx = \ln|\sinh x| + C\)</li>
+
 							</ul>
+						</td>
+					</tr>
+				</table>
+
+				<table style="font-size: 70%;" border="1">
+					<tr>
+						<td>
+							Integration by substitution
+						</td>
+						<td>
+							\(\ds \int f\left(g\left(x\right)\right)\, dx = \int f(u)\, du\)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Integration by parts
+						</td>
+						<td>
+							\(\ds \int \frac{df\left(x\right)}{dx}g\left(x\right)\, dx = f\left(x\right)g\left(x\right)
+							- \int f\left(x\right)\frac{dg\left(x\right)}{dx}\, du\)
 						</td>
 					</tr>
 				</table>
