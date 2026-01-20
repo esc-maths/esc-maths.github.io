@@ -150,7 +150,7 @@
 					<h4>
 						Which form should I use?
 					</h4>
-					<br/>
+					<br />
 
 					<table style="width: 100%;">
 						<tr>
@@ -197,15 +197,17 @@
 										<li>
 											Tables:
 											<ul style="margin-left: 0px; line-height: 1.8;">
-												<li class="fragment" data-fragment-index="2">When numbers themselves are important.</li>
-												<li class="fragment" data-fragment-index="3">Presenting raw or detailed data.</li>
+												<li class="fragment" data-fragment-index="2">When numbers themselves are
+													important.</li>
+												<li class="fragment" data-fragment-index="3">Presenting raw or detailed
+													data.</li>
 											</ul>
 										</li>
 
 									</ul>
 								</div>
-								<br/>
-								<br/>
+								<br />
+								<br />
 							</td>
 							<td style="width: 50%;">
 								<img style="width: 100%;" src="images/lec-10/table.png">
@@ -230,14 +232,16 @@
 										<li>
 											Graphs:
 											<ul style="margin-left: 0px; line-height: 1.8;">
-												<li class="fragment" data-fragment-index="2">When visualisation clarifies conclusions.</li>
-												<li class="fragment" data-fragment-index="3">Showing trends or relative sizes.</li>
+												<li class="fragment" data-fragment-index="2">When visualisation
+													clarifies conclusions.</li>
+												<li class="fragment" data-fragment-index="3">Showing trends or relative
+													sizes.</li>
 											</ul>
 										</li>
 									</ul>
 								</div>
-								<br/>
-								<br/>
+								<br />
+								<br />
 							</td>
 							<td style="width: 55%;">
 								<img style="width: 100%;" src="images/lec-10/plot.png">
@@ -342,12 +346,12 @@
 
 						<ul>
 							<li class="fragment" data-fragment-index="4">
-								<em>The experiment involved <span>three</span> trials conducted under identical
-									conditions.</em>
+								"The experiment involved <b>three</b> trials conducted under identical
+								conditions.""
 							</li>
 
 							<li class="fragment" data-fragment-index="5">
-								<em>The rod was <span>5 cm</span> long and weighed <span>2 kg</span>.</em>
+								"The rod was <b>5 cm</b> long and weighed <span>2 kg</span>.""
 							</li>
 						</ul>
 
@@ -648,6 +652,7 @@
 
 						const data = {
 							labels: labels,
+
 							datasets: [
 								{
 									label: 'Dataset 1',
@@ -680,6 +685,19 @@
 									}
 								},
 								responsive: true,
+								// ONLY the numbers (axis tick labels)
+								scales: {
+									x: {
+										ticks: {
+											color: '#000'
+										}
+									},
+									y: {
+										ticks: {
+											color: '#000'
+										}
+									}
+								},
 								plugins: {
 									legend: {
 										position: 'right',
@@ -796,9 +814,10 @@
 					<div>
 						<img src="images/lec-10/charts-04-slopes.png">
 					</div>
-					<div style="font-size:75%;margin-top: -30px;">
+					<div style="font-size:60%;margin-top: -30px;text-align:left;">
 						<p>
-							Use the same axes for two plots.
+							$\qquad \quad$ We judge positions along a common scale well. $\qquad \qquad $ We judge
+							slopes well (relative to 45%)
 						</p>
 					</div>
 				</section>
@@ -881,7 +900,7 @@
 						Summary
 					</h4>
 
-					<br/>
+					<br />
 
 					<div class="left-txt">
 						<ul style="line-height: 1.8;">
@@ -951,8 +970,7 @@
 				</section>
 			</section>
 
-			<section data-transition="fade" data-background-iframe="sketches/world-elevation"
-				data-background="black">
+			<section data-transition="fade" data-background-iframe="sketches/world-elevation" data-background="black">
 				<!--../../sketches/transformations-3d-->
 				<div
 					style=" position: absolute;bottom:-600px;left: 85%;transform: translateX(-50%);width:37%; padding: 0.3em;font-size: 55%;">
