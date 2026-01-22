@@ -88,18 +88,17 @@
 						<b>Question 1</b>
 					</p>
 					<p>
-						Evaluate the integral $\ds \int_1^2 \left(x^2+1\right)\, dx.$
+						Evaluate the following integral: $\ds \int_0^3 \left(x+1\right)^4\, dx.$
 					</p>
-					<br />
 
 					<hr>
+					<br />
 					<br />
 					<p>
 						<b>Question 2</b>
 					</p>
 					<p>
-						Use integration by substitution to evaluate the integral
-						$\ds \int_0^1 \left(x+1\right)^9\, dx$
+						Find the value of $k$ such that: $\ds \int_0^k x^2\, dx = 9.$
 					</p>
 
 
@@ -116,9 +115,9 @@
 					</p>
 
 					<p class="fragment" data-fragment-index="0">
-						Consider the function $F(x) = \ds\frac{x^3}{3} + x$.
+						Consider the function $F(x) = \ds\frac{1}{5}(x+1)^5$.
 						<span class="fragment" data-fragment-index="1">
-							Notice that $F'(x) = x^2+1.$
+							Notice that $F'(x) = \left(x+1\right)^4.$
 						</span>
 						<span class="fragment" data-fragment-index="2">
 							Thus
@@ -129,27 +128,23 @@
 				</div>
 				<div class="size-80">
 					<p>
-						<span>
-							\(\ds \int_1^2 \left(x^2+1\right)\, dx \)
-						</span>
 						<span class="fragment" data-fragment-index="2">
-							\(=\ds \left[\frac{x^3}{3} + x\right]_1^{2}\)
+							\(\ds \int_0^3 \left(x+1\right)^4\, dx =\ds \left[\frac{1}{5}(x+1)^5\right]_0^{3}\)
 						</span>
 						<span class="fragment" data-fragment-index="4">
-							\( \ds = \left[\frac{(2)^3}{3} + (2)\right] - \left[\frac{(1)^3}{3} + (1)
-							\right]\qquad\qquad\)
+							\( \ds = \frac{1}{5}(\mathbf 3+1)^5 - \frac{1}{5}(\mathbf 0+1)^5 \qquad\quad\)
 						</span>
 
 					</p>
 					<p>
 						<span class="fragment" data-fragment-index="5">
-							\( \ds =\left[\frac{8}{3} + 2\right] - \left[\frac{1}{3} + 1\right] \)
+							\( \ds = \frac{4^5}{5} - \frac{1^5}{5} \)
 						</span>
 						<span class="fragment" data-fragment-index="6">
-							\( \ds = \frac{7}{3} + 1 \)
+							\( \ds = \frac{1024}{5} - \frac{1}{5} \)
 						</span>
 						<span class="fragment" data-fragment-index="7">
-							\( \ds = \frac{10}{3} .\)
+							\( \ds = \frac{1023}{5} .\)
 						</span>
 					</p>
 				</div>
@@ -161,60 +156,59 @@
 
 			<section>
 
-				<div class="left-txt size-90">
+				<div class="left-txt size-80">
 					<p>
 						<b>Solution Question 2</b>
 					</p>
 					<p>
+						Find the value of $k$ such that: $\ds \int_0^k x^2\, dx = 9.$
+					</p>
+					<p>
 
 						<span class="fragment" data-fragment-index="0">
-							Set $u = x+1$,
+							Now consider $F(x) = \ds \frac{x^3}{3}.$
 						</span>
 						<span class="fragment" data-fragment-index="1">
-							then $du = dx.$
+							Notice that $F'(x) = x^2.$
 						</span>
 						<span class="fragment" data-fragment-index="2">
-							Also $\underbrace{u = 0+1=1}_{\text{lower bound}}$ 
-						</span>
-						<span class="fragment" data-fragment-index="3">
-							and $\overbrace{u = 1 + 1 =2}^{\text{upper bound}}.$
-						</span>
-						<span class="fragment" data-fragment-index="4">
-							Then
+							Thus
 						</span>
 					</p>
 
 
 				</div>
-				<div class="size-90">
+				<div class="size-80">
 					<p>
-						<span>
-							$\ds \int_0^1 \left(x+1\right)^9\, dx$
+						<span class="fragment" data-fragment-index="2">
+							$\ds \int_0^k x^2\, dx =\ds \left[\frac{x^3}{3}\right]_0^{k}$
 						</span>
 						<span class="fragment" data-fragment-index="4">
-							\( \ds= \int_1^2 u ^9 \, du\)
+							\( \ds = \frac{k^3}{3} - \frac{0^3}{3}\)
 						</span>
 						<span class="fragment" data-fragment-index="5">
-							\( \ds = \left[\frac{u^{10}}{10}\right]_1^{2} \qquad \qquad \qquad \qquad\qquad\)
+							\( \ds = \frac{k^3}{3} \)
 						</span>
-
-					</p>
-					<p>
 						<span class="fragment" data-fragment-index="6">
-							\( \ds = \frac{(2)^{10}}{10} -\frac{(1)^{10}}{10} \)
+							\( \ds = 9 \)
 						</span>
+					</p>
+					
+				</div>
+				<div class="left-txt size-80">
+					<p>
 						<span class="fragment" data-fragment-index="7">
-							\( \ds = \frac{1023}{10} \)
+							From equation $\ds \frac{k^3}{3}=9$ we solve for $k.$
 						</span>
 						<span class="fragment" data-fragment-index="8">
-							\( \ds =102.3 \)
+							That is \( k^3 = 27.\) 
 						</span>
+						<span class="fragment" data-fragment-index="9">
+							Therefore \( k = 9.\) 
+						</span>
+						
 					</p>
-
 				</div>
-
-				<br />
-				<br />
 				<br />
 				<br />
 			</section>
