@@ -1,4 +1,4 @@
-let N = 20000;
+let N = 10000;
 let collDist;
 let fbWide, fbHigh;
 let oldPosVel, newPosVel;
@@ -8,7 +8,7 @@ let collShdr, showGridShdr, updateShdr, drawShdr;
 function setup() {
   // Create canvas with full window dimensions
   createCanvas(windowWidth, windowHeight, WEBGL);
-  pixelDensity(1);
+  //pixelDensity(1);
   
   collDist = 0.75 * sqrt(4.0/N);
   gridWide = gridHigh = int(4.0/collDist);
@@ -81,7 +81,7 @@ function draw() {
   collShdr.unbindShader();
   grid.end();
   
-  background(255);
+  background(30);
   
   // Update particle positions
   newPosVel.begin();
