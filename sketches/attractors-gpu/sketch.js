@@ -256,21 +256,21 @@ out vec4 vColor;
 
 // Our color palette in GLSL
 vec3 getColor(int index) {
-    // Array of our colors (matches JavaScript array)
     vec3 palette[9];
-    palette[0] = vec3(0.8, 0.0, 0.0);    // dark red
-    palette[1] = vec3(1.0, 0.4, 0.0);    // strong orange
-    palette[2] = vec3(0.8, 0.8, 0.0);    // dark yellow
-    palette[3] = vec3(0.0, 0.6, 0.0);    // dark green
-    palette[4] = vec3(0.0, 0.0, 0.8);    // dark blue
-    palette[5] = vec3(0.4, 0.0, 0.8);    // purple
-    palette[6] = vec3(0.8, 0.0, 0.8);    // magenta
-    palette[7] = vec3(0.4, 0.4, 0.4);    // gray
-    palette[8] = vec3(0.0, 0.5, 0.5);    // teal
+    palette[0] = vec3(0.90, 0.25, 0.25); // red
+    palette[1] = vec3(0.95, 0.60, 0.20); // orange
+    palette[2] = vec3(0.95, 0.85, 0.30); // yellow
+    palette[3] = vec3(0.30, 0.80, 0.40); // green
+    palette[4] = vec3(0.30, 0.65, 0.90); // blue
+    palette[5] = vec3(0.40, 0.45, 0.90); // indigo
+    palette[6] = vec3(0.65, 0.40, 0.85); // violet
+    palette[7] = vec3(0.75, 0.75, 0.75); // light gray
+    palette[8] = vec3(0.30, 0.85, 0.85); // teal
     
-    // Use modulo to cycle through colors based on particle index
     return palette[index % 9];
 }
+
+
 
 vec3 hsb2rgb(in vec3 c) {
   vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0), 6.0)-3.0)-1.0, 0.0, 1.0);
