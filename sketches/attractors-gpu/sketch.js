@@ -58,14 +58,19 @@ function setup() {
   grid = createFramebuffer(fbOptions);
 
   // Set initial aspect ratio uniform
-  drawShdr.setUniform('aspectRatio', width/height);
+  //drawShdr.setUniform('aspectRatio', width/height);
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 
-  // Update aspect ratio when window resizes
-  drawShdr.setUniform('aspectRatio', width/height);
+  // Force WebGL viewport update
+  const gl = this._renderer.GL;
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+
+  drawShdr.bindShader();
+  drawShdr.setUniform('aspectRatio', width / height);
+  drawShdr.unbindShader();
 }
 
 function draw() {
