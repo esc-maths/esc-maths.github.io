@@ -24,8 +24,9 @@ function preload() {
 }
 
 function setup() {
-	let canvas = createCanvas(xMax, yMax);
-	canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+	//let canvas = createCanvas(xMax, yMax);
+	createCanvas(xMax, yMax);
+	//canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
 	world.gravity.y = 20;
 	// Create the webcam video and hide it
 	video = createCapture(VIDEO);
