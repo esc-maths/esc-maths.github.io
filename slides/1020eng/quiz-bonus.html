@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1020ENG/1202SCG - Quiz Bonus</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<h2>
+					<span class="size-85">
+						Calculus I <br />
+						&amp;
+						<br />
+						Engineering Mathematics 2
+					</span>
+				</h2>
+
+
+				<p style="margin-top: 50px;">Bonus Quiz</p>
+
+				<br />
+			</section>
+
+
+			<section>
+
+				<div class="left-txt size-75">
+					<p>
+						<b>Question 1</b>
+					</p>
+
+
+
+				</div>
+				<div class="size-80">
+
+					Evaluate $\ds \lim_{x\to -5}\frac{x^2-25}{x+5}$
+					</p>
+
+
+				</div>
+				<hr>
+				<div class="left-txt size-80">
+
+					<p>
+						<b>Question 2</b>
+					</p>
+
+
+				</div>
+
+
+				<div class="size-80">
+
+					<p>
+						Find $\ds\frac{dy}{dx}$ if
+						$\ds y = \sin\left(x^2\right)$
+					</p>
+
+
+				</div>
+
+				<hr>
+				<div class="left-txt size-80">
+					<p>
+						<b>Question 3</b>
+					</p>
+
+				</div>
+
+				<div class="size-80">
+
+					<p>
+						For what value of $x$ does $f(x)=xe^{-x}$
+						have its maximum value?
+					</p>
+
+
+				</div>
+				<hr>
+				<div class="left-txt size-80">
+					<p>
+						<b>Question 4</b>
+					</p>
+
+
+
+				</div>
+				<div class="size-80">
+
+					<p>
+						Find $\ds \int e^{3x}\,dx$
+					</p>
+
+
+				</div>
+				<br />
+			</section>
+
+			<section>
+
+				<div class="left-txt size-80">
+					<p>
+						<b>Solution Question 1</b>
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						We evaluate the limit
+						$\ds \lim_{x\to -5}\frac{x^2-25}{x+5}$.
+						<span class="fragment" data-fragment-index="1">
+							Factor the numerator.
+						</span>
+					</p>
+
+				</div>
+				<div class="size-80">
+					<p>
+						<span class="fragment" data-fragment-index="1">
+							\(\ds \frac{x^2-25}{x+5} = \frac{(x-5)(x+5)}{x+5}\)
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							\(\ds = x-5 \quad (x \neq -5)\)
+						</span>
+					</p>
+					<br/>
+					<p>
+						<span class="fragment" data-fragment-index="3">
+							Now take the limit:
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							\(\;\ds \lim_{x\to -5}(x-5) = -10.\)
+						</span>
+					</p>
+				</div>
+				<br />
+				<br />
+			</section>
+
+
+			<section>
+
+				<div class="left-txt size-80">
+					<p>
+						<b>Solution Question 2</b>
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						We are given
+						$\ds y = \sin(x^2)$.
+						<span class="fragment" data-fragment-index="1">
+							This is a composition of functions.
+						</span>
+					</p>
+
+				</div>
+				<div class="size-80">
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							Using the chain rule:<br/><br/>
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							\(\ds \frac{dy}{dx} = \cos(x^2)\cdot \frac{d}{dx}(x^2)\)
+						</span>
+					</p>
+					<br/>
+					<p>
+						<span class="fragment" data-fragment-index="4">
+						Therefore	\(\ds\, \frac{dy}{dx} = 2x\cos(x^2).\)
+						</span>
+					</p>
+				</div>
+				<br />
+				<br />
+			</section>
+
+			<section>
+
+				<div class="left-txt size-80">
+					<p>
+						<b>Solution Question 3</b>
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						We want to find the maximum of
+						$\ds f(x)=xe^{-x}$.
+						<span class="fragment" data-fragment-index="1">
+							Differentiate the function.
+						</span>
+					</p>
+
+				</div>
+				<div class="size-80">
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							Using the product rule:
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							\(\ds f'(x)=e^{-x}-xe^{-x}\)
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							\(\ds = e^{-x}(1-x)\)
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="5">
+							Set $f'(x)=0:\,$ So
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							\(\ds \,e^{-x}(1-x)=0\,\)
+						</span>
+						<span class="fragment" data-fragment-index="7">
+							\(\ds\, \Rightarrow x=1.\)
+						</span>
+					</p>
+					<p class="fragment" data-fragment-index="8">
+						Using the second derivative test we have:
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="9">
+							\(\ds f''(x)= -e^{-x}-e^{-x}+xe^{-x}\)
+						</span>
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="10">
+							\(\ds f''(1)=-e^{-1}-e^{-1}+e^{-1}\)
+						</span>
+						<span class="fragment" data-fragment-index="11">
+							\(\ds = -e^{-1}  \) </span>
+						<span class="fragment" data-fragment-index="12">
+							\(\lt   0\) </span>
+					</p>
+					<p class="fragment" data-fragment-index="13">
+						Therefore, $f(x)$ has a maximum at $\ds x=1$.
+					</p>
+				</div>
+				<br />
+			</section>
+
+
+			<section>
+
+				<div class="left-txt size-80">
+					<p>
+						<b>Solution Question 4</b>
+					</p>
+
+					<p class="fragment" data-fragment-index="0">
+						We evaluate the integral
+						$\ds \int e^{3x}\,dx$.
+						<span class="fragment" data-fragment-index="1">
+							Use substitution.
+						</span>
+					</p>
+
+				</div>
+				<div class="size-80">
+					<p>
+						<span class="fragment" data-fragment-index="2">
+							Let $u=3x,\,$ 
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							so $\,du=3\,dx$.
+						</span>
+
+					</p>
+					<br/>
+					<p>
+						<span class="fragment" data-fragment-index="4">
+							\(\ds \int e^{3x}\,dx = \frac{1}{3}\int e^{u}\,du\)
+						</span>
+						<span class="fragment" data-fragment-index="5">
+							\(\ds = \frac{1}{3}e^{u}+C\)
+						</span>
+						<span class="fragment" data-fragment-index="6">
+							\(\ds = \frac{1}{3}e^{3x}+C.\)
+						</span>
+					</p>
+				</div>
+				<br />
+				<br />
+				<br />
+			</section>
+
+
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
