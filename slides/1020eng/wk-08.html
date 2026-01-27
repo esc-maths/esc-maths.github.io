@@ -85,8 +85,11 @@
 				<div>
 					<div class="left-txt">
 						<p>
-							If a rod has variable density $\rho(x)$ along its length,
+
 							<span class="fragment" data-fragment-index="0">
+								If a rod has variable density $\rho(x)$ along its length,
+							</span>
+							<span class="fragment" data-fragment-index="1">
 								the mass is obtained by integration.
 							</span>
 						</p>
@@ -94,7 +97,7 @@
 
 					<div>
 						<p class="fragment" data-fragment-index="1">
-							$\ds m = \int_a^b \rho(x)\,dx$
+							$\ds m = \int_a^b \rho(x)\,dx.$
 						</p>
 					</div>
 
@@ -113,21 +116,21 @@
 				<div>
 					<div class="left-txt">
 						<p>
-							The area between two curves $y=f(x)$ and $y=g(x)$
+
 							<span class="fragment" data-fragment-index="0">
-								over $[a,b]$ is
+								The area between two curves $y=f(x)$ and $y=g(x)$ over $[a,b]$ is
 							</span>
 						</p>
 					</div>
 
 					<div>
-						<p class="fragment" data-fragment-index="1">
-							$\ds A = \int_a^b \big(f(x)-g(x)\big)\,dx$
+						<p class="fragment" data-fragment-index="0">
+							$\ds A = \int_a^b \big(f(x)-g(x)\big)\,dx,$
 						</p>
 					</div>
 
 					<div class="left-txt">
-						<p class="fragment" data-fragment-index="2">
+						<p class="fragment" data-fragment-index="1">
 							where $f(x)$ is the upper curve and $g(x)$ the lower curve.
 						</p>
 					</div>
@@ -143,16 +146,18 @@
 				<div>
 					<div class="left-txt">
 						<p>
-							When a region is revolved about an axis,
 							<span class="fragment" data-fragment-index="0">
-								its volume can be computed using integration.
+								When a region is revolved about an axis,
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								its volume can be computed using integration:
 							</span>
 						</p>
 					</div>
 
 					<div>
 						<p class="fragment" data-fragment-index="1">
-							$\ds V = \pi \int_a^b \big[f(x)\big]^2\,dx$
+							$\ds V = \pi \int_a^b \big[f(x)\big]^2\,dx.$
 						</p>
 					</div>
 
@@ -170,27 +175,42 @@
 				<div>
 					<div class="left-txt">
 						<p>
-							An integral is called improper if
+
 							<span class="fragment" data-fragment-index="0">
-								the interval is infinite or the integrand is unbounded.
+								An integral is called improper if
+								the interval is infinite or the integrand is unbounded:
 							</span>
 						</p>
 					</div>
 
 					<div>
 						<p class="fragment" data-fragment-index="1">
-							$\ds \int_1^{\infty} \frac{1}{x^2}\,dx
-							= \lim_{b\to\infty} \int_1^b \frac{1}{x^2}\,dx$
+							$\ds \int_1^{\infty} \frac{1}{x^2}\,dx$
+							<span class="fragment" data-fragment-index="2">
+								$=\ds \lim_{b\to\infty} \int_1^b \frac{1}{x^2}\,dx$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$=\ds \lim_{b\to\infty}\left[-\frac{1}{x}\right]_1^b\,dx$
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$=\ds \lim_{b\to\infty}\left[-\frac{1}{b}+\frac{1}{1}\right]$
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$=\ds 1$
+							</span>
 						</p>
 					</div>
 
 					<div class="left-txt">
-						<p class="fragment" data-fragment-index="2">
-							The integral converges if the limit exists and is finite.
+						<p class="fragment" data-fragment-index="6">
+							<b>Note:</b> The integral converges if the limit exists and is finite.
 						</p>
 					</div>
 				</div>
-				<br /><br /><br />
+				<br /><br />
 			</section>
 
 
@@ -205,7 +225,7 @@
 							<th style="text-align:left; padding:8px;">Formula</th>
 						</tr>
 
-						<tr class="fragment" data-fragment-index="0">
+						<tr>
 							<td style="padding:8px;">Density / Mass</td>
 							<td style="padding:8px;">
 								$\rho(x)$ along an interval $[a,b]$
@@ -215,7 +235,7 @@
 							</td>
 						</tr>
 
-						<tr class="fragment" data-fragment-index="1">
+						<tr>
 							<td style="padding:8px;">Area between curves</td>
 							<td style="padding:8px;">
 								$y=f(x),\ y=g(x)$
@@ -225,7 +245,7 @@
 							</td>
 						</tr>
 
-						<tr class="fragment" data-fragment-index="2">
+						<tr>
 							<td style="padding:8px;">Volume of revolution</td>
 							<td style="padding:8px;">
 								Rotation about an axis
@@ -235,7 +255,7 @@
 							</td>
 						</tr>
 
-						<tr class="fragment" data-fragment-index="3">
+						<tr>
 							<td style="padding:8px;">Improper integrals</td>
 							<td style="padding:8px;">
 								$\infty$ limit or vertical asymptote
