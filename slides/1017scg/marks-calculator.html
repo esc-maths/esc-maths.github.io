@@ -29,12 +29,13 @@
         }
 
         .result {
+            font-size: 1.2rem;
             margin-top: 20px;
-            font-size: 18px;
             font-weight: bold;
         }
 
         .error {
+            font-size: 1.2rem;
             color: red;
             font-weight: bold;
         }
@@ -143,7 +144,7 @@
             for (let v of values) {
                 if (v < 0 || v > 20) {
                     document.getElementById("error").innerText =
-                        "Invalid Mark: All marks must be between 0 and 20";
+                        "Invalid Mark: \n All marks must be between 0 and 20 \n😕";
                     document.getElementById("output").innerText = "";
                     return;
                 }
