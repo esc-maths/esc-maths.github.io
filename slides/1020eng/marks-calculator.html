@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Mathematics Marks Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        .info-btn {
+            display: inline-block;
+            margin-left: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #0077cc;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-card {
+            background: white;
+            padding: 20px;
+            width: 380px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            font-size: 1.5rem;
+        }
+
+        .popup-card h3 {
+            margin-top: 0;
+        }
+
+        .popup-card ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Foundation Mathematics Marks Calculator</h1>
+    <div class="container">
+        <label>Workshop Engagement (out of 20):</label>
+        <input type="number" id="workshop" min="0" max="20">
+
+        <label>Progress Test 1 (out of 20):</label>
+        <input type="number" id="test1" min="0" max="20">
+
+        <label>Progress Test 2 (out of 20):</label>
+        <input type="number" id="test2" min="0" max="20">
+
+        <label>Progress Test 3 (out of 20):</label>
+        <input type="number" id="test3" min="0" max="20">
+
+        <div class="result" id="output"></div>
+        <div class="error" id="error"></div>
+    </div>
+
+    <div class="popup-overlay" id="popup">
+        <div class="popup-card">
+            <h3>Assessment Weighting</h3>
+            <ul>
+                <li>Workshop Engagement: <b>20%</b></li>
+                <li>Progress Test 1: <b>20%</b></li>
+                <li>Progress Test 2: <b>30%</b></li>
+                <li>Progress Test 3: <b>30%</b></li>
+            </ul>
+            <p style="text-align:center; margin-top:15px;">
+                <button onclick="closePopup()">Close</button>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const workshopInput = document.getElementById("workshop");
+        const test1Input = document.getElementById("test1");
+        const test2Input = document.getElementById("test2");
+        const test3Input = document.getElementById("test3");
+
+        const inputs = [workshopInput, test1Input, test2Input, test3Input];
+
+        inputs.forEach(input => {
+            input.addEventListener("input", calculateGrade);
+        });
+
+        function calculateGrade() {
+            let workshop = parseFloat(workshopInput.value) || 0;
+            let test1 = parseFloat(test1Input.value) || 0;
+            let test2 = parseFloat(test2Input.value) || 0;
+            let test3 = parseFloat(test3Input.value) || 0;
+
+            let values = [workshop, test1, test2, test3];
+
+            for (let v of values) {
+                if (v < 0 || v > 20) {
+                    document.getElementById("error").innerText =
+                        "Invalid Mark: All marks must be between 0 and 20";
+                    document.getElementById("output").innerText = "";
+                    return;
+                }
+            }
+
+            document.getElementById("error").innerText = "";
+
+            let percentage =
+                (workshop / 20) * 20 +
+                (test1 / 20) * 20 +
+                (test2 / 20) * 30 +
+                (test3 / 20) * 30;
+
+            let grade = percentage >= 65
+                ? "Non-Graded Pass (NGP)"
+                : "Non-Graded Fail (NGF)";
+
+            document.getElementById("output").innerHTML =
+                `Overall Percentage: ${percentage.toFixed(2)}%
+             <span class="info-btn" onclick="openPopup()">ⓘ</span><br>
+             Final Grade: ${grade}`;
+        }
+
+        function openPopup() {
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        document.getElementById("popup").addEventListener("click", e => {
+            if (e.target.id === "popup") closePopup();
+        });
+    </script>
+
+
+</body>
+
+</html>
