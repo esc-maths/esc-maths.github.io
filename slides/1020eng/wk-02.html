@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>1020ENG/1202SCG - Workshop 3</title>
+	<title>1020ENG/1202SCG - Workshop 2</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -75,79 +75,148 @@
 				</h2>
 
 
-				<p style="margin-top: 50px;">Workshop 3</p>
+				<p style="margin-top: 50px;">Workshop 2</p>
 
 				<br />
 			</section>
 
-			<section>
+			<section data-auto-animate>
+				<h3>Sigma Notation</h3>
+				<div>
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Sigma notation is a compact way to represent sums of many terms:
+							</span>
+						</p>
+					</div>
 
-				<div class="left-txt size-85">
-					<p>
-						<b>Definition:</b> The derivative of a function $f(x)$ is defined as
-					</p>
+					<div>
+						<p class="fragment" data-fragment-index="1">
+							$\ds \sum_{k=1}^{n} a_k$
+							<span class="fragment" data-fragment-index="2">
+								$= a_1 + a_2 + a_3 + \cdots + a_n.$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="3">
+							Here, $k$ is the index of summation,
+							<span class="fragment" data-fragment-index="4">
+								$n$ is the upper limit,
+
+							</span>
+							<span class="fragment" data-fragment-index="5">
+
+								and $a_k$ is the general term.
+							</span>
+						</p>
+					</div>
 				</div>
-
-				<div class="size-90">
-
-					<p>
-						\(\ds f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h}\)
-					</p>
-				</div>
-
-				<div class="size-85">
-					<p>
-						<b>Derivative Rules</b>
-					</p>
-				</div>
-
-				<table style="width: 100%; font-size: 85%;" border="1" cellpadding="8">
-					<tr style="text-align: center; font-weight: bold;">
-						<td style="width: 30%;">Rule</td>
-						<td style="width: 35%;">Function</td>
-						<td style="width: 35%;">Derivative</td>
-					</tr>
-
-					<tr>
-						<td>
-							Product Rule
-						</td>
-						<td style="text-align: center;">
-							\( y = u \cdot v \)
-						</td>
-						<td style="text-align: center;">
-							\( \dfrac{dy}{dx} = u'v + uv' \)
-						</td>
-					</tr>
-
-					<tr>
-						<td>
-							Quotient Rule
-						</td>
-						<td style="text-align: center;">
-							\( y = \dfrac{u}{v} ,\,\) \(v\neq 0\)
-						</td>
-						<td style="text-align: center;">
-							\( \dfrac{dy}{dx} = \dfrac{u'v - uv'}{v^2} \)
-						</td>
-					</tr>
-
-					<tr>
-						<td>
-							Chain Rule
-						</td>
-						<td style="text-align: center;">
-							\( y = f(u), \; u = g(x) \)
-						</td>
-						<td style="text-align: center;">
-							\( \dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx} \)
-						</td>
-					</tr>
-				</table>
-
-				<br />
-
+				<br /><br />
 			</section>
+
+			<section data-auto-animate>
+				<h3>Limit (Definition)</h3>
+				<div>
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								We say that $\ds \lim_{x \to a} f(x) = L$ if:
+							</span>
+						</p>
+					</div>
+
+					<div>
+						<p class="fragment" data-fragment-index="1">
+							$\ds \lim_{x \to a} f(x) = L$
+						</p>
+					</div>
+
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="2">
+							when $f(x)$ can be made arbitrarily close to $L$
+							by taking $x$ sufficiently close to $a$ (but $x \neq a$).
+						</p>
+					</div>
+				</div>
+				<br /><br />
+			</section>
+
+			<section data-auto-animate>
+				<h3>Continuity</h3>
+				<div>
+					<div class="left-txt">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								A function $f(x)$ is continuous at $x=a$ if:
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt">
+						<p class="fragment" data-fragment-index="1">
+							1. $f(a)$ is defined
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							2. $\ds \lim_{x \to a} f(x)$ exists
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							3. $\ds \lim_{x \to a} f(x) = f(a)$
+						</p>
+					</div>
+				</div>
+				<br /><br />
+			</section>
+
+			<section data-auto-animate>
+				<h3>Summary</h3>
+				<div>
+					<table style="width:100%; border-collapse: collapse;">
+						<tr>
+							<th style="text-align:left; padding:8px;">Concept</th>
+							<th style="text-align:left; padding:8px;">Notation</th>
+							<th style="text-align:left; padding:8px;">Key Idea</th>
+						</tr>
+
+						<tr>
+							<td style="padding:8px;"><b>Sigma Notation</b></td>
+							<td style="padding:8px;">
+								$\ds \sum_{k=1}^{n} a_k$
+							</td>
+							<td style="padding:8px;">
+								Compact way to represent a finite sum of terms
+							</td>
+						</tr>
+
+						<tr>
+							<td style="padding:8px;"><b>Limit</b></td>
+							<td style="padding:8px;">
+								$\ds \lim_{x \to a} f(x) = L$
+							</td>
+							<td style="padding:8px;">
+								Describes the value $f(x)$ approaches as $x$ gets close to $a$
+							</td>
+						</tr>
+
+						<tr>
+							<td style="padding:8px;"><b>Continuity</b></td>
+							<td style="padding:8px;">
+								$\ds \lim_{x \to a} f(x) = f(a)$
+							</td>
+							<td style="padding:8px;">
+								Function has no breaks, jumps, or holes at $x=a$
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br /><br />
+			</section>
+
+
+
+
 
 			<section>
 				<h4>Credits</h4>
