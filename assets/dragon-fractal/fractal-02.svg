@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<svg 
+     version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     width="30.33042591178804cm"
+     height="20.45080835094503cm"
+     viewBox="0 0 613 413"
+     >
+<title>
+
+</title>
+<g stroke-dashoffset="0.0000" stroke-linejoin="miter" stroke-dasharray="none" stroke-width="1.0000" stroke-linecap="square" stroke-miterlimit="10.000">
+<g id="misc">
+</g><!-- misc -->
+<g id="layer0">
+<clipPath id="clip72e916d1-a846-40ab-88ee-4fcd1d54c013">
+  <path d="M 0.0000 0.0000 L 0.0000 414.00 L 614.00 414.00 L 614.00 0.0000 z"/>
+</clipPath>
+<g clip-path="url(#clip1)">
+<g stroke-opacity="1.0000" stroke-linejoin="round" stroke-width="5.5000" fill="none" stroke="#000000" stroke-linecap="round">
+  <path d="M 72.529 275.17 L 274.97 275.17 L 274.97 72.733 L 477.40 72.733 L 477.40 275.17"/>
+<title>Polyline step2</title>
+<desc>Polyline step2: Polyline Join({Join(Sequence({Vertex(step1, 2k - 1), Dilate(Rotate(Vertex(step1, 2k), 315°, Vertex(step1, 2k - 1)), 1 / sqrt(2), Vertex(step1, 2k - 1)), Vertex(step1, 2k), Dilate(Rotate(Vertex(step1, 2k + 1), 45°, Vertex(step1, 2k)), 1 / sqrt(2), Vertex(step1, 2k))}, k, 1, (Length({Vertex(step1)}) - 1) / 2)), {Vertex(step1, Length({Vertex(step1)}))}})</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip1 -->
+</g><!-- layer0 -->
+</g> <!-- default stroke -->
+</svg> <!-- bounding box -->
