@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- keep the line below for OpenProcessing compatibility -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.4/lib/p5.min.js"></script>
+    <!-- ml5 -->
+    <script src="https://unpkg.com/ml5@1/dist/ml5.js"></script>
+
+    <script src="https://p5play.org/v3/planck.min.js"></script>
+    <script src="https://p5play.org/v3/p5play.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+
+<body>
+
+    <div class="small-screen-warning">
+        <div class="warning-box">
+            <h2>⚠️ Screen too small</h2>
+            <p>
+                This interactive hand-tracking demo requires a larger screen.<br>
+                Please open it on a desktop or laptop.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    // Copyright (c) 2024 ml5 
+    // Multiple Puppet Support - Maintaining Original Physics Structure
+
+    let handpose;
+    let video;
+    let hands = [];
+    let leftPuppet, rightPuppet;
+    let options = { maxHands: 2, flipHorizontal: true, runtime: "mediapipe" };
+    let scaleFactor = 1.3;
+    let xMax = scaleFactor * 640;
+    let yMax = scaleFactor * 480;
+    let pScale = 0.5;
+    let yGap = 200;
+
+    let emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '😂', '😊', '😇', '🙂', '🙃', '😉', '😋', '😛', '😝', '😜', '🤪', '🤨', '🧐', '🤓', '😎', '🥸', '🤩', '🥳', '😏', '😒', '😞', '😔', '😟', '😕', '🙁', '☹️', '😣', '😖', '😫', '😩', '🥺', '😢', '😭', '😤', '😠', '😡', '🤬', '🤯', '😳', '🥵', '🥶', '😓', '🤥', '😶', '😐', '😑', '😬', '🙄', '😯', '😦', '😧', '😮', '😲', '😴', '🤤', '😪', '😵', '🤐', '🥴', '🤢', '🤕', '🤠', '😈', '👿', '👹', '👺', '🤡', '💀', '👽', '👾', '🤖', '🎃'];
+
+    function preload() {
+        handpose = ml5.handPose(options);
+    }
+
+    function setup() {
+        let canvas = createCanvas(xMax, yMax);
+        canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+        world.gravity.y = 20;
+
+        video = createCapture(VIDEO);
+        video.size(640, 480);
+        video.hide();
+        handpose.detectStart(video, gotHands);
+
+        pieces = new Group();
+        pieces.color = 'white';
+        pieces.overlaps(pieces);
+        pieces.stroke = 'white';
+        pieces.drag = 1;
+
+        // Create the two puppet instances
+        leftPuppet = new Puppet();
+        rightPuppet = new Puppet();
+
+        // Boundary box
+        let box = new Sprite([[1, 1], [xMax, 1], [xMax, yMax], [1, yMax], [1, 1]]);
+        box.collider = "static";
+        box.shape = "chain";
+        box.color = "skyblue";
+    }
+
+    function draw() {
+        showVideo();
+
+        // Reset tracked status each frame
+        let leftHandData = null;
+        let rightHandData = null;
+
+        // Sort hands into left and right slots
+        for (let hand of hands) {
+            if (hand.handedness === 'Left') leftHandData = hand;
+            if (hand.handedness === 'Right') rightHandData = hand;
+        }
+
+        // Move and correct each puppet if its hand is present
+        if (leftHandData) {
+            leftPuppet.move(leftHandData);
+            leftPuppet.correct();
+        }
+        if (rightHandData) {
+            rightPuppet.move(rightHandData);
+            rightPuppet.correct();
+        }
+    }
+
+    function showVideo() {
+        background(255);
+        push();
+        if (options.flipHorizontal) {
+            translate(width, 0);
+            scale(-1, 1);
+        }
+        image(video, 0, 0, width, height);
+        pop();
+    }
+
+    function gotHands(results) {
+        hands = results;
+    }
+
+    // --- The Puppet Class preserving your exact original structure ---
+    class Puppet {
+        constructor() {
+            this.makeBody();
+        }
+
+        makeBody() {
+            // This is your EXACT original makePuppet logic, scoped to "this"
+            this.shoulders = new pieces.Sprite(xMax / 2, yMax / 2, pScale * 100, pScale * 30);
+            this.shoulders.color = 'cyan';
+
+            this.neck = new pieces.Sprite(xMax / 2, yMax / 2 - pScale * 30, pScale * 20, pScale * 50);
+            this.neck.color = 'cyan';
+            new GlueJoint(this.neck, this.shoulders);
+
+            this.head = new pieces.Sprite(xMax / 2, yMax / 2 - pScale * 70, pScale * 80);
+            this.head.img = random(emojis);
+            this.head.textSize = pScale * 40;
+            new GlueJoint(this.neck, this.head);
+
+            // Left Arm
+            this.leftUpperArm = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 40, pScale * 20, pScale * 60);
+            this.leftUpperArm.color = 'cyan';
+            this.shoulderHingeA = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2, pScale * 20);
+            new GlueJoint(this.shoulderHingeA, this.leftUpperArm);
+            this.shoulderHingeB = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2, pScale * 20);
+            new GlueJoint(this.shoulderHingeB, this.shoulders);
+            new HingeJoint(this.shoulderHingeA, this.shoulderHingeB);
+
+            this.leftLowerArm = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 90, pScale * 20, pScale * 60);
+            this.leftLowerArm.color = 'cyan';
+            this.leftElbowHingeA = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 60, pScale * 20);
+            new GlueJoint(this.leftElbowHingeA, this.leftUpperArm);
+            this.leftElbowHingeB = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 60, pScale * 20);
+            new GlueJoint(this.leftElbowHingeB, this.leftLowerArm);
+            new HingeJoint(this.leftElbowHingeA, this.leftElbowHingeB);
+
+            // Right Arm
+            this.rightUpperArm = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 30, pScale * 20, pScale * 60);
+            this.rightUpperArm.color = 'cyan';
+            this.shoulderHingeC = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2, pScale * 20);
+            new GlueJoint(this.shoulderHingeC, this.rightUpperArm);
+            this.shoulderHingeD = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2, pScale * 20);
+            new GlueJoint(this.shoulderHingeD, this.shoulders);
+            new HingeJoint(this.shoulderHingeC, this.shoulderHingeD);
+
+            this.rightLowerArm = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 90, pScale * 20, pScale * 60);
+            this.rightLowerArm.color = 'cyan';
+            this.rightElbowHingeA = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 60, pScale * 20);
+            new GlueJoint(this.rightElbowHingeA, this.rightUpperArm);
+            this.rightElbowHingeB = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 60, pScale * 20);
+            new GlueJoint(this.rightElbowHingeB, this.rightLowerArm);
+            new HingeJoint(this.rightElbowHingeA, this.rightElbowHingeB);
+
+            this.torso = new pieces.Sprite(xMax / 2, yMax / 2 + pScale * 50, pScale * 50, pScale * 90);
+            this.torso.color = 'blue';
+            new GlueJoint(this.torso, this.shoulders);
+
+            this.hips = new pieces.Sprite(xMax / 2, yMax / 2 + pScale * 90, pScale * 100, pScale * 30);
+            this.hips.color = 'blue';
+            new GlueJoint(this.torso, this.hips);
+
+            // Left Leg
+            this.leftThigh = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 130, pScale * 30, pScale * 90);
+            this.leftThigh.color = 'blue';
+            this.leftHipHingeA = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 90, pScale * 20);
+            new GlueJoint(this.leftHipHingeA, this.hips);
+            this.leftHipHingeB = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 90, pScale * 20);
+            new GlueJoint(this.leftHipHingeB, this.leftThigh);
+            new HingeJoint(this.leftHipHingeA, this.leftHipHingeB);
+
+            this.leftLowerLeg = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 200, pScale * 30, pScale * 90);
+            this.leftLowerLeg.color = 'blue';
+            this.leftKneeHingeA = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 170, pScale * 20);
+            new GlueJoint(this.leftKneeHingeA, this.leftThigh);
+            this.leftKneeHingeB = new pieces.Sprite(xMax / 2 - pScale * 40, yMax / 2 + pScale * 170, pScale * 20);
+            new HingeJoint(this.leftKneeHingeA, this.leftKneeHingeB);
+            new GlueJoint(this.leftKneeHingeB, this.leftLowerLeg);
+
+            this.leftFoot = new pieces.Sprite(xMax / 2 - pScale * 55, yMax / 2 + pScale * 240, pScale * 60, pScale * 30);
+            this.leftFoot.color = 'blue';
+            new GlueJoint(this.leftFoot, this.leftLowerLeg);
+            this.leftFoot.collides(this.leftThigh);
+
+            // Right Leg
+            this.rightThigh = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 130, pScale * 30, pScale * 90);
+            this.rightThigh.color = 'blue';
+            this.rightHipHingeA = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 90, pScale * 20);
+            new GlueJoint(this.rightHipHingeA, this.hips);
+            this.rightHipHingeB = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 90, pScale * 20);
+            new GlueJoint(this.rightHipHingeB, this.rightThigh);
+            new HingeJoint(this.rightHipHingeA, this.rightHipHingeB);
+
+            this.rightLowerLeg = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 200, pScale * 30, pScale * 90);
+            this.rightLowerLeg.color = 'blue';
+            this.rightKneeHingeA = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 170, pScale * 20);
+            new GlueJoint(this.rightKneeHingeA, this.rightThigh);
+            this.rightKneeHingeB = new pieces.Sprite(xMax / 2 + pScale * 40, yMax / 2 + pScale * 170, pScale * 20);
+            new HingeJoint(this.rightKneeHingeA, this.rightKneeHingeB);
+            new GlueJoint(this.rightKneeHingeB, this.rightLowerLeg);
+
+            this.rightFoot = new pieces.Sprite(xMax / 2 + pScale * 55, yMax / 2 + pScale * 240, pScale * 60, pScale * 30);
+            this.rightFoot.color = 'blue';
+            new GlueJoint(this.rightFoot, this.rightLowerLeg);
+            this.rightFoot.collides(this.rightThigh);
+        }
+
+        move(hand) {
+            let whichHand = hand.handedness;
+            push();
+            stroke('white');
+            strokeWeight(2);
+
+            // Head
+            let jointToTrack = hand.keypoints[12];
+            let sx = jointToTrack.x * scaleFactor;
+            let sy = jointToTrack.y * scaleFactor;
+            this.head.moveTowards(sx, sy + yGap, 0.5);
+            line(this.head.x, this.head.y, sx, sy);
+
+            // Left Arm
+            jointToTrack = (whichHand === 'Left') ? hand.keypoints[16] : hand.keypoints[8];
+            sx = jointToTrack.x * scaleFactor;
+            sy = jointToTrack.y * scaleFactor;
+            this.leftLowerArm.moveTowards(sx, sy + yGap, 0.5);
+            line(this.leftLowerArm.x, this.leftLowerArm.y, sx, sy);
+
+            // Right Arm
+            jointToTrack = (whichHand === 'Left') ? hand.keypoints[8] : hand.keypoints[16];
+            sx = jointToTrack.x * scaleFactor;
+            sy = jointToTrack.y * scaleFactor;
+            this.rightLowerArm.moveTowards(sx, sy + yGap, 0.5);
+            line(this.rightLowerArm.x, this.rightLowerArm.y, sx, sy);
+
+            // Left Knee
+            jointToTrack = (whichHand === 'Left') ? hand.keypoints[20] : hand.keypoints[4];
+            sx = jointToTrack.x * scaleFactor;
+            sy = jointToTrack.y * scaleFactor;
+            this.leftKneeHingeB.moveTowards(sx, sy + yGap + 200 * pScale, 1);
+            line(this.leftKneeHingeB.x, this.leftKneeHingeB.y, sx, sy);
+
+            // Right Knee
+            jointToTrack = (whichHand === 'Left') ? hand.keypoints[4] : hand.keypoints[20];
+            sx = jointToTrack.x * scaleFactor;
+            sy = jointToTrack.y * scaleFactor;
+            this.rightKneeHingeB.moveTowards(sx, sy + yGap + 200 * pScale, 1);
+            line(this.rightKneeHingeB.x, this.rightKneeHingeB.y, sx, sy);
+
+            pop();
+        }
+
+        correct() {
+            // Original angle correction logic
+            let lLegBend = (((this.leftThigh.rotation - this.leftLowerLeg.rotation) % 360) + 360) % 360;
+            if (lLegBend > 180) this.leftLowerLeg.rotate(-5, 30);
+
+            let rLegBend = (((this.rightLowerLeg.rotation - this.rightThigh.rotation) % 360) + 360) % 360;
+            if (rLegBend > 180) this.rightLowerLeg.rotate(5, 30);
+
+            let lArmBend = (((this.leftLowerArm.rotation - this.leftUpperArm.rotation) % 360) + 360) % 360;
+            if (lArmBend > 180) this.leftLowerArm.rotate(5, 30);
+
+            let rArmBend = (((this.rightUpperArm.rotation - this.rightLowerArm.rotation) % 360) + 360) % 360;
+            if (rArmBend > 180) this.rightLowerArm.rotate(-5, 30);
+        }
+    }
+
+    const ML5HAND_WRIST = 0; // Keeping original constants for reference
+
+</script>
+
+</html>
