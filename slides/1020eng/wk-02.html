@@ -119,27 +119,47 @@
 
 			<section data-auto-animate>
 				<h3>Limit (Definition)</h3>
-				<div>
-					<div class="left-txt">
-						<p>
-							<span class="fragment" data-fragment-index="0">
-								We say that $\ds \lim_{x \to a} f(x) = L$ if:
-							</span>
-						</p>
-					</div>
+				<p>$\ds\lim_{x \to a} f(x) = L$</p>
 
-					<div>
-						<p class="fragment" data-fragment-index="1">
-							$\ds \lim_{x \to a} f(x) = L$
-						</p>
-					</div>
+				<div style="width:100%;">
+					<table style="width:100%; border-collapse: collapse;" class="fragment" data-fragment-index="0">
+						<tr>
+							<th style="text-align:left; padding-right:20px; width:50%; font-size:80%;width: 55%;">Formal Definition</th>
+							<th style="text-align:left; padding-left:30px; width:50%; font-size:80%;" class="fragment"
+								data-fragment-index="5">Plain-English</th>
+						</tr>
+						<tr>
+							<td style="vertical-align:top; padding-right: 30px; font-size:80%;">
+								<p class="fragment" data-fragment-index="0">
+									Let \(f \colon S \to \R\) be a function and \(c\) a cluster point of \(S \subset
+									\R\).
+								</p>
+								<p class="fragment" data-fragment-index="1">
+									Suppose there exists an \(L \in \R\)
+									<span class="fragment" data-fragment-index="2">
+										and for every \(\epsilon > 0\),
+										there exists a \(\delta \gt 0\) such that whenever \(x \in S \setminus \{ c \}\)
+										and \(|x - c| \lt \delta,\)
+									</span>
 
-					<div class="left-txt">
-						<p class="fragment" data-fragment-index="2">
-							when $f(x)$ can be made arbitrarily close to $L$
-							by taking $x$ sufficiently close to $a$ (but $x \neq a$).
-						</p>
-					</div>
+									<span class="fragment" data-fragment-index="3">
+										then \( |f(x) - L| \lt \epsilon \).
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="4">
+									We say \(L\) is the <em>limit</em> of \(f(x)\) as \(x\) goes to \(c\).
+								</p>
+							</td>
+							<td style="vertical-align:top; padding-left:30px; font-size:80%;">
+								<br><br>
+								<p class="fragment" data-fragment-index="5">
+									As \(x\) gets <em>closer</em> to \(c,\)
+									the values of \(f(x)\) get <em>closer</em> and <em>closer</em> to \(L\).
+								</p>
+								
+							</td>
+						</tr>
+					</table>
 				</div>
 				<br /><br />
 			</section>
