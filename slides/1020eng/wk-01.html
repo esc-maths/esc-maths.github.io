@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1020ENG/1202SCG - Workshop 1</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<h2>
+					<span class="size-85">
+						Calculus I <br />
+						&amp;
+						<br />
+						Engineering Mathematics 2
+					</span>
+				</h2>
+
+
+				<p style="margin-top: 50px;">Workshop 1</p>
+
+				<br />
+			</section>
+
+			<section data-auto-animate>
+				<h3>A Couple of Important Functions</h3>
+
+				<table class="fragment size-80" data-fragment-index="0">
+					<thead>
+						<tr>
+							<th>Function</th>
+							<th>Inverse</th>
+							<th>Domain</th>
+							<th>Range</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="fragment" data-fragment-index="0">
+							<td>$f(x)=e^x$</td>
+							<td>$f^{-1}(x)=\ln x$</td>
+							<td>$(-\infty,\infty)$</td>
+							<td>$(0,\infty)$</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<td>$g(x)=\ln x$</td>
+							<td>$g^{-1}(x)=e^x$</td>
+							<td>$(0,\infty)$</td>
+							<td>$(-\infty,\infty)$</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+
+				<p class="fragment" data-fragment-index="2">
+					These functions are inverses to each other since:
+
+				</p>
+				<p class="fragment" data-fragment-index="3">
+					\(
+					e^{\ln x}=x \quad (x>0),
+					\qquad \ln(e^x)=x
+					\)
+				</p>
+				<br />
+				<br />
+			</section>
+
+			<section data-auto-animate>
+				<h3>Transformations of Trigonometric Functions</h3>
+
+				<p class="size-80">
+					General form:
+					\[
+					y = A\sin(Bx - C) + D
+					\]
+				</p>
+
+				<table class="size-70 fragment" style="margin-top: -20px;">
+					<thead>
+						<tr>
+							<th style="text-align: center;">Parameter</th>
+							<th style="text-align: center;">Effect</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="text-align: center;">$A$</td>
+							<td style="text-align: left;">Amplitude $=|A|$</td>
+						</tr>
+						<tr>
+							<td style="text-align: center;">$B$</td>
+							<td style="text-align: left;">Period $=\dfrac{2\pi}{|B|}$</td>
+						</tr>
+						<tr>
+							<td style="text-align: center;">$C$</td>
+							<td style="text-align: left;">Horizontal shift $=\dfrac{C}{B}$</td>
+						</tr>
+						<tr>
+							<td style="text-align: center;">$D$</td>
+							<td style="text-align: left;">Vertical shift</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Some Important Identities</h3>
+
+				<table>
+					<tr>
+						<td>
+							<table class="size-70" style="line-height: 2;">
+								<thead>
+									<th style="text-align: center;">
+										Trigonometric
+									</th>
+								</thead>
+								<tbody>
+									
+									<tr>
+										<td>$\sin^2 x + \cos^2 x = 1$</td>
+									</tr>
+									<tr>
+										<td>$1 + \tan^2 x = \sec^2 x$</td>
+									</tr>
+									<tr>
+										<td>$\sin x=\dfrac{1}{\csc x},\;\cos x=\dfrac{1}{\sec x}$</td>
+									</tr>
+									<tr>
+										<td>$\tan x=\dfrac{\sin x}{\cos x}$</td>
+									</tr>
+									<tr>
+										<td>$\sin(2x) = 2\sin x\cos x$</td>
+									</tr>
+									<tr>
+										<td>$\cos(2x) = \cos^2x- \sin ^2x$
+											<br><br>
+										</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						</td>
+						<td>
+							<table class="size-70" style="line-height: 2.5;">
+								<thead>
+									<th style="text-align: center;">
+										Hyperbolic Trigonometric
+									</th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											$\sinh x=\dfrac{e^x-e^{-x}}{2},\;
+											\cosh x=\dfrac{e^x+e^{-x}}{2}$
+										</td>
+									</tr>
+									<tr>
+										<td>$\cosh^2 x - \sinh^2 x = 1$</td>
+									</tr>
+									<tr>
+										<td>$\tanh x=\dfrac{\sinh x}{\cosh x}$</td>
+									</tr>
+									<tr>
+										<td>$\sech x=\dfrac{1}{\cosh x},\;\csch x=\dfrac{1}{\sinh x}$</td>
+									</tr>
+									<tr>
+										<td>$\sinh(2x) = 2\sinh x\cosh x$</td>
+									</tr>
+									<tr>
+										<td>$\cos(2x) = \cosh^2x+ \sinh ^2x$</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<br/>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Hyperbolic Trigonometric Identities</h3>
+
+				<table class="size-70">
+					<tbody>
+						<tr class="fragment">
+							<td>Definitions</td>
+							<td>
+								$\sinh x=\dfrac{e^x-e^{-x}}{2},\quad
+								\cosh x=\dfrac{e^x+e^{-x}}{2}$
+							</td>
+						</tr>
+						<tr class="fragment">
+							<td>Pythagorean</td>
+							<td>$\cosh^2 x - \sinh^2 x = 1$</td>
+						</tr>
+						<tr class="fragment">
+							<td>Quotient</td>
+							<td>$\tanh x=\dfrac{\sinh x}{\cosh x}$</td>
+						</tr>
+						<tr class="fragment">
+							<td>Reciprocal</td>
+							<td>$\sech x=\dfrac{1}{\cosh x},\;\csch x=\dfrac{1}{\sinh x}$</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

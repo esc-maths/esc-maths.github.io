@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1020ENG/1202SCG - Workshop 3</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<h2>
+					<span class="size-85">
+						Calculus I <br />
+						&amp;
+						<br />
+						Engineering Mathematics 2
+					</span>
+				</h2>
+
+
+				<p style="margin-top: 50px;">Workshop 3</p>
+
+				<br />
+			</section>
+
+			<section>
+
+				<div class="left-txt size-85">
+					<p>
+						<b>Definition:</b> The derivative of a function $f(x)$ is defined as
+					</p>
+				</div>
+
+				<div class="size-90">
+
+					<p>
+						\(\ds f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h}\)
+					</p>
+				</div>
+
+				<div class="size-85">
+					<p>
+						<b>Derivative Rules</b>
+					</p>
+				</div>
+
+				<table style="width: 100%; font-size: 85%;" border="1" cellpadding="8">
+					<tr style="text-align: center; font-weight: bold;">
+						<td style="width: 30%;">Rule</td>
+						<td style="width: 35%;">Function</td>
+						<td style="width: 35%;">Derivative</td>
+					</tr>
+
+					<tr>
+						<td>
+							Product Rule
+						</td>
+						<td style="text-align: center;">
+							\( y = u \cdot v \)
+						</td>
+						<td style="text-align: center;">
+							\( \dfrac{dy}{dx} = u'v + uv' \)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Quotient Rule
+						</td>
+						<td style="text-align: center;">
+							\( y = \dfrac{u}{v} ,\,\) \(v\neq 0\)
+						</td>
+						<td style="text-align: center;">
+							\( \dfrac{dy}{dx} = \dfrac{u'v - uv'}{v^2} \)
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Chain Rule
+						</td>
+						<td style="text-align: center;">
+							\( y = f(u), \; u = g(x) \)
+						</td>
+						<td style="text-align: center;">
+							\( \dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx} \)
+						</td>
+					</tr>
+				</table>
+
+				<br />
+
+			</section>
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
