@@ -141,14 +141,15 @@
 
 								</div>
 							</td>
-							<td style="text-align: center; font-size: 110%;"  class="fragment" data-fragment-index="6">
+							<td style="text-align: center; font-size: 110%;" class="fragment" data-fragment-index="6">
 								<p>
-									<tt>R</tt> is open-source <br/> and free! 😀
+									<tt>R</tt> is open-source <br /> and free! 😀
 								</p>
 
 								<p>
-									
-									<a href="https://rdrr.io/snippets/" target="_blank">rdrr.io <i class="fa fa-external-link-alt"></i></a>
+
+									<a href="https://rdrr.io/snippets/" target="_blank">rdrr.io <i
+											class="fa fa-external-link-alt"></i></a>
 								</p>
 							</td>
 						</tr>
@@ -156,6 +157,19 @@
 
 
 					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3 style="font-size: 140%;"><tt>R</tt> studio</h3>
+					<img style="width: 75%;margin-top: -10px;" src="images/lec-11/rstudio_interface.png">
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3 style="font-size: 100%;"><tt>R</tt> in Visual Studio Code</h3>
+					<img style="width: 76%;margin-top: -10px;" src="images/lec-11/r-code-sample.png">
 					<br />
 				</section>
 
@@ -216,18 +230,7 @@ mean(v)</code>
 
 				</section>
 
-				<section data-auto-animate>
-					<h3 style="font-size: 140%;"><tt>R</tt> studio</h3>
-					<img style="width: 75%;margin-top: -10px;" src="images/lec-11/rstudio_interface.png">
-					<br/>
-					<br/>
-				</section>
 
-				<section data-auto-animate>
-					<h3 style="font-size: 100%;"><tt>R</tt> in Visual Studio Code</h3>
-					<img style="width: 76%;margin-top: -10px;" src="images/lec-11/r-code-sample.png">
-					<br/>
-				</section>
 
 				<section>
 					<h4 style="font-size: 60%;">Working with Data</h4>
@@ -242,20 +245,23 @@ mean(v)</code>
 						<tbody>
 							<tr>
 								<td style="width: 50%;">
-									<pre class="fragment" data-fragment-index="0" style="width: 550px;height: 120px; font-size: 80%;margin-top: 5px;">
+									<pre class="fragment" data-fragment-index="0"
+										style="width: 550px;height: 120px; font-size: 80%;margin-top: 5px;">
 <code data-trim data-noescape class="language-python">
 # Create a data frame
 data <- data.frame(
   time = c(1, 2, 3, 4),
   value = c(10, 12, 15, 20)
 )</code></pre>
-<br/>
-									<pre class="fragment" data-fragment-index="1" style="width: 550px;height: 120px; font-size: 80%;margin-top: 5px;">
+									<br />
+									<pre class="fragment" data-fragment-index="1"
+										style="width: 550px;height: 120px; font-size: 80%;margin-top: 5px;">
 <code data-trim data-noescape class="language-python">
 # View data
 data
 summary(data)</code></pre>
-									<pre class="fragment" data-fragment-index="4" style="width: 550px;height: 100px; font-size: 80%;margin-top: 40px;">
+									<pre class="fragment" data-fragment-index="4"
+										style="width: 550px;height: 100px; font-size: 80%;margin-top: 40px;">
 <code data-trim data-noescape class="language-python">
 # Simple plot
 plot(data$time, data$value)</code> </pre>
@@ -266,17 +272,21 @@ plot(data$time, data$value)</code> </pre>
 								</td>
 								<td style="width: 50%;">
 
-									<div class="fragment" data-fragment-index="2" style="text-align: center; margin-top: -20px;">
+									<div class="fragment" data-fragment-index="2"
+										style="text-align: center; margin-top: -20px;">
 										<img style="width: 98%;" src="images/lec-11/r-simple-plot-output-01.png">
 									</div>
-									<div class="fragment" data-fragment-index="3" style="text-align: center; margin-top: -40px;">
+									<div class="fragment" data-fragment-index="3"
+										style="text-align: center; margin-top: -40px;">
 										<img style="width: 98%;" src="images/lec-11/r-simple-plot-output-02.png">
 									</div>
-									<div class="fragment" data-fragment-index="5" style="text-align: center; margin-top: -40px;">
+									<div class="fragment" data-fragment-index="5"
+										style="text-align: center; margin-top: -40px;">
 										<img style="width: 98%;" src="images/lec-11/r-simple-plot-output-03.png">
 									</div>
 
-									<div class="fragment" data-fragment-index="5" style="text-align: center; margin-top: -40px;">
+									<div class="fragment" data-fragment-index="5"
+										style="text-align: center; margin-top: -40px;">
 										<img style="width: 59%;" src="images/lec-11/simple-plot.png">
 									</div>
 
@@ -323,6 +333,10 @@ plot(data$time, data$value)</code> </pre>
 					<h2><tt>R</tt> code</h2>
 					<p>
 						Include data manually
+					</p>
+					<p style="font-size: 90%;">
+						<a href="https://rdrr.io/snippets/" target="_blank">rdrr.io <i
+								class="fa fa-external-link-alt"></i></a>
 					</p>
 				</section>
 				<section>
@@ -615,6 +629,9 @@ cat("t-critical (two-tailed, alpha = 0.02):", t_critical, "\n")</code></pre>
 					<h2><tt>R</tt> code</h2>
 					<p>
 						Load data from local folder
+					</p>
+					<p style="font-size: 90%;">
+						<b>Use R-Studio or VScode</b>
 					</p>
 				</section>
 				<section>
@@ -931,7 +948,7 @@ t_test <- t.test(data, mu = mu0)
 # Extract the t-statistic from the test result
 t_stat <- t_test$statistic
 
-# Degrees of freedom (n − 1 for one-sample t-test)
+# Degrees of freedom (n - 1 for one-sample t-test)
 df <- t_test$parameter
 
 # -------------------------
@@ -962,7 +979,8 @@ cat("t-critical (two-tailed, alpha = 0.02):", t_critical, "\n")</code></pre>
 					<p>
 						Include data manually
 					</p>
-					<p style="font-size: 90%;"><a href="https://trinket.io/python3" target="_blank">trinket.io/Python3 <i class="fa fa-external-link-alt"></i></a></p>
+					<p style="font-size: 90%;"><a href="https://trinket.io/python3" target="_blank">trinket.io/Python3
+							<i class="fa fa-external-link-alt"></i></a></p>
 				</section>
 				<section>
 					<h5>Scatter plot</h5>
