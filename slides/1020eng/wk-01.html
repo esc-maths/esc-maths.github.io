@@ -113,7 +113,7 @@
 					These functions are inverses to each other since:
 
 				</p>
-				<p class="fragment" data-fragment-index="3">
+				<p class="fragment" data-fragment-index="2">
 					\(
 					e^{\ln x}=x \quad (x>0),
 					\qquad \ln(e^x)=x
@@ -129,11 +129,12 @@
 				<p class="size-80">
 					General form:
 					\[
-					y = A\sin(Bx - C) + D
+					y = A\sin\big[B(x + C)\big] + D
 					\]
 				</p>
 
-				<table class="size-70 fragment" style="margin-top: -20px;">
+
+				<table class="size-80 fragment" style="margin-top: 20px;">
 					<thead>
 						<tr>
 							<th style="text-align: center;">Parameter</th>
@@ -151,7 +152,7 @@
 						</tr>
 						<tr>
 							<td style="text-align: center;">$C$</td>
-							<td style="text-align: left;">Horizontal shift $=\dfrac{C}{B}$</td>
+							<td style="text-align: left;">Horizontal shift $=C$</td>
 						</tr>
 						<tr>
 							<td style="text-align: center;">$D$</td>
@@ -159,48 +160,85 @@
 						</tr>
 					</tbody>
 				</table>
+				<br />
 			</section>
 
-			<section data-auto-animate>
-				<h3>Some Important Identities</h3>
+			<section>
+				<table class="size-60" style="margin-top: -20px;">
+					<thead>
+						<tr>
+							<th>Function</th>
+							<th>Inverse</th>
+							<th>Domain</th>
+							<th>Range</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>$f(x)=e^x$</td>
+							<td>$f^{-1}(x)=\ln x$</td>
+							<td>$(-\infty,\infty)$</td>
+							<td>$(0,\infty)$</td>
+						</tr>
+						<tr>
+							<td>$g(x)=\ln x$</td>
+							<td>$g^{-1}(x)=e^x$</td>
+							<td>$(0,\infty)$</td>
+							<td>$(-\infty,\infty)$</td>
+						</tr>
+					</tbody>
+				</table>
+				<hr>
 
-				<table>
+				<div>
+					<p class="size-65">
+
+						\(y = A\sin\big[B(x + C)\big] + D,\,\) $A=\,$Amplitude, 
+						$\frac{2\pi}{B}=\,$Period, $C= $Vertical shift,
+						$D=\,$ Horizontal shift
+					</p>
+				</div>
+
+				<hr>
+				<table style="margin-top: -40px;">
 					<tr>
 						<td>
-							<table class="size-70" style="line-height: 2;">
+							<table class="size-65" style="line-height: 1.7;">
 								<thead>
 									<th style="text-align: center;">
 										Trigonometric
 									</th>
 								</thead>
 								<tbody>
-									
+
 									<tr>
 										<td>$\sin^2 x + \cos^2 x = 1$</td>
 									</tr>
 									<tr>
 										<td>$1 + \tan^2 x = \sec^2 x$</td>
 									</tr>
-									<tr>
-										<td>$\sin x=\dfrac{1}{\csc x},\;\cos x=\dfrac{1}{\sec x}$</td>
-									</tr>
+
 									<tr>
 										<td>$\tan x=\dfrac{\sin x}{\cos x}$</td>
 									</tr>
 									<tr>
-										<td>$\sin(2x) = 2\sin x\cos x$</td>
+										<td>$\sin x=\dfrac{1}{\csc x},\;\cos x=\dfrac{1}{\sec x}$</td>
 									</tr>
 									<tr>
-										<td>$\cos(2x) = \cos^2x- \sin ^2x$
+										<td>$\sin(x\pm y) = \sin x\cos y \pm \cos x \sin y$</td>
+									</tr>
+									<tr>
+										<td>
+											$\cos(x\mp y) = \cos x \cos y \pm \sin x \sin y$
 											<br><br>
 										</td>
 									</tr>
-									
+
 								</tbody>
 							</table>
 						</td>
 						<td>
-							<table class="size-70" style="line-height: 2.5;">
+							<table class="size-65" style="line-height: 2.2;">
 								<thead>
 									<th style="text-align: center;">
 										Hyperbolic Trigonometric
@@ -223,20 +261,20 @@
 										<td>$\sech x=\dfrac{1}{\cosh x},\;\csch x=\dfrac{1}{\sinh x}$</td>
 									</tr>
 									<tr>
-										<td>$\sinh(2x) = 2\sinh x\cosh x$</td>
+										<td>$\sinh(x\pm y) = \sinh x\cosh y \pm \cos x \sin y$</td>
 									</tr>
 									<tr>
-										<td>$\cos(2x) = \cosh^2x+ \sinh ^2x$</td>
+										<td>$\cosh(x\pm y) = \cosh x \cosh y \pm \sinh x\sinh y$</td>
 									</tr>
 								</tbody>
 							</table>
 						</td>
 					</tr>
 				</table>
-				<br/>
+				<br />
 			</section>
 
-			
+
 			<section>
 				<h4>Credits</h4>
 				<div include-html="credits.html"></div>
