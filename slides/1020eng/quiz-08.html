@@ -200,52 +200,40 @@
 				<div class="left-txt size-75">
 					<p>
 						<b>Solution Question 2</b>
-					</p>
-
-					<p>
 						We want to find the area between the curves
 						\( f(x) = x^3 \)
-						<span class="fragment" data-fragment-index="0">
-							and
-							\( g(x) = x^2 + x. \)
-						</span>
+						and
+						\( g(x) = 4x. \)
 					</p>
 
 					<p class="fragment" data-fragment-index="1">
 						First, find the points of intersection.
-					</p>
-				</div>
-
-				<div class="size-75">
-					<p class="fragment" data-fragment-index="2">
-						Solve
-						\(
-						x^3 = x^2 + x
-						\)
+						<span class="fragment" data-fragment-index="2">
+							Solve
+							\(
+							x^3 = 4x
+							\)
+						</span>
 						<span class="fragment" data-fragment-index="3">
 							\(
-							\Ra x^3 - x^2 - x = 0
+							\Ra x^3 - 4x = 0
 							\)
 						</span>
 						<span class="fragment" data-fragment-index="4">
 							\(
-							\Ra x(x^2 - x - 1) = 0.
+							\Ra x(x^2 - 4) = 0.
 							\)
 						</span>
 					</p>
-
-
 				</div>
 
 				<div class="size-75">
 					<p class="fragment" data-fragment-index="5">
-						Thus, the intersection points are: 
+						The intersection points are:
 						\(
-						x = 0,
-						\quad
-						x = \frac{1 - \sqrt{5}}{2},
-						\quad
-						x = \frac{1 + \sqrt{5}}{2}.
+						x = -2,\;
+						x = 0,\;
+						x = 2.
 						\)
 					</p>
 				</div>
@@ -253,59 +241,88 @@
 				<div class="left-txt size-75">
 					<p class="fragment" data-fragment-index="7">
 						On the interval
-						\( \left[ \frac{1 - \sqrt{5}}{2}, 0 \right] \),
+						\( [-2, 0] \),
 						the curve \( f(x) \) lies above \( g(x) \).
+						<span class="fragment" data-fragment-index="8">
+							The area between the curves is
+						</span>
 					</p>
 				</div>
 
-				<div class="size-75">
-					<p class="fragment" data-fragment-index="8">
-						The area between the curves is
-					</p>
-
+				<div class="size-70">
 					<p class="fragment" data-fragment-index="9">
-						\[
-						A = \int_{(1-\sqrt{5})/2}^{(1+\sqrt{5})/2}
-						\big( g(x) - f(x) \big)\, dx
-						 = \int_{(1-\sqrt{5})/2}^{(1+\sqrt{5})/2}
-						\left( x^2 + x - x^3 \right) dx.
-						\]
-					</p>
-				</div>
-
-		
-
-				<div class="size-75">
-					<p class="fragment" data-fragment-index="13">
-						Apply the limits of integration:
-					</p>
-
-					<p class="fragment" data-fragment-index="14">
-						\[
-						A =
-						\left[
-						\frac{x^3}{3} + \frac{x^2}{2} - \frac{x^4}{4}
-						\right]_{(1-\sqrt{5})/2}^{(1+\sqrt{5})/2}.
-						\]
+						\(
+						\ds A_1
+						= \int_{-2}^{0}
+						\big( f(x) - g(x) \big)\, dx
+						= \int_{-2}^{0}
+						\left( x^3 - 4x \right) dx
+						\)
+						<span class="fragment" data-fragment-index="10">
+							\(
+							= \ds
+							\left[
+							\frac{x^4}{4} - 2x^2
+							\right]_{-2}^{0}
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="11">
+							\(
+							= 0 - (-4) = 4
+							\)
+						</span>
 					</p>
 				</div>
 
 				<div class="left-txt size-75">
-					<p class="fragment" data-fragment-index="15">
-						Therefore, the area between the curves is
-					</p>
-
-					<p class="fragment" data-fragment-index="16">
-						\[
-						A = \frac{5\sqrt{5}}{24}.
-						\]
+					<p class="fragment" data-fragment-index="12">
+						On the interval
+						\( [0, 2] \),
+						the curve \( g(x) \) lies above \( f(x) \).
+						<span class="fragment" data-fragment-index="13">
+							The area between the curves is
+						</span>
 					</p>
 				</div>
 
-				<br />
-				<br />
+				<div class="size-75">
+					<p class="fragment" data-fragment-index="14">
+						\(
+						\ds A_2
+						= \int_{0}^{2}
+						\big( g(x) - f(x) \big)\, dx
+						= \int_{0}^{2}
+						\left( 4x - x^3 \right) dx
+						\)
+						<span class="fragment" data-fragment-index="15">
+							\(
+							= \ds
+							\left[
+							2x^2 - \frac{x^4}{4}
+							\right]_{0}^{2}
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="16">
+							\(
+							= 4
+							\)
+						</span>
+					</p>
+				</div>
+
+			
+
+				<div class="size-75">
+					<p class="fragment" data-fragment-index="17">
+						Therefore, the total area between the curves is
+						\(
+						\ds A = A_1 + A_2 = 4 + 4 = 8.
+						\)
+					</p>
+				</div>
 
 			</section>
+
 
 
 
