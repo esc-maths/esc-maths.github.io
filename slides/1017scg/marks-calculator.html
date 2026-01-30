@@ -133,16 +133,17 @@
             input.addEventListener("input", calculateGrade);
         });
 
-       function getValidNumber(input) {
-    const value = input.value.trim();
+        function getValidNumber(input) {
+            const value = input.value.trim();
 
-    if (value === "") return 0;
+            if (value === "") return 0;
 
-    // Reject anything that is not a pure number
-    if (isNaN(value)) return null;
+            // Reject anything that is not a pure number
+            if (isNaN(value)) return null;
 
-    return Number(value);
-}
+            return Number(value);
+        }
+
         function calculateGrade() {
             let workshop = getValidNumber(workshopInput);
             let test1 = getValidNumber(test1Input);
@@ -154,7 +155,7 @@
             // Catch symbol / invalid input
             if (values.includes(null)) {
                 document.getElementById("error").innerText =
-                    "Invalid input detected ❌\nPlease enter numbers only (0–20)\n 😕";
+                    "Invalid input detected ❌\nPlease enter numbers only (0–20)\n 🤨";
                 document.getElementById("output").innerText = "";
                 return;
             }
