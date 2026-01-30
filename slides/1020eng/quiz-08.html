@@ -116,10 +116,10 @@
 								</p>
 
 							</div>
-							<br/>
-							<br/>
-							<br/>
-							<br/>
+							<br />
+							<br />
+							<br />
+							<br />
 						</td>
 						<td style="width: 50%;">
 							<div style="margin-top: -30px;">
@@ -144,10 +144,10 @@
 
 					<p>
 						A thin rod lies along the \(x\)-axis from \(x=0\) to \(x=3\).
-						
-							The  density is 
-							\[ \rho(x) = 2 + x^2 \;\text{kg/m}. \]
-						
+
+						The density is
+						\[ \rho(x) = 2 + x^2 \;\text{kg/m}. \]
+
 					</p>
 
 					<p class="fragment" data-fragment-index="1">
@@ -168,7 +168,7 @@
 						\)
 						<span class="fragment" data-fragment-index="8">
 							\(= \left( 2(3) + \dfrac{3^3}{3} \right) - 0
-							
+
 							\)
 						</span>
 						<span class="fragment" data-fragment-index="9">
@@ -197,84 +197,116 @@
 
 			<section>
 
-
-				<div class="left-txt size-85">
+				<div class="left-txt size-75">
 					<p>
 						<b>Solution Question 2</b>
 					</p>
 
-					<p class="fragment" data-fragment-index="1">
-						We begin by expressing the integrand using partial fractions.
+					<p>
+						We want to find the area between the curves
+						\( f(x) = x^3 \)
+						<span class="fragment" data-fragment-index="0">
+							and
+							\( g(x) = x^2 + x. \)
+						</span>
 					</p>
 
+					<p class="fragment" data-fragment-index="1">
+						First, find the points of intersection.
+					</p>
 				</div>
-				<div class="size-85">
 
-
-					<p>
-
-						<span class="fragment" data-fragment-index="1">
+				<div class="size-75">
+					<p class="fragment" data-fragment-index="2">
+						Solve
+						\(
+						x^3 = x^2 + x
+						\)
+						<span class="fragment" data-fragment-index="3">
 							\(
-							\ds \frac{x+1}{x(x+2)} = \frac{A}{x} + \frac{B}{x+2}.
+							\Ra x^3 - x^2 - x = 0
 							\)
 						</span>
-
-
-					</p>
-
-				</div>
-				<div class="left-txt size-85">
-
-
-					<p>
-
-
-						<span class="fragment" data-fragment-index="2">
-							Comparing coefficients gives the system:
-							\(A+B=1,\; 2A=1.\)
-						</span>
-
-					</p>
-
-				</div>
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="3">
-							This implies
-							\( A = \dfrac12 \) and \( B = \dfrac12 \).
-						</span>
-					</p>
-				</div>
-
-				<div class="size-85">
-					<p>
 						<span class="fragment" data-fragment-index="4">
-							Then
-						</span>
-						<span>
-							\( \ds \int \frac{x+1}{x(x+2)}\,dx \)
-						</span>
-						<span class="fragment" data-fragment-index="4">
-							\( = \ds \frac12 \int \frac{1}{x}dx + \frac{1}{2}\int \frac{1}{x+2}\,dx\qquad \qquad \qquad
-							\qquad \quad \)
+							\(
+							\Ra x(x^2 - x - 1) = 0.
+							\)
 						</span>
 					</p>
 
-					<p>
-						<span class="fragment" data-fragment-index="5">
-							\( \qquad \qquad \quad \ds = \frac12 \ln|x| + \frac12 \ln|x+2| + C \)
-						</span>
-						<span class="fragment" data-fragment-index="6">
-							\( \ds = \frac12 \ln|x(x+2)| + C. \)
-						</span>
+
+				</div>
+
+				<div class="size-75">
+					<p class="fragment" data-fragment-index="5">
+						Thus, the intersection points are: 
+						\(
+						x = 0,
+						\quad
+						x = \frac{1 - \sqrt{5}}{2},
+						\quad
+						x = \frac{1 + \sqrt{5}}{2}.
+						\)
+					</p>
+				</div>
+
+				<div class="left-txt size-75">
+					<p class="fragment" data-fragment-index="7">
+						On the interval
+						\( \left[ \frac{1 - \sqrt{5}}{2}, 0 \right] \),
+						the curve \( f(x) \) lies above \( g(x) \).
+					</p>
+				</div>
+
+				<div class="size-75">
+					<p class="fragment" data-fragment-index="8">
+						The area between the curves is
+					</p>
+
+					<p class="fragment" data-fragment-index="9">
+						\[
+						A = \int_{(1-\sqrt{5})/2}^{(1+\sqrt{5})/2}
+						\big( g(x) - f(x) \big)\, dx
+						 = \int_{(1-\sqrt{5})/2}^{(1+\sqrt{5})/2}
+						\left( x^2 + x - x^3 \right) dx.
+						\]
+					</p>
+				</div>
+
+		
+
+				<div class="size-75">
+					<p class="fragment" data-fragment-index="13">
+						Apply the limits of integration:
+					</p>
+
+					<p class="fragment" data-fragment-index="14">
+						\[
+						A =
+						\left[
+						\frac{x^3}{3} + \frac{x^2}{2} - \frac{x^4}{4}
+						\right]_{(1-\sqrt{5})/2}^{(1+\sqrt{5})/2}.
+						\]
+					</p>
+				</div>
+
+				<div class="left-txt size-75">
+					<p class="fragment" data-fragment-index="15">
+						Therefore, the area between the curves is
+					</p>
+
+					<p class="fragment" data-fragment-index="16">
+						\[
+						A = \frac{5\sqrt{5}}{24}.
+						\]
 					</p>
 				</div>
 
 				<br />
 				<br />
-
 
 			</section>
+
 
 
 
