@@ -83,103 +83,108 @@
 
 			<section>
 
-				<div class="left-txt">
+				<div class="left-txt size-85">
 					<p>
-						<b>Question</b>
+						<b>Question 1</b>
 					</p>
-					<p>Calculate the area between the two functions in the figure below:</p>
-					
+					<p>
+						A thin rod lies along the \(x\)-axis from \(x=0\) to \(x=3,\)
+						with density
+					</p>
 				</div>
-				<div style="margin-top: -30px;">
-					<img style="width:50%" src="images/quizzes/integral-between-fg.svg">
+				<div class=" size-85">
+					<p>\( \rho(x) = 2 + x^2 \;\text{kg/m}. \)</p>
 				</div>
+				<div class="left-txt size-85">
+
+					<p>
+						Find the mass of the rod.
+					</p>
+				</div>
+				<hr />
+
+				<table style="width: 100%;">
+					<tr>
+						<td style="width: 50%;">
+							<div class="left-txt size-85">
+								<p>
+									<b>Question 2</b>
+								</p>
+								<p>
+									Calculate the area between the two functions shown in the figure
+									➡️
+								</p>
+
+							</div>
+							<br/>
+							<br/>
+							<br/>
+							<br/>
+						</td>
+						<td style="width: 50%;">
+							<div style="margin-top: -30px;">
+								<img style="width:100%" src="images/quizzes/integral-between-fg.svg">
+							</div>
+						</td>
+					</tr>
+				</table>
+
+
+
 				<br />
 				<br />
 			</section>
 
 			<section>
 
-				<div class="left-txt size-85">
+				<div class="left-txt size-80">
 					<p>
 						<b>Solution Question 1</b>
 					</p>
 
 					<p>
-
-						<span class="fragment" data-fragment-index="1">
-							Use the trigonometric substitution \( x = \sin\theta \).
-						</span>
-						<span class="fragment" data-fragment-index="2">
-							Then \( dx = \cos\theta\, d\theta \) 
-						</span>
-						<span class="fragment" data-fragment-index="3">
-							and
-						</span>
-					</p>
-
-
-				</div>
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="3">
-							\( \sqrt{1-x^2} = \sqrt{1-\sin^2\theta} \)
-						</span>
-						<span class="fragment" data-fragment-index="4">
-							\( = \cos\theta. \)
-						</span>
-					</p>
-				</div>
-
-				<div class="size-85">
-					<p>
-						<span>
-							\( \ds \int \frac{dx}{\sqrt{1-x^2}} \)
-						</span>
-						<span class="fragment" data-fragment-index="5">
-							\( = \ds \int \frac{\cos\theta}{\cos\theta}\, d\theta \)
-						</span>
-						<span class="fragment" data-fragment-index="6">
-							\( = \ds \int d\theta \)
-						</span>
-						<span class="fragment" data-fragment-index="7">
-							\( \ds = \theta + C \qquad \qquad \qquad \)
-						</span>
-					</p>
-
-					<p>
+						A thin rod lies along the \(x\)-axis from \(x=0\) to \(x=3\).
 						
+							The  density is 
+							\[ \rho(x) = 2 + x^2 \;\text{kg/m}. \]
+						
+					</p>
+
+					<p class="fragment" data-fragment-index="1">
+						The mass of the rod is given by
+
+						\(
+						\ds m = \int_0^3 (2 + x^2)\, dx.
+						\)
+					</p>
+				</div>
+
+
+				<div class="size-80">
+
+					<p class="fragment" data-fragment-index="7">
+						\(
+						m = \left[ 2x + \dfrac{x^3}{3} \right]_0^3
+						\)
 						<span class="fragment" data-fragment-index="8">
-							\( \ds = \sin^{-1}(x) + C \)
+							\(= \left( 2(3) + \dfrac{3^3}{3} \right) - 0
+							
+							\)
 						</span>
 						<span class="fragment" data-fragment-index="9">
-							\( \ds = \arcsin(x) + C. \)
+							\(
+							=6 + 9.
+							\)
 						</span>
 					</p>
 				</div>
 
-
-				<div class="left-txt size-85">
-
-					<p>
-						
-						<span class="fragment" data-fragment-index="11">
-							Alternatively, recall that
-							\( \ds \frac{d}{dx}(\sin^{-1}x) = \frac{1}{\sqrt{1-x^2}}. \)
-						</span>
-						<span class="fragment" data-fragment-index="12">
-							Thus
-						</span>
-					</p>
-				</div>
-
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="12">
-							\( \ds \int \frac{dx}{\sqrt{1-x^2}} \)
-						</span>
-						<span class="fragment" data-fragment-index="12">
-							\( = \ds \sin^{-1}(x) + C. \)
-						</span>
+				<div class="left-txt size-80">
+					<p class="fragment" data-fragment-index="10">
+						Therefore, the mass of the rod is
+						\(
+						m = 15 \;\text{kg}.
+						\)
 					</p>
 				</div>
 
@@ -189,9 +194,10 @@
 			</section>
 
 
+
 			<section>
 
-				
+
 				<div class="left-txt size-85">
 					<p>
 						<b>Solution Question 2</b>
@@ -200,41 +206,41 @@
 					<p class="fragment" data-fragment-index="1">
 						We begin by expressing the integrand using partial fractions.
 					</p>
-					
+
 				</div>
 				<div class="size-85">
-					
+
 
 					<p>
-						
+
 						<span class="fragment" data-fragment-index="1">
 							\(
 							\ds \frac{x+1}{x(x+2)} = \frac{A}{x} + \frac{B}{x+2}.
 							\)
 						</span>
-						
-						
+
+
 					</p>
-					
+
 				</div>
 				<div class="left-txt size-85">
-					
+
 
 					<p>
-						
-						
+
+
 						<span class="fragment" data-fragment-index="2">
-							Comparing coefficients gives the system: 
+							Comparing coefficients gives the system:
 							\(A+B=1,\; 2A=1.\)
 						</span>
-						
+
 					</p>
-					
+
 				</div>
 				<div class="size-85">
 					<p>
 						<span class="fragment" data-fragment-index="3">
-							This implies 
+							This implies
 							\( A = \dfrac12 \) and \( B = \dfrac12 \).
 						</span>
 					</p>
@@ -249,13 +255,14 @@
 							\( \ds \int \frac{x+1}{x(x+2)}\,dx \)
 						</span>
 						<span class="fragment" data-fragment-index="4">
-							\( = \ds \frac12 \int \frac{1}{x}dx + \frac{1}{2}\int \frac{1}{x+2}\,dx\qquad \qquad \qquad \qquad \quad  \)
+							\( = \ds \frac12 \int \frac{1}{x}dx + \frac{1}{2}\int \frac{1}{x+2}\,dx\qquad \qquad \qquad
+							\qquad \quad \)
 						</span>
 					</p>
 
 					<p>
 						<span class="fragment" data-fragment-index="5">
-							\(   \qquad  \qquad \quad \ds = \frac12 \ln|x| + \frac12 \ln|x+2| + C \)
+							\( \qquad \qquad \quad \ds = \frac12 \ln|x| + \frac12 \ln|x+2| + C \)
 						</span>
 						<span class="fragment" data-fragment-index="6">
 							\( \ds = \frac12 \ln|x(x+2)| + C. \)
@@ -265,7 +272,7 @@
 
 				<br />
 				<br />
-				
+
 
 			</section>
 
