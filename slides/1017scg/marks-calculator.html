@@ -91,16 +91,16 @@
     <h1>Foundation Mathematics Marks Calculator</h1>
     <div class="container">
         <label>Workshop Engagement (out of 20):</label>
-        <input type="number" id="workshop" min="0" max="20">
+        <input type="text" id="workshop" inputmode="decimal" placeholder="0–20">
 
         <label>Progress Test 1 (out of 20):</label>
-        <input type="number" id="test1" min="0" max="20">
+        <input type="text" id="test1" inputmode="decimal" placeholder="0–20">
 
         <label>Progress Test 2 (out of 20):</label>
-        <input type="number" id="test2" min="0" max="20">
+        <input type="text" id="test2" inputmode="decimal" placeholder="0–20">
 
         <label>Progress Test 3 (out of 20):</label>
-        <input type="number" id="test3" min="0" max="20">
+        <input type="text" id="test3" inputmode="decimal" placeholder="0–20">
 
         <div class="result" id="output"></div>
         <div class="error" id="error"></div>
@@ -133,18 +133,37 @@
             input.addEventListener("input", calculateGrade);
         });
 
+       function getValidNumber(input) {
+    const value = input.value.trim();
+
+    if (value === "") return 0;
+
+    // Reject anything that is not a pure number
+    if (isNaN(value)) return null;
+
+    return Number(value);
+}
         function calculateGrade() {
-            let workshop = parseFloat(workshopInput.value) || 0;
-            let test1 = parseFloat(test1Input.value) || 0;
-            let test2 = parseFloat(test2Input.value) || 0;
-            let test3 = parseFloat(test3Input.value) || 0;
+            let workshop = getValidNumber(workshopInput);
+            let test1 = getValidNumber(test1Input);
+            let test2 = getValidNumber(test2Input);
+            let test3 = getValidNumber(test3Input);
 
             let values = [workshop, test1, test2, test3];
 
+            // Catch symbol / invalid input
+            if (values.includes(null)) {
+                document.getElementById("error").innerText =
+                    "Invalid input detected ❌\nPlease enter numbers only (0–20)\n 😕";
+                document.getElementById("output").innerText = "";
+                return;
+            }
+
+            // Range validation
             for (let v of values) {
                 if (v < 0 || v > 20) {
                     document.getElementById("error").innerText =
-                        "Invalid Mark: \n All marks must be between 0 and 20 \n😕";
+                        "Invalid Mark 😕\nAll marks must be between 0 and 20";
                     document.getElementById("output").innerText = "";
                     return;
                 }
@@ -163,9 +182,9 @@
                 : "Non-Graded Fail (NGF) ❌";
 
             document.getElementById("output").innerHTML =
-                `Overall Percentage: ${percentage.toFixed(2)}% 
-             <span class="info-btn" onclick="openPopup()">ⓘ</span><br><br>
-             Final Grade: ${grade}`;
+                `Overall Percentage: ${percentage.toFixed(2)}%
+         <span class="info-btn" onclick="openPopup()">ⓘ</span><br><br>
+         Final Grade: ${grade}`;
         }
 
         function openPopup() {
