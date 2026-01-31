@@ -144,22 +144,26 @@
 								Integrate both sides with respect to $x$:
 								$\,\displaystyle \int\frac{1}{g(y)}\,\dif{y}{x}\, \dup x = \int f(x) \dup x.$
 
-								<ul style="line-height:80px;margin-left: 0px">
+								<ul style="line-height:70px;margin-left: 0px;font-size: 95%;">
 									<li class="fragment" data-fragment-index="2">
 										Note the integral on the left is a "substitution", so that
 										we can replace the last equation by
 										$\;\displaystyle \int\frac{\dup y}{g(y)} = \int f(x) \dup x. $
 									</li>
+									<li class="fragment" data-fragment-index="3">
+										If we are lucky one or both of the integrals can actually be computed.
+									</li>
+
 								</ul>
+
 							</li>
 
 
 						</ol>
 
-						<ol start="3"  style="line-height:60px">
-							<li class="fragment" data-fragment-index="3">
-								If we are lucky one or both of the integrals can actually be computed.
-							</li>
+
+
+						<ol start="3" style="line-height:60px">
 							<li class="fragment" data-fragment-index="4">
 								<b>Extra step:</b> If we are even more lucky
 								we can then finally explicitly express $y$ as a function of $x$.
@@ -211,24 +215,24 @@
 											<span class="fragment" data-fragment-index="3">
 												2. $\ds \int y \frac{dy}{dx} ~dx= \int x ~dx$
 											</span>
-										</p>
-										<p>
 											<span class="fragment" data-fragment-index="4">
-												That is $\ds \int y ~dy = \int x~dx $
+												$\;\Ra\ds \int y ~dy = \int x~dx $
 											</span>
 										</p>
 										<p>
+											
 											<span class="fragment" data-fragment-index="5">
-												3. $\ds \frac{y^2}{2}= \frac{x^2}{2}+C \;$
+												$\quad\Ra\; \ds \frac{y^2}{2}= \frac{x^2}{2}+C \;$
 											</span>
+											
 											<span class="fragment" data-fragment-index="6">
-												$\;\Ra \;y^2 = x^2 + K $
+												 $\Ra\; y^2 = x^2 + K $
 											</span>
 
 										</p>
 										<p>
 											<span class="fragment" data-fragment-index="7">
-												<b>4. Extra step:</b> $ \,y = \pm \sqrt{x^2+ K} $ &nbsp; 📝
+												<b>3. Extra step:</b> $ \,y = \pm \sqrt{x^2+ K} $ &nbsp; 📝
 											</span>
 										</p>
 
@@ -357,7 +361,7 @@
 			<section data-auto-animate>
 
 
-				<div class="size-80">
+				<div class="size-90">
 					<p>
 						<b>
 							Steps to solve separable ODEs:
@@ -380,13 +384,11 @@
 							<li>
 								Integrate both sides with respect to $x$:
 								<p style="text-align: center;">
-									$\displaystyle \int\frac{1}{g(y)}\,\dif{y}{x}\, \dup x = \int f(x) \dup x\;$ $\iff$ 
-									$\;\displaystyle \int\frac{\dup y}{g(y)} = \int f(x) \dup x. $
+									$\displaystyle \int\frac{1}{g(y)}\,\dif{y}{x}\, \dup x = \int f(x) \dup x\;$ $\iff$
+									$\displaystyle \int\frac{\dup y}{g(y)} = \int f(x) \dup x. $
 								</p>
 							</li>
-							<li>
-								Find the integrals, if possible.
-							</li>
+							
 							<li>
 								<b>Extra step:</b> If possible,
 								explicitly express $y$ as a function of $x$.
