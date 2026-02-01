@@ -296,11 +296,6 @@
 							</span>
 						</p>
 
-
-
-
-
-
 					</div>
 
 					<div class="left-txt size-75">
@@ -313,15 +308,6 @@
 										data-src="https://www.dynamicmath.xyz/math2001/images/chapter-06/Vibrating_drum_Bessel_function.gif">
 								</td>
 								<td style="width:55%;text-align: center;">
-									<p>
-										$x^2\dfrac{d^2y}{dx^2} + x\dfrac{dy}{dx} + \left(x^2-\alpha^2 \right) y = 0 ,$$
-										$$\alpha \in \C.$
-									</p>
-									<p style="font-size:20px;margin-top: 50px;"><strong>Source:</strong>
-										<a href="https://en.wikipedia.org/wiki/Bessel_function" target="_blank">Bessel
-											functions - circular drumhead</a>
-									</p>
-
 									<div style="margin-top: -20px;">
 										<picture class="fragment" data-fragment-index="1">
 											<source
@@ -331,6 +317,16 @@
 												alt="😭" width="120" height="120">
 										</picture>
 									</div>
+									<p>
+										$x^2\dfrac{d^2y}{dx^2} + x\dfrac{dy}{dx} + \left(x^2-\alpha^2 \right) y = 0 ,$$
+										$$\alpha \in \C.$
+									</p>
+									<p style="font-size:20px;margin-top: 50px;"><strong>Source:</strong>
+										<a href="https://en.wikipedia.org/wiki/Bessel_function" target="_blank">Bessel
+											functions - circular drumhead</a>
+									</p>
+
+
 								</td>
 							</tr>
 						</table>
@@ -472,7 +468,7 @@
 
 						</p>
 						<br />
-						
+
 
 
 
@@ -497,8 +493,8 @@
 
 
 					<br /><br /><br /><br />
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -544,285 +540,287 @@
 			</section>
 
 
-			<section data-auto-animate>
-				<h4>Ordinary Differential Equations</h4>
+			<section>
+				<section data-auto-animate>
+					<h4>Ordinary Differential Equations</h4>
 
-				<div class="">
-					<div class="left-txt">
-						<p>
-							<span class="fragment" data-fragment-index="0">
-								A first-order ODE is called
-								<span style="color:rgb(222, 8, 8)">separable</span>
-								if it can be
-								written in the form
-							</span>
-						</p>
+					<div class="">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									A first-order ODE is called
+									<span style="color:rgb(222, 8, 8)">separable</span>
+									if it can be
+									written in the form
+								</span>
+							</p>
 
 
+						</div>
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								<span id="blue-box-big">
+									$\ds \dif{y}{x} = f(x)\,g(y).$
+								</span>
+							</p>
+						</div>
+						<br>
+						<div class="fragment" data-fragment-index="1">
+							<p>
+								<span>
+									$\ds \dif{y}{t} = f(t)\,g(y),\;\;$
+								</span>
+								<span>
+									$\ds \dif{y}{\theta} = f(\theta)\,g(y),\;\;$
+								</span>
+								<span>
+									$\ds \dif{T}{t} = f(t)\,g(T).$
+								</span>
+							</p>
+						</div>
 					</div>
-					<div class="fragment" data-fragment-index="0">
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Solving separable ODEs</h4>
+
+					<div class="size-80">
 						<p>
 							<span id="blue-box-big">
 								$\ds \dif{y}{x} = f(x)\,g(y).$
 							</span>
 						</p>
 					</div>
-					<br>
-					<div class="fragment" data-fragment-index="1">
-						<p>
-							<span>
-								$\ds \dif{y}{t} = f(t)\,g(y),\;\;$
-							</span>
-							<span>
-								$\ds \dif{y}{\theta} = f(\theta)\,g(y),\;\;$
-							</span>
-							<span>
-								$\ds \dif{T}{t} = f(t)\,g(T).$
-							</span>
-						</p>
+
+					<div class="size-85">
+						<div class="left-txt">
+
+
+							<ol style="line-height:60px">
+								<li>
+									Rewrite the equation as
+									$\,\displaystyle \frac{1}{g(y)}\,\dif{y}{x} = f(x).$
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									Integrate both sides with respect to $x$:
+									$\,\displaystyle \int\frac{1}{g(y)}\,\dif{y}{x}\, \dup x = \int f(x) \dup x.$
+
+									<ul style="line-height:70px;margin-left: 0px;font-size: 95%;">
+										<li class="fragment" data-fragment-index="2">
+											Note the integral on the left is a "substitution", so that
+											we can replace the last equation by
+											$\;\displaystyle \int\frac{\dup y}{g(y)} = \int f(x) \dup x. $
+										</li>
+										<li class="fragment" data-fragment-index="3">
+											If we are lucky one or both of the integrals can actually be computed.
+										</li>
+
+									</ul>
+
+								</li>
+
+
+							</ol>
+
+
+
+							<ol start="3" style="line-height:60px">
+								<li class="fragment" data-fragment-index="4">
+									<b>Extra step:</b> If we are even more lucky
+									we can then finally explicitly express $y$ as a function of $x$.
+
+								</li>
+							</ol>
+						</div>
 					</div>
-				</div>
-				<br /><br />
-			</section>
-			<section data-auto-animate>
-				<h4>Solving separable ODEs</h4>
+					<br /><br />
+				</section>
 
-				<div class="size-80">
-					<p>
-						<span id="blue-box-big">
-							$\ds \dif{y}{x} = f(x)\,g(y).$
-						</span>
-					</p>
-				</div>
+				<section data-auto-animate>
+					<h4>Solving separable ODEs</h4>
 
-				<div class="size-85">
-					<div class="left-txt">
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<strong>Example: </strong>
+								Solve the ODE $\;\ds \dif{y}{x}=\frac{x}{y}$.
+
+							</p>
 
 
-						<ol style="line-height:60px">
-							<li>
-								Rewrite the equation as
-								$\,\displaystyle \frac{1}{g(y)}\,\dif{y}{x} = f(x).$
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								Integrate both sides with respect to $x$:
-								$\,\displaystyle \int\frac{1}{g(y)}\,\dif{y}{x}\, \dup x = \int f(x) \dup x.$
+							<div id="theorem">
+								<table style="width:100%;margin-top: -20px;">
+									<tr>
+										<td>
+											<p>
+												<span class="fragment" data-fragment-index="0">
+													$\ds \frac{dy}{dx} = x\left(\frac{1}{y}\right)$
+												</span>
+												<br /><br />
+												<span class="fragment" data-fragment-index="1">
+													$\Ra $ separable. <br /><br />
 
-								<ul style="line-height:70px;margin-left: 0px;font-size: 95%;">
-									<li class="fragment" data-fragment-index="2">
-										Note the integral on the left is a "substitution", so that
-										we can replace the last equation by
-										$\;\displaystyle \int\frac{\dup y}{g(y)} = \int f(x) \dup x. $
-									</li>
-									<li class="fragment" data-fragment-index="3">
-										If we are lucky one or both of the integrals can actually be computed.
-									</li>
-
-								</ul>
-
-							</li>
-
-
-						</ol>
-
-
-
-						<ol start="3" style="line-height:60px">
-							<li class="fragment" data-fragment-index="4">
-								<b>Extra step:</b> If we are even more lucky
-								we can then finally explicitly express $y$ as a function of $x$.
-
-							</li>
-						</ol>
-					</div>
-				</div>
-				<br /><br />
-			</section>
-
-			<section data-auto-animate>
-				<h4>Solving separable ODEs</h4>
-
-				<div class="size-80">
-					<div class="left-txt">
-						<p>
-							<strong>Example: </strong>
-							Solve the ODE $\;\ds \dif{y}{x}=\frac{x}{y}$.
-
-						</p>
-
-
-						<div id="theorem">
-							<table style="width:100%;margin-top: -20px;">
-								<tr>
-									<td>
-										<p>
-											<span class="fragment" data-fragment-index="0">
-												$\ds \frac{dy}{dx} = x\left(\frac{1}{y}\right)$
-											</span>
+												</span>
+												&nbsp;&nbsp; &nbsp; &nbsp; <span class="fragment"
+													data-fragment-index="1" style="font-size:150%">😃</span>
+											</p>
 											<br /><br />
-											<span class="fragment" data-fragment-index="1">
-												$\Ra $ separable. <br /><br />
+										</td>
+										<td>
+											<p>
+												<span class="fragment" data-fragment-index="2">
+													1. $\ds y \frac{dy}{dx} = x$
+												</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="3">
+													2. $\ds \int y \frac{dy}{dx} ~dx= \int x ~dx$
+												</span>
+												<span class="fragment" data-fragment-index="4">
+													$\;\Ra\ds \int y ~dy = \int x~dx $
+												</span>
+											</p>
+											<p>
 
-											</span>
-											&nbsp;&nbsp; &nbsp; &nbsp; <span class="fragment" data-fragment-index="1"
-												style="font-size:150%">😃</span>
-										</p>
-										<br /><br />
-									</td>
-									<td>
-										<p>
-											<span class="fragment" data-fragment-index="2">
-												1. $\ds y \frac{dy}{dx} = x$
-											</span>
-										</p>
-										<p>
-											<span class="fragment" data-fragment-index="3">
-												2. $\ds \int y \frac{dy}{dx} ~dx= \int x ~dx$
-											</span>
-											<span class="fragment" data-fragment-index="4">
-												$\;\Ra\ds \int y ~dy = \int x~dx $
-											</span>
-										</p>
-										<p>
+												<span class="fragment" data-fragment-index="5">
+													$\quad\Ra\; \ds \frac{y^2}{2}= \frac{x^2}{2}+C \;$
+												</span>
 
-											<span class="fragment" data-fragment-index="5">
-												$\quad\Ra\; \ds \frac{y^2}{2}= \frac{x^2}{2}+C \;$
-											</span>
+												<span class="fragment" data-fragment-index="6">
+													$\Ra\; y^2 = x^2 + K $
+												</span>
 
-											<span class="fragment" data-fragment-index="6">
-												$\Ra\; y^2 = x^2 + K $
-											</span>
+											</p>
+											<p>
+												<span class="fragment" data-fragment-index="7">
+													<b>3. Extra step:</b> $ \,y = \pm \sqrt{x^2+ K} $ &nbsp; 📝
+												</span>
+											</p>
 
-										</p>
-										<p>
-											<span class="fragment" data-fragment-index="7">
-												<b>3. Extra step:</b> $ \,y = \pm \sqrt{x^2+ K} $ &nbsp; 📝
-											</span>
-										</p>
+										</td>
+									</tr>
+								</table>
 
-									</td>
-								</tr>
-							</table>
 
+							</div>
 
 						</div>
 
 					</div>
+					<br /><br />
+				</section>
 
-				</div>
-				<br /><br />
-			</section>
+				<section data-auto-animate>
+					<h4>Solving separable ODEs</h4>
 
-			<section data-auto-animate>
-				<h4>Solving separable ODEs</h4>
-
-				<div>
-					<p>
-						If $\,\ds\dif{y}{x}=\frac{x}{y},\,$ then
-						<span>
-							$\,y^2 = x^2 + K $ or $ \,y = \pm \sqrt{x^2+ K} $
-						</span>
-					</p>
-				</div>
-
-
-				<div class="size-90">
-					<div class="left-txt">
+					<div>
 						<p>
+							If $\,\ds\dif{y}{x}=\frac{x}{y},\,$ then
 							<span>
-								The solution we found for the above example
-								contains an arbitrary constant. So this is
-								the <span id="rr">general solution</span>.
-							</span>
-							<br><br>
-							<span class="fragment" data-fragment-index="0">
-								In the case of an Initial Value Problem (IVP)
-								this constant will be fixed
-								to find one, particular solution.
+								$\,y^2 = x^2 + K $ or $ \,y = \pm \sqrt{x^2+ K} $
 							</span>
 						</p>
 					</div>
-				</div>
-				<div class="size-90">
-					<div class="left-txt">
-						<p>
-							<span class="fragment" data-fragment-index="1">
-								<strong>Example:</strong>
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{x}{y}},$ $\, y(0)=3.$
-							</span>
-						</p>
-					</div>
-				</div>
-
-				<br /><br /><br /><br />
-			</section>
-			<section data-auto-animate>
-				<h4>Solving separable ODEs</h4>
 
 
-				<div class="size-90">
-					<div class="left-txt">
-						<p>
-							<span>
-								<strong>Example:</strong>
-							</span>
-							<span>
-								Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{x}{y}},$ $\, y(0)=3.$
-							</span>
-						</p>
-
-
-					</div>
-				</div>
-				<div class="size-90">
-					<div class="left-txt">
-
-
-						<div id="theorem">
+					<div class="size-90">
+						<div class="left-txt">
 							<p>
-								<span class="fragment" data-fragment-index="0">
-									We know that $y^2 = x^2 + K$ is the general solution.
+								<span>
+									The solution we found for the above example
+									contains an arbitrary constant. So this is
+									the <span id="rr">general solution</span>.
 								</span>
-
+								<br><br>
+								<span class="fragment" data-fragment-index="0">
+									In the case of an Initial Value Problem (IVP)
+									this constant will be fixed
+									to find one, particular solution.
+								</span>
 							</p>
+						</div>
+					</div>
+					<div class="size-90">
+						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="1">
-									Consider the initial condition $y(0)=3.$
+									<strong>Example:</strong>
 								</span>
-							</p>
-							<p>
-
-								<span class="fragment" data-fragment-index="2">
-									That is $\,3^2=0^2+ K$
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									$\Ra K = 9\,$
-								</span>
-								<span class="fragment" data-fragment-index="4">
-									$\,\Ra y = \pm \sqrt{x^2+9}.$
-								</span>
-							</p>
-							<p>
-								<span class="fragment" data-fragment-index="5">
-									Here we need to take the $+$ sign since $\,y(0)=3.$
-								</span>
-							</p>
-							<p>
-
-								<span class="fragment" data-fragment-index="6">
-									Therefore $\,y = \sqrt{x^2+9}$ is the solution to the IVP.
+								<span class="fragment" data-fragment-index="1">
+									Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{x}{y}},$ $\, y(0)=3.$
 								</span>
 							</p>
 						</div>
 					</div>
-				</div>
 
-				<br />
+					<br /><br /><br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Solving separable ODEs</h4>
+
+
+					<div class="size-90">
+						<div class="left-txt">
+							<p>
+								<span>
+									<strong>Example:</strong>
+								</span>
+								<span>
+									Solve the IVP $\;\displaystyle{\dif{y}{x}=\frac{x}{y}},$ $\, y(0)=3.$
+								</span>
+							</p>
+
+
+						</div>
+					</div>
+					<div class="size-90">
+						<div class="left-txt">
+
+
+							<div id="theorem">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										We know that $y^2 = x^2 + K$ is the general solution.
+									</span>
+
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										Consider the initial condition $y(0)=3.$
+									</span>
+								</p>
+								<p>
+
+									<span class="fragment" data-fragment-index="2">
+										That is $\,3^2=0^2+ K$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\Ra K = 9\,$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\,\Ra y = \pm \sqrt{x^2+9}.$
+									</span>
+								</p>
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										Here we need to take the $+$ sign since $\,y(0)=3.$
+									</span>
+								</p>
+								<p>
+
+									<span class="fragment" data-fragment-index="6">
+										Therefore $\,y = \sqrt{x^2+9}$ is the solution to the IVP.
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<br />
+				</section>
 			</section>
 
-			<section data-auto-animate>
+			<section>
 
 
 				<div class="size-90">
