@@ -1,5 +1,5 @@
 let pendulums = [];
-const g = 200; // gravity (scaled for visuals)
+const g = 500; // gravity (scaled for visuals)
 const dt = 0.02; // Euler time step
 
 function setup() {
@@ -16,7 +16,7 @@ function setup() {
         120,
         1,
         1,
-        PI / 2 + i * 0.001, // tiny variation → chaos
+        PI / 2 + i * 0.0001, // tiny variation → chaos
         PI / 2,
         i
       )
@@ -101,12 +101,12 @@ class DoublePendulum {
     // first mass (neutral)
     fill(220);
     noStroke();
-    circle(x1, y1, 12);
+    circle(x1, y1, 15);
 
     // second mass (unique color)
     fill(this.col);
     noStroke();
-    circle(x2, y2, 25);
+    circle(x2, y2, 22);
   }
 }
 
