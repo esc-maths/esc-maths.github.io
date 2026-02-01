@@ -25,7 +25,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(20);
 
   for (let p of pendulums) {
     p.update();
@@ -101,7 +101,7 @@ class DoublePendulum {
     // first mass (neutral)
     fill(220);
     noStroke();
-    circle(x1, y1, 15);
+    circle(x1, y1, 20);
 
     // second mass (unique color)
     fill(this.col);
