@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>1020ENG/1202SCG - Table of contents</title>
+	<title>Damped pendulum</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -28,6 +28,9 @@
 		<script src="../reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
 
+	<script src="https://complex-analysis.com/applets/mathcell/math.js"></script>
+	<script src="https://complex-analysis.com/applets/mathcell/mathcell.js"></script>
+
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
 	<script>
@@ -46,58 +49,45 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 
+
 			<section>
-				<h3 style="font-size:95%">1020ENG/1202SCG</h3>
-				<div style="font-size:67%;text-align:left">
-					<table style="width: 100%;">
-						<tr>
-
-							<th style="text-align: center;width: 30%;">Workshops</th>
-							
-							<th style="text-align: center;width: 40%;">Extras &amp; Applets</th>
-						</tr>
-						<tr class="toc">
-
-							<td style="text-align: center;">
-
-								<!--<a href="Workshop-00.html" target="_blank">Workshop 0</a><br />-->
-								<a href="wk-01.html" target="_blank">Workshop 1</a><br />
-								<a href="wk-02.html" target="_blank">Workshop 2</a><br />
-								<a href="wk-03.html" target="_blank">Workshop 3</a><br />
-								<a href="wk-04.html" target="_blank">Workshop 4</a><br />
-								<a href="wk-05.html" target="_blank">Workshop 5</a><br />
-								<a href="wk-06.html" target="_blank">Workshop 6</a><br />
-								<a href="wk-07.html" target="_blank">Workshop 7</a><br />
-								<a href="wk-08.html" target="_blank">Workshop 8</a><br />
-								<a href="wk-09.html" target="_blank">Workshop 9</a><br />
-								<a href="pond.html" target="_blank">Workshop 10 ❌</a><br />
-								<a href="music.html" target="_blank">Workshop 11 ❌</a><br />
-							</td>
-
-
-							<td>
-		
-								<a href="derivative-tests.html" target="_blank">Derivative tets</a><br />
-								<a href="taylor-series.html" target="_blank">Taylor series</a><br />
-								<a href="volume-solids-of-revolution.html" target="_blank">Volume of solids of revolution</a><br />
-								<a href="free-undamped-oscillator.html" target="_blank">Free undamped oscillator</a><br />
-								<a href="free-damped-oscillator.html" target="_blank">Free damped oscillator</a><br />
-								<a href="damped-pendulum.html" target="_blank">Damped pendulum</a><br />
-
-
-							</td>
-
-
-						</tr>
-
-					</table>
-
+				<h4>
+					Damped pendulum
+				</h4>
+				<div style="font-size: 60%;">
+					<p>Drag the circle and then release.</p>
 				</div>
 
-				<br/>
-				
+				<table style="width:100%">
+					<tr>
+						<td style="width:750px">
+							<div style="text-align:center">
+								<div style="margin-top: -10px;">
+									<iframe scrolling="no" style="width:700px; height: 400px;border:1px solid black"
+										data-src="sketches/damped-pendulum">
+									</iframe>
+								</div>
 
 
+							</div>
+						</td>
+						<td style="font-size:90%;text-align:center">
+
+							<p>
+								\(\ds
+								\frac{d^2\theta }{dt^2} = -\mu\frac{d\theta }{dt}-\frac{g}{L}
+								\sin \left(\theta\right)
+								\)
+							</p>
+							<br />
+							<p style="font-size:18px;text-align:center"><strong>More info:</strong> <a
+									href="https://en.wikipedia.org/wiki/Pendulum_(mechanics)" target="_blank">Pendulum
+									(mechanics)</a></p>
+						</td>
+					</tr>
+				</table>
+				<br />
+				<br />
 			</section>
 
 
@@ -120,6 +110,7 @@
 	<script>
 		includeHTML();
 	</script>
+
 
 </body>
 
