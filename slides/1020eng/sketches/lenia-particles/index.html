@@ -1,15 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@2.1.2/lib/p5.min.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
 
-  </head>
-  <body>
-    <main>
-    </main>
-    <script src="sketch.js"></script>
-  </body>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.1.2/lib/p5.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+
+  <!--MathJax starts-->
+  <script>
+    window.MathJax = {
+      tex: {
+        tags: "ams",
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  <!--MathJax Ends-->
+
+</head>
+
+<body>
+
+  <div class="info-card">
+    <p>Lenia particles
+      <span style="font-size: 80%;">
+        <a href="https://bestiariotopologico.blogspot.com/2024/07/que-son-las-particulas-lenia.html"
+          target="_blank">ⓘ</a>
+      </span>
+    </p>
+    <p>\(\dfrac{d\mathbf{p}_i}{dt} = -∇\ \mathbf{E}(\mathbf{p}_i)\)</p>
+
+
+  </div>
+
+  <div class="hint-card" id="hintCard">
+    <p>
+      Click with mouse
+      to change behaviour.
+    </p>
+  </div>
+  <main>
+  </main>
+  <script src="sketch.js"></script>
+  <script>
+    setTimeout(() => {
+      const card = document.getElementById("hintCard");
+      card.classList.add("hide");
+
+      // fully remove after fade
+      setTimeout(() => {
+        card.remove();
+      }, 1500);
+    }, 20000);
+  </script>
+</body>
+
 </html>
