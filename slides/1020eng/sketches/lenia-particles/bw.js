@@ -36,7 +36,7 @@ let params = {
     for (let i = 0; i < steps_per_frame; ++i) stepSimulation();
     background(0, 30);
     translate(width / 2, height / 2);
-    scale(width / 45.0);
+    scale(width / 50.0);
     
   
     for (let i = 0; i < point_n; ++i) {
