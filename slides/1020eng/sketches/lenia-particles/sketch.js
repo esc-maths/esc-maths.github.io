@@ -55,31 +55,32 @@ function setup() {
 
   colRed1 = randomInt(10, 150);
   colGreen1 = randomInt(10, 200);
-  colBlue1 = randomInt(10, 200);
+  colBlue1 = randomInt(30, 200);
   colRed2 = randomInt(10, 180);
   colGreen2 = randomInt(10, 200);
   colBlue2 = randomInt(10, 180);
-  colRed3 = randomInt(10, 200);
+  colRed3 = randomInt(30, 200);
   colGreen3 = randomInt(10, 200);
-  colBlue3 = randomInt(10, 150);
+  colBlue3 = randomInt(30, 150);
 
   //console.log(randomCol);
 }
 
 function draw() {
   for (let i = 0; i < steps_per_frame; ++i) stepSimulation();
-  background(0, 20);
+  background(0);
   translate(width / 2, height / 2);
   scale(width / 45.0);
 
+  
   for (let i = 0; i < point_n; ++i) {
     let x = points[i * 2], y = points[i * 2 + 1];
     let r = params.c_rep / (fields.R_val[i] * 5.0);
 
     if (randomCol < 0.3) {
-      fill((i) / point_n * 200, colGreen1, 100);
+      fill((i) / point_n * 200, colGreen1, colBlue3);
     } else if (0.3 <= randomCol && randomCol < 0.6) {
-      fill(colRed2, 80, (i) / point_n * 200);
+      fill(colRed2, colGreen2, (i) / point_n * 200);
     } else {
       fill(colRed3, (i) / point_n * 200, colBlue3);
     }
