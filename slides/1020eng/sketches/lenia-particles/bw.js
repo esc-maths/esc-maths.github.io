@@ -45,7 +45,8 @@ let params = {
       //stroke(255)
       push();
       fill(200, 12);
-      noStroke();
+      strokeWeight(0.01);
+      stroke(255, 50);
       ellipse(x, y, r * 2.2, r * 2.2);
       pop();
 
