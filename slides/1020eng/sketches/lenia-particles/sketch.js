@@ -21,14 +21,20 @@ let params = {
   dt: 0.1
 };
 
-let point_n = 200;
+let point_n = 300;
 let points;
 let fields;
 let steps_per_frame; // Adjust this based on desired speed
 let randomCol;
-let colRed;
-let colGreen;
-let colBlue;
+let colRed1;
+let colGreen1;
+let colBlue1;
+let colRed2;
+let colGreen2;
+let colBlue2;
+let colRed3;
+let colGreen3;
+let colBlue3;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -47,16 +53,22 @@ function setup() {
 
   randomCol = random();
 
-  colRed = randomInt0to200();
-  colGreen = randomInt0to200();
-  colBlue = randomInt0to200();
+  colRed1 = randomInt(10, 150);
+  colGreen1 = randomInt(10, 200);
+  colBlue1 = randomInt(10, 200);
+  colRed2 = randomInt(10, 180);
+  colGreen2 = randomInt(10, 200);
+  colBlue2 = randomInt(10, 180);
+  colRed3 = randomInt(10, 200);
+  colGreen3 = randomInt(10, 200);
+  colBlue3 = randomInt(10, 150);
 
   //console.log(randomCol);
 }
 
 function draw() {
   for (let i = 0; i < steps_per_frame; ++i) stepSimulation();
-  background(0, 30);
+  background(0, 20);
   translate(width / 2, height / 2);
   scale(width / 45.0);
 
@@ -65,19 +77,19 @@ function draw() {
     let r = params.c_rep / (fields.R_val[i] * 5.0);
 
     if (randomCol < 0.3) {
-      fill((i) / point_n * 200, colGreen, 100);
+      fill((i) / point_n * 200, colGreen1, 100);
     } else if (0.3 <= randomCol && randomCol < 0.6) {
-      fill(colRed, 80, (i) / point_n * 200);
+      fill(colRed2, 80, (i) / point_n * 200);
     } else {
-      fill(20, (i) / point_n * 200, colBlue);
+      fill(colRed3, (i) / point_n * 200, colBlue3);
     }
 
     ellipse(x, y, r * 2, r * 2);
   }
 }
 
-function randomInt0to200() {
-  return Math.floor(Math.random() * 201);
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
@@ -170,9 +182,15 @@ function mousePressed() {
   params.sigma_g = random(0.05, 0.3);
   params.c_rep = random(0.1, 2.0);
 
-  colRed = randomInt0to200();
-  colGreen = randomInt0to200();
-  colBlue = randomInt0to200();
+  colRed1 = randomInt(10, 150);
+  colGreen1 = randomInt(10, 200);
+  colBlue1 = randomInt(10, 200);
+  colRed2 = randomInt(10, 180);
+  colGreen2 = randomInt(10, 200);
+  colBlue2 = randomInt(10, 180);
+  colRed3 = randomInt(10, 200);
+  colGreen3 = randomInt(10, 200);
+  colBlue3 = randomInt(10, 150);
   // Debugg
   //console.log(params);
 }
