@@ -48,7 +48,26 @@
 
     a {
       text-decoration: none;
+      color: aqua;
     }
+
+    /* Bottom centered credit box */
+    .credit {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      border-radius: 0.5rem;
+      letter-spacing: 0.05em;
+      z-index: 20;
+      pointer-events: none;
+      /* so it doesn't block iframe clicks */
+    }
+
 
 
     /* Overlay card */
@@ -132,13 +151,7 @@
 
 <body>
 
-  <!--
-  https://www.dynamicmath.xyz/sketches/zeros-ones-matrix/
-  https://www.dynamicmath.xyz/sketches/monkey-pi-digits/
-  https://www.dynamicmath.xyz/sketches/matrixrain/
-  https://www.dynamicmath.xyz/sketches/tesseract/
-  https://www.dynamicmath.xyz/sketches/shaders/noise-rings/
-  -->
+
   <iframe id="randomFrame"></iframe>
 
   <div class="card">
@@ -150,6 +163,9 @@
     </ul>
 
   </div>
+
+  <div class="credit">Maths Teaching &amp; Learning resources by <a href="https://www.jcponce.com/" target="_blank">JCPC</a></div>
+
 
   <script>
     const links = [
