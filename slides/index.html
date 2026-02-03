@@ -55,6 +55,24 @@ https://www.geogebra.org/m/xsy4fy25
 
         a {
             text-decoration: none;
+            color: aqua;
+        }
+
+        /* Bottom centered credit box */
+        .credit {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.85rem;
+            border-radius: 0.5rem;
+            letter-spacing: 0.05em;
+            z-index: 20;
+            pointer-events: none;
+            /* so it doesn't block iframe clicks */
         }
 
         /* Overlay card */
@@ -152,6 +170,11 @@ https://www.geogebra.org/m/xsy4fy25
             <li><a href="2201nsc/">2201NSC - Linear Algebra & Applications</a></li>
         </ul>
     </div>
+
+    <div class="credit">Maths Teaching &amp; Learning resources by <a href="https://www.jcponce.com/"
+            target="_blank">JCPC</a></div>
+
+
 
     <!-- partial:index.partial.html -->
     <script type="importmap">
