@@ -112,7 +112,7 @@
 					</p>
 					<ol style="line-height:1.8">
 						<li>
-							Solve the ODE to show that $T(t) = C_0 e^{-0.005t} + 25$.
+							Solve the ODE to show that $T(t) = C_0 e^{-0.005t} + 25,$ with $C_0$ a constant.
 						</li>
 						<li>
 							Calculate how long it will take for the tea to cool to
@@ -129,31 +129,24 @@
 
 			<section>
 
-				<div class="left-txt size-90">
+				<div class="left-txt size-85" >
 					<p>
-						<b>Solution Question 1.</b> Solve differential equation.
-					</p>
-
-					<p>
-						<span class="fragment" data-fragment-index="0">
-							The temperature satisfies
-							\(
+						<b>Solution Question 1.</b> Solve differential equation:
+						\(
 							\ds \frac{dT}{dt} = -k\left(T-T_{\text{amb}}\right).
 							\)
-						</span>
-						<span class="fragment" data-fragment-index="1">
-							Separate the variables.
-						</span>
 					</p>
 
-
-				</div>
-
-				<div class="size-90">
 					<p>
+						
 						<span class="fragment" data-fragment-index="1">
+							1. Separate the variables:
+						</span>
+					
+						<span class="fragment" data-fragment-index="1">
+							
 							\(
-							\ds \frac{1}{T-T_{\text{amb}}}\, dT = -k\, dt.
+							\;\ds \frac{1}{T-T_{\text{amb}}}\, dT = -k\, dt.
 							\)
 						</span>
 
@@ -161,48 +154,60 @@
 					</p>
 					<p>
 						<span class="fragment" data-fragment-index="2">
-							\(
-							\Ra\ds \int \frac{1}{T-T_{\text{amb}}}\, dT = \ds - k \int dt \;\)
+							2. Integrate: \(
+							\;\ds \int \frac{1}{T-T_{\text{amb}}}\, dT = \ds - k \int dt \;\)
 						</span>
 						<span class="fragment" data-fragment-index="3">
 							\(
-							\Ra \;\ds \ln |T-T_{\text{amb}}| = -kt + C_0.
+							\Ra \;\ds \ln |T-T_{\text{amb}}| = -kt + 𝒟.
 							\)
 						</span>
 					</p>
 				</div>
-
-				<div class="left-txt size-90">
+				<div class="size-95">
 					<p>
 						<span class="fragment" data-fragment-index="4">
-							Apply exponential function on both sides:
 							\(
-							\ds T-T_{\text{amb}} = C_0e^{-kt}.
+							\Ra \,\ds T-T_{\text{amb}} = C_0e^{-kt}.
 							\)
 						</span>
+						
 					</p>
 				</div>
 
-				<div class="left-txt size-90">
+				<div class="left-txt size-65 fragment" style="border: 1px solid black;"  data-fragment-index="5">
 					<p>
-						<span class="fragment" data-fragment-index="5">
-							Hence, the general solution is:
-
-						</span>
-					</p>
-				</div>
-
-				<div class="size-95">
-
-
-					<p>
-						<span class="fragment" data-fragment-index="5">
+						<span>
+							$\quad \quad $ Apply exponential function on both sides:
 							\(
-							\ds T(t)=C_0e^{-kt}+T_{\text{amb}}\;
+							\ds T-T_{\text{amb}} = e^{𝒟}e^{-kt}.
 							\)
 						</span>
+						
+					</p>
+					<p>
+						$\quad \quad $
 						<span class="fragment" data-fragment-index="6">
-							or \(\;\ds T(t)=C_0e^{-0.005t}+25.\)
+							Since $e^{𝒟}$ is a constant, we can write 
+							\(
+							\,\ds T-T_{\text{amb}} = C_0e^{-kt},
+							\) with $C_0$ a constant.
+						</span>
+					</p>
+				</div>
+
+				<div class="left-txt size-85">
+					<p>
+						<span class="fragment" data-fragment-index="7">
+							3. The general solution:
+						</span>
+						<span class="fragment" data-fragment-index="8">
+							\(
+							\ds T(t)=C_0e^{-kt}+T_{\text{amb}}\,
+							\)
+						</span>
+						<span class="fragment" data-fragment-index="9">
+							or \(\,\ds T(t)=C_0e^{-0.005t}+25.\)
 						</span>
 
 					</p>
@@ -215,7 +220,7 @@
 
 			<section>
 
-				<div class="left-txt size-90">
+				<div class="left-txt size-85">
 					<p>
 						<b>Solution Question 2.</b> What is the time to cool 
 						down from $90^\circ\text{C}$ to $55^\circ\text{C}$?
@@ -227,8 +232,8 @@
 							\( T(0)=90^\circ\text{C}. \)
 						</span>
 						<span class="fragment" data-fragment-index="1">
-							Substitute into
-							\( T(t)=C_0e^{-kt}+ T_{\text{amb}} . \)
+							Use the function 
+							\( T(t)=C_0e^{-0.005t}+ 25 . \)
 						</span>
 					</p>
 				</div>
@@ -237,58 +242,53 @@
 					<p>
 						<span class="fragment" data-fragment-index="2">
 							\(
-							90 =  C_0+T_{\text{amb}} 
+							90 =  \overbrace{C_0e^{-0.005(0)}+25}^{T(0)} \;
 							\)
 						</span>
 						<span class="fragment" data-fragment-index="3">
 							\(
-							\Rightarrow C_0 = 90 - T_{\text{amb}}
+							\Ra\;
+							90 =  C_0+25\;
 							\)
 						</span>
-						<span class="fragment" data-fragment-index="4">
+						<span class="fragment" data-fragment-index="3">
 							\(
-							 = 90 - 25
-							\)
-						</span>
-						<span class="fragment" data-fragment-index="5">
-							\(
-							 = 65.
+							\Ra\;
+							C_0=65.
 							\)
 						</span>
 					</p>
-				</div>
-
-			
-
-				<div class="size-90">
 					<p>
-						<span class="fragment" data-fragment-index="6">
-							Thus 
-							\(\;
-							\ds T(t)=65e^{-0.005t}+ 25.
-							\)
-						</span>
+						
+						
+					
+						
 					</p>
 				</div>
 
-				<div class="left-txt size-90">
+				<div class="left-txt size-95">
+					
 					<p>
 						<span class="fragment" data-fragment-index="7">
-							We know that 
-							\( T_{\text{amb}} = 25^\circ\text{C}. \)
+							Thus 
+							\(
+							\ds T(t)=65e^{-0.005t}+ 25.
+							\)
+							
 						</span>
+						
 						<span class="fragment" data-fragment-index="8">
-							Set \( T(t)=55^\circ\text{C}. \)
+							Now set \( T(t)=55^\circ\text{C}. \)
 						</span>
 					</p>
 				</div>
 
-				<div class="size-95">
+				<div class="size-90">
 					<p>
 						<span class="fragment" data-fragment-index="9">
 							\(
 								\Ra\;
-							55 =  65e^{-0.005t}+25\;
+							55 =  \underbrace{65e^{-0.005t}+25}_{T(t)}\;
 							\)
 						</span>
 						<span class="fragment" data-fragment-index="11">
