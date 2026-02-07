@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1020ENG/1202SCG - Workshop 10</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+
+				<div style="margin-top: -40px; margin-bottom: 40px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 200px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<h2>
+					<span class="size-85">
+						Calculus I <br />
+						&amp;
+						<br />
+						Engineering Mathematics 2
+					</span>
+				</h2>
+
+
+				<p style="margin-top: 50px;">Workshop 10</p>
+
+				<br />
+			</section>
+
+
+
+			<section>
+				<h4>
+					First Order Inhomogeneous Equations With Constant
+					Coefficients
+				</h4>
+
+				<div class="size-90">
+					<p>
+						Consider the ODE $\dfrac{dy}{dx}+ a y = f(x),$ where $a$ is a constant.
+					</p>
+				</div>
+				<div class="size-90 left-txt">
+					<p>
+						Homogeneous equation: $\;\dfrac{dy}{dx}+ a y =0$
+						<span>
+							$\;\Ra \;\dfrac{dy}{dx}=-a y$
+						</span>
+						
+					</p>
+				</div>
+				<div class="size-90">
+					<p>
+
+						<span>
+							$\;\Ra \;\dfrac{1}{y}\dfrac{dy}{dx}=-a $
+						</span>
+						<span>
+							$\;\Ra\ds \int \dfrac{1}{y}dy=-a\int dx $
+						</span>
+						
+					</p>
+				</div>
+				<div class="size-95">
+					<p>
+
+						<span>
+							$\;\Ra \; \ln|y| = -ax +C$
+						</span>
+						<span>
+							$\;\Ra \; y = Be^{-ax}$
+						</span>
+					</p>
+				</div>
+				<div class="size-90 left-txt">
+					<p>
+						Therefore the solution to the homogeneous equation
+						$\dfrac{dy}{dx}+ a y =0$ is
+					</p>
+				</div>
+				<div class="size-95">
+					<p>$y_H = Be^{-ax}$</p>
+				</div>
+				<br/>
+
+			</section>
+			<section>
+				<h4>
+					First Order Inhomogeneous Equations With Constant
+					Coefficients
+				</h4>
+
+				<div class="size-90">
+					<p>
+						To solve $\dfrac{dy}{dx}+ a y = f(x),$ where $a$ is a constant.
+					</p>
+				</div>
+				<div class="size-90 left-txt">
+					<p>
+
+						<span>
+							1. Find the solution, $y_H$, to the homogeneous 
+							equation $\dfrac{dy}{dx}+ a y =0.$
+						</span>
+					</p>
+				</div>
+				<div class="size-90 left-txt">
+					<p>
+
+						<span>
+							2. Guess $y_P$ which is the particular solution to
+							the original equation.
+							The guess for $y_P$ should be the same general
+							form as that of $f(x).$
+						</span>
+
+					</p>
+				</div>
+				<div class="size-90 left-txt">
+					<p>
+						3. Substitute $y_P$ and $y'_P$
+						back into the original differential equation to
+						determine any unknown constants, $C,$ $D$ and $E,$ in $y_P.$
+					</p>
+				</div>
+				<div class="size-90 left-txt">
+					<p>
+						4. Find the general solution $y = y_H + y_p.$
+					</p>
+				</div>
+
+				<br/>
+
+			</section>
+
+
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
