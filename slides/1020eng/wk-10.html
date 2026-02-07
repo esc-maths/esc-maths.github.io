@@ -137,36 +137,36 @@
 				<br />
 
 			</section>
-			<section>
+			<section data-auto-animate>
 				<h4>
 					First Order Inhomogeneous Equations With Constant
 					Coefficients
 				</h4>
 
 				<div class="size-90 left-txt">
-					<p>
-						To solve $\dfrac{dy}{dx}+ a y = f(x),$ where $a$ is a constant.
+					<p class="fragment" data-fragment-index="0">
+						To solve $\dfrac{dy}{dx}+ a y = f(x),$ where $a$ is a constant:
 					</p>
 				</div>
 				<div class="size-90 left-txt">
 
 					<ol style="line-height: 1.9;">
-						<li>
-							Find the solution, $y_H$, to the homogeneous
+						<li class="fragment" data-fragment-index="1">
+							Find the solution, $\,y_H$, to the homogeneous
 							equation $\dfrac{dy}{dx}+ a y =0.$
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="2">
 							Guess $y_P$ which is the particular solution to
 							the original equation.
 							The guess for $y_P$ should be the same general
 							form as that of $f(x).$
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="3">
 							Substitute $y_P$ and $y'_P$
 							back into the original differential equation to
-							determine any unknown constants, $C,$ $D$ and $E,$ in $y_P.$
+							determine any unknown constants.
 						</li>
-						<li>
+						<li class="fragment" data-fragment-index="4">
 							Find the general solution $y = y_H + y_p.$
 						</li>
 					</ol>
@@ -179,7 +179,109 @@
 
 			</section>
 
-			<section data-auto-animate id="summary">
+			<section data-auto-animate>
+				<h4>First Order Inhomogeneous Equations With Constant
+					Coefficients</h4>
+
+				<br /><br />
+				<div class="" style="margin-top:0px">
+					<div class="left-txt">
+
+						<p>
+							<strong>Example:</strong>
+							Solve the ODE $\ds\;\dif{y}{x}+2y=4x.$
+						</p>
+					</div>
+
+
+
+				</div>
+
+
+				<br /><br /><br /><br /><br /><br />
+			</section>
+
+			<section data-auto-animate>
+				<h4>First Order Inhomogeneous Equations With Constant
+					Coefficients</h4>
+
+				<div class="size-55" style="margin-top:-10px">
+					<div class="left-txt">
+						<p>
+							<strong>Example:</strong>
+							Solve the ODE $\ds\;\dif{y}{x}+2y=4x.$
+						</p>
+					</div>
+				</div>
+
+				<div class="size-90" style="margin-top:-10px">
+					<div id="theorem">
+						<div class="left-txt" style="margin-top:-25px">
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									1. Solve the homogeneous equation
+									$\ds y'+2y=0.$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									That is $\,\ds y_H=Ce^{-2x}.$
+								</span>
+							</p>
+
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									2. Since the forcing term is linear ($f(x)=4x$),
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									guess a linear particular solution
+									$\ds y_P=Ax+B.$
+								</span>
+							</p>
+
+							<p style="margin-top: -40px;">
+								<span class="fragment" data-fragment-index="4">
+									3. Compute $y_P'=A$ and substitute into the ODE:
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ds \overbrace{A}^{y'}+2\overbrace{(Ax+B)}^{y}=4x.$
+								</span>
+							</p>
+
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									Match coefficients:
+									$\ds 2A=4,\;\;A+2B=0.$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									Then $\,\ds A=2,\;B=-1.$
+								</span>
+							</p>
+
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									4. The general solution is
+									$\ds y=y_H+y_P.$
+								</span>
+							</p>
+
+							<p>
+								<span class="fragment" data-fragment-index="9">
+									$\quad$That is
+									$\,\ds y=2x-1+Ce^{-2x}.$
+								</span>
+							</p>
+
+						</div>
+					</div>
+				</div>
+
+				<br /><br /><br />
+			</section>
+
+
+
+
+			<section data-auto-animate>
 				<h4>First Order Linear Differential Equations</h4>
 
 
@@ -187,26 +289,26 @@
 				<div class="size-90" style="margin-top:0px">
 					<div class="left-txt">
 
-						<p>
+						<p class="fragment" data-fragment-index="0">
 							To solve a first-order linear ODE:
 						</p>
 
 						<ol style="line-height: 1.9;">
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								Write the equation in the form
 								$\ds\dif{y}{x}+p(x)\,y(x)=q(x)$.
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								Find an integrating factor
 								$\ds I(x) = \exp\left(\int p(x) \dup x\right).$
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								Multiply the ODE by $I$ and apply the product rule to get<br />
 								<div style="text-align: center;">
 									$\ds \dif{}{x}(I(x)\,y(x)) = I(x)\,q(x).$
 								</div>
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								Integrate both sides with respect to $x.$
 								(Don't forget about constants of integration!).
 							</li>
@@ -333,8 +435,7 @@
 				<div class="size-70 left-txt" style="margin-top: 0px;">
 
 
-
-					<table style="width:100%; border-collapse: collapse; margin-top: -10px;">
+					<table style="width:100%; border-collapse: collapse; margin-top: -20px;">
 						<thead>
 							<tr>
 								<th style="border-bottom: 2px solid #ccc; padding: 8px;text-align: center;">
@@ -350,10 +451,10 @@
 								<td style="vertical-align: top; padding: 10px;">
 									<p>
 										Used for equations of the form<br />
-											<div style="text-align: center;">
-												$\ds \frac{dy}{dx} + a y = f(x),$
-											</div>
-										where \(a\) is constant.
+									<div style="text-align: center;">
+										$\ds \frac{dy}{dx} + a y = f(x),$
+									</div>
+									where \(a\) is constant.
 									</p>
 									<ol style="line-height: 1.8;">
 										<li>Solve the homogeneous equation
@@ -382,7 +483,7 @@
 											<div style="text-align: center;">
 												$\ds \frac{d}{dx}\big(Iy\big)=I q.$
 											</div>
-											
+
 										</li>
 										<li>Integrate both sides and solve for \(y\).</li>
 									</ol>
