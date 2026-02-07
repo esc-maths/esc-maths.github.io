@@ -86,19 +86,22 @@
 				<div class="left-txt">
 					<p>
 						<b>Question</b>
-					</p>
-					<p>Classify (linear/non-linear, order, homogeneity, etc.) and solve the following ODE:</p>
-					
-				</div>
-				<div>
-					
-					<p>
-						$y' + 4xy= 2x, \quad y(0)=5.$
-					</p>
 
-					
+					</p>
+					<p>
+						Consider the ODE $\,y' = 2x-4xy.$
+					</p>
+					<ol style="line-height: 2.5;">
+						<li>
+							Show that the integrating factor for the ODE is $I(x) = e^{2x^2}.$
+						</li>
+						<li>
+							Find the solution of the ODE satisfying $y(0)=5.$
+						</li>
+					</ol>
 				</div>
-				
+
+
 				<br />
 				<br />
 				<br />
@@ -107,175 +110,139 @@
 
 			<section>
 
-				<div class="left-txt size-85">
+				<div class="left-txt size-95">
 					<p>
-						<b>Solution Question 1</b>
+						<b>Solution Question 1.</b>
 					</p>
 
 					<p>
-
 						<span class="fragment" data-fragment-index="1">
-							Use the trigonometric substitution \( x = \sin\theta \).
+							Write the ODE in standard linear form:
 						</span>
 						<span class="fragment" data-fragment-index="2">
-							Then \( dx = \cos\theta\, d\theta \) 
-						</span>
-						<span class="fragment" data-fragment-index="3">
-							and
+							\[ y' + 4xy = 2x. \]
 						</span>
 					</p>
 
-
-				</div>
-				<div class="size-85">
 					<p>
 						<span class="fragment" data-fragment-index="3">
-							\( \sqrt{1-x^2} = \sqrt{1-\sin^2\theta} \)
+							The integrating factor is
 						</span>
+
+					</p>
+				</div>
+
+				<div class="size-95">
+					<p>
 						<span class="fragment" data-fragment-index="4">
-							\( = \cos\theta. \)
-						</span>
-					</p>
-				</div>
-
-				<div class="size-85">
-					<p>
-						<span>
-							\( \ds \int \frac{dx}{\sqrt{1-x^2}} \)
+							\(\ds I(x) = \exp\left(\int 4x\,dx\right) \)
 						</span>
 						<span class="fragment" data-fragment-index="5">
-							\( = \ds \int \frac{\cos\theta}{\cos\theta}\, d\theta \)
+							\( = e^{2x^2}. \)
 						</span>
-						<span class="fragment" data-fragment-index="6">
-							\( = \ds \int d\theta \)
+					</p>
+				</div>
+
+				<br />
+				<br />
+				<br />
+
+			</section>
+
+			<section>
+
+				<div class="left-txt size-85">
+					<p>
+						<b>Solution Question 2.</b>
+						<span class="fragment" data-fragment-index="1">
+							Multiply the ODE by the integrating factor:
+						</span>
+					</p>
+
+
+				</div>
+
+				<div class="size-85">
+					<p>
+						<span class="fragment" data-fragment-index="1">
+
+							\( e^{2x^2}y' + 4x e^{2x^2}y = 2x e^{2x^2}. \)
+						</span>
+					</p>
+
+
+				</div>
+
+				<div class="size-85 left-txt">
+					<p>
+						<span class="fragment" data-fragment-index="3">
+							The left-hand side is a product derivative:
+						</span>
+						<span class="fragment" data-fragment-index="3">
+							\( \ds\frac{d}{dx}\left(y e^{2x^2}\right) = 2x e^{2x^2}. \)
+						</span>
+					</p>
+				</div>
+
+
+
+				<div class="size-85 left-txt">
+					<p><span class="fragment" data-fragment-index="4">
+							Integrate both sides:
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							\(\;\ds y e^{2x^2} = \int 2x e^{2x^2}\,dx \)
 						</span>
 						<span class="fragment" data-fragment-index="7">
-							\( \ds = \theta + C \qquad \qquad \qquad \)
+							\(\ds = \frac{1}{2} e^{2x^2} + C. \)
 						</span>
 					</p>
+				</div>
 
+				<div class="size-85 left-txt">
 					<p>
-						
 						<span class="fragment" data-fragment-index="8">
-							\( \ds = \sin^{-1}(x) + C \)
+							Solve for \(y\):
 						</span>
-						<span class="fragment" data-fragment-index="9">
-							\( \ds = \arcsin(x) + C. \)
+
+						<span class="fragment" data-fragment-index="8">
+							\( \ds\;y(x) = \frac{1}{2} + C e^{-2x^2}.\; \)
+						</span>
+						<span class="fragment" data-fragment-index="10">
+							Apply the initial condition \(y(0)=5\):
 						</span>
 					</p>
 				</div>
 
+		
 
-				<div class="left-txt size-85">
-
+				<div class="size-85">
 					<p>
-						
+						<span class="fragment" data-fragment-index="10">
+							\( 5 = \ds\frac{1}{2} + C\)
+						</span>
 						<span class="fragment" data-fragment-index="11">
-							Alternatively, recall that
-							\( \ds \frac{d}{dx}(\sin^{-1}x) = \frac{1}{\sqrt{1-x^2}}. \)
-						</span>
-						<span class="fragment" data-fragment-index="12">
-							Thus
+							\(\Rightarrow C = \ds\frac{9}{2}. \)
 						</span>
 					</p>
 				</div>
 
 				<div class="size-85">
 					<p>
-						<span class="fragment" data-fragment-index="12">
-							\( \ds \int \frac{dx}{\sqrt{1-x^2}} \)
+						<span class="fragment" data-fragment-index="13">
+							Final solution:
 						</span>
-						<span class="fragment" data-fragment-index="12">
-							\( = \ds \sin^{-1}(x) + C. \)
+						<span class="fragment" data-fragment-index="13">
+							\( \ds y(x) = \frac{1}{2} + \frac{9}{2} e^{-2x^2}. \)
 						</span>
 					</p>
 				</div>
 
-				<br />
 				<br />
 
 			</section>
 
 
-			<section>
-
-				
-				<div class="left-txt size-85">
-					<p>
-						<b>Solution Question 2</b>
-					</p>
-
-					<p class="fragment" data-fragment-index="1">
-						We begin by expressing the integrand using partial fractions.
-					</p>
-					
-				</div>
-				<div class="size-85">
-					
-
-					<p>
-						
-						<span class="fragment" data-fragment-index="1">
-							\(
-							\ds \frac{x+1}{x(x+2)} = \frac{A}{x} + \frac{B}{x+2}.
-							\)
-						</span>
-						
-						
-					</p>
-					
-				</div>
-				<div class="left-txt size-85">
-					
-
-					<p>
-						
-						
-						<span class="fragment" data-fragment-index="2">
-							Comparing coefficients gives the system: 
-							\(A+B=1,\; 2A=1.\)
-						</span>
-						
-					</p>
-					
-				</div>
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="3">
-							This implies 
-							\( A = \dfrac12 \) and \( B = \dfrac12 \).
-						</span>
-					</p>
-				</div>
-
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="4">
-							Then
-						</span>
-						<span>
-							\( \ds \int \frac{x+1}{x(x+2)}\,dx \)
-						</span>
-						<span class="fragment" data-fragment-index="4">
-							\( = \ds \frac12 \int \frac{1}{x}dx + \frac{1}{2}\int \frac{1}{x+2}\,dx\qquad \qquad \qquad \qquad \quad  \)
-						</span>
-					</p>
-
-					<p>
-						<span class="fragment" data-fragment-index="5">
-							\(   \qquad  \qquad \quad \ds = \frac12 \ln|x| + \frac12 \ln|x+2| + C \)
-						</span>
-						<span class="fragment" data-fragment-index="6">
-							\( \ds = \frac12 \ln|x(x+2)| + C. \)
-						</span>
-					</p>
-				</div>
-
-				<br />
-				<br />
-				
-
-			</section>
 
 
 
