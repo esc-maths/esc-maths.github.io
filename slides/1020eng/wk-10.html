@@ -220,12 +220,12 @@
 
 				</div>
 
-				<br /><br /><br />
+				<br /><br />
 			</section>
 
 			<section data-auto-animate>
 				<h4>First Order Linear Differential Equations</h4>
-				
+
 				<br /><br />
 				<div class="" style="margin-top:0px">
 					<div class="left-txt">
@@ -290,10 +290,10 @@
 									3. $\ds e^{-x}y' -e^{-x}y = e^{-x}x$
 								</span>
 
-							
+
 
 								<span class="fragment" data-fragment-index="4">
-								 $\;\; \Ra \ds \text{LHS} = \frac{d}{dt} \left(e^{-x}y\right) $
+									$\;\; \Ra \ds \text{LHS} = \frac{d}{dt} \left(e^{-x}y\right) $
 								</span>
 								<span class="fragment" data-fragment-index="5">
 									$\ds = e^{-x}x.$
@@ -325,6 +325,76 @@
 
 				<br /><br /><br />
 			</section>
+
+
+			<section>
+
+				<h5>Summary</h5>
+				<div class="size-70 left-txt" style="margin-top: 0px;">
+
+
+
+					<table style="width:100%; border-collapse: collapse; margin-top: -10px;">
+						<thead>
+							<tr>
+								<th style="border-bottom: 2px solid #ccc; padding: 8px;text-align: center;">
+									Method of Undetermined Coefficients
+								</th>
+								<th style="border-bottom: 2px solid #ccc; padding: 8px;text-align: center">
+									Integrating Factor Method
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="vertical-align: top; padding: 10px;">
+									<p>
+										Used for equations of the form<br />
+											<div style="text-align: center;">
+												$\ds \frac{dy}{dx} + a y = f(x),$
+											</div>
+										where \(a\) is constant.
+									</p>
+									<ol style="line-height: 1.8;">
+										<li>Solve the homogeneous equation
+											\(\dfrac{dy}{dx} + a y = 0\) to get \(y_H\).</li>
+										<li>Guess a particular solution \(y_P\) with the same form as \(f(x)\).</li>
+										<li>Substitute \(y_P\) into the ODE to find unknown constants.</li>
+										<li>Form the general solution \(y = y_H + y_P\).</li>
+									</ol>
+								</td>
+
+								<td style="vertical-align: top; padding: 10px;">
+									<p>
+										Applicable to any first-order linear equation.
+									</p>
+									<ol style="line-height: 1.8;">
+										<li>Write the equation as
+											\(\dfrac{dy}{dx} + p(x)y = q(x)\).</li>
+										<li>Compute the integrating factor<br />
+											<div style="text-align: center;">
+												$\ds I(x)=\exp\!\left(\int p(x)\,dx\right).$
+											</div>
+
+										</li>
+										<li>Multiply through by \(I(x)\) and use the product rule:
+											<br />
+											<div style="text-align: center;">
+												$\ds \frac{d}{dx}\big(Iy\big)=I q.$
+											</div>
+											
+										</li>
+										<li>Integrate both sides and solve for \(y\).</li>
+									</ol>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<br />
+			</section>
+
 
 
 
