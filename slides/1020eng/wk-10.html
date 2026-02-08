@@ -48,6 +48,21 @@
 			font-weight: bold;
 			text-decoration: underline;
 		}
+
+		.reveal table {
+		  border-collapse: collapse;
+		  width: 70%;
+		}
+		
+		.reveal td, th {
+		  border: 1px solid #dddddd;
+		  text-align: center;
+		  padding: 7px;
+		}
+		
+		.reveal tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
 	</style>
 
 </head>
@@ -500,7 +515,7 @@
 				<h5>
 					To solve the equation $\ds \frac{dy}{dx}+a\,y = f(x),$ the guesses of $y_P$ are as follows:
 				</h5>
-				<div style="margin-top:-10px">
+				<div style="margin-top:-5px; font-size: 95%;">
 
 					<table>
 						<tr>
@@ -508,7 +523,7 @@
 							<th style="text-align: center;">Choice for $y_p$</th>
 						</tr>
 						<tr>
-							<td style="text-align: center;">$C$ (constant)</td>
+							<td style="text-align: center;">$C$</td>
 							<td style="text-align: center;">$C$</td>
 						</tr>
 						<tr>
@@ -538,6 +553,11 @@
 
 
 					</table>
+				</div>
+				<div style="font-size: 90%;">
+					<p>
+						$C,$ $D,$ $E$ and $k$ are constants.
+					</p>
 				</div>
 				<br/>
 			</section>
