@@ -174,15 +174,17 @@
 						<li class="fragment" data-fragment-index="2">
 							Guess $y_P$ which is the particular solution to
 							the original equation.
-							The guess for $y_P$ should be the same general
+							<span class="fragment" data-fragment-index="3">
+								The guess for $y_P$ should be the same general
 							form as that of $f(x).$
+							</span>
 						</li>
-						<li class="fragment" data-fragment-index="3">
+						<li class="fragment" data-fragment-index="4">
 							Substitute $y_P$ and $y'_P$
 							back into the original differential equation to
 							determine any unknown constants.
 						</li>
-						<li class="fragment" data-fragment-index="4">
+						<li class="fragment" data-fragment-index="5">
 							Find the general solution $y = y_H + y_p.$
 						</li>
 					</ol>
@@ -246,44 +248,47 @@
 
 							<p>
 								<span class="fragment" data-fragment-index="2">
-									2. Since the forcing term is linear ($f(x)=4x$),
+									2. Note that $f(x)=4x$ is a linear function,
 								</span>
 								<span class="fragment" data-fragment-index="3">
-									guess a linear particular solution
-									$\ds y_P=Ax+B.$
+									so our guess for the particular solution 
+									should be a linear function: $\ds y_P=Ax+B.$
 								</span>
 							</p>
 
-							<p style="margin-top: -40px;">
+							<p style="margin-top: -20px;">
 								<span class="fragment" data-fragment-index="4">
-									3. Compute $y_P'=A$ and substitute into the ODE:
+									3. Compute $y_P'$ 
 								</span>
 								<span class="fragment" data-fragment-index="5">
+									 $=A$ 
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									 and substitute in the ODE:
+								</span>
+								<span class="fragment" data-fragment-index="6">
 									$\ds \overbrace{A}^{y'}+2\overbrace{(Ax+B)}^{y}=4x.$
 								</span>
 							</p>
 
 							<p>
-								<span class="fragment" data-fragment-index="6">
-									Match coefficients:
-									$\ds 2A=4,\;\;A+2B=0.$
-								</span>
 								<span class="fragment" data-fragment-index="7">
+									Match coefficients:
+									$\ds 2A=4,\;A+2B=0.$
+								</span>
+								<span class="fragment" data-fragment-index="8">
 									Then $\,\ds A=2,\;B=-1.$
 								</span>
 							</p>
 
 							<p>
-								<span class="fragment" data-fragment-index="8">
-									4. The general solution is
-									$\ds y=y_H+y_P.$
-								</span>
-							</p>
-
-							<p>
 								<span class="fragment" data-fragment-index="9">
-									$\quad$That is
-									$\,\ds y=2x-1+Ce^{-2x}.$
+									4. The general solution is
+									$\ds y=y_H+y_P$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									
+									$=\underbrace{Ce^{-2x}}_{y_H}+ \underbrace{2x-1}_{y_P}$
 								</span>
 							</p>
 
@@ -325,8 +330,8 @@
 								</div>
 							</li>
 							<li class="fragment" data-fragment-index="3">
-								Integrate both sides with respect to $x.$
-								(Don't forget about constants of integration!).
+								Integrate both sides with respect to $x$
+								(Don't forget about constants of integration!)
 							</li>
 						</ol>
 
@@ -394,43 +399,47 @@
 							</p>
 							<p>
 
-								<span class="fragment" data-fragment-index="1">
+								<span class="fragment" data-fragment-index="2">
 									2. $\ds I(x) = \exp\left(\int p(x) \ dx\right)$
 								</span>
-								<span class="fragment" data-fragment-index="2">
+								<span class="fragment" data-fragment-index="3">
+									$ \ds= \exp\left(\int (-1) \ dx\right)$
+								</span>
+								
+								<span class="fragment" data-fragment-index="4">
 									$\ds= e^{-x}.$
 								</span>
 
 							</p>
 							<p>
 
-								<span class="fragment" data-fragment-index="3">
+								<span class="fragment" data-fragment-index="5">
 									3. $\ds e^{-x}y' -e^{-x}y = e^{-x}x$
 								</span>
 
 
 
-								<span class="fragment" data-fragment-index="4">
-									$\;\; \Ra \ds \text{LHS} = \frac{d}{dt} \left(e^{-x}y\right) $
+								<span class="fragment" data-fragment-index="6">
+									$\;\; \Ra \ds \text{LHS} = \frac{d}{dx} \left(e^{-x}y\right) $
 								</span>
-								<span class="fragment" data-fragment-index="5">
+								<span class="fragment" data-fragment-index="7">
 									$\ds = e^{-x}x.$
 								</span>
 
 							</p>
 							<p>
 
-								<span class="fragment" data-fragment-index="6">
+								<span class="fragment" data-fragment-index="8">
 									4. $\ds e^{-x} y = \int e^{-x} x ~dx +C\,$
 								</span>
-								<span class="fragment" data-fragment-index="7">
+								<span class="fragment" data-fragment-index="9">
 									$\Ra \,\ds e^{-x} y = -x e^{-x} - e^{-x} +C.$
 								</span>
 
 							</p>
 							<p>
 
-								<span class="fragment" data-fragment-index="8">
+								<span class="fragment" data-fragment-index="10">
 									$\quad $So the general solution is $\,\ds y = -x -1 +Ce^x.$
 								</span>
 
