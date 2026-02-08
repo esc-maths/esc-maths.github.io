@@ -220,8 +220,7 @@
 			</section>
 
 			<section data-auto-animate>
-				<h4>First Order Inhomogeneous Equations With Constant
-					Coefficients</h4>
+				
 
 				<div class="size-55" style="margin-top:-10px">
 					<div class="left-txt">
@@ -232,61 +231,74 @@
 					</div>
 				</div>
 
-				<div class="size-90" style="margin-top:-10px">
-					<div id="theorem">
+				<div class="size-80" style="margin-top:-10px">
+					<div >
 						<div class="left-txt" style="margin-top:-25px">
 
 							<p>
 								<span class="fragment" data-fragment-index="0">
 									1. Solve the homogeneous equation
-									$\ds y'+2y=0.$
+									$\ds y'+2y=0$
 								</span>
 								<span class="fragment" data-fragment-index="1">
-									That is $\,\ds y_H=Ce^{-2x}.$
+								    $\;\Ra\; \dfrac{1}{y}\ds y'=-2$
+								</span>
+								
+							</p>
+							<p>
+								
+								<span class="fragment" data-fragment-index="2">
+									 $\ds \quad \Ra \int \frac{1}{y}dy  = -2\int dx$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									 $\Ra\; \ds \ln|y|=-2x+C$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									  $\;\Ra \;\ds y_H=Ce^{-2x}.$
 								</span>
 							</p>
 
 							<p>
-								<span class="fragment" data-fragment-index="2">
+								<span class="fragment" data-fragment-index="5">
 									2. Note that $f(x)=4x$ is a linear function,
 								</span>
-								<span class="fragment" data-fragment-index="3">
+								<span class="fragment" data-fragment-index="6">
 									so our guess for the particular solution
 									should be a linear function: $\ds y_P=Ax+B.$
 								</span>
 							</p>
 
 							<p style="margin-top: -20px;">
-								<span class="fragment" data-fragment-index="4">
-									3. Compute $y_P'$
+								<span class="fragment" data-fragment-index="7">
+									3. Get $y_P'$
 								</span>
-								<span class="fragment" data-fragment-index="5">
+								<span class="fragment" data-fragment-index="8">
 									$=A$
 								</span>
-								<span class="fragment" data-fragment-index="4">
+								<span class="fragment" data-fragment-index="7">
 									and substitute in the ODE:
 								</span>
-								<span class="fragment" data-fragment-index="6">
+								<span class="fragment" data-fragment-index="10">
 									$\ds \overbrace{A}^{y'}+2\overbrace{(Ax+B)}^{y}=4x.$
 								</span>
 							</p>
 
 							<p>
-								<span class="fragment" data-fragment-index="7">
+								<span class="fragment" data-fragment-index="11">
 									Match coefficients:
 									$\ds 2A=4,\;A+2B=0.$
 								</span>
-								<span class="fragment" data-fragment-index="8">
+								<span class="fragment" data-fragment-index="12">
 									Then $\,\ds A=2,\;B=-1.$
 								</span>
 							</p>
 
 							<p>
-								<span class="fragment" data-fragment-index="9">
+								<span class="fragment" data-fragment-index="13">
 									4. The general solution is
 									$\ds y=y_H+y_P$
 								</span>
-								<span class="fragment" data-fragment-index="10">
+								<span class="fragment" data-fragment-index="14">
 
 									$=\underbrace{Ce^{-2x}}_{y_H}+ \underbrace{2x-1}_{y_P}$
 								</span>
@@ -374,10 +386,9 @@
 				<br /><br /><br /><br />
 			</section>
 			<section data-auto-animate>
-				<h4>First Order Linear Differential Equations</h4>
+				
 
-
-				<div class="size-55" style="margin-top:-10px">
+				<div class="size-60" style="margin-top:0px">
 					<div class="left-txt">
 
 						<p>
@@ -389,11 +400,11 @@
 
 
 				</div>
-				<div class="size-90" style="margin-top:-10px">
+				<div class="size-90" style="margin-top:20px">
 
 
-					<div id="theorem">
-						<div class="left-txt" style="margin-top:-25px">
+					<div>
+						<div class="left-txt" >
 							<p>
 
 								<span class="fragment" data-fragment-index="0">
@@ -440,7 +451,7 @@
 									4. $\ds e^{-x} y = \int e^{-x} x ~dx +C\,$
 								</span>
 								<span class="fragment" data-fragment-index="9">
-									$\Ra \,\ds e^{-x} y = -x e^{-x} - e^{-x} +C.$
+									$\;\Ra \;\ds e^{-x} y = -x e^{-x} - e^{-x} +C.$
 								</span>
 
 							</p>
