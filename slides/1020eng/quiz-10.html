@@ -110,197 +110,245 @@
 
 			<section>
 
-				<div class="left-txt size-85">
-					<p>
-						<b>Solution Question 1.</b>
-					</p>
-
-					<p>
-						<span class="fragment" data-fragment-index="1">
-							First solve the homogeneous equation:
-						</span>
-						<span class="fragment" data-fragment-index="2">
-							\[
-							y' - 2y = 0.
-							\]
-						</span>
-					</p>
-
-					<p>
-						<span class="fragment" data-fragment-index="3">
-							This is a separable equation:
-						</span>
-						<span class="fragment" data-fragment-index="4">
-							\[
-							\frac{dy}{dx} = 2y.
-							\]
-						</span>
-					</p>
-
-					<p>
-						<span class="fragment" data-fragment-index="5">
-							Integrating,
-						</span>
-						<span class="fragment" data-fragment-index="6">
-							\[
-							\ln |y| = 2x + C.
-							\]
-						</span>
-					</p>
-
-					<p>
-						<span class="fragment" data-fragment-index="7">
-							Thus the homogeneous solution is
-						</span>
-						<span class="fragment" data-fragment-index="8">
-							\[
-							y_H = C e^{2x}.
-							\]
-						</span>
-					</p>
-				</div>
-
-			</section>
-
-			<section>
-
 				<div class="left-txt size-95">
 					<p>
 						<b>Solution Question 1.</b>
 					</p>
 
 					<p>
-						<span class="fragment" data-fragment-index="1">
-							Write the ODE in standard linear form:
-						</span>
-						<span class="fragment" data-fragment-index="2">
-							\[ y' + 4xy = 2x. \]
+						<span>
+							General solution of the homogeneous ODE:
+							$y' - 2y = 0.$
 						</span>
 					</p>
 
 					<p>
 						<span class="fragment" data-fragment-index="3">
-							The integrating factor is
+							This is a separable equation:
+							$
+							\ds \frac{1}{y}\frac{dy}{dx} = 2.
+							$
+						</span>
+					</p>
+
+					<p>
+						<span class="fragment" data-fragment-index="5">
+							Integrating we get
+							$\;\ln |y| = 2x + C.$
+						</span>
+					</p>
+
+					<p>
+						<span class="fragment" data-fragment-index="7">
+							Thus the solution to the homogeneous ODE
+							\[
+							y_H = C e^{2x}.
+							\]
+						</span>
+					</p>
+				</div>
+				<br />
+
+			</section>
+
+			<section data-auto-animate>
+
+				<div class="left-txt size-95">
+					<p>
+						<b>Solution Question 2.</b>
+						Solve $\,y' -2y = -4x + 2$ with $y(0)=1.$
+
+					</p>
+
+				</div>
+				<div class="size-95">
+
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							👉
+							$\;
+							y = y_H + y_P
+							$
+						</span>
+						<span class="fragment" data-fragment-index="1">
+
+							$
+							= Ce^{2x} + y_P
+							$
 						</span>
 
 					</p>
+					<p>
+
+				</div>
+
+				<div class="left-txt size-95">
+
+					<p>
+						
+						<span class="fragment" data-fragment-index="3">
+							Since the right-hand side is linear
+							$-4x + 2,$
+						</span>
+						<span class="fragment" data-fragment-index="4">
+							we try a linear particular solution
+						</span>
+
+					</p>
+				</div>
+				<div class="size-90">
+					<p>
+						<span class="fragment" data-fragment-index="4">
+							$
+							y_P = ax + b.
+							$
+						</span>
+					</p>
+				</div>
+
+				<div class="left-txt size-95">
+					<p>
+						<span class="fragment" data-fragment-index="5">
+							Then $ y_P' = a.$
+						</span>
+						<span class="fragment" data-fragment-index="7">
+							Substitute in the ODE:
+							$
+							a - 2(ax + b) = -4x + 2.
+							$
+						</span>
+					</p>
+				</div>
+
+				<div class="left-txt size-95">
+					<p>
+						<span class="fragment" data-fragment-index="8">
+							Match coefficients:
+						</span>
+						<span class="fragment" data-fragment-index="9">
+							$
+							\;\,-2a = -4 \;\, \Rightarrow \;\; a = 2,
+							$
+						</span>
+
+					</p>
+
+				</div>
+
+				<div class=" size-95">
+					<p>
+						<span class="fragment" data-fragment-index="10">
+							$
+							a - 2b = 2 \; \Rightarrow 
+							$
+						</span>
+						<span class="fragment" data-fragment-index="11">
+							$
+							\; 2 - 2b = 2 
+							$
+						</span>
+						<span class="fragment" data-fragment-index="12">
+							$
+							\; \Rightarrow\; b = 0.
+							$
+						</span>
+					</p>
+
+				</div>
+				<div class="left-txt size-95">
+					<p>
+						<span class="fragment" data-fragment-index="13">
+							Therefore the particular solution is
+							$
+							\;y_P = 2x.
+							$
+						</span>
+					</p>
+				</div>
+
+				<br />
+
+			</section>
+			<section data-auto-animate>
+
+				<div class="left-txt size-95">
+					<p>
+						<b>Solution Question 2.</b>
+						Solve $\,y' -2y = -4x + 2$ with $y(0)=1.$
+
+					</p>
+
+				</div>
+				<div class="size-95">
+
+					<p>
+						<span>
+							👉
+							$\;
+							y = y_H + y_P
+							$
+						</span>
+						<span>
+
+							$
+							= Ce^{2x} + y_P
+							$
+						</span>
+						<span class="fragment" data-fragment-index="1">
+
+							$
+							= Ce^{2x} + 2x
+							$
+						</span>
+
+					</p>
+					<p>
+
+				</div>
+
+				<div class="left-txt size-95">
+					
+
+					<p>
+						<span class="fragment" data-fragment-index="3">
+							Apply the initial condition \(y(0)=1\):
+						</span>
+					</p>
+
+
 				</div>
 
 				<div class="size-95">
 					<p>
 						<span class="fragment" data-fragment-index="4">
-							\(\ds I(x) = \exp\left(\int 4x\,dx\right) \)
+							$
+							1 = C + 0
+							$
 						</span>
 						<span class="fragment" data-fragment-index="5">
-							\( = e^{2x^2}. \)
+							$
+							\Rightarrow C = 1.
+							$
 						</span>
 					</p>
 				</div>
 
+				<div class="left-txt size-95">
+					<p>
+						<span class="fragment" data-fragment-index="6">
+							Therefore the solution is
+						
+							$$
+							y(x) = e^{2x} + 2x.
+							$$
+						</span>
+					</p>
+				</div>
 				<br />
 				<br />
 				<br />
 
 			</section>
-
-			<section>
-
-				<div class="left-txt size-85">
-					<p>
-						<b>Solution Question 2.</b>
-						<span class="fragment" data-fragment-index="1">
-							Multiply the ODE by the integrating factor:
-						</span>
-					</p>
-
-
-				</div>
-
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="1">
-
-							\( e^{2x^2}y' + 4x e^{2x^2}y = 2x e^{2x^2}. \)
-						</span>
-					</p>
-
-
-				</div>
-
-				<div class="size-85 left-txt">
-					<p>
-						<span class="fragment" data-fragment-index="3">
-							The left-hand side is a product derivative:
-						</span>
-						<span class="fragment" data-fragment-index="3">
-							\( \ds\frac{d}{dx}\left(y e^{2x^2}\right) = 2x e^{2x^2}. \)
-						</span>
-					</p>
-				</div>
-
-
-
-				<div class="size-85 left-txt">
-					<p><span class="fragment" data-fragment-index="4">
-							Integrate both sides:
-						</span>
-						<span class="fragment" data-fragment-index="4">
-							\(\;\ds y e^{2x^2} = \int 2x e^{2x^2}\,dx \)
-						</span>
-						<span class="fragment" data-fragment-index="7">
-							\(\ds = \frac{1}{2} e^{2x^2} + C. \)
-						</span>
-					</p>
-				</div>
-
-				<div class="size-85 left-txt">
-					<p>
-						<span class="fragment" data-fragment-index="8">
-							Solve for \(y\):
-						</span>
-
-						<span class="fragment" data-fragment-index="8">
-							\( \ds\;y(x) = \frac{1}{2} + C e^{-2x^2}.\; \)
-						</span>
-						<span class="fragment" data-fragment-index="10">
-							Apply the initial condition \(y(0)=5\):
-						</span>
-					</p>
-				</div>
-
-
-
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="10">
-							\( 5 = \ds\frac{1}{2} + C\)
-						</span>
-						<span class="fragment" data-fragment-index="11">
-							\(\Rightarrow C = \ds\frac{9}{2}. \)
-						</span>
-					</p>
-				</div>
-
-				<div class="size-85">
-					<p>
-						<span class="fragment" data-fragment-index="13">
-							Final solution:
-						</span>
-						<span class="fragment" data-fragment-index="13">
-							\( \ds y(x) = \frac{1}{2} + \frac{9}{2} e^{-2x^2}. \)
-						</span>
-					</p>
-				</div>
-
-				<br />
-
-			</section>
-
-
-
-
-
-
 
 
 			<!-- Ends sections -->
