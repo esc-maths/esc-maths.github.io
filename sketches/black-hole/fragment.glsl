@@ -1,123 +1,75 @@
 /* 
-
- Original code "Accretion" by @XorDev
- https://www.shadertoy.com/view/WcKXDV
- 
- I am just trying to undestand how this works! :)
- 
- Juan Carlos Ponce Campuzano
- 27/Jul/2025
- https://www.patreon.com/jcponce
- 
+ Adapted from original code
 */
 
-// These are necessary definitions that let you graphics card know how to render the shader
 #ifdef GL_ES
 precision highp float;
 #endif
 
-// These are our passed in information from the sketch.js
 uniform vec2 iResolution;
 uniform float iTime;
-//uniform vec2 iMouse;
 
-// Custom tanh approximation since WebGL 1.0 doesn't have tanh()
+// Custom tanh approximation
 float tanh_approx(float x) {
-    // Simple tanh approximation good enough for visual purposes
     x = clamp(x, -3.0, 3.0);
     float x2 = x * x;
+    return x * (27.0 + x2) / (27.0 + 9.0 * x2);
+}
+
+vec3 tanh_approx(vec3 x) {
+    x = clamp(x, -3.0, 3.0);
+    vec3 x2 = x * x;
     return x * (27.0 + x2) / (27.0 + 9.0 * x2);
 }
 
 varying vec2 vTexCoord;
 
 void main() {
-    // Map vTexCoord to normalized device coordinates (NDC) [-1, 1]
-    vec2 uv = vTexCoord * 2.0 - 1.0;
+    // Shadertoy-style UV coordinates (similar to your original)
+    // Convert from [0,1] to [-aspect, aspect] x [-1, 1]
+    vec2 uv = (vTexCoord - 0.5) * 2.0;
+    uv.x *= iResolution.x / iResolution.y;
     
-    // Define a scale factor
-    const float scale = 1.0;
-
-    // Adjust for aspect ratio and scale the coordinates
-    uv.x *= scale * iResolution.x / iResolution.y;
-    uv.y *= scale;
-		
-		// ========================
-    // Configuration
-    // ========================
-    const int MAX_STEPS = 20;       // Raymarching steps
-    const int NOISE_ITERATIONS = 7; // Fractal noise layers
-    const float INITIAL_OFFSET = 0.1;
-    const float RADIAL_SCALE = 5.0;
-    const float DEPTH_ATTENUATION = 0.2;
+    // Alternative: More similar to your original fragCoord approach
+    // vec2 fragCoord = vTexCoord * iResolution.xy;
+    // vec2 uv = (fragCoord * 2.0 - iResolution.xy) / iResolution.y;
     
-    // ========================
-    // Initialize
-    // ========================
-    float rayDepth = 0.0;
-    float stepDistance = 0.0;
-		
-		vec4 finalColor = vec4(0.0);
-		
-		// Create camera ray direction
-    vec3 rayDirection = normalize(vec3(uv, 1.0));
-
-    // ========================
-    // Raymarching Loop
-    // ========================
-    for (int step = 0; step < MAX_STEPS; step++)
-    {
-        // Current position along ray
-        vec3 position = rayDepth * rayDirection + INITIAL_OFFSET;
+    float t = iTime;
+    vec3 o = vec3(0.0);
+    vec3 p, w;
+    
+    float z = 0.0;
+    float d = 0.1;
+    
+    // Try with fewer iterations first to debug
+    for (float i = 0.0; i < 60.0; i++) {
+        // Position update - using a different approach
+        p = vec3(uv * (1.0 + z * 0.5), z);
+        w = p;
         
-        // ========================
-        // Polar Coordinate Transformation
-        // ========================
-        float angle = atan(position.y / 0.2, position.x) * 2.0;
-        float radius = length(position.xy) - RADIAL_SCALE - rayDepth * DEPTH_ATTENUATION;
-        float height = position.z / 3.0;
-        position = vec3(angle, height, radius);
-        
-        // ========================
-        // Fractal Noise Displacement
-        // ========================
-        for (int noiseStep = 1; noiseStep <= NOISE_ITERATIONS; noiseStep++)
-        {
-            float noiseScale = float(noiseStep);
-            vec3 noiseInput = position.yzx * noiseScale + iTime + 0.3 * float(step);
-            position += sin(noiseInput) / noiseScale;
+        // Inner warp loop
+        for (float f = 1.0; f <= 5.0; f++) {
+            w += sin(w.zxy * f - 9.0 * exp(-d / 0.1) + t) / f;
         }
         
-        // ========================
-        // Distance Estimation
-        // ========================
-        vec3 surfacePattern = 0.4 * cos(position) - 0.4;
-        stepDistance = length(vec4(surfacePattern, position.z));
-        rayDepth += stepDistance;
+        // Accumulation - simplified version
+        float denom = abs(mix(p, w, 0.1).y + 0.01) + 1e-4;
+        o += 0.03 / denom * d;
         
-        // ========================
-        // Color Calculation
-        // ========================
-        float colorPhase = position.x + float(step) * 0.4 + rayDepth;
-        vec4 colorPattern = vec4(6.0, 1.0, 9.0, 0.0);
-        finalColor += (1.0 + cos(colorPhase + colorPattern)) / stepDistance;
+        // Marching update - with safety check
+        d = 0.3 * (length(cos(p.xz)) - 0.4);
+        if (abs(d) < 0.001) break;
+        z += d;
     }
-
-    // Time varying pixel color
-    vec3 color = vec3(uv.x, uv.y, 1.0);
-
-    // Output the final color with full opacity
-    //gl_FragColor = vec4(color, 1.0);
-		
-		// ========================
-    // Post-processing
-    // ========================
-    // Apply tanh approximation to each color channel separately
-    vec4 processedColor = finalColor * finalColor / 400.0;
-    processedColor.r = tanh_approx(processedColor.r);
-    processedColor.g = tanh_approx(processedColor.g);
-    processedColor.b = tanh_approx(processedColor.b);
-    processedColor.a = 1.0; // Ensure full opacity
     
-    gl_FragColor = processedColor;
+    // Apply nonlinearity and output
+    o = tanh_approx(o * 3.0); // Boost brightness
+    
+    // Debug: Try different outputs to see what's working
+    // gl_FragColor = vec4(uv.x, uv.y, 0.0, 1.0); // Test UV coordinates
+    // gl_FragColor = vec4(o, 1.0);
+    
+    // Add some color variation
+    vec3 color = vec3(o.r * 1.2, o.g * 0.8, o.b * 1.0);
+    gl_FragColor = vec4(color, 1.0);
 }
