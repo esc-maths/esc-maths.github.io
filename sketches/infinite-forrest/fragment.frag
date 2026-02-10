@@ -1,7 +1,8 @@
 /* 
  Adapted from original code
- Modified by [Your Name]
- [Date]
+ https://x.com/XorDev/status/2021248551678849313
+ Modified by Juan Carlos Ponce Campuzano
+ 11/Feb/2026
 */
 
 // These are necessary definitions that let you graphics card know how to render the shader

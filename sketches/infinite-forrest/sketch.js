@@ -1,12 +1,13 @@
 /*
 
-Escher infinite bended frame
+Infinite forest
  Juan Carlos Ponce Campuzano
- 28/Aug/2025
+ 11/Feb/2026
  https://www.patreon.com/jcponce
  
- Inspired by Escher's Cubic Space Division (1952)
- https://escherinhetpaleis.nl/en/about-escher/escher-today/cubic-space-division
+ Adapted from original code
+ https://x.com/XorDev/status/2021248551678849313
+ 
  */
 
 // Shader variables
