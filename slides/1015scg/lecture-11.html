@@ -230,6 +230,71 @@ mean(v)</code>
 
 				</section>
 
+				<section>
+					<h4 style="font-size: 130%;">Using <tt>cat()</tt> in <tt>R</tt></h4>
+					
+					<br />
+				</section>
+				<section>
+					<h4>Using <tt>cat()</tt> in <tt>R</tt></h4>
+					<table style="width: 100%; border-collapse: collapse; font-size: 90%;margin-top: -20px;" border="0">
+						<thead>
+							<tr>
+								<th style="width: 55%; text-align: center;">Code</th>
+								<th style="width: 50%; text-align: center;">Output</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="width: 55%;" class="fragment" data-fragment-index="0">
+									<pre style="width: 730px;height: 130px; font-size: 75%;margin-top: 5px;">
+<code data-trim data-noescape class="language-python">
+# Print text and numbers together
+x <- 7
+y <- -3
+cat("x =", x, "and y =", y)</code>
+        </pre>
+								</td>
+								<td style="width: 45%;;font-size: 90%;" class="fragment" data-fragment-index="1">
+									<tt>x = 7 and y = -3</tt>
+								</td>
+							</tr>
+
+							<tr>
+								<td style="width: 55%;" class="fragment" data-fragment-index="2">
+									<pre style="width: 730px;height: 150px; font-size: 75%;margin-top: 5px;">
+<code data-trim data-noescape class="language-python">
+# Control spacing and new lines
+cat("Mean value:", mean(c(1,2,3)),
+    "\nStandard deviation:", sd(c(1,2,3)))</code>
+        </pre>
+								</td>
+								<td style="width: 45%;font-size: 90%;" class="fragment" data-fragment-index="3">
+									<tt>Mean value: 2</tt><br />
+									<tt>Standard deviation: 1</tt>
+								</td>
+							</tr>
+
+							<tr>
+								<td style="width: 55%;" class="fragment" data-fragment-index="4">
+									<pre style="width: 730px;height: 150px; font-size: 75%;margin-top: 5px;">
+<code data-trim data-noescape class="language-python">
+# Printing a vector without quotes
+v <- c(-3, 1, 7, 3, -5)
+cat("Vector v =", v)</code>
+        </pre>
+								</td>
+								<td style="width: 45%;font-size: 90%;" class="fragment" data-fragment-index="5">
+									<tt>Vector v = -3 1 7 3 -5</tt>
+									<br /><br />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+				</section>
+
+
 
 
 				<section>
@@ -343,10 +408,11 @@ plot(data$time, data$value)</code> </pre>
 					<table>
 						<tr>
 							<td>
-<h5>Scatter plot</h5>
+								<h5>Scatter plot</h5>
 							</td>
 							<td>
-<pre class="copyable" style="width: 800px;height: 660px; font-size: 37%;margin-top: -25px;">
+								<pre class="copyable"
+									style="width: 800px;height: 660px; font-size: 37%;margin-top: -25px;">
 						<code data-trim data-noescape  class="language-python" ># -------------------------
 # Data (entered directly)
 # -------------------------
@@ -385,8 +451,8 @@ grid()                                # Add a background grid to the plot</code>
 							</td>
 						</tr>
 					</table>
-					
-					
+
+
 				</section>
 				<section>
 					<h5>Scatter plot & Trending line</h5>
