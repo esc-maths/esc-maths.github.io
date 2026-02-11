@@ -10,6 +10,7 @@ function setup() {
   createCanvas(500, 500);
   background(0);
   stroke(255);
+  noLoop();
 }
 
 function draw() {
