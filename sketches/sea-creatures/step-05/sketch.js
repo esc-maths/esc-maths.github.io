@@ -9,7 +9,7 @@ let t = 0;
 
 function setup() {
   createCanvas(500, 500);
-  pixelDensity(2);
+  //pixelDensity(2);
   background(0);
   stroke(255, 80);
 }
