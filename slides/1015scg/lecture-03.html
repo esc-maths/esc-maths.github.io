@@ -2205,14 +2205,19 @@
 						Confidence intervals
 					</h4>
 
-					<div class="left-txt size-95">
+					<div class="left-txt size-90">
 						<p>
 							In the case we have many samples with a normal distribution,
-							<span>then we have a bell curve.</span>
+							<span class="fragment" data-fragment-index="0">then we have a bell curve.</span>
+							<span class="fragment" data-fragment-index="1">
+								We consider a <b>confidence interval (CI)</b> as a range of values 
+								which is likely to contain the true value of an unknown statistical 
+								parameter, such as a population mean.
+							</span>
 						</p>
 					</div>
-					<div>
-						<img style="width: 60%;" src="images/lec-03/bell-curve-01.png">
+					<div style="margin-top: -40px;">
+						<img style="width: 52%;" src="images/lec-03/bell-curve-01.png">
 
 					</div>
 					<!--
@@ -2225,7 +2230,7 @@
 					</h4>
 
 					<table style="width: 100%;">
-						<tr style="font-size: 75%;">
+						<tr style="font-size: 78%;">
 							<td style="width: 40%;">
 
 								<div class="left-txt">
@@ -2235,19 +2240,21 @@
 								</div>
 								<div style="text-align: center;">
 									<p>
-										\(\mu - \text{SE}\lt x \lt \mu +\text{SE}\)
+										\(\mu - \sigma\lt x \lt \mu +\sigma\)
 									</p>
 								</div>
 								<div class="left-txt">
 									<p class="fragment" data-fragment-index="1">
-										\(\mu\) is the <em>mean</em>/<em>average</em> and \(\text{SE}\) is the standard
-										error
-										With 95.44% confidence the true value \(x\) lies between
+										\(\mu\) is the <b>mean/average</b> and \(\sigma\) is
+										the standard deviation.
+										<span class="fragment" data-fragment-index="2">
+											With 95.44% confidence the true value \(x\) lies between
+										</span>
 									</p>
 								</div>
 								<div style="text-align: center;">
-									<p class="fragment" data-fragment-index="1">
-										\(\mu - 2\text{SE}\lt x \lt \mu +2\text{SE}\)
+									<p class="fragment" data-fragment-index="2">
+										\(\mu - 2\sigma\lt x \lt \mu +2\sigma.\)
 									</p>
 								</div>
 								<div class="left-txt">
@@ -2257,7 +2264,7 @@
 								</div>
 								<div style="text-align: center;">
 									<p class="fragment" data-fragment-index="3">
-										\(\mu - 3\text{SE}\lt x \lt \mu +3\text{SE}\)
+										\(\mu - 3\sigma\lt x \lt \mu +3\sigma\)
 									</p>
 								</div>
 
@@ -2270,7 +2277,7 @@
 										src="images/lec-03/bell-curve-03.png">
 									<img class="fragment fade-in-the-out" data-fragment-index="2" style="width: 100%;"
 										src="images/lec-03/bell-curve-04.png">
-									<img class="fragment fade-in" data-fragment-index="4" style="width: 100%;"
+									<img class="fragment fade-in" data-fragment-index="3" style="width: 100%;"
 										src="images/lec-03/bell-curve-05.png">
 
 								</div>
@@ -2813,9 +2820,10 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>Average</td>
+								<td>Average/Mean</td>
 								<td>\(\bar x = \dfrac{x_1+x_2+\cdots+x_n}{n}\)</td>
-								<td>\(\Delta x = \ds \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(x_i-\bar{x}\right)^2}\)</td>
+								<td>\(\Delta \bar x = \ds
+									\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}\left(x_i-\bar{x}\right)^2}\)</td>
 							</tr>
 							<tr class="fragment" data-fragment-index="0">
 								<td>Constant factor</td>
@@ -2825,7 +2833,7 @@
 							<tr class="fragment" data-fragment-index="1">
 								<td>Addition / Subtraction</td>
 								<td>\(z = Ax ± By\)</td>
-								<td>\(\Delta z = \sqrt{A^2\Delta x^2+B^2\Delta y^2} \)</td>
+								<td>\(\Delta z = \sqrt{A^2\left(\Delta x\right)^2+B^2\left(\Delta y\right)^2} \)</td>
 							</tr>
 							<tr class="fragment" data-fragment-index="2">
 								<td>Multiplication / Division</td>
@@ -2839,7 +2847,7 @@
 							<tr class="fragment" data-fragment-index="3">
 								<td>Function</td>
 								<td>\(f(x)\)</td>
-								<td>\(\Delta f = \left|\dfrac{\partial f(x) }{\partial x}\right|\Delta x\)</td>
+								<td>\(\Delta f = \left|\dfrac{d f}{d x}\right|\Delta x\)</td>
 							</tr>
 						</tbody>
 					</table>
