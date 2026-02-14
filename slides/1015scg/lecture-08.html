@@ -990,12 +990,13 @@
 					<br />
 
 					<div>
-						<ul style="line-height: 2.9;margin-left: 0px;">
+						<p>Using Taylor approximations:</p>
+						<ul style="line-height: 2.9;margin-left: -10px;">
 							<li>
-								Estimating $e^{0.05}$ using Taylor approximations.
+								Estimating $e^{0.05}$.
 							</li>
 							<li>
-								Estimate $\cos(0.1)$ using Taylor approximations
+								Estimate $\cos(0.1)$.
 							</li>
 						</ul>
 					</div>
@@ -1012,7 +1013,7 @@
 
 
 
-					<div class="fragment" data-fragment-index="1" style="font-size: 70%;">
+					<div class="fragment" data-fragment-index="1" style="font-size: 65%;">
 						<p>
 							\(
 							\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
@@ -1255,6 +1256,121 @@
 					<br />
 					<br />
 				</section>
+
+				<section>
+					<h4>📝 Practice: Population — Step 1: Taylor Approximation</h4>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							We approximate the exponential function using a second-order Taylor expansion around 0:
+							<br>
+							$$e^x \approx 1 + x + \frac{x^2}{2}$$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							For our population model: $\,P(t) = 500 e^{0.001t}\,$
+							we use
+							$$e^{0.001t} \approx 1 + 0.001t + \frac{(0.001t)^2}{2}$$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>📝 Practice: Population — Step 2: Population after 2 Weeks</h4>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="1">
+							Using the approximation:
+
+
+						</p>
+						<p style="text-align: center;">
+							$P(2) \approx 500 \cdot \left(1 + 0.001 \cdot 2 + \dfrac{(0.001 \cdot 2)^2}{2}\right)$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Step-by-step calculation:
+						</p>
+					</div>
+					<div style="font-size: 85%;">
+
+						<p class="fragment" data-fragment-index="3">
+							$0.001 \cdot 2 = 0.002$
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							$\dfrac{(0.002)^2}{2} = 0.000002$
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							$1 + 0.002 + 0.000002 = 1.002002$
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							$P(2) \approx 500 \cdot 1.002002 \approx 501.001$
+						</p>
+						
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>📝 Practice: Population — Step 3: Time to Reach 505</h4>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="1">
+							Solve $P(t) \approx 505$ using the second-order approximation:
+
+
+						</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="1">
+							$500 \cdot \left(1 + 0.001t + \dfrac{(0.001t)^2}{2}\right) = 505$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Divide both sides by 500:
+						
+						</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="2">
+							$1 + 0.001t + \dfrac{(0.001t)^2}{2} \approx 1.01$
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							Let $x = 0.001t,$
+							<span class="fragment" data-fragment-index="4">
+ then solve:
+							</span>
+						</p>
+
+					</div>
+					<div class="size-80">
+
+						<p class="fragment" data-fragment-index="4">
+
+							$\ds 1 + x + \frac{x^2}{2} = 1.01 $
+							<span class="fragment" data-fragment-index="5">
+$\Ra \ds \frac{x^2}{2} + x - 0.01 = 0$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							Solve quadratic: $x \approx 0.00995 \rightarrow t \approx 9.95$ weeks
+							
+						</p>
+					
+					</div>
+					<br/>
+				</section>
+
+				<section>
+					<h4>📝 Practice: Population — Step 4: Comparison</h4>
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="1">
+							Comparing the second-order Taylor approximation with exact values:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="2">Population after 2 weeks: $501.001$ (approx) vs
+								$501.001001$ (exact)</li>
+							<li class="fragment" data-fragment-index="3">Time to reach 505: $9.95$ weeks (approx) vs
+								$9.95033$ weeks (exact)</li>
+						</ul>
+						<p class="fragment" data-fragment-index="4">
+							The approximation gives results virtually identical to the exact model for such small
+							exponents.
+						</p>
+					</div>
+				</section>
+
 
 
 
