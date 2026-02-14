@@ -2210,8 +2210,8 @@
 							In the case we have many samples with a normal distribution,
 							<span class="fragment" data-fragment-index="0">then we have a bell curve.</span>
 							<span class="fragment" data-fragment-index="1">
-								We consider a <b>confidence interval (CI)</b> as a range of values 
-								which is likely to contain the true value of an unknown statistical 
+								We consider a <b>confidence interval (CI)</b> as a range of values
+								which is likely to contain the true value of an unknown statistical
 								parameter, such as a population mean.
 							</span>
 						</p>
@@ -2294,16 +2294,49 @@
 						What if there are not so many samples? 🤔
 					</h4>
 
-					<div>
-						<iframe style="width: 600px; height:500px; border: 1px solid black;"
-							data-src="sketches/student-t-dist"></iframe>
-					</div>
-					<div style="font-size: 60%;">
-						<p>
-							<a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution" target="_blank">Students'
-								t-distribution <i class="fa fa-external-link-alt"></i></a>
-						</p>
-					</div>
+					<table>
+						<tr>
+							<td style="vertical-align: middle; width: 45%;">
+								<div style="font-size: 80%;" class="fragment" data-fragment-index="1">
+									<p>
+										<b>Students'
+											t-distribution</b>
+										<a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution"
+											target="_blank"> <i class="fa fa-external-link-alt"></i></a>
+									</p>
+								</div>
+								<div style="font-size: 80%;" class="fragment" data-fragment-index="2">
+									<p>
+										If \(T \sim t_\nu\) (with \(\nu\) degrees of freedom), then
+									</p>
+									<p style="text-align:center;">
+										\(
+										\ds f(t)=
+										\frac{\Gamma\!\left(\frac{\nu+1}{2}\right)}
+										{\sqrt{\nu\pi}\,\Gamma\!\left(\frac{\nu}{2}\right)}
+										\left(1+\frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}
+										\)
+									</p>
+									<p>
+										where \(\nu > 0\).
+									</p>
+								</div>
+								<br />
+								<br />
+							</td>
+							<td>
+								<div class="fragment" data-fragment-index="1">
+									<iframe style="width: 603px; height:500px; border: 2px solid black;"
+										data-src="sketches/student-t-dist"></iframe>
+								</div>
+								<div style="font-size: 60%; text-align: center;">
+
+								</div>
+							</td>
+						</tr>
+					</table>
+					<br />
+
 				</section>
 
 				<section>
@@ -2778,7 +2811,7 @@
 					<div style="font-size: 90%;text-align: left;">
 						<p>
 							When dealing with uncertainties based on a large
-							collection of numbers
+							collection of numbers,
 							<span class="fragment" data-fragment-index="0">
 								the manipulation of measured
 								quantities and the error associated with each
@@ -2798,7 +2831,7 @@
 						Error propagation - Special cases
 					</h4>
 
-					<div style="font-size: 60%;text-align: left;">
+					<div style="font-size: 70%;text-align: left;">
 						<p>
 							The following formulae are a
 							good approximation of the error and become
@@ -2810,7 +2843,7 @@
 					</div>
 
 					<table border="1" cellpadding="8" cellspacing="0"
-						style="border-collapse: collapse; text-align: center; width: 100%; font-size: 70%;">
+						style="border-collapse: collapse; text-align: center; width: 100%; font-size: 75%;">
 						<thead style="background-color: #f2f2f2;">
 							<tr>
 								<th>Process</th>
@@ -2819,20 +2852,15 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>Average/Mean</td>
-								<td>\(\bar x = \dfrac{x_1+x_2+\cdots+x_n}{n}\)</td>
-								<td>\(\Delta \bar x = \ds
-									\sqrt{\frac{1}{n(n-1)}\sum_{i=1}^{n}\left(x_i-\bar{x}\right)^2}\)</td>
-							</tr>
+
 							<tr class="fragment" data-fragment-index="0">
 								<td>Constant factor</td>
-								<td>\(z = A x ,\) with \(A\) a constant</td>
+								<td>\(z = A x ,\) <br />with \(A\) a constant</td>
 								<td>\(\Delta z = A\Delta x \)</td>
 							</tr>
 							<tr class="fragment" data-fragment-index="1">
 								<td>Addition / Subtraction</td>
-								<td>\(z = Ax ± By\)</td>
+								<td>\(z = Ax ± By,\) <br />with \(A, B\) constants</td>
 								<td>\(\Delta z = \sqrt{A^2\left(\Delta x\right)^2+B^2\left(\Delta y\right)^2} \)</td>
 							</tr>
 							<tr class="fragment" data-fragment-index="2">
