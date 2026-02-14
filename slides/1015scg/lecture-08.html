@@ -968,13 +968,36 @@
 					</div>
 				</section>
 
+				<section>
+					<h4>
+						📝 Practice
+					</h4>
+					<br/>
+
+					<div>
+						<ul style="line-height: 2.9;margin-left: 0px;">
+							<li>
+								Estimating $e^{0.05}$ using Taylor approximations.
+							</li>
+							<li>
+								Estimate $\cos(0.1)$ using Taylor approximations
+							</li>
+						</ul>
+					</div>
+
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+				</section>
+
 
 				<section>
 					<h4>Estimating $e^{0.05}$ using Taylor approximations</h4>
 
 
 
-					<div class="fragment" data-fragment-index="1">
+					<div class="fragment" data-fragment-index="1" style="font-size: 70%;">
 						<p>
 							\(
 							\ds e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
@@ -1021,7 +1044,7 @@
 					</table>
 
 
-					<div class="fragment" data-fragment-index="12">
+					<div class="fragment" data-fragment-index="10" style="margin-top: -20px;">
 						<p style="font-size: 80%;">
 							Higher-order approximations give better accuracy for small $x$.
 						</p>
@@ -1088,7 +1111,8 @@
 				<section>
 					<h4>Estimating $\cos(0.1)$ using Taylor approximations</h4>
 
-					<div>
+					<div style="font-size: 70%;" class="fragment" data-fragment-index="0" >
+					
 						<p>
 							\(
 							\ds \cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots
@@ -1106,25 +1130,25 @@
 						</thead>
 
 						<tbody>
-							<tr>
+							<tr class="fragment" data-fragment-index="1">
 								<td>First order</td>
 								<td>$1$</td>
 								<td>$1$</td>
 							</tr>
 
-							<tr>
+							<tr class="fragment" data-fragment-index="2">
 								<td>Second order</td>
 								<td>$1 - \dfrac{x^2}{2}$</td>
 								<td>$1 - \dfrac{(0.1)^2}{2} = 0.995$</td>
 							</tr>
 
-							<tr>
+							<tr class="fragment" data-fragment-index="3">
 								<td>Third order</td>
 								<td>$1 - \dfrac{x^2}{2}$</td>
 								<td>$0.995$</td>
 							</tr>
 
-							<tr>
+							<tr class="fragment" data-fragment-index="4">
 								<td>Calculator</td>
 								<td>Exact value</td>
 								<td>$\cos(0.1) \approx 0.995004165\ldots$</td>
@@ -1132,7 +1156,7 @@
 						</tbody>
 					</table>
 
-					<div>
+					<div class="fragment" data-fragment-index="3">
 						<p style="font-size: 80%;">
 							Odd-power terms vanish for $\cos x$, so first- and third-order approximations coincide.
 						</p>
