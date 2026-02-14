@@ -6,13 +6,13 @@ Work in progress. :)
 let binaryLines = []; // Array to store binary lines
 let charSize = 20; // Size of characters
 let lineSpacing = 20; // Spacing between lines
-let lineLength = 43; // Maximum characters per line
+let lineLength = 53; // Maximum characters per line
 let typingSpeed = 10; // Speed of typing (characters per second)
 let canvasPadding = 20; // Padding around the canvas
 let canvasFilled = false; // Flag to track if canvas is filled
 
 function setup() {
-  createCanvas(900, 250);
+  createCanvas(1100, 250);
   textSize(charSize);
 	frameRate(8);
 }
