@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sea Creatures Gallery</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 20px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sea-container {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+  }
+
+  #seaFrame {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    border: 3px solid #111;
+    border-radius: 10px;
+    background: #000;
+  }
+
+  #seaLinks {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  #seaLinks span {
+    padding: 8px 18px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.25s ease;
+    user-select: none;
+  }
+
+  #seaLinks span:hover {
+    background-color: black;
+    color: white;
+  }
+
+  #seaLinks span.active {
+    background-color: black;
+    color: white;
+  }
+
+  /* Small screen message */
+  .small-screen-message {
+    display: none;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 2px solid #d9534f;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    .small-screen-message {
+      display: block;
+    }
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="sea-container">
+
+    <h2>Sea Creatures Collection</h2>
+
+  <!-- Message -->
+  <div class="small-screen-message">
+    ⚠️ This visualization may not display properly on small screens.
+    For the best experience, please use a larger window.
+  </div>
+
+  <iframe loading="lazy" id="seaFrame"
+    src="https://esc-maths.github.io/sketches/sea-creatures/example-01">
+  </iframe>
+
+  <div id="seaLinks">
+    <span class="active" data-src="https://esc-maths.github.io/sketches/sea-creatures/example-01">Sea creature 1</span>
+    <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-02">Sea creature 2</span>
+    <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-03">Sea creature 3</span>
+    <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-04">Sea creature 4</span>
+    <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-05">Sea creature 5</span>
+    <span data-src="https://esc-maths.github.io/sketches/sea-creatures/example-06">Sea creature 6</span>
+  </div>
+
+</div>
+
+<script>
+  const iframe = document.getElementById("seaFrame");
+  const links = document.querySelectorAll("#seaLinks span");
+
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      iframe.src = link.dataset.src;
+      links.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+</script>
+
+</body>
+</html>
