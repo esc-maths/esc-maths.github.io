@@ -17,7 +17,7 @@ function setup() {
 
 function draw() {
   background(0, 90);
-  t += PI / 120;
+  t += PI / 110;
   
   for (let i = 10000; i > 0; i--) {
     drawPoint(i);
@@ -33,7 +33,7 @@ function drawPoint(i) {
   // Calculate k
   let k;
   if (y < 11) {
-    k = (6 + sin(y * y * y * y * y * y * y * y) * 6) * cos(i - t / 4);
+    k = (6 + sin(y) * 7) * cos(i  - t / 4);
   } else {
     k = (y / 5 + cos(y / 2)) * cos(i - t / 4);
   }
@@ -53,7 +53,7 @@ function drawPoint(i) {
   let c = d / 2 + 1 - t / 2;
   
   // Calculate x and y coordinates
-  let x = q + 60 * cos(c) + 250;
+  let x = q + 50 * cos(c) + 250;
   let yCoord = q * sin(c) + d * 29 - 150;
   
   point(x, yCoord);
