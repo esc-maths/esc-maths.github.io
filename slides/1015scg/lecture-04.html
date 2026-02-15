@@ -372,7 +372,7 @@
 								errors, $r^2$ and standard error.
 								<br />
 								<span class="fragment" data-fragment-index="1" style="color: rgb(31, 81, 122);">
-									&nbsp;&nbsp;<b>Ans.</b> $y$-intercept 14.11 with Standard Error 2.31 <br />
+									&nbsp;&nbsp;<b>Ans.</b> $y$-intercept 14.1 with Standard Error 2.3 <br />
 
 									&nbsp;&nbsp;Gradient 12.20 with Standard Error 0.47 | $\;\;r^2:$ 0.63 | SE: 16.25
 								</span>
@@ -390,6 +390,93 @@
 					</div>
 
 					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Linear Model: Workshop attendance vs overall mark
+					</h4>
+
+					<div style="font-size: 90%;">
+						<p><b>Raw data</b></p>
+						<table>
+							<tr>
+								<td>
+									<b>Term</b>
+								</td>
+								<td>
+									<b>Value</b>
+								</td>
+								<td>
+									<b>Error</b>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Intercept
+								</td>
+								<td>
+									14.1102117
+								</td>
+								<td>
+									2.318984079
+								</td>
+							</tr>
+							<tr>
+								<td>
+									X Variable 1 (Slope)
+								</td>
+								<td>
+									12.20017398
+								</td>
+								<td>
+									0.470818213
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div style="font-size: 90%;"  class="fragment" data-fragment-index="2">
+						<hr>
+						<p><b>Data considering 2 s.f.</b></p>
+						<table>
+							<tr>
+								<td>
+									<b>Term</b>
+								</td>
+								<td>
+									<b>Value</b>
+								</td>
+								<td>
+									<b>Error</b>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									$b$
+								</td>
+								<td>
+									14.1
+								</td>
+								<td>
+									2.3
+								</td>
+							</tr>
+							<tr>
+								<td>
+									$m$ (Slope)
+								</td>
+								<td>
+									12.20
+								</td>
+								<td>
+									0.47
+								</td>
+							</tr>
+						</table>
+					</div>
+
+
 					<br />
 				</section>
 
@@ -439,13 +526,13 @@
 						📝 Example 💻 📈 - Solutions - Error Propagation Formula
 					</h4>
 
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						<p>
 							For <a href="error-propagation-formulae.html" target="_blank">independent uncertainties</a>:
 						</p>
 					</div>
 
-					<div style="text-align: center; font-size: 80%;">
+					<div style="text-align: center; font-size: 85%;">
 						<p>
 							\( \ds\Delta x^2 =
 							\left(\frac{\partial x}{\partial m}\right)^2 \Delta m^2
@@ -455,27 +542,29 @@
 						</p>
 					</div>
 
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						<p class="fragment" data-fragment-index="1">
-							We must compute the partial derivatives of
+							Compute the partial derivatives of
 							\( \ds x = \frac{50 - b}{m} \)
+							<span class="fragment" data-fragment-index="7">
+								\( \ds = \frac{50 - 14.1}{12.20} \)
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								\( \ds = 2.94\)
+							</span>
 						</p>
 					</div>
 
 
 
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						<p class="fragment" data-fragment-index="2">
 							Derivative with respect to \( m \):
-						</p>
-					</div>
 
-					<div style="text-align: center; font-size: 80%;" class="fragment" data-fragment-index="2">
-						<p>
 							\( \ds \frac{\partial x}{\partial m}
 							\)
 							<span class="fragment" data-fragment-index="3">
-								\(\ds
+								\(\ds =
 								-\frac{50 - b}{m^2}
 
 								\)
@@ -490,19 +579,18 @@
 						</p>
 					</div>
 
-					<div class="left-txt size-80">
+					<div class="left-txt size-85">
 						<p class="fragment" data-fragment-index="5">
 							Derivative with respect to \( b \):
-						</p>
-					</div>
 
-					<div style="text-align: center; font-size: 80%;" class="fragment" data-fragment-index="6">
-						<p>
 							\( \ds\frac{\partial x}{\partial b}
 							=
 							-\frac{1}{m}
 							\)
 						</p>
+					</div>
+					<div style="color: #a50f0f;" class="fragment" data-fragment-index="6">
+						<p> 👉 $\;\;m= 12.20,$ $\;\;b=14.1$</p>
 					</div>
 					<br />
 				</section>
@@ -522,11 +610,14 @@
 						</p>
 					</div>
 
-					<div class="left-txt">
-						<p class="fragment" data-fragment-index="1">
+					<div class="left-txt" >
+						<p>
 							Using:
-							\( x = 2.94, \;\;\)
+							<span style="color: #a50f0f;">
+								\( \,x = 2.94, \;\)
 							\( m = 12.20 \)
+							</span>
+							
 						</p>
 					</div>
 
@@ -598,30 +689,31 @@
 						<p>
 							Then
 							\( \Delta m = 0.47, \,\)
-							\( \Delta b = 2.31,\, \)
-							\( \frac{\partial x}{\partial m} = -0.241, \,\)
-							\( \frac{\partial x}{\partial b}= -0.082. \)
+							\( \Delta b = 2.3,\, \)
+							\( \dfrac{\partial x}{\partial m} = -0.241, \,\)
+							\( \dfrac{\partial x}{\partial b}= -0.082. \)
 						</p>
 
 					</div>
 
-					<div style="text-align: center;">
+					<div style="text-align: left;">
 						<p class="fragment" data-fragment-index="1">
-							\( \Ra \Delta x^2
+							\(\qquad \Ra \;\Delta x^2
 							=
 							(0.241)^2 (0.47)^2
 							+
-							(0.082)^2 (2.31)^2
+							(0.082)^2 (2.3)^2
 							\)
+							<span class="fragment" data-fragment-index="2">
+							\(=0.0484\)
+							</span>
 						</p>
-						<p class="fragment" data-fragment-index="2">
-							\(=0.0487 \qquad \qquad \qquad \qquad\)
-						</p>
+						
 					</div>
 
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="3">
-							\( \Delta x =\sqrt{0.0487}\)
+							\(\Ra  \;\Delta x =\sqrt{0.0484}\)
 							<span class="fragment" data-fragment-index="4">
 								\(
 								\approx 0.22
@@ -632,14 +724,19 @@
 
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="5">
-							Therefore, we have
-							<strong>
-								\( x = 2.94 \pm 0.22 \)
-							</strong>
+							\(\Ra\;\)
+							 \( x = 2.94 \pm 0.22 \)
+
 						</p>
+						<p class="fragment" data-fragment-index="6">
+							\(\Ra\;\)
+							<b>No. of workshops to pass</b>  \( \,= 3 \)
+
+						</p>
+						
 					</div>
 
-					<br />
+				
 					<br />
 				</section>
 
@@ -768,6 +865,92 @@
 						Linear Model: Fatalities by Cars (1975-2019)
 					</h4>
 
+					<div style="font-size: 90%;">
+						<p><b>Raw data</b></p>
+						<table>
+							<tr>
+								<td>
+									<b>Term</b>
+								</td>
+								<td>
+									<b>Value</b>
+								</td>
+								<td>
+									<b>Error</b>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Intercept
+								</td>
+								<td>
+									122,480.0276
+								</td>
+								<td>
+									5367.287736
+								</td>
+							</tr>
+							<tr>
+								<td>
+									X Variable 1 (Slope)
+								</td>
+								<td>
+									-60.26482213
+								</td>
+								<td>
+									2.687618547
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div style="font-size: 90%;" class="fragment" data-fragment-index="2">
+						<hr>
+						<p><b>Data considering 2 s.f.</b></p>
+						<table>
+							<tr>
+								<td>
+									<b>Term</b>
+								</td>
+								<td>
+									<b>Value</b>
+								</td>
+								<td>
+									<b>Error</b>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Intercept
+								</td>
+								<td>
+									120,000
+								</td>
+								<td>
+									5,400
+								</td>
+							</tr>
+							<tr>
+								<td>
+									X Variable 1 (Slope)
+								</td>
+								<td>
+									-60
+								</td>
+								<td>
+									2.7
+								</td>
+							</tr>
+						</table>
+					</div>
+
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Linear Model: Fatalities by Cars (1975-2019)
+					</h4>
+
 					<div class="left-txt">
 						<p>
 							We model fatalities using a linear function:
@@ -783,17 +966,17 @@
 					<div class="left-txt">
 						<p class="fragment" data-fragment-index="1">
 							Gradient:
-							\( m = -60.3 \pm 2.7 \)
+							\( m = -60 \pm 2.7 \)
 						</p>
 						<p class="fragment" data-fragment-index="2">
 							Intercept:
-							\( b = 122\,480 \pm 5\,367.3 \)
+							\( b = 122,000 \pm 5,400 \)
 						</p>
 					</div>
 
 					<div style="text-align: center;" class="fragment" data-fragment-index="3">
 						<p>
-							\( \hat{y} = -60.3x + 122\,480 \)
+							\( \hat{y} = -60x + 122,000 \)
 						</p>
 					</div>
 
@@ -809,36 +992,35 @@
 
 					<div style="text-align: center;">
 						<p>
-							\( \hat{y} = -60.3x + 122\,480 \)
+							\( \hat{y} = -60x + 122,000 \)
 						</p>
 					</div>
 
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="1">
-							\( \hat{y}(2010) = -60.3(2010) + 122\,480 \;\;\)
+							\( \hat{y}(2010) = -60(2010) + 122,000 \;\;\)
 						</p>
 					</div>
 
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="2">
-							\(\quad \;\; = -121\,203 + 122\,480 \)
+							\(\quad \;\; = -120,600 + 122,000 \)
 						</p>
 						<p class="fragment" data-fragment-index="3">
-							\( = 1277 \qquad \qquad \;\,\)
+							\( = 1400 \qquad \qquad \;\,\)
 						</p>
 					</div>
 
 					<div class="left-txt">
 						<p class="fragment" data-fragment-index="4">
 							Predicted fatalities in 2010:
+							\( \;\hat{y} = 1,400 .\)
 						</p>
-					</div>
-
-					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="4">
-							<strong>\( \hat{y} = 1277 \)</strong>
+							From data source: \(\;2010 \rightarrow 1,353.\)
 						</p>
 					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -848,22 +1030,22 @@
 
 					<div style="text-align: center;">
 						<p>
-							\( \hat{y} = -60.3x + 122\,480 \)
+							\( \hat{y} = -60x + 122,000 \)
 						</p>
 					</div>
 
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="1">
-							\( \hat{y}(2040) = -60.3(2040) + 122\,480 \)
+							\( \hat{y}(2040) = -60(2040) + 122,000 \)
 						</p>
 					</div>
 
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="2">
-							\(\qquad = -123\,012 + 122\,480 \)
+							\(\qquad = -122,400 + 122,00 \)
 						</p>
 						<p class="fragment" data-fragment-index="3">
-							\( = -532 \qquad \quad \;\;\)
+							\( = -400 \qquad \quad \;\;\)
 						</p>
 					</div>
 
@@ -872,7 +1054,7 @@
 							The model predicts a negative value, which is not realistic.
 						</p>
 						<p class="fragment" data-fragment-index="5">
-							This shows the danger of extrapolation. 😬
+							This shows the danger of <b>extrapolation</b>. 😬
 						</p>
 					</div>
 
@@ -883,53 +1065,39 @@
 
 				<section>
 					<h4>
-						Error Propagation
+						Error Propagation for 2010
 					</h4>
 
-					<div class="left-txt size-90">
+					<div class="left-txt">
 						<p>
-							If \( y = mx + b \), and both \( m \) and \( b \) have uncertainty,
-							the variance in \( y \) is:
-						</p>
-					</div>
+							We know that the Standard Error = $234.14.$
 
-					<div style="text-align: center; font-size: 90%;">
+						</p>
 						<p>
-							\( \Delta y^2 = x^2 \Delta m^2 + \Delta b^2 \)
+							<span>Using 2 s.f. then Standard Error = $230.$</span>
+						</p>
+						<p>
+							Predicted fatalities in 2010:
+							\( \;\hat{y} = 1,400 .\)
+						</p>
+						<p>
+							So the uncertainty in the prediction for 2010 is:
 						</p>
 					</div>
 
-					<div class="left-txt size-90">
-						<p class="fragment" data-fragment-index="1">
-							So the <a href="error-propagation-formulae.html" target="_blank">uncertainty</a> in the prediction is:
-
-							\( \Delta y =
-							\sqrt{x^2 \left(\Delta m\right)^2 + \left(\Delta b\right)^2} \)
-						</p>
-					</div>
 
 
-					<p style="text-align: left;" class="fragment" data-fragment-index="2">
-						Uncertainty for 2010:
-						\( \Delta y =
-						\sqrt{(2010)^2(2.7)^2 + (5367.3)^2} \)
-					</p>
 
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="3">
-							\(  \approx 7635\qquad \quad \)
+							\( 1,400 \pm 230 \)
 						</p>
 					</div>
 
-					<div class="left-txt">
-						<p class="fragment" data-fragment-index="5">
-							Final prediction:
-							<strong>\( 1277 \pm 7635 \)</strong>
-						</p>
-					</div>
 
-					<br/>
-					<br/>
+
+					<br />
+					<br />
 				</section>
 
 
