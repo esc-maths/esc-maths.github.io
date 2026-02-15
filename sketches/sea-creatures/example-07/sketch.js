@@ -13,17 +13,17 @@ let w = 500;
 
 function setup() {
   createCanvas(w, w);
-  stroke(255);
+  stroke(255, 80);
 }
 
 function draw() {
   background(0, 80);
 
   // Time increment
-  t += PI / 30;
+  t += PI / 20;
 
   // Draw 30,000 points
-  for (let i = 25000; i > 0; i--) {
+  for (let i = 30000; i > 0; i--) {
     drawPoint(i);
   }
 }
@@ -45,7 +45,7 @@ function drawPoint(i) {
     pow(mag(k, e), 2) / 99 + 1;
 
   // Stroke modulation
-  stroke(w, 50 + 2 / cos(t + e));
+  //stroke(w, 50 + 2 / cos(t + e));
 
   // Angular component (3-fold symmetry)
   let c =
@@ -54,7 +54,7 @@ function drawPoint(i) {
     + (i % 3) * 4;
 
   // Final coordinates
-  let s = 1.5;
+  let s = 1.4;
   let x =
     s * ( k * (4 + sin(d * 18 - t * 2 + (i % 3) * 2))
     - 5 * sin(atan2(k, e) * 9)
