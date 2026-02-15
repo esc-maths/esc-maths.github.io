@@ -17,9 +17,9 @@ function setup() {
 
 function draw() {
   background(0, 90);
-  t += PI / 110;
+  t += PI / 130;
   
-  for (let i = 10000; i > 0; i--) {
+  for (let i = 10500; i > 0; i--) {
     drawPoint(i);
   }
 }
@@ -33,7 +33,7 @@ function drawPoint(i) {
   // Calculate k
   let k;
   if (y < 11) {
-    k = (6 + sin(y) * 7) * cos(i  - t / 4);
+    k = (6 + sin(y) * 9) * cos(i  - t / 4);
   } else {
     k = (y / 5 + cos(y / 2)) * cos(i - t / 4);
   }
@@ -42,7 +42,7 @@ function drawPoint(i) {
   let e = y / 7 - 13;
   
   // Calculate d (magnitude)
-  let d = Math.hypot(k, e) + sin(e / 4 + t) / 2;
+  let d = Math.hypot(k, e) + sin(e / 4 + t) / 6;
   
   // Original: point((q=y*k/d*(3+sin(d*2+y/2-t*4)))+60*cos(c=d/2+1-t/2)+200,q*sin(c)+d*29-170)
   
