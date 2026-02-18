@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>TSL Particle Sketch - Fixed</title>
+<style>
+  body { margin: 0; overflow: hidden; background: black; display: flex; justify-content: center; align-items: center; height: 100vh; }
+  canvas { width: 500px; height: 500px; }
+</style>
+
+  <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+          "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+          "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.tsl.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.179.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { color, positionLocal, screenUV, range, time, vec3, mod, float, uv, pass } from "three/tsl";
+
+// --------------------
+// Scene & Renderer
+// --------------------
+const scene = new THREE.Scene();
+
+// Matching p5.js 500x500 canvas with a top-left coordinate system
+const camera = new THREE.OrthographicCamera(0, 500, 0, 500, -1, 1);
+camera.position.z = 1;
+
+// WebGPURenderer is required to process the NodeMaterial
+const renderer = new WebGPURenderer({ antialias: true });
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setSize(500, 500);
+document.body.appendChild(renderer.domElement);
+
+// --------------------
+// Geometry
+// --------------------
+const COUNT = 33000;
+const geometry = new THREE.BufferGeometry();
+const indexArray = new Float32Array(COUNT);
+for (let i = 0; i < COUNT; i++) indexArray[i] = i;
+
+// Note: Use 'attribute' in TSL to reference this
+geometry.setAttribute("pIndex", new THREE.BufferAttribute(indexArray, 1));
+
+// --------------------
+// TSL Logic
+// --------------------
+const time = uniform(0);
+const pIndex = attribute("pIndex");
+
+// k logic
+const k = pIndex.lessThan(20000).select(
+  sin(pIndex.div(9)).mul(9),
+  cos(pIndex.div(49)).mul(4).mul(cos(pIndex.div(3690)))
+);
+
+const e = pIndex.div(984).sub(12);
+
+// d = pow(mag(k, e), 2) / 99 + 1
+// mag(k,e) is length(vec2(k,e))
+const d = vec2(k, e).length().pow(2).div(99).add(1);
+
+const angle = atan2(k, e);
+
+// q logic
+const q = k.mul(sin(d.mul(16).sub(time).add(k)).add(4))
+          .sub(sin(angle.mul(9)).mul(5));
+
+// c logic
+const c = d.mul(1.1).sub(time.div(18)).add(mod(pIndex, 2).mul(3));
+
+// x and y coordinates
+// width/2 = 250, height/2 * 0.1 = 25
+const x = q.add(sin(c).mul(70)).add(250);
+const y = q.add(40).mul(sin(c.sub(d))).add(d.mul(79)).add(25);
+
+// --------------------
+// Material
+// --------------------
+const material = new THREE.PointsNodeMaterial();
+material.positionNode = vec3(x, y, 0);
+material.colorNode = vec3(1, 1, 1);
+material.size = 1.0;
+material.transparent = true;
+material.opacity = 0.5;
+
+const points = new THREE.Points(geometry, material);
+scene.add(points);
+
+// --------------------
+// Animate
+// --------------------
+function animate() {
+  requestAnimationFrame(animate);
+  
+  // Update the time uniform
+  time.value += Math.PI / 30;
+  
+  // nodeFrame is essential for internal TSL updates
+  nodeFrame.update();
+  renderer.render(scene, camera);
+}
+
+animate();
+</script>
+</body>
+</html>
