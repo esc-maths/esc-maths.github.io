@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js TSL - Time-based Oscillation</title>
+    <title>Three.js TSL - Simple Circular Pattern</title>
     <style>
         body { margin: 0; overflow: hidden; background-color: black; }
         #info {
@@ -32,7 +32,7 @@
     </script>
 </head>
 <body>
-    <div id="info">Three.js TSL | time-based oscillation | Step 3</div>
+    <div id="info">Three.js TSL | simple circular pattern</div>
 
     <script type="module">
         import * as THREE from "three";
@@ -97,7 +97,7 @@
             side: THREE.DoubleSide
         });
 
-        // Custom position node - using atan2 directly as it's now available
+        // Custom position node
         material.positionNode = Fn(() => {
             // Get instance index as float
             const i = float(instanceIndex);
@@ -106,7 +106,7 @@
             const x = mod(i, 200.0);
             const y = floor(div(i, 200.0));
             
-            // Time (scaled to match original speed)
+            // Time
             const t = mul(time, 0.8);
             
             // Center coordinates
@@ -116,15 +116,14 @@
             // Distance from center
             const o = div(length(vec2(k, e)), 50.0);
             
-            // Angle using atan2 (now available in TSL)
-            const c = atan2(e, k);
+            // Simple angle calculation using normalizing the vector
+            const len = length(vec2(k, e));
+            const nx = div(k, add(len, 0.0001));
+            const ny = div(e, add(len, 0.0001));
             
-            // Time-based oscillation
-            const q = mul(mul(o, 20.0), sin(add(mul(c, 2.0), t)));
-            
-            // Final coordinates
-            const px = add(250.0, mul(add(k, mul(q, cos(c))), 2.0));
-            const py = add(250.0, mul(add(e, mul(q, sin(c))), 2.0));
+            // Circular pattern - use normalized coordinates directly
+            const px = add(250.0, mul(add(k, mul(mul(o, 10.0), nx)), 2.0));
+            const py = add(250.0, mul(add(e, mul(mul(o, 10.0), ny)), 2.0));
             
             // Convert to world space
             const worldX = sub(px, 250.0);
@@ -159,7 +158,7 @@
         }
         window.addEventListener('resize', handleWindowResize, false);
         
-        console.log('Time-based oscillation running with atan2');
+        console.log('Simple circular pattern running');
     </script>
 </body>
 </html>
