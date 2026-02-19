@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js TSL - Slow Evolution Pattern</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: black; }
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: rgba(0,0,0,0.7);
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 100;
+        }
+    </style>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.tsl.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.179.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">Three.js TSL | slow evolution | 10k points</div>
+
+    <script type="module">
+        import * as THREE from "three";
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+        import { 
+            color, 
+            positionLocal, 
+            time, 
+            vec3, 
+            vec2,
+            mod, 
+            float, 
+            Fn,
+            sin,
+            cos,
+            length,
+            instanceIndex,
+            mul,
+            div,
+            add,
+            sub,
+            PI
+        } from "three/tsl";
+
+        // Setup
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+
+        // Orthographic camera for 2D-like rendering
+        const camera = new THREE.OrthographicCamera(-250, 250, 250, -250, 0.1, 1000);
+        camera.position.z = 500;
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGPURenderer({ antialias: true });
+        renderer.setAnimationLoop(animate);
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(2);
+        document.body.appendChild(renderer.domElement);
+
+        // Controls - disabled for this effect
+        const ctrls = new OrbitControls(camera, renderer.domElement);
+        ctrls.enableDamping = true;
+        ctrls.enableZoom = false;
+        ctrls.enablePan = false;
+        ctrls.enableRotate = false;
+
+        // Create geometry for points
+        const pointSize = 1.1;
+        const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
+        
+        // Number of points (10,000 as in the p5.js sketch, looping from 10000 down)
+        const startCount = 15000;
+
+        // Create material with custom position node
+        const material = new THREE.MeshBasicNodeMaterial({
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            side: THREE.DoubleSide
+        });
+
+        // Custom position node
+        material.positionNode = Fn(() => {
+            // Get instance index as float (reverse to match i > 0 loop)
+            const i = float(sub(10000.0, float(instanceIndex)));
+            
+            // Parameters from drawPoint(x, y) where x = i, y = i/235
+            const x = i;
+            const y = div(i, 235.0);
+            
+            // Slow time evolution: t += PI/240
+            const t = mul(time, 0.3); // Scale to match visual speed
+            
+            // Oscillatory horizontal component
+            // k = (4 + sin(y*2 - t) * 1.5) * cos(x/28)
+            const k = mul(
+                add(4.0, mul(sin(sub(mul(y, 2.0), t)), 1.5)),
+                cos(div(x, 28.0))
+            );
+            
+            // Vertical drift: e = y/8 - 13
+            const e = sub(div(y, 8.0), 13.0);
+            
+            // Radial magnitude: d = mag(k, e)
+            const d = length(vec2(k, e));
+            
+            // Add epsilon to avoid division by zero in 0.3/k
+            const eps = 0.0001;
+            
+            // Radial expression
+            // q = 3*sin(k*2) + 0.3/k + sin(y/30)*k*(9 + 4*sin(e*5 - d*3 + t*2))
+            const term1 = mul(3.0, sin(mul(k, 2.0)));
+            const term2 = div(0.3, add(k, eps));
+            
+            const innerSin = sin(add(sub(mul(e, 5.0), mul(d, 3.0)), mul(t, 2.0)));
+            const term3 = mul(mul(sin(div(y, 30.0)), k), add(9.0, mul(4.0, innerSin)));
+            
+            const q = add(add(term1, term2), term3);
+            
+            // Angular coordinate: c = d - t
+            const c = sub(d, t);
+            
+            // Scale factor
+            const s = 1.5;
+            
+            // Final coordinates
+            // xPos = s * (q + 30*cos(c)) + width/2
+            const xPos = add(mul(s, add(q, mul(30.0, cos(c)))), 250.0);
+            
+            // yPos = s * (q*sin(c) + d*39) - height/2 * 1.4
+            // height/2 = 250, times 1.4 = 350
+            const yPos = sub(mul(s, add(mul(q, sin(c)), mul(d, 39.0))), 350.0);
+            
+            // Convert to world space (-250 to 250)
+            const worldX = sub(xPos, 250.0);
+            const worldY = sub(250.0, yPos);
+            const worldZ = 0.0;
+            
+            return positionLocal.add(vec3(worldX, worldY, worldZ));
+        })();
+
+        // Set color and opacity
+        material.colorNode = color(0xffffff);
+        material.opacityNode = float(0.2);
+
+        // Create instanced mesh
+        const points = new THREE.InstancedMesh(geometry, material, startCount);
+        scene.add(points);
+
+        // Animation loop
+        function animate() {
+            renderer.render(scene, camera);
+            ctrls.update();
+        }
+
+        // Handle window resize
+        function handleWindowResize() {
+            camera.left = -250;
+            camera.right = 250;
+            camera.top = 250;
+            camera.bottom = -250;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+        window.addEventListener('resize', handleWindowResize, false);
+        
+        console.log('Slow evolution pattern running');
+    </script>
+</body>
+</html>
