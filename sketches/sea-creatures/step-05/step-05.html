@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js TSL - Yuruyurau Style (Version 7)</title>
+    <title>Three.js TSL - Yuruyurau Style (Version 8)</title>
     <style>
         body { margin: 0; overflow: hidden; background-color: black; }
         #info {
@@ -32,7 +32,7 @@
     </script>
 </head>
 <body>
-    <div id="info">Three.js TSL | yuruyurau style | 20k points</div>
+    <div id="info">Three.js TSL | 40k points | complex displacement</div>
 
     <script type="module">
         import * as THREE from "three";
@@ -49,7 +49,7 @@
             sin,
             cos,
             length,
-            step,
+            floor,
             instanceIndex,
             mul,
             div,
@@ -83,11 +83,11 @@
         ctrls.enableRotate = false;
 
         // Create geometry for points
-        const pointSize = 1.5;
+        const pointSize = 1.2;
         const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
         
-        // Number of points (20,000 as in the p5.js sketch)
-        const startCount = 20000;
+        // Number of points (40,000 as in the p5.js sketch)
+        const startCount = 40000;
 
         // Create material with custom position node
         const material = new THREE.MeshBasicNodeMaterial({
@@ -99,80 +99,56 @@
 
         // Custom position node using Fn - adapted from p5.js sketch
         material.positionNode = Fn(() => {
-            // Get instance index as float (matching for loop: i = 20000; i--;)
-            const i = float(sub(20000.0, float(instanceIndex)));
+            // Get instance index as float
+            const i = float(instanceIndex);
             
-            // y parameter from drawPoint(i/600, CX, CY)
-            const y = div(i, 600.0);
+            // High density grid with different modulo division
+            // x = i / 4 % 100
+            // y = floor(i / 150)
+            const x = mod(div(i, 4.0), 100.0);
+            const y = floor(div(i, 150.0));
             
-            // Time: t += PI/45
-            const t = mul(time, 1.8); // Scale to match visual speed
+            // Time: t += 0.05
+            const t = mul(time, 1.2); // Scale to match visual speed
             
-            // Scaled cosine term with conditional: cos(y*5) * (y < 11 ? 21 : 11)
-            const threshold = 11.0;
+            // Recenter with scaling
+            // k = x/4 - 12.5
+            // e = y/9 - 9
+            const k = sub(div(x, 4.0), 12.5);
+            const e = sub(div(y, 9.0), 9.0);
             
-            const k_low = float(21.0);
-            const k_high = float(11.0);
+            // Polar coordinate calculations
+            // o = mag(k, e) / 9
+            // c = o * e / 30 - t/8
+            const o = div(length(vec2(k, e)), 9.0);
+            const c = sub(div(mul(o, e), 30.0), div(t, 8.0));
             
-            // Use step for conditional
-            const isHigh = step(threshold, y); // 1 if y >= threshold
-            const isLow = sub(1.0, isHigh); // 1 if y < threshold
+            // Add epsilon to avoid division by zero
+            const eps = 0.000001;
             
-            const k_amp = add(mul(isLow, k_low), mul(isHigh, k_high));
-            const k = mul(cos(mul(y, 5.0)), k_amp);
+            // Complex displacement function
+            // q = x + cos(9/(k+eps)) + o*k* sin(4*o - t)
+            const term1 = x;
+            const term2 = cos(div(9.0, add(k, eps)));
+            const term3 = mul(mul(o, k), sin(sub(mul(o, 4.0), t)));
             
-            // Linear offset: e = y/8 - 13
-            const e = sub(div(y, 8.0), 13.0);
+            const q = add(add(term1, term2), term3);
             
-            // Radial magnitude: o = mag(k, e) / 6
-            const o = div(length(vec2(k, e)), 6.0);
-            
-            // Add small epsilon to avoid division by zero in cos(19/k)
-            const eps = 0.0001;
-            
-            // Radius modulation
-            // q = k*3 + 49 + cos(19/k) + k*cos(y/2) * (1 + sin(o*4 - e*2 - t))
-            const term1 = mul(k, 3.0);
-            const term2 = float(49.0);
-            const term3 = cos(div(19.0, add(k, eps)));
-            
-            const innerSin = sin(sub(sub(mul(o, 4.0), mul(e, 2.0)), t));
-            const term4 = mul(mul(k, cos(div(y, 2.0))), add(1.0, innerSin));
-            
-            const q = add(add(add(term1, term2), term3), term4);
-            
-            // Angular parameter (depends on i)
-            // c = o/1.5 - e/5 - t/8 + (i%3)*8
-            const i_mod_3 = mod(i, 3.0);
-            const c = add(
+            // Final position with multiple transformations
+            // px = 0.9 * q * sin(c) + width/2
+            // py = height/2 + (y/3.6)*cos(3*c - t/2) - (q/2)*cos(c)
+            const px = add(mul(mul(0.9, q), sin(c)), 250.0);
+            const py = add(
                 sub(
-                    div(o, 1.5),
-                    div(e, 5.0)
+                    250.0,
+                    mul(div(y, 3.6), cos(sub(mul(c, 3.0), div(t, 2.0))))
                 ),
-                sub(mul(i_mod_3, 8.0), div(t, 8.0))
-            );
-            
-            // Scale factor
-            const s = 1.3;
-            
-            // Final coordinates
-            // x = s * q * sin(c) + CX (CX = width/2 = 250)
-            // yPos = s * (q * cos(c) - 79 * sin(c/3)) + CY (CY = height/2 = 250)
-            const x = add(mul(mul(s, q), sin(c)), 250.0);
-            const yPos = add(
-                mul(
-                    s,
-                    sub(
-                        mul(q, cos(c)),
-                        mul(79.0, sin(div(c, 3.0)))
-                    )
-                ),
-                250.0
+                mul(div(q, 2.0), cos(c))
             );
             
             // Convert to world space (-250 to 250) for orthographic camera
-            const worldX = sub(x, 250.0);
-            const worldY = sub(250.0, yPos);
+            const worldX = sub(px, 250.0);
+            const worldY = sub(250.0, py);
             const worldZ = 0.0;
             
             return positionLocal.add(vec3(worldX, worldY, worldZ));
@@ -180,7 +156,7 @@
 
         // Set color and opacity
         material.colorNode = color(0xffffff);
-        material.opacityNode = float(0.2);
+        material.opacityNode = float(0.1);
 
         // Create instanced mesh
         const points = new THREE.InstancedMesh(geometry, material, startCount);
@@ -204,7 +180,7 @@
         }
         window.addEventListener('resize', handleWindowResize, false);
         
-        console.log('Adapted p5.js sketch (version 7) running in Three.js TSL');
+        console.log('Adapted p5.js sketch (version 8) running in Three.js TSL');
     </script>
 </body>
 </html>
