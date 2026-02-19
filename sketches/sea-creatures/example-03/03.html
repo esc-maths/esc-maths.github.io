@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js TSL - Yuruyurau Style (Adapted)</title>
+    <title>Three.js TSL - Yuruyurau Style</title>
     <style>
         body { margin: 0; overflow: hidden; background-color: black; }
         #info {
@@ -32,7 +32,7 @@
     </script>
 </head>
 <body>
-    <div id="info">Three.js TSL |  yuruyurau style | 40k points</div>
+    <div id="info">Three.js TSL | yuruyurau style | 40k points</div>
 
     <script type="module">
         import * as THREE from "three";
@@ -40,24 +40,25 @@
         import { 
             color, 
             positionLocal, 
+            screenUV, 
+            range, 
             time, 
             vec3, 
             vec2,
             mod, 
             float, 
+            uv, 
+            pass,
             Fn,
             sin,
             cos,
             length,
-            atan2,
-            pow,
             floor,
             instanceIndex,
             mul,
             div,
             add,
-            sub,
-            PI
+            sub
         } from "three/tsl";
 
         // Setup
@@ -88,7 +89,7 @@
         const pointSize = 1;
         const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
         
-        // Number of points (30,000 as in the p5.js sketch)
+        // Number of points
         const startCount = 40000;
 
         // Create material with custom position node
@@ -99,46 +100,51 @@
             side: THREE.DoubleSide
         });
 
-        // Custom position node using Fn - adapted from p5.js sketch
+        // Custom position node using Fn
         material.positionNode = Fn(() => {
             // Get instance index as float
-            // In p5.js they loop from 30000 down to 0, so we reverse the index
-            const i = float(sub(30000.0, float(instanceIndex)));
+            const i = float(instanceIndex);
             
-            // Time increment: t += PI/20
-            const t = mul(time, 1.5); // Scale to match visual speed
+            // Calculate x and y from index
+            // x = (i / 4) % 100
+            // y = floor(i / 150)
+            const x = mod(div(i, 4.0), 100.0);
+            const y = floor(div(i, 150.0));
             
-            // Oscillatory horizontal component: k = 5 * cos(i/49) * cos(i/3690)
-            const k = mul(mul(5.0, cos(div(i, 49.0))), cos(div(i, 3690.0)));
+            // Original drawPoint calculations
+            const k = sub(div(x, 4.0), 12.5);
+            const e = sub(div(y, 9.0), 9.0);
             
-            // Vertical drift term: e = i/984 - 12
-            const e = sub(div(i, 984.0), 12.0);
+            const o = div(length(vec2(k, e)), 9.0);
             
-            // Radial magnitude scaling: d = pow(mag(k, e), 2) / 99 + 1
-            const mag_ke = length(vec2(k, e));
-            const d = add(div(pow(mag_ke, 2.0), 99.0), 1.0);
+            // Time (scaled to match original speed)
+            const t = mul(time, 2.0);
             
-            // Angular component (3-fold symmetry): c = d - t/18 + (i % 3) * 4
-            const i_mod_3 = mod(i, 3.0);
-            const c = add(sub(d, div(t, 18.0)), mul(i_mod_3, 4.0));
+            const c = sub(div(mul(o, e), 30.0), div(t, 8.0));
             
-            // Final coordinates with scale factor s = 1.4
-            const s = 1.4;
+            const eps = 0.000001;
             
-            // x = s * (k * (4 + sin(d*18 - t*2 + (i%3)*2)) - 5 * sin(atan2(k, e) * 9) + 30 * sin(c)) + width/2
-            const term1_x = mul(k, add(4.0, sin(add(sub(mul(d, 18.0), mul(t, 2.0)), mul(i_mod_3, 2.0)))));
-            const term2_x = mul(5.0, sin(mul(atan2(k, e), 9.0)));
-            const term3_x = mul(30.0, sin(c));
+            // q = x + 99 + cos(9/(k+eps)) + o*k*(cos(9*e)/3 + cos(y)/0.7) * sin(4*o - t)
+            const term1 = add(x, 99.0);
+            const term2 = cos(div(9.0, add(k, eps)));
             
-            const x = add(mul(s, add(sub(term1_x, term2_x), term3_x)), 250.0); // width/2 = 250
+            const innerCos = add(div(cos(mul(e, 9.0)), 3.0), div(cos(y), 0.7));
+            const term3 = mul(mul(mul(o, k), innerCos), sin(sub(mul(o, 4.0), t)));
             
-            // y = s * (80 * sin(c - d) + d * 79) + height/2 * 0.05
-            // height/2 = 250, times 0.05 = 12.5
-            const y = add(mul(s, add(mul(80.0, sin(sub(c, d))), mul(d, 79.0))), 12.5);
+            const q = add(add(term1, term2), term3);
+            
+            // px = 0.9 * q * sin(c) + 250
+            const px = add(mul(mul(0.9, q), sin(c)), 250.0);
+            
+            // py = 250 + (y/3.6)*cos(3*c - t/2) - (q/2)*cos(c)
+            const py = sub(
+                add(250.0, mul(div(y, 3.6), cos(sub(mul(c, 3.0), div(t, 2.0))))),
+                mul(div(q, 2.0), cos(c))
+            );
             
             // Convert to world space (-250 to 250) for orthographic camera
-            const worldX = sub(x, 250.0);
-            const worldY = sub(250.0, y);
+            const worldX = sub(px, 250.0);
+            const worldY = sub(250.0, py);
             const worldZ = 0.0;
             
             return positionLocal.add(vec3(worldX, worldY, worldZ));
@@ -146,7 +152,7 @@
 
         // Set color and opacity
         material.colorNode = color(0xffffff);
-        material.opacityNode = float(0.15);
+        material.opacityNode = float(0.1);
 
         // Create instanced mesh
         const points = new THREE.InstancedMesh(geometry, material, startCount);
@@ -170,7 +176,7 @@
         }
         window.addEventListener('resize', handleWindowResize, false);
         
-        console.log('Adapted p5.js sketch running in Three.js TSL');
+        console.log('Three.js TSL with fixed syntax running');
     </script>
 </body>
 </html>
