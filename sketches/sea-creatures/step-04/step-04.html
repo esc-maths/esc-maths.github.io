@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js TSL - Yuruyurau Style (Version 9)</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: black; }
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: rgba(0,0,0,0.7);
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 100;
+        }
+    </style>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.tsl.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.179.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">Three.js TSL | 30k points | Step 4</div>
+
+    <script type="module">
+        import * as THREE from "three";
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+        import { 
+            color, 
+            positionLocal, 
+            time, 
+            vec3, 
+            vec2,
+            mod, 
+            float, 
+            Fn,
+            sin,
+            cos,
+            length,
+            floor,
+            instanceIndex,
+            mul,
+            div,
+            add,
+            sub
+        } from "three/tsl";
+
+        // Setup
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+
+        // Orthographic camera for 2D-like rendering
+        const camera = new THREE.OrthographicCamera(-250, 250, 250, -250, 0.1, 1000);
+        camera.position.z = 500;
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGPURenderer({ antialias: true });
+        renderer.setAnimationLoop(animate);
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(2);
+        document.body.appendChild(renderer.domElement);
+
+        // Controls - disabled for this effect
+        const ctrls = new OrbitControls(camera, renderer.domElement);
+        ctrls.enableDamping = true;
+        ctrls.enableZoom = false;
+        ctrls.enablePan = false;
+        ctrls.enableRotate = false;
+
+        // Create geometry for points
+        const pointSize = 1.2;
+        const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
+        
+        // Number of points (30,000 as in the p5.js sketch)
+        const startCount = 30000;
+
+        // Create material with custom position node
+        const material = new THREE.MeshBasicNodeMaterial({
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            side: THREE.DoubleSide
+        });
+
+        // Custom position node using Fn - adapted from p5.js sketch
+        material.positionNode = Fn(() => {
+            // Get instance index as float
+            const i = float(instanceIndex);
+            
+            // Grid sampling: x = i % 250, y = floor(i / 250)
+            const x = mod(i, 250.0);
+            const y = floor(div(i, 250.0));
+            
+            // Time: t += 0.03
+            const t = mul(time, 0.8); // Scale to match visual speed
+            
+            // Different centering and scaling
+            // k = x/2 - 62.5
+            // e = y/2 - 50
+            const k = sub(div(x, 2.0), 62.5);
+            const e = sub(div(y, 2.0), 50.0);
+            
+            // Polar calculations
+            // o = mag(k, e) / 20
+            // c = o * e / 20 - t/5
+            const o = div(length(vec2(k, e)), 20.0);
+            const c = sub(div(mul(o, e), 20.0), div(t, 5.0));
+            
+            // More complex warping function
+            // q = x + o * k * sin(2*o - t)
+            const q = add(x, mul(mul(o, k), sin(sub(mul(o, 2.0), t))));
+            
+            // Final coordinates
+            // px = width/2 + q * sin(c)
+            // py = height/2 + (y/2) * cos(2*c - t) - q * cos(c)
+            const px = add(250.0, mul(q, sin(c)));
+            const py = add(
+                250.0,
+                sub(
+                    mul(div(y, 2.0), cos(sub(mul(c, 2.0), t))),
+                    mul(q, cos(c))
+                )
+            );
+            
+            // Convert to world space (-250 to 250) for orthographic camera
+            const worldX = sub(px, 250.0);
+            const worldY = sub(250.0, py);
+            const worldZ = 0.0;
+            
+            return positionLocal.add(vec3(worldX, worldY, worldZ));
+        })();
+
+        // Set color and opacity
+        material.colorNode = color(0xffffff);
+        material.opacityNode = float(0.12);
+
+        // Create instanced mesh
+        const points = new THREE.InstancedMesh(geometry, material, startCount);
+        scene.add(points);
+
+        // Animation loop
+        function animate() {
+            renderer.render(scene, camera);
+            ctrls.update();
+        }
+
+        // Handle window resize
+        function handleWindowResize() {
+            const size = Math.min(window.innerWidth, window.innerHeight, 500);
+            camera.left = -250;
+            camera.right = 250;
+            camera.top = 250;
+            camera.bottom = -250;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+        window.addEventListener('resize', handleWindowResize, false);
+        
+        console.log('Adapted p5.js sketch (version 9) running in Three.js TSL');
+    </script>
+</body>
+</html>
