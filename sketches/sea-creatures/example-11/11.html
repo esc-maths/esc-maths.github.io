@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js TSL - Compact Arrow Function Sketch</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: black; }
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: rgba(0,0,0,0.7);
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 100;
+        }
+    </style>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.tsl.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.179.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">Three.js TSL | yuruyurau style | 20k points</div>
+
+    <script type="module">
+        import * as THREE from "three";
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+        import { 
+            color, 
+            positionLocal, 
+            time, 
+            vec3, 
+            vec2,
+            mod, 
+            float, 
+            Fn,
+            sin,
+            cos,
+            length,
+            pow,
+            instanceIndex,
+            mul,
+            div,
+            add,
+            sub,
+            PI
+        } from "three/tsl";
+
+        // Setup - using 400x400 canvas as in the original
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+
+        // Orthographic camera for 2D-like rendering with 400x400 coordinate space
+        const camera = new THREE.OrthographicCamera(-250, 250, 250, -250, 0.1, 1000);
+        camera.position.z = 500;
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGPURenderer({ antialias: true });
+        renderer.setAnimationLoop(animate);
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(2);
+        document.body.appendChild(renderer.domElement);
+
+        // Controls - disabled for this effect
+        const ctrls = new OrbitControls(camera, renderer.domElement);
+        ctrls.enableDamping = true;
+        ctrls.enableZoom = false;
+        ctrls.enablePan = false;
+        ctrls.enableRotate = false;
+
+        // Create geometry for points
+        const pointSize = 1;
+        const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
+        
+        // Number of points
+        const startCount = 20000;
+
+        // Create material with custom position node
+        const material = new THREE.MeshBasicNodeMaterial({
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            side: THREE.DoubleSide
+        });
+
+        // Custom position node - recreating the compact arrow function:
+        // a=(y,d=mag(k=9*cos(y*2),e=y/8-12)**2/79+1)=>
+        // point((q=79-e*sin(k)+k/d*(8+4*sin(sin(d*d+e/9-t))))*sin(c=d/2-cos(d*2)/5-t/16+i%2*3)+200,(q+40)*cos(c)+200)
+        material.positionNode = Fn(() => {
+            // Get instance index as float (reverse to match i--)
+            const i = float(sub(20000.0, float(instanceIndex)));
+            
+            // y parameter: i/99
+            const y = div(i, 99.0);
+            
+            // Time: t += PI/45
+            const t = mul(time, 1.4);
+            
+            // k = 9*cos(y*2)
+            const k = mul(9.0, cos(mul(y, 2.0)));
+            
+            // e = y/8 - 12
+            const e = sub(div(y, 8.0), 12.0);
+            
+            // mag(k, e) = length(vec2(k, e))
+            const mag_ke = length(vec2(k, e));
+            
+            // d = mag(k, e)**2/79 + 1
+            const d = add(div(pow(mag_ke, 2.0), 79.0), 1.0);
+            
+            // q = 79 - e*sin(k) + k/d * (8 + 4*sin(sin(d*d + e/9 - t)))
+            const term1 = float(79.0);
+            const term2 = mul(e, sin(k));
+            
+            const innerSin = sin(add(sub(mul(d, d), t), div(e, 9.0)));
+            const term3 = mul(div(k, d), add(8.0, mul(4.0, sin(innerSin))));
+            
+            const q = add(sub(term1, term2), term3);
+            
+            // c = d/2 - cos(d*2)/5 - t/16 + i%2*3
+            const i_mod_2 = mod(i, 2.0);
+            const c = add(
+                sub(
+                    div(d, 2.0),
+                    div(cos(mul(d, 2.0)), 5.0)
+                ),
+                sub(mul(i_mod_2, 3.0), div(t, 16.0))
+            );
+            
+            // Final coordinates (200 is center for 400px canvas)
+            // x = q * sin(c) + 200
+            const x = add(mul(q, sin(c)), 200.0);
+            
+            // yPos = (q + 40) * cos(c) + 200
+            const yPos = add(mul(add(q, 40.0), cos(c)), 200.0);
+            
+            // Convert to world space (-200 to 200) for orthographic camera
+            const worldX = sub(x, 200.0);
+            const worldY = sub(200.0, yPos);
+            const worldZ = 0.0;
+            
+            return positionLocal.add(vec3(worldX, worldY, worldZ));
+        })();
+
+        // Set color and opacity - stroke(255, 96) -> white with alpha ~0.38
+        material.colorNode = color(0xffffff);
+        material.opacityNode = float(0.2);
+
+        // Create instanced mesh
+        const points = new THREE.InstancedMesh(geometry, material, startCount);
+        scene.add(points);
+
+        // Animation loop
+        function animate() {
+            renderer.render(scene, camera);
+            ctrls.update();
+        }
+
+        // Handle window resize
+        function handleWindowResize() {
+            camera.left = -250;
+            camera.right = 250;
+            camera.top = 250;
+            camera.bottom = -250;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+        window.addEventListener('resize', handleWindowResize, false);
+        
+        console.log('Compact arrow function sketch running');
+    </script>
+</body>
+</html>
