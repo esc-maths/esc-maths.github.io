@@ -17,7 +17,7 @@ function draw() {
   background(9);
   stroke(w, 96);
 
-  t += PI / 120;
+  t += PI / 150;
 
   for (let i = 0; i < 10000; i++) {
     let x = i;
