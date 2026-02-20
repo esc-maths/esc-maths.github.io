@@ -51,12 +51,13 @@ function drawPointFunction(i, y) {
 
   // --- Final coordinates (centered on 500px canvas) ---
 
+  let s = 1.3;
   let px =
-    q * sin(c)
+    s * (q * sin(c))
     + w / 2;
 
   let py =
-    q * cos(c + (i % 3) * 9)
+    s * ( q * cos(c + (i % 3) * 9) )
     + w / 2;
 
   point(px, py);
