@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Life - Three.js TSL</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: black; }
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: rgba(0,0,0,0.7);
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 100;
+            pointer-events: none;
+        }
+        #click-hint {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            background: rgba(0,0,0,0.5);
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 100;
+            pointer-events: none;
+        }
+    </style>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.tsl.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.179.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">Particle Life | 6 types | 1500 particles | Click to regenerate parameters</div>
+    <div id="click-hint">Click anywhere to randomize forces</div>
+
+    <script type="module">
+        import * as THREE from "three";
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+        import { 
+            color,
+            positionLocal,
+            time,
+            vec2,
+            vec3,
+            vec4,
+            float,
+            int,
+            Fn,
+            uv,
+            instanceIndex,
+            uniform,
+            uniformArray,
+            element,
+            floor,
+            fract,
+            sin,
+            cos,
+            sqrt,
+            abs,
+            mod,
+            length,
+            clamp,
+            mix,
+            PI,
+            If,
+            Loop,
+            mul,
+            add,
+            sub,
+            div
+        } from "three/tsl";
+
+        // Setup
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+
+        // Orthographic camera for 2D rendering
+        const camera = new THREE.OrthographicCamera(-w/2, w/2, h/2, -h/2, 0.1, 1000);
+        camera.position.z = 1000;
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGPURenderer({ antialias: true });
+        renderer.setAnimationLoop(animate);
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.body.appendChild(renderer.domElement);
+
+        // Controls - disabled for particle simulation
+        const ctrls = new OrbitControls(camera, renderer.domElement);
+        ctrls.enableDamping = true;
+        ctrls.enableZoom = false;
+        ctrls.enablePan = false;
+        ctrls.enableRotate = false;
+
+        // Constants
+        const NUM_TYPES = 6;
+        const NUM_PARTICLES = 1500;
+        const K = 0.05;
+        const FRICTION = 0.85;
+        const MAX_SPEED = 5.0;
+
+        // Create particles array for CPU-based simulation
+        class Particle {
+            constructor() {
+                this.x = Math.random() * w - w/2;
+                this.y = Math.random() * h - h/2;
+                this.vx = 0;
+                this.vy = 0;
+                this.type = Math.floor(Math.random() * NUM_TYPES);
+                // Pre-calculate color for display
+                this.color = this.getColor();
+            }
+            
+            getColor() {
+                const hue = (this.type / NUM_TYPES) * 360;
+                // Simple HSL to RGB conversion
+                const s = 0.8;
+                const l = 0.6;
+                const c = (1 - Math.abs(2 * l - 1)) * s;
+                const hp = hue / 60;
+                const x = c * (1 - Math.abs((hp % 2) - 1));
+                let r1, g1, b1;
+                
+                if (hp < 1) { r1 = c; g1 = x; b1 = 0; }
+                else if (hp < 2) { r1 = x; g1 = c; b1 = 0; }
+                else if (hp < 3) { r1 = 0; g1 = c; b1 = x; }
+                else if (hp < 4) { r1 = 0; g1 = x; b1 = c; }
+                else if (hp < 5) { r1 = x; g1 = 0; b1 = c; }
+                else { r1 = c; g1 = 0; b1 = x; }
+                
+                const m = l - c/2;
+                return new THREE.Color(r1 + m, g1 + m, b1 + m);
+            }
+            
+            update(particles) {
+                let fx = 0, fy = 0;
+                
+                for (let other of particles) {
+                    if (other === this) continue;
+                    
+                    let dx = other.x - this.x;
+                    let dy = other.y - this.y;
+                    
+                    // Toroidal wrapping
+                    if (dx > w/2) dx -= w;
+                    if (dx < -w/2) dx += w;
+                    if (dy > h/2) dy -= h;
+                    if (dy < -h/2) dy += h;
+                    
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if (dist > 0.1) {
+                        dx /= dist;
+                        dy /= dist;
+                        
+                        const forceVal = forces[this.type][other.type];
+                        const minDist = minDistances[this.type][other.type];
+                        const radius = radii[this.type][other.type];
+                        
+                        if (dist < minDist) {
+                            const strength = Math.abs(forceVal) * (-3) * (1 - dist/minDist);
+                            fx += dx * strength;
+                            fy += dy * strength;
+                        }
+                        
+                        if (dist < radius) {
+                            const strength = forceVal * (1 - dist/radius);
+                            fx += dx * strength;
+                            fy += dy * strength;
+                        }
+                    }
+                }
+                
+                this.vx = (this.vx + fx * K) * FRICTION;
+                this.vy = (this.vy + fy * K) * FRICTION;
+                
+                const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
+                if (speed > MAX_SPEED) {
+                    this.vx *= MAX_SPEED / speed;
+                    this.vy *= MAX_SPEED / speed;
+                }
+                
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Toroidal boundaries
+                if (this.x > w/2) this.x -= w;
+                if (this.x < -w/2) this.x += w;
+                if (this.y > h/2) this.y -= h;
+                if (this.y < -h/2) this.y += h;
+            }
+        }
+
+        // Initialize particles
+        const particles = [];
+        for (let i = 0; i < NUM_PARTICLES; i++) {
+            particles.push(new Particle());
+        }
+
+        // Interaction matrices
+        const forces = [];
+        const minDistances = [];
+        const radii = [];
+        
+        for (let i = 0; i < NUM_TYPES; i++) {
+            forces[i] = [];
+            minDistances[i] = [];
+            radii[i] = [];
+            for (let j = 0; j < NUM_TYPES; j++) {
+                let val = 0.3 + Math.random() * 0.7;
+                if (Math.random() < 0.5) val *= -1;
+                forces[i][j] = val;
+                minDistances[i][j] = 30 + Math.random() * 20;
+                radii[i][j] = 70 + Math.random() * 180;
+            }
+        }
+
+        // Create geometry for particles (small circles)
+        const pointSize = 6;
+        const geometry = new THREE.CircleGeometry(pointSize/2, 8);
+
+        // Create material with basic color (TSL not strictly needed for this approach)
+        const material = new THREE.MeshBasicMaterial({
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+
+        // Create instanced mesh
+        const points = new THREE.InstancedMesh(geometry, material, NUM_PARTICLES);
+        scene.add(points);
+
+        // Create dummy matrix and color for instancing
+        const dummyMatrix = new THREE.Matrix4();
+        const dummyColor = new THREE.Color();
+        
+        // Animation loop
+        function animate() {
+            // Update particles
+            for (let p of particles) {
+                p.update(particles);
+            }
+            
+            // Update instance matrices and colors
+            for (let i = 0; i < NUM_PARTICLES; i++) {
+                const p = particles[i];
+                
+                // Set position matrix
+                dummyMatrix.makeTranslation(p.x, p.y, 0);
+                points.setMatrixAt(i, dummyMatrix);
+                
+                // Set color
+                points.setColorAt(i, p.color);
+            }
+            
+            // Update instance data
+            points.instanceMatrix.needsUpdate = true;
+            points.instanceColor.needsUpdate = true;
+            
+            renderer.render(scene, camera);
+            ctrls.update();
+        }
+
+        // Handle window resize
+        function handleWindowResize() {
+            camera.left = -window.innerWidth/2;
+            camera.right = window.innerWidth/2;
+            camera.top = window.innerHeight/2;
+            camera.bottom = -window.innerHeight/2;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+        window.addEventListener('resize', handleWindowResize, false);
+
+        // Click handler to regenerate parameters
+        window.addEventListener('click', () => {
+            for (let i = 0; i < NUM_TYPES; i++) {
+                for (let j = 0; j < NUM_TYPES; j++) {
+                    let val = 0.3 + Math.random() * 0.7;
+                    if (Math.random() < 0.5) val *= -1;
+                    forces[i][j] = val;
+                    minDistances[i][j] = 30 + Math.random() * 20;
+                    radii[i][j] = 70 + Math.random() * 180;
+                }
+            }
+            console.log('Randomized interaction parameters');
+        });
+
+        console.log('Particle Life simulation running');
+    </script>
+</body>
+</html>
