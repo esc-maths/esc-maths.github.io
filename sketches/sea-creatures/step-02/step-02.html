@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js TSL - Simple Circular Pattern</title>
+    <title>Three.js TSL - Step 2 Circular Pattern</title>
     <style>
         body { margin: 0; overflow: hidden; background-color: black; }
         #info {
@@ -32,7 +32,7 @@
     </script>
 </head>
 <body>
-    <div id="info">Step 2</div>
+    <div id="info">Step 2 | circular pattern | 20k points</div>
 
     <script type="module">
         import * as THREE from "three";
@@ -83,7 +83,7 @@
         ctrls.enableRotate = false;
 
         // Create geometry for points
-        const pointSize = 1.5;
+        const pointSize = 1.2;
         const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
         
         // Number of points
@@ -107,23 +107,21 @@
             const y = floor(div(i, 200.0));
             
             // Time
-            const t = mul(time, 0.8);
+            const t = mul(time, 0.6);
             
             // Center coordinates
             const k = sub(x, 100.0);
             const e = sub(y, 50.0);
             
-            // Distance from center
+            // Distance from center (magnitude)
             const o = div(length(vec2(k, e)), 50.0);
             
-            // Simple angle calculation using normalizing the vector
-            const len = length(vec2(k, e));
-            const nx = div(k, add(len, 0.0001));
-            const ny = div(e, add(len, 0.0001));
+            // Convert to angle using atan2
+            const c = atan2(e, k);
             
-            // Circular pattern - use normalized coordinates directly
-            const px = add(250.0, mul(add(k, mul(mul(o, 10.0), nx)), 2.0));
-            const py = add(250.0, mul(add(e, mul(mul(o, 10.0), ny)), 2.0));
+            // Simple circular pattern
+            const px = add(250.0, mul(add(k, mul(mul(o, 10.0), cos(add(c, t)))), 2.0));
+            const py = add(250.0, mul(add(e, mul(mul(o, 10.0), sin(add(c, t)))), 2.0));
             
             // Convert to world space
             const worldX = sub(px, 250.0);
@@ -158,7 +156,7 @@
         }
         window.addEventListener('resize', handleWindowResize, false);
         
-        console.log('Simple circular pattern running');
+        console.log('Circular pattern running');
     </script>
 </body>
 </html>
