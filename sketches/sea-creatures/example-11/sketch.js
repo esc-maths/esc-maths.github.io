@@ -1,67 +1,68 @@
 /*
   Source code: 
-  https://x.com/yuruyurau/status/1933629116575855091
+  https://x.com/yuruyurau/status/2024809725230297325
   
   This version by Juan Carlos Ponce Campuzano
   14/Feb/2026
 
 */
+
 let t = 0;
 let w = 500;
 
 function setup() {
   createCanvas(w, w);
-  stroke(255, 98);
 }
 
 function draw() {
-  background(0, 70);
+  background(9);
+  stroke(w, 96);
 
-  // Slow time evolution
-  t += PI / 240;
+  t += PI / 45;
 
-  // Draw 10,000 points
-  for (let i = 10000; i > 0; i--) {
-    drawPoint(i, i / 235);
+  for (let i = 0; i < 20000; i++) {
+    drawPointFunction(i);
   }
 }
 
-function drawPoint(x, y) {
+function drawPointFunction(i) {
 
-  // Oscillatory horizontal component
-  let k =
-    (4 + sin(y * 2 - t) * 1.5) *
-    cos(x / 28);
+  // --- Core variables ---
 
-  // Vertical drift
-  let e =
-    y / 8 - 13;
+  let k = 9 * cos(i / 61);
+  let e = i / 792 - 12;
 
-  // Radial magnitude
-  let d =
-    mag(k, e);
+  let d = pow(mag(k, e), 2) / 79 + 1;
 
-  // Radial expression
+  // --- Oscillatory inner structure ---
+
+  let innerOsc =
+    8 +
+    4 * sin(
+      sin(d * d + e / 8 - t)
+    );
+
   let q =
-    3 * sin(k * 2)
-    + 0.3 / k
-    + sin(y / 30) * k *
-      (9 + 4 * sin(e * 5 - d * 3 + t * 2));
+    79 -
+    e * sin(k) +
+    (k / d) * innerOsc;
 
-  // Angular coordinate
   let c =
-    d - t;
+    d / 2 -
+    cos(d * 2) / 9 +
+    cos(t - d * 2) / 9 -
+    t / 16 +
+    (i % 2) * 3;
 
-  // Final coordinates
-  let s = 1.5;
-  let xPos =
-    s * ( q + 30 * cos(c) )
-    + width / 2;
+  // --- Final coordinates ---
 
-  let yPos =
-    s * ( q * sin(c) + d * 39 )
-    - height / 2 * 1.4;
+  let px =
+    q * sin(c) +
+    250;
 
-  point(xPos, yPos);
+  let py =
+    (q + 40) * cos(c) +
+    250;
+
+  point(px, py);
 }
-
