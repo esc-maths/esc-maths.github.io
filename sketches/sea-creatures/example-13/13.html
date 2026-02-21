@@ -122,7 +122,7 @@
             
             // Angular modulation
             // angleComponent = atan2(k, e) * e
-            const angleComponent = mul(atan(e, k), e);
+            const angleComponent = mul(atan(k, e), e);
             
             // q = 99 - 4*sin(angleComponent) + d*8*sin(d/0.8 - t) + k*(2 + sin(d*9 - t*8))
             const term1 = float(99.0);
