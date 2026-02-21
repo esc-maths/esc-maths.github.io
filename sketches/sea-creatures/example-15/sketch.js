@@ -1,5 +1,5 @@
 /*
-  yuruyurau styke
+  yuruyurau style
   
   This version by Juan Carlos Ponce Campuzano
   21/Feb/2026
