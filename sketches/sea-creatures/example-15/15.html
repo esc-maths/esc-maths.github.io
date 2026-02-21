@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js TSL - Angular Modulation with Phase Shifts</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: black; }
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: rgba(0,0,0,0.7);
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 100;
+        }
+    </style>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.tsl.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.179.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">Three.js TSL | angular modulation | 30k points | phase shifts</div>
+
+    <script type="module">
+        import * as THREE from "three";
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+        import { 
+            color, 
+            positionLocal, 
+            time, 
+            vec3, 
+            vec2,
+            mod, 
+            float, 
+            Fn,
+            sin,
+            cos,
+            atan2,
+            length,
+            pow,
+            instanceIndex,
+            mul,
+            div,
+            add,
+            sub,
+            PI
+        } from "three/tsl";
+
+        // Setup
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000); // background(0) with alpha handled by opacity
+
+        // Orthographic camera for 2D-like rendering
+        const camera = new THREE.OrthographicCamera(-250, 250, 250, -250, 0.1, 1000);
+        camera.position.z = 500;
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGPURenderer({ antialias: true });
+        renderer.setAnimationLoop(animate);
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(2);
+        document.body.appendChild(renderer.domElement);
+
+        // Controls - disabled for this effect
+        const ctrls = new OrbitControls(camera, renderer.domElement);
+        ctrls.enableDamping = true;
+        ctrls.enableZoom = false;
+        ctrls.enablePan = false;
+        ctrls.enableRotate = false;
+
+        // Create geometry for points
+        const pointSize = 1.2;
+        const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
+        
+        // Number of points
+        const startCount = 30000;
+
+        // Create material with custom position node
+        const material = new THREE.MeshBasicNodeMaterial({
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            side: THREE.DoubleSide
+        });
+
+        // Custom position node
+        material.positionNode = Fn(() => {
+            // Get instance index as float
+            const i = float(instanceIndex);
+            
+            // y = i / 5000
+            const y = div(i, 5000.0);
+            
+            // Time: t += PI/100
+            const t = mul(time, 0.6);
+            
+            // Core variables
+            // k = 4 * cos(i/39) * cos(y + 1)
+            const k = mul(mul(4.0, cos(div(i, 39.0))), cos(add(y, 1.0)));
+            
+            // e = y*4 - 11
+            const e = sub(mul(y, 4.0), 11.0);
+            
+            // d = pow(mag(k, e), 2) / 99
+            const mag_ke = length(vec2(k, e));
+            const d = div(pow(mag_ke, 2.0), 99.0);
+            
+            // Angular modulation
+            // angleComponent = atan2(k, e) * e
+            const angleComponent = mul(atan2(e, k), e);
+            
+            // q = 109 - 1*sin(angleComponent) + d*8*sin(d/0.8 - t) + k*(2 + sin(d*9 - t*8))
+            const term1 = float(109.0);
+            const term2 = sin(angleComponent); // 1 * sin
+            
+            const term3 = mul(mul(d, 8.0), sin(sub(div(d, 0.8), t)));
+            
+            const innerSin = sin(sub(mul(d, 9.0), mul(t, 8.0)));
+            const term4 = mul(k, add(2.0, innerSin));
+            
+            const q = add(sub(term1, term2), add(term3, term4));
+            
+            // c = d/2 - t/8 + (i % 2)
+            const i_mod_2 = mod(i, 2.0);
+            const c = add(sub(div(d, 2.0), div(t, 8.0)), i_mod_2);
+            
+            // Scale factor
+            const s = 1.4;
+            
+            // Phase shift based on i % 3
+            const i_mod_3 = mul(mod(i, 3.0), 90.0);
+            
+            // Final coordinates with phase shift
+            // px = s * (q * sin(c + (i%3)*90)) + w/2
+            const px = add(mul(mul(s, q), sin(add(c, i_mod_3))), 250.0);
+            
+            // py = s * (q * cos(c + (i%3)*90)) + w/2
+            const py = add(mul(mul(s, q), cos(add(c, i_mod_3))), 250.0);
+            
+            // Convert to world space
+            const worldX = sub(px, 250.0);
+            const worldY = sub(250.0, py);
+            const worldZ = 0.0;
+            
+            return positionLocal.add(vec3(worldX, worldY, worldZ));
+        })();
+
+        // Set color and opacity - stroke(255, 46)
+        material.colorNode = color(0xffffff);
+        material.opacityNode = float(0.18);
+
+        // Create instanced mesh
+        const points = new THREE.InstancedMesh(geometry, material, startCount);
+        scene.add(points);
+
+        // Animation loop
+        function animate() {
+            renderer.render(scene, camera);
+            ctrls.update();
+        }
+
+        // Handle window resize
+        function handleWindowResize() {
+            camera.left = -250;
+            camera.right = 250;
+            camera.top = 250;
+            camera.bottom = -250;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+        window.addEventListener('resize', handleWindowResize, false);
+        
+        console.log('Angular modulation with phase shifts running');
+    </script>
+</body>
+</html>
