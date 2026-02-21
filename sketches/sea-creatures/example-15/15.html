@@ -84,7 +84,7 @@
         ctrls.enableRotate = false;
 
         // Create geometry for points
-        const pointSize = 1.2;
+        const pointSize = 1.0;
         const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
         
         // Number of points
@@ -111,7 +111,7 @@
             
             // Core variables
             // k = 4 * cos(i/39) * cos(y + 1)
-            const k = mul(mul(4.0, cos(div(i, 39.0))), cos(add(y, 1.0)));
+            const k = mul(mul(4.5, cos(div(i, 39.0))), cos(add(y, 1.0)));
             
             // e = y*4 - 11
             const e = sub(mul(y, 4.0), 11.0);
@@ -130,7 +130,7 @@
             
             const term3 = mul(mul(d, 8.0), sin(sub(div(d, 0.8), t)));
             
-            const innerSin = sin(sub(mul(d, 9.0), mul(t, 8.0)));
+            const innerSin = sin(sub(mul(d, 10.0), mul(t, 8.0)));
             const term4 = mul(k, add(2.0, innerSin));
             
             const q = add(sub(term1, term2), add(term3, term4));
