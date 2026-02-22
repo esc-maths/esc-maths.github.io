@@ -138,9 +138,9 @@
         // Settings for the Menu
         const settings = {
             particleRes: 100, // 100x100 = 10k
-            friction: 0.85,
+            friction: 0.25,
             forceScale: 0.05,
-            pointSize: 2.5,
+            pointSize: 4,
             randomize: () => randomizeRules(),
             rebuild: () => initSystem()
         };
@@ -168,8 +168,8 @@
 
         function initGUI() {
             const gui = new GUI({ container: document.getElementById('gui-mount'), width: 250 });
-            gui.add(settings, 'particleRes', 32, 200, 1).name('Resolution (NxN)').onFinishChange(settings.rebuild);
-            gui.add(settings, 'friction', 0.5, 0.99).name('Friction');
+            gui.add(settings, 'particleRes', 32, 120, 1).name('Resolution (NxN)').onFinishChange(settings.rebuild);
+            gui.add(settings, 'friction', 0.1, 0.99).name('Friction');
             gui.add(settings, 'forceScale', 0.01, 0.2).name('Force K');
             gui.add(settings, 'pointSize', 1.0, 10.0).name('Point Size').onChange(v => {
                 if(points) points.material.uniforms.pointSize.value = v;
