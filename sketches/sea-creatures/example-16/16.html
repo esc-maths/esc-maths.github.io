@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js TSL - 3D Layered Angular Modulation</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: black; }
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: rgba(0,0,0,0.7);
+            padding: 4px 12px;
+            border-radius: 20px;
+            z-index: 100;
+        }
+    </style>
+    
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
+                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.tsl.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.179.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">Three.js TSL | 3D layered angular modulation | 90k points | drag to rotate</div>
+
+    <script type="module">
+        import * as THREE from "three";
+        import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+        import { 
+            color, 
+            positionLocal, 
+            time, 
+            vec3, 
+            vec2,
+            mod, 
+            float, 
+            Fn,
+            sin,
+            cos,
+            atan,
+            length,
+            pow,
+            instanceIndex,
+            mul,
+            div,
+            add,
+            sub,
+            PI,
+            floor,
+            If,
+            assign
+        } from "three/tsl";
+
+        // Setup
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+
+        // Perspective camera for 3D
+        const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 2000);
+        camera.position.set(500, 300, 800);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGPURenderer({ antialias: true });
+        renderer.setAnimationLoop(animate);
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(2);
+        document.body.appendChild(renderer.domElement);
+
+        // Controls - enabled for 3D exploration
+        const ctrls = new OrbitControls(camera, renderer.domElement);
+        ctrls.enableDamping = true;
+        ctrls.dampingFactor = 0.05;
+        ctrls.autoRotate = false;
+        ctrls.autoRotateSpeed = 1.5;
+        ctrls.enableZoom = true;
+
+        // Create geometry for points
+        const pointSize = 1.0;
+        const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
+        
+        // Number of points - tripled for three layers
+        const startCount = 90000;
+
+        // Create material with custom position node
+        const material = new THREE.MeshBasicNodeMaterial({
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            side: THREE.DoubleSide
+        });
+
+        // Custom position node with 3D layering
+        material.positionNode = Fn(() => {
+            // Get instance index as float
+            const i = float(instanceIndex);
+            
+            // Determine which layer this point belongs to (0, 1, or 2)
+            const layer = floor(div(i, 30000.0));
+            
+            // Adjust index for position calculation (keep the pattern identical per layer)
+            const adjustedI = mod(i, 30000.0);
+            
+            // y = i / 5000 (using adjusted index)
+            const y = div(adjustedI, 5100.0);
+            
+            // Time: t += PI/100
+            const t = mul(time, 0.6);
+            
+            // Core variables (identical to original)
+            const k = mul(mul(4.5, cos(div(adjustedI, 39.0))), cos(add(y, 1.0)));
+            const e = sub(mul(y, 4.0), 11.0);
+            const mag_ke = length(vec2(k, e));
+            const d = div(pow(mag_ke, 2.0), 99.0);
+            
+            // Angular modulation
+            const angleComponent = mul(atan(k, e), e);
+            
+            const term1 = float(109.0);
+            const term2 = sin(angleComponent);
+            const term3 = mul(mul(d, 8.0), sin(sub(div(d, 0.8), t)));
+            const innerSin = sin(sub(mul(d, 10.0), mul(t, 8.0)));
+            const term4 = mul(k, add(2.0, innerSin));
+            
+            const q = add(sub(term1, term2), add(term3, term4));
+            
+            const i_mod_2 = mod(adjustedI, 2.0);
+            const c = add(sub(div(d, 2.0), div(t, 8.0)), i_mod_2);
+            
+            const s = 1.4;
+            const i_mod_3 = mul(mod(adjustedI, 3.0), 90);
+            
+            // Final coordinates with phase shift (identical to original)
+            const px = add(mul(mul(s, q), sin(add(c, i_mod_3))), 250.0);
+            const py = add(mul(mul(s, q), cos(add(c, i_mod_3))), 250.0);
+            
+            // Convert to world space (centered)
+            const worldX = sub(px, 250.0);
+            const worldY = sub(250.0, py);
+            
+            // ----- 3D LAYERING (Fixed version) -----
+            
+            // Base Z offset for each layer: -200, 0, 200
+            const layerZ = mul(sub(layer, 1.0), 200.0);
+            
+            // Time-based Z movement with different phases for each layer
+            // Using fixed phase values: 0, 2.094 (2π/3), 4.189 (4π/3)
+            let layerPhase = float(0.0);
+            
+            // Assign phase based on layer
+            If(layer.equal(0.0), () => {
+                assign(layerPhase, float(0.0));
+            });
+            If(layer.equal(1.0), () => {
+                assign(layerPhase, float(2.094));
+            });
+            If(layer.equal(2.0), () => {
+                assign(layerPhase, float(4.189));
+            });
+            
+            const timeZ = mul(sin(add(mul(t, 0.5), layerPhase)), 100.0);
+            
+            // Add some Z variation based on the point's position in the pattern
+            const patternZ = mul(sin(add(mul(worldX, 0.02), mul(worldY, 0.01))), 30.0);
+            
+            // Combine all Z components
+            const worldZ = add(add(layerZ, timeZ), patternZ);
+            
+            // Add subtle rotation based on layer
+            const layerRotation = mul(sub(layer, 1.0), 0.2);  // -0.2, 0, 0.2 radians
+            const cosRot = cos(layerRotation);
+            const sinRot = sin(layerRotation);
+            
+            // Rotate the X and Y coordinates slightly for outer layers
+            const rotatedX = add(mul(worldX, cosRot), mul(worldY, sinRot));
+            const rotatedY = sub(mul(worldY, cosRot), mul(worldX, sinRot));
+            
+            return positionLocal.add(vec3(rotatedX, rotatedY, worldZ));
+        })();
+
+        // Color by layer with time influence
+        material.colorNode = Fn(() => {
+            const i = float(instanceIndex);
+            const layer = floor(div(i, 30000.0));
+            const t = mul(time, 0.2);
+            
+            // Initialize color components
+            const r = float(0.5);
+            const g = float(0.5);
+            const b = float(0.5);
+            
+            // Assign colors based on layer
+            If(layer.equal(0.0), () => {
+                // Front layer - red/purple
+                assign(r, add(0.9, mul(0.3, sin(t))));
+                assign(g, add(0.3, mul(0.2, sin(add(t, 2.0)))));
+                assign(b, add(0.8, mul(0.3, cos(t))));
+            });
+            
+            If(layer.equal(1.0), () => {
+                // Middle layer - blue/cyan
+                assign(r, add(0.3, mul(0.2, cos(t))));
+                assign(g, add(0.8, mul(0.3, sin(add(t, 1.0)))));
+                assign(b, add(1.0, mul(0.2, sin(t))));
+            });
+            
+            If(layer.equal(2.0), () => {
+                // Back layer - green/yellow
+                assign(r, add(0.9, mul(0.4, cos(t))));
+                assign(g, add(0.9, mul(0.3, sin(add(t, 3.0)))));
+                assign(b, add(0.3, mul(0.2, cos(add(t, 1.0)))));
+            });
+            
+            return vec3(r, g, b);
+        })();
+        
+        material.opacityNode = float(0.15);
+
+        // Create instanced mesh
+        const points = new THREE.InstancedMesh(geometry, material, startCount);
+        scene.add(points);
+
+        // Add subtle grid floor for depth reference
+        const gridHelper = new THREE.GridHelper(1000, 20, 0x335588, 0x224466);
+        gridHelper.position.y = -300;
+        scene.add(gridHelper);
+
+        // Add ambient particles for depth
+        const starGeometry = new THREE.BufferGeometry();
+        const starPositions = new Float32Array(2000 * 3);
+        for (let i = 0; i < 2000; i++) {
+            starPositions[i*3] = (Math.random() - 0.5) * 2000;
+            starPositions[i*3+1] = (Math.random() - 0.5) * 2000;
+            starPositions[i*3+2] = (Math.random() - 0.5) * 2000;
+        }
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+        const starMaterial = new THREE.PointsMaterial({ color: 0x335588, size: 0.5 });
+        const stars = new THREE.Points(starGeometry, starMaterial);
+        scene.add(stars);
+
+        // Animation loop
+        function animate() {
+            renderer.render(scene, camera);
+            ctrls.update();
+        }
+
+        // Handle window resize
+        function handleWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+        window.addEventListener('resize', handleWindowResize, false);
+        
+        console.log('3D layered angular modulation running - three identical shapes at different depths!');
+    </script>
+</body>
+</html>
