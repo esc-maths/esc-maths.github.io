@@ -10,7 +10,7 @@ let friction = 0.85;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  colorMode(HSB, 360, 100, 100);
+  colorMode(HSB, 360, 100, 100, 100);
   noStroke();
   
   // Initialize interaction matrices
@@ -65,7 +65,7 @@ class Particle {
     this.vx = 0;
     this.vy = 0;
     this.type = floor(random(NUM_TYPES));
-    this.color = color(this.type * (360 / NUM_TYPES), 80, 100);
+    this.color = color(this.type * (360 / NUM_TYPES), 80, 100, 90);
   }
   
   update() {
