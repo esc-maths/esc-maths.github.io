@@ -16,14 +16,11 @@ let img;
 let time_;
 let framerate;
 
-function preload() {
-  // load the shader
-  theShader = loadShader("shader.vert", "shader.frag");
-}
-
-function setup() {
-  // disables scaling for retina screens which can create inconsistent scaling between displays
-  //pixelDensity(1);
+async function setup() {
+	
+	theShader = await
+  loadShader("vertex.vert", "fragment.frag");
+  pixelDensity(1);
 
   createCanvas(700, 400);
   noStroke();
