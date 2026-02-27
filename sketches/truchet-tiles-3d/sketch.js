@@ -1,20 +1,24 @@
-/*
- 
-Zoomin in Mandelbrot set
+/**
+    License: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
 
-Author: Juan Carlos Ponce Campuzano
-Website: https://jcponce.github.io
-Date: 16/Mar/2024
+    UV Mapping a Truchet Tile Set
+    @byt3_m3chanic 8/16/21
+    https://www.shadertoy.com/view/NddGzH
+
+
+    Thank you @Fabrice for the knowledge and math
+    Started as an experiment - how can I do this.
+    https://www.shadertoy.com/view/sdtGRn
+
+    And finally ended up here, it's pretty tricky as
+    you have to get the closest arc and use that in
+    the mapping formula.
 
 */
 
 // a shader variable
 let theShader;
 let shaderBg;
-
-let img;
-let time_;
-let framerate;
 
 let moves = [0, 0];
 
