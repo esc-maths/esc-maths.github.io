@@ -39,6 +39,7 @@ function draw() {
   // background(0);
   // shader() sets the active shader with our shader
   shaderBg.shader(theShader);
+  
 
   // get the mouse coordinates, map them to values between 0-1 space
   let yMouse = (map(mouseY, 0, height, height, 0) / height) * 2 - 1;
