@@ -1,3 +1,21 @@
+/**
+    License: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
+
+    UV Mapping a Truchet Tile Set
+    @byt3_m3chanic 8/16/21
+    https://www.shadertoy.com/view/NddGzH
+
+
+    Thank you @Fabrice for the knowledge and math
+    Started as an experiment - how can I do this.
+    https://www.shadertoy.com/view/sdtGRn
+
+    And finally ended up here, it's pretty tricky as
+    you have to get the closest arc and use that in
+    the mapping formula.
+
+*/
+
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -16,18 +34,22 @@ varying vec2 vTexCoord;
 #define MIN_DIST    0.001
 #define SCALE       0.7500
 
+// Utils
 float hash21(vec2 p){ return fract(sin(dot(p,vec2(26.34,45.32)))*4324.23); }
 mat2 rot(float a){ return mat2(cos(a),sin(a),-sin(a),cos(a)); }
 
+// Globals
 vec3 hit, hitP1, sid;
 float speed, sdir, hitD, chx, checker;
 mat2 t90;
 
+// @iq torus sdf
 float torus( vec3 p, vec2 t ) {
   vec2 q = vec2(length(p.xy)-t.x,p.z);
   return length(q)-t.y;
 }
 
+// Make tile piece
 float truchet(vec3 p,vec3 x, vec2 r) {
     return min(torus(p-x,r),torus(p+x,r));
 }
@@ -36,6 +58,7 @@ const float size = 1.333333; // 1./0.75
 const float hlf = 0.666666;
 const float shorten = 1.26;   
 
+// Domain rep
 vec3 drep(inout vec3 p) {
     vec3 id_val = floor((p+hlf)/size);
     p = mod(p+hlf,size)-hlf;
@@ -60,6 +83,7 @@ vec2 map(vec3 q3){
     float chk1 = mod(qid.y + qid.x,2.) * 2. - 1.;
     float chk2 = mod(did.y + did.x,2.) * 2. - 1.;
 
+    // Truchet build parts
     if(ht > 0.5) qm.x *= -1.;
     if(hy > 0.5) qd.x *= -1.;
 
@@ -81,6 +105,8 @@ vec2 map(vec3 q3){
     return res;
 }
 
+// Tetrahedron technique @iq
+// https://iquilezles.org/articles/normalsSDF
 vec3 normal(vec3 p, float t) {
     float e = MIN_DIST*t;
     vec2 h = vec2(1,-1)*0.5773;
@@ -92,9 +118,12 @@ vec3 hue(float t) {
 }
 
 float gear(vec2 p, float radius) {
+    // Length of cog
     float sp = floor(radius*PI2)*2.;
     float gs = length(p.xy)-radius;
     float at = atan(p.y,p.x);
+
+    // Gear teeth
     float gw = abs(sin(at*sp)*0.15);
     gs += smoothstep(0.05, 0.5, gw);
     return max(gs, -(length(p.xy)-(radius*0.45)));
@@ -168,6 +197,8 @@ vec4 render(inout vec3 ro, inout vec3 rd, inout vec3 ref, bool isLast, inout flo
                 float angle2 = atan(arc.x, arc.y);
                 float width = 0.2;
                 float rad = length(arc);
+
+                // Coord checker
                 float tm = T * 0.25;
                 
                 // Fix the tuv calculation to match original
@@ -178,6 +209,7 @@ vec4 render(inout vec3 ro, inout vec3 rd, inout vec3 ref, bool isLast, inout flo
                 tuv.y -= 0.5;
                 tuv.xy *= vec2(2.0, 0.5);
                 tuv.x = mod(tuv.x + 0.5, 1.0) - 0.5;
+                // float ddt = length(tuv.xy-vec2(0,.25))-.25; // Circle pattern
                 
                 // Gear transformation
                 vec2 gvec = tuv.xy - vec2(0.0, 0.25);
@@ -185,6 +217,8 @@ vec4 render(inout vec3 ro, inout vec3 rd, inout vec3 ref, bool isLast, inout flo
                 gvec *= rot(T * 1.4 * dir);
                 
                 // Apply gear
+                // Gear spin thing
+                // Comment out to change back to dots - and use above.
                 float ddt = gear(gvec, 0.45);
                 ddt = smoothstep(-0.0125, 0.0125, min(ddt, center));
                 h_col = mix(h_col, vec3(0.0), ddt);
@@ -205,8 +239,9 @@ vec4 render(inout vec3 ro, inout vec3 rd, inout vec3 ref, bool isLast, inout flo
 }
 
 void main() {
+    // Pre calc
     t90 = rot(1.5707);
-    speed = iTime * 0.225;
+    speed = iTime * 0.125;
     
     vec2 uv = (vTexCoord * 2.0 - 1.0);
     uv.x *= iResolution.x / iResolution.y;
@@ -225,7 +260,8 @@ void main() {
     rd.yz *= rx;
     ro.xz *= ry;
     rd.xz *= ry;
-    
+
+    // Pre render
     vec3 col = vec3(0.0);
     vec3 fil = vec3(1.0);
     float d = 0.0;
@@ -241,5 +277,7 @@ void main() {
     col += p2.rgb * fil;
     
     col = mix(col, vec3(0.001), 1.0 - w);
-    gl_FragColor = vec4(pow(clamp(col, 0.0, 1.0), vec3(0.4545)), 1.0);
+    col = clamp(col, 0.0, 1.0);
+    col = pow(col, vec3(0.4545));
+    gl_FragColor = vec4(col, 1.0);
 }
