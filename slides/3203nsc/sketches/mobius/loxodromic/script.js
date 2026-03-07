@@ -25,7 +25,7 @@ uniform vec3 iResolution;
 ${complexLibrary}
 
 vec3 computeColor(vec2 fragCoord) {
-    float zoom = 3.0;
+    float zoom = 2.0;
     // Corrected origin centering logic
     vec2 uv = (fragCoord - 0.5 * iResolution.xy) * zoom / min(iResolution.y, iResolution.x);
     
