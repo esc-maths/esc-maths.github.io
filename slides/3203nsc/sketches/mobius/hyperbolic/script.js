@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { complexLibrary } from '../complexLib.js'; // Import the library
+import { complexLibrary } from '../common/complexLib.js'; 
 
 /**
  * Base Setup
