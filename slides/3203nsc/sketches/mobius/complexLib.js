@@ -52,6 +52,10 @@ complex cfloor(complex z){ return complex(floor(z.x), floor(z.y)); }
 complex cceil(complex z){ return complex(ceil(z.x), ceil(z.y)); }
 complex csqrt(complex z) { return cpow(z, complex(0.5, 0)); }
 
+complex mobiousHyperbolic(complex c, float time){
+    return cadd(csub(clog(csub(c,complex(1.0,0.0))),clog(cadd(c,complex(1.0,0.0)))),complex(time,0.0));
+}
+    
 complex mobiousLoxodromic(complex c, float time){
     return cadd(cmul(cadd(complex(0.3581,0.0),cmul(complex(0.5975,0.0),complex(0.0,1.0))),csub(clog(csub(c,complex(1.0,0.0))),clog(cadd(c,complex(1.0,0.0))))),complex(time,0.0));
 }
