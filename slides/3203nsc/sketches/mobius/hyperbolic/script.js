@@ -26,8 +26,7 @@ ${complexLibrary}
 
 vec3 computeColor(vec2 fragCoord) {
     float zoom = 3.0;
-    // Corrected origin centering logic
-    vec2 uv = (fragCoord - 0.5 * iResolution.xy) * zoom / min(iResolution.y, iResolution.x);
+    vec2 uv = zoom * (2. * fragCoord - iResolution.xy ) / iResolution.y;
     
     complex z = uv;
     complex w = mobiousHyperbolic(z, 0.2 * iTime);

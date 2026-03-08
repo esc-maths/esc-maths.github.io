@@ -65,7 +65,7 @@ complex mobiousParabolic(complex c, float time){
 }
     
 complex mobiousLoxodromic(complex c, float time){
-    return cadd(cmul(cadd(complex(0.3581,0.0),cmul(complex(0.5975,0.0),complex(0.0,1.0))),csub(clog(csub(c,complex(1.0,0.0))),clog(cadd(c,complex(1.0,0.0))))),complex(time,0.0));
+    return cadd(cmul(cadd(complex(0.3585,0.0),cmul(complex(0.5975,0.0),complex(0.0,1.0))),csub(clog(csub(c,complex(1.0,0.0))),clog(cadd(c,complex(1.0,0.0))))),complex(time,0.0));
 }
 
 vec3 hsv2rgb(vec3 c) {

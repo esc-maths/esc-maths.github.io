@@ -25,9 +25,8 @@ uniform vec3 iResolution;
 ${complexLibrary}
 
 vec3 computeColor(vec2 fragCoord) {
-    float zoom = 2.0;
-    // Corrected origin centering logic
-    vec2 uv = (fragCoord - 0.5 * iResolution.xy) * zoom / min(iResolution.y, iResolution.x);
+    float zoom = 1.3;
+    vec2 uv = zoom * (2. * fragCoord - iResolution.xy ) / iResolution.y;
     
     complex z = uv;
     complex w = mobiousLoxodromic(z, 0.2 * iTime);
