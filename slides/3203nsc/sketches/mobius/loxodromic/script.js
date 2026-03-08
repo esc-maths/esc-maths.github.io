@@ -96,10 +96,18 @@ uniforms.iResolution.value.set(sizes.width, sizes.height, 1);
 /**
  * Animate
  */
-const clock = new THREE.Clock();
+// 1. Initialize the Timer
+// If THREE.Timer doesn't exist in the core, use:
+// import { Timer } from 'three/addons/utils/Timer.js';
+const timer = new THREE.Timer(); 
 
 const tick = () => {
-    const elapsedTime = clock.getElapsedTime();
+    // 2. Update the timer at the start of every frame
+    // This is the "extra step" Clock didn't require.
+    timer.update();
+
+    // 3. Get the elapsed time
+    const elapsedTime = timer.getElapsed();
     uniforms.iTime.value = elapsedTime;
 
     renderer.render(scene, new THREE.Camera());

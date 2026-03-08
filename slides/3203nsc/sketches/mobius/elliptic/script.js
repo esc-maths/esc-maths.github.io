@@ -25,9 +25,8 @@ uniform vec3 iResolution;
 ${complexLibrary}
 
 vec3 computeColor(vec2 fragCoord) {
-    float zoom = 3.0;
-    // Corrected origin centering logic
-    vec2 uv = (fragCoord - 0.5 * iResolution.xy) * zoom / min(iResolution.y, iResolution.x);
+    float zoom = 2.0;
+    vec2 uv = zoom * (2. * fragCoord - iResolution.xy ) / iResolution.y;
     
     complex z = uv;
     complex w = mobiousElliptic(z, 0.2 * iTime);
@@ -96,10 +95,18 @@ uniforms.iResolution.value.set(sizes.width, sizes.height, 1);
 /**
  * Animate
  */
-const clock = new THREE.Clock();
+// 1. Initialize the Timer
+// If THREE.Timer doesn't exist in the core, use:
+// import { Timer } from 'three/addons/utils/Timer.js';
+const timer = new THREE.Timer(); 
 
 const tick = () => {
-    const elapsedTime = clock.getElapsedTime();
+    // 2. Update the timer at the start of every frame
+    // This is the "extra step" Clock didn't require.
+    timer.update();
+
+    // 3. Get the elapsed time
+    const elapsedTime = timer.getElapsed();
     uniforms.iTime.value = elapsedTime;
 
     renderer.render(scene, new THREE.Camera());
