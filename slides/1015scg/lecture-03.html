@@ -2369,20 +2369,63 @@
 
 								</div>
 
-								<div style="font-size: 65%;">
-									<p>
-										<tt>
-											AVERAGE(B1:B12)
-										</tt>
-										<br />
-										<tt>
-											STDEV(B1:B12)
-										</tt>
-										<br />
-										<tt>
-											STDEV(B1:B12)/SQRT(COUNT(B1:B12))
-										</tt>
-									</p>
+								<div class="r-stack">
+									<div style="font-size: 65%;" class="fragment fade-out" data-fragment-index="0">
+										<p>
+											<tt>
+												AVERAGE(range)
+											</tt>
+											<br />
+											<tt>
+												STDEV(range)
+											</tt>
+											<br />
+											<tt>
+												STDEV(range)/SQRT(COUNT(range))
+											</tt>
+										</p>
+									</div>
+
+									<div style="font-size: 65%;" class="fragment fade-in" data-fragment-index="0">
+										<table  border="1" cellpadding="8" cellspacing="0"
+									style="border-collapse: collapse; text-align: center; margin: auto; ">
+
+											<tr>
+												<td>
+													<b>Average</b>
+												</td>
+												<td>
+													39.36363636
+												</td>
+												<td>
+													31416666667
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<b>SD</b>
+												</td>
+												<td>
+													5.869799439
+												</td>
+												<td>
+													9.958626533
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<b>SE</b>
+												</td>
+												<td>
+													1.769811121
+												</td>
+												<td>
+													2.874807855
+												</td>
+											</tr>
+										</table>
+									</div>
 								</div>
 								<br />
 
@@ -2461,7 +2504,7 @@
 									</tbody>
 								</table>
 								<div class="size-60" style="text-align: center;">
-									<p>✨<b>Note:</b> Data available in your Excel file.</p>
+									<p>✨<b>Note:</b> Data available in your Excel file, <b>Life Data tab</b>.</p>
 								</div>
 							</td>
 						</tr>
@@ -3044,7 +3087,7 @@
 					</div>
 					<div class="size-85">
 
-						
+
 						<p class="fragment" data-fragment-index="3">
 							<b>Propagate uncertainty using partial derivatives</b> <br />(since \(V_m\) appears in
 							numerator and
@@ -3109,7 +3152,7 @@
 					</div>
 					<div class="size-90">
 
-						
+
 						<p>
 							<span>
 								\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
