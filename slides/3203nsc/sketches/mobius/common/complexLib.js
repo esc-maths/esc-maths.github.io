@@ -3,8 +3,8 @@ export const complexLibrary = `
 #define complex vec2
 
 // Constants
-const float pi = 3.14159265358979;
-const float twopi = 6.28318530717958;
+#define pi 3.14159265358979
+#define twopi 6.28318530717958
 
 const complex cpi = complex(3.14159265358979, 0.0);
   
