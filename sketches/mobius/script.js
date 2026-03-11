@@ -50,7 +50,7 @@ void main() {
 
     vec3 col = vec3(0.05, 0.05, 0.08);
 
-    if(t < 40.0) {
+    if(t < 50.0) {
         vec3 pos = ro + rd * t;
         bool isSphere = (uShowSphere > 0.5 && length(pos - vec3(0, 1, 0)) < 1.1);
         
@@ -94,12 +94,17 @@ void main() {
         // 3. Render Checkerboard
         vec2 check = floor(mod(gridUV * 4.0, 2.0));
         float mask = abs(check.x - check.y);
+
+        // Define light position/direction here
+        vec3 lightPos = vec3(-1.0, 1.0, -0.5); 
+        vec3 lightDir = normalize(lightPos); // Or just use a fixed direction like normalize(vec3(1, 2, 3))
         
         vec3 nor = isSphere ? normalize(pos - vec3(0, 1, 0)) : vec3(0, 1, 0);
-        float diff = clamp(dot(nor, normalize(vec3(1, 2, 3))), 0.2, 1.0);
+        // Diffuse lighting
+        float diff = clamp(dot(nor, lightDir), 0.2, 1.0);
         col = mix(vec3(0.01), vec3(0.9), mask) * diff;
         
-        if(isSphere) col += pow(clamp(dot(reflect(rd, nor), normalize(vec3(1,2,3))), 0.0, 1.0), 32.0) * 0.4;
+        if(isSphere) col += pow(clamp(dot(reflect(rd, nor), lightDir), 0.0, 1.0), 32.0) * 0.4;
     }
 
     gl_FragColor = vec4(pow(col, vec3(0.4545)), 1.0);
