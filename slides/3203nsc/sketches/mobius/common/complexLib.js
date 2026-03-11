@@ -5,22 +5,21 @@ export const complexLibrary = `
 // Constants
 #define pi 3.14159265358979
 #define twopi 6.28318530717958
+#define cpi complex(3.14159265358979, 0.0)
 
-const complex cpi = complex(3.14159265358979, 0.0);
-  
-const float e = 2.71828182845904;
-const complex ce = complex(2.71828182845904, 0.0);
+#define e  2.71828182845904
+#define ce complex(2.71828182845904, 0.0)
 
-const float phi = 1.61803398874989;
-const complex cphi = complex(1.61803398875, 0.0);
+#define phi 1.61803398874989
+#define cphi complex(1.61803398875, 0.0)
 
-const float invphi = -0.6180339887498948482;
-const complex cinvphi = complex(-0.6180339887498948482, 0.0);
+#define invphi -0.6180339887498948482
+#define cinvphi complex(-0.6180339887498948482, 0.0)
 
-const complex i = complex(0.0, 1.0);
-const complex one = complex(1.0, 0.0);
-const complex minusone = complex(-1.0, 0.0);
-const complex zero = complex(0.0, 0.0);
+#define i complex(0.0, 1.0)
+#define one complex(1.0, 0.0)
+#define minusone complex(-1.0, 0.0)
+#define zero complex(0.0, 0.0)
 
 // Polar values
 float arg(complex z) {
@@ -135,8 +134,19 @@ complex cceil(complex z){
 return ceil(z);
 }
 
-complex csqrt(complex z) {
-return cpow(z, complex(0.5, 0));
+vec2 csqrt(vec2 z) {
+    float r = length(z);
+    // r + abs(z.x) is always well-conditioned (no cancellation)
+    float w = sqrt(0.5 * (r + abs(z.x)));
+    if (w == 0.0) return vec2(0.0);            // z == 0
+    float halfInvW = 0.5 / w;
+    if (z.x >= 0.0) {
+        // Re is the stable component
+        return vec2(w, z.y * halfInvW);
+    } else {
+        // Im is the stable component
+        return vec2(abs(z.y) * halfInvW, z.y >= 0.0 ? w : -w);
+    }
 }
 
 complex mobiousHyperbolic(complex c, float time){
