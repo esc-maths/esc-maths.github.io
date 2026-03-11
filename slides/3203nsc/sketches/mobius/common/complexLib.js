@@ -134,6 +134,7 @@ complex cceil(complex z){
 return ceil(z);
 }
 
+// From https://sledit.xyz/guides/#glsl-library/complex#trivial
 vec2 csqrt(vec2 z) {
     float r = length(z);
     // r + abs(z.x) is always well-conditioned (no cancellation)
