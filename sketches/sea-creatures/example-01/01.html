@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three.js TSL - Yuruyurau Style - Example 1</title>
     <style>
-        body { margin: 0; overflow: hidden; background-color: black; }
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
         #info {
             position: absolute;
             bottom: 20px;
             left: 20px;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             font-family: 'Courier New', monospace;
             font-size: 14px;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 0, 0, 0.7);
             padding: 4px 12px;
             border-radius: 20px;
             z-index: 100;
         }
     </style>
-    
+
+
     <script type="importmap">
         {
             "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
-                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.webgpu.js",
-                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.179.0/build/three.tsl.js",
-                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.179.0/examples/jsm/"
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.webgpu.js",
+                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.tsl.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.183.2/examples/jsm/"
             }
         }
     </script>
 </head>
+
 <body>
     <div id="info">Three.js TSL | yuruyurau style | 50k points</div>
 
     <script type="module">
         import * as THREE from "three";
         import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-        import { 
-            color, 
-            positionLocal, 
-            time, 
-            vec3, 
+        import {
+            color,
+            positionLocal,
+            time,
+            vec3,
             vec2,
-            mod, 
-            float, 
+            mod,
+            float,
             Fn,
             sin,
             cos,
@@ -87,7 +95,7 @@
         // Create geometry for points
         const pointSize = 1;
         const geometry = new THREE.PlaneGeometry(pointSize, pointSize);
-        
+
         // Number of points 
         const startCount = 50000;
 
@@ -103,58 +111,58 @@
         material.positionNode = Fn(() => {
             // Get instance index as float
             const i = float(instanceIndex);
-            
+
             // Time: time += PI/30
             const t = mul(time, 4.2);
-            
+
             // Split behaviour using step
             // i < 20000 ? sin(i/9) * 9 : 4 * cos(i/49) * cos(i/3690)
             const threshold = 20000.0;
-            
+
             // Calculate both possibilities
             const k_low = mul(sin(div(i, 9.0)), 9.0);
             const k_high = mul(mul(4.0, cos(div(i, 49.0))), cos(div(i, 3690.0)));
-            
+
             // Use step for conditional: step(edge, x) returns 1 if x >= edge, else 0
             const isHigh = step(threshold, i); // 1 if i >= threshold
             const isLow = sub(1.0, isHigh); // 1 if i < threshold
-            
+
             const k = add(mul(isLow, k_low), mul(isHigh, k_high));
-            
+
             // Vertical parameter: e = i/984 - 12
             const e = sub(div(i, 984.0), 12.0);
-            
+
             // Radial magnitude: d = pow(mag(k, e), 2) / 99 + 1
             const mag_ke = length(vec2(k, e));
             const d = add(div(pow(mag_ke, 2.0), 99.0), 1.0);
-            
+
             // Angular distortion: use atan with safe denominator
             const angle = atan(div(k, add(e, 0.0001)));
-            
+
             // Intermediate horizontal displacement
             const q = sub(
                 mul(k, add(4.0, sin(add(sub(mul(d, 16.0), t), k)))),
                 mul(5.0, sin(mul(angle, 9.0)))
             );
-            
+
             // Phase controlling oscillations: c = d*1.1 - time/18 + (i%2)*3
             const i_mod_2 = mod(i, 2.0);
             const c = add(sub(mul(d, 1.1), div(t, 18.0)), mul(i_mod_2, 3.0));
-            
+
             // Final coordinates
             const x = add(add(q, mul(70.0, sin(c))), 250.0);
-            
+
             // y = (q + 40) * sin(c - d) + d*79 + 25
             const y = add(
                 mul(add(q, 40.0), sin(sub(c, d))),
                 add(mul(d, 79.0), 25.0)
             );
-            
+
             // Convert to world space (-250 to 250) for orthographic camera
             const worldX = sub(x, 250.0);
             const worldY = sub(250.0, y);
             const worldZ = 0.0;
-            
+
             return positionLocal.add(vec3(worldX, worldY, worldZ));
         })();
 
@@ -183,8 +191,9 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         }
         window.addEventListener('resize', handleWindowResize, false);
-        
+
         console.log('Adapted p5.js sketch running in Three.js TSL');
     </script>
 </body>
+
 </html>

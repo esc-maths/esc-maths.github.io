@@ -37,7 +37,7 @@ float map(vec3 p) {
 
 void main() {
     vec2 uv = (gl_FragCoord.xy - iResolution.xy * 0.5) / iResolution.y;
-    vec3 ro = vec3(-3.0, 4.0, -6.0), look = vec3(0, 0.6, 0);
+    vec3 ro = vec3(-3.0, 5.0, -6.0), look = vec3(0, 0.6, 0);
     vec3 f = normalize(look - ro), r = normalize(cross(f, vec3(0, 1, 0))), u = normalize(cross(r, f));
     vec3 rd = normalize(uv.x * r + uv.y * u + 2.0 * f);
 
