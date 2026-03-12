@@ -122,15 +122,59 @@ scene.add(mesh);
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-uniforms.iResolution.value.set(window.innerWidth, window.innerHeight, 1);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Add this line
+
+// Initial uniform set with pixel ratio
+const canvasWidth = window.innerWidth * renderer.getPixelRatio();
+const canvasHeight = window.innerHeight * renderer.getPixelRatio();
+uniforms.iResolution.value.set(canvasWidth, canvasHeight, 1);
+
+const modeText = document.getElementById('mode-text');
+const modes = {
+    '1': 'Loxodromic',
+    '2': 'Elliptic',
+    '3': 'Hyperbolic',
+    '4': 'Parabolic'
+};
 
 window.addEventListener('keydown', (e) => {
-    if (e.key === '1') uniforms.uMode.value = 0; // Loxodromic
-    if (e.key === '2') uniforms.uMode.value = 1; // Elliptic
-    if (e.key === '3') uniforms.uMode.value = 2; // Hyperbolic
-    if (e.key === '4') uniforms.uMode.value = 3; // Parabolic
-    if (e.key === '5') uniforms.uShowSphere.value = 1.0 - uniforms.uShowSphere.value;
+    // 1. Handle Mode Switching (1-4)
+    if (modes[e.key]) {
+        uniforms.uMode.value = parseInt(e.key) - 1;
+        
+        // Only update text if the element actually exists to prevent crashes
+        if (modeText) {
+            modeText.innerText = modes[e.key];
+        }
+    }
+
+    // 2. Handle Sphere Toggle (5)
+    if (e.key === '5') {
+        // Toggle between 1.0 and 0.0
+        uniforms.uShowSphere.value = uniforms.uShowSphere.value === 1.0 ? 0.0 : 1.0;
+        console.log("Sphere toggled to:", uniforms.uShowSphere.value);
+    }
 });
+
+window.addEventListener('resize', () => {
+    // 1. Get new dimensions
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // 2. Update Renderer (this updates the canvas width/height attributes)
+    renderer.setSize(width, height);
+    
+    // 3. Update Pixel Ratio (important for high-DPI screens/Retina)
+    const pixelRatio = Math.min(window.devicePixelRatio, 2);
+    renderer.setPixelRatio(pixelRatio);
+
+    // 4. Update Uniforms
+    // We multiply by pixelRatio to ensure the shader knows the actual 
+    // number of pixels in the drawing buffer
+    uniforms.iResolution.value.set(width * pixelRatio, height * pixelRatio, 1);
+});
+
+// REMOVE the second redundant window.addEventListener('keydown'...) block below this!
 
 const tick = () => {
     uniforms.iTime.value = performance.now() / 1000;
