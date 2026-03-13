@@ -436,7 +436,7 @@
 							</tr>
 						</table>
 					</div>
-					<div style="font-size: 90%;"  class="fragment" data-fragment-index="2">
+					<div style="font-size: 90%;" class="fragment" data-fragment-index="2">
 						<hr>
 						<p><b>Data considering 2 s.f.</b></p>
 						<table>
@@ -610,14 +610,14 @@
 						</p>
 					</div>
 
-					<div class="left-txt" >
+					<div class="left-txt">
 						<p>
 							Using:
 							<span style="color: #a50f0f;">
 								\( \,x = 2.94, \;\)
-							\( m = 12.20 \)
+								\( m = 12.20 \)
 							</span>
-							
+
 						</p>
 					</div>
 
@@ -705,15 +705,15 @@
 							(0.082)^2 (2.3)^2
 							\)
 							<span class="fragment" data-fragment-index="2">
-							\(=0.0484\)
+								\(=0.0484\)
 							</span>
 						</p>
-						
+
 					</div>
 
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="3">
-							\(\Ra  \;\Delta x =\sqrt{0.0484}\)
+							\(\Ra \;\Delta x =\sqrt{0.0484}\)
 							<span class="fragment" data-fragment-index="4">
 								\(
 								\approx 0.22
@@ -725,18 +725,18 @@
 					<div style="text-align: center;">
 						<p class="fragment" data-fragment-index="5">
 							\(\Ra\;\)
-							 \( x = 2.94 \pm 0.22 \)
+							\( x = 2.94 \pm 0.22 \)
 
 						</p>
 						<p class="fragment" data-fragment-index="6">
 							\(\Ra\;\)
-							<b>No. of workshops to pass</b>  \( \,= 3 \)
+							<b>No. of workshops to pass</b> \( \,= 3 \)
 
 						</p>
-						
+
 					</div>
 
-				
+
 					<br />
 				</section>
 
@@ -1083,7 +1083,7 @@
 						<p class="fragment" data-fragment-index="3">
 							So the uncertainty in the prediction for 2010 is:
 						</p>
-						
+
 					</div>
 
 
@@ -1652,21 +1652,21 @@
 							<li class="fragment" data-fragment-index="2">Find the number of degrees of freedom: \(
 								\text{df} = n - 1 .\)</li>
 							<li class="fragment" data-fragment-index="3">
-								Find the <b>$t$-critical</b> value (\( t_c \)) for the given \( \text{CL} \) and \(
+								Find the <b>$t$-critical</b> value (\( t_{\textbf{critical}} \)) for the given \( \text{CL} \) and \(
 								\text{df} \) (from a
 								table or Excel). This is the <em>theoretical value based on a probability
 									distribution</em>.
 							</li>
 							<li class="fragment" data-fragment-index="4">
 								Then there are two mathematically equivalent options:
-								<ul style="margin-left: 0px;">
+								<ul style="margin-left: -15px;">
 									<li class="fragment" data-fragment-index="5">Check if \(\mu- t_c \times \text{SE}
 										\leq \mu_0 \leq \mu+ t_c \times\text{SE}\),
 										confidence
 										interval \(\text{CI}.\)</li>
 									<li class="fragment" data-fragment-index="6">
-										Check if <b>$t$-statistic</b> value \(\ds t = \frac{|\mu -
-										\mu_0|}{\text{SE}}\) is smaller than <b>\(t\)-critical</b>: \(\ds t \leq t_c.\)
+										Check if <b>$t$-statistic</b> \(=\ds t_{\textbf{stat}} = \frac{|\mu -
+										\mu_0|}{\text{SE}}\) is smaller than $t_{\textbf{critical}}$: \(\ds t_{\textbf{stat}} \leq t_{\textbf{critical}} .\)
 										<span class="fragment" data-fragment-index="7">👈</span>
 									</li>
 								</ul>
@@ -1674,13 +1674,13 @@
 						</ol>
 
 						<p>
-							<span style="color: rgb(6, 147, 6);" class="fragment" data-fragment-index="8">
-								&nbsp;&nbsp; If $t\leq t_c,$ the estimate \( \mu \) agrees
+							<span style="color: rgb(4, 125, 4);" class="fragment" data-fragment-index="8">
+								&nbsp; ✅ If $t_{\textbf{stat}} \leq t_{\textbf{critical}} ,$ the estimate \( \mu \) agrees
 								with the
 								expected/theoretical value \( \mu_0 .\)</span>
 							<br />
 							<span style="color: rgb(190, 10, 10);" class="fragment" data-fragment-index="9">
-								&nbsp;&nbsp; If not, the estimate \( \mu \) does not agree with
+								&nbsp; ❌ If not, the estimate \( \mu \) does not agree with
 								the expected/theoretical value \( \mu_0.\)</span>
 						</p>
 					</div>
@@ -2013,7 +2013,7 @@
 
 				</section>
 
-				<section>
+				<section data-visibility="hidden">
 					<h4>
 						Welch $t$-test
 					</h4>
@@ -2030,8 +2030,8 @@
 								$\mu_2, \text{SE}_2.$</li>
 							<li class="fragment" data-fragment-index="2">Choose a confidence level \( \text{CL} .\)</li>
 							<li class="fragment" data-fragment-index="3">Calculate <b>$t$-statistic</b> defined as: \(
-								\ds t = \frac{\mu_1 -
-								\mu_2}{\sqrt{\left(\text{SE}_1\right)^2/n_1+\left(\text{SE}_2\right)^2/n_2}}.\)</li>
+								\ds t = \frac{|\mu_1 -
+								\mu_2|}{\sqrt{\left(\text{SE}_1\right)^2/n_1+\left(\text{SE}_2\right)^2/n_2}}.\)</li>
 							<li class="fragment" data-fragment-index="4">
 								Find number of degrees of freedom
 								\(\ds \text{df} =
@@ -2066,6 +2066,100 @@
 					</div>
 
 					<br /><br />
+				</section>
+
+				<section data-visibility="hidden">
+					<h4> Welch $t$-test </h4>
+					<div class="size-75 left-txt">
+						<p> Do the two experiments agree? </p>
+						<ol style="margin-top: -15px; line-height: 1.5;">
+							<li class="fragment" data-fragment-index="1">Find best estimate and standard error for each
+								experiment: $\mu_1, SE_1$ and $\mu_2, SE_2$.</li>
+							<li class="fragment" data-fragment-index="2">Choose a confidence level $CL$.</li>
+							<li class="fragment" data-fragment-index="3">Calculate the <b>$t$-statistic</b>:
+								$\ds t = \frac{|\mu_1 - \mu_2|}{\sqrt{SE_1^2 + SE_2^2}}$
+							</li>
+							<li class="fragment" data-fragment-index="4">Find the degrees of freedom:
+								$\ds df = \frac{(SE_1^2 + SE_2^2)^2}{\frac{SE_1^4}{n_1 - 1} + \frac{SE_2^4}{n_2 - 1}}$
+							</li>
+							<li class="fragment" data-fragment-index="5">Find the <b>$t$-critical</b> value ($t_c$) for
+								given $CL$ and $df$.</li>
+							<li class="fragment" data-fragment-index="6">Check if $t \leq t_c$.</li>
+						</ol>
+						<p>
+							<span style="color: rgb(6, 147, 6);" class="fragment" data-fragment-index="7">
+								&nbsp;&nbsp; If yes: The experiments agree within the chosen $CL$.
+							</span> <br />
+							<span style="color: rgb(190, 10, 10);" class="fragment" data-fragment-index="8">
+								&nbsp;&nbsp; If no: The experiments do not agree.
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4> Welch \(t\)-test </h4>
+
+					<div class="size-75 left-txt">
+
+						<p style="margin-top: -20px;"> Do the two experiments agree? </p>
+
+						<ol style="margin-top: -20px; line-height: 1.6;">
+
+							<li class="fragment" data-fragment-index="1">
+								Find the sample means, standard deviations, and sample sizes for each experiment:
+								\(\bar{x}_1, s_1, n_1\) and \(\bar{x}_2, s_2, n_2.\)
+							</li>
+
+							<li class="fragment" data-fragment-index="2">
+								Choose a confidence level \( \text{CL} \) (or significance level \( \alpha = 1-\text{CL}
+								\)).
+							</li>
+
+							<li class="fragment" data-fragment-index="3">
+								Calculate the <b>\(t\)-statistic</b> defined as:
+								$
+								\ds t_{\textbf{stat}} = \frac{|\bar{x}_1 - \bar{x}_2|}{\sqrt{s_1^2/n_1+s_2^2/n_2}}.
+								$
+							</li>
+
+							<li class="fragment" data-fragment-index="4">
+								Find the number of degrees of freedom
+								$
+								\ds \text{df} =
+								\frac{\left(s_1^2/n_1+s_2^2/n_2\right)^2}
+								{\frac{(s_1^2/n_1)^2}{n_1-1} + \frac{(s_2^2/n_2)^2}{n_2-1}} .
+								$
+							</li>
+
+							<li class="fragment" data-fragment-index="5">
+								Find the <b>\(t\)-critical</b> value (\(t_{\textbf{critical}}\)) for the chosen \( \text{CL} \) and \(
+								\text{df} \)
+								(from a table or Excel).
+							</li>
+
+							<li class="fragment" data-fragment-index="6">
+								Check whether \( t_{\textbf{stat}} \leq t_{\textbf{critical}}  \).
+							</li>
+
+						</ol>
+
+						<p>
+							<span style="color: rgb(4, 125, 4);" class="fragment" data-fragment-index="7">
+								&nbsp;&nbsp; ✅ If yes – the experiments agree with each other at the chosen confidence
+								level.
+							</span>
+							<br>
+							<span style="color: rgb(190,10,10);" class="fragment" data-fragment-index="8">
+								&nbsp;&nbsp; ❌ If not – the experiments do not agree with each other.
+							</span>
+						</p>
+
+					</div>
+
+					<br><br>
 				</section>
 
 				<section>
