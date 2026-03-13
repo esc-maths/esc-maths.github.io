@@ -85,7 +85,7 @@
 
 
 
-			<section>
+			<section data-auto-animate>
 				<h3>
 					Limit definition
 				</h3>
@@ -102,9 +102,10 @@
 						means that the point $w = f (z)$ can be made arbitrarily close to $w_0$ if we choose
 						the point $z$ close enough to $z_0$ but distinct from it.
 					</p>
-					
+
 					<p>
-						Formally, the expression $\lim_{z\rightarrow z_0}f(z)=w_0$ means that for every (sufficiently small)
+						Formally, the expression $\lim_{z\rightarrow z_0}f(z)=w_0$ means that for every (sufficiently
+						small)
 						$\varepsilon&gt;0,$ there is a
 						$\delta&gt;0$ such that
 						\begin{eqnarray}\label{limitcondition}
@@ -114,16 +115,20 @@
 						\end{eqnarray}
 					</p>
 				</div>
-				
+
 				<br />
 			</section>
 
-			<section>
+			<section data-auto-animate>
+				<h3>
+					Limit definition
+				</h3>
 				<div class="left-txt size-80">
 
-					
+
 					<p>
-						Formally, the expression $\lim_{z\rightarrow z_0}f(z)=w_0$ means that for every (sufficiently small)
+						Formally, the expression $\lim_{z\rightarrow z_0}f(z)=w_0$ means that for every (sufficiently
+						small)
 						$\varepsilon&gt;0,$ there is a
 						$\delta&gt;0$ such that
 						$$
@@ -140,6 +145,69 @@
 					<img style="width: 70%;" src="https://complex-analysis.com/images/chp02/limits-complex.svg">
 				</div>
 			</section>
+
+			<section data-auto-animate>
+				<h3>
+					Example
+				</h3>
+				<div class="left-txt size-80">
+
+
+					<p>
+						Show that $\ds \lim_{z\rightarrow z_0}z^2=z_0^2.$
+					</p>
+
+					<p>
+						<strong>Discussion:</strong>
+						Consider $\delta \leq 1.$ So $0\lt\left| z-z_0\right|\lt\delta$ implies that
+
+						\begin{eqnarray*}
+						\left| z^2-z_0^2\right|&amp;=&amp;\left| z-z_0\right|\left| z+z_0\right| \lt\delta \left|
+						z+z_0\right|
+						\lt \delta \left| z-z_0+2z_0\right|\\
+						&amp;\lt&amp; \delta \big( \left| z-z_0\right|+2\left|z_0\right|\big)
+						\lt \delta \big(1+2\left|z_0\right|\big).
+						\end{eqnarray*}
+
+
+						Now, take $\delta = 1 $ or $\delta=\dfrac{\varepsilon}{1+2\left|z_0\right|},$
+						whichever is smaller. Then $0\lt\left| z-z_0\right|\lt\delta$
+						implies that
+						$$\left| z^2-z_0^2\right|\lt\varepsilon.$$
+					</p>
+				</div>
+
+
+			</section>
+			<section data-auto-animate>
+				<h3>
+					Example
+				</h3>
+				<div class="left-txt size-80">
+
+
+					<p>
+						Show that $\ds \lim_{z\rightarrow z_0}z^2=z_0^2.$
+					</p>
+
+					<p>
+						<strong>Proof:</strong>
+						Let $\varepsilon&gt;0.$ Choose
+						$\delta=\min\left\{1,\dfrac{\varepsilon}{1+2\left|z_0\right|}\right\}$ such that
+						$0\lt\left| z-z_0\right|\lt\delta.$ Therefore
+						$$
+						\left| z^2-z_0^2\right|\lt\varepsilon. \quad \blacksquare
+						$$
+					</p>
+				</div>
+
+				<br/>
+				<br/>
+				<br/>
+
+			</section>
+
+
 
 
 
