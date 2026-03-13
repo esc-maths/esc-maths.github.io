@@ -25,11 +25,11 @@ uniform vec3 iResolution;
 ${complexLibrary}
 
 vec3 computeColor(vec2 fragCoord) {
-    float zoom = 1.3;
+    float zoom = 1.1;
     vec2 uv = zoom * (2. * fragCoord - iResolution.xy ) / iResolution.y;
     
     complex z = uv;
-    complex w = mobiousLoxodromic(z, 0.15 * iTime);
+    complex w = mobiousLoxodromic(z, 0.13 * iTime);
     
     vec2 grid = fract(w * 2.0); 
     float check = step(0.5, grid.x) == step(0.5, grid.y) ? 1.0 : 0.0;
