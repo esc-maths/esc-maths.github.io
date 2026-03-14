@@ -12,7 +12,7 @@ const rows = 9;
 const cols = 14; 
 const spacing = 55; 
 const ballRadius = 7;
-const maxBalls = 450;
+const maxBalls = 400;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
