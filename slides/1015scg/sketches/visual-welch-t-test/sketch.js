@@ -71,7 +71,7 @@ function drawExperiment(x, ciWidth, col, label) {
 
 function drawTDistLayer(ts, tc) {
   let centerX = width / 2;
-  let centerY = height * 0.7;
+  let centerY = height * 0.8;
   let scaleX = 70; 
   
   noFill();
@@ -100,7 +100,7 @@ function drawTDistLayer(ts, tc) {
   pointerX = constrain(pointerX, centerX, centerX + 5.5 * scaleX);
   
   fill(0);
-  triangle(pointerX, centerY + 5, pointerX - 5, centerY + 15, pointerX + 5, centerY + 15);
+  triangle(pointerX, centerY + 5, pointerX - 5, centerY + 30, pointerX + 5, centerY + 30);
   textAlign(CENTER);
   text("t_stat: " + nf(ts, 1, 2), pointerX, centerY + 50);
 }

@@ -43,7 +43,7 @@ function drawComparisonLayer(m0, m, se, tc) {
   stroke(110);
   strokeWeight(3);
   drawingContext.setLineDash([5, 5]);
-  line(m0, 130, m0, height * 0.4);
+  line(m0, 130, m0, height * 0.45);
   drawingContext.setLineDash([]);
   
   fill(0);
@@ -72,7 +72,7 @@ function drawComparisonLayer(m0, m, se, tc) {
 
 function drawTDistLayer(ts, tc) {
   let centerX = width / 2;
-  let centerY = height * 0.68;
+  let centerY = height * 0.8;
   let scaleX = 60; 
   
   // Curve
@@ -103,7 +103,7 @@ function drawTDistLayer(ts, tc) {
   pointerX = constrain(pointerX, centerX - 5.5 * scaleX, centerX + 5.5 * scaleX);
   
   fill(0);
-  triangle(pointerX, centerY + 5, pointerX - 5, centerY + 15, pointerX + 5, centerY + 15);
+  triangle(pointerX, centerY + 5, pointerX - 5, centerY + 30, pointerX + 5, centerY + 30);
   text("t_stat: " + nf(ts, 1, 2), pointerX, centerY + 50);
 }
 
