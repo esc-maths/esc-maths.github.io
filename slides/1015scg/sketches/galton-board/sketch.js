@@ -5,14 +5,14 @@ let world;
 let particles = [];
 let pegs = [];
 let boundaries = [];
-let ground; // Renamed from floor to ground
+let ground; 
 let binCounts = [];
 
 const rows = 9; 
 const cols = 14; 
 const spacing = 55; 
 const ballRadius = 7;
-const maxBalls = 400;
+const maxBalls = 350;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -47,7 +47,7 @@ function setup() {
     Composite.add(world, b);
   }
 
-  // 3. Create the Ground (Corrected variable name)
+  // 3. Create the Ground
   ground = Bodies.rectangle(width / 2, height - 50, width, 10, { isStatic: true });
   Composite.add(world, ground);
 }
@@ -58,9 +58,10 @@ function draw() {
 
   // UI
   fill(255);
-  //textAlign(CENTER);
   textSize(16);
   text("GALTON BOARD", 100, 40);
+  textSize(12);
+  fill(150);
   text("Click to RESET", 100, 60);
   
   // Spawn balls
@@ -108,43 +109,49 @@ function mousePressed() {
 
 class Particle {
   constructor(x, y) {
-    let options = { restitution: 0.4, friction: 0.1 };
+    // Standard physics options - no freezing
+    let options = { 
+      restitution: 0.4, 
+      friction: 0.1,
+      frictionAir: 0.01 
+    };
     this.body = Bodies.circle(x, y, ballRadius, options);
-    this.isFrozen = false;
     this.counted = false;
     this.color = color(100, 150, 255);
     Composite.add(world, this.body);
   }
 
   update() {
-    if (!this.isFrozen && this.body.position.y > height - 240) {
-      if (this.body.speed < 0.25) {
-        Body.setStatic(this.body, true);
-        this.isFrozen = true;
-        this.color = color(255, 100, 100);
-        this.countInBin();
-      }
+    // Trigger count as soon as the ball enters the bin area (y > height - 240)
+    if (!this.counted && this.body.position.y > height - 240) {
+      this.countInBin();
     }
   }
 
   countInBin() {
-    if (!this.counted) {
-      let startX = (width / 2 - (cols * spacing) / 2) - (spacing / 4);
-      // Math.floor is more robust here just in case
-      let index = Math.floor((this.body.position.x - startX) / spacing);
-      index = constrain(index, 0, cols);
-      binCounts[index]++;
-      this.counted = true;
-    }
+    let startX = (width / 2 - (cols * spacing) / 2) - (spacing / 4);
+    let index = Math.floor((this.body.position.x - startX) / spacing);
+    index = constrain(index, 0, cols);
+    binCounts[index]++;
+    this.counted = true;
   }
 
   show() {
     let pos = this.body.position;
+    let angle = this.body.angle;
     push();
     translate(pos.x, pos.y);
+    rotate(angle);
     fill(this.color);
     noStroke();
     circle(0, 0, ballRadius * 2);
+    // Draw a small line so you can see the balls rotating
+    //stroke(255, 50);
+    //line(0, 0, ballRadius, 0);
     pop();
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
