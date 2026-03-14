@@ -78,7 +78,7 @@ function drawTDistLayer(ts, tc) {
   // Curve
   noFill();
   stroke(50);
-  strokeWeight(2);
+  strokeWeight(3);
   beginShape();
   for (let t = -5; t <= 5; t += 0.1) {
     let y = exp(-sq(t) / 2) * 100;
