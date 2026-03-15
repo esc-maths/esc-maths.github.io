@@ -25,7 +25,7 @@ uniform vec3 iResolution;
 ${complexLibrary}
 
 vec3 computeColor(vec2 fragCoord) {
-    float zoom = 3.0;
+    float zoom = 1.1;
     vec2 uv = zoom * (2. * fragCoord - iResolution.xy ) / iResolution.y;
     
     complex z = uv;
