@@ -5,18 +5,22 @@ let world;
 let particles = [];
 let pegs = [];
 let boundaries = [];
-let ground; 
+let ground;
 let binCounts = [];
 
-const rows = 9; 
-const cols = 14; 
-const spacing = 55; 
+const rows = 12;
+const cols = 14;
+const spacing = 55;
 const ballRadius = 7;
-const maxBalls = 350;
+const maxBalls = 400;
+
+let pegTopMargin = 120;
+let binHeight = 180;
+let groundMargin = 60;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  
+
   engine = Engine.create();
   world = engine.world;
 
@@ -25,27 +29,40 @@ function setup() {
   }
 
   // 1. Create Pegs
+  // Compute bin position first
+  let binY = height - binHeight / 2 - groundMargin;
+  let binTop = binY - binHeight / 2;
+
+  // Available vertical space for pegs
+  let pegAreaHeight = binTop - pegTopMargin;
+
+  // Dynamic vertical spacing
+  let pegSpacingY = pegAreaHeight / rows;
+
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
+
       let xOffset = (r % 2 === 0) ? 0 : spacing / 2;
+
       let x = (width / 2 - (cols * spacing) / 2) + c * spacing + xOffset;
-      let y = 120 + r * (spacing * 0.8);
-      
+
+      let y = pegTopMargin + r * pegSpacingY;
+
       let p = Bodies.circle(x, y, 4, { isStatic: true, friction: 0 });
+
       pegs.push(p);
       Composite.add(world, p);
     }
   }
 
   // 2. Create Bins
-  let binHeight = 180;
-  let binY = height - binHeight / 2 - 60; 
-  for (let i = 0; i <= cols; i++) {
-    let x = (width / 2 - (cols * spacing) / 2) + i * spacing - (spacing / 4);
-    let b = Bodies.rectangle(x, binY, 4, binHeight, { isStatic: true });
-    boundaries.push(b);
-    Composite.add(world, b);
-  }
+
+for (let i = 0; i <= cols; i++) {
+  let x = (width / 2 - (cols * spacing) / 2) + i * spacing - (spacing / 4);
+  let b = Bodies.rectangle(x, binY, 4, binHeight, { isStatic: true });
+  boundaries.push(b);
+  Composite.add(world, b);
+}
 
   // 3. Create the Ground
   ground = Bodies.rectangle(width / 2, height - 50, width, 10, { isStatic: true });
@@ -63,7 +80,7 @@ function draw() {
   textSize(12);
   fill(150);
   text("Click to RESET", 100, 60);
-  
+
   // Spawn balls
   if (frameCount % 10 === 0 && particles.length < maxBalls) {
     particles.push(new Particle(width / 2 + random(-2, 2), 40));
@@ -110,10 +127,10 @@ function mousePressed() {
 class Particle {
   constructor(x, y) {
     // Standard physics options - no freezing
-    let options = { 
-      restitution: 0.4, 
+    let options = {
+      restitution: 0.4,
       friction: 0.1,
-      frictionAir: 0.01 
+      frictionAir: 0.01
     };
     this.body = Bodies.circle(x, y, ballRadius, options);
     this.counted = false;
@@ -154,4 +171,5 @@ class Particle {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  location.reload();
 }
