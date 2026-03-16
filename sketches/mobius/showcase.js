@@ -7,7 +7,7 @@ const geometry = new THREE.PlaneGeometry(2, 2);
 const uniforms = {
     iTime: { value: 0 },
     iResolution: { value: new THREE.Vector3() },
-    uMode: { value: 0 },       // 0: Loxodromic, 1: Elliptic, 2: Hyperbolic, 3: Parabolic
+    uMode: { value: 0 },       // 0: Elliptic, 1: Hyperbolic, 2: Loxodromic, 3: Parabolic
     uShowSphere: { value: 1.0 } // 1.0: On, 0.0: Off
 };
 
@@ -64,7 +64,13 @@ void main() {
 
         // 2. Apply Mode (State Machine)
         float speed = 0.09;
-        if (uMode == 0) { // Loxodromic: Seamless & Large Tiles
+        if (uMode == 0) { // Elliptic: Pure Rotation
+            gridUV = vec2(log(length(z) + 0.0001), atan(z.y, z.x) * (2.0 / PI) + iTime * speed * 2.2);
+        } 
+        else if (uMode == 1) { // Hyperbolic: Pure Scaling
+            gridUV = vec2(log(length(z) + 0.0001) - iTime * speed * 2.4, atan(z.y, z.x) * (2.0 / PI));
+        }
+        else if (uMode == 2) { // Loxodromic: Seamless & Large Tiles
             float logR = log(length(z) + 0.0001) - iTime * speed;
             float theta = atan(z.y, z.x) * (2.0 / PI) + iTime * speed; // Period is 4.0
     
@@ -81,12 +87,6 @@ void main() {
             // Use integers (1.0, 2.0, etc.) to maintain the seamless branch cut.
             gridUV *= 0.75; 
         }
-        else if (uMode == 1) { // Elliptic: Pure Rotation
-            gridUV = vec2(log(length(z) + 0.0001), atan(z.y, z.x) * (2.0 / PI) + iTime * speed * 2.2);
-        } 
-        else if (uMode == 2) { // Hyperbolic: Pure Scaling
-            gridUV = vec2(log(length(z) + 0.0001) - iTime * speed * 2.4, atan(z.y, z.x) * (2.0 / PI));
-        } 
         else if (uMode == 3) { // Parabolic: Pure Translation
             gridUV = (z + vec2(iTime * speed * 2.2, 0.0)) * 1.0;
         }
@@ -131,9 +131,9 @@ uniforms.iResolution.value.set(canvasWidth, canvasHeight, 1);
 
 const modeText = document.getElementById('mode-text');
 const modes = {
-    '1': 'Loxodromic',
-    '2': 'Elliptic',
-    '3': 'Hyperbolic',
+    '1': 'Elliptic',
+    '2': 'Hyperbolic',
+    '3': 'Loxodromic',
     '4': 'Parabolic'
 };
 
