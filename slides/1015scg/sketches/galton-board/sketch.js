@@ -12,7 +12,7 @@ const rows = 12;
 const cols = 14;
 const spacing = 55;
 const ballRadius = 7;
-const maxBalls = 380;
+const maxBalls = 500;
 
 let pegTopMargin = 90;
 let binHeight = 180;
@@ -97,7 +97,7 @@ function draw() {
 
   // Spawn balls
   if (frameCount % 8 === 0 && particles.length < maxBalls) {
-    particles.push(new Particle(width / 2 + random(-1, 1), 45));
+    particles.push(new Particle(width / 2 + random(-1, 1), 40));
   }
 
   // Draw Pegs
@@ -157,9 +157,9 @@ function allBallsSleeping() {
 class Particle {
   constructor(x, y) {
     let options = {
-      restitution: 0.4,
-      friction: 0.1,
-      frictionAir: 0.01,
+      restitution: 0.5,
+      friction: 0.07,
+      frictionAir: 0.001,
       sleepThreshold: 30 
     };
     this.body = Bodies.circle(x, y, ballRadius, options);
