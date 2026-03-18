@@ -76,12 +76,9 @@
 				<div style="line-height: 1.8;">
 					<ul>
 						<li class="fragment" data-fragment-index="0">
-							Solution to two Workshop problems ($\approx$ 10 mins).
-							<p>
-								Available at 
-								<b>Canvas $\rightarrow$ Modules  $\rightarrow$ Week 2</b>
-							</p>
-
+							Solution to examples about error propagation <br/>
+							from Lecture 3 ($\approx$ 10 mins).
+							
 						</li>
 						<li class="fragment" data-fragment-index="1">
 							<b>Main Workshop Task</b> ($\approx$ 60-90 mins).
@@ -101,6 +98,259 @@
 				<br />
 				<br />
 			</section>
+
+			<section>
+					<h4>
+						📝 More Examples 😃
+					</h4>
+
+					<div style="line-height: 1.8;">
+						<ol>
+							<li>
+								I mix 70.0 ± 0.5 ml of water to 30.0 ± 0.4 ml of methanol. How
+								much liquid I have?
+
+							</li>
+							<li>
+								What is the %v/v concentration of the methanol in the mixture
+								above?
+
+							</li>
+							<li>
+								If I take out 15 ± 5 ml of the solution from the mixture above, how
+								much mixture I have left?
+
+							</li>
+
+						</ol>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Example 1 — Total volume</h4>
+					<div class="size-85">
+						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> =
+							\(30.0 \pm
+							0.4\, \text{ml}\).</p>
+						<p class="fragment" data-fragment-index="0">
+							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
+						</p>
+						<p class="fragment" data-fragment-index="2">👉 <span style="color: rgb(221, 19, 19);">Notice we
+								have <b>1 s.f.</b> in each uncertainty!</span></p>
+						<p class="fragment" data-fragment-index="3"><b>Sum (addition)</b> — uncertainties combined in
+							quadrature (independent errors):</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								\(V_{\text{tot}} = V_w + V_m \)
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								\(= 70.0\, \text{ml}+ 30.0 \, \text{ml} \)
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								\(= 100.0 \, \text{ml}\)
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								\( \Delta{V_{\text{tot}}}=\sqrt{(0.5\, \text{ml})^{2}+(0.4\, \text{ml})^{2}} \)
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								\( =\sqrt{0.25\, \text{ml}^2+0.16\, \text{ml}^2}\)
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="9">
+								\( =\sqrt{0.41\, \text{ml}^2} \)
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								\( =0.64\, \text{ml}\;(\text{approx.}) \)
+							</span>
+
+						</p>
+						<p class="fragment" data-fragment-index="11">Hence, \(V_{\text{tot}} = 100.0 \pm 0.6\) ml.</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 2 — % v/v methanol</h4>
+
+					<div class="size-60">
+						<p>
+						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> =
+							\(30.0 \pm
+							0.4\, \text{ml}\).</p>
+						<p>
+							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
+							&nbsp; - &nbsp;
+							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
+						</p>
+						</p>
+					</div>
+
+					<div class="size-85">
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Fraction of methanol: \(\displaystyle
+								f = \frac{V_m}{V_{\text{tot}}}\)
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								\(\displaystyle =\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
+								100\%\)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								\(\displaystyle=30\%\).
+							</span>
+
+						</p>
+					</div>
+					<div class="size-85">
+
+
+						<p class="fragment" data-fragment-index="3">
+							<b>Propagate uncertainty using partial derivatives</b> <br />(since \(V_m\) appears in
+							numerator and
+							denominator):
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							\(\ds f=\frac{V_m}{V_w+V_m},\quad \)
+							<span class="fragment" data-fragment-index="5">
+								\(\ds \frac{\partial f}{\partial V_m}=\frac{V_w}{(V_w+V_m)^2},\quad\)
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								\(\ds
+								\frac{\partial f}{\partial V_w}=-\frac{V_m}{(V_w+V_m)^2} \)
+							</span class="fragment" data-fragment-index="7">
+						</p>
+						<p class="fragment" data-fragment-index="8">Evaluate at \(V_w=70.0,\ V_m=30.0\):</p>
+						<p>
+							<span class="fragment" data-fragment-index="9">
+								\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
+								\tfrac{30}{100^2}\cdot 0.5 \right)^2} \)
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								\( \ds
+								\approx 0.00318 \)
+							</span>
+
+						</p>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2 — % v/v methanol</h4>
+
+					<div class="size-60">
+						<p>
+						<p>Given: <strong>water</strong> = \(70.0 \pm 0.5\, \text{ml}\), <strong>methanol</strong> =
+							\(30.0 \pm
+							0.4\, \text{ml}\).</p>
+						<p>
+							\(V_w = 70.0\, \text{ml}\;\) and \(\;V_m= 30.0\, \text{ml}\)
+							&nbsp; - &nbsp;
+							\(\Delta V_w = 0.5\, \text{ml}\;\) and \(\;\Delta V_m= 0.4\, \text{ml}\)
+						</p>
+						</p>
+					</div>
+					<div class="size-85">
+						<p>
+							<span>
+								Fraction of methanol: \(\displaystyle
+								f = \frac{V_m}{V_{\text{tot}}}\)
+							</span>
+							<span>
+								\(\displaystyle =\frac{30.0\, \text{ml}}{100.0\, \text{ml}} \times
+								100\%\)
+							</span>
+							<span>
+								\(\displaystyle=30\%\).
+							</span>
+
+						</p>
+					</div>
+					<div class="size-90">
+
+
+						<p>
+							<span>
+								\( \ds \Delta f=\sqrt{\left( \tfrac{70}{100^2}\cdot 0.4 \right)^2 + \left(
+								\tfrac{30}{100^2}\cdot 0.5 \right)^2} \)
+							</span>
+							<span>
+								\( \ds
+								\approx 0.00318 \)
+							</span>
+
+						</p>
+
+						<p class="fragment" data-fragment-index="0">
+							Uncertainty as percentage:
+							\(0.00318\times100\approx0.318\%\), <br />
+							<span class="fragment" data-fragment-index="1">
+								round sensibly to <span style="color: rgb(221, 19, 19);"><b>1. s.f.</b></span> in
+								the uncertainty → \(0.3\%\).</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">Therefore, Methanol = \(30.0\pm 0.3\, \%\) (%v/v).
+						</p>
+
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section>
+					<h4>Example 3 — Mixture remaining after removing part</h4>
+					<div class="size-90">
+						<p>We remove \(15 \pm 5 \, \text{ml}\) from the total \(100.0 \pm 0.64 \, \text{ml}\).</p>
+						<p class="fragment" data-fragment-index="0">
+							Remaining volume:
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								\( R = V_{\text{tot}} - V_{\text{removed}} \)
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								\( = 100.0\, \text{ml} - 15.0 \, \text{ml} \)
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								\( = 85.0 \, \text{ml}\)
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							<b>Subtraction</b> - Independent errors → quadrature:
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								\(\Delta R=\sqrt{0.64^2\, \text{ml}^2 + 5.0^2\, \text{ml}^2} \)
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								\(=\sqrt{0.4096\, \text{ml}^2+25\, \text{ml}^2} \)
+							</span>
+						</p>
+						<p>
+
+							<span class="fragment" data-fragment-index="7">
+								\(=5.04\, \text{ml}\ (\text{approx.}) \)
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="8">Round uncertainty to <span
+								style="color: rgb(221, 19, 19);"><b>1 s.f.</b></span> → \(5\).
+							Align value to same precision.</p>
+						<p class="fragment" data-fragment-index="9">Thus, the remaining mixture \(\,= 85 \pm 5\,
+							\text{ml}\) .</p>
+					</div>
+					<br />
+					<br />
+				</section>
 
 			<section>
 				<h2>
