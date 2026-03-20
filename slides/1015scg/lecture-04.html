@@ -284,9 +284,9 @@
 				</section>
 
 				<section>
-					<h3 style="font-size: 130%;">Precision - Accuracy</h3>
+					<h3 style="font-size: 120%;">Precision - Accuracy</h3>
 
-					<br />
+					
 
 
 					<div style=" text-align: left;">
@@ -302,7 +302,10 @@
 					</div>
 
 					<p class="fragment" data-fragment-index="2">
-						Accuracy is about correctness. Precision is about consistency
+						👉 <b>Accuracy</b> is about correctness. 
+					</p>
+					<p class="fragment" data-fragment-index="3">
+						👉 <b>Precision</b> is about consistency.
 					</p>
 
 
@@ -322,123 +325,136 @@
 
 				<section>
 					<h3>High Accuracy, High Precision</h3>
-					<table>
+					<table style="width:100%">
 						<tr>
-							<td>
-								<ul>
+							<td style="width:55%">
+								<ul style="margin-left: 0px;">
 									<li class="fragment" data-fragment-index="0">
-										Measurements are clustered tightly
+										Measurements are clustered tightly.
 									</li>
 									<li class="fragment" data-fragment-index="1">
 
-										And centered on the true value
+										And centered on the true value.
 									</li>
 									<li class="fragment" data-fragment-index="2">
-										✅ This is what we want
+										✅ This is what we want.
 									</li>
 								</ul>
 								<p class="fragment" data-fragment-index="3">
 									We are both correct and consistent!
 								</p>
 
-							</td>
-							<td>
+								<br/>
 
-								<img src="accuracy-precision-01.jpg">
+							</td>
+							<td style="width:45%">
+
+								<img style="width:100%" src="images/lec-04/accuracy-precision-01.png">
 
 							</td>
 						</tr>
 					</table>
+					<br/>
 				</section>
 
 				<section>
 					<h3>High Accuracy, Low Precision</h3>
-					<table>
+					<table style="width:100%">
 						<tr>
-							<td>
-								<ul>
-									<li class="fragment" data-fragment-index="0">
-										Measurements are spread out
+							<td style="width:55%">
+								<ul style="margin-left: 0px;">
+									<li>
+										Measurements are spread out.
 									</li>
 									<li class="fragment" data-fragment-index="1">
-										But centered around the true value
+										But centered around the true value.
 									</li>
 									<li class="fragment" data-fragment-index="2">
-										Random errors are large but cancel out
+										Random errors are large but cancel out.
 									</li>
 								</ul>
 								<p class="fragment" data-fragment-index="3">
 									We are correct on average, but not consistent.
 								</p>
 
-							</td>
-							<td>
+								<br/>
 
-								<img src="accuracy-precision-02.jpg">
+							</td>
+							<td style="width:45%">
+
+								<img style="width:100%" src="images/lec-04/accuracy-precision-02.png">
 
 							</td>
 						</tr>
 					</table>
+
+					<br/>
 				</section>
 
 				<section>
 					<h3>Low Accuracy, High Precision</h3>
-					<table>
+					<table style="width:100%">
 						<tr>
-							<td>
-								<ul>
-									<li class="fragment" data-fragment-index="0">
-										Measurements are clustered tightly
+							<td style="width:55%">
+								<ul style="margin-left: 0px;">
+									<li>
+										Measurements are clustered tightly.
 									</li>
 									<li class="fragment" data-fragment-index="1">
-										But far from the true value
+										But far from the true value.
 									</li>
 									<li class="fragment" data-fragment-index="2">
-										Systematic error (bias) is present
+										Systematic error (bias) is present.
 									</li>
 								</ul>
 								<p class="fragment" data-fragment-index="3">
 									We are consistent, but consistently wrong.
 								</p>
+								<br/>
 
 							</td>
-							<td>
+							<td style="width:45%">
 
-								<img src="accuracy-precision-03.jpg">
+								<img style="width:100%" src="images/lec-04/accuracy-precision-03.png">
 
 							</td>
 						</tr>
 					</table>
+					<br/>
 				</section>
 
 				<section>
 					<h3>Low Accuracy, Low Precision</h3>
-					<table>
+					<table style="width:100%">
 						<tr>
-							<td>
-								<ul>
-									<li class="fragment" data-fragment-index="0">
-										Measurements are spread out
+							<td style="width:55%">
+								<ul style="margin-left: 0px;">
+									<li>
+										Measurements are spread out.
 									</li>
 									<li class="fragment" data-fragment-index="1">
-										And far from the true value
+										And far from the true value.
 									</li>
 									<li class="fragment" data-fragment-index="2">
-										Both random and systematic errors are present
+										Both random and systematic errors are present.
 									</li>
 								</ul>
 								<p class="fragment" data-fragment-index="3">
 									We are neither correct nor consistent.
 								</p>
 
-							</td>
-							<td>
+								<br/>
 
-								<img src="accuracy-precision-04.jpg">
+							</td>
+							<td style="width:45%">
+
+								<img style="width:100%" src="images/lec-04/accuracy-precision-04.png">
 
 							</td>
 						</tr>
 					</table>
+
+					<br/>
 				</section>
 
 				
@@ -448,7 +464,7 @@
 
 					<table style="width: 100%;">
 						<tr>
-							<td style="width: 55%;">
+							<td style="width: 65%;">
 								<div style="font-size: 80%; text-align: left;">
 									<ul style="line-height: 1.8;margin-left: 0px;">
 										<li>
@@ -480,9 +496,9 @@
 									</p>
 								</div>
 							</td>
-							<td style="width: 50%;">
-								<iframe style="width: 500px; height:500px; border: solid 1px black;"
-									data-src="sketches/accuracy-precision/"></iframe>
+							<td style="width: 40%;">
+								<img style="width:100%" src="images/lec-04/all-cases.png">
+
 							</td>
 						</tr>
 					</table>
