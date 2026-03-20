@@ -77,6 +77,427 @@
 			</section>
 
 			<section>
+
+				<section>
+					<h4>
+						Example Best estimate and standard error (precision)
+					</h4>
+					<table style="width: 100%;margin-top: -20px;">
+						<tr>
+							<td style="width: 40%;">
+								<table style="border-collapse:collapse; width:100%; text-align:center; font-size: 65%;"
+									border="1">
+									<thead>
+										<tr>
+											<td>
+
+											</td>
+											<td>
+												Group 1 🔷
+											</td>
+											<td>
+												Group 2 🔴
+											</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												Trial
+											</td>
+											<td>
+												time (s)
+											</td>
+											<td>
+												time (s)
+											</td>
+										</tr>
+										<tr>
+											<td>
+												1
+											</td>
+											<td>
+												1.621
+											</td>
+											<td>
+												1.649906
+											</td>
+										</tr>
+										<tr>
+											<td>
+												2
+											</td>
+											<td>
+												1.603
+											</td>
+											<td>
+												1.648798
+											</td>
+										</tr>
+										<tr>
+											<td>
+												3
+											</td>
+											<td>
+												1.659
+											</td>
+											<td>
+												1.648590
+											</td>
+										</tr>
+										<tr>
+											<td>
+												4
+											</td>
+											<td>
+												1.673
+											</td>
+											<td>
+												1.647875
+											</td>
+										</tr>
+										<tr>
+											<td>
+												5
+											</td>
+											<td>
+												1.610
+											</td>
+											<td>
+												1.647744
+											</td>
+										</tr>
+										<tr>
+											<td>
+												6
+											</td>
+											<td>
+												1.694
+											</td>
+											<td>
+												1.650007
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<b>Average</b>
+											</td>
+											<td>
+
+												1.643333
+												<div
+													style="color: rgb(1, 12, 220); margin-top: -40px;margin-bottom: -15px;font-weight: bold;">
+													<p>_ _ _ _ _</p>
+												</div>
+
+											</td>
+											<td>
+
+												1.648820
+												<div
+													style="color: rgb(220, 1, 1); margin-top: -40px;margin-bottom: -15px;font-weight: bold;">
+													<p>_______</p>
+												</div>
+
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<b>SD</b>
+											</td>
+											<td>
+
+												0.037227
+
+											</td>
+											<td>
+
+												0.000969
+
+
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<b>SE</b>
+											</td>
+											<td>
+
+												0.015198
+
+
+											</td>
+											<td>
+
+												0.000395
+
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td style="width: 60%;">
+
+								<div style="font-size: 85%;">
+									<p class="fragment" data-fragment-index="0">
+										For Group 1, we have
+									</p>
+								</div>
+
+
+
+								<div style="font-size: 90%; text-align: center;">
+									<p class="fragment" data-fragment-index="0">
+										\( x = 1.643 \pm 0.015 \, \text{s}\)
+									</p>
+								</div>
+
+								<br />
+								
+
+
+								<hr class="fragment" data-fragment-index="1" />
+
+								<div style="font-size: 85%;">
+									<p class="fragment" data-fragment-index="1">
+										For Group 2, we have
+									</p>
+								</div>
+
+
+
+								<div style="font-size: 90%; text-align: center;">
+									<p class="fragment" data-fragment-index="1">
+										\( x = 1.64882 \pm 0.00040s \, \text{s}\)
+									</p>
+								</div>
+
+								<br />
+								<br />
+
+
+
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+
+				<section>
+					<h3 style="font-size: 130%;">Precision - Accuracy</h3>
+
+					<br />
+
+
+					<div style=" text-align: left;">
+						<p class="fragment" data-fragment-index="0">
+							<b>Accuracy:</b> Are we close to the <i>true</i> value?
+						</p>
+
+
+
+						<p class="fragment" data-fragment-index="1">
+							<b>Precision:</b> Are our measurements consistent with each other?
+						</p>
+					</div>
+
+					<p class="fragment" data-fragment-index="2">
+						Accuracy is about correctness. Precision is about consistency
+					</p>
+
+
+					<br />
+
+					<div style="margin-top: -60px;">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f3af/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f3af/512.gif" alt="🎯" width="180"
+								height="180">
+						</picture>
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<h3>High Accuracy, High Precision</h3>
+					<table>
+						<tr>
+							<td>
+								<ul>
+									<li class="fragment" data-fragment-index="0">
+										Measurements are clustered tightly
+									</li>
+									<li class="fragment" data-fragment-index="1">
+
+										And centered on the true value
+									</li>
+									<li class="fragment" data-fragment-index="2">
+										✅ This is what we want
+									</li>
+								</ul>
+								<p class="fragment" data-fragment-index="3">
+									We are both correct and consistent!
+								</p>
+
+							</td>
+							<td>
+
+								<img src="accuracy-precision-01.jpg">
+
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h3>High Accuracy, Low Precision</h3>
+					<table>
+						<tr>
+							<td>
+								<ul>
+									<li class="fragment" data-fragment-index="0">
+										Measurements are spread out
+									</li>
+									<li class="fragment" data-fragment-index="1">
+										But centered around the true value
+									</li>
+									<li class="fragment" data-fragment-index="2">
+										Random errors are large but cancel out
+									</li>
+								</ul>
+								<p class="fragment" data-fragment-index="3">
+									We are correct on average, but not consistent.
+								</p>
+
+							</td>
+							<td>
+
+								<img src="accuracy-precision-02.jpg">
+
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h3>Low Accuracy, High Precision</h3>
+					<table>
+						<tr>
+							<td>
+								<ul>
+									<li class="fragment" data-fragment-index="0">
+										Measurements are clustered tightly
+									</li>
+									<li class="fragment" data-fragment-index="1">
+										But far from the true value
+									</li>
+									<li class="fragment" data-fragment-index="2">
+										Systematic error (bias) is present
+									</li>
+								</ul>
+								<p class="fragment" data-fragment-index="3">
+									We are consistent, but consistently wrong.
+								</p>
+
+							</td>
+							<td>
+
+								<img src="accuracy-precision-03.jpg">
+
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h3>Low Accuracy, Low Precision</h3>
+					<table>
+						<tr>
+							<td>
+								<ul>
+									<li class="fragment" data-fragment-index="0">
+										Measurements are spread out
+									</li>
+									<li class="fragment" data-fragment-index="1">
+										And far from the true value
+									</li>
+									<li class="fragment" data-fragment-index="2">
+										Both random and systematic errors are present
+									</li>
+								</ul>
+								<p class="fragment" data-fragment-index="3">
+									We are neither correct nor consistent.
+								</p>
+
+							</td>
+							<td>
+
+								<img src="accuracy-precision-04.jpg">
+
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				
+
+				<section>
+					<h3>Precision - Accuracy: Incline plane experiment</h3>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 55%;">
+								<div style="font-size: 80%; text-align: left;">
+									<ul style="line-height: 1.8;margin-left: 0px;">
+										<li>
+											Group 1: \( x = 1.643 \pm 0.015 \, \text{s}\)<br />
+											<span class="fragment" data-fragment-index="0">
+												&nbsp;&nbsp;&nbsp;&nbsp;large uncertainty → low precision
+											</span>
+										</li>
+										<li>
+											Group 2: \( x = 1.64882 \pm 0.00040s \, \text{s}\) <br />
+											<span class="fragment" data-fragment-index="1">
+												&nbsp;&nbsp;&nbsp;&nbsp;small uncertainty → high precision
+											</span>
+
+										</li>
+									</ul>
+									<br />
+
+									<p class="fragment" data-fragment-index="2">But <b>we don't know accuracy</b> unless
+										we know the
+										<i>true</i> value! 😕
+									</p>
+
+									<p class="fragment" data-fragment-index="3">
+										👉 <b>Precision</b> comes from the data.
+									</p>
+									<p class="fragment" data-fragment-index="4">
+										👉 <b>Accuracy</b> requires comparison with the <i>true</i> value.
+									</p>
+								</div>
+							</td>
+							<td style="width: 50%;">
+								<iframe style="width: 500px; height:500px; border: solid 1px black;"
+									data-src="sketches/accuracy-precision/"></iframe>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+					<br />
+
+
+
+
+				</section>
+
+			</section>
+
+			<section>
 				<section>
 					<h4 style="font-size: 160%;">Linear Regression</h4>
 
@@ -1652,7 +2073,8 @@
 							<li class="fragment" data-fragment-index="2">Find the number of degrees of freedom: \(
 								\text{df} = n - 1 .\)</li>
 							<li class="fragment" data-fragment-index="3">
-								Find the <b>$t$-critical</b> value (\( t_{\textbf{critical}} \)) for the given \( \text{CL} \) and \(
+								Find the <b>$t$-critical</b> value (\( t_{\textbf{critical}} \)) for the given \(
+								\text{CL} \) and \(
 								\text{df} \) (from a
 								table or Excel). This is the <em>theoretical value based on a probability
 									distribution</em>.
@@ -1666,8 +2088,9 @@
 										interval \(\text{CI}.\)</li>
 									<li class="fragment" data-fragment-index="6">
 										Check if <b>$t$-statistic</b> \(=\ds t_{\textbf{stat}} = \frac{|\mu -
-										\mu_0|}{\text{SE}}\) is smaller than $t_{\textbf{critical}}$: \(\ds t_{\textbf{stat}} \leq t_{\textbf{critical}} .\)
-										
+										\mu_0|}{\text{SE}}\) is smaller than $t_{\textbf{critical}}$: \(\ds
+										t_{\textbf{stat}} \leq t_{\textbf{critical}} .\)
+
 									</li>
 								</ul>
 							</li>
@@ -1675,7 +2098,8 @@
 
 						<p>
 							<span style="color: rgb(4, 125, 4);" class="fragment" data-fragment-index="8">
-								&nbsp; ✅ If $t_{\textbf{stat}} \leq t_{\textbf{critical}} ,$ the estimate \( \mu \) agrees
+								&nbsp; ✅ If $t_{\textbf{stat}} \leq t_{\textbf{critical}} ,$ the estimate \( \mu \)
+								agrees
 								with the
 								expected/theoretical value \( \mu_0 .\)</span>
 							<br />
@@ -1854,9 +2278,10 @@
 				<section>
 					<h3>Student $t$-test visualization</h3>
 
-					<iframe style="width: 100%; height: 550px; border: 1px solid black;margin-top: -10px;" data-src="sketches/visual-student-t-test/"></iframe>
-					<br/>
-					<br/>
+					<iframe style="width: 100%; height: 550px; border: 1px solid black;margin-top: -10px;"
+						data-src="sketches/visual-student-t-test/"></iframe>
+					<br />
+					<br />
 				</section>
 
 				<section>
@@ -2143,13 +2568,14 @@
 							</li>
 
 							<li class="fragment" data-fragment-index="5">
-								Find the <b>\(t\)-critical</b> value (\(t_{\textbf{critical}}\)) for the chosen \( \text{CL} \) and \(
+								Find the <b>\(t\)-critical</b> value (\(t_{\textbf{critical}}\)) for the chosen \(
+								\text{CL} \) and \(
 								\text{df} \)
 								(from a table or Excel).
 							</li>
 
 							<li class="fragment" data-fragment-index="6">
-								Check whether \( t_{\textbf{stat}} \leq t_{\textbf{critical}}  \).
+								Check whether \( t_{\textbf{stat}} \leq t_{\textbf{critical}} \).
 							</li>
 
 						</ol>
@@ -2173,9 +2599,10 @@
 				<section>
 					<h3>Welch $t$-test visualization</h3>
 
-					<iframe style="width: 100%; height: 550px; border: 1px solid black;margin-top: -10px;" data-src="sketches/visual-welch-t-test/"></iframe>
-					<br/>
-					<br/>
+					<iframe style="width: 100%; height: 550px; border: 1px solid black;margin-top: -10px;"
+						data-src="sketches/visual-welch-t-test/"></iframe>
+					<br />
+					<br />
 				</section>
 
 				<section>
