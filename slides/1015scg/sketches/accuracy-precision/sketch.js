@@ -53,7 +53,7 @@ function drawCase(cx, cy, label, type) {
   if (type === "high_low") {
     for (let i = 0; i < 25; i++) {
       let angle = random(TWO_PI);
-      let r = random(15, 50);
+      let r = random(8, 35);
       points.push([
         r * cos(angle),
         r * sin(angle)
