@@ -864,7 +864,7 @@
 
 				<section data-auto-animate>
 					<h4>
-						Linear Model: Workshop attendance vs overall mark
+						Linear Model \(\,\hat{y}=mx+b\,\): Workshop attendance vs overall mark
 					</h4>
 
 					<div style="font-size: 90%;">
@@ -962,30 +962,33 @@
 
 					<div class="left-txt">
 						<p class="fragment" data-fragment-index="0">
-							Our equation here is $ m x + b = 50.$
+							Our equation here is \(\,\hat{y}=mx+b\)
 							<span class="fragment" data-fragment-index="1">
+								\(=50.\)
+							</span>
+							<span class="fragment" data-fragment-index="2">
 								We need to solve for $x$, that is:
 							</span>
 						</p>
 					</div>
 
-					<div style="text-align: center;" class="fragment" data-fragment-index="1">
+					<div style="text-align: center;" class="fragment" data-fragment-index="3">
 						<p>
 							\( \ds x = \frac{50 - b}{m} \)
 						</p>
 					</div>
 
 					<div class="left-txt">
-						<p class="fragment" data-fragment-index="2">
+						<p class="fragment" data-fragment-index="4">
 							Both \( m \) and \( b \) have uncertainty.
-							<span class="fragment" data-fragment-index="3">
+							<span class="fragment" data-fragment-index="5">
 								We treat \( x \) as a function:
 							</span>
 						</p>
 
 					</div>
 
-					<div style="text-align: center;" class="fragment" data-fragment-index="3">
+					<div style="text-align: center;" class="fragment" data-fragment-index="5">
 						<p>
 							\( x = f(m,b) \)
 						</p>
@@ -1496,6 +1499,44 @@
 					<br />
 				</section>
 
+				<section>
+					<h4>
+						Error Propagation for 2010
+					</h4>
+
+					<div class="left-txt">
+						<p>
+							We know that the Standard Error = $234.14.$
+
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							<span>Using 2 s.f. then Standard Error = $230.$</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Predicted fatalities in 2010:
+							\( \;\hat{y} = 1,400 .\)
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							So the uncertainty in the prediction for 2010 is:
+						</p>
+
+					</div>
+
+
+
+
+					<div style="text-align: center;">
+						<p class="fragment" data-fragment-index="3">
+							\( 1,400 \pm 230 \)
+						</p>
+					</div>
+
+
+
+					<br />
+					<br />
+				</section>
+
 				<section data-auto-animate>
 					<h4>
 						Prediction for 2040
@@ -1536,43 +1577,7 @@
 				</section>
 
 
-				<section>
-					<h4>
-						Error Propagation for 2010
-					</h4>
-
-					<div class="left-txt">
-						<p>
-							We know that the Standard Error = $234.14.$
-
-						</p>
-						<p class="fragment" data-fragment-index="1">
-							<span>Using 2 s.f. then Standard Error = $230.$</span>
-						</p>
-						<p class="fragment" data-fragment-index="2">
-							Predicted fatalities in 2010:
-							\( \;\hat{y} = 1,400 .\)
-						</p>
-						<p class="fragment" data-fragment-index="3">
-							So the uncertainty in the prediction for 2010 is:
-						</p>
-
-					</div>
-
-
-
-
-					<div style="text-align: center;">
-						<p class="fragment" data-fragment-index="3">
-							\( 1,400 \pm 230 \)
-						</p>
-					</div>
-
-
-
-					<br />
-					<br />
-				</section>
+				
 
 
 
