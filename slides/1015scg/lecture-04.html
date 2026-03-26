@@ -2117,7 +2117,7 @@
 						Two-sided Student $t$-test
 					</h4>
 
-					<div class="size-80 left-txt">
+					<div style="font-size: 78%;text-align: left;">
 						<p>
 							Does the estimate \( \mu \) match the expected or theoretical value \( \mu_0 \)?
 						</p>
@@ -2137,14 +2137,14 @@
 									distribution</em>.
 							</li>
 							<li class="fragment" data-fragment-index="4">
-								Then there are two mathematically equivalent options:
+								Then there are two mathematically equivalent options, check if:
 								<ul style="margin-left: -15px;">
-									<li class="fragment" data-fragment-index="5">Check if \(\mu- t_c \times \text{SE}
+									<li class="fragment" data-fragment-index="5">\(\mu- t_c \times \text{SE}
 										\leq \mu_0 \leq \mu+ t_c \times\text{SE}\),
 										confidence
-										interval \(\text{CI}.\)</li>
+										interval \(\text{CI},\) or</li>
 									<li class="fragment" data-fragment-index="6">
-										Check if <b>$t$-statistic</b> \(=\ds t_{\textbf{stat}} = \frac{|\mu -
+										<b>$t$-statistic</b> \(=\ds t_{\textbf{stat}} = \frac{|\mu -
 										\mu_0|}{\text{SE}}\) is smaller than $t_{\textbf{critical}}$: \(\ds
 										t_{\textbf{stat}} \leq t_{\textbf{critical}} .\)
 
@@ -2631,20 +2631,18 @@
 								(from a table or Excel).
 							</li>
 
-							<li class="fragment" data-fragment-index="6">
-								Check whether \( t_{\textbf{stat}} \leq t_{\textbf{critical}} \).
-							</li>
+							
 
 						</ol>
 
 						<p>
 							<span style="color: rgb(4, 125, 4);" class="fragment" data-fragment-index="7">
-								&nbsp;&nbsp; ✅ If yes – the experiments agree with each other at the chosen confidence
-								level.
+								 &nbsp;&nbsp; ✅ If \( t_{\textbf{stat}} \leq t_{\textbf{critical}} ,\) the experiments agree 
+								 with each other at the chosen CL.
 							</span>
 							<br>
 							<span style="color: rgb(190,10,10);" class="fragment" data-fragment-index="8">
-								&nbsp;&nbsp; ❌ If not – the experiments do not agree with each other.
+								&nbsp;&nbsp; ❌ If not, the experiments do not agree with each other.
 							</span>
 						</p>
 
