@@ -105,6 +105,42 @@
     .toggle-ui-btn:active {
       transform: scale(0.95);
     }
+
+    /* small instruction hint */
+    .info-hint {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      font-size: 0.8rem;
+      color: rgba(200, 200, 255, 0.99);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 8px 10px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      pointer-events: none;
+      z-index: 15;
+      font-family: monospace;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 600px) {
+      .ui {
+        width: 260px;
+        padding: 16px;
+      }
+
+      .toggle-ui-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .info-hint {
+        font-size: 8px;
+        bottom: 10px;
+        left: 12px;
+      }
+    }
   </style>
 </head>
 
@@ -134,6 +170,16 @@
       <input type="range" id="inv" min="0" max="3.14" step="0.01" value="0.0">
     </div>
   </div>
+
+  <div class="info-hint">
+    - Real axes (<span style="color: orange;">Orange</span>) <br/>
+    - Imaginary axes (<span style="color: cyan;">Cyan</span>) <br/>
+    🟡 &nbsp;1 + i, 
+    🟢 -1 - i <br/>
+    🔴 &nbsp;1 - i, 
+    🔵 -1 + i
+  </div>
+
 
   <script type="importmap">
         {
