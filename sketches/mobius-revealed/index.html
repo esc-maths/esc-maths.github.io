@@ -1,607 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Möbius Transformations - Fixed Sphere Patch Projected to Plane</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-    }
-
-    .webgl {
-      position: fixed;
-      top: 0;
-      left: 0;
-      outline: none;
-      display: block;
-    }
-
-    .ui-panel {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: rgba(20, 22, 27, 0.92);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 18px 22px;
-      width: 290px;
-      color: #f0f0f0;
-      font-family: system-ui, -apple-system, sans-serif;
-      z-index: 100;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      pointer-events: auto;
-    }
-
-    .ui-panel h3 {
-      margin: 0 0 8px 0;
-      font-size: 1.2rem;
-      font-weight: 500;
-      letter-spacing: -0.2px;
-      color: rgb(0, 255, 229);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 8px;
-    }
-
-    .ui-panel h3:before {
-      content: "◈";
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-
-    .control-group {
-      margin-bottom: 16px;
-    }
-
-    .control-label {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 6px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-      color: #ddd;
-    }
-
-    .control-label span:first-child {
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      opacity: 0.8;
-    }
-
-    .control-label span:last-child {
-      font-family: 'JetBrains Mono', monospace;
-      background: rgba(0,0,0,0.5);
-      padding: 2px 8px;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      color: rgb(0, 255, 229);
-    }
-
-    input[type="range"] {
-      width: 100%;
-      cursor: pointer;
-      background: rgba(50, 55, 65, 0.9);
-      height: 4px;
-      border-radius: 10px;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-
-    input[type="range"]:focus {
-      outline: none;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: rgb(0, 255, 229);
-      cursor: pointer;
-      box-shadow: 0 0 6px rgba(0,255,229,0.6);
-      border: none;
-    }
-
-    input[type="range"]::-webkit-slider-thumb:hover {
-      transform: scale(1.2);
-      background: #ffffff;
-    }
-
-    .checkbox-group {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 12px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .checkbox-group label {
-      cursor: pointer;
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .checkbox-group input {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: rgb(0, 255, 229);
-    }
-
-    .footer {
-      position: fixed;
-      bottom: 16px;
-      left: 16px;
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.7);
-      background: rgba(0, 0, 0, 0.45);
-      padding: 6px 12px;
-      border-radius: 20px;
-      backdrop-filter: blur(4px);
-      font-family: system-ui, sans-serif;
-      pointer-events: none;
-      z-index: 99;
-    }
-
-    .footer a {
-      color: rgb(0, 255, 229);
-      text-decoration: none;
-    }
-
-    .instructions {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.9);
-      font-family: system-ui, -apple-system, sans-serif;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 40px;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: center;
-      pointer-events: none;
-      white-space: nowrap;
-      animation: fadeOut 1s linear 30s forwards;
-      z-index: 98;
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-        visibility: visible;
-      }
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    .mode-badge {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 12px;
-      font-weight: 500;
-      font-family: monospace;
-      color: rgb(0, 255, 229);
-      border: 1px solid rgba(0,255,229,0.4);
-      pointer-events: none;
-      z-index: 99;
-      letter-spacing: 0.3px;
-    }
-
-    @media (max-width: 700px) {
-      .ui-panel { width: 260px; padding: 14px 16px; top: 12px; left: 12px; }
-      .instructions { font-size: 10px; white-space: nowrap; padding: 6px 12px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Möbius Rigid Motions - Two-Tone Grid</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #000; font-family: sans-serif; }
+        canvas { display: block; }
+        .ui {
+            position: absolute; top: 20px; left: 20px;
+            background: rgba(10, 10, 15, 0.9); padding: 20px;
+            border-radius: 12px; border: 1px solid #0ff; color: #fff;
+            width: 280px; backdrop-filter: blur(8px); z-index: 10;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+        .control { margin-bottom: 15px; }
+        label { display: flex; justify-content: space-between; font-size: 11px; color: #8af; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        input[type=range] { width: 100%; cursor: pointer; accent-color: #0ff; }
+        span { font-family: monospace; color: #0ff; background: rgba(0,255,255,0.1); padding: 2px 4px; border-radius: 3px; }
+        h2 { margin: 0 0 15px 0; font-size: 14px; color: #0ff; text-align: center; border-bottom: 1px solid #333; padding-bottom: 10px; }
+    </style>
 </head>
-
 <body>
-  <canvas class="webgl"></canvas>
-
-  <div class="ui-panel">
-    <h3>Möbius Transform</h3>
-    <div class="control-group">
-      <div class="control-label"><span>📐 Scaling (Z-Axis)</span><span id="heightVal">0.50</span></div>
-      <input type="range" id="heightSlider" min="0.01" max="2.0" step="0.002" value="0.5">
+<div class="ui">
+    <h2>RIGID MÖBIUS</h2>
+    <div class="control">
+        <label>Scaling (Center Z) <span id="sz_val">0.50</span></label>
+        <input type="range" id="sz" min="0.1" max="2.0" step="0.01" value="0.5">
     </div>
-    <div class="control-group">
-      <div class="control-label"><span>🔄 Rotation (XY Plane)</span><span id="rotVal">0.00</span></div>
-      <input type="range" id="rotSlider" min="0" max="6.283185" step="0.008" value="0.0">
+    <div class="control">
+        <label>Translate X <span id="tx_val">0.00</span></label>
+        <input type="range" id="tx" min="-3.0" max="3.0" step="0.01" value="0.0">
     </div>
-    <div class="control-group">
-      <div class="control-label"><span>🌀 Inversion (X-Axis)</span><span id="invVal">0.00</span></div>
-      <input type="range" id="invSlider" min="0" max="3.141593" step="0.008" value="0.0">
+    <div class="control">
+        <label>Translate Y <span id="ty_val">0.00</span></label>
+        <input type="range" id="ty" min="-3.0" max="3.0" step="0.01" value="0.0">
     </div>
-    <div class="control-group">
-      <div class="control-label"><span>↔️ Translate X</span><span id="transXVal">0.00</span></div>
-      <input type="range" id="transXSlider" min="-2.0" max="2.0" step="0.005" value="0.0">
+    <div class="control">
+        <label>Rotation (Around Z) <span id="rot_val">0.00</span></label>
+        <input type="range" id="rot" min="0" max="6.28" step="0.01" value="0.0">
     </div>
-    <div class="control-group">
-      <div class="control-label"><span>↕️ Translate Y</span><span id="transYVal">0.00</span></div>
-      <input type="range" id="transYSlider" min="-2.0" max="2.0" step="0.005" value="0.0">
+    <div class="control">
+        <label>Inversion (Around Y) <span id="inv_val">0.00</span></label>
+        <input type="range" id="inv" min="0" max="3.14" step="0.01" value="0.0">
     </div>
-    <div class="checkbox-group">
-      <label><input type="checkbox" id="showSphereCheckbox" checked> ✨ Show Reference Sphere</label>
-    </div>
-    <div style="font-size: 10px; text-align: center; margin-top: 10px; opacity:0.6;">drag canvas → translate X/Y</div>
-  </div>
+</div>
 
-  <div class="mode-badge" id="mode-badge">⚪ Fixed Sphere Patch → Projected to Plane</div>
-  <footer class="footer">Möbius transformations · Fixed colorful patch on sphere projects to transformed plane · Inspired by <a href="https://www.shadertoy.com/view/fljfRm" target="_blank">neozhaoliang</a></footer>
-  <div class="instructions">🖱️ <b>Drag left mouse</b> on canvas → translate scene &nbsp;&nbsp;|&nbsp;&nbsp; 🎛️ <b>Sliders</b> transform sphere → Möbius effect on plane</div>
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.module.min.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.183.2/examples/jsm/"
-      }
-    }
-  </script>
+<script type="module">
+import * as THREE from 'three';
 
-  <script type="module">
-    import * as THREE from 'three';
+const params = { tx: 0, ty: 0, sz: 0.5, rot: 0, inv: 0 };
 
-    const canvas = document.querySelector('canvas.webgl');
-    const scene = new THREE.Scene();
-
-    // Parameters - Z is up, plane is XY
-    const params = {
-      translateX: 0.0,
-      translateY: 0.0,
-      height: 0.5,      // Z-axis scaling
-      rotation: 0.0,    // XY-Plane Rotation
-      inversion: 0.0,   // X-Axis Rotation
-      showSphere: true
-    };
-
-    // UI Elements
-    const heightSlider = document.getElementById('heightSlider');
-    const heightVal = document.getElementById('heightVal');
-    const rotSlider = document.getElementById('rotSlider');
-    const rotVal = document.getElementById('rotVal');
-    const invSlider = document.getElementById('invSlider');
-    const invVal = document.getElementById('invVal');
-    const transXSlider = document.getElementById('transXSlider');
-    const transXVal = document.getElementById('transXVal');
-    const transYSlider = document.getElementById('transYSlider');
-    const transYVal = document.getElementById('transYVal');
-    const showSphereCheck = document.getElementById('showSphereCheckbox');
-
-    function updateUIFromParams() {
-      heightSlider.value = params.height;
-      heightVal.innerText = params.height.toFixed(3);
-      rotSlider.value = params.rotation;
-      rotVal.innerText = params.rotation.toFixed(3);
-      invSlider.value = params.inversion;
-      invVal.innerText = params.inversion.toFixed(3);
-      transXSlider.value = params.translateX;
-      transXVal.innerText = params.translateX.toFixed(3);
-      transYSlider.value = params.translateY;
-      transYVal.innerText = params.translateY.toFixed(3);
-      showSphereCheck.checked = params.showSphere;
-    }
-
-    heightSlider.addEventListener('input', (e) => { params.height = parseFloat(e.target.value); heightVal.innerText = params.height.toFixed(3); });
-    rotSlider.addEventListener('input', (e) => { params.rotation = parseFloat(e.target.value); rotVal.innerText = params.rotation.toFixed(3); });
-    invSlider.addEventListener('input', (e) => { params.inversion = parseFloat(e.target.value); invVal.innerText = params.inversion.toFixed(3); });
-    transXSlider.addEventListener('input', (e) => { params.translateX = parseFloat(e.target.value); transXVal.innerText = params.translateX.toFixed(3); });
-    transYSlider.addEventListener('input', (e) => { params.translateY = parseFloat(e.target.value); transYVal.innerText = params.translateY.toFixed(3); });
-    showSphereCheck.addEventListener('change', (e) => { params.showSphere = e.target.checked; });
-
-    // Mouse translation
-    window.addEventListener('mousemove', (e) => {
-      if (e.buttons !== 1) return;
-      let target = e.target;
-      let isOverUI = false;
-      while (target) {
-        if (target.classList && target.classList.contains('ui-panel')) { isOverUI = true; break; }
-        if (target.id && (target.id.includes('Slider') || target.id === 'showSphereCheckbox')) { isOverUI = true; break; }
-        target = target.parentElement;
-      }
-      if (isOverUI) return;
-      params.translateX += e.movementX * 0.008;
-      params.translateY += e.movementY * 0.008;
-      params.translateX = Math.min(2.5, Math.max(-2.5, params.translateX));
-      params.translateY = Math.min(2.5, Math.max(-2.5, params.translateY));
-      transXSlider.value = params.translateX;
-      transXVal.innerText = params.translateX.toFixed(3);
-      transYSlider.value = params.translateY;
-      transYVal.innerText = params.translateY.toFixed(3);
+const setupSlider = (id) => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', (e) => {
+        params[id] = parseFloat(e.target.value);
+        document.getElementById(id + '_val').innerText = params[id].toFixed(2);
     });
+};
+['tx','ty','sz','rot','inv'].forEach(setupSlider);
 
-    const uniforms = {
-      iTime: { value: 0 },
-      iResolution: { value: new THREE.Vector3() },
-      uSphPos: { value: new THREE.Vector3(0, 0, 0.5) },
-      uSphRot: { value: new THREE.Vector2(0, 0) },
-      uShowSphere: { value: 1.0 }
-    };
+const scene = new THREE.Scene();
+const camera = new THREE.OrthographicCamera(-1,1,1,-1,0,1);
 
-    const fragmentShader = `
-    uniform float iTime;
-    uniform vec3 iResolution;
-    uniform vec3 uSphPos;
-    uniform vec2 uSphRot;
-    uniform float uShowSphere;
-    
-    #define PI 3.14159265359
-    #define ROT(a) mat2(cos(a), sin(a), -sin(a), cos(a))
-    
-    float rayPlane(vec3 ro, vec3 rd, vec4 p) {
-        return -(dot(ro, p.xyz) + p.w) / dot(rd, p.xyz);
-    }
-    
-    vec2 raySphere(vec3 ro, vec3 rd, vec4 sph) {
-        vec3 oc = ro - sph.xyz;
-        float b = dot(oc, rd);
-        float c = dot(oc, oc) - sph.w * sph.w;
-        float h = b * b - c;
-        if (h < 0.0) return vec2(-1.0);
-        return vec2(-b - sqrt(h), -b + sqrt(h));
-    }
-    
-    void applyRigidMotion(inout vec3 p, vec3 center) {
-        p -= center;
-        p.xy *= ROT(uSphRot.x);
-        p.yz *= ROT(uSphRot.y);
-        p += center;
-    }
-    
-    vec3 planeToSphere(vec3 p, vec4 sph) {
-        vec3 N = sph.xyz + vec3(0, 0, sph.w);
-        vec3 rd = normalize(N - p);
-        float t = raySphere(p, rd, sph).x;
-        return p + rd * t;
-    }
-    
-    vec3 sphereToPlane(vec3 p, vec4 sph) {
-        vec3 N = sph.xyz + vec3(0, 0, sph.w);
-        vec3 rd = normalize(p - N);
-        float t = rayPlane(p, rd, vec4(0, 0, 1, 0));
-        return p + rd * t;
-    }
-    
-    // Fixed patch on the SPHERE surface (before transformation)
-    // This patch is defined in the sphere's local coordinates
-    vec3 getSpherePatchColor(vec3 spherePoint, vec3 sphereCenter) {
-        // Convert to local coordinates relative to sphere center
-        vec3 localPos = spherePoint - sphereCenter;
-        // Normalize to get point on unit sphere
-        vec3 dir = normalize(localPos);
-        
-        // Define a square patch on the sphere using angular coordinates
-        // Patch covers roughly -45° to 45° in both theta and phi
-        float theta = atan(dir.y, dir.x);  // azimuthal angle in XY plane
-        float phi = asin(dir.z);            // polar angle from XY plane
-        
-        // Square patch from -0.8 to 0.8 radians (~ -45° to 45°)
-        float inPatch = step(abs(theta), 0.8) * step(abs(phi), 0.8);
-        
-        if (inPatch < 0.5) {
-            // Outside the patch on sphere - dark blue/grey
-            return vec3(0.08, 0.10, 0.20);
-        }
-        
-        // Inside the patch - draw a colorful grid with reference points
-        // Map theta and phi to texture coordinates [-1, 1]
-        vec2 uv = vec2(theta / 0.8, phi / 0.8);
-        
-        // Draw grid lines
-        float step = 0.25;
-        float fx = fract((uv.x + 1.0) / step);
-        float fy = fract((uv.y + 1.0) / step);
-        float lineX = min(fx, 1.0 - fx);
-        float lineY = min(fy, 1.0 - fy);
-        float width = 0.08;
-        
-        float vertStrength = 1.0 - smoothstep(0.0, width, lineX);
-        float horizStrength = 1.0 - smoothstep(0.0, width, lineY);
-        
-        vec3 colorVert = vec3(1.0, 0.2, 0.3);  // Red vertical
-        vec3 colorHoriz = vec3(0.0, 0.9, 0.95); // Cyan horizontal
-        
-        // Background with gradient
-        vec3 bgColor = vec3(0.25, 0.20, 0.35);
-        vec3 col = bgColor;
-        col += vec3(0.15, 0.1, 0.2) * (uv.x * 0.5 + 0.5);
-        col += vec3(0.1, 0.15, 0.2) * (uv.y * 0.5 + 0.5);
-        
-        // Add grid
-        col = mix(col, colorVert, vertStrength * 0.9);
-        col = mix(col, colorHoriz, horizStrength * 0.9);
-        
-        // --- 4 Colorful Reference Points at corners of the patch ---
-        // Corner 1: (-0.7, -0.7) -> Red
-        float dist1 = length(uv - vec2(-0.7, -0.7));
-        if (dist1 < 0.1) col = mix(col, vec3(1.0, 0.2, 0.2), 1.0 - smoothstep(0.0, 0.1, dist1));
-        
-        // Corner 2: (0.7, -0.7) -> Green
-        float dist2 = length(uv - vec2(0.7, -0.7));
-        if (dist2 < 0.1) col = mix(col, vec3(0.2, 1.0, 0.2), 1.0 - smoothstep(0.0, 0.1, dist2));
-        
-        // Corner 3: (-0.7, 0.7) -> Blue
-        float dist3 = length(uv - vec2(-0.7, 0.7));
-        if (dist3 < 0.1) col = mix(col, vec3(0.2, 0.4, 1.0), 1.0 - smoothstep(0.0, 0.1, dist3));
-        
-        // Corner 4: (0.7, 0.7) -> Yellow/Gold
-        float dist4 = length(uv - vec2(0.7, 0.7));
-        if (dist4 < 0.1) col = mix(col, vec3(1.0, 0.8, 0.2), 1.0 - smoothstep(0.0, 0.1, dist4));
-        
-        // Center marker
-        float centerDist = length(uv);
-        if (centerDist < 0.08) col = vec3(1.0, 1.0, 1.0);
-        
-        // Add some shimmer
-        col += vec3(0.1, 0.05, 0.15) * sin(uv.x * 20.0 + iTime) * cos(uv.y * 20.0);
-        
-        return col;
-    }
-    
-    void main() {
-        vec2 uv = (gl_FragCoord.xy - iResolution.xy * 0.5) / iResolution.y;
-        
-        vec3 ro = vec3(4.0, 4.0, 5.0);
-        vec3 look = vec3(0, 0, 0);
-        vec3 f = normalize(look - ro);
-        vec3 r = normalize(cross(f, vec3(0,0,1)));
-        vec3 u = normalize(cross(r, f));
-        vec3 rd = normalize(uv.x * r + uv.y * u + 1.8 * f);
-    
-        vec4 sph = vec4(uSphPos, 0.6);
-        
-        float pt = rayPlane(ro, rd, vec4(0, 0, 1, 0));
-        vec2 st = raySphere(ro, rd, sph);
-        
-        vec3 col = vec3(0.02, 0.03, 0.06);
-        float t = 1e10;
-        bool isSphere = false;
-    
-        if(uShowSphere > 0.5 && st.x > 0.0) { t = st.x; isSphere = true; }
-        if(pt > 0.0 && pt < t) { t = pt; isSphere = false; }
-    
-        if(t < 50.0) {
-            vec3 pos = ro + rd * t;
-            
-            if(!isSphere) {
-                // PLANE: Project transformed sphere back to plane
-                // First find point on transformed sphere that corresponds to this plane point
-                vec3 pOnSph = planeToSphere(pos, sph);
-                // Apply inverse transform to get back to original sphere coordinates
-                vec3 originalSphPoint = pOnSph;
-                // Inverse of applyRigidMotion
-                originalSphPoint -= sph.xyz;
-                originalSphPoint.yz *= ROT(-uSphRot.y);
-                originalSphPoint.xy *= ROT(-uSphRot.x);
-                originalSphPoint += sph.xyz;
-                // Get color from the fixed sphere patch
-                col = getSpherePatchColor(originalSphPoint, sph.xyz);
-                col *= exp(-0.03 * t);
-            } else {
-                // SPHERE: Show the transformed sphere with the fixed patch
-                vec3 spherePoint = pos;
-                // Get color from the fixed patch on original sphere
-                // First transform the sphere point back to original orientation
-                vec3 originalSphPoint = spherePoint;
-                originalSphPoint -= sph.xyz;
-                originalSphPoint.yz *= ROT(-uSphRot.y);
-                originalSphPoint.xy *= ROT(-uSphRot.x);
-                originalSphPoint += sph.xyz;
-                col = getSpherePatchColor(originalSphPoint, sph.xyz);
-                
-                // Add lighting
-                vec3 normal = normalize(pos - sph.xyz);
-                float lighting = max(0.4, dot(normal, normalize(vec3(1.0, 1.0, 2.0))));
-                lighting = mix(lighting, 1.0, 0.6);
-                col *= lighting;
-                
-                float highlight = pow(max(0.0, dot(normal, normalize(vec3(1.0, 1.0, 1.0)))), 8.0);
-                col += vec3(0.5, 0.5, 0.6) * highlight * 0.5;
-                
-                col *= exp(-0.02 * t);
-            }
+const renderer = new THREE.WebGLRenderer({ antialias:true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const uniforms = {
+    iTime: { value: 0 },
+    iResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+    uSphPos: { value: new THREE.Vector3(0,0,0) },
+    uSphRot: { value: new THREE.Vector2(0,0) }
+};
+
+const fragmentShader = `
+uniform float iTime;
+uniform vec2 iResolution;
+uniform vec3 uSphPos;
+uniform vec2 uSphRot;
+
+#define ROT(a) mat2(cos(a), sin(a), -sin(a), cos(a))
+
+vec2 raySphere(vec3 ro, vec3 rd, vec4 sph){
+    vec3 oc = ro - sph.xyz;
+    float b = dot(oc,rd);
+    float c = dot(oc,oc)-sph.w*sph.w;
+    float h = b*b - c;
+    return h<0.0 ? vec2(-1.0) : vec2(-b-sqrt(h), -b+sqrt(h));
+}
+
+float rayPlane(vec3 ro, vec3 rd){
+    return -ro.z/rd.z;
+}
+
+void applyInverseRigid(inout vec3 p, vec3 center, vec2 r){
+    p -= center;
+    p.xz *= ROT(-r.y);
+    p.xy *= ROT(-r.x);
+    p += center;
+}
+
+vec3 planeToSphere(vec3 p, vec4 sph){
+    vec3 N = sph.xyz + vec3(0,0,sph.w);
+    vec3 rd = normalize(N - p);
+    float t = raySphere(p, rd, sph).x;
+    return p + rd*t;
+}
+
+vec3 sphereToPlane(vec3 p, vec4 sph){
+    vec3 N = sph.xyz + vec3(0,0,sph.w);
+    vec3 rd = normalize(p - N);
+    float t = rayPlane(p, rd);
+    return p + rd*t;
+}
+
+vec3 getGridColor(vec2 uv){
+    vec2 gridUV = uv * 2.0;
+    vec2 g = abs(fract(gridUV + 0.5) - 0.5);
+
+    float lineX = smoothstep(0.04,0.0,g.x);
+    float lineY = smoothstep(0.04,0.0,g.y);
+
+    vec3 colorX = vec3(0.0,1.0,1.0);
+    vec3 colorY = vec3(1.0,0.0,0.8);
+
+    vec3 col = vec3(0.02,0.02,0.04);
+    col = mix(col,colorX,lineX);
+    col = mix(col,colorY,lineY);
+
+    col += colorX * exp(-15.0*g.x)*0.5;
+    col += colorY * exp(-15.0*g.y)*0.5;
+
+    return col;
+}
+
+void main(){
+
+    vec2 uv = (gl_FragCoord.xy - 0.5*iResolution.xy)/iResolution.y;
+
+    vec3 lookat = vec3(1,0.2,-0.5);
+    vec3 ro = uSphPos + vec3(1.0, -2.5, 1.5);
+
+    vec3 fwd = normalize(lookat - ro);
+    vec3 right = normalize(cross(vec3(0,0,1), fwd));
+    vec3 up = cross(fwd, right);
+
+    float zoom = 2.0;
+    vec3 rd = normalize(fwd*zoom + uv.x*right + uv.y*up);
+
+    vec4 sph = vec4(uSphPos,0.5);
+
+    float tPlane = rayPlane(ro, rd);
+    vec2 tSph = raySphere(ro, rd, sph);
+
+    float t = 1e10;
+    bool hitSph = false;
+
+    if(tSph.x>0.0){ t=tSph.x; hitSph=true; }
+    if(tPlane>0.0 && tPlane<t){ t=tPlane; hitSph=false; }
+
+    vec3 col = vec3(0.01);
+
+    if(t<50.0){
+        vec3 pos = ro + rd*t;
+
+        vec3 pOnSph = hitSph ? pos : planeToSphere(pos, sph);
+        applyInverseRigid(pOnSph, sph.xyz, uSphRot);
+        vec3 gridP = sphereToPlane(pOnSph, sph);
+
+        col = getGridColor(gridP.xy - uSphPos.xy);
+
+        if(hitSph){
+            vec3 n = normalize(pos - sph.xyz);
+            float diff = max(0.4, dot(n, normalize(vec3(3,3,4)-pos)));
+            col *= diff;
         } else {
-            // Starfield
-            vec2 stc = gl_FragCoord.xy / iResolution.xy;
-            float stars = sin(stc.x * 500.0) * cos(stc.y * 400.0 + iTime * 2.0);
-            stars = max(0.0, stars * 0.2);
-            col += vec3(0.6, 0.7, 0.9) * stars;
+            col *= exp(-0.08*t);
         }
-        
-        vec2 q = gl_FragCoord.xy / iResolution.xy;
-        col *= 0.8 + 0.4 * 16.0 * q.x * q.y * (1.0 - q.x) * (1.0 - q.y);
-        
-        gl_FragColor = vec4(pow(col, vec3(0.4545)), 1.0);
     }
-    `;
 
-    const material = new THREE.ShaderMaterial({
-      uniforms: uniforms,
-      vertexShader: `void main() { gl_Position = vec4(position, 1.0); }`,
-      fragmentShader: fragmentShader
-    });
+    gl_FragColor = vec4(pow(col, vec3(0.4545)),1.0);
+}
+`;
 
-    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
-    scene.add(mesh);
+const material = new THREE.ShaderMaterial({
+    uniforms, fragmentShader,
+    vertexShader:`void main(){gl_Position=vec4(position,1.0);}`
+});
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x010015, 1.0);
+scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2), material));
 
-    const handleResize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const pixelRatio = Math.min(window.devicePixelRatio, 2);
-      renderer.setSize(width, height);
-      uniforms.iResolution.value.set(width * pixelRatio, height * pixelRatio, 1);
-    };
-    window.addEventListener('resize', handleResize);
-    handleResize();
+function animate(t){
+    uniforms.iTime.value = t*0.001;
+    uniforms.uSphPos.value.set(params.tx,params.ty,params.sz);
+    uniforms.uSphRot.value.set(params.rot,params.inv);
+    renderer.render(scene,camera);
+    requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
 
-    function tick() {
-      const now = performance.now();
-      uniforms.iTime.value = now / 1000;
-      
-      uniforms.uSphPos.value.set(params.translateX, params.translateY, params.height);
-      uniforms.uSphRot.value.set(params.rotation, params.inversion);
-      uniforms.uShowSphere.value = params.showSphere ? 1.0 : 0.0;
-      
-      const badge = document.getElementById('mode-badge');
-      if (badge) {
-        let state = "⚪ Fixed Sphere → ";
-        if (params.rotation > 0.05 || params.inversion > 0.05 || params.height !== 0.5 || params.translateX !== 0 || params.translateY !== 0) {
-          state += "Möbius Active";
-        } else {
-          state += "Identity";
-        }
-        if (!params.showSphere) state += " (Sphere hidden)";
-        badge.innerText = state;
-      }
-      
-      renderer.render(scene, new THREE.Camera());
-      requestAnimationFrame(tick);
-    }
-    
-    updateUIFromParams();
-    
-    const allSliders = [heightSlider, rotSlider, invSlider, transXSlider, transYSlider, showSphereCheck];
-    allSliders.forEach(el => {
-      el.addEventListener('mousedown', (e) => e.stopPropagation());
-      el.addEventListener('touchstart', (e) => e.stopPropagation());
-    });
-    
-    tick();
-  </script>
+window.addEventListener('resize',()=>{
+    renderer.setSize(window.innerWidth,window.innerHeight);
+    uniforms.iResolution.value.set(window.innerWidth*window.devicePixelRatio,window.innerHeight*window.devicePixelRatio);
+});
+</script>
 </body>
-
 </html>
