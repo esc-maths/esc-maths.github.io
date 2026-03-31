@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Möbius Transformations - Square Patch on Complex Plane</title>
+  <title>Möbius Transformations - Fixed Sphere Patch Projected to Plane</title>
   <style>
     * {
       margin: 0;
@@ -255,9 +255,9 @@
     <div style="font-size: 10px; text-align: center; margin-top: 10px; opacity:0.6;">drag canvas → translate X/Y</div>
   </div>
 
-  <div class="mode-badge" id="mode-badge">⬜ Square Patch | Möbius Active</div>
-  <footer class="footer">Möbius transformations · Square patch on complex plane (XY) with Z up · Inspired by <a href="https://www.shadertoy.com/view/fljfRm" target="_blank">neozhaoliang</a></footer>
-  <div class="instructions">🖱️ <b>Drag left mouse</b> on canvas → translate scene &nbsp;&nbsp;|&nbsp;&nbsp; 🎛️ <b>Sliders</b> transform the sphere</div>
+  <div class="mode-badge" id="mode-badge">⚪ Fixed Sphere Patch → Projected to Plane</div>
+  <footer class="footer">Möbius transformations · Fixed colorful patch on sphere projects to transformed plane · Inspired by <a href="https://www.shadertoy.com/view/fljfRm" target="_blank">neozhaoliang</a></footer>
+  <div class="instructions">🖱️ <b>Drag left mouse</b> on canvas → translate scene &nbsp;&nbsp;|&nbsp;&nbsp; 🎛️ <b>Sliders</b> transform sphere → Möbius effect on plane</div>
 
   <script type="importmap">
     {
@@ -274,13 +274,13 @@
     const canvas = document.querySelector('canvas.webgl');
     const scene = new THREE.Scene();
 
-    // Parameters - Now Z is up, so plane is XY
+    // Parameters - Z is up, plane is XY
     const params = {
       translateX: 0.0,
       translateY: 0.0,
       height: 0.5,      // Z-axis scaling
       rotation: 0.0,    // XY-Plane Rotation
-      inversion: 0.0,   // X-Axis Rotation (in 3D)
+      inversion: 0.0,   // X-Axis Rotation
       showSphere: true
     };
 
@@ -318,7 +318,7 @@
     transYSlider.addEventListener('input', (e) => { params.translateY = parseFloat(e.target.value); transYVal.innerText = params.translateY.toFixed(3); });
     showSphereCheck.addEventListener('change', (e) => { params.showSphere = e.target.checked; });
 
-    // Mouse translation with UI filtering - now translates in X and Y (plane coordinates)
+    // Mouse translation
     window.addEventListener('mousemove', (e) => {
       if (e.buttons !== 1) return;
       let target = e.target;
@@ -342,7 +342,7 @@
     const uniforms = {
       iTime: { value: 0 },
       iResolution: { value: new THREE.Vector3() },
-      uSphPos: { value: new THREE.Vector3(0, 0, 0.5) }, // x, y, z (z is up/height)
+      uSphPos: { value: new THREE.Vector3(0, 0, 0.5) },
       uSphRot: { value: new THREE.Vector2(0, 0) },
       uShowSphere: { value: 1.0 }
     };
@@ -372,15 +372,12 @@
     
     void applyRigidMotion(inout vec3 p, vec3 center) {
         p -= center;
-        // Rotation in XY plane (around Z axis)
         p.xy *= ROT(uSphRot.x);
-        // Rotation around X axis (inversion)
         p.yz *= ROT(uSphRot.y);
         p += center;
     }
     
     vec3 planeToSphere(vec3 p, vec4 sph) {
-        // p is on plane z=0, project to sphere
         vec3 N = sph.xyz + vec3(0, 0, sph.w);
         vec3 rd = normalize(N - p);
         float t = raySphere(p, rd, sph).x;
@@ -390,61 +387,82 @@
     vec3 sphereToPlane(vec3 p, vec4 sph) {
         vec3 N = sph.xyz + vec3(0, 0, sph.w);
         vec3 rd = normalize(p - N);
-        float t = rayPlane(p, rd, vec4(0, 0, 1, 0)); // Plane z=0
+        float t = rayPlane(p, rd, vec4(0, 0, 1, 0));
         return p + rd * t;
     }
     
-    // Draw a single colored square patch on the complex plane (XY plane)
-    // The patch is from -1 to 1 in both X and Y, with a colorful grid pattern inside
-    vec3 getPatchColor(vec2 pos) {
-        // Define the square boundary: [-1, 1] x [-1, 1]
-        float inSquare = step(abs(pos.x), 1.0) * step(abs(pos.y), 1.0);
+    // Fixed patch on the SPHERE surface (before transformation)
+    // This patch is defined in the sphere's local coordinates
+    vec3 getSpherePatchColor(vec3 spherePoint, vec3 sphereCenter) {
+        // Convert to local coordinates relative to sphere center
+        vec3 localPos = spherePoint - sphereCenter;
+        // Normalize to get point on unit sphere
+        vec3 dir = normalize(localPos);
         
-        if (inSquare < 0.5) {
-            // Outside the patch - dark void
-            return vec3(0.02, 0.03, 0.08);
+        // Define a square patch on the sphere using angular coordinates
+        // Patch covers roughly -45° to 45° in both theta and phi
+        float theta = atan(dir.y, dir.x);  // azimuthal angle in XY plane
+        float phi = asin(dir.z);            // polar angle from XY plane
+        
+        // Square patch from -0.8 to 0.8 radians (~ -45° to 45°)
+        float inPatch = step(abs(theta), 0.8) * step(abs(phi), 0.8);
+        
+        if (inPatch < 0.5) {
+            // Outside the patch on sphere - dark blue/grey
+            return vec3(0.08, 0.10, 0.20);
         }
         
-        // Inside the patch - draw a colorful grid
-        float step = 0.2;
-        vec2 gridPos = pos + 1.0; // Shift to [0,2] range
+        // Inside the patch - draw a colorful grid with reference points
+        // Map theta and phi to texture coordinates [-1, 1]
+        vec2 uv = vec2(theta / 0.8, phi / 0.8);
         
-        float fx = fract(gridPos.x / step);
-        float fy = fract(gridPos.y / step);
+        // Draw grid lines
+        float step = 0.25;
+        float fx = fract((uv.x + 1.0) / step);
+        float fy = fract((uv.y + 1.0) / step);
         float lineX = min(fx, 1.0 - fx);
         float lineY = min(fy, 1.0 - fy);
-        float width = 0.04;
+        float width = 0.08;
         
         float vertStrength = 1.0 - smoothstep(0.0, width, lineX);
         float horizStrength = 1.0 - smoothstep(0.0, width, lineY);
         
-        // Color scheme: Red for vertical lines, Cyan for horizontal lines
-        vec3 colorVert = vec3(1.0, 0.2, 0.3);
-        vec3 colorHoriz = vec3(0.0, 0.9, 0.95);
+        vec3 colorVert = vec3(1.0, 0.2, 0.3);  // Red vertical
+        vec3 colorHoriz = vec3(0.0, 0.9, 0.95); // Cyan horizontal
         
-        // Background gradient inside the square
-        vec3 bgColor = vec3(0.15, 0.12, 0.25);
+        // Background with gradient
+        vec3 bgColor = vec3(0.25, 0.20, 0.35);
         vec3 col = bgColor;
+        col += vec3(0.15, 0.1, 0.2) * (uv.x * 0.5 + 0.5);
+        col += vec3(0.1, 0.15, 0.2) * (uv.y * 0.5 + 0.5);
         
-        // Add gradient based on position
-        col += vec3(0.1, 0.05, 0.15) * (pos.x * 0.5 + 0.5);
-        col += vec3(0.05, 0.1, 0.1) * (pos.y * 0.5 + 0.5);
+        // Add grid
+        col = mix(col, colorVert, vertStrength * 0.9);
+        col = mix(col, colorHoriz, horizStrength * 0.9);
         
-        // Add grid lines
-        col = mix(col, colorVert, vertStrength * 0.95);
-        col = mix(col, colorHoriz, horizStrength * 0.95);
+        // --- 4 Colorful Reference Points at corners of the patch ---
+        // Corner 1: (-0.7, -0.7) -> Red
+        float dist1 = length(uv - vec2(-0.7, -0.7));
+        if (dist1 < 0.1) col = mix(col, vec3(1.0, 0.2, 0.2), 1.0 - smoothstep(0.0, 0.1, dist1));
         
-        // Highlight the boundary
-        float edgeX = 1.0 - smoothstep(0.92, 0.98, abs(abs(pos.x) - 1.0));
-        float edgeY = 1.0 - smoothstep(0.92, 0.98, abs(abs(pos.y) - 1.0));
-        float edge = max(edgeX, edgeY);
-        col = mix(col, vec3(1.0, 1.0, 0.5), edge * 0.8);
+        // Corner 2: (0.7, -0.7) -> Green
+        float dist2 = length(uv - vec2(0.7, -0.7));
+        if (dist2 < 0.1) col = mix(col, vec3(0.2, 1.0, 0.2), 1.0 - smoothstep(0.0, 0.1, dist2));
         
-        // Add a center marker
-        float centerDist = length(pos);
-        if (centerDist < 0.08) {
-            col = vec3(1.0, 1.0, 0.2);
-        }
+        // Corner 3: (-0.7, 0.7) -> Blue
+        float dist3 = length(uv - vec2(-0.7, 0.7));
+        if (dist3 < 0.1) col = mix(col, vec3(0.2, 0.4, 1.0), 1.0 - smoothstep(0.0, 0.1, dist3));
+        
+        // Corner 4: (0.7, 0.7) -> Yellow/Gold
+        float dist4 = length(uv - vec2(0.7, 0.7));
+        if (dist4 < 0.1) col = mix(col, vec3(1.0, 0.8, 0.2), 1.0 - smoothstep(0.0, 0.1, dist4));
+        
+        // Center marker
+        float centerDist = length(uv);
+        if (centerDist < 0.08) col = vec3(1.0, 1.0, 1.0);
+        
+        // Add some shimmer
+        col += vec3(0.1, 0.05, 0.15) * sin(uv.x * 20.0 + iTime) * cos(uv.y * 20.0);
         
         return col;
     }
@@ -452,17 +470,16 @@
     void main() {
         vec2 uv = (gl_FragCoord.xy - iResolution.xy * 0.5) / iResolution.y;
         
-        // Camera position - looking from above and side
         vec3 ro = vec3(4.0, 4.0, 5.0);
         vec3 look = vec3(0, 0, 0);
         vec3 f = normalize(look - ro);
-        vec3 r = normalize(cross(f, vec3(0,0,1))); // Z is up
+        vec3 r = normalize(cross(f, vec3(0,0,1)));
         vec3 u = normalize(cross(r, f));
         vec3 rd = normalize(uv.x * r + uv.y * u + 1.8 * f);
     
-        vec4 sph = vec4(uSphPos, 0.6); // Sphere radius 0.6
+        vec4 sph = vec4(uSphPos, 0.6);
         
-        float pt = rayPlane(ro, rd, vec4(0, 0, 1, 0)); // Plane at z=0
+        float pt = rayPlane(ro, rd, vec4(0, 0, 1, 0));
         vec2 st = raySphere(ro, rd, sph);
         
         vec3 col = vec3(0.02, 0.03, 0.06);
@@ -474,45 +491,52 @@
     
         if(t < 50.0) {
             vec3 pos = ro + rd * t;
-            vec3 worldP = pos;
             
             if(!isSphere) {
-                // Plane hit - map plane to sphere, apply transform, map back
-                vec3 pOnSph = planeToSphere(worldP, sph);
-                applyRigidMotion(pOnSph, sph.xyz);
-                vec3 finalP = sphereToPlane(pOnSph, sph);
-                // Color based on the square patch on the final plane
-                col = getPatchColor(finalP.xy);
-                // Add fog
+                // PLANE: Project transformed sphere back to plane
+                // First find point on transformed sphere that corresponds to this plane point
+                vec3 pOnSph = planeToSphere(pos, sph);
+                // Apply inverse transform to get back to original sphere coordinates
+                vec3 originalSphPoint = pOnSph;
+                // Inverse of applyRigidMotion
+                originalSphPoint -= sph.xyz;
+                originalSphPoint.yz *= ROT(-uSphRot.y);
+                originalSphPoint.xy *= ROT(-uSphRot.x);
+                originalSphPoint += sph.xyz;
+                // Get color from the fixed sphere patch
+                col = getSpherePatchColor(originalSphPoint, sph.xyz);
                 col *= exp(-0.03 * t);
             } else {
-                // Sphere rendering - show how the square patch maps onto the sphere
-                vec3 pOnSph = worldP;
-                applyRigidMotion(pOnSph, sph.xyz);
-                vec3 finalP = sphereToPlane(pOnSph, sph);
-                col = getPatchColor(finalP.xy);
+                // SPHERE: Show the transformed sphere with the fixed patch
+                vec3 spherePoint = pos;
+                // Get color from the fixed patch on original sphere
+                // First transform the sphere point back to original orientation
+                vec3 originalSphPoint = spherePoint;
+                originalSphPoint -= sph.xyz;
+                originalSphPoint.yz *= ROT(-uSphRot.y);
+                originalSphPoint.xy *= ROT(-uSphRot.x);
+                originalSphPoint += sph.xyz;
+                col = getSpherePatchColor(originalSphPoint, sph.xyz);
                 
-                // Add lighting based on sphere normal
+                // Add lighting
                 vec3 normal = normalize(pos - sph.xyz);
                 float lighting = max(0.4, dot(normal, normalize(vec3(1.0, 1.0, 2.0))));
                 lighting = mix(lighting, 1.0, 0.6);
                 col *= lighting;
                 
-                // Add a subtle highlight
                 float highlight = pow(max(0.0, dot(normal, normalize(vec3(1.0, 1.0, 1.0)))), 8.0);
                 col += vec3(0.5, 0.5, 0.6) * highlight * 0.5;
                 
                 col *= exp(-0.02 * t);
             }
         } else {
-            // Starfield background
+            // Starfield
             vec2 stc = gl_FragCoord.xy / iResolution.xy;
             float stars = sin(stc.x * 500.0) * cos(stc.y * 400.0 + iTime * 2.0);
             stars = max(0.0, stars * 0.2);
             col += vec3(0.6, 0.7, 0.9) * stars;
         }
         
-        // Subtle vignette
         vec2 q = gl_FragCoord.xy / iResolution.xy;
         col *= 0.8 + 0.4 * 16.0 * q.x * q.y * (1.0 - q.x) * (1.0 - q.y);
         
@@ -548,18 +572,17 @@
       const now = performance.now();
       uniforms.iTime.value = now / 1000;
       
-      // Update uniforms - now Z is height, so sphere position is (translateX, translateY, height)
       uniforms.uSphPos.value.set(params.translateX, params.translateY, params.height);
       uniforms.uSphRot.value.set(params.rotation, params.inversion);
       uniforms.uShowSphere.value = params.showSphere ? 1.0 : 0.0;
       
       const badge = document.getElementById('mode-badge');
       if (badge) {
-        let state = "⬜ Square Patch ";
+        let state = "⚪ Fixed Sphere → ";
         if (params.rotation > 0.05 || params.inversion > 0.05 || params.height !== 0.5 || params.translateX !== 0 || params.translateY !== 0) {
-          state += "• Möbius Active";
+          state += "Möbius Active";
         } else {
-          state += "• Identity";
+          state += "Identity";
         }
         if (!params.showSphere) state += " (Sphere hidden)";
         badge.innerText = state;
