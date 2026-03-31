@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Möbius Rigid Motions - Reference Points</title>
+    <title>Möbius Rigid Motions - Real & Imaginary Axes</title>
     <style>
         body { margin: 0; overflow: hidden; background: #000; font-family: sans-serif; }
         canvas { display: block; }
@@ -11,20 +11,58 @@
             background: rgba(10, 10, 15, 0.9); padding: 20px;
             border-radius: 12px; border: 1px solid #0ff; color: #fff;
             width: 280px; backdrop-filter: blur(8px); z-index: 10;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .ui.hidden {
+            transform: translateX(-320px);
+            opacity: 0;
+            pointer-events: none;
         }
         .control { margin-bottom: 15px; }
         label { display: flex; justify-content: space-between; font-size: 11px; color: #8af; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
         input[type=range] { width: 100%; cursor: pointer; accent-color: #0ff; }
         span { font-family: monospace; color: #0ff; background: rgba(0,255,255,0.1); padding: 2px 4px; border-radius: 3px; }
         h2 { margin: 0 0 15px 0; font-size: 14px; color: #0ff; text-align: center; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        
+        /* Toggle button styles */
+        .toggle-ui-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 20;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid #0ff;
+            color: #0ff;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            font-family: monospace;
+        }
+        .toggle-ui-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        .toggle-ui-btn:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body>
-<div class="ui">
+<button id="toggleUI" class="toggle-ui-btn">✕</button>
+
+<div class="ui" id="uiPanel">
     <h2>RIGID MÖBIUS</h2>
     <div class="control">
-        <label>Scaling (Height Z) <span id="sz_val">0.50</span></label>
-        <input type="range" id="sz" min="0.1" max="3.0" step="0.01" value="0.5">
+        <label>Scaling (Height Z) <span id="sz_val">1.00</span></label>
+        <input type="range" id="sz" min="1.0" max="4.0" step="0.01" value="1.0">
     </div>
     <div class="control">
         <label>Translate X <span id="tx_val">0.00</span></label>
@@ -51,7 +89,23 @@
 <script type="module">
 import * as THREE from 'three';
 
-const params = { tx: 0, ty: 0, sz: 0.5, rot: 0, inv: 0 };
+// UI Toggle functionality
+const uiPanel = document.getElementById('uiPanel');
+const toggleBtn = document.getElementById('toggleUI');
+let uiVisible = true;
+
+toggleBtn.addEventListener('click', () => {
+    uiVisible = !uiVisible;
+    if (uiVisible) {
+        uiPanel.classList.remove('hidden');
+        toggleBtn.textContent = '✕';
+    } else {
+        uiPanel.classList.add('hidden');
+        toggleBtn.textContent = '☰';
+    }
+});
+
+const params = { tx: 0, ty: 0, sz: 1.0, rot: 0, inv: 0 };
 const setupSlider = (id) => {
     const el = document.getElementById(id);
     el.addEventListener('input', (e) => {
@@ -116,31 +170,54 @@ vec3 sphereToPlane(vec3 p, vec4 sph){
     return p + rd*t;
 }
 
-// Draw a glowing reference point
 vec3 drawDot(vec2 p, vec2 target, vec3 col) {
     float d = length(p - target);
-    float m = smoothstep(0.08, 0.0, d);
-    float glow = exp(-15.0 * d);
-    return col * (m + glow * 0.8);
+    float m = smoothstep(0.04, 0.0, d);
+    float glow = exp(-20.0 * d);
+    return col * (m + glow * 10.0);
+}
+
+// Function to draw a line along an axis
+float drawAxisLine(float coord, float width) {
+    return smoothstep(width, 0.0, abs(coord));
 }
 
 vec3 getGridColor(vec2 uv){
-    vec2 gridUV = uv * 2.5; 
+    // Scale density
+    vec2 gridUV = uv * 2.0; 
     vec2 g = abs(fract(gridUV + 0.5) - 0.5);
 
+    // Standard grid lines
     float lineX = smoothstep(0.04,0.0,g.x);
     float lineY = smoothstep(0.04,0.0,g.y);
 
-    vec3 colorX = vec3(0.0,1.0,1.0);
-    vec3 colorY = vec3(1.0,0.0,0.8);
+    vec3 colorGridX = vec3(0.0, 0.5, 0.5); // Subdued Cyan
+    vec3 colorGridY = vec3(0.5, 0.0, 0.4); // Subdued Magenta
 
-    vec3 col = vec3(0.02,0.02,0.04);
-    col = mix(col,colorX,lineX);
-    col = mix(col,colorY,lineY);
+    vec3 col = vec3(0.02, 0.02, 0.04);
+    col = mix(col, colorGridX, lineX);
+    col = mix(col, colorGridY, lineY);
     
     // Grid glow
-    col += colorX * exp(-15.0*g.x)*0.3;
-    col += colorY * exp(-15.0*g.y)*0.3;
+    col += colorGridX * exp(-20.0*g.x)*0.1;
+    col += colorGridY * exp(-20.0*g.y)*0.1;
+
+    // --- MAIN AXES ---
+    // Draw thick, bright axes at local origin (0,0)
+    float axisWidth = 0.05;
+    // X=0 is Imaginary Axis, Y=0 is Real Axis
+    float imaginaryAxisMask = drawAxisLine(uv.x, axisWidth);
+    float realAxisMask = drawAxisLine(uv.y, axisWidth);
+
+    vec3 colorReal = vec3(1.0, 0.5, 0.0); // Neon Orange
+    vec3 colorImag = vec3(0.0, 0.6, 1.0); // Neon Electric Blue
+
+    // Apply main axes and their glows
+    col = mix(col, colorImag, imaginaryAxisMask);
+    col = mix(col, colorReal, realAxisMask);
+    
+    col += colorImag * exp(-25.0 * abs(uv.x)) * 0.8;
+    col += colorReal * exp(-25.0 * abs(uv.y)) * 0.8;
 
     return col;
 }
@@ -148,17 +225,20 @@ vec3 getGridColor(vec2 uv){
 void main(){
     vec2 uv = (gl_FragCoord.xy - 0.5*iResolution.xy)/iResolution.y;
 
-    vec3 ro = vec3(1.5, -4.5, 4.0); 
-    vec3 lookat = vec3(0.0, 0.0, 0.8);
+    // Fixed observer view
+    vec3 ro = vec3(2.5, -5.0, 4.5); 
+    vec3 lookat = vec3(0.5, 0.5, 0.5);
     vec3 fwd = normalize(lookat - ro);
     vec3 right = normalize(cross(fwd, vec3(0,0,1)));
     vec3 up = cross(right, fwd);
 
-    float zoom = 2.8;
+    float zoom = 3.0;
     vec3 rd = normalize(fwd*zoom + uv.x*right + uv.y*up);
 
-    vec3 translateObjects = vec3(2.0, 3.0, 0);
+    // Initial offset provided in your prompt
+    vec3 translateObjects = vec3(2.2, 4.0, 0.0);
     vec4 sph = vec4(uSphPos + translateObjects, 0.5);
+    
     float tPlane = rayPlane(ro, rd);
     vec2 tSph = raySphere(ro, rd, sph);
 
@@ -167,32 +247,39 @@ void main(){
     if(tSph.x>0.0){ t=tSph.x; hitSph=true; }
     if(tPlane>0.0 && tPlane<t){ t=tPlane; hitSph=false; }
 
-    vec3 col = vec3(0.015);
+    vec3 col = vec3(0.01);
 
     if(t<50.0){
         vec3 pos = ro + rd*t;
+        
+        // 1. Map world point to the sphere
         vec3 pOnSph = hitSph ? pos : planeToSphere(pos, sph);
+        
+        // 2. Apply Rotations and Inversion
         applyInverseRigid(pOnSph, sph.xyz, uSphRot);
+        
+        // 3. Project back to plane
         vec3 gridP = sphereToPlane(pOnSph, sph);
 
-        // Grid coordinate relative to sphere origin
-        vec2 localUV = gridP.xy - uSphPos.xy;
+        // --- THE SCALING LOGIC ---
+        // uSphPos.z acts as the Dilation factor. 
+        vec2 localUV = (gridP.xy - uSphPos.xy - translateObjects.xy) / (uSphPos.z * 2.0);
+        
         col = getGridColor(localUV);
 
-        // --- REFERENCE POINTS ---
-        // z = 1+i, -1-i, 1-i, -1+i
-        col += drawDot(localUV, vec2(1.0, 1.0) + translateObjects.xy, vec3(1.0, 1.0, 0.0)); // Yellow
-        col += drawDot(localUV, vec2(-1.0, -1.0) + translateObjects.xy, vec3(0.0, 1.0, 0.0)); // Green
-        col += drawDot(localUV, vec2(1.0, -1.0) + translateObjects.xy, vec3(1.0, 0.0, 0.0)); // Red
-        col += drawDot(localUV, vec2(-1.0, 1.0) + translateObjects.xy, vec3(0.0, 0.5, 1.0)); // Blue
+        // --- REFERENCE POINTS (z = 1+i, -1-i, 1-i, -1+i) ---
+        col += drawDot(localUV, vec2(1.0, 1.0), vec3(1.0, 1.0, 0.0)); // Yellow
+        col += drawDot(localUV, vec2(-1.0, -1.0), vec3(0.0, 1.0, 0.0)); // Green
+        col += drawDot(localUV, vec2(1.0, -1.0), vec3(1.0, 0.0, 0.0)); // Red
+        col += drawDot(localUV, vec2(-1.0, 1.0), vec3(0.0, 0.5, 1.0)); // Blue
 
         if(hitSph){
             vec3 n = normalize(pos - sph.xyz);
             float diff = max(0.4, dot(n, normalize(vec3(3,3,4)-pos)));
             col *= diff;
-            col += pow(1.0 - max(0.0, dot(n, -rd)), 3.0) * 0.3; // Edge fresnel
+            col += pow(1.0 - max(0.0, dot(n, -rd)), 3.0) * 0.4; // Fresnel highlight
         } else {
-            col *= exp(-0.05*t);
+            col *= exp(-0.06*t); // Distance fog
         }
     }
 
