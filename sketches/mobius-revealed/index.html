@@ -1,135 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Möbius Rigid Motions - Real & Imaginary Axes</title>
-    <style>
-        body { margin: 0; overflow: hidden; background: #000; font-family: sans-serif; }
-        canvas { display: block; }
-        .ui {
-            position: absolute; top: 20px; left: 20px;
-            background: rgba(10, 10, 15, 0.9); padding: 20px;
-            border-radius: 12px; border: 1px solid #0ff; color: #fff;
-            width: 280px; backdrop-filter: blur(8px); z-index: 10;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .ui.hidden {
-            transform: translateX(-320px);
-            opacity: 0;
-            pointer-events: none;
-        }
-        .control { margin-bottom: 15px; }
-        label { display: flex; justify-content: space-between; font-size: 11px; color: #8af; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-        input[type=range] { width: 100%; cursor: pointer; accent-color: #0ff; }
-        span { font-family: monospace; color: #0ff; background: rgba(0,255,255,0.1); padding: 2px 4px; border-radius: 3px; }
-        h2 { margin: 0 0 15px 0; font-size: 14px; color: #0ff; text-align: center; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        
-        /* Toggle button styles */
-        .toggle-ui-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 20;
-            background: rgba(10, 10, 15, 0.9);
-            backdrop-filter: blur(8px);
-            border: 1px solid #0ff;
-            color: #0ff;
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            font-family: monospace;
-        }
-        .toggle-ui-btn:hover {
-            background: rgba(0, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-        .toggle-ui-btn:active {
-            transform: scale(0.95);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Möbius Transformatiions as Rigid Motions of the Sphere</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    .ui {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(10, 10, 15, 0.9);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #0ff;
+      color: #fff;
+      width: 280px;
+      backdrop-filter: blur(8px);
+      z-index: 10;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .ui.hidden {
+      transform: translateX(-320px);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .control {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #8af;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    input[type=range] {
+      width: 100%;
+      cursor: pointer;
+      accent-color: #0ff;
+    }
+
+    span {
+      font-family: monospace;
+      color: #0ff;
+      background: rgba(0, 255, 255, 0.1);
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    h2 {
+      margin: 0 0 15px 0;
+      font-size: 14px;
+      color: #0ff;
+      text-align: center;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+
+    /* Toggle button styles */
+    .toggle-ui-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 20;
+      background: rgba(10, 10, 15, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid #0ff;
+      color: #0ff;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-family: monospace;
+    }
+
+    .toggle-ui-btn:hover {
+      background: rgba(0, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .toggle-ui-btn:active {
+      transform: scale(0.95);
+    }
+  </style>
 </head>
+
 <body>
-<button id="toggleUI" class="toggle-ui-btn">✕</button>
+  <button id="toggleUI" class="toggle-ui-btn">✕</button>
 
-<div class="ui" id="uiPanel">
-    <h2>RIGID MÖBIUS</h2>
+  <div class="ui" id="uiPanel">
+    <h2>MÖBIUS Transfomations</h2>
     <div class="control">
-        <label>Scaling (Height Z) <span id="sz_val">1.00</span></label>
-        <input type="range" id="sz" min="1.0" max="4.0" step="0.01" value="1.0">
+      <label>Scaling (Height Z) <span id="sz_val">1.00</span></label>
+      <input type="range" id="sz" min="1.0" max="4.0" step="0.01" value="1.0">
     </div>
     <div class="control">
-        <label>Translate X <span id="tx_val">0.00</span></label>
-        <input type="range" id="tx" min="-3.0" max="3.0" step="0.01" value="0.0">
+      <label>Translate X <span id="tx_val">0.00</span></label>
+      <input type="range" id="tx" min="-3.0" max="3.0" step="0.01" value="0.0">
     </div>
     <div class="control">
-        <label>Translate Y <span id="ty_val">0.00</span></label>
-        <input type="range" id="ty" min="-3.0" max="3.0" step="0.01" value="0.0">
+      <label>Translate Y <span id="ty_val">0.00</span></label>
+      <input type="range" id="ty" min="-3.0" max="3.0" step="0.01" value="0.0">
     </div>
     <div class="control">
-        <label>Rotation (Around Z) <span id="rot_val">0.00</span></label>
-        <input type="range" id="rot" min="0" max="6.28" step="0.01" value="0.0">
+      <label>Rotation (Around Z) <span id="rot_val">0.00</span></label>
+      <input type="range" id="rot" min="0" max="6.28" step="0.01" value="0.0">
     </div>
     <div class="control">
-        <label>Inversion (Around Y) <span id="inv_val">0.00</span></label>
-        <input type="range" id="inv" min="0" max="3.14" step="0.01" value="0.0">
+      <label>Inversion (Around Y) <span id="inv_val">0.00</span></label>
+      <input type="range" id="inv" min="0" max="3.14" step="0.01" value="0.0">
     </div>
-</div>
+  </div>
 
-<script type="importmap">
-{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
-</script>
+  <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.module.min.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.183.2/examples/jsm/"
+          }
+        }
+  </script>
 
-<script type="module">
-import * as THREE from 'three';
+  <script type="module">
+    import * as THREE from 'three';
 
-// UI Toggle functionality
-const uiPanel = document.getElementById('uiPanel');
-const toggleBtn = document.getElementById('toggleUI');
-let uiVisible = true;
+    // UI Toggle functionality
+    const uiPanel = document.getElementById('uiPanel');
+    const toggleBtn = document.getElementById('toggleUI');
+    let uiVisible = true;
 
-toggleBtn.addEventListener('click', () => {
-    uiVisible = !uiVisible;
-    if (uiVisible) {
+    toggleBtn.addEventListener('click', () => {
+      uiVisible = !uiVisible;
+      if (uiVisible) {
         uiPanel.classList.remove('hidden');
         toggleBtn.textContent = '✕';
-    } else {
+      } else {
         uiPanel.classList.add('hidden');
         toggleBtn.textContent = '☰';
-    }
-});
+      }
+    });
 
-const params = { tx: 0, ty: 0, sz: 1.0, rot: 0, inv: 0 };
-const setupSlider = (id) => {
-    const el = document.getElementById(id);
-    el.addEventListener('input', (e) => {
+    const params = { tx: 0, ty: 0, sz: 1.0, rot: 0, inv: 0 };
+    const setupSlider = (id) => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', (e) => {
         params[id] = parseFloat(e.target.value);
         document.getElementById(id + '_val').innerText = params[id].toFixed(2);
-    });
-};
-['tx','ty','sz','rot','inv'].forEach(setupSlider);
+      });
+    };
+    ['tx', 'ty', 'sz', 'rot', 'inv'].forEach(setupSlider);
 
-const scene = new THREE.Scene();
-const camera = new THREE.OrthographicCamera(-1,1,1,-1,0,1);
-const renderer = new THREE.WebGLRenderer({ antialias:true });
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-const uniforms = {
-    iTime: { value: 0 },
-    iResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-    uSphPos: { value: new THREE.Vector3(0,0,0.5) },
-    uSphRot: { value: new THREE.Vector2(0,0) }
-};
+    const uniforms = {
+      iTime: { value: 0 },
+      iResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+      uSphPos: { value: new THREE.Vector3(0, 0, 0.5) },
+      uSphRot: { value: new THREE.Vector2(0, 0) }
+    };
 
-const fragmentShader = `
+    const fragmentShader = `
 uniform float iTime;
 uniform vec2 iResolution;
 uniform vec3 uSphPos;
@@ -209,15 +267,15 @@ vec3 getGridColor(vec2 uv){
     float imaginaryAxisMask = drawAxisLine(uv.x, axisWidth);
     float realAxisMask = drawAxisLine(uv.y, axisWidth);
 
-    vec3 colorReal = vec3(1.0, 0.5, 0.0); // Neon Orange
-    vec3 colorImag = vec3(0.0, 0.6, 1.0); // Neon Electric Blue
+    vec3 colorReal = vec3(10.0, 0.9, 0.1); // Neon Orange
+    vec3 colorImag = vec3(0.0, 2.0, 5.0); // Neon Electric Blue
 
     // Apply main axes and their glows
     col = mix(col, colorImag, imaginaryAxisMask);
     col = mix(col, colorReal, realAxisMask);
     
-    col += colorImag * exp(-25.0 * abs(uv.x)) * 0.8;
-    col += colorReal * exp(-25.0 * abs(uv.y)) * 0.8;
+    col += colorImag * exp(-35.0 * abs(uv.x)) * 0.5;
+    col += colorReal * exp(-35.0 * abs(uv.y)) * 0.5;
 
     return col;
 }
@@ -287,25 +345,26 @@ void main(){
 }
 `;
 
-const material = new THREE.ShaderMaterial({
-    uniforms, fragmentShader,
-    vertexShader:`void main(){gl_Position=vec4(position,1.0);}`
-});
-scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2), material));
+    const material = new THREE.ShaderMaterial({
+      uniforms, fragmentShader,
+      vertexShader: `void main(){gl_Position=vec4(position,1.0);}`
+    });
+    scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
 
-function animate(t){
-    uniforms.iTime.value = t*0.001;
-    uniforms.uSphPos.value.set(params.tx, params.ty, params.sz);
-    uniforms.uSphRot.value.set(params.rot, params.inv);
-    renderer.render(scene,camera);
+    function animate(t) {
+      uniforms.iTime.value = t * 0.001;
+      uniforms.uSphPos.value.set(params.tx, params.ty, params.sz);
+      uniforms.uSphRot.value.set(params.rot, params.inv);
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
     requestAnimationFrame(animate);
-}
-requestAnimationFrame(animate);
 
-window.addEventListener('resize',()=>{
-    renderer.setSize(window.innerWidth,window.innerHeight);
-    uniforms.iResolution.value.set(window.innerWidth*window.devicePixelRatio,window.innerHeight*window.devicePixelRatio);
-});
-</script>
+    window.addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      uniforms.iResolution.value.set(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio);
+    });
+  </script>
 </body>
+
 </html>
