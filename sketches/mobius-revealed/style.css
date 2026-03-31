@@ -38,20 +38,52 @@ a:active {
     text-decoration: underline;
 }
 
-.footer { position: fixed; bottom: 10px; right: 10px; font-size: 12px; color: #555; }
-.footer a { color: #00d2ff; text-decoration: none; }
-
-.menu {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 240px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #333;
-    border-radius: 8px;
-    z-index: 10;
+.footer{
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  font-family: system-ui, sans-serif;
+  background: rgba(0,0,0,0.35);
+  padding: 4px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
 }
-.control { margin-bottom: 15px; }
-.control label { display: block; font-size: 10px; text-transform: uppercase; color: #00d2ff; margin-bottom: 5px; }
-.control input { width: 100%; cursor: pointer; }
+
+.instructions {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: system-ui, -apple-system, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 12px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    pointer-events: none;
+    line-height: 1.6;
+
+    /* --- New Animation Properties --- */
+    animation: fadeOut 1s linear 30s forwards;
+}
+
+/* Define the fade-out behavior */
+@keyframes fadeOut {
+    from { opacity: 1; visibility: visible; }
+    to { opacity: 0; visibility: hidden; }
+}
+
+.instructions b {
+    color: rgb(0, 255, 229);
+}
+
+#mode-text {
+    color: rgb(0, 255, 229);
+    text-transform: capitalize;
+    font-weight: bold;
+}
