@@ -8,7 +8,13 @@ const uniforms = {
     iTime: { value: 0 },
     iResolution: { value: new THREE.Vector3() },
     uMode: { value: 0 },       // 0: Loxodromic, 1: Elliptic, 2: Hyperbolic, 3: Parabolic
-    uShowSphere: { value: 1.0 } // 1.0: On, 0.0: Off
+    uShowSphere: { value: 1.0 }, // 1.0: On, 0.0: Off
+    // Camera uniforms
+    uCameraPos: { value: new THREE.Vector3() },
+    uCameraTarget: { value: new THREE.Vector3() },
+    uCameraForward: { value: new THREE.Vector3() },
+    uCameraRight: { value: new THREE.Vector3() },
+    uCameraUp: { value: new THREE.Vector3() }
 };
 
 const fragmentShader = `
@@ -16,6 +22,11 @@ uniform float iTime;
 uniform vec3 iResolution;
 uniform int uMode; 
 uniform float uShowSphere;
+uniform vec3 uCameraPos;
+uniform vec3 uCameraTarget;
+uniform vec3 uCameraForward;
+uniform vec3 uCameraRight;
+uniform vec3 uCameraUp;
 
 #define PI 3.14159265359
 
@@ -37,8 +48,14 @@ float map(vec3 p) {
 
 void main() {
     vec2 uv = (gl_FragCoord.xy - iResolution.xy * 0.5) / iResolution.y;
-    vec3 ro = vec3(-3.0, 5.0, -6.0), look = vec3(0, 0.6, 0);
-    vec3 f = normalize(look - ro), r = normalize(cross(f, vec3(0, 1, 0))), u = normalize(cross(r, f));
+    
+    // Use uniforms for camera instead of hardcoded values
+    vec3 ro = uCameraPos;
+    vec3 look = uCameraTarget;
+    vec3 f = uCameraForward;
+    vec3 r = uCameraRight;
+    vec3 u = uCameraUp;
+    
     vec3 rd = normalize(uv.x * r + uv.y * u + 2.0 * f);
 
     float t = 0.0;
@@ -122,7 +139,7 @@ scene.add(mesh);
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Add this line
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 // Initial uniform set with pixel ratio
 const canvasWidth = window.innerWidth * renderer.getPixelRatio();
@@ -137,48 +154,142 @@ const modes = {
     '4': 'Parabolic'
 };
 
+// ========== VIEW CONTROLS - MODIFY THESE VALUES TO CHANGE THE VIEW ==========
+
+// 1. CHANGE WHERE THE CAMERA LOOKS AT
+const cameraTarget = new THREE.Vector3(0, 0.6, 0);
+
+// 2. CHANGE THE CAMERA DISTANCE FROM THE TARGET
+const cameraDistance = 8.0;
+
+// 3. CHANGE THE VERTICAL OFFSET OF THE CAMERA ORBIT
+const yOffset = 1.5;
+
+// 4. CHANGE MOUSE SENSITIVITY
+const mouseSensitivityX = 0.01;   // Horizontal sensitivity
+const mouseSensitivityY = 0.007;  // Vertical sensitivity
+
+// 5. CHANGE ROTATION LIMITS
+const maxVerticalTilt = 1.5;   // Max up/down angle (radians)
+const minVerticalTilt = 0.3;   // Min up/down angle (radians)
+
+// 6. CHANGE SMOOTHING SPEED
+const smoothingSpeed = 0.1;
+
+// ========== END OF VIEW CONTROLS ==========
+
+// Mouse interaction variables
+let targetRotationX = 0.3;     // Initial vertical tilt (radians)
+let targetRotationY = -0.5;    // Initial horizontal rotation (radians)
+let currentRotationX = 0.3;    // Match the target
+let currentRotationY = -0.5;   // Match the target
+let isMouseDown = false;
+let lastMouseX = 0;
+let lastMouseY = 0;
+
+// Mouse event handlers
+canvas.addEventListener('mousedown', (e) => {
+    isMouseDown = true;
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+    canvas.style.cursor = 'grabbing';
+});
+
+window.addEventListener('mousemove', (e) => {
+    if (isMouseDown) {
+        const deltaX = e.clientX - lastMouseX;
+        const deltaY = e.clientY - lastMouseY;
+        
+        // Apply sensitivity settings
+        targetRotationY += deltaX * mouseSensitivityX;
+        targetRotationX += deltaY * mouseSensitivityY;
+        
+        // Apply rotation limits
+        targetRotationX = Math.max(minVerticalTilt, Math.min(maxVerticalTilt, targetRotationX));
+        
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+    }
+});
+
+window.addEventListener('mouseup', () => {
+    isMouseDown = false;
+    canvas.style.cursor = 'grab';
+});
+
+// Initial cursor style
+canvas.style.cursor = 'grab';
+
+// Smooth rotation and camera update
+function updateCamera() {
+    // Smooth interpolation
+    currentRotationX += (targetRotationX - currentRotationX) * smoothingSpeed;
+    currentRotationY += (targetRotationY - currentRotationY) * smoothingSpeed;
+    
+    // Calculate camera position based on spherical coordinates
+    const radius = cameraDistance;
+    const theta = currentRotationY;
+    const phi = currentRotationX;
+    
+    // Calculate camera position relative to target
+    const x = radius * Math.sin(theta) * Math.cos(phi);
+    const y = radius * Math.sin(phi) + yOffset;
+    const z = radius * Math.cos(theta) * Math.cos(phi);
+    
+    const cameraPos = new THREE.Vector3(x, y, z);
+    const lookAt = cameraTarget;
+    
+    // Calculate the direction vectors for the shader
+    const forward = lookAt.clone().sub(cameraPos).normalize();
+    const right = new THREE.Vector3(0, 1, 0).cross(forward).normalize();
+    const up = forward.clone().cross(right).normalize();
+    
+    // Update shader uniforms with camera parameters
+    uniforms.uCameraPos.value = cameraPos;
+    uniforms.uCameraTarget.value = lookAt;
+    uniforms.uCameraForward.value = forward;
+    uniforms.uCameraRight.value = right;
+    uniforms.uCameraUp.value = up;
+}
+
+// Keyboard controls for mode switching
 window.addEventListener('keydown', (e) => {
-    // 1. Handle Mode Switching (1-4)
+    // Handle Mode Switching (1-4)
     if (modes[e.key]) {
         uniforms.uMode.value = parseInt(e.key) - 1;
         
-        // Only update text if the element actually exists to prevent crashes
         if (modeText) {
             modeText.innerText = modes[e.key];
         }
     }
 
-    // 2. Handle Sphere Toggle (5)
+    // Handle Sphere Toggle (5)
     if (e.key === '5') {
-        // Toggle between 1.0 and 0.0
         uniforms.uShowSphere.value = uniforms.uShowSphere.value === 1.0 ? 0.0 : 1.0;
         console.log("Sphere toggled to:", uniforms.uShowSphere.value);
     }
 });
 
 window.addEventListener('resize', () => {
-    // 1. Get new dimensions
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    // 2. Update Renderer (this updates the canvas width/height attributes)
     renderer.setSize(width, height);
     
-    // 3. Update Pixel Ratio (important for high-DPI screens/Retina)
     const pixelRatio = Math.min(window.devicePixelRatio, 2);
     renderer.setPixelRatio(pixelRatio);
 
-    // 4. Update Uniforms
-    // We multiply by pixelRatio to ensure the shader knows the actual 
-    // number of pixels in the drawing buffer
     uniforms.iResolution.value.set(width * pixelRatio, height * pixelRatio, 1);
 });
 
-// REMOVE the second redundant window.addEventListener('keydown'...) block below this!
+// Initialize camera uniforms
+updateCamera();
 
 const tick = () => {
     uniforms.iTime.value = performance.now() / 1000;
+    updateCamera(); // Update camera position based on mouse input
     renderer.render(scene, new THREE.Camera());
     window.requestAnimationFrame(tick);
 };
+
 tick();
