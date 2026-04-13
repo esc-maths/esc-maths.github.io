@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>3203NSC - Week 6</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+	 <!-- Cindy.js -->
+    <script type="text/javascript" src="https://complex-analysis.com/applets/cindyjs/assets/Cindy.js"></script>
+    <script type="text/javascript" src="https://complex-analysis.com/applets/cindyjs/assets/CindyGL.js"></script>
+    <script type="text/javascript" src="https://complex-analysis.com/applets/cindyjs/assets/symbolic.js"></script>
+
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: -10px; margin-bottom: 10px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-95">
+					<h2>Complex Analysis & Applications</h2>
+					<p style="font-weight: bold; font-size: 120%;">3203NSC</p>
+				</div>
+
+
+				<p style="font-size: 90%;">Week 8</p>
+
+				<div style="margin-top: -20px;">
+
+					<iframe title="Loxodromic"
+						style="width: 800px; height: 350px;border-radius: 20px;box-shadow: 8px 8px 15px grey; border: none; "
+						src="sketches/mobius/hyperbolic/"></iframe>
+
+				</div>
+
+				<br />
+			</section>
+
+
+
+			<section data-auto-animate>
+				<h3>
+					Taylor series for real functions
+				</h3>
+
+				<div class="left-txt size-80">
+
+					<p>
+						<span class="fragment" data-fragment-index="0">
+							Let $a\in \mathbb R$ and $f(x)$ be and infinitely differentiable function on an interval $I$
+							containing $a.$
+
+						</span>
+						<span class="fragment" data-fragment-index="1">
+							Then the one-dimensional Taylor series of $f$ around $a$ is given by
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							\[
+							f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+\cdots
+							\]
+						</span>
+
+					</p>
+
+					<p>
+						<span class="fragment" data-fragment-index="3">
+							which can be written in the most compact form:
+							\[
+							f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n.
+							\]
+						</span>
+
+					</p>
+				</div>
+
+				<br />
+			</section>
+
+			<section data-auto-animate>
+				<h3>
+					Taylor series for real functions
+				</h3>
+				<div class="left-txt size-80">
+
+
+					<p>
+						<span>
+							Taylor's theorem gives an approximation of a $k$-times differentiable
+							function around a given point by a $k$-th order Taylor polynomial.
+						</span>
+
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="1">
+							For example, the best linear approximation for $f(x)$ is
+							$$f(x)\approx f(a)+f'(a)(x-a).$$
+
+						</span>
+						<span class="fragment" data-fragment-index="2">
+							This linear approximation fits $f(x)$ with a line through $x=a$ that matches the slope of
+							$f$ at
+							$a.$
+						</span>
+
+					</p>
+					<p class="fragment" data-fragment-index="3">
+						For a better approximation we can add other terms in the expansion.
+						<span class="fragment" data-fragment-index="4">
+							For instance, the best
+							quadratic
+							approximation is
+							$$f(x)\approx f(a)+f'(a)(x-a)+\frac12 f''(a)(x-a)^2.$$
+						</span>
+
+					</p>
+				</div>
+
+
+			</section>
+
+			<section data-auto-animate>
+				<h3>
+					Visualization of Taylor series for real functions
+				</h3>
+
+				<iframe scrolling="no" title="Taylor series" src="https://www.geogebra.org/material/iframe/id/njawpmcw/width/790/height/487/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="790px" height="487px" style="border:0px;" allowfullscreen> </iframe>
+
+				<br/>
+				<br/>
+
+			</section>
+
+			<section data-auto-animate>
+				<h3>
+					Taylor series for complex functions
+				</h3>
+
+				<div class="left-txt size-80">
+
+
+					<p>
+						<span>
+							Suppose that a function $f$ is analytic throughout a disk $|z -z_0|&lt; R,$
+                        centered at $z_0$ and with radius $R.$ 
+						</span>
+						<span>
+							Then $f(z)$ has the power series representation
+                        \begin{eqnarray}\label{seriefunction}
+                        f(z)=\sum_{n=0}^{\infty} a_n(z-z_0)^n,\quad |z-z_0|&lt;R, \qquad \qquad (1)
+                        \end{eqnarray}
+						</span>
+						<span>
+							where
+                        $ \,
+                        a_n=\dfrac{f^{(n)}(z_0)}{n!},\quad n=0,1,2,\ldots
+                        $
+						</span>
+
+					</p>
+					<p>
+						<span class="fragment" data-fragment-index="1">
+							That is, series (1) converges to $f(z)$ when $z$ lies in the stated open disk.
+
+						</span>
+						
+
+					</p>
+					
+				</div>
+
+				
+			
+				<br/>
+				<br/>
+
+			</section>
+
+			<section data-background-iframe="https://complex-analysis.com/applets/cindyjs/taylorseries/">
+				
+
+			</section>
+			
+			
+
+
+			<section>
+
+				<h4>Credits</h4>
+				<div style="font-size:24px">
+					<p>Design, Images &amp; Applets<br />
+						<a href="https://jcponce.com" target="_blank">
+							Juan Carlos Ponce Campuzano</a>
+						<br />
+						<em>unless otherwise stated</em>
+					</p>
+
+					<br />
+
+					<div>
+						<img width="100px" src="images/penrose-triangle.gif">
+					</div>
+				</div>
+
+			</section>
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
