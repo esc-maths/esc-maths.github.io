@@ -18,9 +18,21 @@ let pegTopMargin = 90;
 let binHeight = 180;
 let groundMargin = 60;
 
+// NEW: State variable
+let isScreenValid = false;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  // 1. Check Dimensions
+  if (width >= 500 && height >= 700) {
+    isScreenValid = true;
+  } else {
+    isScreenValid = false;
+    return; // Stop setup here if screen is too small
+  }
+
+  // 2. Original Setup Logic
   engine = Engine.create();
   engine.enableSleeping = true;
   world = engine.world;
@@ -29,12 +41,10 @@ function setup() {
     binCounts[i] = 0;
   }
 
-  // 1. Create Pegs
   let binY = height - binHeight / 2 - groundMargin;
   let binTop = binY - binHeight / 2;
   let pegAreaHeight = binTop - pegTopMargin;
   let pegSpacingY = pegAreaHeight / rows;
-  //let pegSpacingY = spacing * 0.85; // Use a ratio of the horizontal spacing
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
@@ -48,27 +58,17 @@ function setup() {
     }
   }
 
-  // 2. Create Bins (with tall side walls)
   for (let i = 0; i <= cols; i++) {
     let x = (width / 2 - (cols * spacing) / 2) + i * spacing - (spacing / 4);
-
-    let currentBinHeight = binHeight;
-    let currentBinY = binY;
-
-    // Make the first and last walls extra tall to catch stray balls
-    if (i === 0 || i === cols) {
-      currentBinHeight = height; // Extend to top
-      currentBinY = height / 2;  // Center it vertically
-    }
+    let currentBinHeight = (i === 0 || i === cols) ? height : binHeight;
+    let currentBinY = (i === 0 || i === cols) ? height / 2 : binY;
 
     let b = Bodies.rectangle(x, currentBinY, 4, currentBinHeight, { isStatic: true });
-    // We store the height property on the body so we can draw it correctly in draw()
     b.customHeight = currentBinHeight;
     boundaries.push(b);
     Composite.add(world, b);
   }
 
-  // 3. Create the Ground
   ground = Bodies.rectangle(width / 2, height - 50, width, 10, { isStatic: true });
   Composite.add(world, ground);
 }
@@ -76,6 +76,16 @@ function setup() {
 function draw() {
   background(10);
 
+  // 3. Conditional Rendering
+  if (!isScreenValid) {
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(20);
+    text("Screen must have \n dimension 500 x 700", width / 2, height / 2);
+    return; // Stop the draw loop from running simulation physics
+  }
+
+  // --- REST OF YOUR ORIGINAL DRAW LOGIC ---
   if (particles.length === maxBalls && allBallsSleeping()) {
     fill(255);
     textAlign(CENTER);
@@ -96,35 +106,26 @@ function draw() {
   fill(150);
   text("Click to RESET", 100, 60);
 
-  // Spawn balls
   if (frameCount % 8 === 0 && particles.length < maxBalls) {
-    // Use a tiny Gaussian distribution for the spawn itself
     let spawnX = width / 2 + randomGaussian(0, 2);
     particles.push(new Particle(spawnX, 30));
   }
 
-  // Draw Pegs
   fill(0, 255, 180);
   for (let p of pegs) {
     circle(p.position.x, p.position.y, 8);
   }
 
-  // Draw Bin Walls & Ground
   fill(80);
   rectMode(CENTER);
   for (let b of boundaries) {
-    // Use the custom height we defined in setup
     rect(b.position.x, b.position.y, 4, b.customHeight);
   }
   rect(ground.position.x, ground.position.y, width, 10);
 
-  // Draw Bin Counts
   fill(255, 204, 0);
   textSize(14);
   textAlign(CENTER);
-
-  // startX is the first bin wall. 
-  // We want to add half a spacing to get to the center of the first gap.
   let firstBinCenter = (width / 2 - (cols * spacing) / 2) + (spacing / 4);
 
   for (let i = 0; i < cols; i++) {
