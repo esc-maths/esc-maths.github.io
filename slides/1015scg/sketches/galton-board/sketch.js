@@ -34,6 +34,7 @@ function setup() {
   let binTop = binY - binHeight / 2;
   let pegAreaHeight = binTop - pegTopMargin;
   let pegSpacingY = pegAreaHeight / rows;
+  //let pegSpacingY = spacing * 0.85; // Use a ratio of the horizontal spacing
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
