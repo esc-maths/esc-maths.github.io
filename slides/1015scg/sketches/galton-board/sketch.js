@@ -12,7 +12,7 @@ const rows = 16;
 const cols = 12;
 const spacing = 40;
 const ballRadius = 7;
-const maxBalls = 500;
+const maxBalls = 300;
 
 let pegTopMargin = 90;
 let binHeight = 180;
@@ -42,7 +42,7 @@ function setup() {
       let x = (width / 2 - (cols * spacing) / 2) + c * spacing + xOffset;
       let y = pegTopMargin + r * pegSpacingY;
 
-      let p = Bodies.circle(x, y, 4, { isStatic: true, friction: 0.0});
+      let p = Bodies.circle(x, y, 4, { isStatic: true, friction: 0.0 });
       pegs.push(p);
       Composite.add(world, p);
     }
@@ -98,7 +98,9 @@ function draw() {
 
   // Spawn balls
   if (frameCount % 8 === 0 && particles.length < maxBalls) {
-    particles.push(new Particle(width / 2 + random(-3, 3), 30));
+    // Use a tiny Gaussian distribution for the spawn itself
+    let spawnX = width / 2 + randomGaussian(0, 2);
+    particles.push(new Particle(spawnX, 30));
   }
 
   // Draw Pegs
@@ -160,7 +162,7 @@ class Particle {
       restitution: 0.5,
       friction: 0.01,
       frictionAir: 0.05,
-      sleepThreshold: 25
+      sleepThreshold: 30
     };
     this.body = Bodies.circle(x, y, ballRadius, options);
     this.counted = false;
