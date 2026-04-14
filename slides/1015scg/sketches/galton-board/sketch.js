@@ -8,9 +8,9 @@ let boundaries = [];
 let ground;
 let binCounts = [];
 
-const rows = 12;
-const cols = 14;
-const spacing = 55;
+const rows = 16;
+const cols = 12;
+const spacing = 40;
 const ballRadius = 7;
 const maxBalls = 500;
 
@@ -22,7 +22,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   engine = Engine.create();
-  engine.enableSleeping = true; 
+  engine.enableSleeping = true;
   world = engine.world;
 
   for (let i = 0; i <= cols; i++) {
@@ -41,7 +41,7 @@ function setup() {
       let x = (width / 2 - (cols * spacing) / 2) + c * spacing + xOffset;
       let y = pegTopMargin + r * pegSpacingY;
 
-      let p = Bodies.circle(x, y, 4, { isStatic: true, friction: 0 });
+      let p = Bodies.circle(x, y, 4, { isStatic: true, friction: 0.0});
       pegs.push(p);
       Composite.add(world, p);
     }
@@ -50,7 +50,7 @@ function setup() {
   // 2. Create Bins (with tall side walls)
   for (let i = 0; i <= cols; i++) {
     let x = (width / 2 - (cols * spacing) / 2) + i * spacing - (spacing / 4);
-    
+
     let currentBinHeight = binHeight;
     let currentBinY = binY;
 
@@ -62,7 +62,7 @@ function setup() {
 
     let b = Bodies.rectangle(x, currentBinY, 4, currentBinHeight, { isStatic: true });
     // We store the height property on the body so we can draw it correctly in draw()
-    b.customHeight = currentBinHeight; 
+    b.customHeight = currentBinHeight;
     boundaries.push(b);
     Composite.add(world, b);
   }
@@ -97,7 +97,7 @@ function draw() {
 
   // Spawn balls
   if (frameCount % 8 === 0 && particles.length < maxBalls) {
-    particles.push(new Particle(width / 2 + random(-1, 1), 40));
+    particles.push(new Particle(width / 2 + random(-3, 3), 30));
   }
 
   // Draw Pegs
@@ -116,15 +116,14 @@ function draw() {
   rect(ground.position.x, ground.position.y, width, 10);
 
   // Draw Bin Counts
-  // Draw Bin Counts
   fill(255, 204, 0);
   textSize(14);
   textAlign(CENTER);
-  
+
   // startX is the first bin wall. 
   // We want to add half a spacing to get to the center of the first gap.
-  let firstBinCenter = (width / 2 - (cols * spacing) / 2) + (spacing / 4); 
-  
+  let firstBinCenter = (width / 2 - (cols * spacing) / 2) + (spacing / 4);
+
   for (let i = 0; i < cols; i++) {
     let x = firstBinCenter + (i * spacing);
     text(binCounts[i], x, height - 20);
@@ -158,9 +157,9 @@ class Particle {
   constructor(x, y) {
     let options = {
       restitution: 0.5,
-      friction: 0.07,
-      frictionAir: 0.001,
-      sleepThreshold: 30 
+      friction: 0.01,
+      frictionAir: 0.05,
+      sleepThreshold: 25
     };
     this.body = Bodies.circle(x, y, ballRadius, options);
     this.counted = false;
@@ -177,10 +176,10 @@ class Particle {
   countInBin() {
     let startX = (width / 2 - (cols * spacing) / 2) - (spacing / 4);
     let index = Math.floor((this.body.position.x - startX) / spacing);
-    
+
     // Constrain to the actual number of bins (0 to 13 if cols is 14)
-    index = constrain(index, 0, cols - 1); 
-    
+    index = constrain(index, 0, cols - 1);
+
     binCounts[index]++;
     this.counted = true;
   }
