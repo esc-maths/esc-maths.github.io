@@ -48,6 +48,8 @@
 			font-weight: bold;
 			text-decoration: underline;
 		}
+
+		
 	</style>
 
 
@@ -103,7 +105,7 @@
 						<span class="fragment" data-fragment-index="1">
 							Then the one-dimensional Taylor series of $f$ around $a$ is given by
 						</span>
-						<span class="fragment" data-fragment-index="2">
+						<span class="fragment" data-fragment-index="1">
 							\[
 							f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f^{(3)}(a)}{3!}(x-a)^3+\cdots
 							\]
@@ -194,13 +196,13 @@
 							Suppose that a function $f$ is analytic throughout a disk $|z -z_0|&lt; R,$
 							centered at $z_0$ and with radius $R.$
 						</span>
-						<span>
+						<span class="fragment" data-fragment-index="1">
 							Then $f(z)$ has the power series representation
 							\begin{eqnarray}\label{seriefunction}
 							f(z)=\sum_{n=0}^{\infty} a_n(z-z_0)^n,\quad |z-z_0|&lt;R, \qquad \qquad (1)
 							\end{eqnarray}
 						</span>
-						<span>
+						<span class="fragment" data-fragment-index="2">
 							where
 							$ \,
 							a_n=\dfrac{f^{(n)}(z_0)}{n!},\quad n=0,1,2,\ldots
@@ -209,7 +211,7 @@
 
 					</p>
 					<p>
-						<span class="fragment" data-fragment-index="1">
+						<span class="fragment" data-fragment-index="3">
 							That is, series (1) converges to $f(z)$ when $z$ lies in the stated open disk.
 
 						</span>
@@ -228,9 +230,12 @@
 
 			
 
-			<section >
+			<section data-auto-animate>
+				<h3>
+					Visualization of Taylor series for complex functions
+				</h3>
 
-				<iframe scrolling="no" style="width: 71%;height: 650px;overflow-y: hidden; border: none;" data-src="https://complex-analysis.com/applets/cindyjs/taylorseries/" ></iframe>
+				<iframe scrolling="no" style="width: 71%;height: 650px;overflow-y: hidden; border: none;margin-top: -20px;" data-src="https://complex-analysis.com/applets/cindyjs/taylorseries/" ></iframe>
 
 				<br/>
 				<br/>
