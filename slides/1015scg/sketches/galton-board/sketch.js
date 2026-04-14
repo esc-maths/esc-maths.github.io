@@ -12,7 +12,7 @@ const rows = 16;
 const cols = 12;
 const spacing = 40;
 const ballRadius = 7;
-const maxBalls = 300;
+const maxBalls = 350;
 
 let pegTopMargin = 90;
 let binHeight = 180;
@@ -163,7 +163,7 @@ class Particle {
       restitution: 0.5,
       friction: 0.01,
       frictionAir: 0.05,
-      sleepThreshold: 30
+      sleepThreshold: 70
     };
     this.body = Bodies.circle(x, y, ballRadius, options);
     this.counted = false;
