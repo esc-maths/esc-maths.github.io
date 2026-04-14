@@ -81,18 +81,18 @@ function draw() {
     fill(255);
     textAlign(CENTER, CENTER);
     textSize(20);
-    text("Screen must have \n dimension 500 x 700", width / 2, height / 2);
+    text("Screen must have \n dimensions 500 x 700", width / 2, height / 2);
     return; // Stop the draw loop from running simulation physics
   }
 
   // --- REST OF YOUR ORIGINAL DRAW LOGIC ---
   if (particles.length === maxBalls && allBallsSleeping()) {
-    fill(255);
-    textAlign(CENTER);
-    textSize(24);
-    text("SIMULATION COMPLETE", width / 2, 40);
+    // fill(255);
+    // textAlign(CENTER);
+    // textSize(24);
+    //text("SIMULATION COMPLETE", width / 2, 40);
     noLoop();
-    return;
+    //return;
   }
 
   Engine.update(engine);
