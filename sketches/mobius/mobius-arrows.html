@@ -1,26 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Möbius transformations</title>
-  <link rel="stylesheet" href="./showcase.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Möbius transformations</title>
+    <link rel="stylesheet" href="./mobius-arrows.css">
 
 </head>
 
 <body>
-  <canvas class="webgl"></canvas>
+    <canvas class="webgl"></canvas>
 
-  <footer class="footer">
-   
-  <div><b id="mode-text">Elliptic</b></div> 
-  </footer>
+    <footer class="footer">
 
- 
-  
-  <script type="importmap">
+        <div><b id="mode-text">Elliptic</b></div>
+    </footer>
+
+    <div class="instructions">
+
+        <div>🎮 <strong>Controls</strong></div>
+        <div>🖱️ Mouse Drag → Rotate Camera</div>
+
+        <p>Press <b>1, 2, 3, 4</b> to switch transformations</p>
+        <p>Press <b>5</b> to toggle the sphere</p>
+    </div>
+
+
+
+    <script type="importmap">
         {
           "imports": {
             "three": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.module.min.js",
@@ -28,9 +36,9 @@
           }
         }
   </script>
-  <script type="module" src="./mobius-arrows.js"></script>
+    <script type="module" src="./mobius-arrows.js"></script>
 
-  
+
 </body>
 
 </html>
