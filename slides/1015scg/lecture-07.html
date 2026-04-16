@@ -1364,15 +1364,15 @@
 							</ul>
 							<li class="fragment" data-fragment-index="1">In many cases showing working is as important
 								as your final result</li>
-							<ul class="fragment" data-fragment-index="1">
-								<li>
+							<ul>
+								<li class="fragment" data-fragment-index="1">
 									A wrong final answer doesn't mean your work is useless if your reasoning is clear.
 								</li>
-								<li>
+								<li class="fragment" data-fragment-index="2">
 									It shows how well you understand the ideas involved.
 								</li>
 							</ul>
-							<li class="fragment" data-fragment-index="2">
+							<li class="fragment" data-fragment-index="3">
 								You are responsible for presenting your solutions clearly;
 								markers are not required to interpret unclear or incomplete work.
 							</li>
@@ -1410,12 +1410,12 @@
 
 							</li>
 						</ul>
-						<p style="font-size: 90%;">
+						<p style="font-size: 90%;" class="fragment" data-fragment-index="1">
 							If you use a programming language to make some computations,
 							you can comment it in your document and add the full
 							code as an Appendix.
 						</p>
-						<pre style="font-size: 80%;"><code>x = (0:0.25:1);
+						<pre style="font-size: 80%;width: 800px;" class="fragment" data-fragment-index="1"><code>x = (0:0.25:1);
 for j = 1:100
    t = j/25;
    z = sin(pi * x) * cos(2 * pi * t);
@@ -1427,9 +1427,9 @@ end
 					<br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h3>Presenting plots</h3>
-					<div class="left-txt size-85">
+					<div class="left-txt size-75">
 						<ul style="line-height: 1.6;">
 							<li class="fragment" data-fragment-index="1">Use descriptive axis labels with units.</li>
 							<li class="fragment" data-fragment-index="2">Choose appropriate plot type.
@@ -1443,7 +1443,21 @@ end
 									</li>
 								</ul>
 							</li>
-							<li class="fragment" data-fragment-index="3">Include clear legend if needed.</li>
+							
+						</ul>
+					</div>
+
+					<div style="margin-top: -20px;" class="fragment" data-fragment-index="1">
+						<img style="width: 75%;" src="images/lec-07/nice-scatter-plot.png"></img>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Presenting plots</h3>
+					<div class="left-txt size-75">
+						<ul style="line-height: 1.6;">
+							
+							<li>Include clear legend if needed.</li>
 							<li class="fragment" data-fragment-index="4">Ensure legibility (labels & numbers must be
 								readable, plots should be a suitable size).
 							</li>
@@ -1452,6 +1466,9 @@ end
 								(<a href="lecture-03.html#/pearson-correlation/2" target="_blank">Pearson
 									coefficient</a>) if applicable.</li>
 						</ul>
+					</div>
+					<div style="margin-top: 0px;">
+						<img style="width: 75%;" src="images/lec-07/nice-labels.png"></img>
 					</div>
 					<br />
 					<br />
