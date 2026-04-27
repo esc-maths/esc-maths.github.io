@@ -1560,9 +1560,11 @@
 							$$e^x \approx 1 + x + \frac{x^2}{2}$$
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							For our population model: $\,P(t) = 500 e^{0.001t}\,$
-							we use
+							For our population model $\,P(t) = 500 e^{0.001t},\,$
+							 <span class="fragment" data-fragment-index="3">
+								we use
 							$$e^{0.001t} \approx 1 + 0.001t + \frac{(0.001t)^2}{2}$$
+							 </span>
 						</p>
 					</div>
 					<br />
@@ -1577,7 +1579,7 @@
 
 						</p>
 						<p style="text-align: center;">
-							$P(2) \approx 500 \cdot \left(1 + 0.001 \cdot 2 + \dfrac{(0.001 \cdot 2)^2}{2}\right)$
+							$P(2) = 500 \cdot \left(1 + 0.001 \cdot 2 + \dfrac{(0.001 \cdot 2)^2}{2}\right)$
 						</p>
 						<p class="fragment" data-fragment-index="2">
 							Step-by-step calculation:
@@ -1595,7 +1597,7 @@
 							$1 + 0.002 + 0.000002 = 1.002002$
 						</p>
 						<p class="fragment" data-fragment-index="6">
-							$P(2) \approx 500 \cdot 1.002002 \approx 501.001$
+							$P(2) = 500 \cdot 1.002002 = 501.001$
 						</p>
 
 					</div>
@@ -1606,7 +1608,7 @@
 					<h4>📝 Practice: Population — Step 3: Time to Reach 505</h4>
 					<div class="left-txt size-80">
 						<p class="fragment" data-fragment-index="1">
-							Solve $P(t) \approx 505$ using the second-order approximation:
+							Solve $P(t) = 505$ using the second-order approximation:
 
 
 						</p>
@@ -1618,7 +1620,7 @@
 
 						</p>
 						<p style="text-align: center;" class="fragment" data-fragment-index="2">
-							$1 + 0.001t + \dfrac{(0.001t)^2}{2} \approx 1.01$
+							$1 + 0.001t + \dfrac{(0.001t)^2}{2} = 1.01$
 						</p>
 						<p class="fragment" data-fragment-index="3">
 							Let $x = 0.001t,$
@@ -1648,21 +1650,23 @@
 
 				<section>
 					<h4>📝 Practice: Population — Step 4: Comparison</h4>
-					<div class="left-txt size-85">
+					<div class="left-txt size-95">
 						<p class="fragment" data-fragment-index="1">
 							Comparing the second-order Taylor approximation with exact values:
 						</p>
-						<ul>
-							<li class="fragment" data-fragment-index="2">Population after 2 weeks: $501.001$ (approx) vs
-								$501.001001$ (exact)</li>
-							<li class="fragment" data-fragment-index="3">Time to reach 505: $9.95$ weeks (approx) vs
-								$9.95033$ weeks (exact)</li>
+						<ul style="line-height: 2.0;">
+							<li class="fragment" data-fragment-index="2">Population after 2 weeks: <b>501.001</b> (approx) vs
+								<b>501.001001</b> (exact)</li>
+							<li class="fragment" data-fragment-index="3">Time to reach 505: <b>9.95</b> weeks (approx) vs
+								<b>9.95033</b> weeks (exact)</li>
 						</ul>
 						<p class="fragment" data-fragment-index="4">
 							The approximation gives results virtually identical to the exact model for such small
 							exponents.
 						</p>
 					</div>
+					<br/>
+					<br/>
 				</section>
 
 
