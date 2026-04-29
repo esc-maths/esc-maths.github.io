@@ -67,8 +67,17 @@ void main() {
     dir.xz *= rot1;
     dir.xy *= rot2;
 
+    // vec3 flow = vec3(
+    //   sin(iTime * 0.011) + 0.5 * sin(iTime * 0.027),
+    //   cos(iTime * 0.013) + 0.3 * cos(iTime * 0.021),
+    //   sin(iTime * 0.009) + 0.4 * cos(iTime * 0.017)
+    // );
+
+    
+
     vec3 from = vec3(1.0, 0.5, 0.5);
-    from += vec3(time * 2.0, time, -2.0);
+    //from += flow * 1.0;
+    from += vec3(time * 2.0 * sin(time * 8.0), time, -2.0);
 
     from.xz *= rot1;
     from.xy *= rot2;
