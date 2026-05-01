@@ -9,6 +9,7 @@
   
   Updated: displays random letters as a flowing text column
   similar to the Pi digits visualization, with random a-z.
+  Starts slow, then speeds up to normal after 8 seconds.
   
   Author: Juan Carlos Ponce Campuzano
   https://dynamicmath.xyz
@@ -22,24 +23,28 @@ let letterStream = "";
 let streamIndex = 0;
 let margin = 60;
 let lineSpacing = 26;
-let charsPerFrame = 2;      // typing speed (letters per frame)
+let charsPerFrame = 1;      // typing speed (letters per frame) - will start lower
 let lines = [];             // stores visible lines of text
 let maxLines;
 
 // Letters pool (classic a-z)
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-function preload() {
-  // Monkey images (from original GeoGebra art)
-  img1 = loadImage('monkey-curves-left.png');
-  img2 = loadImage('monkey-curves-right.png');
-}
+// Slow start animation variables
+let startTime = 0;
+let slowStartDuration = 8000; // 8 seconds in milliseconds
+let isSlowStart = true;
+let slowCharsPerFrame = 0.15; // slower typing speed (fractional for gradual effect)
 
-function setup() {
+async function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont("Courier");
   textSize(20);
   textAlign(LEFT, TOP);
+
+  // Monkey images (from original GeoGebra art)
+  img1 = await loadImage('monkey-curves-left.png');
+  img2 = await loadImage('monkey-curves-right.png');
   
   currentImage = img1;
   
@@ -55,13 +60,19 @@ function setup() {
   drawingContext.shadowBlur = 4;
   drawingContext.shadowColor = "rgba(255,255,200,0.5)";
   
-  describe('The infinite monkey theorem: a monkey typing randomly will eventually produce Shakespeare. Watch random letters stream like a cosmic typewriter. ∞ 🤯');
+  // Record start time for slow start animation
+  startTime = millis();
+  
+  describe('The infinite monkey theorem: a monkey typing randomly will eventually produce Shakespeare. Watch random letters stream like a cosmic typewriter. Starts slow, then speeds up! ∞ 🤯');
 }
 
 function draw() {
   background(0);
   cursor(HAND);
-
+  
+  // Update typing speed based on time elapsed
+  updateTypingSpeed();
+  
   // Text stream: type next letters
   typeNextLetters();
   
@@ -80,8 +91,28 @@ function draw() {
     currentImage = (currentImage === img1) ? img2 : img1;
   }
   image(currentImage, posX, posY, scaledWidth, scaledHeight);
+}
+
+// Update typing speed based on elapsed time (slow start then normal)
+function updateTypingSpeed() {
+  let elapsed = millis() - startTime;
   
-  
+  if (elapsed < slowStartDuration) {
+    isSlowStart = true;
+    // Easing function: gradually increase from slowCharsPerFrame to charsPerFrame
+    // t goes from 0 to 1 over the slow start duration
+    let t = elapsed / slowStartDuration;
+    // Use easeOutCubic for smooth acceleration
+    let eased = 1 - Math.pow(1 - t, 3);
+    // Interpolate between slow and normal speed
+    charsPerFrame = slowCharsPerFrame + (1 - slowCharsPerFrame) * eased;
+  } else {
+    // After 8 seconds, run at normal speed
+    if (isSlowStart) {
+      isSlowStart = false;
+      charsPerFrame = 1; // Normal typing speed
+    }
+  }
 }
 
 // Generate a random string of given length (from alphabet)
@@ -100,35 +131,56 @@ function typeNextLetters() {
     generateMoreRandomLetters(400);
   }
   
-  for (let k = 0; k < charsPerFrame; k++) {
+  // Use current charsPerFrame (which may be fractional during slow start)
+  // For fractional values, we probabilistically add letters
+  let effectiveLetters = floor(charsPerFrame);
+  let fractional = charsPerFrame - effectiveLetters;
+  
+  // Add the integer part
+  for (let k = 0; k < effectiveLetters; k++) {
     if (streamIndex >= letterStream.length) {
-      // Safety: regenerate if somehow we ran out
       generateMoreRandomLetters(300);
       if (streamIndex >= letterStream.length) break;
     }
-    
-    let ch = letterStream.charAt(streamIndex);
-    streamIndex++;
-    
-    // Start lines array if empty
-    if (lines.length === 0) {
-      lines.push("");
+    addNextCharacter();
+  }
+  
+  // Handle fractional part probabilistically
+  if (fractional > 0 && random(1) < fractional) {
+    if (streamIndex < letterStream.length) {
+      addNextCharacter();
     }
-    
-    let currentLine = lines[lines.length - 1];
-    let testString = currentLine + ch;
-    let lineWidth = textWidth(testString);
-    
-    // Check if new character fits within the margins
-    if (lineWidth < width - 2.3 * margin) {
-      lines[lines.length - 1] += ch;
-    } else {
-      // Need new line
-      lines.push(ch);
-      // Remove oldest line if exceeding max visible lines (scrolling effect)
-      if (lines.length > maxLines) {
-        lines.shift();
-      }
+  }
+}
+
+// Helper function to add a single character to the text stream
+function addNextCharacter() {
+  if (streamIndex >= letterStream.length) {
+    generateMoreRandomLetters(300);
+    if (streamIndex >= letterStream.length) return;
+  }
+  
+  let ch = letterStream.charAt(streamIndex);
+  streamIndex++;
+  
+  // Start lines array if empty
+  if (lines.length === 0) {
+    lines.push("");
+  }
+  
+  let currentLine = lines[lines.length - 1];
+  let testString = currentLine + ch;
+  let lineWidth = textWidth(testString);
+  
+  // Check if new character fits within the margins
+  if (lineWidth < width - 2.3 * margin) {
+    lines[lines.length - 1] += ch;
+  } else {
+    // Need new line
+    lines.push(ch);
+    // Remove oldest line if exceeding max visible lines (scrolling effect)
+    if (lines.length > maxLines) {
+      lines.shift();
     }
   }
 }
@@ -168,6 +220,18 @@ function drawTextStream() {
     strokeWeight(2);
     line(cursorX, cursorY, cursorX, cursorY + textAscent() + 2);
   }
+  
+  // Show slow start indicator in corner (only during slow start)
+  if (isSlowStart) {
+    push();
+    fill(255, 200, 100, 150);
+    noStroke();
+    textSize(12);
+    textAlign(RIGHT, BOTTOM);
+    let remaining = ceil((slowStartDuration - (millis() - startTime)) / 1000);
+    text("Warming up... " + remaining + "s", width - 15, height - 15);
+    pop();
+  }
 }
 
 function windowResized() {
@@ -183,4 +247,8 @@ function resetTextStream() {
   streamIndex = 0;
   letterStream = "";
   generateMoreRandomLetters(300);
+  // Reset the slow start timer as well
+  startTime = millis();
+  isSlowStart = true;
+  charsPerFrame = slowCharsPerFrame;
 }
