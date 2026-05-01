@@ -9,7 +9,8 @@
   
   Updated: displays random letters as a flowing text column
   similar to the Pi digits visualization, with random a-z.
-  Starts slow, then speeds up to normal after 8 seconds.
+  Starts after 5 seconds, begins slowly, then speeds up to normal.
+  Runs forever (infinite random letters).
   
   Author: Juan Carlos Ponce Campuzano
   https://dynamicmath.xyz
@@ -32,9 +33,11 @@ const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 // Slow start animation variables
 let startTime = 0;
-let slowStartDuration = 10000; // 10 seconds in milliseconds
+let slowStartDelay = 6000;      // 7 seconds delay before starting
+let slowStartDuration = 10000;    // 10 seconds of gradual speed increase
+let isStarted = false;
 let isSlowStart = true;
-let slowCharsPerFrame = 0.15; // slower typing speed (fractional for gradual effect)
+let slowCharsPerFrame = 0.15;    // slower typing speed (fractional for gradual effect)
 
 async function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -63,7 +66,7 @@ async function setup() {
   // Record start time for slow start animation
   startTime = millis();
   
-  describe('The infinite monkey theorem: a monkey typing randomly will eventually produce Shakespeare. Watch random letters stream like a cosmic typewriter. Starts slow, then speeds up! ∞ 🤯');
+  describe('The infinite monkey theorem: a monkey typing randomly will eventually produce Shakespeare. Watch random letters stream like a cosmic typewriter. Starts after 5 seconds, then speeds up! ∞ 🤯');
 }
 
 function draw() {
@@ -73,41 +76,69 @@ function draw() {
   // Update typing speed based on time elapsed
   updateTypingSpeed();
   
-  // Text stream: type next letters
-  typeNextLetters();
-  
-  // Draw the visible lines (centered + scrolling)
-  drawTextStream();
-  
-  // Monkey animation
-  let scaleFactor = min(width / img1.width, height / img1.height) * 0.5;
-  let scaledWidth = img1.width * scaleFactor;
-  let scaledHeight = img1.height * scaleFactor;
-  let posX = width * 8 / 10 - scaledWidth / 2;
-  let posY = height * 8 / 10 - scaledHeight / 2;
-  
-  // Alternate images to simulate typing monkey movement
-  if (frameCount % 15 == 0) {
-    currentImage = (currentImage === img1) ? img2 : img1;
+  // Only show letters after the delay
+  if (isStarted) {
+    // Text stream: type next letters
+    typeNextLetters();
+    // Draw the visible lines (centered + scrolling)
+    drawTextStream();
+  } else {
+    // Show waiting message
+    drawWaitingMessage();
   }
-  image(currentImage, posX, posY, scaledWidth, scaledHeight);
+  
+  drawMonkey();
 }
 
-// Update typing speed based on elapsed time (slow start then normal)
+// Draw waiting message during the initial 5-second delay
+function drawWaitingMessage() {
+  let elapsed = millis() - startTime;
+  let remaining = ceil((slowStartDelay - elapsed) / 1000);
+  
+  push();
+  fill(255, 200, 100, 200);
+  noStroke();
+  textSize(22);
+  textAlign(CENTER, CENTER);
+  text("The infinite monkey is getting ready to type", width / 2, height / 2 - 20);
+  text("the entire works of Shakespeare...", width / 2, height / 2 + 10);
+  text("and everything else that has been written", width / 2, height / 2 + 40);
+  text("and that can be written...", width / 2, height / 2 + 70);
+  
+  // Countdown
+  textSize(18);
+  fill(255, 200, 100, 200);
+  text("Starting in " + remaining + "...", width / 2, height / 2 + 120);
+  pop();
+}
+
+// Update typing speed based on elapsed time (delay → slow start → normal)
 function updateTypingSpeed() {
   let elapsed = millis() - startTime;
   
-  if (elapsed < slowStartDuration) {
+  // Check if we're still in the initial delay
+  if (!isStarted) {
+    if (elapsed >= slowStartDelay) {
+      isStarted = true;
+      isSlowStart = true;
+      charsPerFrame = slowCharsPerFrame;
+    }
+    return;
+  }
+  
+  // After delay, handle the slow start gradual acceleration
+  let slowStartElapsed = elapsed - slowStartDelay;
+  
+  if (slowStartElapsed < slowStartDuration) {
     isSlowStart = true;
-    // Easing function: gradually increase from slowCharsPerFrame to charsPerFrame
     // t goes from 0 to 1 over the slow start duration
-    let t = elapsed / slowStartDuration;
+    let t = slowStartElapsed / slowStartDuration;
     // Use easeOutCubic for smooth acceleration
     let eased = 1 - Math.pow(1 - t, 3);
     // Interpolate between slow and normal speed
     charsPerFrame = slowCharsPerFrame + (1 - slowCharsPerFrame) * eased;
   } else {
-    // After 8 seconds, run at normal speed
+    // After slow start, run at normal speed
     if (isSlowStart) {
       isSlowStart = false;
       charsPerFrame = 1; // Normal typing speed
@@ -132,7 +163,6 @@ function typeNextLetters() {
   }
   
   // Use current charsPerFrame (which may be fractional during slow start)
-  // For fractional values, we probabilistically add letters
   let effectiveLetters = floor(charsPerFrame);
   let fractional = charsPerFrame - effectiveLetters;
   
@@ -220,17 +250,22 @@ function drawTextStream() {
     strokeWeight(2);
     line(cursorX, cursorY, cursorX, cursorY + textAscent() + 2);
   }
+}
+
+function drawMonkey() {
+  if (!img1 || !img2) return;
   
-  // Show slow start indicator in corner (only during slow start)
-  if (isSlowStart) {
-    push();
-    fill(255, 200, 100, 150);
-    noStroke();
-    textSize(12);
-    textAlign(RIGHT, BOTTOM);
-    let remaining = ceil((slowStartDuration - (millis() - startTime)) / 1000);
-    text("Warming up... " + remaining + "s", width - 15, height - 15);
-    pop();
+  let scaleFactor = min(width / img1.width, height / img1.height) * 0.5;
+  let scaledWidth = img1.width * scaleFactor;
+  let scaledHeight = img1.height * scaleFactor;
+  let posX = width * 8 / 10 - scaledWidth / 2;
+  let posY = height * 8 / 10 - scaledHeight / 2;
+  
+  image(currentImage, posX, posY, scaledWidth, scaledHeight);
+  
+  // Monkey only starts animating when the letters start streaming
+  if (isStarted && frameCount % 15 === 0) {
+    currentImage = (currentImage === img1) ? img2 : img1;
   }
 }
 
@@ -238,17 +273,4 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   // Recompute text layout parameters
   maxLines = floor((height - 2 * margin) / lineSpacing);
-  // Reset text stream to avoid weird overflow
-  resetTextStream();
-}
-
-function resetTextStream() {
-  lines = [];
-  streamIndex = 0;
-  letterStream = "";
-  generateMoreRandomLetters(300);
-  // Reset the slow start timer as well
-  startTime = millis();
-  isSlowStart = true;
-  charsPerFrame = slowCharsPerFrame;
 }
