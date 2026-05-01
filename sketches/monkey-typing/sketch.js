@@ -32,7 +32,7 @@ const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 // Slow start animation variables
 let startTime = 0;
-let slowStartDuration = 8000; // 8 seconds in milliseconds
+let slowStartDuration = 10000; // 10 seconds in milliseconds
 let isSlowStart = true;
 let slowCharsPerFrame = 0.15; // slower typing speed (fractional for gradual effect)
 
