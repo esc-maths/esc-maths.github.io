@@ -1,6 +1,8 @@
 /*
   Infinite Monkey Theorem - Pi Digits Stream + Monkey Animation
   Updated for p5.js 2.0
+  Starts after 5 seconds, begins slowly, then speeds up to normal
+  Monkey only starts moving when the animation begins
 */
 
 let digits = "";
@@ -16,6 +18,14 @@ let maxLines;
 // Monkey animation
 let img1, img2;
 let currentImage;
+
+// Slow start animation variables
+let startTime = 0;
+let slowStartDelay = 5000;      // 5 seconds delay before starting
+let slowStartDuration = 8000;    // 8 seconds of gradual speed increase
+let isStarted = false;
+let isSlowStart = true;
+let slowCharsPerFrame = 0.15;    // Initial very slow speed
 
 async function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -40,8 +50,11 @@ async function setup() {
   drawingContext.shadowColor = "white";
 
   currentImage = img1;
+  
+  // Record start time for slow start animation
+  startTime = millis();
 
-  describe('Streaming digits of Pi with a typing monkey animation.');
+  describe('Streaming digits of Pi with a typing monkey animation. Starts after 5 seconds, begins slowly, then speeds up!');
 }
 
 function draw() {
@@ -53,9 +66,72 @@ function draw() {
   stroke(255);
   rect(margin, margin, width - 2 * margin, height - 2 * margin);
 
-  typeNextDigits();
-  drawLines();
+  // Update typing speed based on time elapsed
+  updateTypingSpeed();
+  
+  // Only show digits after the delay
+  if (isStarted) {
+    typeNextDigits();
+    drawLines();
+  } else {
+    // Show "Starting soon" message
+    drawWaitingMessage();
+  }
+  
   drawMonkey();
+}
+
+// Update typing speed based on elapsed time (delay → slow start → normal)
+function updateTypingSpeed() {
+  let elapsed = millis() - startTime;
+  
+  // Check if we're still in the initial delay
+  if (!isStarted) {
+    if (elapsed >= slowStartDelay) {
+      isStarted = true;
+      isSlowStart = true;
+      charsPerFrame = slowCharsPerFrame;
+    }
+    return;
+  }
+  
+  // After delay, handle the slow start gradual acceleration
+  let slowStartElapsed = elapsed - slowStartDelay;
+  
+  if (slowStartElapsed < slowStartDuration) {
+    isSlowStart = true;
+    // t goes from 0 to 1 over the slow start duration
+    let t = slowStartElapsed / slowStartDuration;
+    // Use easeOutCubic for smooth acceleration
+    let eased = 1 - Math.pow(1 - t, 3);
+    // Interpolate between slow and normal speed
+    charsPerFrame = slowCharsPerFrame + (1 - slowCharsPerFrame) * eased;
+  } else {
+    // After slow start, run at normal speed
+    if (isSlowStart) {
+      isSlowStart = false;
+      charsPerFrame = 1; // Normal typing speed (1 digit per frame)
+    }
+  }
+}
+
+// Draw waiting message during the initial 5-second delay
+function drawWaitingMessage() {
+  let elapsed = millis() - startTime;
+  let remaining = ceil((slowStartDelay - elapsed) / 1000);
+  
+  push();
+  fill(255, 200, 100, 200);
+  noStroke();
+  textSize(24);
+  textAlign(CENTER, CENTER);
+  text("Starting in " + remaining + "...", width / 2, height / 2);
+  
+  // Subtitle
+  textSize(14);
+  fill(255, 200, 100, 150);
+  text("The monkey is preparing to type \n1 million π digits", width / 2, height / 2 + 40);
+  pop();
 }
 
 function typeNextDigits() {
@@ -64,21 +140,39 @@ function typeNextDigits() {
     return;
   }
 
-  for (let k = 0; k < charsPerFrame; k++) {
+  // Use current charsPerFrame (which may be fractional during slow start)
+  let effectiveLetters = floor(charsPerFrame);
+  let fractional = charsPerFrame - effectiveLetters;
+  
+  // Add the integer part
+  for (let k = 0; k < effectiveLetters; k++) {
     if (index >= digits.length) break;
-
-    let d = digits[index++];
-    if (lines.length === 0) lines.push("");
-
-    let currentLine = lines[lines.length - 1];
-    let lineWidth = textWidth(currentLine + d);
-
-    if (lineWidth < width - 2.3 * margin) {
-      lines[lines.length - 1] += d;
-    } else {
-      lines.push(d);
-      if (lines.length > maxLines) lines.shift();
+    addNextDigit();
+  }
+  
+  // Handle fractional part probabilistically (for smooth slow start)
+  if (fractional > 0 && random(1) < fractional) {
+    if (index < digits.length) {
+      addNextDigit();
     }
+  }
+}
+
+// Helper function to add a single digit
+function addNextDigit() {
+  if (index >= digits.length) return;
+  
+  let d = digits[index++];
+  if (lines.length === 0) lines.push("");
+
+  let currentLine = lines[lines.length - 1];
+  let lineWidth = textWidth(currentLine + d);
+
+  if (lineWidth < width - 2.3 * margin) {
+    lines[lines.length - 1] += d;
+  } else {
+    lines.push(d);
+    if (lines.length > maxLines) lines.shift();
   }
 }
 
@@ -106,8 +200,8 @@ function drawMonkey() {
 
   image(currentImage, posX, posY, scaledWidth, scaledHeight);
 
-  // safer toggle
-  if (frameCount % 15 === 0) {
+  // Monkey only starts animating when the digits start streaming
+  if (isStarted && frameCount % 15 === 0) {
     currentImage = (currentImage === img1) ? img2 : img1;
   }
 }
@@ -115,6 +209,12 @@ function drawMonkey() {
 function resetSketch() {
   index = 0;
   lines = [];
+  // Reset timing variables for a fresh start
+  startTime = millis();
+  isStarted = false;
+  isSlowStart = true;
+  charsPerFrame = slowCharsPerFrame;
+  currentImage = img1; // Reset monkey to default pose
 }
 
 function windowResized() {
