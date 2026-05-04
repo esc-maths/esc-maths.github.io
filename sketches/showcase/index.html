@@ -1,241 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>p5.js Sketches Showcase · Sequential Gallery</title>
-    <link rel="icon" type="image/png" href="../../assets/icon/infinity32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="../../assets/icon/infinity16.png" sizes="16x16">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>p5.js Sketches Showcase · Sequential Gallery</title>
+  <link rel="icon" type="image/png" href="../../assets/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../../assets/icon/infinity16.png" sizes="16x16">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            background: #000000; /* deep black behind iframe, prevents white flash */
-        }
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: #000000;
+      /* deep black behind iframe, prevents white flash */
+    }
 
-        iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-            display: block;
-            background: #fff;   /* safe fallback, but sketches fill */
-        }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: block;
+      background: #fff;
+      /* safe fallback, but sketches fill */
+    }
 
-        body {
-            background-color: #000000;
-            font-family: 'Monaco', 'Monospace', 'Fira Code', monospace;
-            overscroll-behavior: none;
-            position: relative;
-            height: 100vh;
-        }
+    body {
+      background-color: #000000;
+      font-family: 'Monaco', 'Monospace', 'Fira Code', monospace;
+      overscroll-behavior: none;
+      position: relative;
+      height: 100vh;
+    }
 
-        /* modern glass-panel overlay card */
-        .card {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            top: auto;
-            transform: none;
-            background: rgba(10, 10, 20, 0.85);
-            backdrop-filter: blur(12px);
-            border-radius: 2rem;
-            padding: 1rem 1.5rem;
-            color: #f0f3fa;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-            z-index: 20;
-            pointer-events: auto;
-            transition: opacity 0.2s ease;
-            font-family: monospace;
-            line-height: 1.4;
-            min-width: 220px;
-        }
+    a {
+      text-decoration: none;
+      color: aqua;
+    }
 
-        .card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            letter-spacing: -0.2px;
-            color: #bbf0ff;
-        }
+    /* modern glass-panel overlay card */
+    .card {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      top: auto;
+      transform: none;
+      background: rgba(10, 10, 20, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      padding: 1rem 1.5rem;
+      color: #f0f3fa;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+      z-index: 20;
+      pointer-events: auto;
+      transition: opacity 0.2s ease;
+      font-family: monospace;
+      line-height: 1.4;
+      min-width: 220px;
+    }
 
-        .card p {
-            margin: 0.25rem 0;
-            font-size: 0.85rem;
-        }
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      color: #bbf0ff;
+    }
 
-        .stat {
-            font-weight: bold;
-            color: #ffd966;
-        }
+    .card p {
+      margin: 0.25rem 0;
+      font-size: 0.85rem;
+    }
 
-        .key-hint {
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 8px;
-            padding: 0.15rem 0.5rem;
-            font-weight: bold;
-            font-family: monospace;
-            font-size: 0.75rem;
-            margin-left: 0.3rem;
-            border: 1px solid #aaa;
-            color: #e0e0e0;
-        }
+    .stat {
+      font-weight: bold;
+      color: #ffd966;
+    }
 
-        .nav-buttons {
-            margin-top: 0.7rem;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+    .key-hint {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      padding: 0.15rem 0.5rem;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 0.75rem;
+      margin-left: 0.3rem;
+      border: 1px solid #aaa;
+      color: #e0e0e0;
+    }
 
-        button {
-            background: rgba(30, 30, 45, 0.9);
-            border: none;
-            border-radius: 2rem;
-            padding: 0.3rem 1rem;
-            font-family: monospace;
-            font-weight: bold;
-            font-size: 0.8rem;
-            color: white;
-            cursor: pointer;
-            backdrop-filter: blur(4px);
-            transition: all 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
+    .nav-buttons {
+      margin-top: 0.7rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
-        button:hover {
-            background: #2c5f8a;
-            border-color: #90e0ff;
-            transform: scale(1.02);
-        }
+    button {
+      background: rgba(30, 30, 45, 0.9);
+      border: none;
+      border-radius: 2rem;
+      padding: 0.3rem 1rem;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 0.8rem;
+      color: white;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
 
-        .counter-badge {
-            background: #1e2a3a;
-            border-radius: 24px;
-            padding: 0.2rem 0.8rem;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
+    button:hover {
+      background: #2c5f8a;
+      border-color: #90e0ff;
+      transform: scale(1.02);
+    }
 
-        @media screen and (max-width: 700px) {
-            .card {
-                bottom: 1rem;
-                left: 1rem;
-                right: 1rem;
-                width: auto;
-                padding: 0.75rem 1rem;
-                border-radius: 1.5rem;
-            }
-            .nav-buttons {
-                gap: 0.6rem;
-            }
-            button {
-                padding: 0.2rem 0.8rem;
-                font-size: 0.7rem;
-            }
-            .key-hint {
-                font-size: 0.65rem;
-            }
-        }
+    .counter-badge {
+      background: #1e2a3a;
+      border-radius: 24px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
 
-        /* subtle hover info */
-        .footer-note {
-            position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            background: rgba(0,0,0,0.4);
-            border-radius: 20px;
-            padding: 0.2rem 0.8rem;
-            font-size: 0.7rem;
-            color: #ccc;
-            z-index: 20;
-            pointer-events: none;
-            font-family: monospace;
-            backdrop-filter: blur(4px);
-        }
-    </style>
-    <!-- Google Analytics (gtag) preserved identical behavior -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-8GQQBCYTB5');
-    </script>
+    @media screen and (max-width: 700px) {
+      .card {
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        padding: 0.75rem 1rem;
+        border-radius: 1.5rem;
+      }
+
+      .nav-buttons {
+        gap: 0.6rem;
+      }
+
+      button {
+        padding: 0.2rem 0.8rem;
+        font-size: 0.7rem;
+      }
+
+      .key-hint {
+        font-size: 0.65rem;
+      }
+    }
+
+    /* subtle hover info */
+    .footer-note {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.7rem;
+      color: #ccc;
+      z-index: 20;
+      pointer-events: none;
+      font-family: monospace;
+      backdrop-filter: blur(4px);
+    }
+  </style>
+  <!-- Google Analytics (gtag) preserved identical behavior -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-8GQQBCYTB5');
+  </script>
 </head>
+
 <body>
 
-<!-- fullscreen iframe: shows each sketch sequentially -->
-<iframe id="sketchFrame" title="p5.js Sketch Showcase" loading="eager"></iframe>
+  <!-- fullscreen iframe: shows each sketch sequentially -->
+  <iframe id="sketchFrame" title="p5.js Sketch Showcase" loading="eager"></iframe>
 
-<!-- elegant overlay card with sequential info & controls -->
-<div class="card" id="infoCard">
-    <h3>🎨 sketch gallery · sequential mode</h3>
-    <p>📋 <span id="currentIndexDisplay">0</span> / <span id="totalCountDisplay">0</span> 
-        <span style="opacity:0.7;">—</span> 
-        <span id="currentTitlePreview">loading...</span>
+  <!-- elegant overlay card with sequential info & controls -->
+  <div class="card" id="infoCard">
+    <h3>🎨 Sketch gallery</h3>
+    <p>📋 <span id="currentIndexDisplay">0</span> / <span id="totalCountDisplay">0</span>
+      <span style="opacity:0.7;">—</span>
+      <span id="currentTitlePreview">loading...</span>
     </p>
     <div class="nav-buttons">
-        <button id="prevBtn" aria-label="previous sketch">◀ PREV</button>
-        <button id="nextBtn" aria-label="next sketch">NEXT ▶</button>
-        <button id="reloadBtn" aria-label="reload current">⟳ R</button>
+      <button id="prevBtn" aria-label="previous sketch">◀ PREV</button>
+      <button id="nextBtn" aria-label="next sketch">NEXT ▶</button>
+      <button id="reloadBtn" aria-label="reload current">⟳ R</button>
     </div>
     <p style="font-size:0.75rem; margin-top:0.5rem;">
-        ⚡ <kbd class="key-hint">←</kbd> <kbd class="key-hint">→</kbd> navigate &nbsp;&nbsp;|&nbsp;
-        <kbd class="key-hint">R</kbd> reload sketch
+      ⚡ <kbd class="key-hint">←</kbd> <kbd class="key-hint">→</kbd> navigate &nbsp;&nbsp;|&nbsp;
+      <kbd class="key-hint">R</kbd> reload sketch
     </p>
-</div>
-<div class="footer-note">
-    🧩 sequential playback · no random jumps
-</div>
+  </div>
+  <div class="footer-note">
+    🧩 <a href="https://www.dynamicmath.xyz/" target="_blank">JCPC</a>
+  </div>
 
-<script>
+  <script>
     // --------------------------------------------------------------
     // MASTER LIST of sketches (preserved original order + added missing)
     // original array exactly as provided, but includes all entries
     // --------------------------------------------------------------
     const links = [
-        "https://www.dynamicmath.xyz/sketches/monkey-pi-digits/",
-        "https://www.dynamicmath.xyz/sketches/tesseract/",
-        "https://www.dynamicmath.xyz/sketches/shaders/noise-rings/",
-        "https://www.dynamicmath.xyz/sketches/flow-field-noise",
-        "https://www.dynamicmath.xyz/sketches/moebius/",
-        "https://www.dynamicmath.xyz/sketches/my-pond/",
-        "https://www.dynamicmath.xyz/math2400/sketches/fft/",
-        "https://www.dynamicmath.xyz/sea-creatures/gallery/",
-        "https://geometria-hiperbolica.github.io/sketches/hyperbolic-group/",
-        "../escher-infinite-frame",
-        "../fractal-land-kali",
-        "../triangle-paradox",
-        "../matrix",
-        "../monkey-typing-one-million-digits-pi",
-        "../ripples-webgl",
-        "../fun-code",
-        "../griffith-logo",
-        "../boxes-noise",
-        "../3d-tree-procedural",
-        "../particle-life",
-        "../sea-creatures",
-        "../particle-life/webgpu",
-        "../mobius",
+      "https://www.dynamicmath.xyz/sketches/tesseract/",
+      "https://www.dynamicmath.xyz/sketches/shaders/noise-rings/",
+      "https://www.dynamicmath.xyz/sketches/flow-field-noise",
+      "https://www.dynamicmath.xyz/sketches/moebius/",
+      "https://www.dynamicmath.xyz/sketches/my-pond/",
+      "https://www.dynamicmath.xyz/math2400/sketches/fft/",
+      "https://www.dynamicmath.xyz/sea-creatures/gallery/",
+      "https://geometria-hiperbolica.github.io/sketches/hyperbolic-group/",
+      "../escher-infinite-frame",
+      "../fractal-land-kali",
+      "../triangle-paradox",
+      "../matrix",
+      "../monkey-typing-one-million-digits-pi",
+      "../ripples-webgl",
+      "../fun-code",
+      "../griffith-logo",
+      "../boxes-noise",
+      "../3d-tree-procedural",
+      "../particle-life",
+      "../sea-creatures",
+      "../particle-life/webgpu",
+      "../mobius",
     ];
 
     // ------------------- state management -------------------------
     let currentIdx = 0;            // start from first sketch (sequential)
     const totalSketches = links.length;
-    
+
     // DOM elements
     const iframe = document.getElementById("sketchFrame");
     const prevBtn = document.getElementById("prevBtn");
@@ -244,180 +256,179 @@
     const currentIndexSpan = document.getElementById("currentIndexDisplay");
     const totalCountSpan = document.getElementById("totalCountDisplay");
     const currentTitlePreviewSpan = document.getElementById("currentTitlePreview");
-    
+
     // helper: extract short readable name from url or path
     function getSketchTitle(url) {
-        try {
-            // for full URLs or relative paths, extract last meaningful segment
-            let cleanUrl = url.trim();
-            // Remove trailing slash if present for better name
-            let withoutTrailing = cleanUrl.replace(/\/$/, '');
-            let segments = withoutTrailing.split('/');
-            let last = segments[segments.length - 1];
-            if (!last || last === "") {
-                // fallback: if path ends with / and empty, take previous
-                if (segments.length >= 2) last = segments[segments.length - 2];
-            }
-            // special handling for shaders/noise-rings or long segments
-            if (last === "noise-rings") return "🌀 noise rings";
-            if (last === "flow-field-noise") return "🌊 flow field noise";
-            if (last === "moebius") return "🔄 moebius strip";
-            if (last === "my-pond") return "🌿 my pond";
-            if (last === "fft") return "📊 FFT spectrum";
-            if (last === "gallery") return "🐠 sea creatures gallery";
-            if (last === "hyperbolic-group") return "⚡ hyperbolic group";
-            if (last === "escher-infinite-frame") return "🔷 escher infinite frame";
-            if (last === "fractal-land-kali") return "🏔️ fractal land kali";
-            if (last === "triangle-paradox") return "🔺 triangle paradox";
-            if (last === "matrix") return "💠 matrix digital rain";
-            if (last === "monkey-typing-one-million-digits-pi") return "🐒 monkey π digits";
-            if (last === "ripples-webgl") return "💧 ripples webgl";
-            if (last === "fun-code") return "✨ fun code";
-            if (last === "griffith-logo") return "🦁 griffith logo";
-            if (last === "boxes-noise") return "📦 boxes noise";
-            if (last === "3d-tree-procedural") return "🌳 3D procedural tree";
-            if (last === "particle-life") return "🧬 particle life";
-            if (last === "sea-creatures") return "🐙 sea creatures";
-            if (last === "webgpu") return "⚙️ particle life webgpu";
-            if (last === "mobius") return "🔁 mobius advanced";
-            if (last.includes("monkey-pi-digits")) return "🐒 monkey pi digits";
-            if (last.includes("tesseract")) return "🧊 tesseract";
-            // fallback: convert dashes/underscores to spaces & capitalize
-            if (last) {
-                let readable = last.replace(/[-_]/g, ' ');
-                readable = readable.charAt(0).toUpperCase() + readable.slice(1);
-                if (readable.length > 28) readable = readable.slice(0, 25) + '…';
-                return readable;
-            }
-            return "sketch";
-        } catch(e) {
-            return "immerse";
+      try {
+        // for full URLs or relative paths, extract last meaningful segment
+        let cleanUrl = url.trim();
+        // Remove trailing slash if present for better name
+        let withoutTrailing = cleanUrl.replace(/\/$/, '');
+        let segments = withoutTrailing.split('/');
+        let last = segments[segments.length - 1];
+        if (!last || last === "") {
+          // fallback: if path ends with / and empty, take previous
+          if (segments.length >= 2) last = segments[segments.length - 2];
         }
+        // special handling for shaders/noise-rings or long segments
+        if (last === "noise-rings") return "🌀 noise rings";
+        if (last === "flow-field-noise") return "🌊 flow field noise";
+        if (last === "moebius") return "🔄 moebius strip";
+        if (last === "my-pond") return "🌿 my pond";
+        if (last === "fft") return "📊 FFT spectrum";
+        if (last === "gallery") return "🐠 sea creatures gallery";
+        if (last === "hyperbolic-group") return "⚡ hyperbolic group";
+        if (last === "escher-infinite-frame") return "🔷 escher infinite frame";
+        if (last === "fractal-land-kali") return "🏔️ fractal land kali";
+        if (last === "triangle-paradox") return "🔺 triangle paradox";
+        if (last === "matrix") return "💠 matrix digital rain";
+        if (last === "monkey-typing-one-million-digits-pi") return "🐒 monkey π digits";
+        if (last === "ripples-webgl") return "💧 ripples webgl";
+        if (last === "fun-code") return "✨ fun code";
+        if (last === "griffith-logo") return "🦁 griffith logo";
+        if (last === "boxes-noise") return "📦 boxes noise";
+        if (last === "3d-tree-procedural") return "🌳 3D procedural tree";
+        if (last === "particle-life") return "🧬 particle life";
+        if (last === "sea-creatures") return "🐙 sea creatures";
+        if (last === "webgpu") return "⚙️ particle life webgpu";
+        if (last === "mobius") return "🔁 mobius advanced";
+        if (last.includes("tesseract")) return "🧊 tesseract";
+        // fallback: convert dashes/underscores to spaces & capitalize
+        if (last) {
+          let readable = last.replace(/[-_]/g, ' ');
+          readable = readable.charAt(0).toUpperCase() + readable.slice(1);
+          if (readable.length > 28) readable = readable.slice(0, 25) + '…';
+          return readable;
+        }
+        return "sketch";
+      } catch (e) {
+        return "immerse";
+      }
     }
-    
+
     // update UI: current index display and preview title
     function updateUI() {
-        currentIndexSpan.textContent = currentIdx + 1;
-        totalCountSpan.textContent = totalSketches;
-        const currentUrl = links[currentIdx];
-        const title = getSketchTitle(currentUrl);
-        currentTitlePreviewSpan.textContent = title;
-        // optional: update page title to reflect current sketch
-        document.title = `🎨 ${title} · p5.js sequential gallery`;
+      currentIndexSpan.textContent = currentIdx + 1;
+      totalCountSpan.textContent = totalSketches;
+      const currentUrl = links[currentIdx];
+      const title = getSketchTitle(currentUrl);
+      currentTitlePreviewSpan.textContent = title;
+      // optional: update page title to reflect current sketch
+      document.title = `🎨 ${title} · p5.js sequential gallery`;
     }
-    
+
     // load sketch at currentIdx into iframe, preserve history state but simple
     function loadCurrentSketch() {
-        if (!iframe) return;
-        const targetUrl = links[currentIdx];
-        // avoid unnecessary reload if same url and iframe already loaded? 
-        // but to ensure consistency we set src (reload if identical)
-        // BUT if user clicks R we force reload; but for navigation we set src.
-        // this will trigger fresh loading, good for sequential experience.
-        iframe.src = targetUrl;
-        updateUI();
+      if (!iframe) return;
+      const targetUrl = links[currentIdx];
+      // avoid unnecessary reload if same url and iframe already loaded? 
+      // but to ensure consistency we set src (reload if identical)
+      // BUT if user clicks R we force reload; but for navigation we set src.
+      // this will trigger fresh loading, good for sequential experience.
+      iframe.src = targetUrl;
+      updateUI();
     }
-    
+
     // reload the same sketch (force iframe reset)
     function reloadCurrentSketch() {
-        if (!iframe) return;
-        const currentUrl = links[currentIdx];
-        // classic technique: re-set src to force full reload
-        iframe.src = currentUrl;
-        // UI subtle pulse animation? not needed but gives feedback
-        const reloadBtnEl = document.getElementById("reloadBtn");
-        if (reloadBtnEl) {
-            reloadBtnEl.style.transform = "scale(0.96)";
-            setTimeout(() => { if(reloadBtnEl) reloadBtnEl.style.transform = ""; }, 120);
-        }
-        // ensure ui stays updated
-        updateUI();
+      if (!iframe) return;
+      const currentUrl = links[currentIdx];
+      // classic technique: re-set src to force full reload
+      iframe.src = currentUrl;
+      // UI subtle pulse animation? not needed but gives feedback
+      const reloadBtnEl = document.getElementById("reloadBtn");
+      if (reloadBtnEl) {
+        reloadBtnEl.style.transform = "scale(0.96)";
+        setTimeout(() => { if (reloadBtnEl) reloadBtnEl.style.transform = ""; }, 120);
+      }
+      // ensure ui stays updated
+      updateUI();
     }
-    
+
     // sequential navigation: next (cyclic)
     function nextSketch() {
-        currentIdx = (currentIdx + 1) % totalSketches;
-        loadCurrentSketch();
+      currentIdx = (currentIdx + 1) % totalSketches;
+      loadCurrentSketch();
     }
-    
+
     // previous sketch (cyclic)
     function prevSketch() {
-        currentIdx = (currentIdx - 1 + totalSketches) % totalSketches;
-        loadCurrentSketch();
+      currentIdx = (currentIdx - 1 + totalSketches) % totalSketches;
+      loadCurrentSketch();
     }
-    
+
     // keyboard handlers: ArrowLeft, ArrowRight, R, (also r lowercase)
     function handleKeyDown(e) {
-        const key = e.key;
-        // Prevent default scrolling for arrow keys and R
-        if (key === 'ArrowLeft') {
-            e.preventDefault();
-            prevSketch();
-        } else if (key === 'ArrowRight') {
-            e.preventDefault();
-            nextSketch();
-        } else if (key === 'r' || key === 'R') {
-            e.preventDefault();
-            reloadCurrentSketch();
+      const key = e.key;
+      // Prevent default scrolling for arrow keys and R
+      if (key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSketch();
+      } else if (key === 'ArrowRight') {
+        e.preventDefault();
+        nextSketch();
+      } else if (key === 'r' || key === 'R') {
+        e.preventDefault();
+        reloadCurrentSketch();
+      }
+      // optional: add 'Home' to go to first, but minimalistic
+      else if (key === 'Home') {
+        e.preventDefault();
+        if (currentIdx !== 0) {
+          currentIdx = 0;
+          loadCurrentSketch();
         }
-        // optional: add 'Home' to go to first, but minimalistic
-        else if (key === 'Home') {
-            e.preventDefault();
-            if (currentIdx !== 0) {
-                currentIdx = 0;
-                loadCurrentSketch();
-            }
-        }
+      }
     }
-    
+
     // ----------------------------------------------
     // detect if any link is relative? all work as is.
     // Ensure iframe loads first sketch on start
     // ----------------------------------------------
     function initSequential() {
-        // set total count display
-        totalCountSpan.textContent = totalSketches;
-        // starting index 0 (first sketch)
-        currentIdx = 0;
-        loadCurrentSketch();
-        
-        // attach event listeners for buttons
-        if (prevBtn) prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            prevSketch();
-        });
-        if (nextBtn) nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            nextSketch();
-        });
-        if (reloadBtn) reloadBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            reloadCurrentSketch();
-        });
-        
-        // keyboard listener
-        window.addEventListener('keydown', handleKeyDown);
-        
-        // small fix: ensure iframe focus not needed; global works.
-        // optional: minor accessibility: show focus ring only when needed
+      // set total count display
+      totalCountSpan.textContent = totalSketches;
+      // starting index 0 (first sketch)
+      currentIdx = 0;
+      loadCurrentSketch();
+
+      // attach event listeners for buttons
+      if (prevBtn) prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        prevSketch();
+      });
+      if (nextBtn) nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        nextSketch();
+      });
+      if (reloadBtn) reloadBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        reloadCurrentSketch();
+      });
+
+      // keyboard listener
+      window.addEventListener('keydown', handleKeyDown);
+
+      // small fix: ensure iframe focus not needed; global works.
+      // optional: minor accessibility: show focus ring only when needed
     }
-    
+
     // Also add small extra behavior: if iframe fails to load due to CORS or network, we keep functional.
     // graceful: no extra handling needed.
     // Enhancement: optionally store last index in sessionStorage? not requested, clean.
     // But will respect original order absolutely.
-    
+
     // one more helper: when iframe loads maybe show friendly animation? not necessary.
     // We ensure that reload button also matches "R" hint.
     // bonus: update title preview when iframe loads (already done in load)
-    
+
     // start everything after DOM ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSequential);
+      document.addEventListener('DOMContentLoaded', initSequential);
     } else {
-        initSequential();
+      initSequential();
     }
-    
+
     // mobile touch-friendly: buttons already functional
     // edge: iframe might have internal keyboard capture – but global key handler
     // still works since window listener catches before iframe if not prevented.
@@ -425,18 +436,19 @@
     // to avoid conflict, we still provide explicit reload button. But the R key is
     // standard reload pattern, and some p5 sketches rarely use 'r'. This toggle
     // gives full control. Option: we could add a small preference, but fine.
-    
+
     // also improve index display when first load
     // final robustness: if any link has trailing slash or not, no issue.
     // ------------- DONE --------------
     // Additionally: we replaced random logic with fully sequential cyclic order.
     // No random link selection anymore, exactly one after another.
     // Provide subtle transition feedback.
-    
+
     // Also adds responsive card hint for keys.
-    
+
     // optional: print console log for debugging (removed in production style)
     console.log(`🎬 Sequential gallery ready · ${totalSketches} sketches · starting at ${links[0]}`);
-</script>
+  </script>
 </body>
+
 </html>
