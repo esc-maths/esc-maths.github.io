@@ -1,16 +1,16 @@
-let video
-let handPose
-let hands = []
-let ripples = []
-let ripSh
+let video;
+let handPose;
+let hands = [];
+let ripples = [];
+let ripSh;
 
-let wellPos
-let wellVel
-let wellTarget
-let elasticForce = 0.08
-let damping = 0.75
+let wellPos;
+let wellVel;
+let wellTarget;
+let elasticForce = 0.08;
+let damping = 0.75;
 
-const maxRipples = 40
+const maxRipples = 40;
 
 const vert = `
 attribute vec3 aPosition;
@@ -23,7 +23,7 @@ void main() {
   vTexCoord = aTexCoord;
   gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
 }
-`
+`;
 
 const frag = `
 precision highp float;
@@ -91,100 +91,100 @@ void main() {
     gl_FragColor = vec4(col, 1.0);
   }
 }
-`
+`;
 
 async function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL)
+  createCanvas(windowWidth, windowHeight, WEBGL);
   
-  video = createCapture(VIDEO)
-  video.size(640, 480)
-  video.hide()
+  video = createCapture(VIDEO);
+  video.size(640, 480);
+  video.hide();
 
-  handPose = await ml5.handPose({ flipped: true })
-  handPose.detectStart(video, r => hands = r)
+  handPose = await ml5.handPose({ flipped: true });
+  handPose.detectStart(video, r => hands = r);
 
-  ripSh = createShader(vert, frag)
+  ripSh = createShader(vert, frag);
   
-  wellPos = createVector(width / 2, height / 2)
-  wellVel = createVector(0, 0)
-  wellTarget = createVector(width / 2, height / 2)
+  wellPos = createVector(width / 2, height / 2);
+  wellVel = createVector(0, 0);
+  wellTarget = createVector(width / 2, height / 2);
   
-  noStroke()
+  noStroke();
 }
 
 function getCoverInfo() {
-  const vw = video.width
-  const vh = video.height
-  const sw = width
-  const sh = height
+  const vw = video.width;
+  const vh = video.height;
+  const sw = width;
+  const sh = height;
   
-  const scale = max(sw / vw, sh / vh)
-  const w = vw * scale
-  const h = vh * scale
-  const ox = (sw - w) * 0.5
-  const oy = (sh - h) * 0.5
+  const scale = max(sw / vw, sh / vh);
+  const w = vw * scale;
+  const h = vh * scale;
+  const ox = (sw - w) * 0.5;
+  const oy = (sh - h) * 0.5;
   
   return { scale, ox, oy, w, h }
 }
 
 function distSq(p1, p2) {
-  return (p1.x - p2.x)**2 + (p1.y - p2.y)**2
+  return (p1.x - p2.x)**2 + (p1.y - p2.y)**2;
 }
 
 function isHandOpen(hand) {
-  const wrist = hand.wrist
+  const wrist = hand.wrist;
   const tips = [
     hand.index_finger_tip,
     hand.middle_finger_tip,
     hand.ring_finger_tip,
     hand.pinky_finger_tip
-  ]
+  ];
   const mcps = [
     hand.index_finger_mcp,
     hand.middle_finger_mcp,
     hand.ring_finger_mcp,
     hand.pinky_finger_mcp
-  ]
+  ];
   
-  let openFingers = 0
+  let openFingers = 0;
   for(let i=0; i<4; i++) {
     if (distSq(tips[i], wrist) > distSq(mcps[i], wrist) * 1.8) {
       openFingers++
     }
   }
-  return openFingers >= 3
+  return openFingers >= 3;
 }
 
 function updatePhysics() {
-  const cover = getCoverInfo()
-  let count = 0
-  let centroid = createVector(0, 0)
-  let active = false
+  const cover = getCoverInfo();
+  let count = 0;
+  let centroid = createVector(0, 0);
+  let active = false;
 
   if (hands.length > 0) {
     for(let hand of hands) {
-      let k = hand.middle_finger_mcp
+      let k = hand.middle_finger_mcp;
       if (k) {
-        let screenX = (k.x * cover.scale) + cover.ox
-        let screenY = (k.y * cover.scale) + cover.oy
+        let screenX = (k.x * cover.scale) + cover.ox;
+        let screenY = (k.y * cover.scale) + cover.oy;
         
-        centroid.add(screenX, screenY)
+        centroid.add(screenX, screenY);
         count++
       }
-      if (isHandOpen(hand)) active = true
+      if (isHandOpen(hand)) active = true;
     }
   }
 
   if (count > 0) {
-    centroid.div(count)
-    wellTarget.set(centroid.x, centroid.y)
+    centroid.div(count);
+    wellTarget.set(centroid.x, centroid.y);
   }
 
-  let force = p5.Vector.sub(wellTarget, wellPos)
-  force.mult(elasticForce)
-  wellVel.add(force)
-  wellVel.mult(damping)
-  wellPos.add(wellVel)
+  let force = p5.Vector.sub(wellTarget, wellPos);
+  force.mult(elasticForce);
+  wellVel.add(force);
+  wellVel.mult(damping);
+  wellPos.add(wellVel);
 
   if (active && count > 0 && frameCount % 8 === 0) {
     ripples.push({ 
@@ -196,38 +196,38 @@ function updatePhysics() {
 }
 
 function draw() {
-  background(0)
+  background(0);
   
-  if (!video.width) return
+  if (!video.width) return;
 
-  updatePhysics()
+  updatePhysics();
   
   for (let i = ripples.length - 1; i >= 0; i--) {
-    ripples[i].age += 0.015
+    ripples[i].age += 0.015;
     if (ripples[i].age > 2.5) {
-      ripples.splice(i, 1)
+      ripples.splice(i, 1);
     }
   }
 
-  if (ripples.length > maxRipples) ripples.shift()
+  if (ripples.length > maxRipples) ripples.shift();
   
-  shader(ripSh)
-  ripSh.setUniform('tex0', video)
-  ripSh.setUniform('uResolution', [width, height])
-  ripSh.setUniform('uVideoSize', [video.width, video.height])
-  ripSh.setUniform('uTime', millis() * 0.001)
+  shader(ripSh);
+  ripSh.setUniform('tex0', video);
+  ripSh.setUniform('uResolution', [width, height]);
+  ripSh.setUniform('uVideoSize', [video.width, video.height]);
+  ripSh.setUniform('uTime', millis() * 0.001);
   
-  let data = []
+  let data = [];
   for (let r of ripples) {
-    data.push(r.x, r.y, r.age)
+    data.push(r.x, r.y, r.age);
   }
   
-  ripSh.setUniform('uWaves', data)
-  ripSh.setUniform('uWaveCount', ripples.length)
+  ripSh.setUniform('uWaves', data);
+  ripSh.setUniform('uWaveCount', ripples.length);
 
-  plane(width, height)
+  plane(width, height);
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight)
+  resizeCanvas(windowWidth, windowHeight);
 }
