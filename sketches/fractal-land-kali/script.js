@@ -83,7 +83,7 @@ const fragmentShader = `
     #define GAMMA 1.4
     #define SATURATION .65
     #define detail .001
-    #define t (iTime * .4)
+    #define t (iTime * .35)
 
     const vec3 origin = vec3(-1., .7, 0.);
     float det = 0.0;
