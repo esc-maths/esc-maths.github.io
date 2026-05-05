@@ -130,7 +130,7 @@ function drawWaitingMessage() {
   // Subtitle
   textSize(14);
   fill(255, 200, 100, 150);
-  text("The monkey is preparing to type \n1 million π digits", width / 2, height / 2 + 40);
+  text("The monkey is preparing to type \n1 million digits of π", width / 2, height / 2 + 40);
   pop();
 }
 
