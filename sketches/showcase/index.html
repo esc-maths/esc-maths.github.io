@@ -220,6 +220,7 @@
     // original array exactly as provided, but includes all entries
     // --------------------------------------------------------------
     const links = [
+      "https://www.dynamicmath.xyz/sketches/zeros-ones-matrix/",
       "https://www.dynamicmath.xyz/sketches/tesseract/",
       "https://www.dynamicmath.xyz/sketches/shaders/noise-rings/",
       "https://www.dynamicmath.xyz/sketches/flow-field-noise",
@@ -239,8 +240,6 @@
       "../boxes-noise",
       "../3d-tree-procedural",
       "../particle-life",
-      "../sea-creatures",
-      "../particle-life/webgpu",
       "../mobius",
     ];
 
@@ -271,28 +270,27 @@
           if (segments.length >= 2) last = segments[segments.length - 2];
         }
         // special handling for shaders/noise-rings or long segments
-        if (last === "noise-rings") return "🌀 noise rings";
-        if (last === "flow-field-noise") return "🌊 flow field noise";
-        if (last === "moebius") return "🔄 moebius strip";
-        if (last === "my-pond") return "🌿 my pond";
+        if (last === "noise-rings") return "🌀 Noise rings";
+        if (last === "flow-field-noise") return "🌊 Flow field noise";
+        if (last === "moebius") return "🔄 Moebius strip";
+        if (last === "my-pond") return "🐠 My pond";
         if (last === "fft") return "📊 FFT spectrum";
-        if (last === "gallery") return "🐠 sea creatures gallery";
-        if (last === "hyperbolic-group") return "⚡ hyperbolic group";
-        if (last === "escher-infinite-frame") return "🔷 escher infinite frame";
-        if (last === "fractal-land-kali") return "🏔️ fractal land kali";
-        if (last === "triangle-paradox") return "🔺 triangle paradox";
-        if (last === "matrix") return "💠 matrix digital rain";
-        if (last === "monkey-typing-one-million-digits-pi") return "🐒 monkey π digits";
-        if (last === "ripples-webgl") return "💧 ripples webgl";
-        if (last === "fun-code") return "✨ fun code";
-        if (last === "griffith-logo") return "🦁 griffith logo";
-        if (last === "boxes-noise") return "📦 boxes noise";
+        if (last === "gallery") return "🐙 Sea creatures gallery";
+        if (last === "hyperbolic-group") return "⚡ Hyperbolic group";
+        if (last === "escher-infinite-frame") return "🔷 Escher infinite frame";
+        if (last === "fractal-land-kali") return "🏔️ Fractal land by Kali";
+        if (last === "triangle-paradox") return "🔺 Triangle paradox";
+        if (last === "matrix") return "💠 Matrix digital rain";
+        if (last === "monkey-typing-one-million-digits-pi") return "🐒 Monkey 1M π digits";
+        if (last === "ripples-webgl") return "💧 Ripples webgl";
+        if (last === "fun-code") return "✨ Fun code";
+        if (last === "griffith-logo") return "🦁 Griffith logo";
+        if (last === "boxes-noise") return "📦 Boxes noise";
         if (last === "3d-tree-procedural") return "🌳 3D procedural tree";
-        if (last === "particle-life") return "🧬 particle life";
-        if (last === "sea-creatures") return "🐙 sea creatures";
-        if (last === "webgpu") return "⚙️ particle life webgpu";
-        if (last === "mobius") return "🔁 mobius advanced";
-        if (last.includes("tesseract")) return "🧊 tesseract";
+        if (last === "particle-life") return "🧬 Particle life";
+        if (last === "mobius") return "🔁 Mobius advanced";
+        if (last.includes("tesseract")) return "🧊 Tesseract";
+        if (last.includes("zeros-ones-matrix")) return "💻 Binary";
         // fallback: convert dashes/underscores to spaces & capitalize
         if (last) {
           let readable = last.replace(/[-_]/g, ' ');
