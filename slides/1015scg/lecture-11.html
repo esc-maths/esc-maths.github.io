@@ -1391,7 +1391,7 @@ print(f"A(0) = {A0:.3f}")</code></pre>
 				</section>
 				<section>
 					<h5>Linearisation</h5>
-					<pre class="copyable" style="width: 1200px;height: 620px; font-size: 47%;margin-top: -15px;">
+					<pre class="copyable" style="width: 1200px;height: 620px; font-size: 46%;margin-top: -15px;">
 						<code data-trim data-noescape  class="language-python" >import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
@@ -1511,10 +1511,10 @@ from scipy import stats
 
 # Given data
 data = np.array([
-    275.0266497,	255.0311768,	293.8473708,	267.1938408,	242.3487616
+    231.8191, 200.0964, 278.5861, 261.5504, 258.7801
 ])
 
-mu0 = 246.966  # hypothesised mean
+mu0 = 236.0078  # hypothesised mean
 
 # One-sample t-test
 t_stat, p_value = stats.ttest_1samp(data, mu0)
