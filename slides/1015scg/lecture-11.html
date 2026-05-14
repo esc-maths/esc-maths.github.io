@@ -203,7 +203,8 @@
 								<strong>Finance</strong> – Real-time fraud detection across millions of transactions
 							</li>
 							<li class="fragment" data-fragment-index="4">
-								<strong>Large Language Models (LLMs)</strong> – Trained on massive and diverse text datasets to learn language
+								<strong>Large Language Models (LLMs)</strong> – Trained on massive and diverse text
+								datasets to learn language
 								patterns and knowledge
 							</li>
 
@@ -231,7 +232,7 @@
 							</td>
 							<td>
 								<div class="left-txt size-85">
-									<p >
+									<p>
 										Big Data focuses on storing and processing massive datasets.
 									</p>
 									<p class="fragment" data-fragment-index="1">
@@ -578,7 +579,7 @@ plot(data$time, data$value)</code> </pre>
 								class="fa fa-external-link-alt"></i></a>
 					</p>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<table>
 						<tr>
 							<td>
@@ -628,8 +629,14 @@ grid()                                # Add a background grid to the plot</code>
 
 
 				</section>
-				<section>
-					<h5>Scatter plot & Trending line</h5>
+
+				<section data-auto-animate>
+					<h5>Scatter plot</h5>
+
+					<img style="width: 570px; margin-top: -10px;" src="images/lec-11/r-scatter-plot.png">
+				</section>
+				<section data-auto-animate>
+					<h5>Scatter plot & Exponential trending line</h5>
 					<pre class="copyable" style="width: 1000px;height: 650px; font-size: 47%;margin-top: -15px;">
 						<code data-trim data-noescape  class="language-python" ># -------------------------
 # Data (entered directly)
@@ -726,14 +733,44 @@ A0 <- A * exp(k * t0)
 cat(sprintf("A(0) = %.3f\n", A0))</code></pre>
 				</section>
 
+				<section data-auto-animate>
+					<h5>Scatter plot & Exponential trending line</h5>
+
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 53%; font-size: 70%;">
+								<tt>Exponential model (nls):</tt><br/>
+								<tt>A(t) = 1034.906 * exp(-0.5833 * t)</tt><br/>
+								<br/>
+								<tt>Estimated ±1σ: </tt><br/>
+								<tt>A = 1034.906 ± 10.580, <br/> 
+									k = -0.5833 ± 0.0079 <br/>
+									A(0) = 1034.906
+								</tt>
+								<br/>
+								<div>
+									<p><b>Excel:</b></p>
+								</div>
+							</td>
+							<td style="width: 47%;">
+								<img style="width: 570px; margin-top: -10px;" src="images/lec-11/r-exp-trending-line.png">
+							</td>
+						</tr>
+					</table>
+
+					
+				</section>
+
 
 				<section data-auto-animate>
 					<h5>Linearisation</h5>
-					<iframe scrolling="no" title="Exponential plot to linear plot" src="https://www.geogebra.org/material/iframe/id/egygqv3c/width/790/height/450/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="790px" height="450px" style="border:0px;" allowfullscreen=""> </iframe>
-					
-					<br/>
-					<br/>
-					<br/>
+					<iframe scrolling="no" title="Exponential plot to linear plot"
+						src="https://www.geogebra.org/material/iframe/id/egygqv3c/width/790/height/450/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+						width="790px" height="450px" style="border:0px;" allowfullscreen=""> </iframe>
+
+					<br />
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
