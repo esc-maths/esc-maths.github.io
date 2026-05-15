@@ -785,7 +785,7 @@ cat(sprintf("A(0) = %.3f\n", A0))</code></pre>
 				</section>
 				<section data-auto-animate>
 					<h5>Linearisation</h5>
-					<div>
+					<div style="font-size: 110%;">
 						<p>
 							$A(t)= A_0 e^{-\lambda t}\qquad \qquad \qquad \quad \;$
 						</p>
@@ -938,11 +938,11 @@ cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre
 
 					<table style="width: 100%;">
 						<tr>
-							<td style="width: 50%; font-size: 85%;">
-								<img style="width: 570px; margin-top: -10px;" src="images/lec-11/r-linear-output.png">
+							<td style="width: 53%; font-size: 85%;">
+								<img style="margin-top: -10px;" src="images/lec-11/r-linear-output.png">
 
 							</td>
-							<td style="width: 50%;">
+							<td style="width: 47%;">
 								<img style="width: 570px; margin-top: -10px;" src="images/lec-11/r-linear-model.png">
 							</td>
 						</tr>
@@ -954,27 +954,54 @@ cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre
 					<h4>Question 9 - General solution</h4>
 					<div>
 						<p>What is the initial activity of the sample with an error?</p>
+						
+					</div>
+					<div style="font-size: 110%;text-align: left; margin-left: 250px;">
+
 						<p class="fragment" data-fragment-index="0">
-							$A_0 = e^{\text{Intercept}}$
+							$\;\; A_0 = e^{\text{Intercept}}$ 
+							<span class="fragment" data-fragment-index="3">$= e^{6.9256}$</span>
+							<span class="fragment" data-fragment-index="4">$= 118.004$</span>
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							$\Delta A_0 = \abs{\dfrac{\partial A_0}{\partial \text{Intercept} }}\Delta \text{Intercept}$
 						</p>
+						<p class="fragment" data-fragment-index="5">
+							$\qquad = \big|e^{6.9256}\big| (0.173)$
+							<span class="fragment" data-fragment-index="6">$= 17.6115$</span>
+						</p>
 					</div>
+					<div style="font-size: 80%; margin-top: 50px;" class="fragment" data-fragment-index="2">
+						<p>
+							👉 <tt>ln (y) = (-0.5705 ± 0.0030) * t + (6.9256 ± 0.0173)</tt>
+						</p>
+						 
+					</div>
+					<br />
 					<br />
 				</section>
 				<section>
 					<h4>Question 10 - General solution</h4>
 					<div>
 						<p>What is the decay rate coefficient with an error for your sample?</p>
-						<p class="fragment" data-fragment-index="0">
-							Decay rate coefficient $\lambda $
-							<span>$= 0.5705$</span>
-						</p>
 						<p class="fragment" data-fragment-index="1">
-							$\Delta \lambda $
-							<span>$= 0.00299$</span>
+							Decay rate coefficient 
 						</p>
+						<p>
+							$\;\;\;\,\lambda $
+							<span class="fragment" data-fragment-index="3">$= 0.5705$</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							$\Delta \lambda $
+							<span class="fragment" data-fragment-index="4">$= 0.003$</span>
+						</p>
+					</div>
+
+					<div style="font-size: 80%; margin-top: 50px;" class="fragment" data-fragment-index="0">
+						<p>
+							👉 <tt>ln (y) = (-0.5705 ± 0.0030) * t + (6.9256 ± 0.0173)</tt>
+						</p>
+						 
 					</div>
 					<br />
 					<br />
