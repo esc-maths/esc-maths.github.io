@@ -987,13 +987,13 @@ cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre
 						<p class="fragment" data-fragment-index="1">
 							Decay rate coefficient 
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="1">
 							$\;\;\;\,\lambda $
 							<span class="fragment" data-fragment-index="3">$= 0.5705$</span>
 						</p>
 						<p class="fragment" data-fragment-index="2">
 							$\Delta \lambda $
-							<span class="fragment" data-fragment-index="4">$= 0.003$</span>
+							<span>$= 0.003$</span>
 						</p>
 					</div>
 
@@ -1013,18 +1013,19 @@ cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre
 							Knowing the parameters of your model predict
 							the activity of your sample for value of $t$ given
 							in Time Prediction cell with an error.
+							
 						</p>
 					</div>
-					<div class="size-90">
-						<p class="fragment" data-fragment-index="0">
-							$A(t)= A_0 e^{-\lambda t}$
-						</p>
-					</div>
+					
 					<div class="left-txt size-90">
-						<p class="fragment" data-fragment-index="1">
-							First, find the error of $e^{-\lambda t}$.
+						<p>
+							<span class="fragment" data-fragment-index="0">
+							$A(t)= A_0 e^{-\lambda t}.\,$</span>
+							<span class="fragment" data-fragment-index="1">
+								First, find the error of $e^{-\lambda t}$.
+							</span>
 							<span class="fragment" data-fragment-index="2">
-								Here $t$ is constant here and $\lambda$ is the variable.
+								Here $t$ is <b>constant</b> here and $\lambda$ is the <b>variable</b>.
 							</span>
 
 
@@ -1036,29 +1037,32 @@ cat(sprintf("Half-life t_1/2 = %.4f ± %.4f\n", t_half, t_half_err))</code></pre
 							Then $\,\Delta \left( e^{-\lambda t}\right) = \ds\abs{\dfrac{\partial e^{-\lambda t}
 							}{\partial \lambda}}\Delta \lambda $
 							<span class="fragment" data-fragment-index="4">
+								$=\abs{-t e^{-\lambda t}}\Delta \lambda$</span>
+							<span class="fragment" data-fragment-index="5">
 								$=t e^{-\lambda t}\Delta \lambda$</span>
 						</p>
 
 					</div>
-					<div class="left-txt size-90">
+					<div class="r-stack">
 
-						<p class="fragment" data-fragment-index="5">
-							The error of $A\left(t_p\right)$ is
-						</p>
-
-					</div>
-					<div class="size-80">
-
-						<p class="fragment" data-fragment-index="5">
-							$\ds \Delta A\left(t_p\right) = A\left(t_p\right)\sqrt{\ds \left(\frac{\Delta
+						<p class="fragment fade-in-then-out" data-fragment-index="6">
+							and
+							$\,\ds \Delta A\left(t_p\right) = A\left(t_p\right)\sqrt{\ds \left(\frac{\Delta
 							A_0}{A_0}\right)^2 + \left(\frac{\Delta (e^{-\lambda t} )}{e^{-\lambda t} }\right)^2}$
-							<span class="fragment" data-fragment-index="6">
-								$ =A\left(t_p\right)\sqrt{\ds \left(\frac{\Delta A_0}{A_0}\right)^2 + \left( t \Delta
-								\lambda \right)^2}$
-							</span>
+					
+							
+						
+						</p>
+						<p class="fragment fade-in" data-fragment-index="7">
+							and
+							$\,\ds \Delta A\left(t_p\right) =A\left(t_p\right)\sqrt{\ds \left(\frac{\Delta A_0}{A_0}\right)^2 + \left( t \Delta
+								\lambda \right)^2}\qquad \,\,$
+							
 						</p>
 
 					</div>
+					<br/>
+					<br/>
 				</section>
 
 				<section>
@@ -1112,21 +1116,22 @@ cat("t-critical (two-tailed, alpha = 0.02):", t_critical, "\n")</code></pre>
 
 						<p class="fragment" data-fragment-index="2">
 							Expected value, Average of measurements,
-							Number of measurements, Standard Error,
-							CL 98% (Stat significance 0.02),
-							Degrees of freedom.
+							Number of measurements (Degrees of freedom.), 
+							Standard Error,
+							CL 98% (Stat significance 0.02).
 						</p>
 					</div>
 					<div class="size-90">
 
 						<p class="fragment" data-fragment-index="3">
-							t-statistic: 0.7394103, &nbsp;&nbsp;
-							t-critical: 3.746947
+							<b>t-statistic:</b> 0.7394103, &nbsp;&nbsp;&nbsp;
+							<b>t-critical:</b> 3.746947
 						</p>
 					</div>
 					<div class="left-txt size-90">
 						<p class="fragment" data-fragment-index="5">
-							Since the t-critical is larger than t-statistic, the alternative method matches the main
+							Since the <b>t-critical</b> is larger than 
+							<b>t-statistic</b>, the alternative method matches the main
 							method.
 						</p>
 						<p class="fragment" data-fragment-index="6">
