@@ -48,6 +48,16 @@ walls.physics = "static";
 make_pins();
 make_floor_and_bins();
 
+// Set cursor to pointer when over canvas
+canvas.addEventListener('mouseenter', () => {
+    canvas.style.cursor = 'pointer';
+});
+
+// Optional: Show default arrow when leaving canvas
+canvas.addEventListener('mouseleave', () => {
+    canvas.style.cursor = 'default';
+});
+
 q5.update = function() {
 	background('white');
 	
@@ -72,10 +82,10 @@ q5.update = function() {
 		}
 	}
 
-	textSize(15);
+	textSize(17);
 	fill('black');
-	text('Galton board', -xmax/2 + 20, -ymax/2 + 20)
-	text('Click to reset', -xmax/2 + 20, -ymax/2 + 45)
+	text('Galton board', -xmax/2 + 20, -ymax/2 + 30)
+	text('Click to reset', -xmax/2 + 20, -ymax/2 + 55)
 	//text(count, -xmax/2 + 20, -ymax/2 + 70);
 };
 
