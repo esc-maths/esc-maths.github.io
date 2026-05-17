@@ -29,10 +29,10 @@ let row, col;
 let x_vals, y_vals;
 let gaussian_has_been_fitted = 0;
 let colors_list = [
-  '#0F172A',
-  '#1E3A8A',
-  '#2563EB',
-  '#38BDF8'
+  '#123C7A', // royal blue
+  '#1E88E5', // bright blue
+  '#29B6F6', // sky neon blue
+  '#64FFDA'  // aqua highlight
 ];
 
 let balls = new Group();
