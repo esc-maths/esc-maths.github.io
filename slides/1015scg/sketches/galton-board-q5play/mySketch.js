@@ -28,6 +28,12 @@ let ycoords_list;
 let row, col;
 let x_vals, y_vals;
 let gaussian_has_been_fitted = 0;
+let colors_list = [
+  '#0F172A',
+  '#1E3A8A',
+  '#2563EB',
+  '#38BDF8'
+];
 
 let balls = new Group();
 balls.diameter = ball_diameter;
@@ -35,14 +41,14 @@ balls.bounciness = 0;
 balls.friction = 3;
 
 let pins = new Group();
-pins.diameter = 3;
-pins.color = "black";
+pins.diameter = 4;
+pins.color = "white";
 pins.bounciness = 0.6;
 pins.physics = "static";
 pins.friction = 5;
 
 let walls = new Group();
-walls.color = "black";
+walls.color = "white";
 walls.physics = "static";
 
 make_pins();
@@ -59,7 +65,7 @@ canvas.addEventListener('mouseleave', () => {
 });
 
 q5.update = function() {
-	background('white');
+	background('#0f0f0f');
 	
 	// Reset by reloading the page on mouse press
 	if (mouse.presses()) {
@@ -83,17 +89,21 @@ q5.update = function() {
 	}
 
 	textSize(17);
-	fill('black');
+	fill('#fff');
 	text('Galton board', -xmax/2 + 20, -ymax/2 + 30)
 	text('Click to reset', -xmax/2 + 20, -ymax/2 + 55)
 	//text(count, -xmax/2 + 20, -ymax/2 + 70);
 };
 
 function drop_new_ball() {
+	let this_color;
 	this_ball = new balls.Sprite();
 	count += 1;
 	this_ball.x = xcenter + 0.5 * 3 * ball_diameter * 3 * (randn_bm() - 0.5) + 4;
 	this_ball.y = y0 + 60 + 8 * ball_diameter * (-5 + 2 * Math.random());
+	this_color = colors_list[count % colors_list.length];
+	this_ball.color = this_color;
+	this_ball.stroke = this_ball.color;
 }
 
 function make_pins() {
