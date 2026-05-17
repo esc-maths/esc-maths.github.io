@@ -21,6 +21,24 @@
 
 <body>
 
+    <!-- Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Sketch...</div>
+    </div>
+
+
+
+    <script>
+        /* Simulate loading */
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                document.getElementById("loader")
+                    .classList.add("loader-hidden");
+            }, 500);
+        });
+    </script>
+
 </body>
 
 </html>
