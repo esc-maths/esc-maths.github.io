@@ -20,7 +20,7 @@ let xcenter = 0;
 let ball_diameter = 4.5;
 let wall_height = 150;
 let count = 0;
-let max_count = 1700;
+let max_count = 2000;
 let num_bins = xmax / xgap;
 let bin_width = xgap;
 let this_ball;
@@ -88,7 +88,8 @@ q5.update = function() {
 		}
 	}
 
-	textSize(17);
+	textSize(19);
+	textFont('Verdana');
 	fill('#fff');
 	text('Galton board', -xmax/2 + 20, -ymax/2 + 30)
 	text('Click to reset', -xmax/2 + 20, -ymax/2 + 55)
