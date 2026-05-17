@@ -95,6 +95,12 @@ q5.update = function() {
 	//text(count, -xmax/2 + 20, -ymax/2 + 70);
 };
 
+q5.postDraw = function() {
+	if (gaussian_has_been_fitted == 1) {
+		draw_gaussian();
+	}
+};
+
 function drop_new_ball() {
 	let this_color;
 	this_ball = new balls.Sprite();
