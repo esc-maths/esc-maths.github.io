@@ -74,7 +74,7 @@ q5.draw = function() {
 	
 	if (count < max_count) {
 		let i;
-		for (i = 0; i < 4; i++) {
+		for (i = 0; i < 2; i++) {
 			drop_new_ball();
 		}
 	} 
