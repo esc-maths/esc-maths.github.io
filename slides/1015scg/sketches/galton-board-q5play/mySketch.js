@@ -64,7 +64,7 @@ canvas.addEventListener('mouseleave', () => {
     canvas.style.cursor = 'default';
 });
 
-q5.update = function() {
+q5.draw = function() {
 	background('#0f0f0f');
 	
 	// Reset by reloading the page on mouse press

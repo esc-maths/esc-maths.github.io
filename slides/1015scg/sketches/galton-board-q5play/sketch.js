@@ -63,7 +63,7 @@ function draw() {
 }
 
 function main_draw_loop() {
-  background("white");
+  background("black");
   
   if (frameCount % 1 == 0 && count < max_count) {
     drop_new_ball();
@@ -74,7 +74,7 @@ function main_draw_loop() {
   
   // Show how many balls have been released
   textSize(20);
-  fill("black");
+  fill("white");
   text(count, 10, 25);
   
   // Draw the gaussian at the end
@@ -106,7 +106,7 @@ function drop_new_ball() {
 function make_pins() {
   pins = new Group();
   pins.collider = "static";
-  pins.diameter = 3;
+  pins.diameter = 4;
   pins.color = "white";
   pins.friction = 0;
 
