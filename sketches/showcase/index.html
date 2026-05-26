@@ -219,6 +219,7 @@
       //"https://www.dynamicmath.xyz/sketches/zeros-ones-matrix/",
       //"https://www.dynamicmath.xyz/sketches/tesseract/",
       "https://www.dynamicmath.xyz/sketches/shaders/noise-rings/",
+      "../../slides/1015scg/sketches/hacking-monitor/",
       "https://www.dynamicmath.xyz/sketches/flow-field-noise",
       "https://www.dynamicmath.xyz/sketches/moebius/",
       "https://www.dynamicmath.xyz/sketches/my-pond/",
@@ -266,10 +267,11 @@
           if (segments.length >= 2) last = segments[segments.length - 2];
         }
         // special handling for shaders/noise-rings or long segments
-        if (last === "noise-rings") return "🌀 Noise rings";
-        if (last === "flow-field-noise") return "🌊 Flow field noise";
-        //if (last === "moebius") return "🔄 Moebius strip";
-        //if (last === "my-pond") return "🐠 My pond";
+        if (last === "noise-rings") return "🌀 Abstract art";
+        if (last === "hacking-monitor") return "📊📈 Data visualization";
+        if (last === "flow-field-noise") return "🌊 Flow field simulation";
+        if (last === "moebius") return "🔄 Moebius strip";
+        if (last === "my-pond") return "🐠 Procedural animation";
         // if (last === "gallery") return "🐙 Sea creatures gallery";
         //if (last === "hyperbolic-group") return "⚡ Hyperbolic group";
         if (last === "escher-infinite-frame") return "🔷 Escher infinite frame";
@@ -279,7 +281,7 @@
         //if (last === "monkey-typing-one-million-digits-pi") return "🐒 Monkey 1M π digits";
         if (last === "ripples-webgl") return "💧 Ripples webgl";
         //if (last === "fun-code") return "✨ Fun code";
-        if (last === "griffith-logo") return "🦁 Griffith logo";
+        if (last === "griffith-logo") return "📖 Particle system";
         //if (last === "boxes-noise") return "📦 Boxes noise";
         //if (last === "3d-tree-procedural") return "🌳 3D procedural tree";
         if (last === "particle-life") return "🧬 Particle life";
