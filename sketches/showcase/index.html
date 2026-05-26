@@ -166,14 +166,13 @@
     .footer-note {
       position: absolute;
       bottom: 1rem;
-      right: 1rem;
+      right: 5rem;
       background: rgba(0, 0, 0, 0.4);
       border-radius: 20px;
       padding: 0.2rem 0.8rem;
       font-size: 0.7rem;
       color: #ccc;
       z-index: 20;
-      pointer-events: none;
       font-family: monospace;
       backdrop-filter: blur(4px);
     }
@@ -217,26 +216,27 @@
     // original array exactly as provided, but includes all entries
     // --------------------------------------------------------------
     const links = [
-      "https://www.dynamicmath.xyz/sketches/zeros-ones-matrix/",
-      "https://www.dynamicmath.xyz/sketches/tesseract/",
+      //"https://www.dynamicmath.xyz/sketches/zeros-ones-matrix/",
+      //"https://www.dynamicmath.xyz/sketches/tesseract/",
       "https://www.dynamicmath.xyz/sketches/shaders/noise-rings/",
       "https://www.dynamicmath.xyz/sketches/flow-field-noise",
       "https://www.dynamicmath.xyz/sketches/moebius/",
       "https://www.dynamicmath.xyz/sketches/my-pond/",
-      "https://www.dynamicmath.xyz/sea-creatures/gallery/",
-      "https://geometria-hiperbolica.github.io/sketches/hyperbolic-group/",
+      //"https://geometria-hiperbolica.github.io/sketches/hyperbolic-group/",
       "../escher-infinite-frame",
-      "../fractal-land-kali",
-      "../triangle-paradox",
-      "../matrix",
-      "../monkey-typing-one-million-digits-pi",
-      "../ripples-webgl",
-      "../fun-code",
-      "../griffith-logo",
-      "../boxes-noise",
-      "../3d-tree-procedural",
       "../particle-life",
-      "https://www.dynamicmath.xyz/fourier-epicycles/sketches/t-rex/",
+      "../ripples-webgl",
+      // "../fractal-land-kali",
+      //"../triangle-paradox",
+      //"../matrix",
+      //"../monkey-typing-one-million-digits-pi",
+      
+      //"../fun-code",
+      "../griffith-logo",
+      //"../boxes-noise",
+      //"../3d-tree-procedural",
+      
+      //"https://www.dynamicmath.xyz/fourier-epicycles/sketches/t-rex/",
     ];
 
     // ------------------- state management -------------------------
@@ -268,24 +268,24 @@
         // special handling for shaders/noise-rings or long segments
         if (last === "noise-rings") return "🌀 Noise rings";
         if (last === "flow-field-noise") return "🌊 Flow field noise";
-        if (last === "moebius") return "🔄 Moebius strip";
-        if (last === "my-pond") return "🐠 My pond";
-        if (last === "gallery") return "🐙 Sea creatures gallery";
-        if (last === "hyperbolic-group") return "⚡ Hyperbolic group";
+        //if (last === "moebius") return "🔄 Moebius strip";
+        //if (last === "my-pond") return "🐠 My pond";
+        // if (last === "gallery") return "🐙 Sea creatures gallery";
+        //if (last === "hyperbolic-group") return "⚡ Hyperbolic group";
         if (last === "escher-infinite-frame") return "🔷 Escher infinite frame";
-        if (last === "fractal-land-kali") return "🏔️ Fractal land by Kali";
-        if (last === "triangle-paradox") return "🔺 Triangle paradox";
-        if (last === "matrix") return "💠 Matrix digital rain";
-        if (last === "monkey-typing-one-million-digits-pi") return "🐒 Monkey 1M π digits";
+        // if (last === "fractal-land-kali") return "🏔️ Fractal land by Kali";
+        //if (last === "triangle-paradox") return "🔺 Triangle paradox";
+        //if (last === "matrix") return "💠 Matrix digital rain";
+        //if (last === "monkey-typing-one-million-digits-pi") return "🐒 Monkey 1M π digits";
         if (last === "ripples-webgl") return "💧 Ripples webgl";
-        if (last === "fun-code") return "✨ Fun code";
+        //if (last === "fun-code") return "✨ Fun code";
         if (last === "griffith-logo") return "🦁 Griffith logo";
-        if (last === "boxes-noise") return "📦 Boxes noise";
-        if (last === "3d-tree-procedural") return "🌳 3D procedural tree";
+        //if (last === "boxes-noise") return "📦 Boxes noise";
+        //if (last === "3d-tree-procedural") return "🌳 3D procedural tree";
         if (last === "particle-life") return "🧬 Particle life";
-        if (last === "t-rex") return "🦖 T-Rex";
-        if (last.includes("tesseract")) return "🧊 Tesseract";
-        if (last.includes("zeros-ones-matrix")) return "💻 Binary";
+        //if (last === "t-rex") return "🦖 T-Rex";
+        // if (last.includes("tesseract")) return "🧊 Tesseract";
+        // if (last.includes("zeros-ones-matrix")) return "💻 Binary";
         // fallback: convert dashes/underscores to spaces & capitalize
         if (last) {
           let readable = last.replace(/[-_]/g, ' ');
