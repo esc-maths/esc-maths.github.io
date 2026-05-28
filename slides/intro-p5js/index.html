@@ -386,6 +386,7 @@ function draw() {
 <div class="sl-block" data-block-type="shape" data-name="shape-a64090" style="width: 220px; height: 41.6962px; left: 595px; top: 339.152px;" data-block-id="791ed6c62189e123f894e7a87dff8645"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;" data-shape-corner-radius="14px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 220 42"><rect width="220" height="41.6962" rx="14" ry="14" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
 <div class="sl-block" data-block-type="text" data-name="text-a2dc48" style="height: auto; width: 153.135px; left: 628.433px; top: 340.5px;" data-block-id="7926a693e66bce46fdcb6421503211ad"><div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;"><p>🔗<a href="https://editor.p5js.org/jcponce/sketches/D3aJTqHba" target="_blank"><span style="font-size:0.9em">Demo</span></a></p></div></div></div></section><section data-auto-animate="" data-id="e04d9b24a81afbc19baec2efadb72eb2">
 <div class="sl-block" data-block-type="code" data-name="code-b85364" style="width: 686px; height: 655px; left: 0px; top: 57px;" data-block-id="c9e69421f29984349ecda53bb1222668"><div class="sl-block-content notranslate" data-highlight-theme="ascetic" data-code-frame="none" style="z-index: 10;"><pre style="font-size: 18px; line-height: 22px; tab-size: 4;" class="javascript"><code data-line-numbers="">let diameter = 80;
+let diameter = 80;
 let x = 50;
 let speed = 1.5;
 let direction = 1;
@@ -401,16 +402,10 @@ function draw() {
   circle(x, 100, diameter);
   
   fill(0);
-  if (direction == 1) {
-    // Moving to the right
-    circle(x + 10, 80, 10);
-  } else {
-    // Moving to the left
-    circle(x - 10, 80, 10);
-  }
+  circle(x + direction * 10, 80, 10);
   
   x += speed * direction;
-  if (x &gt; width - diameter / 2 || x &lt; diameter / 2) {
+  if (x > width - diameter / 2 || x < diameter / 2) {
     direction = -direction; // Change direction
   }
 }</code></pre></div></div>
