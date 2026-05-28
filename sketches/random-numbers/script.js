@@ -41,11 +41,11 @@ generateBtn.addEventListener('click', function() {
             return;
         }
         if (min < 1 || max < 1) {
-            errorDisplay.textContent = 'Please enter positive integers only (1 or greater).';
+            errorDisplay.textContent = '❌ Please enter positive integers only (1 or greater).';
             return;
         }
         if (min > max) {
-            errorDisplay.textContent = 'The "From" number cannot be larger than the "To" number.';
+            errorDisplay.textContent = '❌ The "From" number cannot be larger than the "To" number.';
             return;
         }
 
@@ -59,7 +59,7 @@ generateBtn.addEventListener('click', function() {
         const stringParts = setInputStr.split(',').map(item => item.trim()).filter(item => item !== '');
         
         if (stringParts.length === 0) {
-            errorDisplay.textContent = 'Please enter at least one number.';
+            errorDisplay.textContent = '❌ Please enter at least one number.';
             return;
         }
 
@@ -69,7 +69,7 @@ generateBtn.addEventListener('click', function() {
         // Validate the array contains only positive integers
         for (let i = 0; i < numbersArray.length; i++) {
             if (isNaN(numbersArray[i]) || numbersArray[i] < 1) {
-                errorDisplay.textContent = `"${stringParts[i]}" is invalid. Please use only positive integers separated by commas.`;
+                errorDisplay.textContent = `❌ "${stringParts[i]}" is invalid. Please use only positive integers separated by commas.`;
                 return;
             }
         }
