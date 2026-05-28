@@ -12,6 +12,7 @@ body {
     min-height: 100vh;
     background-color: #dfdfdf;
     padding: 20px;
+    font-size: 1.1rem;
 }
 
 .container {
