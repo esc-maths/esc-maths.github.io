@@ -30,11 +30,35 @@ h1 {
     font-size: 1.8rem;
 }
 
+.mode-selector {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.mode-selector label {
+    cursor: pointer;
+    font-weight: 600;
+    color: #444;
+}
+
 .input-group {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.input-group.column-layout {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input-group.column-layout label {
+    margin-bottom: 8px;
 }
 
 .input-group label {
@@ -46,6 +70,7 @@ h1 {
 
 .input-group input {
     flex-basis: 75%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -55,6 +80,10 @@ h1 {
 .input-group input:focus {
     outline: none;
     border-color: #007bff;
+}
+
+.hidden {
+    display: none;
 }
 
 button {
@@ -79,7 +108,7 @@ button:hover {
     color: #dc3545;
     margin-top: 10px;
     font-size: 0.9rem;
-    min-height: 20px; /* Prevents layout shift when text appears */
+    min-height: 20px; 
 }
 
 .result-container {
@@ -92,5 +121,5 @@ button:hover {
 #result {
     font-size: 4rem;
     font-weight: bold;
-    color: #282ea7;
+    color: #283fa7;
 }
