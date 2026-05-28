@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Three.js TSL | Dynamic Strange Attractor | GPU Particles</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            font-family: 'Courier New', monospace;
+        }
+
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(4px);
+            padding: 8px 18px;
+            border-radius: 30px;
+            z-index: 100;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 16px 20px;
+            border-radius: 16px;
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            min-width: 220px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        .control-group label {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .control-group label span:first-child {
+            color: #ffaa66;
+        }
+
+        .control-group label span:last-child {
+            color: #88ffaa;
+            font-weight: bold;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+            background: rgba(30, 30, 40, 0.8);
+            height: 3px;
+            border-radius: 3px;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        input[type="range"]:focus {
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffaa66;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 6px rgba(255,170,102,0.6);
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #ffcc88;
+            transform: scale(1.2);
+        }
+
+        .param-value {
+            display: inline-block;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .param-title {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 5px;
+            text-align: center;
+            font-family: monospace;
+        }
+
+        #controls-hint {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 12px;
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 100;
+            font-weight: 300;
+        }
+
+        #status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: rgba(100, 255, 150, 0.8);
+            font-family: monospace;
+            font-size: 11px;
+            background: rgba(0,0,0,0.6);
+            padding: 4px 10px;
+            border-radius: 12px;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        @media (max-width: 600px) {
+            #info { font-size: 10px; bottom: 12px; left: 12px; }
+            #controls { padding: 12px 16px; min-width: 180px; top: 12px; left: 12px; }
+            .control-group label { font-size: 10px; }
+            #controls-hint { font-size: 8px; }
+            #status { font-size: 9px; top: 12px; right: 12px; }
+        }
+    </style>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.webgpu.js",
+                "three/webgpu": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.webgpu.js",
+                "three/tsl": "https://cdn.jsdelivr.net/npm/three@v0.183.2/build/three.tsl.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.183.2/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="controls">
+        <div class="control-group">
+            <label>
+                <span>🎛️ PARAMETER A</span>
+                <span id="aValue" class="param-value">1.80</span>
+            </label>
+            <input type="range" id="aSlider" min="0" max="6.28" step="0.001" value="5.636">
+            <div class="param-title">X = sin(x² - y² + A)</div>
+        </div>
+        <div class="control-group">
+            <label>
+                <span>🎛️ PARAMETER B</span>
+                <span id="bValue" class="param-value">1.20</span>
+            </label>
+            <input type="range" id="bSlider" min="0" max="6.28" step="0.001" value="5.335">
+            <div class="param-title">Y = cos(2·x·y + B)</div>
+        </div>
+    </div>
+    
+    <div id="info">
+        ✧ THREE.JS TSL • STRANGE ATTRACTOR ✧ <span id="pointCount">100,000</span> PARTICLES
+    </div>
+    <div id="controls-hint">
+        🖱️ USE SLIDERS → CONTROL A & B PARAMETERS
+    </div>
+    <div id="status">
+        ⚡ INITIALIZING WebGPU...
+    </div>
+
+    <script type="module">
+        import * as THREE from "three";
+        import {
+            uniform,
+            float,
+            vec2,
+            vec3,
+            vec4,
+            Fn,
+            sin,
+            cos,
+            instanceIndex,
+            instancedArray,
+            mul,
+            sub,
+            pow,
+            add,
+            div,
+            length as tslLength,
+            clamp
+        } from "three/tsl";
+
+        // --- CONFIGURATION ---
+        const PARTICLE_COUNT = 100000;
+        const VIEW_SIZE = 2.8;
+        const TRAIL_OPACITY = 0.9;
+        const PARTICLE_BASE_SIZE = 0.0055;
+
+        // DOM elements
+        const statusDiv = document.getElementById('status');
+        const pointCountSpan = document.getElementById('pointCount');
+        const aSlider = document.getElementById('aSlider');
+        const bSlider = document.getElementById('bSlider');
+        const aValueSpan = document.getElementById('aValue');
+        const bValueSpan = document.getElementById('bValue');
+        
+        if (pointCountSpan) pointCountSpan.innerText = PARTICLE_COUNT.toLocaleString();
+
+        // --- ASYNC INITIALIZATION (Fix for WebGPU backend timing) ---
+        async function init() {
+            try {
+                // --- SETUP RENDERER (WebGPU) - MUST await initialization ---
+                const renderer = new THREE.WebGPURenderer({ 
+                    antialias: true, 
+                    preserveDrawingBuffer: false,
+                    powerPreference: "high-performance"
+                });
+                
+                // CRITICAL: Wait for WebGPU backend to initialize
+                await renderer.init();
+                
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                renderer.setClearColor(0x000000, 1);
+                renderer.autoClear = false; // Manual clear for trail effect
+                document.body.appendChild(renderer.domElement);
+                
+                statusDiv.innerHTML = "✅ WebGPU READY • RENDERING";
+                setTimeout(() => {
+                    if (statusDiv) statusDiv.style.opacity = '0.7';
+                }, 2000);
+                
+                const scene = new THREE.Scene();
+                
+                // Orthographic camera for 2D particle field
+                const aspect = window.innerWidth / window.innerHeight;
+                const camera = new THREE.OrthographicCamera(
+                    -VIEW_SIZE * aspect / 2, VIEW_SIZE * aspect / 2,
+                    VIEW_SIZE / 2, -VIEW_SIZE / 2,
+                    0.1, 1000
+                );
+                camera.position.z = 8;
+                camera.lookAt(0, 0, 0);
+                
+                // --- UNIFORMS: dynamic parameters controlled by sliders ---
+                const uA = uniform(1.8);
+                const uB = uniform(1.2);
+                
+                // Function to update parameter display and uniform values
+                function updateParameterA(value) {
+                    const numValue = parseFloat(value);
+                    uA.value = numValue;
+                    aValueSpan.innerText = numValue.toFixed(3);
+                }
+                
+                function updateParameterB(value) {
+                    const numValue = parseFloat(value);
+                    uB.value = numValue;
+                    bValueSpan.innerText = numValue.toFixed(3);
+                }
+                
+                // Slider event listeners
+                aSlider.addEventListener('input', (e) => {
+                    updateParameterA(e.target.value);
+                });
+                
+                bSlider.addEventListener('input', (e) => {
+                    updateParameterB(e.target.value);
+                });
+                
+                // Initial display
+                updateParameterA(aSlider.value);
+                updateParameterB(bSlider.value);
+                
+                // --- PARTICLE STATE: STORAGE BUFFER (vec2 positions) ---
+                // Randomized spread within [-1.2, 1.2] range for diverse initial conditions
+                const initialPositions = new Float32Array(PARTICLE_COUNT * 2);
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    // Spread initial points across a chaotic region - allows attractor to evolve beautifully
+                    initialPositions[i*2] = (Math.random() - 0.5) * 2.2;
+                    initialPositions[i*2+1] = (Math.random() - 0.5) * 2.2;
+                }
+                
+                // Create GPU instanced array buffer (storage) that holds vec2 for each particle
+                const posBuffer = instancedArray(initialPositions, 'vec2');
+                
+                // --- COMPUTE SHADER (TSL) - ATTRACTOR ITERATION ---
+                // Advanced dynamic system: 
+                // X_next = sin( X^2 - Y^2 + A )
+                // Y_next = cos( 2*X*Y + B )
+                // This produces intricate spiral and web-like patterns
+                const computeUpdate = Fn(() => {
+                    const pos = posBuffer.element(instanceIndex);
+                    const x = pos.x;
+                    const y = pos.y;
+                    
+                    // Attractor core equations
+                    const xSq = pow(x, 2);
+                    const ySq = pow(y, 2);
+                    const xyTerm = mul(2.0, x, y);
+                    
+                    // X component: sin( x^2 - y^2 + A )
+                    const xNext = sin(add(sub(xSq, ySq), uA));
+                    
+                    // Y component: cos( 2*x*y + B )
+                    const yNext = cos(add(xyTerm, uB));
+                    
+                    // Assign new position (in-place update)
+                    pos.assign(vec2(xNext, yNext));
+                });
+                
+                const computeNode = computeUpdate().compute(PARTICLE_COUNT);
+                
+                // --- RENDERING MATERIAL: SpriteNodeMaterial with TSL position & color ---
+                const material = new THREE.SpriteNodeMaterial({
+                    transparent: true,
+                    blending: THREE.AdditiveBlending,
+                    depthWrite: false,
+                    depthTest: false
+                });
+                
+                // Fetch current position from buffer for each instance
+                const currPos = posBuffer.element(instanceIndex);
+                
+                // Position node: 3D space with Z = 0
+                material.positionNode = vec3(currPos.x, currPos.y, 0);
+                
+                // Dynamic scale based on distance from origin for organic feel
+                const distFactor = add(1.0, mul(tslLength(currPos), 0.35));
+                material.scaleNode = float(PARTICLE_BASE_SIZE).mul(distFactor.clamp(0.7, 1.5));
+                
+                // --- ADVANCED COLOR NODE: vibrant gradient based on position and parameters ---
+                const colorNode = Fn(() => {
+                    const px = currPos.x;
+                    const py = currPos.y;
+                    
+                    // Map X and Y to color ranges
+                    const rBase = add(px, 1.5).div(3.0);
+                    const gBase = add(py, 1.5).div(3.0);
+                    
+                    // Use uA & uB to shift hue mapping (reactive to sliders)
+                    const aInfluence = sin(uA).mul(0.6).add(0.5);
+                    const bInfluence = cos(uB).mul(0.6).add(0.5);
+                    
+                    // Create vibrant, shifting colors
+                    let r = add(rBase, mul(px, 0.4)).add(mul(aInfluence, 0.35));
+                    let g = add(gBase, mul(py, 0.5)).add(mul(bInfluence, 0.45));
+                    let b = sub(1.0, mul(px, py).mul(1.3)).add(mul(sin(add(uA, uB)), 0.3));
+                    
+                    // Clamp for vibrant but readable colors
+                    r = r.clamp(0.2, 1.0);
+                    g = g.clamp(0.15, 0.95);
+                    b = b.clamp(0.3, 1.0);
+                    
+                    // Alpha for additive blending
+                    const alpha = float(0.7);
+                    return vec4(r, g, b, alpha);
+                })();
+                
+                material.colorNode = colorNode;
+                
+                // --- INSTANCED MESH with custom SpriteMaterial ---
+                const geometry = new THREE.PlaneGeometry(1, 1);
+                const mesh = new THREE.InstancedMesh(geometry, material, PARTICLE_COUNT);
+                mesh.frustumCulled = false;
+                scene.add(mesh);
+                
+                // --- FADE OVERLAY QUAD (for motion trail / persistence effect) ---
+                const fadeGeometry = new THREE.PlaneGeometry(10, 10);
+                const fadeMaterial = new THREE.MeshBasicMaterial({
+                    color: 0x000000,
+                    transparent: true,
+                    opacity: TRAIL_OPACITY,
+                    depthWrite: false,
+                    depthTest: false
+                });
+                const fadeQuad = new THREE.Mesh(fadeGeometry, fadeMaterial);
+                fadeQuad.position.z = -0.5;
+                scene.add(fadeQuad);
+                
+                // --- WINDOW RESIZE HANDLER ---
+                function onWindowResize() {
+                    const newAspect = window.innerWidth / window.innerHeight;
+                    camera.left = -VIEW_SIZE * newAspect / 2;
+                    camera.right = VIEW_SIZE * newAspect / 2;
+                    camera.top = VIEW_SIZE / 2;
+                    camera.bottom = -VIEW_SIZE / 2;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                }
+                window.addEventListener('resize', onWindowResize);
+                
+                // --- ANIMATION LOOP with proper compute/render order ---
+                let frameCount = 0;
+                
+                function animate() {
+                    // 1. Execute compute shader: update each particle's position
+                    renderer.compute(computeNode);
+                    
+                    // 2. Render the scene (fade quad + particles)
+                    renderer.render(scene, camera);
+                    
+                    // 3. Continue loop
+                    requestAnimationFrame(animate);
+                    
+                    // Optional: periodic status update (every 300 frames)
+                    frameCount++;
+                    if (frameCount === 300) {
+                        if (statusDiv) statusDiv.innerHTML = "✨ LIVE • USE SLIDERS";
+                        frameCount = 0;
+                    }
+                }
+                
+                // Start animation after everything is ready
+                animate();
+                
+                console.log(`✅ Three.js TSL Attractor running | ${PARTICLE_COUNT} particles | WebGPU active`);
+                
+            } catch (error) {
+                console.error("Failed to initialize WebGPU renderer:", error);
+                if (statusDiv) {
+                    statusDiv.innerHTML = "❌ WebGPU INIT FAILED • FALLBACK";
+                    statusDiv.style.backgroundColor = "rgba(200, 50, 50, 0.8)";
+                }
+                
+                // Provide fallback message
+                const fallbackMsg = document.createElement('div');
+                fallbackMsg.style.position = 'absolute';
+                fallbackMsg.style.bottom = '50%';
+                fallbackMsg.style.left = '50%';
+                fallbackMsg.style.transform = 'translate(-50%, -50%)';
+                fallbackMsg.style.color = 'white';
+                fallbackMsg.style.backgroundColor = 'rgba(0,0,0,0.8)';
+                fallbackMsg.style.padding = '20px';
+                fallbackMsg.style.borderRadius = '12px';
+                fallbackMsg.style.fontFamily = 'monospace';
+                fallbackMsg.style.textAlign = 'center';
+                fallbackMsg.style.zIndex = '1000';
+                fallbackMsg.innerHTML = '⚠️ WebGPU not supported or failed to initialize.<br>Please use a compatible browser (Chrome 113+, Edge 113+, or Safari 18+ with WebGPU enabled).';
+                document.body.appendChild(fallbackMsg);
+            }
+        }
+        
+        // Start the async initialization
+        init();
+        
+    </script>
+</body>
+
+</html>
