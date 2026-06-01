@@ -1,0 +1,132 @@
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 600px;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        text-align: center;
+        opacity: 0.8;
+        margin-bottom: 25px;
+    }
+
+    .electives {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.08);
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    label:hover {
+        background: rgba(255,255,255,0.15);
+    }
+
+    /* Button Styling */
+    .button-group {
+        display: flex;
+        gap: 10px;
+    }
+
+    button {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-generate {
+        background: #38bdf8;
+        color: #0f172a;
+    }
+
+    .btn-generate:hover {
+        transform: translateY(-2px);
+        background: #7dd3fc;
+    }
+
+    .btn-reset {
+        background: rgba(255,255,255,0.1);
+        color: white;
+        display: none; /* Hidden by default */
+    }
+
+    .btn-reset:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    .result {
+        margin-top: 25px;
+        text-align: center;
+        display: none;
+    }
+
+    .card {
+        margin-top: 15px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 15px;
+        padding: 25px;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .topic {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #e1e1e1;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    .problem {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #38bdf8;
+    }
+
+    .warning {
+        margin-top: 15px;
+        color: #fca5a5;
+        text-align: center;
+        font-size: 0.9rem;
+    }
