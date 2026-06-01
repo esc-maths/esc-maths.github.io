@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Question Generator</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 600px;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        text-align: center;
+        opacity: 0.8;
+        margin-bottom: 25px;
+    }
+
+    .electives {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.08);
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    label:hover {
+        background: rgba(255,255,255,0.15);
+    }
+
+    /* Button Styling */
+    .button-group {
+        display: flex;
+        gap: 10px;
+    }
+
+    button {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-generate {
+        background: #38bdf8;
+        color: #0f172a;
+    }
+
+    .btn-generate:hover {
+        transform: translateY(-2px);
+        background: #7dd3fc;
+    }
+
+    .btn-reset {
+        background: rgba(255,255,255,0.1);
+        color: white;
+        display: none; /* Hidden by default */
+    }
+
+    .btn-reset:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    .result {
+        margin-top: 25px;
+        text-align: center;
+        display: none;
+    }
+
+    .card {
+        margin-top: 15px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 15px;
+        padding: 25px;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .topic {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #e1e1e1;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    .problem {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #38bdf8;
+    }
+
+    .warning {
+        margin-top: 15px;
+        color: #fca5a5;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎓 Exam Prep</h1>
+    <p class="subtitle">Select the student's electives to generate a question.</p>
+
+    <div class="electives" id="electives"></div>
+
+    <div class="button-group">
+        <button id="genBtn" class="btn-generate" onclick="generateQuestion()">
+            Generate Question
+        </button>
+        <button id="resetBtn" class="btn-reset" onclick="resetApp()">
+            Restart
+        </button>
+    </div>
+
+    <div class="warning" id="warning"></div>
+
+    <div class="result" id="result">
+        <div class="card">
+            <div class="topic" id="topic"></div>
+            <div class="problem" id="problem"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+const Q = {
+    0:   [3, 5, 6, 7],      // T8
+    10:  [2, 4, 6, 9],      // E1
+    20:  [7, 8, 9],          // E2
+    30:  [2, 4, 6, 7],      // E3
+    40:  [2, 4, 5, 7],      // E4
+    50:  [1, 2, 3, 4],      // E5
+    60:  [3, 7],            // E6
+    70:  [1, 2, 4],         // E7
+    80:  [2, 7, 9],         // E8
+    90:  [2, 4, 9, 10],     // E9
+    100: [1, 5, 7, 8]       // E10
+};
+
+const electiveNames = {
+    0: "T8",
+    10: "E1",
+    20: "E2",
+    30: "E3",
+    40: "E4",
+    50: "E5",
+    60: "E6",
+    70: "E7",
+    80: "E8",
+    90: "E9",
+    100: "E10"
+};
+
+const electivesDiv = document.getElementById("electives");
+const genBtn = document.getElementById("genBtn");
+const resetBtn = document.getElementById("resetBtn");
+const resultDiv = document.getElementById("result");
+const warning = document.getElementById("warning");
+
+// Initialize checkboxes
+Object.entries(electiveNames).forEach(([value, label]) => {
+    electivesDiv.innerHTML += `
+        <label>
+            <input type="checkbox" value="${value}">
+            ${label}
+        </label>
+    `;
+});
+
+function randomChoice(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function generateQuestion() {
+    const selected = [...document.querySelectorAll("input:checked")]
+        .map(cb => Number(cb.value));
+
+    warning.textContent = "";
+
+    if (selected.length === 0) {
+        warning.textContent = "Please select at least one elective.";
+        return;
+    }
+
+    const possibleElectives = [0, ...selected];
+    const conversation = Math.floor(Math.random() * 9) + 1;
+    const elective = randomChoice(possibleElectives);
+    const problem = elective + randomChoice(Q[elective]);
+
+    document.getElementById("topic").textContent = `Conversation Topic ${conversation}`;
+    document.getElementById("problem").textContent = `Problem ${problem}`;
+
+    // UI Updates
+    resultDiv.style.display = "block";
+    resetBtn.style.display = "block";
+    genBtn.style.display = "none";
+}
+
+function resetApp() {
+    // Clear checkboxes
+    document.querySelectorAll("input:checked").forEach(cb => cb.checked = false);
+    
+    // Reset UI visibility
+    resultDiv.style.display = "none";
+    resetBtn.style.display = "none";
+    genBtn.style.display = "block";
+    warning.textContent = "";
+}
+</script>
+
+</body>
+</html>
