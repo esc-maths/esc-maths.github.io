@@ -1,7 +1,7 @@
 const Q = {
     0:   [3, 5, 6, 7],      // T8
     10:  [2, 4, 6, 9],      // E1
-    20:  [7, 8, 9],          // E2
+    20:  [7, 8, 9],         // E2
     30:  [2, 4, 6, 7],      // E3
     40:  [2, 4, 5, 7],      // E4
     50:  [1, 2, 3, 4],      // E5
@@ -58,6 +58,8 @@ function generateQuestion() {
     }
 
     const possibleElectives = [0, ...selected];
+    
+    // Keep the topic logic as is (for 1-9)
     const conversation = Math.floor(Math.random() * 9) + 1;
     const elective = randomChoice(possibleElectives);
     const problem = elective + randomChoice(Q[elective]);
