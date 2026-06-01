@@ -53,12 +53,12 @@ function generateQuestion() {
     warning.textContent = "";
 
     if (selected.length === 0) {
-        warning.textContent = "Please select at least one elective.";
+        warning.textContent = "❌ Please select at least one elective! 🤔";
         return;
     }
 
     const possibleElectives = [0, ...selected];
-    
+
     // Keep the topic logic as is (for 1-9)
     const conversation = Math.floor(Math.random() * 9) + 1;
     const elective = randomChoice(possibleElectives);
