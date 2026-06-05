@@ -14,16 +14,16 @@ const Q = {
 
 const electiveNames = {
     0: "T8",
-    10: "E1",
-    20: "E2",
-    30: "E3",
-    40: "E4",
-    50: "E5",
-    60: "E6",
-    70: "E7",
-    80: "E8",
-    90: "E9",
-    100: "E10"
+    10: "E1",   // Fourier integrals
+    20: "E2",   // Inverse Laplace
+    30: "E3",   // Assorted real integrals
+    40: "E4",   // Laplace 1
+    50: "E5",   // Laplace 2
+    60: "E6",   // Infinite series
+    70: "E7",   // Riemann zeta function
+    80: "E8",   // Analysis 1
+    90: "E9",   // Analysis 2
+    100: "E10"  // Analysis 3
 };
 
 const electivesDiv = document.getElementById("electives");
