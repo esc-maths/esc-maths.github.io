@@ -47,27 +47,34 @@ function randomChoice(arr) {
 }
 
 function generateQuestion() {
+    // 1. Get ONLY the checked electives
     const selected = [...document.querySelectorAll("input:checked")]
         .map(cb => Number(cb.value));
 
     warning.textContent = "";
 
+    // 2. Guard rail: If nothing is checked, warn the user
     if (selected.length === 0) {
         warning.textContent = "❌ Please select at least one elective! 🤔";
         return;
     }
 
-    const possibleElectives = [0, ...selected];
-
-    // Keep the topic logic as is (for 1-9)
+    // 3. Roll the random conversation topic (1-9)
     const conversation = Math.floor(Math.random() * 9) + 1;
-    const elective = randomChoice(possibleElectives);
-    const problem = elective + randomChoice(Q[elective]);
+    
+    // 4. Pick randomly ONLY from the user's selection
+    const elective = randomChoice(selected); 
+    // const chosenElectiveName = electiveNames[elective];
+    
+    // 5. Calculate the problem number
+    const specificProblemNum = randomChoice(Q[elective]);
+    const problem = elective + specificProblemNum;
 
+    // 6. Update the UI
     document.getElementById("topic").textContent = `Conversation Topic ${conversation}`;
     document.getElementById("problem").textContent = `Problem ${problem}`;
 
-    // UI Updates
+    // UI Visibility
     resultDiv.style.display = "block";
     resetBtn.style.display = "block";
     genBtn.style.display = "none";
