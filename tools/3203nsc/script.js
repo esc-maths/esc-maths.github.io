@@ -82,7 +82,7 @@ function generateQuestion() {
 
 function resetApp() {
     // Clear checkboxes
-    document.querySelectorAll("input:checked").forEach(cb => cb.checked = false);
+    document.querySelectorAll("input:checked").forEach(checkBox => checkBox.checked = false);
     
     // Reset UI visibility
     resultDiv.style.display = "none";
