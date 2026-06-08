@@ -1,29 +1,29 @@
 const Q = {
-    0:   [3, 5, 6, 7],      // T8
-    10:  [2, 4, 6, 9],      // E1
-    20:  [1, 3, 4, 7],         // E2
-    30:  [2, 4, 6, 7],      // E3
-    40:  [2, 4, 5, 7],      // E4
+    0:   [1, 2, 3, 4, 5, 6, 7, 8, 10],      // T8
+    10:  [1, 2, 4, 5, 6, 9],      // E1
+    20:  [1, 2, 3, 4, 5, 6],      // E2
+    30:  [0, 1, 2, 3, 4, 7],      // E3
+    40:  [0, 2, 4, 5, 7],      // E4
     50:  [1, 2, 3, 4],      // E5
     60:  [3, 7],            // E6
     70:  [1, 2, 4],         // E7
-    80:  [2, 7, 9],         // E8
-    90:  [2, 4, 9, 10],     // E9
-    100: [1, 5, 8]          // E10
+    80:  [1, 2, 5, 7],         // E8
+    90:  [2, 3, 4, 5, 6, 10],     // E9
+    100: [1, 3]          // E10
 };
 
 const electiveNames = {
-    0: "T8",
-    10: "E1",   // Fourier integrals
-    20: "E2",   // Inverse Laplace
-    30: "E3",   // Assorted real integrals
-    40: "E4",   // Laplace 1
-    50: "E5",   // Laplace 2
-    60: "E6",   // Infinite series
-    70: "E7",   // Riemann zeta function
-    80: "E8",   // Analysis 1
-    90: "E9",   // Analysis 2
-    100: "E10"  // Analysis 3
+    0: "T8 Real Integrals",
+    10: "E1 Fourier",   // Fourier integrals
+    20: "E2 Inverse Laplace",   // Inverse Laplace
+    30: "E3 Assorted integrals",   // Assorted real integrals
+    40: "E4 Laplace 1",   // Laplace 1
+    50: "E5 Laplace 2",   // Laplace 2
+    60: "E6 Infinite series",   // Infinite series
+    70: "E7 Riemann zeta function",   // Riemann zeta function
+    80: "E8 Analysis 1",   // Analysis 1
+    90: "E9 Analysis 2",   // Analysis 2
+    100: "E10 Analysis 3"  // Analysis 3
 };
 
 const electivesDiv = document.getElementById("electives");
