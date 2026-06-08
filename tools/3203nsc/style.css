@@ -104,15 +104,15 @@ button {
 }
 
 .card {
-    margin-top: 15px;
+    margin-top: 10px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 15px;
-    padding: 25px;
+    padding: 20px;
     border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .topic {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #e1e1e1;
     margin-bottom: 10px;
@@ -120,7 +120,7 @@ button {
 }
 
 .problem {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #38bdf8;
 }
