@@ -59,8 +59,9 @@ function generateQuestion() {
         return;
     }
 
-    // 3. Roll the random conversation topic (1-9)
-    const conversation = Math.floor(Math.random() * 9) + 1;
+    // 3. Roll the random conversation topic 
+    const topics = [1, 2, 4, 5, 6, 7, 8, 9];
+    const conversation = topics[Math.floor(Math.random() * topics.length)];
     
     // 4. Pick randomly ONLY from the user's selection
     const elective = randomChoice(selected); 
