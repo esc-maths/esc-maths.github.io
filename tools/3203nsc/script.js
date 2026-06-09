@@ -54,10 +54,17 @@ function generateQuestion() {
     warning.textContent = "";
 
     // 2. Guard rail: If nothing is checked, warn the user
-    if (selected.length === 0) {
-        warning.textContent = "❌ Please select at least one elective! 🤔";
-        return;
-    }
+   if (selected.length === 0) {
+    warning.innerHTML = `
+        ❌ Please select at least one elective! ❌ <br/>
+        <picture>
+            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp" type="image/webp">
+            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif"
+                 alt="🤔" width="32" height="32">
+        </picture>
+    `;
+    return;
+}
 
     // 3. Roll the random conversation topic 
     const topics = [1, 2, 4, 5, 6, 7, 8, 9];
