@@ -49,7 +49,7 @@ function randomChoice(arr) {
 function generateQuestion() {
     // 1. Get ONLY the checked electives
     const selected = [...document.querySelectorAll("input:checked")]
-        .map(cb => Number(cb.value));
+        .map(checkBox => Number(checkBox.value));
 
     warning.textContent = "";
 
