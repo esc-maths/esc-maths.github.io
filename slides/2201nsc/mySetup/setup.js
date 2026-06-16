@@ -2,8 +2,18 @@
 		// https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
 
+			// The "normal" size of the presentation, aspect ratio will
+  			// be preserved when the presentation is scaled to fit different
+  			// resolutions. Can be specified using percentage units.
+  			width: 1280,
+  			height: 720,
+
+			// Factor of the display size that should remain empty around
+			// the content
+			margin: 0.09,
+
 			// Display presentation control arrows
-			controls: true,
+			controls: true, 
 
 			// Push each slide change to the browser history.  Implies `hash: true`
 			history: true,
