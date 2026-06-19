@@ -12,66 +12,202 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: 1.1rem;
       background: #f4f6fa;
       margin: 20px;
-      color: #222;
+      color: #333;
       padding: 0rem 2rem 1rem 2rem;
     }
 
     h1 {
       text-align: center;
+      color: #222;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+    }
+
+    .input-container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      max-width: 700px;
+      margin: 20px auto;
     }
 
     textarea {
       width: 100%;
-      height: 150px;
-      font-family: monospace;
+      height: 140px;
+      font-family: 'Courier New', Courier, monospace;
       font-size: 1rem;
-      margin-bottom: 10px;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin: 15px 0;
     }
 
     button {
       background: #389dc7;
       border: none;
       color: white;
-      padding: 8px 12px;
+      padding: 10px 18px;
       cursor: pointer;
-      border-radius: 4px;
-      margin-top: 8px;
-      margin-bottom: 8px;
+      border-radius: 5px;
       font-size: 1rem;
+      font-weight: 600;
+      margin: 5px;
+      transition: background 0.2s ease;
     }
 
     button:hover {
       background: #4061a7;
     }
 
-    .output {
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 15px;
-      border-radius: 5px;
-      margin-bottom: 20px;
+    .clear-btn {
+      background: #6c757d;
+    }
+
+    .clear-btn:hover {
+      background: #5a6268;
+    }
+
+    .result-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      max-width: 700px;
+      margin: 30px auto;
       display: none;
-      overflow-x: auto;
+      text-align: center;
+    }
+
+    .result-title {
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .plain-output-wrapper {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copyable-text {
+      width: 100%;
+      max-width: 500px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95rem;
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px dashed #ccc;
+      white-space: pre-wrap;
+      text-align: left;
+      user-select: all;
+      box-sizing: border-box;
+    }
+
+    .copy-inline-btn {
+      background: #28a745;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+    }
+
+    .copy-inline-btn:hover {
+      background: #218838;
+    }
+
+    /* Tabs Styling for Code Snippets */
+    .tabs-container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: none;
+    }
+
+    .tabs-header {
+      display: flex;
+      background: #e9ecef;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .tab-link {
+      padding: 12px 20px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #495057;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 0;
+      margin: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .tab-link:hover {
+      background: #dee2e6;
+      color: #212529;
+    }
+
+    .tab-link.active {
+      background: white;
+      color: #4061a7;
+      border-bottom: 2px solid #4061a7;
+    }
+
+    .tab-content {
+      display: none;
+      position: relative;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content button.copy-snippet-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 4px 8px;
+      font-size: 0.8rem;
+    }
+
+    .tab-content button.copy-snippet-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
     }
 
     pre {
-      background: #272822;
+      background: #1e1e1e;
       color: #f8f8f2;
-      padding: 10px;
-      border-radius: 4px;
+      padding: 18px;
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
       overflow-x: auto;
-    }
-
-    .code-block {
-      margin-bottom: 20px;
+      max-height: 300px;
     }
 
     footer {
-      padding-top: 1.5rem;
+      padding-top: 2rem;
       text-align: center;
     }
   </style>
@@ -89,70 +225,129 @@
 
 <body>
   <h1>Matrix Column Normalizer</h1>
-  <p>Enter an \(m \times n\) matrix (max 30×30). 
-    Separate rows with newlines, entries by spaces or commas.</p>
-  <textarea id="matrixInput">1 2 3
+  <p>Enter an \(m \times n\) matrix (max 30×30). Separate rows with newlines, entries by spaces or commas.</p>
+
+  <div class="input-container">
+    <textarea id="matrixInput" placeholder="1 2 3&#10;4 5 6&#10;7 8 9">1 2 3
 4 5 6
 7 8 9</textarea>
-  <br>
-  <button onclick="normalizeMatrix()">Normalize Columns</button>
-  <button onclick="clearOutputs()">Clear Outputs</button>
+    <div class="btn-container">
+      <button onclick="normalizeMatrix()">Normalize Columns</button>
+      <button class="clear-btn" onclick="clearOutputs()">Clear Outputs</button>
+    </div>
+  </div>
 
-  <div id="matrixOutput" class="output"></div>
-  <div id="codeOutput"></div>
+  <div id="resultCard" class="result-card">
+    <div class="result-title">Normalized Matrix (\(L_2\) Column Norm):</div>
+    <div id="mathjax-output"></div>
+
+    <div class="plain-output-wrapper">
+      <div class="copyable-text" id="plain-output" title="Double click to select plain text"></div>
+      <button class="copy-inline-btn" id="copy-plain-btn" onclick="copyPlainOutput()">Copy Plain Text</button>
+    </div>
+  </div>
+
+  <div id="tabsContainer" class="tabs-container">
+    <div class="tabs-header">
+      <button class="tab-link active" onclick="switchTab(event, 'python-tab')">Python (NumPy)</button>
+      <button class="tab-link" onclick="switchTab(event, 'js-tab')">JavaScript</button>
+      <button class="tab-link" onclick="switchTab(event, 'octave-tab')">Octave / MATLAB</button>
+    </div>
+
+    <div id="python-tab" class="tab-content active">
+      <button class="copy-snippet-btn" onclick="copySnippet(this)">Copy</button>
+      <pre id="python-code"></pre>
+    </div>
+    <div id="js-tab" class="tab-content">
+      <button class="copy-snippet-btn" onclick="copySnippet(this)">Copy</button>
+      <pre id="js-code"></pre>
+    </div>
+    <div id="octave-tab" class="tab-content">
+      <button class="copy-snippet-btn" onclick="copySnippet(this)">Copy</button>
+      <pre id="octave-code"></pre>
+    </div>
+  </div>
+
+  <footer>
+    <p>\( \huge \infty \)</p>
+  </footer>
 
   <script>
+    // Robust parsing that handles native fractions (e.g. 1/3) safely
+    function parseEntry(str) {
+      str = str.trim();
+      if (str.includes('/')) {
+        let parts = str.split('/');
+        if (parts.length === 2) {
+          let num = parseFloat(parts[0]);
+          let den = parseFloat(parts[1]);
+          if (!isNaN(num) && !isNaN(den) && den !== 0) return num / den;
+        }
+      }
+      return parseFloat(str);
+    }
+
     function normalizeMatrix() {
       const input = document.getElementById("matrixInput").value.trim();
       if (!input) return;
 
-      const rows = input.split(/\n/).map(r => r.trim().split(/[\s,]+/).map(Number));
+      const rows = input.split(/\n/).map(r => r.trim().split(/[\s,]+/).filter(Boolean).map(parseEntry));
       const m = rows.length;
+      if (m === 0 || rows[0].length === 0) return;
       const n = rows[0].length;
 
       if (m > 30 || n > 30) {
-        alert("Matrix size must be at most 30x30");
+        alert("Matrix size must be at most 30x30.");
         return;
       }
-      if (rows.some(r => r.length !== n)) {
-        alert("All rows must have the same number of columns");
-        return;
+      for (let i = 0; i < m; i++) {
+        if (rows[i].length !== n || rows[i].some(isNaN)) {
+          alert("Parsing error: All rows must have uniform columns containing valid numbers.");
+          return;
+        }
       }
 
-      // Normalize columns
+      // Compute Column Normalization
       const normalized = Array.from({ length: m }, () => Array(n).fill(0));
       for (let j = 0; j < n; j++) {
-        let norm = 0;
-        for (let i = 0; i < m; i++) norm += rows[i][j] ** 2;
-        norm = Math.sqrt(norm);
-        for (let i = 0; i < m; i++) normalized[i][j] = norm === 0 ? 0 : rows[i][j] / norm;
+        let sumSq = 0;
+        for (let i = 0; i < m; i++) sumSq += rows[i][j] ** 2;
+        let norm = Math.sqrt(sumSq);
+        for (let i = 0; i < m; i++) {
+          normalized[i][j] = norm === 0 ? 0 : rows[i][j] / norm;
+        }
       }
 
-      // LaTeX output
-      let latex = "\\begin{bmatrix}";
+      // 1. Build LaTeX Rendering
+      let latex = "\\[ \\begin{bmatrix} ";
       for (let i = 0; i < m; i++) {
         latex += normalized[i].map(v => v.toFixed(5)).join(" & ");
         if (i < m - 1) latex += " \\\\ ";
       }
-      latex += "\\end{bmatrix}";
-      document.getElementById("matrixOutput").style.display = 'block';
-      document.getElementById("matrixOutput").innerHTML = `Normalized Matrix:<br>$$${latex}$$`;
-      MathJax.typeset();
+      latex += " \\end{bmatrix} \\]";
 
-      // Plain text output
-      const plainText = normalized.map(row => row.map(v => v.toFixed(4)).join("\t")).join("\n");
-      // document.getElementById("matrixTextOutput").textContent = plainText;
+      document.getElementById("mathjax-output").innerHTML = latex;
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([document.getElementById("mathjax-output")]);
+      }
 
-      // Generate code snippets
-      const pythonCode =
+      // 2. Build Plain Text Format (Space separated)
+      const plainText = normalized.map(row => row.map(v => v.toFixed(5)).join(" ")).join("\n");
+      document.getElementById("plain-output").innerText = plainText;
+      document.getElementById("copy-plain-btn").innerText = "Copy Plain Text";
+
+      // 3. Populate code tab snippets dynamically
+      document.getElementById("python-code").textContent =
         `import numpy as np
 
 A = np.array(${JSON.stringify(rows)})
 norms = np.linalg.norm(A, axis=0)
+# Avoid division by zero
+norms[norms == 0] = 1 
 A_normalized = A / norms
 print(A_normalized)`;
 
-      const jsCode =
+      document.getElementById("js-code").textContent =
         `let A = ${JSON.stringify(rows)};
 let m = A.length;
 let n = A[0].length;
@@ -162,70 +357,71 @@ for (let j = 0; j < n; j++) {
   let norm = 0;
   for (let i = 0; i < m; i++) norm += A[i][j] ** 2;
   norm = Math.sqrt(norm);
-  for (let i = 0; i < m; i++) normalized[i][j] = norm === 0 ? 0 : A[i][j] / norm;
+  for (let i = 0; i < m; i++) {
+    normalized[i][j] = norm === 0 ? 0 : A[i][j] / norm;
+  }
 }
 console.log(normalized);`;
 
-      const octaveCode =
-        `% Input matrix
+      document.getElementById("octave-code").textContent =
+        `%% Input matrix
 A = [${rows.map(r => r.join(" ")).join("; ")}];
 
-% Compute column norms
+%% Compute column norms
 norms = sqrt(sum(A.^2, 1));
+norms(norms == 0) = 1; %% Prevent zero division
 
-% Normalize each column
+%% Normalize each column
 A_normalized = A ./ norms;
 
-% Display result
-disp('Normalized matrix:');
+disp('Normalized Matrix:');
 disp(A_normalized);`;
 
-      // Output
-      document.getElementById("codeOutput").innerHTML = `
-        <div class="code-block">
-          <h3>Plain text <button onclick="copyToClipboard(this)">Copy</button></h3>
-          <pre>${plainText}</pre>
-        </div>
-        <div class="code-block">
-          <h3>Python <button onclick="copyToClipboard(this)">Copy</button></h3>
-          <pre>${pythonCode}</pre>
-        </div>
-        <div class="code-block">
-          <h3>JavaScript <button onclick="copyToClipboard(this)">Copy</button></h3>
-          <pre>${jsCode}</pre>
-        </div>
-        <div class="code-block">
-          <h3>Octave <button onclick="copyToClipboard(this)">Copy</button></h3>
-          <pre>${octaveCode}</pre>
-        </div>
-      `;
+      // Show container cards
+      document.getElementById("resultCard").style.display = 'block';
+      document.getElementById("tabsContainer").style.display = 'block';
     }
 
     function clearOutputs() {
-      document.getElementById("matrixOutput").style.display = 'none';
-      document.getElementById("matrixOutput").innerHTML = '';
-      document.getElementById("codeOutput").innerHTML = '';
+      document.getElementById("resultCard").style.display = 'none';
+      document.getElementById("tabsContainer").style.display = 'none';
+      document.getElementById("mathjax-output").innerHTML = '';
+      document.getElementById("plain-output").innerText = '';
+      document.getElementById("matrixInput").value = '';
     }
 
-    function copyToClipboard(button) {
-      const pre = button.parentElement.nextElementSibling; // gets the <pre> after the <h3>
-      navigator.clipboard.writeText(pre.textContent)
-        .then(() => {
-          button.textContent = "Copied!";
-          setTimeout(() => button.textContent = "Copy", 1500);
-        })
-        .catch(err => {
-          console.error("Failed to copy:", err);
-        });
+    // Copier Utilities
+    function copyPlainOutput() {
+      const text = document.getElementById("plain-output").innerText;
+      const btn = document.getElementById("copy-plain-btn");
+      navigator.clipboard.writeText(text).then(() => {
+        btn.innerText = "Copied!";
+        setTimeout(() => btn.innerText = "Copy Plain Text", 1500);
+      });
     }
 
+    function copySnippet(button) {
+      const codeText = button.nextElementSibling.textContent;
+      navigator.clipboard.writeText(codeText).then(() => {
+        button.textContent = "Copied!";
+        setTimeout(() => button.textContent = "Copy", 1500);
+      });
+    }
+
+    // Tab view switcher actions
+    function switchTab(evt, tabId) {
+      const tabContents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+      }
+      const tabLinks = document.getElementsByClassName("tab-link");
+      for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+      }
+      document.getElementById(tabId).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
   </script>
-
-  <footer>
-    <p>
-      \( \huge \infty \)
-    </p>
-  </footer>
 </body>
 
 </html>
