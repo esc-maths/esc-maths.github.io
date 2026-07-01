@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Lecture 1</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;">Week 1 - Introduction &amp; Simultaneous Equations</p>
+
+				<div style="margin-top: -30px; margin-bottom:20px;">
+					<img src="images/fractal/f001.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+				<section>
+					<h4>What is Linear Algebra?</h4>
+
+					<div class="size-75 left-txt">
+						<p>
+							<b>Algebra</b> involves the use of the algebraic
+							operations $(\times)$ and $(+)$ on
+							mathematical objects like numbers,
+							vectors, matrices, or functions.
+						</p>
+						<p>
+							A <b>linear</b> operation $ℒ$ is one that obeys the relationship
+
+						</p>
+					</div>
+					<div class="size-75">
+
+						<p>
+							<span>
+								$ ℒ\left(\alpha x+ \beta y \right) $
+							</span>
+							<span>
+								$= \alpha ℒ(x)+ℒ\beta ℒ(y)$
+							</span>
+						</p>
+					</div>
+
+					<div class="size-75 left-txt">
+						<p>
+							<b>Linear Algebra</b>
+							<em>begins</em> by considering linear problems of the type
+							$ℒ(x) = b$:
+
+						</p>
+					</div>
+
+					<div class="size-75">
+
+						<table style="width: 10%;border: none;">
+							<tr>
+								<td style="border: none;text-align: right;">$ax$</td>
+								<td style="border: none;">$=$</td>
+								<td style="border: none;">$b$</td>
+							</tr>
+							<tr>
+								<td style="border: none;text-align: right;">$\mathbf a \pd \mathbf x$</td>
+								<td style="border: none;">$=$</td>
+								<td style="border: none;">$b$</td>
+							</tr>
+							<tr>
+								<td style="border: none;text-align: right;">$\mathbf A \mathbf x$</td>
+								<td style="border: none;">$=$</td>
+								<td style="border: none;">$\mathbf b$</td>
+							</tr>
+							<tr>
+								<td style="border: none;text-align: right;">$\dfrac{d}{dt} x(t)$</td>
+								<td style="border: none;">$=$</td>
+								<td style="border: none;">$b(t)$</td>
+							</tr>
+							<tr>
+								<td style="border: none;text-align: right;">$\ds\int x(t)\,dt $</td>
+								<td style="border: none;">$=$</td>
+								<td style="border: none;">$b$</td>
+							</tr>
+						</table>
+					</div>
+
+
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h4>
+						Areas and applications where Linear Algebra is needed
+					</h4>
+					<div class="size-75">
+						<ol style="line-height: 32pt;">
+							<li class="fragment" index-fragment-data="0">
+								<strong>Mathematics:</strong> Solutions to linear systems; solutions to systems of ODEs;
+								function interpolation (e.g. cubic splines); many other applications.
+							</li>
+
+							<li class="fragment" index-fragment-data="1">
+								<strong>Statistics:</strong> Regression (lines of best fit); data approximation;
+								Principal Component Analysis (PCA).
+							</li>
+
+							<li class="fragment" index-fragment-data="2">
+								<strong>Physics:</strong> Electric circuits; optics; coupled dynamical systems; most of
+								quantum mechanics.
+							</li>
+
+							<li class="fragment" index-fragment-data="3">
+								<strong>Chemistry:</strong> Balancing chemical reactions; balancing systems of chemical
+								reactions; chemometrics.
+							</li>
+
+							<li class="fragment" index-fragment-data="4">
+								<strong>Engineering:</strong> Mechanical motion; stress testing.
+							</li>
+
+							<li class="fragment" index-fragment-data="5">
+								<strong>Computer Science:</strong> Computer graphics (especially games); coding theory;
+								computer networking; image compression.
+							</li>
+
+							<li class="fragment" index-fragment-data="6">
+								<strong>Others:</strong> Global Positioning System (GPS); finance (balancing market
+								forces); Artificial Intelligence (AI); social networks.
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Why do we study Linear Algebra?
+					</h4>
+
+					<div class="size-90">
+						<ol style="line-height: 50pt;">
+							<li class="fragment" index-fragment-data="0">
+								Linear systems have 'nice' properties that make
+								them <b>easier to solve</b>
+								<ul>
+									<li class="fragment" index-fragment-data="1">
+										This helps us to solve <b>many real-world problems...</b>
+									</li>
+								</ul>
+							</li>
+
+							<li class="fragment" index-fragment-data="2">
+								Many <b>nonlinear systems</b> can be studied by building on linear
+								theories
+								<ul>
+									<li class="fragment" index-fragment-data="3">
+										Linearisation of nonlinear ODEs
+									</li>
+									<li class="fragment" index-fragment-data="4">
+										Perturbation theory (= linear system + nonlinear perturbation)
+									</li>
+								</ul>
+							</li>
+
+						
+
+							<li class="fragment" index-fragment-data="5">
+								Many <b>mathematical problems</b> rely on linear algebra
+								<ul>
+									<li class="fragment" index-fragment-data="6">
+										Solutions of differential equations (DEs).
+
+									</li>
+									<li class="fragment" index-fragment-data="7">
+										Series representation of functions (e.g. Fourier theory)
+									</li>
+								</ul>
+							</li>
+
+
+						</ol>
+					</div>
+
+					<br/>
+
+				</section>
+
+			</section>
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
