@@ -150,7 +150,7 @@
 					</h4>
 
 					<ul style="font-size: 80%;">
-						<li class="fragment" index-fragment-data="0">
+						<li class="fragment" data-fragment-index="0">
 							<strong>Mathematics:</strong> Solutions to linear systems; solutions to systems of ODEs;
 							function interpolation (e.g. cubic splines); many other applications.
 						</li>
@@ -169,7 +169,7 @@
 
 									<div class="r-stack">
 
-										<p class="fragment fade-in-then-out" index-fragment-data="1">
+										<p class="fragment fade-in-then-out" data-fragment-index="1">
 											\[
 											\begin{array}{rcl}
 											a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &=& b_1\\
@@ -180,7 +180,7 @@
 											\]
 										</p>
 
-										<p class="fragment fade-in" index-fragment-data="1">
+										<p class="fragment fade-in" data-fragment-index="1">
 											\[
 											\left(
 											\begin{array}{ccc}
@@ -408,24 +408,24 @@
 
 					<div class="size-90">
 						<ol style="line-height: 50pt;">
-							<li class="fragment" index-fragment-data="0">
+							<li class="fragment" data-fragment-index="0">
 								Linear systems have 'nice' properties that make
 								them <b>easier to solve</b>
 								<ul>
-									<li class="fragment" index-fragment-data="1">
+									<li class="fragment" data-fragment-index="1">
 										This helps us to solve <b>many real-world problems...</b>
 									</li>
 								</ul>
 							</li>
 
-							<li class="fragment" index-fragment-data="2">
+							<li class="fragment" data-fragment-index="2">
 								Many <b>nonlinear systems</b> can be studied by building on linear
 								theories
 								<ul>
-									<li class="fragment" index-fragment-data="3">
+									<li class="fragment" data-fragment-index="3">
 										Linearisation of nonlinear ODEs
 									</li>
-									<li class="fragment" index-fragment-data="4">
+									<li class="fragment" data-fragment-index="4">
 										Perturbation theory (= linear system + nonlinear perturbation)
 									</li>
 								</ul>
@@ -433,14 +433,14 @@
 
 
 
-							<li class="fragment" index-fragment-data="5">
+							<li class="fragment" data-fragment-index="5">
 								Many <b>mathematical problems</b> rely on linear algebra
 								<ul>
-									<li class="fragment" index-fragment-data="6">
+									<li class="fragment" data-fragment-index="6">
 										Solutions of differential equations (DEs).
 
 									</li>
-									<li class="fragment" index-fragment-data="7">
+									<li class="fragment" data-fragment-index="7">
 										Series representation of functions (e.g. Fourier theory)
 									</li>
 								</ul>
@@ -477,32 +477,158 @@
 						Prerequisite Knowledge
 					</h4>
 					<div class="left-txt size-85">
-						<p class="fragment" index-fragment-data="0">
+						<p class="fragment" data-fragment-index="0">
 							<b>Assumed that you know</b>
 						</p>
 
 						<ul style="line-height: 60px;">
-							<li class="fragment" index-fragment-data="0">what a matrix is;</li>
-							<li class="fragment" index-fragment-data="1">how to add, multiply, and transpose matrices;</li>
-							<li class="fragment" index-fragment-data="2">what a symmetric matrix is.</li>
+							<li class="fragment" data-fragment-index="0">what a matrix is;</li>
+							<li class="fragment" data-fragment-index="1">how to add, multiply, and transpose matrices;
+							</li>
+							<li class="fragment" data-fragment-index="2">what a symmetric matrix is.</li>
 						</ul>
 
-						<p class="fragment" index-fragment-data="3">
+						<p class="fragment" data-fragment-index="3">
 							<b>Assumed that you have seen and will quickly recall</b>
 						</p>
 
 						<ul style=" line-height: 60px;">
-							<li class="fragment" index-fragment-data="3">how to interpret matrices as transformations;</li>
-							<li class="fragment" index-fragment-data="4">Gaussian elimination;</li>
-							<li class="fragment" index-fragment-data="5">how to invert matrices;</li>
-							<li class="fragment" index-fragment-data="6">how to calculate determinants;</li>
-							<li class="fragment" index-fragment-data="7">how to find eigenvalues/vectors of 2x2 matrices.</li>
+							<li class="fragment" data-fragment-index="3">how to interpret matrices as transformations;
+							</li>
+							<li class="fragment" data-fragment-index="4">Gaussian elimination;</li>
+							<li class="fragment" data-fragment-index="5">how to invert matrices;</li>
+							<li class="fragment" data-fragment-index="6">how to calculate determinants;</li>
+							<li class="fragment" data-fragment-index="7">how to find eigenvalues/vectors of 2x2
+								matrices.</li>
 						</ul>
 
 					</div>
 					<br />
 					<br />
 					<br />
+				</section>
+
+			</section>
+
+			<section>
+
+				<section>
+					<h4>Linear Equations</h4>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0">
+							A (real) <b>linear equation</b> in $n$ unknowns is an
+							equation of the form
+						</p>
+					</div>
+					<div class=" size-90">
+						<p class="fragment" data-fragment-index="0">
+							$ a_1x_1 + a_2x_2 + \cdots + a_nx_n = b $
+
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							where
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="1">
+								$a_1, a_2, \ldots, a_n$ and $b$ are (real) coefficients;
+								<span class="fragment" data-fragment-index="2" å>and</span>
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$x_1, x_2, \ldots, x_n$ are (real) variables.
+							</li>
+						</ul>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="3">
+							Examples:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="3">
+								$ 2 x_1 + 3 x_2 - x_3 - 5x_4 = 0 $
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								$2 r + 3 s = 4$
+							</li>
+						</ul>
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h4>Systems of Linear Simultaneous Equations</h4>
+
+					<div class="left-txt size-95">
+						<p class="fragment" data-fragment-index="0"><b>Systems of Linear Equations</b></p>
+						<p class="fragment" data-fragment-index="0">
+							A <em>system</em> of linear equations is a collection of
+							$m$ simultaneous equations
+							<span class="fragment" data-fragment-index="1">in $n$ unknowns,</span>
+							<span class="fragment" data-fragment-index="2">of the form</span>
+						</p>
+					</div>
+					<div class=" size-95">
+						<p class="fragment" data-fragment-index="2">
+							\begin{align*}
+							a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= b_1 \\
+							a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= b_2 \\
+							&\vdots \\
+							a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n &= b_m
+							\end{align*}
+						</p>
+					</div>
+
+
+					<br />
+					<br />
+
+
+				</section>
+				<section>
+					<h4>Examples of Systems of Linear Simultaneous Equations</h4>
+
+
+					<div class="size-95" style="text-align: left; margin-left: 25%;">
+						<ul style="line-height: 150px;">
+							<li class="fragment" data-fragment-index="0">
+								$\begin{aligned}
+								2x + 3y &= 1 \\
+								3x - y &= 2
+								\end{aligned}$
+							</li>
+
+							<li class="fragment" data-fragment-index="1">
+								$\begin{aligned}
+								ax + by &= r \\
+								cx + dy &= s
+								\end{aligned}$
+							</li>
+
+
+						</ul>
+						<br/>
+						<ul style="margin-top: 20px;">
+							<li class="fragment" data-fragment-index="2">
+								$ \begin{aligned}
+								x_1 + x_2 + x_3 &= 3 \\
+								x_1 + x_2 - x_3 &= 1 \\
+								x_1 - x_2 + x_3 &= 1
+								\end{aligned}$
+							</li>
+						</ul>
+					</div>
+
+
+					<br />
+					<br />
+
+
 				</section>
 
 			</section>
