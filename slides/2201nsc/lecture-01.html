@@ -157,7 +157,7 @@
 					</ul>
 
 
-					<div style="margin-top:10px;margin-left: 0px;" >
+					<div style="margin-top:10px;margin-left: 0px;">
 						<table style="width:100%">
 							<tr>
 								<td style="width:60%;text-align:center" class="fragment" data-fragment-index="4">
@@ -612,7 +612,7 @@
 
 
 						</ul>
-						<br/>
+						<br />
 						<ul style="margin-top: 20px;">
 							<li class="fragment" data-fragment-index="2">
 								$ \begin{aligned}
@@ -628,6 +628,203 @@
 					<br />
 					<br />
 
+
+				</section>
+
+				<section>
+					<h4>
+						Application example - Balancing a chemical equation
+					</h4>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="0">
+							Photosynthesis converts water and carbon dioxide into oxygen and glucose:
+						</p>
+					</div>
+					<div class=" size-80">
+						<p class="fragment" data-fragment-index="0">
+							$ x_1\text{CO}_2 + x_2\text{H}_2\text{O}\ \rightarrow\ x_3\text{O}_2 +
+							x_4\text{C}_6\text{H}_{12}\text{O}_6 $
+						</p>
+					</div>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="1">
+							What are the coefficients $x_i$?
+							<span class="fragment" data-fragment-index="2">
+								Since matter is neither created nor
+								destroyed,
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								we must have equal amounts of each element on either side:
+							</span>
+						</p>
+					</div>
+					<div class=" size-80">
+						<table style="border-collapse: collapse; margin: 0 auto; text-align: center;" class="fragment"
+							data-fragment-index="4">
+							<tr>
+								<th style="border: 1px solid black; padding: 8px;"></th>
+								<th style="border: 1px solid black; padding: 8px;">C</th>
+								<th style="border: 1px solid black; padding: 8px;">H</th>
+								<th style="border: 1px solid black; padding: 8px;">O</th>
+							</tr>
+
+							<tr>
+								<th style="border: 1px solid black; padding: 8px;">LHS</th>
+								<td style="border: 1px solid black; padding: 8px;">\(x_1\)</td>
+								<td style="border: 1px solid black; padding: 8px;">\(2x_2\)</td>
+								<td style="border: 1px solid black; padding: 8px;">\(2x_1+x_2\)</td>
+							</tr>
+
+							<tr>
+								<th style="border: 1px solid black; padding: 8px;">RHS</th>
+								<td style="border: 1px solid black; padding: 8px;">\(6x_4\)</td>
+								<td style="border: 1px solid black; padding: 8px;">\(12x_4\)</td>
+								<td style="border: 1px solid black; padding: 8px;">\(2x_3+6x_4\)</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="size-80">
+						<table style="margin: 0 auto; border-collapse: collapse;">
+							<tr>
+								<td style="padding: 0 30px; vertical-align: top;" class="fragment"
+									data-fragment-index="5">
+									\[
+									\begin{aligned}
+									x_1 &= 6x_4 \\
+									2x_2 &= 12x_4 \\
+									2x_1 + x_2 &= 2x_3 + 6x_4
+									\end{aligned}
+									\]
+								</td>
+
+								<td style="padding: 0 20px; vertical-align: middle; text-align: center;"
+									class="fragment" data-fragment-index="6">
+									$\rightarrow$
+								</td>
+
+								<td style="padding: 0 30px; vertical-align: top;" class="fragment"
+									data-fragment-index="6">
+									\[
+									\begin{aligned}
+									x_1 - 6x_4 &= 0 \\
+									2x_2 - 12x_4 &= 0 \\
+									2x_1 + x_2 - 2x_3 - 6x_4 &= 0
+									\end{aligned}
+									\]
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Solving systems of 2 variables
+					</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								How can we solve the following system?
+							</p>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								$\begin{align}
+								2x_1 + x_2 &= 3 \quad \quad (1)\\
+								x_1 - x_2 &= 0 \quad \quad (2)
+								\end{align}$
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="1">
+								From (2):
+							</p>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="2">
+								$x_2 = x_1$
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="3">
+								Sub into (1):
+							</p>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="4">
+								$2x_1+x_1=3$
+								<span class="fragment" data-fragment-index="5">
+									$\implies x_1=1$
+								</span>
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="6">
+								Sub back into (2):
+							</p>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="7">
+								$x_2 = x_1 =1$
+							</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section>
+
+					<h4>
+						Further problems
+					</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								How can we solve the following system?
+							</p>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								\begin{align*}
+								2x_1 + x_2 + x_3 - 4 x_4 + 2x_5 &= 3 \\
+								x_1 - x_2 - x_4 + x_5 &= 0 \\
+								x_2 + 2x_3 - x_4 + 2x_5 &=1 \\
+								x_1 - x_2 - 2x_3 - 3x_4 - 4x_5 &=10 \\
+								x_1 + 2x_2 + 3x_3 - 4x_4 + x_5 &=-2
+								\end{align*}
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<ul>
+								<li class="fragment" data-fragment-index="1">
+									Does a solution always exist?
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									If it exists, what is the solution?
+								</li>
+
+							</ul>
+						</div>
+						<p class="fragment" data-fragment-index="3">
+							<b>We need a systematic approach!! 🤔</b>
+						</p>
+						
+					</div>
+					<br />
 
 				</section>
 
