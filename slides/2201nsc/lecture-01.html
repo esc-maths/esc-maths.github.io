@@ -61,7 +61,8 @@
 					</span>
 
 				</div>
-				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Introduction <br/> Simultaneous Equations
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Introduction <br /> Simultaneous
+					Equations
 				</p>
 
 				<div style="margin-top: -40px; margin-bottom:20px;">
@@ -1757,15 +1758,17 @@
 							</p>
 						</div>
 
-						
+
 
 					</div>
 
-					<pre style="width: 60%;height: 30px; font-size: 60%;margin-top: -10px;" class="fragment" data-fragment-index="0">
+					<pre style="width: 60%;height: 30px; font-size: 60%;margin-top: -10px;" class="fragment"
+						data-fragment-index="0">
 						<code data-trim data-noescape  class="language-python">
 >> A = [3 2 -1 -2; 3 1 -1 -5; 3 2 1 2]
   </code></pre>
-					<pre style="width: 60%;height: 120px; font-size: 60%;margin-top: 25px;" class="fragment" data-fragment-index="1">
+					<pre style="width: 60%;height: 120px; font-size: 60%;margin-top: 25px;" class="fragment"
+						data-fragment-index="1">
 						<code data-trim data-noescape  class="language-python">
 
 A =
@@ -1773,21 +1776,379 @@ A =
 3 1 -1 -5
 3 2 1 2
   </code></pre>
-  
-					<pre style="width: 60%;height: 30px; font-size: 60%;margin-top: 30px;" class="fragment" data-fragment-index="2">
+
+					<pre style="width: 60%;height: 30px; font-size: 60%;margin-top: 30px;" class="fragment"
+						data-fragment-index="2">
 						<code data-trim data-noescape  class="language-python">
 >> rref(A)
   </code></pre>
-					<pre style="width: 60%;height: 120px; font-size: 60%;margin-top: 25px;" class="fragment" data-fragment-index="3">
+					<pre style="width: 60%;height: 120px; font-size: 60%;margin-top: 25px;" class="fragment"
+						data-fragment-index="3">
 						<code data-trim data-noescape  class="language-python">
 ans =
 1 0 0 -2
 0 1 -0 3
 0 0 1 2
   </code></pre>
-  <br/>
+					<br />
 				</section>
 
+
+
+			</section>
+
+			<section>
+				<section>
+					<h4>
+						Row Echelon form
+					</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">
+							<b>
+								Definition (Row Echelon Form)
+							</b>
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							A matrix is in row echelon form if
+						</p>
+
+					</div>
+					<div class="left-txt size-90">
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								any rows of zeros are at the bottom;
+								<span>and</span>
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								the first nonzero term in any row - the <em>leading</em> entry -
+								is <b>to the left
+									of any leading entries below it</b>.
+							</li>
+						</ol>
+					</div>
+
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="2">Once your row-reduced augmented matrix has this
+							property</p>
+						<p class="fragment" data-fragment-index="3">
+							<b>it is in row echelon form</b>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							... and you can stop row reducing!!
+						</p>
+					</div>
+				</section>
+				<section>
+					<h4>
+						In row echelon form? Check the leading entries...
+					</h4>
+
+					<table class="size-85">
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 2 & 1 & 3 \\
+								0 & 0 & \color{red}{-1} & 0 \\
+								0 & \color{red}{2} & 0 & 4\\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								R2's leading entry is <b>not to the left</b><br />
+								of R3's leading entry &nbsp;❌
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+								&nbsp;
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="2">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 2 & 1 & 3 \\
+								0 & \color{green}{2} & 0 & 4 \\
+								0 & 0 & \color{green}{-1} & 0 \\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="2">
+								Swapping R2 and R3&nbsp;✅
+							</td>
+						</tr>
+					</table>
+
+
+					<br />
+					<br />
+
+
+				</section>
+				<section>
+					<h4>
+						In row echelon form? Check the leading entries...
+					</h4>
+
+					<table class="size-85">
+						<tr>
+							<td style="border: none;">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 2 & 1 & 3 \\
+								0 & \color{red}{1} & -1 & 0 \\
+								0 & \color{red}{2} & 0 & 4\\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								R2's leading entry is <b>not to the left</b><br />
+								of R3's leading entry &nbsp;❌
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+								&nbsp;
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 2 & 1 & 3 \\
+								0 & \color{green}{1} & -1 & 0 \\
+								0 & 0 & \color{green}{2} & 4 \\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								R3a $\rightarrow$ R3$\,-\,$2R2 &nbsp;✅
+							</td>
+						</tr>
+					</table>
+
+
+					<br />
+					<br />
+
+
+				</section>
+				<section>
+					<h4>
+						In row echelon form? Check the leading entries...
+					</h4>
+
+					<table class="size-80">
+						<tr>
+							<td style="border: none;">
+								$
+								\left(
+								\begin{array}{rrrrr|r}
+								\color{green}{1} & 1 & 1 & 1 & 1 & 1 \\
+								0 & 0 & \color{green}{1} & 1 & 1 & 0 \\
+								0 & 0 & 0 & 0 & \color{green}{1} & -3 \\
+								0 & 0 & 0 & 0 & 0 & -4 \\
+								0 & 0 & 0 & 0 & 0 & -3 \\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								All leading entries are <b>to the left</b> of <br />
+								all lower leading entries &nbsp;✅
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+								&nbsp;
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{rrrrr|r}
+								\color{red}{1} & 1 & 1 & 1 & 1 & 1 \\
+								\color{red}{1} & 0 & 1 & 1 & 2 & 0 \\
+								0 & 0 & 0 & 1 & 3 & -3 \\
+								0 & 0 & 0 & 0 & 0 & -4 \\
+								0 & 0 & 0 & 0 & 0 & -3 \\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								R1's leading entry is <b>not to the left</b> <br />
+								of R2's leading entry &nbsp;❌
+							</td>
+						</tr>
+					</table>
+
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">
+							Let's try some simple examples...
+						</p>
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 1</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2 = 2\\
+							x_1 - x_2 = 2\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & -1 & 2
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & -2 & 0
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>As many</b> equations as variables.
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>upper triangular form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is a <b>unique solution</b>: $x_1 = 2,\, x_2 = 0.$
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 2</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2 = 2\\
+							x_1 + x_2 = 1\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & 1 & 1
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & 0 & -1
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>As many</b> equations as variables.
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>row echelon form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is <b>no solution</b>.
+								<span class="fragment" data-fragment-index="7">
+									This is because there are
+									no $x_1,$ $x_2$ for which
+									$0x_1+0x_2 = 1.$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									This type of system is said to be
+									<b>inconsistent</b>.
+								</span>
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
 			</section>
 
 
