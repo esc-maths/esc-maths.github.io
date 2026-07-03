@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="mySetup/mylayout.css" />
 
 	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
 
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
@@ -1636,7 +1636,7 @@
 					</p>
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>
 						Don't forget to check your answer!!!
 					</h4>
@@ -1728,6 +1728,57 @@
 						</div>
 
 					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Using Matlab/Octave
+					</h4>
+
+					<div class="size-85">
+						<p>
+							We found that
+						</p>
+						<div class="cc">
+							<p>
+								$
+								\begin{array}{rcl}
+								3x_1 + 2x_2-x_3 & = & -2 \\
+								3x_1 + x_2-x_3 & = & -5 \\
+								3x_1 + 2x_2+x_3 & = & 2 \\
+								\end{array}
+								$
+								<span>
+									$
+									\;\Ra\; x_1 = -2,\, x_2 = 3, x_3 = 2
+									$
+								</span>
+
+							</p>
+						</div>
+
+						
+
+					</div>
+
+					<pre style="width: 60%;height: 150px; font-size: 60%;margin-top: 0px;">
+						<code data-trim data-noescape  class="language-python">
+>> A = [3 2 -1 -2; 3 1 -1 -5; 3 2 1 2]
+A =
+3 2 -1 -2
+3 1 -1 -5
+3 2 1 2
+  </code></pre>
+  <br/>
+					<pre style="width: 60%;height: 150px; font-size: 60%;margin-top: -30px;">
+						<code data-trim data-noescape  class="language-python">
+>> rref(A)
+ans =
+1 0 0 -2
+0 1 -0 3
+0 0 1 2
+  </code></pre>
+  <br/>
 				</section>
 
 			</section>
