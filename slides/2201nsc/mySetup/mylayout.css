@@ -70,6 +70,10 @@
   font-size: 90%;
 }
 
+.cc p {
+  text-align: center !important;
+}
+
 /* Class for proof on table */
 .proof-table {
   text-align: left;
@@ -128,6 +132,13 @@ ol.r>li:before {
   text-transform: none;
 }
 
+.reveal p {
+  text-align: left;
+}
+
+
+
+
 
 
 /* Format for table of contents */
@@ -135,8 +146,6 @@ ol.r>li:before {
   height: 15px;
   vertical-align: top;
 }
-
-
 
 /*
 tr {
@@ -230,3 +239,4 @@ h7 {
   padding:35px;
   text-align: left;
 }
+
