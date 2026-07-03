@@ -1188,6 +1188,67 @@
 					<br/>
 
 				</section>
+				<section>
+					<h4>Our objective - Upper triangular form</h4>
+
+					<div class="size-80">
+						<p>
+							Our objective using row reduction on an augmented matrix:
+						</p>
+						
+						<div class="cc size-75">
+							<p>
+								$
+								\left(
+								\begin{array}{cccc|c}
+								a_{11} & a_{11} & \cdots & a_{1n} & q_1  \\
+								a_{21} & a_{22} & \cdots & a_{2n} & q_2  \\
+								\vdots & \vdots & \ddots & \vdots & \vdots \\ 
+								a_{n1} & a_{n1} & \cdots & a_{nn} & q_n  \\
+								\end{array}
+								\right)
+								$
+								<span>
+									$\;\;\rightarrow\;\;
+								\left(
+								\begin{array}{ccccc|c}
+								1 & b_{12} & b_{13} & \cdots & b_{1n} & r_1  \\
+								0 & 1 & b_{23} & \cdots & b_{2n} & r_2  \\
+								0 & 0 & 1 & \ldots & b_{3n} & r_3  \\
+								\vdots & \vdots & \vdots & \ddots & \vdots \\ 
+								0 &0 & 0 & \cdots & 1 & r_n  \\
+								\end{array}
+								\right)
+								$
+								</span>
+							</p>
+						</div>
+						<p>
+							With equations in this form, we obtain the solution by back-substitution:
+						</p>
+						
+						<p>
+							The bottom line gives:  $\;x_n = r_n.$
+						</p>
+						<p>
+							The line above then gives:
+						</p>
+						<div class="cc">
+							<p>
+								$x_{n-1}+ b_{(n-1)n}x_n = r_{n-1}$
+								<span>
+									$\;\Ra \; x_{n-1} = r_{n-1}-b_{(n-1)n}r_n .$
+								</span>
+							</p>
+						</div>
+						<p>
+							and so on...
+						</p>
+					</div>
+
+					<br/>
+
+				</section>
 
 			</section>
 
