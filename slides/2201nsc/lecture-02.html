@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>2201NSC - Lecture 1</title>
+	<title>2201NSC - Lecture 2</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -61,474 +61,119 @@
 					</span>
 
 				</div>
-				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Introduction <br /> Simultaneous
-					Equations
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Matrices
 				</p>
 
 				<div style="margin-top: -40px; margin-bottom:20px;">
-					<img src="images/fractal/f001.png" style="width: 500px; ">
+					<img src="images/fractal/f002.png" style="width: 500px; ">
 				</div>
 			</section>
 
 			<section>
 				<section>
-					<h4>What is Linear Algebra?</h4>
+					<h4>Matrix notation</h4>
 
-					<div class="size-75 left-txt">
-						<p class="fragment" fragment-data-index="0">
-							<b>Algebra</b> involves the use of the algebraic
-							operations $(\times)$ and $(+)$ on
-							mathematical objects like numbers,
-							vectors, matrices, or functions.
-						</p>
-						<p class="fragment" fragment-data-index="1">
-							A <b>linear</b> operation $\large ℒ$ is one that obeys the relationship
-
-						</p>
-					</div>
-					<div class="size-75 cc">
-
-						<p>
-							<span class="fragment" fragment-data-index="2">
-								$ {\large ℒ}\left(\alpha x+ \beta y \right) $
-							</span>
-							<span class="fragment" fragment-data-index="2">
-								$= \alpha {\large ℒ}(x)+\beta {\large ℒ}(y).$
-							</span>
-						</p>
-					</div>
-
-					<div class="size-75 left-txt">
-						<p class="fragment" fragment-data-index="3">
-							<b>Linear Algebra</b>
-							<em>begins</em> by considering linear problems of the type
-							${\large ℒ}(x) = b$:
-
-						</p>
-					</div>
-
-					<div class="size-75">
-
-						<table style="width: 10%;border: none;">
-							<tr class="fragment" fragment-data-index="4">
-								<td style="border: none;text-align: right;">$ax$</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$b$</td>
-							</tr>
-							<tr class="fragment" fragment-data-index="5">
-								<td style="border: none;text-align: right;">$\mathbf a \pd \mathbf x$</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$b$</td>
-							</tr>
-							<tr class="fragment" fragment-data-index="6">
-								<td style="border: none;text-align: right;">$\mathbf A \mathbf x$</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$\mathbf b$</td>
-							</tr>
-							<tr class="fragment" fragment-data-index="7">
-								<td style="border: none;text-align: right;">$\dfrac{d}{dt} x(t)$</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$b(t)$</td>
-							</tr>
-							<tr class="fragment" fragment-data-index="8">
-								<td style="border: none;text-align: right;">$\ds\int x(t)\,dt $</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$b$</td>
-							</tr>
-						</table>
-					</div>
-
-
-					<br />
-					<br />
-					<br />
-
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>
-						Areas and applications where Linear Algebra is needed
-					</h4>
-
-					<div style="font-size: 80%;">
-						<p class="fragment" data-fragment-index="0">
-							<strong>Mathematics:</strong> Solutions to linear systems.
-						</p>
-					</div>
-
-
-					<div style="margin-top:10px;margin-left: 0px;">
-						<table style="width:100%">
-							<tr>
-								<td style="width:60%;text-align:center" class="fragment" data-fragment-index="1">
-									<img style="width:100%" data-src="images/week-01/system-planes-800.gif">
-
-
-								</td>
-								<td style="width:40%;font-size:70%">
-
-									<div class="r-stack">
-
-										<p class="fragment fade-in-then-out" data-fragment-index="1">
-											\[
-											\begin{array}{rcl}
-											a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &=& b_1\\
-											a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &=& b_2\\
-											\vdots && \vdots\\
-											a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n &=& b_n
-											\end{array}
-											\]
-										</p>
-
-										<p class="fragment fade-in" data-fragment-index="2">
-											\[
-											\left(
-											\begin{array}{ccc}
-											a_{11} & \cdots & a_{1n} \\
-											\vdots & \ddots & \vdots \\
-											a_{n1} & \cdots & a_{nn} \\
-											\end{array}
-											\right)
-											\left(
-											\begin{array}{c}
-											x_{1} \\
-											\vdots \\
-											x_{n} \\
-											\end{array}
-											\right)
-											=
-											\left(
-											\begin{array}{c}
-											b_{1} \\
-											\vdots\\
-											b_{n} \\
-											\end{array}
-											\right)
-											\]
-										</p>
-
-
-									</div>
-
-
-									<p class="fragment" fragment-data-index="3">
-										\[
-										\Large A \mathbf x = \mathbf b
-										\]
-									</p>
-									<br><br />
-								</td>
-							</tr>
-						</table>
-					</div>
-					<br />
-
-				</section>
-
-
-
-				<section data-auto-animate>
-					<h4>
-						Areas and applications where Linear Algebra is needed
-					</h4>
-
-					<div style="font-size: 80%;">
-						<p>
-							<strong>Statistics:</strong> Regression (lines of best fit); data approximation.
-						</p>
-					</div>
-					<div style="margin-top: 30px;">
-						<iframe scrolling="no" title="Chapter-12-5: Fitting curve to data"
-							src="https://www.geogebra.org/material/iframe/id/n3qqs9ct/width/789/height/373/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/true"
-							width="789px" height="373px" style="border:0px;" allowfullscreen=""> </iframe>
-
-					</div>
-					<br />
-					<br />
-				</section>
-
-				<section data-auto-animate>
-					<h4>
-						Areas and applications where Linear Algebra is needed
-					</h4>
-
-					<div style="font-size: 80%;">
-						<p>
-							<strong>Computer Science:</strong> Computer graphics (especially games).
-						</p>
-					</div>
-					<div style="margin-top:0px">
-						<table style="width:100%">
-							<tr>
-								<td style="width:50%;text-align:center">
-									<img style="width:80%" data-src="images/week-01/Euler2a.gif">
-
-
-								</td>
-								<td style="width:50%;font-size:60%">
-
-									<p>
-										$$
-										{\begin{pmatrix}\cos \gamma &amp;-\sin \gamma &amp;0\\\sin \gamma &amp;\cos
-										\gamma &amp;0\\0&amp;0&amp;1\\\end{pmatrix}}\qquad {\begin{pmatrix}\cos \beta
-										&amp;0&amp;\sin \beta \\0&amp;1&amp;0\\-\sin \beta &amp;0&amp;\cos \beta
-										\\\end{pmatrix}}
-										$$
-									</p>
-									<p>
-										$${\begin{pmatrix}1&amp;0&amp;0\\0&amp;\cos \alpha &amp;-\sin \alpha
-										\\0&amp;\sin \alpha &amp;\cos \alpha \\\end{pmatrix}}$$
-									</p>
-
-								</td>
-							</tr>
-						</table>
-					</div>
-					<br /><br />
-				</section>
-
-				<section data-auto-animate>
-					<h4>
-						Areas and applications where Linear Algebra is needed
-					</h4>
-
-					<div style="font-size: 80%;">
-						<p>
-							<strong>Computer Science:</strong> Computer graphics (especially games).
-						</p>
-					</div>
-					<div style="margin-top:0px">
-						<iframe style="width: 100%; height: 500px; border: none"
-							data-src="../../sketches/birds"></iframe>
-					</div>
-					<br />
-				</section>
-
-				<section data-auto-animate>
-					<h4>Applications: Searching engines</h4>
-					<div style="margin-top: -20px;">
-						<img width="75%" data-src="images/week-01/search-engine.png">
-					</div>
-					<br />
-				</section>
-
-				<section data-auto-animate>
-					<h4>Applications: Searching engines</h4>
-					<div style="margin-top: -20px;">
-						<img width="75%" data-src="images/lecture-01/Page_rank_animation.gif">
-						<p style="font-size: 50%; margin-top: -40px; text-align: left;">
-							<b>PageRank algorithm</b> running on a small network of pages. The size of the nodes
-							represents the perceived importance of the page, and arrows represent hyperlinks.
-						</p>
-					</div>
-					<br />
-				</section>
-
-				<!--
-				<section data-auto-animate>
-					<h4>Applications: Searching engines</h4>
-					<div style="margin-top: -10px;">
-						<img width="55%" data-src="images/lecture-01/PageRanks-Example.svg">
-						<p style="font-size: 45%; margin-top: -20px;"><b>Pagerank algorithm:</b> The percentage shows the perceived importance, and the arrows represent hyperlinks.</p>
-					</div>
-					<br />
-				</section>-->
-
-
-
-				<section data-auto-animate>
-					<h4>Applications: AI & Machine learning</h4>
-					<div style="margin-top: -30px;">
-						<img style="width: 70%;"
-							src="https://www.geogebra.org/resource/pp5k7qcc/l5KaXgbYMjfrnlJl/material-pp5k7qcc.png">
-					</div>
-					<br />
-				</section>
-
-				<section data-auto-animate>
-					<h3>DALL$\cdot$E (2021)</h3>
-					<div style="margin-top: -30px;">
-						<img width="80%" data-src="images/week-01/dall-e.png">
-					</div>
-					<br />
-				</section>
-
-				<section data-auto-animate>
-					<h3>DALL$\cdot$E (2021)</h3>
-					<video loop style="width:100%;" data-autoplay data-src="images/week-01/dalle2.mp4"></video>
-					<p style="font-size:18px;margin-top:-5px">More details here: <a
-							href="https://arxiv.org/abs/2204.06125" target="_blank">Hierarchical Text-Conditional Image
-							Generation with CLIP Latents</a></p>
-
-					<br /><br />
-
-				</section>
-
-				<section data-auto-animate>
-					<h3>ChatGPT (2022)</h3>
-					<video onloadstart="this.playbackRate = 0.75;" loop style="width:800px;" data-autoplay
-						data-src="images/week-01/chat-gpt.mp4"></video>
-					<p style="font-size:18px;margin-top:-5px">More details here: <a
-							href="https://arxiv.org/abs/2303.08774" target="_blank"> GPT-4 Technical Report</a></p>
-
-					<br />
-
-				</section>
-
-				<section>
-					<h4>
-						Areas and applications where Linear Algebra is needed
-					</h4>
-
-					<div class="size-75">
-						<ol style="line-height: 32pt;">
-							<li>
-								<strong>Mathematics:</strong> Solutions to linear systems; solutions to systems of ODEs;
-								function interpolation (e.g. cubic splines); many other applications.
-							</li>
-
-							<li>
-								<strong>Statistics:</strong> Regression (lines of best fit); data approximation;
-								Principal Component Analysis (PCA).
-							</li>
-
-							<li>
-								<strong>Physics:</strong> Electric circuits; optics; coupled dynamical systems; most of
-								quantum mechanics.
-							</li>
-
-							<li>
-								<strong>Chemistry:</strong> Balancing chemical reactions; balancing systems of chemical
-								reactions; chemometrics.
-							</li>
-
-							<li>
-								<strong>Engineering:</strong> Mechanical motion; stress testing.
-							</li>
-
-							<li>
-								<strong>Computer Science:</strong> Computer graphics (especially games); coding theory;
-								computer networking; image compression.
-							</li>
-
-							<li>
-								<strong>Others:</strong> Global Positioning System (GPS); finance (balancing market
-								forces); Artificial Intelligence (AI); social networks.
-							</li>
-						</ol>
-					</div>
-					<br />
-
-				</section>
-
-
-
-				<section>
-					<h4>
-						Why do we study Linear Algebra?
-					</h4>
-
-					<div class="size-90">
-						<ol style="line-height: 50pt;">
-							<li class="fragment" data-fragment-index="0">
-								Linear systems have 'nice' properties that make
-								them <b>easier to solve</b>
-								<ul>
-									<li class="fragment" data-fragment-index="1">
-										This helps us to solve <b>many real-world problems...</b>
-									</li>
-								</ul>
-							</li>
-
-							<li class="fragment" data-fragment-index="2">
-								Many <b>nonlinear systems</b> can be studied by building on linear
-								theories
-								<ul>
-									<li class="fragment" data-fragment-index="3">
-										Linearisation of nonlinear ODEs
-									</li>
-									<li class="fragment" data-fragment-index="4">
-										Perturbation theory (= linear system + nonlinear perturbation)
-									</li>
-								</ul>
-							</li>
-
-
-
-							<li class="fragment" data-fragment-index="5">
-								Many <b>mathematical problems</b> rely on linear algebra
-								<ul>
-									<li class="fragment" data-fragment-index="6">
-										Solutions of differential equations (DEs).
-
-									</li>
-									<li class="fragment" data-fragment-index="7">
-										Series representation of functions (e.g. Fourier theory)
-									</li>
-								</ul>
-							</li>
-
-
-						</ol>
-					</div>
-
-					<br />
-
-				</section>
-
-				<section>
-					<h4>
-						Linear Algebra outline
-					</h4>
-					<ul style="margin-left: 0px; line-height: 65px;">
-						<li class="fragment">Systems of simultaneous linear equations</li>
-						<li class="fragment">Matrices</li>
-						<li class="fragment">Linear transformations</li>
-						<li class="fragment">Eigenvalues and eigenvectors</li>
-						<li class="fragment">Inner products</li>
-						<li class="fragment">Vector spaces</li>
-						<li class="fragment">Factorisation</li>
-						<li class="fragment">Applications</li>
-					</ul>
-					<br />
-					<br />
-					<br />
-				</section>
-				<section>
-					<h4>
-						Prerequisite Knowledge
-					</h4>
 					<div class="left-txt size-85">
 						<p class="fragment" data-fragment-index="0">
-							<b>Assumed that you know</b>
+							A <b>matrix</b> is an $m\times n$ array of numbers
 						</p>
-
-						<ul style="line-height: 60px;">
-							<li class="fragment" data-fragment-index="0">what a matrix is;</li>
-							<li class="fragment" data-fragment-index="1">how to add, multiply, and transpose matrices;
-							</li>
-							<li class="fragment" data-fragment-index="2">what a symmetric matrix is.</li>
-						</ul>
-
-						<p class="fragment" data-fragment-index="3">
-							<b>Assumed that you have seen and will quickly recall</b>
-						</p>
-
-						<ul style=" line-height: 60px;">
-							<li class="fragment" data-fragment-index="3">how to interpret matrices as transformations;
-							</li>
-							<li class="fragment" data-fragment-index="4">Gaussian elimination;</li>
-							<li class="fragment" data-fragment-index="5">how to invert matrices;</li>
-							<li class="fragment" data-fragment-index="6">how to calculate determinants;</li>
-							<li class="fragment" data-fragment-index="7">how to find eigenvalues/vectors of 2x2
-								matrices.</li>
-						</ul>
-
 					</div>
+					<div class=" size-85 cc">
+						<p class="fragment" data-fragment-index="0">
+							$ 
+							A = 
+							\left(
+							\begin{array}{cccc}
+							a_{11} & a_{12} & \cdots & a_{1n} \\
+							a_{11} & a_{12} & \cdots & a_{1n} \\
+							\vdots & \vdots  & \ddots &  \vdots \\
+							a_{m1} & a_{m2} & \cdots & a_{mn} \\
+							\end{array}	
+							\right)
+							$
+
+						</p>
+					</div>
+					<div class="left-txt size-85">
+						
+						<ul>
+							<li class="fragment" data-fragment-index="1">
+								The order of the subscripts is (row,column)
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								We can also denote $A = (a_{ij})$
+							</li>
+							<li>
+								For real matrices (matrices with real elements), we write $A\in \mathbb R^{m\times n}$
+							</li>
+							<li>
+								A matrix with $m = 1$ or $n = 1$ is usually called a <b>vector</b>
+								<ul>
+									<li>
+										we will denote column vectors as $\mathbf a,$ $\mathbf b,$ etc.
+									</li>
+									<li>
+										and we will denote row vectors as $\overrightarrow{\mathbf a},$ $\overrightarrow{\mathbf b},$ etc.
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					
+
 					<br />
 					<br />
+
+
+				</section>
+
+				<section>
+					<h4>Linear Equations</h4>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0">
+							A (real) <b>linear equation</b> in $n$ unknowns is an
+							equation of the form
+						</p>
+					</div>
+					<div class=" size-90">
+						<p class="fragment" data-fragment-index="0">
+							$ a_1x_1 + a_2x_2 + \cdots + a_nx_n = b $
+
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							where
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="1">
+								$a_1, a_2, \ldots, a_n$ and $b$ are (real) coefficients;
+								<span class="fragment" data-fragment-index="2">and</span>
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$x_1, x_2, \ldots, x_n$ are (real) variables.
+							</li>
+						</ul>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="3">
+							Examples:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="3">
+								$ 2 x_1 + 3 x_2 - x_3 - 5x_4 = 0 $
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								$2 r + 3 s = 4$
+							</li>
+						</ul>
+					</div>
+
 					<br />
+					<br />
+
+
 				</section>
 
 			</section>
