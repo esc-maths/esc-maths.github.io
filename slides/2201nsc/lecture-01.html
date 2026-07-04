@@ -557,7 +557,7 @@
 						<ul>
 							<li class="fragment" data-fragment-index="1">
 								$a_1, a_2, \ldots, a_n$ and $b$ are (real) coefficients;
-								<span class="fragment" data-fragment-index="2" å>and</span>
+								<span class="fragment" data-fragment-index="2">and</span>
 							</li>
 							<li class="fragment" data-fragment-index="2">
 								$x_1, x_2, \ldots, x_n$ are (real) variables.
@@ -1023,7 +1023,7 @@
 										</span>
 										<span class="fragment" data-fragment-index="10">
 											$
-											\begin{array}{rrr|r}
+											\begin{array}{r}
 											R1a \\
 											\color{red}{\frac{1}{4}R2a} \\
 											R3
@@ -1052,7 +1052,7 @@
 										$
 										<span class="fragment" data-fragment-index="13">
 											$
-											\begin{array}{rrr|r}
+											\begin{array}{r}
 											R1a \\
 											R2b \\
 											R3
@@ -1076,10 +1076,10 @@
 										</span>
 										<span class="fragment" data-fragment-index="15">
 											$
-											\begin{array}{rrr|r}
+											\begin{array}{l}
 											R1a \\
 											R2b \\
-											\color{red}{Re - 2 R1a}
+											\color{red}{R3 - 2 R1a}
 											\end{array}\qquad \qquad 
 											$
 										</span>
@@ -1198,15 +1198,15 @@
 							Our objective using row reduction on an augmented matrix:
 						</p>
 
-						<div class="cc size-75">
+						<div class="cc" style="font-size: 77%;">
 							<p class="fragment" data-fragment-index="0">
 								$
 								\left(
 								\begin{array}{cccc|c}
-								a_{11} & a_{11} & \cdots & a_{1n} & q_1 \\
+								a_{11} & a_{12} & \cdots & a_{1n} & q_1 \\
 								a_{21} & a_{22} & \cdots & a_{2n} & q_2 \\
 								\vdots & \vdots & \ddots & \vdots & \vdots \\
-								a_{n1} & a_{n1} & \cdots & a_{nn} & q_n \\
+								a_{n1} & a_{n2} & \cdots & a_{nn} & q_n \\
 								\end{array}
 								\right)
 								$
@@ -1636,7 +1636,7 @@
 							</td>
 						</tr>
 					</table>
-					<p class="size-75 fragment" data-fragment-index="5">
+					<p class="size-75 fragment" data-fragment-index="11">
 						Therefore $\;x_1 = -2,\, x_2 = 3,\,$ and $\, x_3 = 2.$
 					</p>
 				</section>
@@ -1771,7 +1771,7 @@
 						<code data-trim data-noescape  class="language-python">
 >> A = [3 2 -1 -2; 3 1 -1 -5; 3 2 1 2]
   </code></pre>
-					<pre style="width: 60%;height: 120px; font-size: 60%;margin-top: 25px;" class="fragment"
+					<pre style="width: 60%;height: 125px; font-size: 60%;margin-top: 25px;" class="fragment"
 						data-fragment-index="1">
 						<code data-trim data-noescape  class="language-python">
 
@@ -1786,12 +1786,12 @@ A =
 						<code data-trim data-noescape  class="language-python">
 >> rref(A)
   </code></pre>
-					<pre style="width: 60%;height: 120px; font-size: 60%;margin-top: 25px;" class="fragment"
+					<pre style="width: 60%;height: 125px; font-size: 60%;margin-top: 25px;" class="fragment"
 						data-fragment-index="3">
 						<code data-trim data-noescape  class="language-python">
 ans =
 1 0 0 -2
-0 1 -0 3
+0 1 0 3
 0 0 1 2
   </code></pre>
 					<br />
