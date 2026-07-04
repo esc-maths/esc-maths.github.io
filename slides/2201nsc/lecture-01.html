@@ -2276,7 +2276,7 @@ ans =
 								There is a <b>family of solutions</b>:
 								<ul>
 									<li>
-										$x+3=1.$
+										$x_3=1.$
 									</li>
 									<li>
 										$x_1 + x_2 + 1 = 1$
@@ -2289,6 +2289,154 @@ ans =
 									</li>
 								</ul>
 
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 5</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2  = 2\\
+							x_1 + 2x_2 = 3\\
+							2x_1 + 2x_2 = 4\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2  \\
+								1 & 2 & 3  \\
+								2 & 2 & 4  \\
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2  \\
+								0 & 1 & 1  \\
+								0 & 0 & 0 \\
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>More</b> equations than variables. 
+								<span>
+									This type of system is called an
+									<b>overdetermined</b> system.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>row echelon form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is a <b>unique solution</b>: $x_1=1,\; x_2=1.$
+								
+
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 6</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2  = 2\\
+							x_1 + 2x_2 = 3\\
+							2x_1 + 2x_2 = 5\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2  \\
+								1 & 2 & 3  \\
+								2 & 2 & 5  \\
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2  \\
+								0 & 1 & 1  \\
+								0 & 0 & 1 \\
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>More</b> equations than variables 
+								<span>
+									- <b>overdetermined</b> system.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>row echelon form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is <b>no solution</b>.
+								<span class="fragment" data-fragment-index="7">
+									This is because there are no $x_1,$ $x_2$ for which
+									$0x_1 + 0x_2 = 1$.
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									 The system is <b>inconsistent</b>.
+								</span>
 							</li>
 						</ul>
 
