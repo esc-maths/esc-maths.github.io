@@ -214,11 +214,18 @@ h7 {
 
 /* For red text highlighted */
 #rr {
-  color:rgb(222, 8, 8);
+  color:rgb(231, 8, 8);
+  font-weight: bold;
 }
 /* For blue text highlighted */
 #bb {
   color:rgb(5, 48, 191);
+  font-weight: bold;
+}
+/* For green text highlighted */
+#gg {
+  color:rgb(28, 145, 5);
+  font-weight: bold;
 }
 
 /* For text with blue background */

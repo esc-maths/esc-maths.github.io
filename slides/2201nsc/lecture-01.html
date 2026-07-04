@@ -2313,7 +2313,7 @@ ans =
 						<p class="fragment" data-fragment-index="1">
 							$
 							\begin{array} {r}
-							x_1 + x_2  = 2\\
+							x_1 + x_2 = 2\\
 							x_1 + 2x_2 = 3\\
 							2x_1 + 2x_2 = 4\\
 							\end{array}
@@ -2323,9 +2323,9 @@ ans =
 								\;\rightarrow\;
 								\left(
 								\begin{array}{rr|r}
-								1 & 1 & 2  \\
-								1 & 2 & 3  \\
-								2 & 2 & 4  \\
+								1 & 1 & 2 \\
+								1 & 2 & 3 \\
+								2 & 2 & 4 \\
 								\end{array}
 								\right)
 								$
@@ -2335,8 +2335,8 @@ ans =
 								\;\rightarrow\;
 								\left(
 								\begin{array}{rr|r}
-								1 & 1 & 2  \\
-								0 & 1 & 1  \\
+								1 & 1 & 2 \\
+								0 & 1 & 1 \\
 								0 & 0 & 0 \\
 								\end{array}
 								\right)
@@ -2348,7 +2348,7 @@ ans =
 					<div class="left-txt size-90">
 						<ul style="line-height: 60px;">
 							<li class="fragment" data-fragment-index="4">
-								<b>More</b> equations than variables. 
+								<b>More</b> equations than variables.
 								<span>
 									This type of system is called an
 									<b>overdetermined</b> system.
@@ -2359,7 +2359,7 @@ ans =
 							</li>
 							<li class="fragment" data-fragment-index="6">
 								There is a <b>unique solution</b>: $x_1=1,\; x_2=1.$
-								
+
 
 							</li>
 						</ul>
@@ -2385,7 +2385,7 @@ ans =
 						<p class="fragment" data-fragment-index="1">
 							$
 							\begin{array} {r}
-							x_1 + x_2  = 2\\
+							x_1 + x_2 = 2\\
 							x_1 + 2x_2 = 3\\
 							2x_1 + 2x_2 = 5\\
 							\end{array}
@@ -2395,9 +2395,9 @@ ans =
 								\;\rightarrow\;
 								\left(
 								\begin{array}{rr|r}
-								1 & 1 & 2  \\
-								1 & 2 & 3  \\
-								2 & 2 & 5  \\
+								1 & 1 & 2 \\
+								1 & 2 & 3 \\
+								2 & 2 & 5 \\
 								\end{array}
 								\right)
 								$
@@ -2407,8 +2407,8 @@ ans =
 								\;\rightarrow\;
 								\left(
 								\begin{array}{rr|r}
-								1 & 1 & 2  \\
-								0 & 1 & 1  \\
+								1 & 1 & 2 \\
+								0 & 1 & 1 \\
 								0 & 0 & 1 \\
 								\end{array}
 								\right)
@@ -2420,7 +2420,7 @@ ans =
 					<div class="left-txt size-90">
 						<ul style="line-height: 60px;">
 							<li class="fragment" data-fragment-index="4">
-								<b>More</b> equations than variables 
+								<b>More</b> equations than variables
 								<span>
 									- <b>overdetermined</b> system.
 								</span>
@@ -2435,7 +2435,7 @@ ans =
 									$0x_1 + 0x_2 = 1$.
 								</span>
 								<span class="fragment" data-fragment-index="8">
-									 The system is <b>inconsistent</b>.
+									The system is <b>inconsistent</b>.
 								</span>
 							</li>
 						</ul>
@@ -2445,6 +2445,64 @@ ans =
 					<br />
 					<br />
 
+				</section>
+
+				<section>
+					<h4>
+						Summary
+					</h4>
+
+					<div class="left-txt size-90">
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								Reduce to row echelon form (triangular if possible)
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Interpret the results
+								<ul>
+									<li class="fragment" data-fragment-index="2">
+										Rows of the form $(0 \; 0 \; \cdots\; 0 \;|\; 1)$
+										<ul>
+											<li class="fragment" data-fragment-index="3">
+												<span id="rr">Inconsistent system</span>
+											</li>
+										</ul>
+									</li>
+									<li class="fragment" data-fragment-index="4">
+										Rows of the form $(0 \; 0 \; \cdots\; 0 \;|\; 0)$
+										<ul>
+											<li class="fragment" data-fragment-index="5">
+												There is a redundant equation for each such row
+											</li>
+										</ul>
+									</li>
+									<li class="fragment" data-fragment-index="6">
+										Rows of the form $(\cdots \; a_1 \; a_2 \; \cdots\; a_n \;|\; r)$
+										<ul>
+											<li class="fragment" data-fragment-index="7">
+												<b>As many such rows</b> as variables $\Ra$ <span id="gg">unique solution</span>
+											</li>
+											<li class="fragment" data-fragment-index="8">
+												<b>Fewer such rows</b> than variables $\Ra$ <span id="gg">family of solutions</span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="fragment" data-fragment-index="9">
+								Common (but not guaranteed) outcomes:
+								<ul>
+									<li class="fragment" data-fragment-index="10">
+										<b>Overdetermined</b> systems often have <span id="rr">no solution</span>.
+									</li>
+									<li class="fragment" data-fragment-index="11">
+										<b>Underdetermined</b> systems often have a <span id="gg">family of solutions</span>.
+									</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
+					<br/>
 				</section>
 			</section>
 
