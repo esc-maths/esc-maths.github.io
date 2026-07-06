@@ -1299,7 +1299,8 @@
 							<p><b>Symmetric Matrix Definition:</b> </p>
 							<p style="text-align: center; font-size: 1.1em;">Finally, a matrix $A$ is symmetric iff
 								<b>$A =
-									A^T$</b> </p>
+									A^T$</b>
+							</p>
 						</div>
 					</div>
 
@@ -1320,10 +1321,10 @@
 							</p>
 							<div style="text-align: left;">
 								<ul>
-								<li>1 year? </li>
-								<li>2 years? </li>
-								<li>10 years? </li>
-							</ul>
+									<li>1 year? </li>
+									<li>2 years? </li>
+									<li>10 years? </li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -1374,9 +1375,9 @@
 							<p>$x_0 = \left( \begin{array}{c} 80 \\ 20 \end{array} \right)$ </p>
 						</div>
 
-						
+
 						<p class="fragment" data-fragment-index="0"><b>After 1 year ($x_1$):</b> </p>
-						
+
 						<div class="cc">
 							<p class="cc fragment" data-fragment-index="0">
 								$x_1 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
@@ -1390,42 +1391,148 @@
 								</span>
 							</p>
 						</div>
-						
-						<p class="fragment" data-fragment-index="3"><b>After 2 years ($x_2$):</b> 
-							<span class="fragment" data-fragment-index="5">$ \quad \rightarrow A^2x_0 = A(Ax_0)= Ax_1$</span>
+
+						<p class="fragment" data-fragment-index="3"><b>After 2 years ($x_2$):</b>
+							<span class="fragment" data-fragment-index="5">$ \quad \rightarrow A^2x_0 = A(Ax_0)=
+								Ax_1$</span>
 						</p>
 
-						<div class="cc fragment"  data-fragment-index="3" style="margin-top: 15px;">
-							
+						<div class="cc fragment" data-fragment-index="3" style="margin-top: 15px;">
+
 							<p>$x_2 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^2 \left(
 								\begin{array}{c} 80 \\ 20 \end{array} \right)$
 								<span class="fragment" data-fragment-index="4">
 									$ =\left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
-								\begin{array}{c} 60 \\ 40 \end{array} \right)$
+									\begin{array}{c} 60 \\ 40 \end{array} \right)$
 								</span>
 								<span class="fragment" data-fragment-index="6">
 									$= \left( \begin{array}{c} 42 + 8 \\ 18 +
-								32 \end{array} \right) $
+									32 \end{array} \right) $
 								</span>
 								<span class="fragment" data-fragment-index="7">
 									$ = \left( \begin{array}{c} 50 \\ 50 \end{array} \right)$
 								</span>
-							
+
 							</p>
 						</div>
-						
+
 						<p class="fragment" data-fragment-index="8"><b>After 10 years ($x_{10}$):</b> </p>
 
-						<div class="cc fragment"  data-fragment-index="9" style="margin-top: 15px;">
-							
+						<div class="cc fragment" data-fragment-index="9" style="margin-top: 15px;">
+
 							<p>$x_{10} = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^{10} \left(
-								\begin{array}{c} 80 \\ 20 \end{array} \right)$ 
+								\begin{array}{c} 80 \\ 20 \end{array} \right)$
 								<span class="fragment" data-fragment-index="10">
 									$ \approx \left( \begin{array}{c} 40 \\ 60
-								\end{array} \right)$
+									\end{array} \right)$
 								</span>
 							</p>
 						</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-80">
+						<p>
+							Given an initial population, the Leslie population model then makes the
+							following predictions
+						</p>
+
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Initial population
+								</th>
+								<th>
+									10 years
+								</th>
+								<th>
+									25 years
+								</th>
+								<th>
+									50 years
+								</th>
+							</tr>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">
+									1
+								</td>
+								<td>
+									200,000
+								</td>
+								<td>
+									114,264
+								</td>
+								<td>
+									74,039
+								</td>
+								<td>
+									35,966
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									2
+								</td>
+								<td>
+									300,000
+								</td>
+								<td>
+									329,212
+								</td>
+								<td>
+									213,669
+								</td>
+								<td>
+									103,795
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									3
+								</td>
+								<td>
+									500
+								</td>
+								<td>
+									214
+								</td>
+								<td>
+									139
+								</td>
+								<td>
+									68
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									4
+								</td>
+								<td>
+									1,500
+								</td>
+								<td>
+									1,061
+								</td>
+								<td>
+									687
+								</td>
+								<td>
+									334
+								</td>
+							</tr>
+						</table>
+
+						<p>
+							That is, the populations decrease over time.
+						</p>
+
 					</div>
 				</section>
 
