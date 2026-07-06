@@ -997,8 +997,308 @@
 								</span>
 							</p>
 
-				
 
+
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Motivation for Matrix Multiplication</h4>
+					<div class="size-80">
+						<p>Consider the following system of linear equations: </p>
+						<div class="cc">
+							<p>
+								$u = 2x$ <br>
+								$v = x + y$ </p>
+						</div>
+						<p class="fragment">With matrix multiplication defined, we can write this system as: </p>
+						<div class="cc fragment">
+							<p>
+								$\left( \begin{array}{c} u \\ v \end{array} \right) = \left( \begin{array}{cc} 2 & 0 \\
+								1 & 1 \end{array} \right) \left( \begin{array}{c} x \\ y \end{array} \right)$ </p>
+						</div>
+						<ul>
+							<li class="fragment">We can represent linear systems as <b>matrix equations</b>. </li>
+							<li class="fragment">This makes them much easier to work with, especially when they get
+								complicated. </li>
+							<li class="fragment">But what are the rules when working with matrices? Do the rules of
+								regular algebra apply? </li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Important Rules of Algebra</h4>
+					<div class="size-85">
+						<p>Whenever we have a set of mathematical objects with addition and multiplication operations,
+							<span class="fragment" data-fragment-index="0">
+								we check standard algebraic properties:
+							</span>
+						</p>
+						<ol style="line-height: 60px;margin-left: 0px;">
+							<li class="fragment" data-fragment-index="0"><b>Commutativity:</b> $a + b = b + a$ </li>
+							<li class="fragment"><b>Associativity:</b> $(a + b) + c = a + (b + c) = a + b + c$ </li>
+							<li class="fragment"><b>Distributivity:</b> $a(b + c) = ab + ac$ </li>
+							<li class="fragment"><b>Identity:</b> Existence of a structure $i$ such that $ia = ai = a$
+							</li>
+							<li class="fragment"><b>Inverse:</b> For each structure $a$, there exists $a^{-1}$ such that
+								$aa^{-1} = a^{-1}a = i.$ <br />
+								<span class="fragment">
+									If such structure exists, we call it the "inverse of $a$".
+								</span>
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Do these rules apply to Matrices?</h4>
+					<div class="size-85">
+						<p>With the exception of an inverse for zero, these properties all hold for numbers. </p>
+						<p class="fragment" data-fragment-index="0"><i>Tip: That's why numbers do such a good job of quantifying our daily
+								lives! </i></p>
+						<picture class="fragment" data-fragment-index="1">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="90"
+								height="90">
+						</picture>
+
+						<p class="fragment"  data-fragment-index="1" style="text-align: center; margin-top: 30px;">
+							But do these properties hold for structures other than numbers? <br>
+							<span class="fragment">How about... <b>matrices</b>? </span>
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Algebra: Most Rules Hold...</h4>
+					<div class="size-85">
+						<table style="width: 100%; border: none;">
+							<tr class="fragment">
+								<td style="border: none;">1. $A+B = B+A$ <br><small>(Addition Commutativity)</small>
+								</td>
+								<td style="border: none;">6. $(\alpha\beta)A = \alpha(\beta A)$ </td>
+							</tr>
+							<tr class="fragment">
+								<td style="border: none;">2. $(A+B)+C = A+(B+C)$ <br><small>(Addition
+										Associativity)</small> </td>
+								<td style="border: none;">7. $\alpha(AB) = (\alpha A)B = A(\alpha B)$ </td>
+							</tr>
+							<tr class="fragment">
+								<td style="border: none;">3. $(AB)C = A(BC)$ <br><small>(Multiplication
+										Associativity)</small> </td>
+								<td style="border: none;">8. $(\alpha+\beta)B = \alpha B + \beta B$ </td>
+							</tr>
+							<tr class="fragment">
+								<td style="border: none;">4. $A(B+C) = AB + AC$ <br><small>(Left-distributivity)</small>
+								</td>
+								<td style="border: none;">9. $\alpha(A+B) = \alpha A + \alpha B$ </td>
+							</tr>
+							<tr class="fragment">
+								<td style="border: none;">5. $(A+B)C = AC + BC$
+									<br><small>(Right-distributivity)</small>
+								</td>
+								<td style="border: none;"></td>
+							</tr>
+						</table>
+						<div class="fragment"
+							style="margin-top: 25px; color: #ff5555; text-align: center; font-weight: bold;">
+							Notice that $AB = BA$ (commutativity under multiplication) is not on the list! <p
+								style="font-size: 0.8em; color: gray; font-weight: normal; margin-top: 5px;">That's
+								because it doesn't hold for all matrices. </p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Identity Matrix</h4>
+					<div class="size-70">
+						<p>The multiplicative identity for numbers, $1$, leaves a number unchanged: $1n = n1 = n$. </p>
+						<p class="fragment">For matrix multiplication, <b>only square matrices</b> have identities. </p>
+						<div class="cc fragment">
+							<p>The $n \times n$ identity matrix: $I_{n} = (\delta_{ij}) = \begin{cases} 1 & \text{if }
+								i=j \\ 0 & \text{if } i \neq j \end{cases}$ </p>
+						</div>
+						<div class="cc fragment">
+							<p>
+								$I_{2} = \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array} \right), \quad
+								I_{3} = \left( \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array}
+								\right)$ </p>
+						</div>
+						<div class="fragment" style="margin-top: 15px;">
+							<small><b>Example:</b></small>
+							<p>$\left( \begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right) \left( \begin{array}{cc} 1 &
+								0 \\ 0 & 1 \end{array} \right) = \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}
+								\right) \left( \begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right) = \left(
+								\begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right)$ </p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Inverse Matrix</h4>
+					<div class="size-70">
+						<p>The multiplicative inverse $A^{-1}$ of matrix $A$ is a matrix such that: </p>
+						<div class="cc">
+							<p style="font-size: 1.2em;">$A^{-1}A = AA^{-1} = I$ </p>
+						</div>
+						<br>
+						<h5>Important Notes:</h5>
+						<ul>
+							<li class="fragment"><b>Only square matrices</b> have inverses, but not all square matrices
+								do. </li>
+							<li class="fragment">A square matrix is <b>invertible</b> (or <i>nonsingular</i>) iff it has
+								an inverse. </li>
+							<li class="fragment">We can use <b>Gaussian Elimination</b> to find $A^{-1}$. </li>
+						</ul>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Inverse Matrix Properties</h4>
+					<div class="size-70">
+						<ul style="line-height: 50px;">
+							<li class="fragment">
+								<b>1. Inverses are unique:</b> If $B$ and $C$ are inverses of $A$, then: <p
+									style="text-align: center;">$B = BI = B(AC) = (BA)C = IC = C$ </p>
+							</li>
+							<li class="fragment">
+								<b>2. Double Inverse:</b> $(A^{-1})^{-1} = A$
+							</li>
+							<li class="fragment">
+								<b>3. Product Inverse:</b> For any invertible matrices $A_1, A_2, \dots, A_k$: <p
+									style="text-align: center;">$(A_1 A_2 \dots A_k)^{-1} = A_k^{-1} \dots A_2^{-1}
+									A_1^{-1}$ </p>
+							</li>
+						</ul>
+						<p class="fragment" style="margin-top: 20px; font-size: 0.8em; color: gray;">
+							<i>Property (3) is particularly useful for deriving results and solving complex matrix
+								equations. </i>
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Transpose</h4>
+					<div class="size-70">
+						<p>Let $A = (a_{ij})$ be a matrix. Then the transpose of $A$, denoted $A^T$, is given by $A^T =
+							(a_{ji})$. </p>
+						<p class="fragment"><i>The element in row $i$, column $j$ of $A$ moves to row $j$, column $i$ of
+								$A^T$. </i></p>
+
+						<div class="fragment" style="margin-top: 20px;">
+							<p><b>Examples:</b> </p>
+							<p>
+								$A = \left( \begin{array}{cc} 3 & -2 \\ 2 & 4 \\ 1 & -3 \end{array} \right) \implies A^T
+								= \left( \begin{array}{ccc} 3 & 2 & 1 \\ -2 & 4 & -3 \end{array} \right)$ </p>
+							<p class="fragment">
+								$B = \left( \begin{array}{ccc} 3 & -2 & 1 \\ 1 & 4 & 5 \\ -2 & 1 & -3 \end{array}
+								\right) \implies B^T = \left( \begin{array}{ccc} 3 & 1 & -2 \\ -2 & 4 & 1 \\ 1 & 5 & -3
+								\end{array} \right)$ </p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Transpose Properties</h4>
+					<div class="size-70">
+						<ol style="line-height: 50px;">
+							<li class="fragment">$(A^T)^T = A$ </li>
+							<li class="fragment cloud">$(\alpha A)^T = \alpha A^T$ <small>(where $\alpha$ is any scalar
+									number)</small> </li>
+							<li class="fragment">$(A + B)^T = A^T + B^T$ </li>
+							<li class="fragment">$(A_1 A_2 \dots A_k)^T = A_k^T \dots A_2^T A_1^T$ </li>
+						</ol>
+						<br>
+						<div class="fragment" style="border-top: 1px solid #555; padding-top: 25px; margin-top: 15px;">
+							<p><b>Symmetric Matrix Definition:</b> </p>
+							<p style="text-align: center; font-size: 1.3em;">A matrix $A$ is symmetric iff <b>$A =
+									A^T$</b> </p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Marital Population</h4>
+					<div class="size-70">
+						<p>Imagine the following probabilities within a population setup over a given year: </p>
+						<ul>
+							<li class="fragment">The probability a <b>married</b> person divorces is <b>30%</b>. </li>
+							<li class="fragment">The probability an <b>unmarried</b> person marries is <b>20%</b>. </li>
+						</ul>
+						<div class="fragment" style="margin-top: 40px; border: 1px dashed #777; padding: 20px;">
+							<p>If <b>80%</b> of the population is currently married, what percentage is married after:
+							</p>
+							<ol>
+								<li>1 year? </li>
+								<li>2 years? </li>
+								<li>10 years? </li>
+							</ol>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Translating into a Mathematical Problem</h4>
+					<div class="size-65">
+						<p>Let's describe the population state as a vector: </p>
+						<div class="cc">
+							<p>$\left( \begin{array}{c} \text{\% married} \\ \text{\% unmarried} \end{array} \right)$
+							</p>
+						</div>
+						<div class="fragment" style="font-size: 0.75em; line-height: 35px; margin-top: 15px;">
+							<p>$\text{\% married next year} = [\% \text{ married}] \rightarrow [\% \text{ don't
+								divorce}] + [\% \text{ unmarried}] \rightarrow [\% \text{ marry}]$ </p>
+							<p>$\text{\% unmarried next year} = [\% \text{ married}] \rightarrow [\% \text{ divorce}] +
+								[\% \text{ unmarried}] \rightarrow [\% \text{ don't marry}]$ </p>
+						</div>
+						<p class="fragment">Given a 30% divorce rate and 20% marriage rate: </p>
+						<div class="cc fragment" style="font-size: 0.85em;">
+							<p>
+								$\left( \begin{array}{c} \text{\% married next yr} \\ \text{\% unmarried next yr}
+								\end{array} \right) = \left( \begin{array}{c} [\% \text{ married}] \rightarrow 0.7 + [\%
+								\text{ unmarried}] \rightarrow 0.2 \\ [\% \text{ married}] \rightarrow 0.3 + [\% \text{
+								unmarried}] \rightarrow 0.8 \end{array} \right)$ </p>
+						</div>
+						<div class="cc fragment">
+							<p>
+								$= \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+								\begin{array}{c} \text{\% married} \\ \text{\% unmarried} \end{array} \right)$ </p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving the Population Problem</h4>
+					<div class="size-65">
+						<p>Initially, 80% of the population is married: </p>
+						<div class="cc">
+							<p>$x_0 = \left( \begin{array}{c} 80 \\ 20 \end{array} \right)$ </p>
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p><b>After 1 year ($x_1$):</b> </p>
+							<p>$x_1 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+								\begin{array}{c} 80 \\ 20 \end{array} \right) = \left( \begin{array}{c} 56 + 4 \\ 24 +
+								16 \end{array} \right) = \left( \begin{array}{c} 60 \\ 40 \end{array} \right)$ </p>
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p><b>After 2 years ($x_2$):</b> </p>
+							<p>$x_2 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+								\begin{array}{c} 60 \\ 40 \end{array} \right) = \left( \begin{array}{c} 42 + 8 \\ 18 +
+								32 \end{array} \right) = \left( \begin{array}{c} 50 \\ 50 \end{array} \right)$ </p>
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p><b>After 10 years ($x_{10}$):</b> </p>
+							<p>$x_{10} = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^{10} \left(
+								\begin{array}{c} 80 \\ 20 \end{array} \right) \approx \left( \begin{array}{c} 40 \\ 60
+								\end{array} \right)$ </p>
 						</div>
 					</div>
 				</section>
