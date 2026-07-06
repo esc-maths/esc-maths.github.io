@@ -1058,7 +1058,8 @@
 					<h4>Do these rules apply to Matrices?</h4>
 					<div class="size-85">
 						<p>With the exception of an inverse for zero, these properties all hold for numbers. </p>
-						<p class="fragment" data-fragment-index="0"><i>Tip: That's why numbers do such a good job of quantifying our daily
+						<p class="fragment" data-fragment-index="0"><i>Tip: That's why numbers do such a good job of
+								quantifying our daily
 								lives! </i></p>
 						<picture class="fragment" data-fragment-index="1">
 							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
@@ -1067,7 +1068,7 @@
 								height="90">
 						</picture>
 
-						<p class="fragment"  data-fragment-index="1" style="text-align: center; margin-top: 30px;">
+						<p class="fragment" data-fragment-index="1" style="text-align: center; margin-top: 30px;">
 							But do these properties hold for structures other than numbers? <br>
 							<span class="fragment">How about... <b>matrices</b>? </span>
 						</p>
@@ -1079,27 +1080,36 @@
 					<div class="size-85">
 						<table style="width: 100%; border: none;">
 							<tr>
-								<td style="border: none;">1. $A+B = B+A$ <br><small>(Addition Commutativity)</small>
+								<td style="border: none;" class="fragment" data-fragment-index="0">1. $A+B = B+A$
+									<br><small>(Addition Commutativity)</small>
 								</td>
-								<td style="border: none;">6. $(\alpha\beta)A = \alpha(\beta A)$ </td>
+								<td style="border: none;" class="fragment" data-fragment-index="5">6. $(\alpha\beta)A =
+									\alpha(\beta A)$ </td>
 							</tr>
 							<tr>
-								<td style="border: none;">2. $(A+B)+C = A+(B+C)$ <br><small>(Addition
+								<td style="border: none;" class="fragment" data-fragment-index="1">2. $(A+B)+C =
+									A+(B+C)$ <br><small>(Addition
 										Associativity)</small> </td>
-								<td style="border: none;">7. $\alpha(AB) = (\alpha A)B = A(\alpha B)$ </td>
+								<td style="border: none;" class="fragment" data-fragment-index="6">7. $\alpha(AB) =
+									(\alpha A)B = A(\alpha B)$ </td>
 							</tr>
 							<tr>
-								<td style="border: none;">3. $(AB)C = A(BC)$ <br><small>(Multiplication
-										Associativity)</small> </td>
-								<td style="border: none;">8. $(\alpha+\beta)B = \alpha B + \beta B$ </td>
-							</tr>
-							<tr>
-								<td style="border: none;">4. $A(B+C) = AB + AC$ <br><small>(Left-distributivity)</small>
+								<td style="border: none;" class="fragment" data-fragment-index="2">3. $(AB)C = A(BC)$
+									<br><small>(Multiplication
+										Associativity)</small>
 								</td>
-								<td style="border: none;">9. $\alpha(A+B) = \alpha A + \alpha B$ </td>
+								<td style="border: none;" class="fragment" data-fragment-index="7">8. $(\alpha+\beta)B =
+									\alpha B + \beta B$ </td>
 							</tr>
 							<tr>
-								<td style="border: none;">5. $(A+B)C = AC + BC$
+								<td style="border: none;" class="fragment" data-fragment-index="3">4. $A(B+C) = AB + AC$
+									<br><small>(Left-distributivity)</small>
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="8">9. $\alpha(A+B) =
+									\alpha A + \alpha B$ </td>
+							</tr>
+							<tr>
+								<td style="border: none;" class="fragment" data-fragment-index="4">5. $(A+B)C = AC + BC$
 									<br><small>(Right-distributivity)</small>
 								</td>
 								<td style="border: none;"></td>
@@ -1107,7 +1117,7 @@
 						</table>
 						<div class="fragment"
 							style="margin-top: 25px; color: #ff5555; text-align: center; font-weight: bold;">
-							Notice that $AB = BA$ (commutativity under multiplication) is not on the list!<br/> <span
+							Notice that $AB = BA$ (commutativity under multiplication) is not on the list!<br /> <span
 								style="font-size: 0.8em; color: gray; font-weight: normal; margin-top: 5px;">That's
 								because it doesn't hold for all matrices. </span>
 						</div>
@@ -1116,70 +1126,115 @@
 
 				<section data-auto-animate>
 					<h4>Identity Matrix</h4>
-					<div class="size-70">
-						<p>The multiplicative identity for numbers, $1$, leaves a number unchanged: $1n = n1 = n$. </p>
+					<div class="size-80">
+						<p>The multiplicative identity for numbers, $1$,
+							<span class="fragment">
+								leaves a number unchanged: $1n = n1 = n$.
+							</span>
+						</p>
 						<p class="fragment">For matrix multiplication, <b>only square matrices</b> have identities. </p>
 						<div class="cc fragment">
 							<p>The $n \times n$ identity matrix: $I_{n} = (\delta_{ij}) = \begin{cases} 1 & \text{if }
 								i=j \\ 0 & \text{if } i \neq j \end{cases}$ </p>
 						</div>
-						<div class="cc fragment">
-							<p>
-								$I_{2} = \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array} \right), \quad
-								I_{3} = \left( \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array}
-								\right)$ </p>
+						<div class="cc">
+							<p class="fragment">
+								$
+								I_{2} = \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array} \right), \quad
+								$
+								<span class="fragment">
+									$
+									I_{3} = \left( \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array}
+									\right),\quad$ etc.
+								</span>
+							</p>
 						</div>
-						<div class="fragment" style="margin-top: 15px;">
-							<small><b>Example:</b></small>
-							<p>$\left( \begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right) \left( \begin{array}{cc} 1 &
-								0 \\ 0 & 1 \end{array} \right) = \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}
-								\right) \left( \begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right) = \left(
-								\begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right)$ </p>
+						<div class="cc fragment" style="margin-top: 15px;">
+							<p><b>Example:</b></p>
+							<p>$
+								\left( \begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right) \left( \begin{array}{cc} 1 &
+								0 \\ 0 & 1 \end{array} \right) $
+								<span class="fragment">
+									$
+									= \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}
+									\right) \left( \begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right) $
+								</span>
+								<span class="fragment">
+									$= \left(
+									\begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right)$
+								</span>
+
+							</p>
 						</div>
 					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
 					<h4>Inverse Matrix</h4>
-					<div class="size-70">
-						<p>The multiplicative inverse $A^{-1}$ of matrix $A$ is a matrix such that: </p>
-						<div class="cc">
-							<p style="font-size: 1.2em;">$A^{-1}A = AA^{-1} = I$ </p>
+					<div class="size-85">
+						<div class="fragment">
+							<p>The multiplicative inverse $A^{-1}$ of matrix $A$ is a matrix such that: </p>
+							<div class="cc">
+								<p style="font-size: 1.5em;">
+									<span class="fragment">
+										$A^{-1}A$ 
+									</span>
+									<span class="fragment">
+										$ =AA^{-1} $ 
+									</span>
+									<span class="fragment">
+										$= I$ 
+									</span>
+
+								</p>
+							</div>
 						</div>
+
 						<br>
-						<h5>Important Notes:</h5>
-						<ul>
-							<li class="fragment"><b>Only square matrices</b> have inverses, but not all square matrices
-								do. </li>
-							<li class="fragment">A square matrix is <b>invertible</b> (or <i>nonsingular</i>) iff it has
-								an inverse. </li>
-							<li class="fragment">We can use <b>Gaussian Elimination</b> to find $A^{-1}$. </li>
-						</ul>
+						<div class="fragment">
+							<p>Important Notes:</p>
+							<ul style="margin-left: 0px; line-height: 65px;">
+								<li><b>Only square matrices</b> have inverses, but not all square
+									matrices
+									do. $\qquad $ </li>
+								<li class="fragment">A square matrix is <b>invertible</b> (or <i>nonsingular</i>) iff it
+									has
+									an inverse. </li>
+								<li class="fragment">We can use <b>Gaussian Elimination</b> to find $A^{-1}$. </li>
+							</ul>
+						</div>
 					</div>
+
+					<br/>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>Inverse Matrix Properties</h4>
-					<div class="size-70">
-						<ul style="line-height: 50px;">
+					<div class="size-95">
+						<ol style="line-height: 60px;margin-left: 0px;">
 							<li class="fragment">
-								<b>1. Inverses are unique:</b> If $B$ and $C$ are inverses of $A$, then: <p
+								<b>Inverses are unique:</b> If $B$ and $C$ are inverses of $A$, then: <p
 									style="text-align: center;">$B = BI = B(AC) = (BA)C = IC = C$ </p>
 							</li>
 							<li class="fragment">
-								<b>2. Double Inverse:</b> $(A^{-1})^{-1} = A$
+								<b>Double Inverse:</b> $(A^{-1})^{-1} = A$
 							</li>
 							<li class="fragment">
-								<b>3. Product Inverse:</b> For any invertible matrices $A_1, A_2, \dots, A_k$: <p
+								<b>Product Inverse:</b> For any invertible matrices $A_1, A_2, \dots, A_k$:<p
 									style="text-align: center;">$(A_1 A_2 \dots A_k)^{-1} = A_k^{-1} \dots A_2^{-1}
 									A_1^{-1}$ </p>
 							</li>
-						</ul>
+						</ol>
 						<p class="fragment" style="margin-top: 20px; font-size: 0.8em; color: gray;">
 							<i>Property (3) is particularly useful for deriving results and solving complex matrix
 								equations. </i>
 						</p>
+
 					</div>
+					<br/>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
