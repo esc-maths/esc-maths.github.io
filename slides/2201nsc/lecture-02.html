@@ -1307,7 +1307,7 @@
 
 				<section data-auto-animate>
 					<h4>Application: Marital Population</h4>
-					<div class="size-70">
+					<div class="size-90">
 						<p>Imagine the following probabilities within a population setup over a given year: </p>
 						<ul>
 							<li class="fragment">The probability a <b>married</b> person divorces is <b>30%</b>. </li>
@@ -1316,24 +1316,29 @@
 						<div class="fragment" style="margin-top: 40px; border: 1px dashed #777; padding: 20px;">
 							<p>If <b>80%</b> of the population is currently married, what percentage is married after:
 							</p>
-							<ol>
+							<ul>
 								<li>1 year? </li>
 								<li>2 years? </li>
 								<li>10 years? </li>
-							</ol>
+							</ul>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>Translating into a Mathematical Problem</h4>
-					<div class="size-65">
+					<div class="size-75">
 						<p>Let's describe the population state as a vector: </p>
 						<div class="cc">
 							<p>$\left( \begin{array}{c} \text{\% married} \\ \text{\% unmarried} \end{array} \right)$
 							</p>
 						</div>
-						<div class="fragment" style="font-size: 0.75em; line-height: 35px; margin-top: 15px;">
+						<p>
+							The proportions of married vs. unmarried people in the next year are given
+							by
+						</p>
+						<div class="fragment cc" style="font-size: 0.75em; line-height: 35px; margin-top: 15px;">
 							<p>$\text{\% married next year} = [\% \text{ married}] \rightarrow [\% \text{ don't
 								divorce}] + [\% \text{ unmarried}] \rightarrow [\% \text{ marry}]$ </p>
 							<p>$\text{\% unmarried next year} = [\% \text{ married}] \rightarrow [\% \text{ divorce}] +
@@ -1353,17 +1358,18 @@
 								\begin{array}{c} \text{\% married} \\ \text{\% unmarried} \end{array} \right)$ </p>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>Solving the Population Problem</h4>
-					<div class="size-65">
+					<div class="size-70">
 						<p>Initially, 80% of the population is married: </p>
 						<div class="cc">
 							<p>$x_0 = \left( \begin{array}{c} 80 \\ 20 \end{array} \right)$ </p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
+						<div class="fragment" style="margin-top: -15px;">
 							<p><b>After 1 year ($x_1$):</b> </p>
 							<p>$x_1 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
 								\begin{array}{c} 80 \\ 20 \end{array} \right) = \left( \begin{array}{c} 56 + 4 \\ 24 +
