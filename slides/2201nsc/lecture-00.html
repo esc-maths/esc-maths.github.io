@@ -73,7 +73,7 @@
 				<section>
 					<h4>What is Linear Algebra?</h4>
 
-					<div class="size-75 left-txt">
+					<div class="size-80 left-txt">
 						<p class="fragment" fragment-data-index="0">
 							<b>Algebra</b> involves the use of the algebraic
 							operations $(\times)$ and $(+)$ on
@@ -81,23 +81,25 @@
 							vectors, matrices, or functions.
 						</p>
 						<p class="fragment" fragment-data-index="1">
-							A <b>linear</b> operation $\large ℒ$ is one that obeys the relationship
+							A <b>linear</b> operation $\large ℒ$ is one that obeys the relationships
 
 						</p>
 					</div>
-					<div class="size-75 cc">
+					<div class="size-80 cc">
 
 						<p>
 							<span class="fragment" fragment-data-index="2">
-								$ {\large ℒ}\left(\alpha x+ \beta y \right) $
+								<b>Additivity:</b> $ {\large ℒ}\left(x+ y \right) = {\large ℒ}(x)+{\large ℒ}(y).$
 							</span>
+						</p>
+						<p>
 							<span class="fragment" fragment-data-index="2">
-								$= \alpha {\large ℒ}(x)+\beta {\large ℒ}(y).$
+								<b>Homogeneity:</b> $ {\large ℒ}\left(\alpha x\right) =\alpha {\large ℒ}(x).$
 							</span>
 						</p>
 					</div>
 
-					<div class="size-75 left-txt">
+					<div class="size-80 left-txt">
 						<p class="fragment" fragment-data-index="3">
 							<b>Linear Algebra</b>
 							<em>begins</em> by considering linear problems of the type
@@ -106,39 +108,52 @@
 						</p>
 					</div>
 
-					<div class="size-75">
+					<div class="size-80">
 
-						<table style="width: 10%;border: none;">
-							<tr class="fragment" fragment-data-index="4">
-								<td style="border: none;text-align: right;">$ax$</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$b$</td>
+						<table>
+
+							<tr>
+							<tr>
+								<td style="border: none;text-align: right;" class="fragment" fragment-data-index="4">
+									$ax=b$
+								</td>
+								<td style="border: none;text-align: right;">
+									$\quad\quad$
+								</td>
+								<td style="border: none;text-align: right;" class="fragment" fragment-data-index="7">
+									$\dfrac{d}{dt} x(t)=b(t)$
+								</td>
 							</tr>
-							<tr class="fragment" fragment-data-index="5">
-								<td style="border: none;text-align: right;">$\mathbf a \pd \mathbf x$</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$b$</td>
+							<tr>
+								<td style="border: none;text-align: right;" class="fragment" fragment-data-index="5">
+									$\mathbf a \pd \mathbf x= \mathbf b$
+								</td>
+								<td style="border: none;text-align: right;">
+
+								</td>
+								<td style="border: none;text-align: right;">
+
+								</td>
 							</tr>
-							<tr class="fragment" fragment-data-index="6">
-								<td style="border: none;text-align: right;">$\mathbf A \mathbf x$</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$\mathbf b$</td>
+							<tr>
+								<td style="border: none;text-align: right;" class="fragment" fragment-data-index="6">
+									$A \mathbf x= \mathbf b$
+								</td>
+								<td style="border: none;text-align: right;">
+
+								</td>
+								<td style="border: none;text-align: right;" class="fragment" fragment-data-index="8">
+									$\ds\int x(t)\,dt =b(t)$
+								</td>
 							</tr>
-							<tr class="fragment" fragment-data-index="7">
-								<td style="border: none;text-align: right;">$\dfrac{d}{dt} x(t)$</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$b(t)$</td>
-							</tr>
-							<tr class="fragment" fragment-data-index="8">
-								<td style="border: none;text-align: right;">$\ds\int x(t)\,dt $</td>
-								<td style="border: none;">$=$</td>
-								<td style="border: none;">$b$</td>
 							</tr>
 						</table>
+
+
 					</div>
 
 
-					<br />
+
 					<br />
 					<br />
 
