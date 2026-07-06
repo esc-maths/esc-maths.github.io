@@ -1251,11 +1251,12 @@
 								Then the transpose of $A$, denoted $A^T$,
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								 is given by
+								is given by
 								$$A^T =(a_{ji}).$$
 							</span>
 						</p>
-						<p class="fragment" data-fragment-index="3"><i>The element in row $i$, column $j$ of $A$ moves to row $j$, column $i$ of
+						<p class="fragment" data-fragment-index="3"><i>The element in row $i$, column $j$ of $A$ moves
+								to row $j$, column $i$ of
 								$A^T$. </i></p>
 
 						<div class="fragment" data-fragment-index="4">
@@ -1280,7 +1281,7 @@
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -1289,20 +1290,21 @@
 						<ol style="line-height: 70px;">
 							<li class="fragment">$\left(A^T\right)^T = A$ </li>
 							<li class="fragment cloud">$(\alpha A)^T = \alpha A^T$ (where $\alpha$ is any scalar
-									number) </li>
+								number) </li>
 							<li class="fragment">$(A + B)^T = A^T + B^T$ </li>
 							<li class="fragment">$(A_1 A_2 \dots A_k)^T = A_k^T \dots A_2^T A_1^T$ </li>
 						</ol>
 						<br>
 						<div class="fragment" style="border-top: 1px solid #555; padding-top: 25px; margin-top: 15px;">
 							<p><b>Symmetric Matrix Definition:</b> </p>
-							<p style="text-align: center; font-size: 1.1em;">Finally, a matrix $A$ is symmetric iff <b>$A =
+							<p style="text-align: center; font-size: 1.1em;">Finally, a matrix $A$ is symmetric iff
+								<b>$A =
 									A^T$</b> </p>
 						</div>
 					</div>
 
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -1313,17 +1315,20 @@
 							<li class="fragment">The probability a <b>married</b> person divorces is <b>30%</b>. </li>
 							<li class="fragment">The probability an <b>unmarried</b> person marries is <b>20%</b>. </li>
 						</ul>
-						<div class="fragment" style="margin-top: 40px; border: 1px dashed #777; padding: 20px;">
+						<div class="fragment" style="margin-top: 40px;">
 							<p>If <b>80%</b> of the population is currently married, what percentage is married after:
 							</p>
-							<ul>
+							<div style="text-align: left;">
+								<ul>
 								<li>1 year? </li>
 								<li>2 years? </li>
 								<li>10 years? </li>
 							</ul>
+							</div>
 						</div>
 					</div>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -1331,34 +1336,34 @@
 					<div class="size-75">
 						<p>Let's describe the population state as a vector: </p>
 						<div class="cc">
-							<p>$\left( \begin{array}{c} \text{\% married} \\ \text{\% unmarried} \end{array} \right)$
+							<p>$\left( \begin{array}{c} \text{% married} \\ \text{% unmarried} \end{array} \right)$
 							</p>
 						</div>
 						<p>
 							The proportions of married vs. unmarried people in the next year are given
 							by
 						</p>
-						<div class="fragment cc" style="font-size: 0.75em; line-height: 35px; margin-top: 15px;">
-							<p>$\text{\% married next year} = [\% \text{ married}] \rightarrow [\% \text{ don't
-								divorce}] + [\% \text{ unmarried}] \rightarrow [\% \text{ marry}]$ </p>
-							<p>$\text{\% unmarried next year} = [\% \text{ married}] \rightarrow [\% \text{ divorce}] +
-								[\% \text{ unmarried}] \rightarrow [\% \text{ don't marry}]$ </p>
+						<div class="fragment cc" style="font-size: 0.90em; line-height: 35px; margin-top: 15px;">
+							<p>$\text{% married next year} = [\% \text{ married}] \times [\% \text{ don't
+								divorce}] + [\% \text{ unmarried}] \times [\% \text{ marry}]$ </p>
+							<p>$\text{% unmarried next year} = [\% \text{ married}] \times [\% \text{ divorce}] +
+								[\% \text{ unmarried}] \times [\% \text{ don't marry}]$ </p>
 						</div>
 						<p class="fragment">Given a 30% divorce rate and 20% marriage rate: </p>
-						<div class="cc fragment" style="font-size: 0.85em;">
+						<div class="cc fragment" style="font-size: 0.90em;">
 							<p>
-								$\left( \begin{array}{c} \text{\% married next yr} \\ \text{\% unmarried next yr}
-								\end{array} \right) = \left( \begin{array}{c} [\% \text{ married}] \rightarrow 0.7 + [\%
-								\text{ unmarried}] \rightarrow 0.2 \\ [\% \text{ married}] \rightarrow 0.3 + [\% \text{
-								unmarried}] \rightarrow 0.8 \end{array} \right)$ </p>
+								$\left( \begin{array}{c} \text{% married next yr} \\ \text{% unmarried next yr}
+								\end{array} \right) = \left( \begin{array}{c} [\% \text{ married}] \times 0.7 + [\%
+								\text{ unmarried}] \times 0.2 \\ [\% \text{ married}] \times 0.3 + [\% \text{
+								unmarried}] \times 0.8 \end{array} \right)$ </p>
 						</div>
 						<div class="cc fragment">
 							<p>
 								$= \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
-								\begin{array}{c} \text{\% married} \\ \text{\% unmarried} \end{array} \right)$ </p>
+								\begin{array}{c} \text{% married} \\ \text{% unmarried} \end{array} \right)$ </p>
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -1369,25 +1374,57 @@
 							<p>$x_0 = \left( \begin{array}{c} 80 \\ 20 \end{array} \right)$ </p>
 						</div>
 
-						<div class="fragment" style="margin-top: -15px;">
-							<p><b>After 1 year ($x_1$):</b> </p>
-							<p>$x_1 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
-								\begin{array}{c} 80 \\ 20 \end{array} \right) = \left( \begin{array}{c} 56 + 4 \\ 24 +
-								16 \end{array} \right) = \left( \begin{array}{c} 60 \\ 40 \end{array} \right)$ </p>
+						
+						<p class="fragment" data-fragment-index="0"><b>After 1 year ($x_1$):</b> </p>
+						
+						<div class="cc">
+							<p class="cc fragment" data-fragment-index="0">
+								$x_1 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+								\begin{array}{c} 80 \\ 20 \end{array} \right) $
+								<span class="fragment" data-fragment-index="1">
+									$= \left( \begin{array}{c} 56 + 4 \\ 24 +
+									16 \end{array} \right) $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$= \left( \begin{array}{c} 60 \\ 40 \end{array} \right)$
+								</span>
+							</p>
 						</div>
+						
+						<p class="fragment" data-fragment-index="3"><b>After 2 years ($x_2$):</b> 
+							<span class="fragment" data-fragment-index="5">$ \quad \rightarrow A^2x_0 = A(Ax_0)= Ax_1$</span>
+						</p>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<p><b>After 2 years ($x_2$):</b> </p>
-							<p>$x_2 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
-								\begin{array}{c} 60 \\ 40 \end{array} \right) = \left( \begin{array}{c} 42 + 8 \\ 18 +
-								32 \end{array} \right) = \left( \begin{array}{c} 50 \\ 50 \end{array} \right)$ </p>
+						<div class="cc fragment"  data-fragment-index="3" style="margin-top: 15px;">
+							
+							<p>$x_2 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^2 \left(
+								\begin{array}{c} 80 \\ 20 \end{array} \right)$
+								<span class="fragment" data-fragment-index="4">
+									$ =\left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+								\begin{array}{c} 60 \\ 40 \end{array} \right)$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= \left( \begin{array}{c} 42 + 8 \\ 18 +
+								32 \end{array} \right) $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$ = \left( \begin{array}{c} 50 \\ 50 \end{array} \right)$
+								</span>
+							
+							</p>
 						</div>
+						
+						<p class="fragment" data-fragment-index="8"><b>After 10 years ($x_{10}$):</b> </p>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<p><b>After 10 years ($x_{10}$):</b> </p>
+						<div class="cc fragment"  data-fragment-index="9" style="margin-top: 15px;">
+							
 							<p>$x_{10} = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^{10} \left(
-								\begin{array}{c} 80 \\ 20 \end{array} \right) \approx \left( \begin{array}{c} 40 \\ 60
-								\end{array} \right)$ </p>
+								\begin{array}{c} 80 \\ 20 \end{array} \right)$ 
+								<span class="fragment" data-fragment-index="10">
+									$ \approx \left( \begin{array}{c} 40 \\ 60
+								\end{array} \right)$
+								</span>
+							</p>
 						</div>
 					</div>
 				</section>
