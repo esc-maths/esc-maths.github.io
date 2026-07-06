@@ -612,27 +612,31 @@
 
 					<div class="size-70">
 						<ul style="line-height: 60px;">
-							<li>
+							<li class="fragment" data-fragment-index="0">
 								Each element of C is the sum of products
-								between a row of A and a column of B
-								<p style="text-align: center;">
+								between a row of $A$ and a column of $B$
+								<p style="text-align: center;" class="fragment" data-fragment-index="1">
 									$c{22} = \ds \sum_{i} a_{2i}b_{i2}$
-									<span>
+									<span class="fragment" data-fragment-index="2">
 										$=a_{21}b_{12} +a_{22}b_{22} +\cdots +a_{2n}b_{n2} $
 									</span>
 								</p>
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="3">
 								For this to work, we require that
 								<p style="text-align: center;">
 									the number of columns of $A=$ the number of rows of $B.$
 								</p>
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="5">
+
 								If $A\in \mathbb R^{m\times n}$ and $B\in \mathbb R^{n\times p},$
-								then the result of $AB$ is a matrix with $m$ rows and $p$
-								columns.
-								<p>
+								<span class="fragment" data-fragment-index="6">
+									then the result of $AB$ is a matrix with $m$ rows and $p$
+									columns.
+
+								</span>
+								<p class="fragment" data-fragment-index="7">
 									<b>Example:</b> the matrix $C,$ above, is an $m \times p$ matrix ($C\in \mathbb
 									R^{m\times p}$).
 								</p>
@@ -653,7 +657,7 @@
 
 					<div class="size-75">
 						<div class="cc">
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								$A =
 								\left(
 								\begin{array}{cc}
@@ -671,67 +675,70 @@
 								\right).
 								$
 							</p>
-							<p>
-								$A B =
-								\left(
-								\begin{array}{cc}
-								3 & -2 \\
-								2 & 4 \\
-								1 & -3 \\
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{ccc}
-								-2 & 1 & 3 \\
-								4 & 1 & 6 \\
-								\end{array}
-								\right)
+							<p class="fragment" data-fragment-index="1">
+								$A B
 								$
+								<span class="fragment" data-fragment-index="2">
+									$ =
+									\left(
+									\begin{array}{cc}
+									3 & -2 \\
+									2 & 4 \\
+									1 & -3 \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{ccc}
+									-2 & 1 & 3 \\
+									4 & 1 & 6 \\
+									\end{array}
+									\right)$
+								</span>
 							</p>
 
 						</div>
-						
+
 						<table>
 							<tr>
-								
-								<td style="border: none;">
+
+								<td style="border: none;" class="fragment" data-fragment-index="3">
 									$3\times (-2) + (-2)\times 4$
 								</td>
-								<td style="border: none;">
+								<td style="border: none;" class="fragment" data-fragment-index="6">
 									$3\times 1 + (-2)\times 1$
 								</td>
-								<td style="border: none;">
+								<td style="border: none;" class="fragment" data-fragment-index="9">
 									$3\times 3 + (-2)\times 6$
 								</td>
 							</tr>
 							<tr>
-								
-								<td style="border: none;">
+
+								<td style="border: none;" class="fragment" data-fragment-index="4">
 									$2\times (-2) + 4\times 4$
 								</td>
-								<td style="border: none;">
+								<td style="border: none;" class="fragment" data-fragment-index="7">
 									$2\times 1 + 4\times 1$
 								</td>
-								<td style="border: none;">
+								<td style="border: none;" class="fragment" data-fragment-index="10">
 									$2\times 3 + 4\times 6$
 								</td>
 							</tr>
 							<tr>
-								
-								<td style="border: none;">
+
+								<td style="border: none;" class="fragment" data-fragment-index="5">
 									$1\times (-2) + (-3)\times 4$
 								</td>
-								<td style="border: none;">
+								<td style="border: none;" class="fragment" data-fragment-index="8">
 									$1\times 1 + (-3)\times 1$
 								</td>
-								<td style="border: none;">
+								<td style="border: none;" class="fragment" data-fragment-index="11">
 									$1\times 3 + (-3)\times 6$
 								</td>
 							</tr>
 						</table>
 
 						<div class="cc">
-							<p>
+							<p class="fragment" data-fragment-index="12">
 								$ AB =
 								\left(
 								\begin{array}{rrr}
@@ -754,12 +761,13 @@
 					</h4>
 
 					<div>
-						<iframe style="width: 70%; height: 600px; border: 1px solid;" src="sketches/matrixmult/example-01.html" scrolling="no"></iframe>
+						<iframe style="width: 70%; height: 600px; border: 0px solid;"
+							src="sketches/matrixmult/example-01.html" scrolling="no"></iframe>
 
 					</div>
-					
-					<br/>
-					<br/>
+
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -779,13 +787,13 @@
 								1 & -3 \\
 								\end{array}
 								\right),\quad
-								B= 
+								B=
 								\left(
 								\begin{array}{ccc}
 								-2 & 1 & 3 \\
 								4 & 1 & 6 \\
 								\end{array}
-								\right),\quad 
+								\right),\quad
 
 								AB =
 								\left(
@@ -794,58 +802,62 @@
 								12 & 6 & 30 \\
 								-14 & -2 & -15 \\
 								\end{array}
-								\right)
-								\quad\quad
+								\right).
 								$
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								$
-								BA = 
-								\left(
-								\begin{array}{ccc}
-								-2 & 1 & 3 \\
-								4 & 1 & 6 \\
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cc}
-								3 & -2 \\
-								2 & 4 \\
-								1 & -3 \\
-								\end{array}
-								\right)
+								BA
 								$
+								<span class="fragment" data-fragment-index="1">
+									$
+									=
+									\left(
+									\begin{array}{ccc}
+									-2 & 1 & 3 \\
+									4 & 1 & 6 \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cc}
+									3 & -2 \\
+									2 & 4 \\
+									1 & -3 \\
+									\end{array}
+									\right)
+									$
+								</span>
 
 							</p>
-							
+
 
 						</div>
-						
+
 						<table>
 							<tr>
-								
-								<td style="border: none;">
+
+								<td style="border: none;" class="fragment" data-fragment-index="2">
 									$(-2)\times 3 + 1\times 2 + 3 \times 1$
 								</td>
-								<td style="border: none;">
+								<td style="border: none;" class="fragment" data-fragment-index="4">
 									$(-2)\times (-2) + 1\times 4 + 3 \times (-3) $
 								</td>
 							</tr>
 							<tr>
-								
-								<td style="border: none;">
+
+								<td style="border: none;" class="fragment" data-fragment-index="3">
 									$4\times 3 + 1\times 2 + 6 \times 1$
 								</td>
-								<td style="border: none;">
+								<td style="border: none;" class="fragment" data-fragment-index="5">
 									$4\times (-2) + 1\times 4 + 6 \times (-3) $
 								</td>
 							</tr>
-							
+
 						</table>
 
 						<div class="cc">
-							<p>
+							<p class="fragment" data-fragment-index="6">
 								$ BA =
 								\left(
 								\begin{array}{rr}
@@ -857,14 +869,14 @@
 								$
 							</p>
 
-							<p style="font-size: 120%;">
-							    👉 <b>Note that here</b> $AB\neq BA$!!!
+							<p style="font-size: 120%;" class="fragment" data-fragment-index="7">
+								👉 <b>Note that here</b> $AB\neq BA$!!!
 							</p>
 
 						</div>
 					</div>
 
-					
+
 
 				</section>
 
@@ -874,12 +886,121 @@
 					</h4>
 
 					<div>
-						<iframe style="width: 70%; height: 600px; border: 1px solid;" src="sketches/matrixmult/example-02.html" scrolling="no"></iframe>
+						<iframe style="width: 70%; height: 600px; border: 0px solid;"
+							src="sketches/matrixmult/example-02.html" scrolling="no"></iframe>
 
 					</div>
-					
-					<br/>
-					<br/>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Matrix multiplication examples
+					</h4>
+
+					<div class="size-75">
+						<div class="cc">
+							<p>
+								$A =
+								\left(
+								\begin{array}{cc}
+								1 & 2 \\
+								4 & 5 \\
+								3 & 6 \\
+								\end{array}
+								\right),\quad
+								B=
+								\left(
+								\begin{array}{ccc}
+								3 & 4 \\
+								1 & 2 \\
+								\end{array}
+								\right)
+								$
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								$
+								AB
+								$
+								<span>
+									$
+									=
+									\left(
+									\begin{array}{cc}
+									1 & 2 \\
+									4 & 5 \\
+									3 & 6 \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{ccc}
+									3 & 4 \\
+									1 & 2 \\
+									\end{array}
+									\right)\qquad\qquad
+									$
+								</span>
+
+							</p>
+
+
+						</div>
+
+						<table>
+							<tr>
+
+								<td style="border: none;" class="fragment" data-fragment-index="1">
+									$1\times 3 + 2\times 1$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="4">
+									$1\times 4 + 2\times 2$
+								</td>
+							</tr>
+							<tr>
+
+								<td style="border: none;" class="fragment" data-fragment-index="2">
+									$4\times 3 + 5\times 1 $
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="5">
+									$4\times 4 + 5\times 2 $
+								</td>
+							</tr>
+							<tr>
+
+								<td style="border: none;" class="fragment" data-fragment-index="3">
+									$3\times 3 + 6\times 1 $
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="6">
+									$3\times 4 + 6\times 2 $
+								</td>
+							</tr>
+
+						</table>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="7">
+								$ AB =
+								\left(
+								\begin{array}{rr}
+								5 & 8 \\
+								17 & 26 \\
+								15 & 24 \\
+								\end{array}
+								\right)
+								\quad
+								$
+								<span class="fragment" data-fragment-index="8">
+									👉 In this case, $BA $ <b>is not even defined!!!</b>
+								</span>
+							</p>
+
+				
+
+						</div>
+					</div>
 				</section>
 
 			</section>
