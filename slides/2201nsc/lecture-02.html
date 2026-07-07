@@ -1737,6 +1737,9 @@
 					<br />
 				</section>
 
+			</section>
+
+			<section>
 				<section data-auto-animate>
 					<h4>Sub-matrices</h4>
 
@@ -1819,7 +1822,7 @@
 							Recall the definition of matrix multiplication:
 						</p>
 
-						<div class="cc" style="font-size: 0.85em;">
+						<div class="cc">
 							<p class="fragment" data-fragment-index="0">
 								$
 								AB =
@@ -1939,7 +1942,7 @@
 						Block multiplication: example
 					</h4>
 
-					<div class="size-80">
+					<div class="size-75">
 						<p>
 							The following example shows how block multiplication can greatly simplify the calculation of
 							matrix products.
@@ -1951,10 +1954,6 @@
 					</div>
 
 					<div class="size-70">
-
-
-
-
 						<div class="cc">
 							<p class="fragment" data-fragment-index="0">
 
@@ -2016,7 +2015,7 @@
 						<p class="fragment" data-fragment-index="3">then</p>
 
 					</div>
-					<div style="font-size: 62%;">
+					<div style="font-size: 64%;">
 						<div class="cc">
 							<p class="fragment" data-fragment-index="3">
 								$\;AB=
@@ -2035,7 +2034,7 @@
 									\begin{array}{c}
 									\\
 									\color{red}{B_{11}} + \color{blue}{A_{12}B_{21}}\\
-									 \\ \hline
+									\\ \hline
 									B_{21} \\
 									\end{array}
 									\right)\;$
@@ -2059,18 +2058,320 @@
 									\begin{array}{cc}
 									5 & -6\\
 									-3 & 4\\
-									10 & -14\\ 
+									10 & -14\\
 									3 & -4 \\
 									\end{array}
 									\right)\;$
 								</span>
 							</p>
 						</div>
-						<br />
+					</div>
+
+					<div class="size-65">
+						<p class="fragment" data-fragment-index="7">Blocks were then defined so that block
+							multiplication
+							could use those sub-matrices to
+							significantly reduce the amount of working
+							required for the calculation of the product.
+						</p>
+					</div>
+					<br />
 				</section>
 
+				<section>
+					<h4>Important results of block matrix multiplication (I)</h4>
+					<div class="size-80" style="text-align: left;">
+						<p>We now look at some important results of block multiplication.</p>
+						<p class="fragment" data-fragment-index="1">
+							Firstly, consider the product $A\mathbf b$ where:
+						</p>
+						<ol>
+							<li class="fragment" data-fragment-index="2">$A$ is divided into blocks made from its columns,
+								and</li>
+							<li class="fragment" data-fragment-index="3">$\mathbf b$ is divided into blocks of its individual
+								elements.</li>
+						</ol>
+						<p class="fragment" data-fragment-index="4">It then follows that</p>
+					</div>
+					<div class="size-75 cc fragment" data-fragment-index="4">
+						<p>
+							$$A\mathbf b = \begin{pmatrix} | & | & & | \\ \mathbf a_1 & \mathbf a_2 & \cdots & \mathbf a_n \\ | & | & & | \end{pmatrix}
+							\begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix} = b_1 \mathbf a_1 + b_2 \mathbf a_2 + \cdots + b_n
+							\mathbf a_n$$
+						</p>
+					</div>
+					<div class="size-80 fragment" data-fragment-index="5">
+						<p><b>This first result is a very, very important one!!</b></p>
+						<p>Why?? Because it's an example of a <strong>linear combination</strong>...</p>
+					</div>
+				</section>
 
+				<section>
+					<h4>Linear combinations</h4>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">
+							We define a linear combination of vectors, matrices, functions, etc.
+							$A_1, A_2, \cdots, A_n$ 
+							<span  class="fragment" data-fragment-index="1">
+								as any sum:
+							</span>
+							
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							$$\sum_{i=1}^{n}x_{i}A_{i} = x_{1}A_{1} + x_{2}A_{2} + \cdots + x_{n}A_{n}$$
+							for real numbers $x_{1}, x_{2}, \dots, x_{n}$.
+						</p>
+					</div>
+					<div class="size-80 fragment" data-fragment-index="2" style="margin-top:20px;">
+						<p>On the previous slide, we saw that:</p>
+						<p>
+							$$A\mathbf x = \begin{pmatrix} | & | & & | \\ \mathbf a_{1} & \mathbf a_{2} & \cdots & \mathbf a_{n} \\ | & | & & |
+							\end{pmatrix} \begin{pmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n} \end{pmatrix} = x_{1}\mathbf a_{1} +
+							x_{2}\mathbf a_{2} + \cdots + x_{n}\mathbf a_{n}$$
+						</p>
+					</div>
+					<br/>
+				</section>
 
+				<section>
+					<h4>Linear combinations cont'd</h4>
+					<div class="size-90">
+						<p>So by the definition of linear combinations, we have the following further results:</p>
+						<ol style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="1">
+								The product $Ax$ is a <strong>linear combination of the columns of $A$</strong>;
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								The linear system $Ax = b$ has a solution <strong>iff $b$ is a linear combination of the
+									columns of $A$</strong>.
+							</li>
+						</ol>
+						<p class="fragment" data-fragment-index="3" >These two results are very, very important!!</p>
+						<p class="fragment" data-fragment-index="4" >We'll use them extensively later in the course. For now though, a few more important results
+							of block multiplication before we move on...</p>
+					</div>
+					<br/>
+					<br/>
+					
+				</section>
+
+				<section>
+					<h4>Important results of block matrix multiplication (II)</h4>
+					<div class="size-80">
+						<p>We finish this section with the following three important results of block multiplication.
+						</p>
+						<p>For matrices $A \in \mathbb{R}^{m \times n}$ and $B \in \mathbb{R}^{n \times p}$:</p>
+						<p>
+							<strong>1. Row-Column Block Expansion:</strong>
+						</p>
+					</div>
+					<div class="size-75 cc" style="margin-top:15px;">
+						<p>
+							
+							$AB = \begin{pmatrix} - & a_{1} & - \\ - & a_{2} & - \\ & \vdots & \\ - & a_{m} & -
+							\end{pmatrix} \begin{pmatrix} | & | & & | \\ b_{1} & b_{2} & \cdots & b_{p} \\ | & | & & |
+							\end{pmatrix} = \begin{pmatrix} a_{1}b_{1} & a_{1}b_{2} & \cdots & a_{1}b_{p} \\ a_{2}b_{1}
+							& a_{2}b_{2} & \cdots & a_{2}b_{p} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m}b_{1} &
+							a_{m}b_{2} & \cdots & a_{m}b_{p} \end{pmatrix}$
+						</p>
+					</div>
+
+					<br/>
+					<br/>
+				</section>
+
+				<section>
+					<h4>Important results of block matrix multiplication (II) cont'd</h4>
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="1">
+							<strong>2. Matrix-Column Block Multiplication:</strong>
+							$$AB = A \begin{pmatrix} | & | & & | \\ b_{1} & b_{2} & \cdots & b_{p} \\ | & | & & |
+							\end{pmatrix} = \begin{pmatrix} | & | & & | \\ Ab_{1} & Ab_{2} & \cdots & Ab_{p} \\ | & | &
+							& | \end{pmatrix}$$
+						</p>
+						<br>
+						<p class="fragment" data-fragment-index="2">
+							<strong>3. Column-Row (Outer Product) Expansion:</strong>
+							$$AB = \begin{pmatrix} | & | & & | \\ a_{1} & a_{2} & \cdots & a_{n} \\ | & | & & |
+							\end{pmatrix} \begin{pmatrix} - & b_{1} & - \\ - & b_{2} & - \\ & \vdots & \\ - & b_{n} & -
+							\end{pmatrix} = a_{1}b_{1} + a_{2}b_{2} + \cdots + a_{n}b_{n}$$
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Elementary Matrices and Row Operations</h4>
+					<div class="size-80">
+						<p>Recall the three row operations permitted in Gaussian elimination:</p>
+						<ol>
+							<li class="fragment" data-fragment-index="1">Swapping rows;</li>
+							<li class="fragment" data-fragment-index="2">Rescaling one row;</li>
+							<li class="fragment" data-fragment-index="3">Adding a multiple of one row to another row.
+							</li>
+						</ol>
+					</div>
+					<div class="size-80 style=" margin-top:15px;">
+						<p class="fragment" data-fragment-index="4">
+							These operations can be represented by <strong>elementary matrices</strong>, $E_{i}$. There
+							is one elementary matrix for each operation.
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							The operation is achieved by multiplying a given matrix <strong>on the left</strong> by
+							$E_{i}$.
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							The steps in Gaussian elimination can then be written as a product sequence:
+							$$A \rightarrow E_{1}A \rightarrow E_{2}E_{1}A \rightarrow \cdots \rightarrow
+							E_{k}E_{k-1}\cdots E_{2}E_{1}A$$
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Elementary Matrices Examples</h4>
+					<div class="size-75 cc">
+						<p style="font-size: 0.9em;">
+							<strong>1. Interchanging two rows:</strong> Identity matrix with two off-diagonal 1s
+							$$\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 0 & -4 &
+							8 & 4 \\ 1 & -1 & 1 & 0 \\ 2 & 2 & 3 & 4 \end{pmatrix} = \begin{pmatrix} 1 & -1 & 1 & 0 \\ 0
+							& -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix}$$
+						</p>
+						<p class="fragment" style="font-size: 0.9em;">
+							<strong>2. Rescaling one row:</strong> Identity matrix with one non-unit diagonal term
+							$$\begin{pmatrix} 1 & 0 & 0 \\ 0 & -1/4 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 &
+							-1 & 1 & 0 \\ 0 & -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix} = \begin{pmatrix} 1 & -1 & 1 & 0
+							\\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix}$$
+						</p>
+						<p class="fragment" style="font-size: 0.9em;">
+							<strong>3. Adding a multiple of one row to another:</strong> Identity matrix with an extra
+							off-diagonal term
+							$$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -2 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & -1
+							& 1 & 0 \\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix} = \begin{pmatrix} 1 & -1 & 1 & 0
+							\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$$
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Gaussian Elimination as a Product of Matrices</h4>
+					<div class="size-80">
+						<p>We can systematically write out row reduction on an augmented matrix:</p>
+						<p>
+							$$(A \mid q) \rightarrow (B \mid r) \rightarrow (I \mid s)$$
+						</p>
+					</div>
+					<div class="size-75 cc fragment" style="margin-top:15px;">
+						<p>
+							From our initial augmented matrix $(A \mid q)$ we obtain the upper-triangular form:
+							$$(B \mid r) = E_{k}\cdots E_{1}(A \mid q) = (E_{k}\cdots E_{1}A \mid E_{k}\cdots E_{1}q)$$
+						</p>
+						<p class="fragment" style="margin-top:15px;">
+							...and eventually the reduced row echelon solution:
+							$$(I \mid s) = (E_{m}\cdots E_{k+1})E_{k}\cdots E_{1}(A \mid q) = (E_{m}\cdots E_{1}A \mid
+							E_{m}\cdots E_{1}q)$$
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Important Consequence: Matrix Inversion</h4>
+					<div class="size-80">
+						<p>We have just seen that the reduction process creates the tracking identity:</p>
+						<p>
+							$$(I \mid s) = (E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}q)$$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Which explicitly means that:
+							$$E_{m}\cdots E_{1}A = I \implies E_{m}\cdots E_{1} = A^{-1} \text{ (!!)}$$
+						</p>
+					</div>
+					<div class="size-80 fragment" data-fragment-index="2" style="margin-top:20px;">
+						<p>It follows directly that if we start with the identity matrix inside the augmented side:</p>
+						<p>
+							$$E_{m}\cdots E_{1}(A \mid I) = (E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}I) = (I \mid
+							A^{-1})$$
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							<strong>Conclusion:</strong> We can use standard row reduction on the augmented matrix $(A
+							\mid I)$ to safely find the inverse matrix $A^{-1}$.
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Matrix Inversion: Simple Example</h4>
+					<div class="size-80">
+						<p>Find the inverse of $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$</p>
+					</div>
+					<div class="size-75 cc">
+						<p style="font-size:0.85em;">
+							$$\begin{pmatrix} 2 & 1 & \mid & 1 & 0 \\ 1 & 1 & \mid & 0 & 1 \end{pmatrix}
+							\xrightarrow{R_1 \leftarrow \frac{1}{2}R_1}
+							\begin{pmatrix} 1 & \frac{1}{2} & \mid & \frac{1}{2} & 0 \\ 1 & 1 & \mid & 0 & 1
+							\end{pmatrix}$$
+
+							<span class="fragment">
+								$$\xrightarrow{R_2 \leftarrow R_2 - R_1}
+								\begin{pmatrix} 1 & \frac{1}{2} & \mid & \frac{1}{2} & 0 \\ 0 & \frac{1}{2} & \mid &
+								-\frac{1}{2} & 1 \end{pmatrix}$$
+							</span>
+
+							<span class="fragment">
+								$$\xrightarrow[R_1 \leftarrow R_1 - R_2]{R_2 \leftarrow 2R_2}
+								\begin{pmatrix} 1 & 0 & \mid & 1 & -1 \\ 0 & 1 & \mid & -1 & 2 \end{pmatrix}$$
+							</span>
+						</p>
+						<p class="fragment" style="margin-top:10px;">
+							$$\Rightarrow A^{-1} = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$$
+						</p>
+						<p class="fragment" style="font-size:0.8em; color: green;">
+							<strong>Check:</strong> $\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & -1
+							\\ -1 & 2 \end{pmatrix} = \begin{pmatrix} 2-1 & -2+2 \\ 1-1 & -1+2 \end{pmatrix} =
+							\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Matrix Inversion: Less Simple Example</h4>
+					<div class="size-80">
+						<p>Show that the inverse of $A = \begin{pmatrix} 3 & 2 & -1 \\ 3 & 1 & -1 \\ 3 & 2 & 1
+							\end{pmatrix}$ is $A^{-1} = \begin{pmatrix} -1/2 & 2/3 & 1/6 \\ 1 & -1 & 0 \\ -1/2 & 0 & 1/2
+							\end{pmatrix}$</p>
+					</div>
+					<div class="size-70 cc" style="font-size:0.75em;">
+						<p>
+							$$\begin{pmatrix} 3 & 2 & -1 & \mid & 1 & 0 & 0 \\ 3 & 1 & -1 & \mid & 0 & 1 & 0 \\ 3 & 2 &
+							1 & \mid & 0 & 0 & 1 \end{pmatrix}$$
+
+							<span class="fragment">
+								$$\xrightarrow[(R_3 - R_1)]{(R_2 - R_1)} \begin{pmatrix} 3 & 2 & -1 & \mid & 1 & 0 & 0
+								\\ 0 & -1 & 0 & \mid & -1 & 1 & 0 \\ 0 & 0 & 2 & \mid & -1 & 0 & 1 \end{pmatrix}$$
+							</span>
+
+							<span class="fragment">
+								$$\xrightarrow[R_3 \leftarrow R_3/2]{R_1 \leftarrow R_1 + 2R_2} \begin{pmatrix} 3 & 0 &
+								-1 & \mid & -1 & 2 & 0 \\ 0 & -1 & 0 & \mid & -1 & 1 & 0 \\ 0 & 0 & 1 & \mid & -1/2 & 0
+								& 1/2 \end{pmatrix}$$
+							</span>
+
+							<span class="fragment">
+								$$\xrightarrow[R_2 \leftarrow -R_2]{R_1 \leftarrow R_1 + R_3} \begin{pmatrix} 3 & 0 & 0
+								& \mid & -3/2 & 2 & 1/2 \\ 0 & 1 & 0 & \mid & 1 & -1 & 0 \\ 0 & 0 & 1 & \mid & -1/2 & 0
+								& 1/2 \end{pmatrix}$$
+							</span>
+
+							<span class="fragment">
+								$$\xrightarrow{R_1 \leftarrow R_1 / 3} \begin{pmatrix} 1 & 0 & 0 & \mid & -1/2 & 2/3 &
+								1/6 \\ 0 & 1 & 0 & \mid & 1 & -1 & 0 \\ 0 & 0 & 1 & \mid & -1/2 & 0 & 1/2
+								\end{pmatrix}$$
+							</span>
+						</p>
+						<p class="fragment" style="color: green; text-align: center; font-size:1.1em; margin-top:5px;">
+							As required!
+						</p>
+					</div>
+				</section>
 			</section>
 
 
