@@ -2097,11 +2097,11 @@
 					</div>
 					<div class="size-75 cc fragment" data-fragment-index="4">
 						<p>
-							$$A\mathbf b = \begin{pmatrix} | & | & & | \\ \mathbf a_1 & \mathbf a_2 & \cdots & \mathbf
+							$A\mathbf b = \begin{pmatrix} | & | & & | \\ \mathbf a_1 & \mathbf a_2 & \cdots & \mathbf
 							a_n \\ | & | & & | \end{pmatrix}
 							\begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix} = b_1 \mathbf a_1 + b_2 \mathbf
 							a_2 + \cdots + b_n
-							\mathbf a_n$$
+							\mathbf a_n$
 						</p>
 					</div>
 					<div class="size-80 fragment" data-fragment-index="5">
@@ -2306,80 +2306,169 @@
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="4">
-								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & -1/4 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 &
-							-1 & 1 & 0 \\ 0 & -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & -1/4 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1
+								&
+								-1 & 1 & 0 \\ 0 & -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
 							</span>
 							<span class="fragment" data-fragment-index="5">
 								$= \begin{pmatrix} 1 & -1 & 1 & 0
-							\\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix}$
+								\\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix}$
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="6" style="text-align: left !important;">
-							<strong>3. Adding a multiple of one row to another:</strong> 
-							 identity matrix with extra off-diagonal term
+							<strong>3. Adding a multiple of one row to another:</strong>
+							identity matrix with extra off-diagonal term
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="7">
-								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -2 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & -1
-							& 1 & 0 \\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -2 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 &
+								-1
+								& 1 & 0 \\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
 							</span>
 							<span class="fragment" data-fragment-index="8">
 								$= \begin{pmatrix} 1 & -1 & 1 & 0
-							\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$
+								\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$
 							</span>
-							
+
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
 					<h4>Gaussian Elimination as a Product of Matrices</h4>
-					<div class="size-90 fragment">
-						<p>We can systematically write out row reduction on an augmented matrix:</p>
-						<p>
-							$$\big(A \mid \mathbf q\big) \rightarrow \big(B \mid \mathbf r\big) \rightarrow \big(I \mid \mathbf s\big)$$
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">We can systematically write out row reduction on an
+							augmented matrix:</p>
+						<div class="cc size-75">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{cccc|c}
+								a_{11} & a_{12} & \cdots & a_{1n} & q_{1}\\
+								a_{21} & a_{22} & \cdots & a_{2n} & q_{2} \\
+								\vdots & \vdots & \ddots & \vdots & \vdots \\
+								a_{n1} & a_{n2} & \cdots & a_{nn} & q_{n} \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="1">
+									$\rightarrow
+									\left(
+									\begin{array}{cccc|c}
+									b_{11} & b_{12} & \cdots & b_{1n} & r_{1}\\
+									0 & b_{22} & \cdots & b_{2n} & r_{2} \\
+									\vdots & \vdots & \ddots & \vdots & \vdots \\
+									0 & 0 & \cdots & b_{nn} & r_{n} \\
+									\end{array}
+									\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\rightarrow
+									\left(
+									\begin{array}{cccc|c}
+									1 & 0 & \cdots & 0 & s_{1}\\
+									0 & 1 & \cdots & 0 & s_{2} \\
+									\vdots & \vdots & \ddots & \vdots & \vdots \\
+									0 & 0 & \cdots & 1 & s_{n} \\
+									\end{array}
+									\right)
+									$
+								</span>
+
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$\big(A \mid \mathbf q\big) \rightarrow \big(B \mid \mathbf r\big) \rightarrow \big(I
+								\mid \mathbf s\big)$
+							</p>
+						</div>
+					</div>
+					<div class="size-80 cc" style="margin-top:15px;">
+						<p class="fragment" data-fragment-index="4">
+							From our initial augmented matrix $\big(A \mid \mathbf q\big)$ we obtain the
+							upper-triangular form:
+
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							$\big(B \mid \mathbf r\big) $
+							<span class="fragment" data-fragment-index="5">
+								$= E_{k}\cdots E_{1}\big(A \mid \mathbf q\big) $
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$ = \big(E_{k}\cdots E_{1}A \mid E_{k}\cdots E_{1}\mathbf q\big)$
+							</span>
+						</p>
+						<p style="margin-top:15px;">
+							<span class="fragment" data-fragment-index="7">
+								...and eventually the reduced row echelon solution:
+							</span>
+
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							$\big(I \mid \mathbf s\big) $
+							<span class="fragment" data-fragment-index="8">
+								$= \big(E_{m}\cdots E_{k+1}\big)E_{k}\cdots E_{1}\big(A \mid
+								\mathbf q\big)$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$ = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf q\big) $
+							</span>
 						</p>
 					</div>
-					<div class="size-85 cc fragment" style="margin-top:15px;">
-						<p>
-							From our initial augmented matrix $\big(A \mid \mathbf q\big)$ we obtain the upper-triangular form:
-							$$\big(B \mid \mathbf r\big) = E_{k}\cdots E_{1}\big(A \mid \mathbf q\big) = \big(E_{k}\cdots E_{1}A \mid E_{k}\cdots E_{1}\mathbf q\big)$$
-						</p>
-						<p class="fragment" style="margin-top:15px;">
-							...and eventually the reduced row echelon solution:
-							$$\big(I \mid \mathbf s\big) = \big(E_{m}\cdots E_{k+1}\big)E_{k}\cdots E_{1}\big(A \mid \mathbf q\big) = \big(E_{m}\cdots E_{1}A \mid
-							E_{m}\cdots E_{1}\mathbf q\big)$$
-						</p>
-					</div>
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 				<section>
 					<h4>Important Consequence: Matrix Inversion</h4>
-					<div class="size-80">
+					<div class="size-85">
 						<p>We have just seen that the reduction process creates the tracking identity:</p>
 						<p>
-							$$\big(I \mid \mathbf s\big) = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf q\big)$$
+							$$\big(I \mid \mathbf s\big) = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf
+							q\big)$$
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							Which explicitly means that:
-							$$E_{m}\cdots E_{1}A = I \implies E_{m}\cdots E_{1} = A^{-1} \text{ (!!)}$$
+
 						</p>
+						<div class="cc fragment" data-fragment-index="1">
+							$E_{m}\cdots E_{1}A= I $
+							<span class="fragment" data-fragment-index="2">
+								$ \implies E_{m}\cdots E_{1} = A^{-1} \text{ (!!)}$
+							</span>
+						</div>
 					</div>
-					<div class="size-80 fragment" data-fragment-index="2" style="margin-top:20px;">
-						<p>It follows directly that if we start with the identity matrix inside the augmented side:</p>
-						<p>
-							$$E_{m}\cdots E_{1}\big(A \mid I\big) =\big (E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}I\big) = \big(I \mid
-							A^{-1}\big)$$
-						</p>
-						<p class="fragment" data-fragment-index="3">
-							<strong>Conclusion:</strong> We can use standard row reduction on the augmented matrix $\big(A
+					<div style="margin-top:20px;" class="size-85">
+						<p class="fragment" data-fragment-index="3">It follows directly that if we start with
+							the identity matrix inside the augmented side:</p>
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$E_{m}\cdots E_{1}\big(A \mid I\big) $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=\big (E_{m}\cdots E_{1}A \mid E_{m}\cdots
+									E_{1}I\big)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= \big(I \mid
+									A^{-1}\big)$
+								</span>
+
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="6">
+							<strong>Conclusion:</strong> We can use standard row reduction on the augmented matrix
+							$\big(A
 							\mid I\big)$ to safely find the inverse matrix $A^{-1}$.
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
