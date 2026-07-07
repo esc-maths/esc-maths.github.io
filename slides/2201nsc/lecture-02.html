@@ -2086,17 +2086,21 @@
 							Firstly, consider the product $A\mathbf b$ where:
 						</p>
 						<ol>
-							<li class="fragment" data-fragment-index="2">$A$ is divided into blocks made from its columns,
+							<li class="fragment" data-fragment-index="2">$A$ is divided into blocks made from its
+								columns,
 								and</li>
-							<li class="fragment" data-fragment-index="3">$\mathbf b$ is divided into blocks of its individual
+							<li class="fragment" data-fragment-index="3">$\mathbf b$ is divided into blocks of its
+								individual
 								elements.</li>
 						</ol>
 						<p class="fragment" data-fragment-index="4">It then follows that</p>
 					</div>
 					<div class="size-75 cc fragment" data-fragment-index="4">
 						<p>
-							$$A\mathbf b = \begin{pmatrix} | & | & & | \\ \mathbf a_1 & \mathbf a_2 & \cdots & \mathbf a_n \\ | & | & & | \end{pmatrix}
-							\begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix} = b_1 \mathbf a_1 + b_2 \mathbf a_2 + \cdots + b_n
+							$$A\mathbf b = \begin{pmatrix} | & | & & | \\ \mathbf a_1 & \mathbf a_2 & \cdots & \mathbf
+							a_n \\ | & | & & | \end{pmatrix}
+							\begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix} = b_1 \mathbf a_1 + b_2 \mathbf
+							a_2 + \cdots + b_n
 							\mathbf a_n$$
 						</p>
 					</div>
@@ -2111,11 +2115,11 @@
 					<div class="size-80">
 						<p class="fragment" data-fragment-index="0">
 							We define a linear combination of vectors, matrices, functions, etc.
-							$A_1, A_2, \cdots, A_n$ 
-							<span  class="fragment" data-fragment-index="1">
+							$A_1, A_2, \cdots, A_n$
+							<span class="fragment" data-fragment-index="1">
 								as any sum:
 							</span>
-							
+
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							$$\sum_{i=1}^{n}x_{i}A_{i} = x_{1}A_{1} + x_{2}A_{2} + \cdots + x_{n}A_{n}$$
@@ -2125,12 +2129,14 @@
 					<div class="size-80 fragment" data-fragment-index="2" style="margin-top:20px;">
 						<p>On the previous slide, we saw that:</p>
 						<p>
-							$$A\mathbf x = \begin{pmatrix} | & | & & | \\ \mathbf a_{1} & \mathbf a_{2} & \cdots & \mathbf a_{n} \\ | & | & & |
-							\end{pmatrix} \begin{pmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n} \end{pmatrix} = x_{1}\mathbf a_{1} +
+							$$A\mathbf x = \begin{pmatrix} | & | & & | \\ \mathbf a_{1} & \mathbf a_{2} & \cdots &
+							\mathbf a_{n} \\ | & | & & |
+							\end{pmatrix} \begin{pmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n} \end{pmatrix} = x_{1}\mathbf
+							a_{1} +
 							x_{2}\mathbf a_{2} + \cdots + x_{n}\mathbf a_{n}$$
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
@@ -2146,13 +2152,14 @@
 									columns of $A$</strong>.
 							</li>
 						</ol>
-						<p class="fragment" data-fragment-index="3" >These two results are very, very important!!</p>
-						<p class="fragment" data-fragment-index="4" >We'll use them extensively later in the course. For now though, a few more important results
+						<p class="fragment" data-fragment-index="3">These two results are very, very important!!</p>
+						<p class="fragment" data-fragment-index="4">We'll use them extensively later in the course. For
+							now though, a few more important results
 							of block multiplication before we move on...</p>
 					</div>
-					<br/>
-					<br/>
-					
+					<br />
+					<br />
+
 				</section>
 
 				<section>
@@ -2160,45 +2167,92 @@
 					<div class="size-80">
 						<p>We finish this section with the following three important results of block multiplication.
 						</p>
-						<p>For matrices $A \in \mathbb{R}^{m \times n}$ and $B \in \mathbb{R}^{n \times p}$:</p>
-						<p>
+						<p class="fragment" data-fragment-index="0">For matrices $A \in \mathbb{R}^{m \times n}$ and $B
+							\in \mathbb{R}^{n \times p}$:</p>
+						<p class="fragment" data-fragment-index="1">
 							<strong>1. Row-Column Block Expansion:</strong>
 						</p>
 					</div>
 					<div class="size-75 cc" style="margin-top:15px;">
-						<p>
-							
-							$AB = \begin{pmatrix} - & a_{1} & - \\ - & a_{2} & - \\ & \vdots & \\ - & a_{m} & -
-							\end{pmatrix} \begin{pmatrix} | & | & & | \\ b_{1} & b_{2} & \cdots & b_{p} \\ | & | & & |
-							\end{pmatrix} = \begin{pmatrix} a_{1}b_{1} & a_{1}b_{2} & \cdots & a_{1}b_{p} \\ a_{2}b_{1}
-							& a_{2}b_{2} & \cdots & a_{2}b_{p} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m}b_{1} &
-							a_{m}b_{2} & \cdots & a_{m}b_{p} \end{pmatrix}$
+						<p class="fragment" data-fragment-index="1">
+
+							$AB = \begin{pmatrix} - & \overrightarrow{\mathbf a_{1}} & - \\ - & \overrightarrow{\mathbf
+							a_{2}} & - \\ & \vdots & \\ - & \overrightarrow{\mathbf a_{m}}& -
+							\end{pmatrix} \begin{pmatrix} | & | & & | \\ \mathbf b_{1} & \mathbf b_{2}& \cdots & \mathbf
+							b_{p} \\ | & | & & |
+							\end{pmatrix} $
+							<span class="fragment" data-fragment-index="2">
+								$
+								= \begin{pmatrix} \overrightarrow{\mathbf a_{1}}\,\mathbf b_{1} &
+								\overrightarrow{\mathbf a_{1}}\,\mathbf b_{2} & \cdots & \overrightarrow{\mathbf
+								a_{1}}\,\mathbf b_{p} \\ \overrightarrow{\mathbf a_{2}}\,\mathbf b_{1}
+								& \overrightarrow{\mathbf a_{2}}\,\mathbf b_{2} & \cdots & \overrightarrow{\mathbf
+								a_{2}}\,\mathbf b_{p} \\ \vdots & \vdots & \ddots & \vdots \\ \overrightarrow{\mathbf
+								a_{m}}\,\mathbf b_{1} &
+								\overrightarrow{\mathbf a_{m}}\,\mathbf b_{2} & \cdots & \overrightarrow{\mathbf
+								a_{m}}\,\mathbf b_{p} \end{pmatrix}
+								$
+							</span>
 						</p>
 					</div>
 
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 				<section>
 					<h4>Important results of block matrix multiplication (II) cont'd</h4>
+
+
+					<div class="size-75">
+						<p><strong>2. Matrix-Column Block Multiplication:</strong></p>
+					</div>
 					<div class="size-75 cc">
 						<p class="fragment" data-fragment-index="1">
-							<strong>2. Matrix-Column Block Multiplication:</strong>
-							$$AB = A \begin{pmatrix} | & | & & | \\ b_{1} & b_{2} & \cdots & b_{p} \\ | & | & & |
-							\end{pmatrix} = \begin{pmatrix} | & | & & | \\ Ab_{1} & Ab_{2} & \cdots & Ab_{p} \\ | & | &
-							& | \end{pmatrix}$$
+
+							$AB = A \begin{pmatrix} | & | & & | \\ \mathbf b_{1} & \mathbf b_{2} & \cdots & \mathbf
+							b_{p} \\ | & | & & |
+							\end{pmatrix} $
+							<span class="fragment" data-fragment-index="2">
+								$
+								= \begin{pmatrix} | & | & & | \\ A\mathbf b_{1} & A\mathbf b_{2} & \cdots & A\mathbf
+								b_{p} \\ | & | &
+								& | \end{pmatrix}
+								$
+							</span>
 						</p>
-						<br>
-						<p class="fragment" data-fragment-index="2">
-							<strong>3. Column-Row (Outer Product) Expansion:</strong>
-							$$AB = \begin{pmatrix} | & | & & | \\ a_{1} & a_{2} & \cdots & a_{n} \\ | & | & & |
-							\end{pmatrix} \begin{pmatrix} - & b_{1} & - \\ - & b_{2} & - \\ & \vdots & \\ - & b_{n} & -
-							\end{pmatrix} = a_{1}b_{1} + a_{2}b_{2} + \cdots + a_{n}b_{n}$$
+
+					</div>
+					<div class="size-75">
+						<p class="fragment" data-fragment-index="3"><strong>3. Column-Row (Outer Product)
+								Expansion:</strong>
+
+					</div>
+
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="3">
+
+							$AB = \begin{pmatrix} | & | & & | \\ \mathbf a_{1} & \mathbf a_{2} & \cdots & \mathbf a_{n}
+							\\ | & | & & |
+							\end{pmatrix} \begin{pmatrix} - & \overrightarrow{\mathbf b_{1}} & - \\ - &
+							\overrightarrow{\mathbf b_{2}} & - \\ & \vdots & \\ - & \overrightarrow{\mathbf b_{n}} & -
+							\end{pmatrix} $
+							<span class="fragment" data-fragment-index="4">
+								$
+								= \mathbf a_{1} \overrightarrow{\mathbf b_{1}} + \mathbf a_{2} \overrightarrow{\mathbf
+								b_{2}} + \cdots + \mathbf a_{n} \overrightarrow{\mathbf b_{n}}
+								$
+							</span>
 						</p>
 					</div>
+					<br />
+					<br />
 				</section>
 
+
+			</section>
+
+			<section>
 				<section>
 					<h4>Elementary Matrices and Row Operations</h4>
 					<div class="size-80">
