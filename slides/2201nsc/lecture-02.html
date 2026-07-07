@@ -2255,8 +2255,9 @@
 			<section>
 				<section>
 					<h4>Elementary Matrices and Row Operations</h4>
-					<div class="size-80">
-						<p>Recall the three row operations permitted in Gaussian elimination:</p>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="0">Recall the three row operations permitted in
+							Gaussian elimination:</p>
 						<ol>
 							<li class="fragment" data-fragment-index="1">Swapping rows;</li>
 							<li class="fragment" data-fragment-index="2">Rescaling one row;</li>
@@ -2264,7 +2265,7 @@
 							</li>
 						</ol>
 					</div>
-					<div class="size-80 style=" margin-top:15px;">
+					<div class="size-85 style=" margin-top:15px;">
 						<p class="fragment" data-fragment-index="4">
 							These operations can be represented by <strong>elementary matrices</strong>, $E_{i}$. There
 							is one elementary matrix for each operation.
@@ -2274,57 +2275,85 @@
 							$E_{i}$.
 						</p>
 						<p class="fragment" data-fragment-index="6">
-							The steps in Gaussian elimination can then be written as a product sequence:
+							The steps in <b>Gaussian elimination</b> can then be written as a product sequence:
 							$$A \rightarrow E_{1}A \rightarrow E_{2}E_{1}A \rightarrow \cdots \rightarrow
 							E_{k}E_{k-1}\cdots E_{2}E_{1}A$$
 						</p>
 					</div>
+					<br />
 				</section>
 
 				<section>
 					<h4>Elementary Matrices Examples</h4>
 					<div class="size-75 cc">
-						<p style="font-size: 0.9em;">
+						<p class="fragment" data-fragment-index="0" style="text-align: left !important;">
 							<strong>1. Interchanging two rows:</strong> Identity matrix with two off-diagonal 1s
-							$$\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 0 & -4 &
-							8 & 4 \\ 1 & -1 & 1 & 0 \\ 2 & 2 & 3 & 4 \end{pmatrix} = \begin{pmatrix} 1 & -1 & 1 & 0 \\ 0
-							& -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix}$$
+
 						</p>
-						<p class="fragment" style="font-size: 0.9em;">
+						<p class="fragment" data-fragment-index="1">
+							<span>
+								$\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 0 &
+								-4 &
+								8 & 4 \\ 1 & -1 & 1 & 0 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ = \begin{pmatrix} 1 & -1 & 1 & 0 \\ 0
+								& -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix}$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3" style="text-align: left !important;">
 							<strong>2. Rescaling one row:</strong> Identity matrix with one non-unit diagonal term
-							$$\begin{pmatrix} 1 & 0 & 0 \\ 0 & -1/4 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 &
-							-1 & 1 & 0 \\ 0 & -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix} = \begin{pmatrix} 1 & -1 & 1 & 0
-							\\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix}$$
 						</p>
-						<p class="fragment" style="font-size: 0.9em;">
-							<strong>3. Adding a multiple of one row to another:</strong> Identity matrix with an extra
-							off-diagonal term
-							$$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -2 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & -1
-							& 1 & 0 \\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix} = \begin{pmatrix} 1 & -1 & 1 & 0
-							\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$$
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & -1/4 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 &
+							-1 & 1 & 0 \\ 0 & -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \begin{pmatrix} 1 & -1 & 1 & 0
+							\\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix}$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="6" style="text-align: left !important;">
+							<strong>3. Adding a multiple of one row to another:</strong> 
+							 identity matrix with extra off-diagonal term
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -2 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & -1
+							& 1 & 0 \\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$= \begin{pmatrix} 1 & -1 & 1 & 0
+							\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$
+							</span>
+							
 						</p>
 					</div>
+					<br/>
 				</section>
 
 				<section>
 					<h4>Gaussian Elimination as a Product of Matrices</h4>
-					<div class="size-80">
+					<div class="size-90 fragment">
 						<p>We can systematically write out row reduction on an augmented matrix:</p>
 						<p>
-							$$(A \mid q) \rightarrow (B \mid r) \rightarrow (I \mid s)$$
+							$$\big(A \mid \mathbf q\big) \rightarrow \big(B \mid \mathbf r\big) \rightarrow \big(I \mid \mathbf s\big)$$
 						</p>
 					</div>
-					<div class="size-75 cc fragment" style="margin-top:15px;">
+					<div class="size-85 cc fragment" style="margin-top:15px;">
 						<p>
-							From our initial augmented matrix $(A \mid q)$ we obtain the upper-triangular form:
-							$$(B \mid r) = E_{k}\cdots E_{1}(A \mid q) = (E_{k}\cdots E_{1}A \mid E_{k}\cdots E_{1}q)$$
+							From our initial augmented matrix $\big(A \mid \mathbf q\big)$ we obtain the upper-triangular form:
+							$$\big(B \mid \mathbf r\big) = E_{k}\cdots E_{1}\big(A \mid \mathbf q\big) = \big(E_{k}\cdots E_{1}A \mid E_{k}\cdots E_{1}\mathbf q\big)$$
 						</p>
 						<p class="fragment" style="margin-top:15px;">
 							...and eventually the reduced row echelon solution:
-							$$(I \mid s) = (E_{m}\cdots E_{k+1})E_{k}\cdots E_{1}(A \mid q) = (E_{m}\cdots E_{1}A \mid
-							E_{m}\cdots E_{1}q)$$
+							$$\big(I \mid \mathbf s\big) = \big(E_{m}\cdots E_{k+1}\big)E_{k}\cdots E_{1}\big(A \mid \mathbf q\big) = \big(E_{m}\cdots E_{1}A \mid
+							E_{m}\cdots E_{1}\mathbf q\big)$$
 						</p>
 					</div>
+					<br/>
+					<br/>
 				</section>
 
 				<section>
@@ -2332,7 +2361,7 @@
 					<div class="size-80">
 						<p>We have just seen that the reduction process creates the tracking identity:</p>
 						<p>
-							$$(I \mid s) = (E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}q)$$
+							$$\big(I \mid \mathbf s\big) = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf q\big)$$
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							Which explicitly means that:
@@ -2342,14 +2371,15 @@
 					<div class="size-80 fragment" data-fragment-index="2" style="margin-top:20px;">
 						<p>It follows directly that if we start with the identity matrix inside the augmented side:</p>
 						<p>
-							$$E_{m}\cdots E_{1}(A \mid I) = (E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}I) = (I \mid
-							A^{-1})$$
+							$$E_{m}\cdots E_{1}\big(A \mid I\big) =\big (E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}I\big) = \big(I \mid
+							A^{-1}\big)$$
 						</p>
 						<p class="fragment" data-fragment-index="3">
-							<strong>Conclusion:</strong> We can use standard row reduction on the augmented matrix $(A
-							\mid I)$ to safely find the inverse matrix $A^{-1}$.
+							<strong>Conclusion:</strong> We can use standard row reduction on the augmented matrix $\big(A
+							\mid I\big)$ to safely find the inverse matrix $A^{-1}$.
 						</p>
 					</div>
+					<br/>
 				</section>
 
 				<section>
@@ -2402,7 +2432,7 @@
 								$\xrightarrow[(R_3 - R_1)]{(R_2 - R_1)} \begin{pmatrix} 3 & 2 & -1 & \mid & 1 & 0 & 0
 								\\ 0 & -1 & 0 & \mid & -1 & 1 & 0 \\ 0 & 0 & 2 & \mid & -1 & 0 & 1 \end{pmatrix}$
 							</span>
-							<br/><br/>
+							<br /><br />
 
 							<span class="fragment">
 								$\xrightarrow[R_3 \leftarrow R_3/2]{R_1 \leftarrow R_1 + 2R_2} \begin{pmatrix} 3 & 0 &
@@ -2417,15 +2447,16 @@
 								& 1/2 \end{pmatrix}$
 							</span>
 
-							<br/>
-							<br/>
+							<br />
+							<br />
 
 							<span class="fragment">
 								$\xrightarrow{R_1 \leftarrow R_1 / 3} \begin{pmatrix} 1 & 0 & 0 & \mid & -1/2 & 2/3 &
 								1/6 \\ 0 & 1 & 0 & \mid & 1 & -1 & 0 \\ 0 & 0 & 1 & \mid & -1/2 & 0 & 1/2
 								\end{pmatrix}\qquad$
 							</span>
-							<span class="fragment" style="color: green; text-align: center; font-size:1.1em; margin-top:5px;">
+							<span class="fragment"
+								style="color: green; text-align: center; font-size:1.1em; margin-top:5px;">
 								As required!
 							</span>
 						</p>
