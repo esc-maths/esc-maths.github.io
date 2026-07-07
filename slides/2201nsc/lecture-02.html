@@ -2474,24 +2474,26 @@
 				<section>
 					<h4>Matrix Inversion: Simple Example</h4>
 					<div class="size-80">
-						<p>Find the inverse of $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$</p>
+						<p>Find the inverse of $A = 
+							\left(\begin{array}{cc} 2 & 1 \\ 1 & 1 \end{array}\right)
+							$</p>
 					</div>
 					<div class="size-75 cc">
 						<p style="font-size:0.85em;">
-							$$\begin{pmatrix} 2 & 1 & \mid & 1 & 0 \\ 1 & 1 & \mid & 0 & 1 \end{pmatrix}
+							$\left(\begin{array}{cc|cc}  2 & 1  & 1 & 0 \\ 1 & 1  & 0 & 1 \end{array}\right)
 							\xrightarrow{R_1 \leftarrow \frac{1}{2}R_1}
-							\begin{pmatrix} 1 & \frac{1}{2} & \mid & \frac{1}{2} & 0 \\ 1 & 1 & \mid & 0 & 1
-							\end{pmatrix}$$
+							\left(\begin{array}{cc}  1 & \frac{1}{2} & \mid & \frac{1}{2} & 0 \\ 1 & 1 & \mid & 0 & 1
+							\end{array}\right)$
 
 							<span class="fragment">
-								$$\xrightarrow{R_2 \leftarrow R_2 - R_1}
+								$\xrightarrow{R_2 \leftarrow R_2 - R_1}
 								\begin{pmatrix} 1 & \frac{1}{2} & \mid & \frac{1}{2} & 0 \\ 0 & \frac{1}{2} & \mid &
-								-\frac{1}{2} & 1 \end{pmatrix}$$
+								-\frac{1}{2} & 1 \end{pmatrix}$
 							</span>
 
 							<span class="fragment">
-								$$\xrightarrow[R_1 \leftarrow R_1 - R_2]{R_2 \leftarrow 2R_2}
-								\begin{pmatrix} 1 & 0 & \mid & 1 & -1 \\ 0 & 1 & \mid & -1 & 2 \end{pmatrix}$$
+								$\xrightarrow[R_1 \leftarrow R_1 - R_2]{R_2 \leftarrow 2R_2}
+								\begin{pmatrix} 1 & 0 & \mid & 1 & -1 \\ 0 & 1 & \mid & -1 & 2 \end{pmatrix}$
 							</span>
 						</p>
 						<p class="fragment" style="margin-top:10px;">
