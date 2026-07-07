@@ -2731,14 +2731,15 @@ ans =
 
 			<section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>When is a Matrix Invertible?</h4>
 					<div class="size-85 fragment">
 						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
 						<p>The following statements about $A \in \mathbb{R}^{n \times n}$ are equivalent:</p>
 						<ul>
 							<li><strong>A:</strong> $A$ is invertible (nonsingular)</li>
-							<li><strong>B:</strong> The only solution to $Ax=0$ is $x=0$</li>
+							<li><strong>B:</strong> The only solution to $A\mathbf x=\mathbf 0$ is $\mathbf x=\mathbf 0$
+							</li>
 							<li><strong>C:</strong> $A$ is row-equivalent to $I$ (i.e., there is a sequence of
 								elementary matrices such that $E_m \dots E_1 A = I$)</li>
 						</ul>
@@ -2751,7 +2752,7 @@ ans =
 								<strong>For $A \Rightarrow B$:</strong>
 							</span>
 							<span class="fragment">
-								If $A$ is invertible and $Ax=0,$
+								If $A$ is invertible and $A\mathbf x=\mathbf 0,$
 							</span>
 
 						</p>
@@ -2760,91 +2761,194 @@ ans =
 					<div class="size-85 cc">
 						<p>
 							<span class="fragment">
-								then $\;x = Ix $
+								then $\;\mathbf x = I\mathbf x $
 							</span>
 							<span class="fragment">
 								$=
-							\left(A^{-1}A\right)x$
+								\left(A^{-1}A\right)\mathbf x$
 							</span>
 							<span class="fragment">
-								$ = A^{-1}\left(Ax\right) $
+								$ = A^{-1}\left(A\mathbf x\right) $
 							</span>
 							<span class="fragment">
-								$= A^{-1}0 $
+								$= A^{-1}\mathbf 0 $
 							</span>
 							<span class="fragment">
-								$= 0$.
+								$= \mathbf 0$.
 							</span>
 						</p>
 					</div>
 					<div class="size-85">
 						<p class="fragment">
-							 So $x=0$ is the only solution.
+							So $\mathbf x=\mathbf 0$ is the only solution.
 						</p>
 					</div>
 					<br />
 					<br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>When is a Matrix Invertible? (Cont'd)</h4>
-					
+
 					<div class="size-80">
 						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
-						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($Ax=0 \Rightarrow
-							x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
+						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=0
+							\Rightarrow
+							\mathbf x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
 					</div>
-					<div class="size-80" style="margin-top:15px;">
+					<div class="size-85" style="margin-top:15px;">
 						<h6>Proof Outline (Cont'd)</h6>
-						<p><strong>For $B \Rightarrow C$:</strong> Suppose $x=0$ is the only solution to $Ax=0$. Reduce
-							the augmented matrix $(A \mid 0)$ to $(U \mid 0)$ where $U$ is in reduced row echelon form.
+						<p><strong>For $B \Rightarrow C$:</strong>
+							<span class="fragment">
+								Suppose $\mathbf x=\mathbf 0$ is the only solution to $A\mathbf x=\mathbf 0$.
+							</span>
+							<span class="fragment">
+								Reduce
+								the augmented matrix $(A \mid \mathbf 0)$ to $(U \mid \mathbf 0)$
+								where $U$ is in reduced row echelon form.
+							</span>
+
 						</p>
-						<p class="fragment">If $U$ contains a zero row, then there is a family of solutions. But $x=0$
-							is the only solution, so $U$ has no zero rows.</p>
-						<p class="fragment">Since $A$ is an $n \times n$ matrix, $U = I$. So there exist elementary
-							matrices $E_1, E_2, \dots, E_m$ such that $E_m \dots E_1 A = I$. Hence $A$ is row-equivalent
-							to $I$.</p>
+						<p>
+							<span class="fragment">
+								If $U$ contains a zero row,
+							</span>
+							<span class="fragment">
+								then there is a family of solutions.
+							</span>
+							<span class="fragment">
+								But $\mathbf x=\mathbf 0$
+								is the only solution, so $U$ has no zero rows.
+							</span>
+						</p>
+						<p>
+							<span class="fragment">
+								Since $A$ is an $n \times n$ matrix, $U = I$.
+							</span>
+							<span class="fragment">
+								So there exist elementary
+								matrices $E_1, E_2, \dots, E_m$ such that $E_m \dots E_1 A = I$.
+
+							</span>
+							<span class="fragment">
+
+								Hence $A$ is row-equivalent
+								to $I$.
+							</span>
+						</p>
 					</div>
-					<br/>
+					<br />
+					<br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>When is a Matrix Invertible? (Cont'd)</h4>
 					<div class="size-80">
 						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
-						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($Ax=0 \Rightarrow
-							x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
+						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=0
+							\Rightarrow
+							\mathbf x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
 					</div>
-					<div class="size-80" style="margin-top:15px;">
+					<div class="size-85" style="margin-top:15px;">
 						<h6>Proof Outline (Cont'd)</h6>
-						<p><strong>For $C \Rightarrow A$:</strong> If $A$ is row-equivalent to $I$, then there exist
-							elementary matrices $E_1, E_2, \dots, E_m$ such that $E_m \dots E_1 A = I$.</p>
-						<p class="fragment">Therefore, $A^{-1} = E_m \dots E_1$. So $A^{-1}$ exists, and hence $A$ is
-							invertible.</p>
+						<p>
+							<strong>For $C \Rightarrow A$:</strong>
+							<span class="fragment">
+								If $A$ is row-equivalent
+								to $I,$
+							</span>
+							<span class="fragment">
+								then there exist
+								elementary matrices $E_1, E_2, \dots, E_m$ such
+								that $E_m \dots E_1 A = I.$
+							</span>
+						</p>
+						<p>
+							<span class="fragment">
+								Therefore, $A^{-1} = E_m \dots E_1$.
+							</span>
+							<span class="fragment">
+								So $A^{-1}$
+								exists,
+							</span>
+							<span class="fragment">
+								and hence $A$ is
+								invertible.
+							</span>
+						</p>
 					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
 				</section>
 
 				<section>
 					<h4>When do Linear Systems have Unique Solutions?</h4>
-					<div class="size-80">
+					<div class="size-80 fragment">
 						<h5>Corollary (Uniqueness of solutions for linear systems)</h5>
-						<p>The linear system $Ax=b$ comprising $n$ equations in $n$ unknowns has a unique solution iff
+						<p>The linear system $A\mathbf x=\mathbf b$ comprising $n$ 
+							equations in $n$ unknowns has a unique solution iff
 							$A$ is nonsingular.</p>
 					</div>
 					<div class="size-85 fragment" style="margin-top:10px;">
 						<h6>Equivalent Two-Part Corollary Proof Outline:</h6>
-						<ol>
-							<li><strong>$A$ is nonsingular $\Rightarrow Ax=b$ has a unique solution:</strong> Since $A$
-								is nonsingular, $A^{-1}$ exists, so the only possible solution is $x = (A^{-1}A)x =
-								A^{-1}(Ax) = A^{-1}b$.</li>
-							<li class="fragment"><strong>$A$ is singular $\Rightarrow Ax=b$ has no solution or (at
-									least) two solutions:</strong> If $A$ is singular, $Ax=0$ has a non-zero solution
-								$x_0$. Suppose $x_b$ is a solution of $Ax=b$. Let $y = x_b + x_0$. Then $Ay = A(x_b +
-								x_0) = Ax_b + Ax_0 = b + 0 = b$.</li>
+						<ol style="line-height: 60px; margin-left: 0px;">
+							<li class="fragment">
+								<strong>
+									$A$ is nonsingular $\Rightarrow A\mathbf x=\mathbf b$ has a unique solution:
+								</strong>
+								<span class="fragment">
+									Since $A$
+									is nonsingular,
+								</span>
+								<span class="fragment">
+									$A^{-1}$ exists,
+								</span>
+								<span class="fragment">
+									so the only possible solution is $\mathbf x = \left(A^{-1}A\right)\mathbf x$
+								</span>
+								<span class="fragment">
+									$ = A^{-1}\left(A\mathbf x\right)$
+								</span>
+								<span class="fragment">
+									$ = A^{-1}\mathbf b$.
+								</span>
+							</li>
+							<li class="fragment">
+								<strong>
+									$A$ is singular $\Rightarrow A\mathbf x=\mathbf b$ has no solution or (at
+									least) two solutions:
+								</strong>
+								<span class="fragment">
+									If $A$ is singular,
+								</span>
+								<span class="fragment">
+									$A\mathbf x=\mathbf 0$ has a non-zero solution
+									$\mathbf x_0$.
+								</span>
+								<span class="fragment">
+									Suppose $\mathbf x_b$ is a solution of $A\mathbf x=\mathbf b.$
+								</span>
+								<span class="fragment">
+									Let $\mathbf y = \mathbf x_b + \mathbf x_0$.
+								</span>
+								<span class="fragment">
+									Then $A\mathbf y = A(\mathbf x_b +
+									\mathbf x_0) = A\mathbf x_b + A\mathbf x_0 $
+								</span>
+								<span class="fragment">
+									$ =\mathbf b + 0 = \mathbf b$.
+								</span>
+								
+							</li>
 						</ol>
-						<p class="fragment" style="margin-top:10px;">Thus, if $A$ is singular, $Ax=b$ has either no
+						<p class="fragment" style="margin-top:10px;">
+							Thus, if $A$ is singular, $A\mathbf x=\mathbf b$ has either no
 							solution or at least two solutions.</p>
 					</div>
+					<br />
 				</section>
 
 				<section>
@@ -2852,14 +2956,14 @@ ans =
 					<div class="size-80">
 						<h5>A condition for a nonsingular matrix</h5>
 						<p>We have just seen that:</p>
-						<p style="text-align:center;">$A \text{ is nonsingular} \iff Ax=b \text{ has a unique solution}$
+						<p style="text-align:center;">$A \text{ is nonsingular} \iff A\mathbf x=\mathbf b \text{ has a unique solution}$
 						</p>
 						<p class="fragment">We would like a measurable property of the matrix itself that distinguishes
 							singular from nonsingular matrices.</p>
 						<p class="fragment">To achieve this, we introduce a quantity known as the
 							<strong>determinant</strong>.
 						</p>
-						<ul>
+						<ul style="line-height: 60px;">
 							<li class="fragment">We denote the determinant of a square matrix $A$ by $\det A$ or by
 								$|A|$.</li>
 							<li class="fragment">$\det A$ is calculated from the matrix elements $a_{ij}$.</li>
@@ -2868,14 +2972,21 @@ ans =
 						<p class="fragment" style="margin-top:15px;"><strong>So how do we calculate $\det A$?</strong>
 						</p>
 					</div>
+					<br/>
 				</section>
 
 				<section>
 					<h4>Determinants: Derivations</h4>
 					<div class="size-80">
 						<h5>Determinants for $A \in \mathbb{R}^{1 \times 1}$ and $A \in \mathbb{R}^{2 \times 2}$</h5>
+						<ul>
+							<li class="fragment">A $1 \times 1$ matrix $A = (a_{11})$ will have an inverse if and only if $a_{11} \neq
+								0$. We therefore define $\det A = a_{11}$ for a $1 \times 1$ matrix.</li>
+							
+						</ul>
+						<hr/>
 						<ol>
-							<li>A $1 \times 1$ matrix $A = (a_{11})$ will have an inverse if and only if $a_{11} \neq
+							<li class="fragment">A $1 \times 1$ matrix $A = (a_{11})$ will have an inverse if and only if $a_{11} \neq
 								0$. We therefore define $\det A = a_{11}$ for a $1 \times 1$ matrix.</li>
 							<li class="fragment">An $A \in \mathbb{R}^{2 \times 2}$ matrix $A = \begin{pmatrix} a_{11} &
 								a_{12} \\ a_{21} & a_{22} \end{pmatrix}$ is nonsingular if and only if it can be row
