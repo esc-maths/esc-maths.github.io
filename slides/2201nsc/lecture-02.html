@@ -2888,7 +2888,7 @@ ans =
 					<h4>When do Linear Systems have Unique Solutions?</h4>
 					<div class="size-80 fragment">
 						<h5>Corollary (Uniqueness of solutions for linear systems)</h5>
-						<p>The linear system $A\mathbf x=\mathbf b$ comprising $n$ 
+						<p>The linear system $A\mathbf x=\mathbf b$ comprising $n$
 							equations in $n$ unknowns has a unique solution iff
 							$A$ is nonsingular.</p>
 					</div>
@@ -2941,7 +2941,7 @@ ans =
 								<span class="fragment">
 									$ =\mathbf b + 0 = \mathbf b$.
 								</span>
-								
+
 							</li>
 						</ol>
 						<p class="fragment" style="margin-top:10px;">
@@ -2956,7 +2956,8 @@ ans =
 					<div class="size-80">
 						<h5>A condition for a nonsingular matrix</h5>
 						<p>We have just seen that:</p>
-						<p style="text-align:center;">$A \text{ is nonsingular} \iff A\mathbf x=\mathbf b \text{ has a unique solution}$
+						<p style="text-align:center;">$A \text{ is nonsingular} \iff A\mathbf x=\mathbf b \text{ has a
+							unique solution}$
 						</p>
 						<p class="fragment">We would like a measurable property of the matrix itself that distinguishes
 							singular from nonsingular matrices.</p>
@@ -2972,115 +2973,194 @@ ans =
 						<p class="fragment" style="margin-top:15px;"><strong>So how do we calculate $\det A$?</strong>
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
 					<h4>Determinants: Derivations</h4>
 					<div class="size-80">
-						<h5>Determinants for $A \in \mathbb{R}^{1 \times 1}$ and $A \in \mathbb{R}^{2 \times 2}$</h5>
-						<ul>
-							<li class="fragment">A $1 \times 1$ matrix $A = (a_{11})$ will have an inverse if and only if $a_{11} \neq
-								0$. We therefore define $\det A = a_{11}$ for a $1 \times 1$ matrix.</li>
-							
-						</ul>
-						<hr/>
+
+						<p class="fragment">
+							<b>
+								For $A \in \mathbb{R}^{1 \times 1}$:
+							</b>
+							A $1 \times 1$ matrix $A = (a_{11})$ will have an inverse if and only if $a_{11} \neq
+							0$.
+							<span class="fragment">
+								We therefore define $\det A = a_{11}$ for a $1 \times 1$ matrix.
+							</span>
+
+						</p>
+
+
+
+					</div>
+					<div class="size-80">
+						<hr />
+						<p class="fragment"><b>For $A \in \mathbb{R}^{2 \times 2}$:</b></p>
+
 						<ol>
-							<li class="fragment">A $1 \times 1$ matrix $A = (a_{11})$ will have an inverse if and only if $a_{11} \neq
-								0$. We therefore define $\det A = a_{11}$ for a $1 \times 1$ matrix.</li>
+
 							<li class="fragment">An $A \in \mathbb{R}^{2 \times 2}$ matrix $A = \begin{pmatrix} a_{11} &
 								a_{12} \\ a_{21} & a_{22} \end{pmatrix}$ is nonsingular if and only if it can be row
 								reduced to $I$.</li>
 							<li class="fragment">
 								We perform the row reductions:
-								$$\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}
-								\xrightarrow{a_{11}R_2 - a_{21}R_1} \begin{pmatrix} a_{11} & a_{12} \\ 0 & a_{11}a_{22}
-								- a_{12}a_{21} \end{pmatrix}$$
+								<p style="text-align: center;">
+									$
+									\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}
+									\begin{array}{l} R1 \\ R2\end{array}
+									$
+									<span class="fragment">
+										$
+										\rightarrow
+										\begin{pmatrix} a_{11} & a_{12} \\ 0 & a_{11}a_{22}- a_{12}a_{21} \end{pmatrix}
+										\begin{array}{l} R1 \\ a_{11}R2- a_{21}R1 \end{array}
+										$
+									</span>
+								</p>
+
 							</li>
-							<li class="fragment">We will be able to row reduce $A$ to $I$ as long as $a_{11}a_{22} -
-								a_{12}a_{21} \neq 0$.</li>
+							<li class="fragment">
+								We will be able to row reduce $A$ to $I$ as long as
+								$a_{11}a_{22} -
+								a_{12}a_{21} \neq 0$.
+							</li>
 						</ol>
 					</div>
+					<br />
 				</section>
 
 				<section>
 					<h4>Determinants for $A \in \mathbb{R}^{2 \times 2}$ (Cont'd)</h4>
-					<div class="size-80">
-						<ol>
+					<div class="size-85">
+						<ol style="line-height: 55px;">
 							<li>But what if $a_{11} = 0$?</li>
 							<li class="fragment">Let's assume $a_{21} \neq 0$:
-								$$\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix} \rightarrow
-								\begin{pmatrix} a_{21} & a_{22} \\ 0 & a_{12} \end{pmatrix}$$
+								<p style="text-align: center; margin-top: -15px;">
+									<span class="fragment">
+										$\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix} \rightarrow
+										\begin{pmatrix} a_{21} & a_{22} \\ 0 & a_{12} \end{pmatrix}$
+									</span>
+								</p>
 							</li>
 							<li class="fragment">We will be able to row reduce $A$ to $I$ as long as $a_{12} \neq 0$ and
-								$a_{21} \neq 0$... which is equivalent to $a_{11}a_{22} - a_{12}a_{21} \neq 0$ when
-								$a_{11} = 0$.</li>
-							<li class="fragment">Finally, we note that if $a_{11} = a_{21} = 0$, then $A$ is not
-								row-reducible to $I$... but $a_{11}a_{22} - a_{12}a_{21} = 0$ in this case!</li>
+								$a_{21} \neq 0$...
+								<span class="fragment">
+									which is equivalent to $a_{11}a_{22} - a_{12}a_{21} \neq 0$ when
+									$a_{11} = 0$.
+								</span>
+							</li>
+							<li class="fragment">
+								Finally, we note that if $a_{11} = a_{21} = 0,$
+								<span>
+									then $A$ is not
+									row-reducible to $I$...
+								</span>
+								<span class="fragment">
+									but $a_{11}a_{22} - a_{12}a_{21} = 0$
+									in this case!
+								</span>
+							</li>
 						</ol>
-						<p class="fragment" style="margin-top:15px;">We therefore define:
-							$$\det A = a_{11}a_{22} - a_{12}a_{21} \text{ for a } 2 \times 2 \text{ matrix}$$
-						</p>
+
+						<div class="cc fragment" style="margin-top: 10px; border: 1px solid black;">
+							<p>
+								We therefore define: $\det A = a_{11}a_{22} - a_{12}a_{21}$ for a $ 2 \times 2$ matrix.
+							</p>
+						</div>
 					</div>
+					<Br />
 				</section>
 
 				<section>
 					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$</h4>
 					<div class="size-80">
-						<ol>
+						<ol style="line-height: 50px;">
 							<li>$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
 								a_{32} & a_{33} \end{pmatrix}$ is nonsingular iff it can be row reduced to $I$.</li>
 							<li class="fragment">We perform the row reductions:
-								$$\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
-								a_{32} & a_{33} \end{pmatrix} \rightarrow \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ 0
-								& a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\ 0 & a_{11}a_{32}-a_{31}a_{12}
-								& a_{11}a_{33}-a_{31}a_{13} \end{pmatrix}$$
+								<p style="text-align: center; margin-top: 10px;">
+									$\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
+									a_{32} & a_{33} \end{pmatrix} \rightarrow \begin{pmatrix} a_{11} & a_{12} & a_{13}
+									\\ 0
+									& a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\ 0 &
+									a_{11}a_{32}-a_{31}a_{12}
+									& a_{11}a_{33}-a_{31}a_{13} \end{pmatrix}$
+								</p>
+
 							</li>
 							<li class="fragment">We will be able to row reduce $A$ to $I$ as long as:
-								$$\det \begin{pmatrix} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
-								a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{pmatrix} \neq 0$$
+								<p style="text-align: center; margin-top: 10px;">
+									$\det \begin{pmatrix} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
+									a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{pmatrix} \neq 0$
+								</p>
 							</li>
 						</ol>
 					</div>
+					<br>
+					<br>
 				</section>
 
 				<section>
 					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$ (Cont'd)</h4>
-					<div class="size-75 cc">
-						<p>$$\left| \begin{array}{cc} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
-							a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{array} \right|$$</p>
-						<p class="fragment">$$= [a_{11}a_{22}-a_{21}a_{12}][a_{11}a_{33}-a_{31}a_{13}] -
-							[a_{11}a_{32}-a_{31}a_{12}][a_{11}a_{23}-a_{21}a_{13}]$$</p>
-						<p class="fragment">$$= \dots$$</p>
-						<p class="fragment">$$=
-							a_{11}[a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}]$$
-						</p>
+					<div class="size-80">
+						<p>$\left| \begin{array}{cc} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
+							a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{array} \right|$</p>
+						<p class="fragment">$= [a_{11}a_{22}-a_{21}a_{12}][a_{11}a_{33}-a_{31}a_{13}] -
+							[a_{11}a_{32}-a_{31}a_{12}][a_{11}a_{23}-a_{21}a_{13}]$</p>
+						<div class="fragment">
+							<p>$= \dots$</p>
+							<p>$=
+								a_{11}[a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}]$
+							</p>
+						</div>
 					</div>
 					<div class="size-80 fragment" style="margin-top:10px;">
 						<p>In analogy with the $2 \times 2$ case, for a $3 \times 3$ matrix we could propose:</p>
 						<p>$$\det A =
 							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$$
 						</p>
-						<p style="margin-top:5px; font-style: italic;">But what about the cases where $a_{11}=0$, etc.?
+						<p style="margin-top:5px;;" class="fragment">But what about the cases where $a_{11}=0$, etc.?
 						</p>
 					</div>
+					<br />
+					<br />
 				</section>
 
 				<section>
 					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$ (Cont'd)</h4>
-					<div class="size-80">
+					<div class="size-85">
 						<p>Just as in the $2 \times 2$ case, the $3 \times 3$ definition for $\det A$ works in all the
 							special cases where $a_{11}$, $a_{21}$ or $a_{31}$ are zero.</p>
-						<p class="fragment">We therefore define the determinant of a $3 \times 3$ matrix as:</p>
-						<p class="fragment">$$\det A =
-							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$$
-						</p>
+						<div class="fragment">
+							<p>We therefore define the determinant of a $3 \times 3$ matrix as:</p>
+							<p style="font-size: 0.9em; text-align: center;">$\det A =
+								a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$
+							</p>
+						</div>
 					</div>
-					<div class="size-80 fragment" style="margin-top:15px;">
-						<p>But remembering a formula like this is difficult... and it won't get any easier as our
+					<div class="size-80" style="margin-top:15px;">
+						<p class="fragment">But remembering a formula like this is difficult... and it won't get any
+							easier as our
 							matrices get bigger.</p>
-						<p><strong>Is there a better way to calculate the determinant?</strong></p>
+
 					</div>
+					<div class="fragment">
+						<div class="cc">
+							<p><strong>Is there a better way to calculate the determinant?</strong></p>
+						</div>
+						<div>
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+									width="100" height="100">
+							</picture>
+						</div>
+					</div>
+
+					<br />
 				</section>
 
 			</section>
