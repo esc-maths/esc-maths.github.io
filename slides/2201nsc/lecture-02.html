@@ -3175,11 +3175,34 @@ ans =
 
 						<p style="margin-top:10px;"><strong>Example:</strong> For a $4 \times 4$ matrix, removing row 2
 							and column 3 yields $M_{23}$:</p>
-						$$A = \begin{pmatrix} a_{11} & a_{12} & \color{red}{a_{13}} & a_{14} \\ \color{red}{a_{21}} &
-						\color{red}{a_{22}} & \color{red}{a_{23}} & \color{red}{a_{24}} \\ a_{31} & a_{32} &
-						\color{red}{a_{33}} & a_{34} \\ a_{41} & a_{42} & \color{red}{a_{43}} & a_{44} \end{pmatrix}
-						\implies M_{23} = \begin{pmatrix} a_{11} & a_{12} & a_{14} \\ a_{31} & a_{32} & a_{34} \\ a_{41}
-						& a_{42} & a_{44} \end{pmatrix}$$
+
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} & a_{14} \\
+								a_{21} & a_{22} & a_{23} & a_{24} \\ a_{31} & a_{32} & a_{33} & a_{34} \\ 
+								a_{41} & a_{42} & a_{43} & a_{44}
+								\end{pmatrix}\qquad\qquad \qquad\qquad \qquad\quad\,
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$A = \begin{pmatrix} a_{11} & a_{12} & \color{red}{a_{13}} & a_{14} \\
+								\color{red}{a_{21}} &
+								\color{red}{a_{22}} & \color{red}{a_{23}} & \color{red}{a_{24}} \\ a_{31} & a_{32} &
+								\color{red}{a_{33}} & a_{34} \\ a_{41} & a_{42} & \color{red}{a_{43}} & a_{44}
+								\end{pmatrix}\qquad\qquad \qquad\qquad \qquad\quad\,
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="2">
+								$A = \begin{pmatrix} a_{11} & a_{12} & \color{red}{a_{13}} & a_{14} \\
+								\color{red}{a_{21}} &
+								\color{red}{a_{22}} & \color{red}{a_{23}} & \color{red}{a_{24}} \\ a_{31} & a_{32} &
+								\color{red}{a_{33}} & a_{34} \\ a_{41} & a_{42} & \color{red}{a_{43}} & a_{44}
+								\end{pmatrix}
+								\implies M_{23} = \begin{pmatrix} a_{11} & a_{12} & a_{14} \\ a_{31} & a_{32} & a_{34}
+								\\ a_{41}
+								& a_{42} & a_{44} \end{pmatrix}$
+							</p>
+						</div>
 					</div>
 					<div class="size-80 fragment" style="margin-top:15px;">
 						<p>We then define the <strong>cofactor</strong> $C_{ij}$ as:</p>
@@ -3189,29 +3212,34 @@ ans =
 
 				<section>
 					<h4>Determinants: Formal Definition</h4>
-					<div class="size-80">
-						<h5>Definition of the Determinant</h5>
+					
+					<div class="size-90" style="margin-top: 40px;">
+						
 						<p>The determinant of a square matrix $A \in \mathbb{R}^{n \times n}$ is defined inductively by:
 						</p>
 						$$\det A = \begin{cases} a_{11} & \text{if } n=1 \\ \sum_{i=1}^{n} a_{1i} C_{1i} & \text{if }
 						n>1 \end{cases}$$
-						<p style="margin-top:15px;">where $C_{1i}$ is the cofactor of the corresponding element $a_{1i}$
+						<p style="margin-top:15px;" class="fragment">where $C_{1i}$ is the cofactor of the corresponding element $a_{1i}$
 							in the first row.</p>
 					</div>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
 				</section>
 
 				<section>
-					<h4>Determinants: Formal Definition (Cont'd)</h4>
-					<div class="size-80">
-						<h5>Important Generalization</h5>
+					<h4>Determinants: Formal Definition (Cont'd): Important Generalization</h4>
+					<div class="size-75">
+						
 						<p>We are not forced to sum the terms $a_{ij}C_{ij}$ along the top row only!</p>
 						<ul>
 							<li>$\det A = \sum_{i=1}^{n} a_{ki} C_{ki}$ along any row $k$</li>
 							<li>$\det A = \sum_{i=1}^{n} a_{ik} C_{ik}$ down any column $k$</li>
 						</ul>
 					</div>
-					<div class="size-80 fragment" style="margin-top:10px;">
-						<h6>Example: Compute the following determinant</h6>
+					<div class="size-70 fragment" style="margin-top:20px;">
+						<h5>Example: Compute the following determinant</h5>
 						<p>We can expand down the first column to take advantage of the zeros:</p>
 						$$\begin{vmatrix} 0 & 2 & 3 & 0 \\ 0 & 4 & 5 & 0 \\ 0 & 1 & 0 & 3 \\ 2 & 0 & 1 & 3 \end{vmatrix}
 						= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & 0 \\ 4 & 5 & 0 \\ 1 & 0 & 3 \end{vmatrix}$$
