@@ -61,592 +61,1340 @@
 					</span>
 
 				</div>
-				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Linear Transformations
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Matrices <br/> Part II
 				</p>
 
 				<div style="margin-top: -40px; margin-bottom:20px;">
-					<img src="images/fractal/f003.png" style="width: 500px; ">
+					<img src="images/fractal/f002.png" style="width: 500px; ">
 				</div>
 			</section>
 
 			<section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Mapping</h5>
-						<p>Consider the mapping (transformation) from $\mathbb{R}^2 \mapsto \mathbb{R}^2$, given by:</p>
-						$$(x,y) \mapsto (-y,x)$$
-						<p class="fragment" style="margin-top:15px;">This mapping rotates vectors through an angle of
-							$90^{\circ}$ (anticlockwise).</p>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Definition</h5>
-						<p>A mapping $T$ from a vector space $V$ into a vector space $W$ (written $T:V \rightarrow W$)
-							is
-							said to be a <strong>linear transformation</strong> if for all $\mathbf{u}, \mathbf{v} \in
-							V$
-							and $\alpha, \beta \in \mathbb{R}$:</p>
-
-						<div class="fragment" style="margin-top:10px;">
-							$$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v}) \quad \text{and} \quad T(\alpha
-							\mathbf{u}) = \alpha T(\mathbf{u})$$
-						</div>
-
-						<p class="fragment" style="margin-top:10px;">or equivalently:</p>
-
-						<div class="fragment">
-							$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$$
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Example of a Linear Transformation (1)</h5>
-						<p>Suppose $T$ is an anti-clockwise rotation by $90^{\circ}$ in the $x$-$y$ plane.</p>
-						<p class="fragment" style="margin-top:15px;">Geometrically, we can see that the diagonal of the
-							sum
-							vector parallelogram rotates along with its components:</p>
-						<div class="fragment">
-							$$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$$
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Example of a Linear Transformation (2)</h5>
-						<p>Similarly, for scaling a vector by a scalar constant $\alpha$ under the same $90^{\circ}$
-							anti-clockwise rotation:</p>
-						<div class="fragment" style="margin-top:20px;">
-							$$\alpha T(\mathbf{v}) = T(\alpha \mathbf{v})$$
-						</div>
-						<p class="fragment" style="margin-top:15px;">Therefore, $T(\alpha \mathbf{v}) = \alpha
-							T(\mathbf{v})$ holds true.</p>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>A Mapping That is Not a Linear Transformation</h5>
-						<p>$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2$ given by $T\begin{pmatrix} x \\ y \end{pmatrix} =
-							\begin{pmatrix} x + 1 \\ y \end{pmatrix}$</p>
-
-						<div class="fragment" style="margin-top:10px;">
-							<p>Let's test with a counterexample. Say $\mathbf{u} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$
-								and
-								$\mathbf{v} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$:</p>
-							$$\mathbf{u}+\mathbf{v} = \begin{pmatrix} 3 \\ 2 \end{pmatrix} \implies
-							T(\mathbf{u}+\mathbf{v})
-							= \begin{pmatrix} 4 \\ 2 \end{pmatrix}$$
-						</div>
-
-						<div class="fragment" style="margin-top:10px;">
-							<p>But computing them individually yields:</p>
-							$$T(\mathbf{u}) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad T(\mathbf{v}) =
-							\begin{pmatrix} 2
-							\\ 1 \end{pmatrix} \implies T(\mathbf{u}) + T(\mathbf{v}) = \begin{pmatrix} 5 \\ 2
-							\end{pmatrix}$$
-						</div>
-
-						<p class="fragment" style="color: #ff5555; margin-top:10px;">Since $T(\mathbf{u}) +
-							T(\mathbf{v})
-							\neq T(\mathbf{u}+\mathbf{v})$, it is <strong>not</strong> a linear transformation.</p>
-
-						<p class="fragment" style="font-size: 85%; margin-top:10px;"><em>Note: You can disprove
-								linearity
-								with a single counterexample. However, to prove a mapping is a linear transformation,
-								you
-								must show it holds in general.</em></p>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Class Examples</h5>
-						<ol style="line-height: 50px;">
-							<li>Show that the following mapping $T:\mathbb{R}^2 \mapsto \mathbb{R}^2$ is not linear:
-								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ x_1 - 1
-								\end{pmatrix}$$
-							</li>
-							<li class="fragment" style="margin-top:15px;">Determine whether the transformation
-								$T:\mathbb{R}^2 \mapsto \mathbb{R}^3$ is linear:
-								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_1 \\ x_2 \\ x_1^2 +
-								x_2^2
-								\end{pmatrix}$$
+				<section>
+					<h4>Elementary Matrices and Row Operations</h4>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="0">Recall the three row operations permitted in
+							Gaussian elimination:</p>
+						<ol>
+							<li class="fragment" data-fragment-index="1">Swapping rows;</li>
+							<li class="fragment" data-fragment-index="2">Rescaling one row;</li>
+							<li class="fragment" data-fragment-index="3">Adding a multiple of one row to another row.
 							</li>
 						</ol>
 					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Proving a Mapping is a Linear Transformation (a)</h5>
-						<p>Consider another transformation on $\mathbb{R}^2$ given by $T(\mathbf{v}) = 3\mathbf{v}$. We
-							check the core properties to confirm if $T$ is linear.</p>
-
-						<div class="fragment" style="margin-top:15px;">
-							<h6>(a) Check whether $T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$</h6>
-							<p>Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
-								\begin{pmatrix}
-								v_1 \\ v_2 \end{pmatrix}$, meaning $\mathbf{u}+\mathbf{v} = \begin{pmatrix} u_1 + v_1 \\
-								u_2
-								+ v_2 \end{pmatrix}$:</p>
-							$$T(\mathbf{u}+\mathbf{v}) = T\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix} =
-							3\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix} = \begin{pmatrix} 3u_1 + 3v_1 \\ 3u_2
-							+
-							3v_2 \end{pmatrix}$$
-							$$= 3\begin{pmatrix} u_1 \\ u_2 \end{pmatrix} + 3\begin{pmatrix} v_1 \\ v_2 \end{pmatrix} =
-							T(\mathbf{u}) + T(\mathbf{v})$$
-						</div>
+					<div class="size-85 style=" margin-top:15px;">
+						<p class="fragment" data-fragment-index="4">
+							These operations can be represented by <strong>elementary matrices</strong>, $E_{i}$. There
+							is one elementary matrix for each operation.
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							The operation is achieved by multiplying a given matrix <strong>on the left</strong> by
+							$E_{i}$.
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							The steps in <b>Gaussian elimination</b> can then be written as a product sequence:
+							$$A \rightarrow E_{1}A \rightarrow E_{2}E_{1}A \rightarrow \cdots \rightarrow
+							E_{k}E_{k-1}\cdots E_{2}E_{1}A$$
+						</p>
 					</div>
+					<br />
 				</section>
 
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Proving a Mapping is a Linear Transformation (b)</h5>
-						<h6>(b) Check whether $T(\alpha \mathbf{u}) = \alpha T(\mathbf{u})$</h6>
+				<section>
+					<h4>Elementary Matrices Examples</h4>
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="0" style="text-align: left !important;">
+							<strong>1. Interchanging two rows:</strong> Identity matrix with two off-diagonal 1s
 
-						<div class="fragment" style="margin-top:20px;">
-							<p>Using the same mapping $T(\mathbf{v}) = 3\mathbf{v}$ with an arbitrary scalar $\alpha \in
-								\mathbb{R}$:</p>
-							$$T(\alpha \mathbf{u}) = T\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix} =
-							3\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix} = \alpha \left[ 3\begin{pmatrix} u_1
-							\\
-							u_2 \end{pmatrix} \right] = \alpha T(\mathbf{u})$$
-						</div>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							<span>
+								$\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 0 &
+								-4 &
+								8 & 4 \\ 1 & -1 & 1 & 0 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ = \begin{pmatrix} 1 & -1 & 1 & 0 \\ 0
+								& -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix}$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3" style="text-align: left !important;">
+							<strong>2. Rescaling one row:</strong> Identity matrix with one non-unit diagonal term
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & -1/4 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1
+								&
+								-1 & 1 & 0 \\ 0 & -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								$= \begin{pmatrix} 1 & -1 & 1 & 0
+								\\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix}$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="6" style="text-align: left !important;">
+							<strong>3. Adding a multiple of one row to another:</strong>
+							identity matrix with extra off-diagonal term
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="7">
+								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -2 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 &
+								-1
+								& 1 & 0 \\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$= \begin{pmatrix} 1 & -1 & 1 & 0
+								\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$
+							</span>
 
-						<p class="fragment" style="color: #4df3a9; margin-top:20px;">Both rules are satisfied, so
-							$T(\mathbf{v}) = 3\mathbf{v}$ is rigorously proven to be a linear transformation!</p>
+						</p>
 					</div>
+					<br />
 				</section>
 
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Using the Alternate Definition (1)</h5>
-						<p>Consider the mapping from $\mathbb{R}^2$ to $\mathbb{R}^3$ given by:</p>
-						$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = (x_2, x_1, x_1 + x_2)^T = \begin{pmatrix} x_2 \\
-						x_1
-						\\ x_1 + x_2 \end{pmatrix}$$
+				<section>
+					<h4>Gaussian Elimination as a Product of Matrices</h4>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">We can systematically write out row reduction on an
+							augmented matrix:</p>
+						<div class="cc size-75">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{cccc|c}
+								a_{11} & a_{12} & \cdots & a_{1n} & q_{1}\\
+								a_{21} & a_{22} & \cdots & a_{2n} & q_{2} \\
+								\vdots & \vdots & \ddots & \vdots & \vdots \\
+								a_{n1} & a_{n2} & \cdots & a_{nn} & q_{n} \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="1">
+									$\rightarrow
+									\left(
+									\begin{array}{cccc|c}
+									b_{11} & b_{12} & \cdots & b_{1n} & r_{1}\\
+									0 & b_{22} & \cdots & b_{2n} & r_{2} \\
+									\vdots & \vdots & \ddots & \vdots & \vdots \\
+									0 & 0 & \cdots & b_{nn} & r_{n} \\
+									\end{array}
+									\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\rightarrow
+									\left(
+									\begin{array}{cccc|c}
+									1 & 0 & \cdots & 0 & s_{1}\\
+									0 & 1 & \cdots & 0 & s_{2} \\
+									\vdots & \vdots & \ddots & \vdots & \vdots \\
+									0 & 0 & \cdots & 1 & s_{n} \\
+									\end{array}
+									\right)
+									$
+								</span>
 
-						<p class="fragment" style="margin-top:15px;">We will show that this is linear using the single
-							consolidated criteria: $T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) +
-							\beta
-							T(\mathbf{v})$.</p>
+							</p>
 
-						<div class="fragment" style="margin-top:10px;">
-							<p>Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
-								\begin{pmatrix}
-								v_1 \\ v_2 \end{pmatrix}$. Then:</p>
-							$$\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\ \alpha
-							u_2 +
-							\beta v_2 \end{pmatrix}$$
 						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Using the Alternate Definition (2)</h5>
-						<p>Recall $\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\
-							\alpha
-							u_2 + \beta v_2 \end{pmatrix}$. Applying the rules of mapping $T$ gives:</p>
-
-						<div class="fragment">
-							$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \begin{pmatrix} \alpha u_2 + \beta v_2 \\ \alpha
-							u_1
-							+ \beta v_1 \\ (\alpha u_1 + \beta v_1) + (\alpha u_2 + \beta v_2) \end{pmatrix}$$
-						</div>
-
-						<div class="fragment" style="margin-top:10px;">
-							$$= \begin{pmatrix} \alpha u_2 \\ \alpha u_1 \\ \alpha u_1 + \alpha u_2 \end{pmatrix} +
-							\begin{pmatrix} \beta v_2 \\ \beta v_1 \\ \beta v_1 + \beta v_2 \end{pmatrix}$$
-						</div>
-
-						<div class="fragment" style="margin-top:10px;">
-							$$= \alpha \begin{pmatrix} u_2 \\ u_1 \\ u_1 + u_2 \end{pmatrix} + \beta \begin{pmatrix} v_2
-							\\
-							v_1 \\ v_1 + v_2 \end{pmatrix} = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$$
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Class Examples</h5>
-						<ol style="line-height: 50px;">
-							<li>Show that the following transformation $T : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ is
-								linear:
-								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 2x_1 \\ x_2
-								\end{pmatrix}$$
-							</li>
-							<li class="fragment" style="margin-top:15px;">Show that $T : \mathbb{R}^2 \rightarrow
-								\mathbb{R}^2$ given by the following mapping is a linear transformation:
-								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ 3x_1
-								\end{pmatrix}$$
-							</li>
-						</ol>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>If $T(\mathbf{x})$ is a Linear Transformation, $T(\mathbf{0}) = \mathbf{0}$</h5>
-						<div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px;">
-							<h6>Theorem</h6>
-							<p>For any linear transformation $T(\mathbf{x})$, $T(\mathbf{0}) = \mathbf{0}$.</p>
-						</div>
-
-						<div class="fragment" style="margin-top:15px;">
-							<h6>Proof Outline</h6>
-							<ol>
-								<li>From the definition of a linear transformation, $\alpha T(\mathbf{0}) = T(\alpha
-									\mathbf{0}) = T(\mathbf{0})$ for any scalar constant $\alpha$.</li>
-								<li class="fragment" style="margin-top:5px;">If $\alpha T(\mathbf{0}) = T(\mathbf{0})$
-									holds
-									true for all $\alpha$, then $T(\mathbf{0})$ must equal $\mathbf{0}$.</li>
-							</ol>
-						</div>
-
-						<div class="fragment"
-							style="margin-top:15px; border-left: 3px solid #ff5555; padding-left: 15px;">
-							<h6>Corollary</h6>
-							<p>If $T(\mathbf{0}) \neq \mathbf{0}$ for any given mapping structure, it
-								<strong>cannot</strong> be a linear transformation.
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$\big(A \mid \mathbf q\big) \rightarrow \big(B \mid \mathbf r\big) \rightarrow \big(I
+								\mid \mathbf s\big)$
 							</p>
 						</div>
 					</div>
-				</section>
+					<div class="size-80 cc" style="margin-top:15px;">
+						<p class="fragment" data-fragment-index="4">
+							From our initial augmented matrix $\big(A \mid \mathbf q\big)$ we obtain the
+							upper-triangular form:
 
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>A Linear Transformation That is Not on $\mathbb{R}^n$</h5>
-						<p>Consider the definite integral operator $I : C[a, b] \rightarrow \mathbb{R}$ defined by:</p>
-						$$I(f) = \int_{a}^{b} f(t) \, dt$$
-						<p style="font-size: 80%; color: #aaa;">(where $C[a, b]$ represents the set of all continuous
-							functions on the interval $[a, b]$).</p>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							$\big(B \mid \mathbf r\big) $
+							<span class="fragment" data-fragment-index="5">
+								$= E_{k}\cdots E_{1}\big(A \mid \mathbf q\big) $
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$ = \big(E_{k}\cdots E_{1}A \mid E_{k}\cdots E_{1}\mathbf q\big)$
+							</span>
+						</p>
+						<p style="margin-top:15px;">
+							<span class="fragment" data-fragment-index="7">
+								...and eventually the reduced row echelon solution:
+							</span>
 
-						<div class="fragment" style="margin-top:10px;">
-							<p>Let's show that $I(\alpha f + \beta g) = \alpha I(f) + \beta I(g)$, for functions $f, g
-								\in
-								C[a, b]$ and constants $\alpha, \beta \in \mathbb{R}$:</p>
-							$$I(\alpha f + \beta g) = \int_{a}^{b} [\alpha f(t) + \beta g(t)] \, dt$$
-							<span class="fragment">$$= \alpha \int_{a}^{b} f(t) \, dt + \beta \int_{a}^{b} g(t) \,
-								dt$$</span>
-							<span class="fragment">$$= \alpha I(f) + \beta I(g) \quad \text{(using calculus rules of
-								integration)}$$</span>
-						</div>
-						<p class="fragment" style="color: #4df3a9; margin-top:5px;">Thus, this calculus integration
-							operator
-							is a linear transformation.</p>
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							$\big(I \mid \mathbf s\big) $
+							<span class="fragment" data-fragment-index="8">
+								$= \big(E_{m}\cdots E_{k+1}\big)E_{k}\cdots E_{1}\big(A \mid
+								\mathbf q\big)$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$ = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf q\big) $
+							</span>
+						</p>
 					</div>
+					<br />
+					<br />
 				</section>
 
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+				<section>
+					<h4>Important Consequence: Matrix Inversion</h4>
 					<div class="size-85">
-						<h5>Another Linear Transformation That is Not on $\mathbb{R}^n$</h5>
-						<p>Consider the derivative operator $T = \frac{d}{dx}$ mapping $P_2 \rightarrow P_1$, where
-							$P_n$ is
-							the vector space of polynomials of degree $n$ or less.</p>
+						<p>We have just seen that the reduction process creates the tracking identity:</p>
+						<p>
+							$$\big(I \mid \mathbf s\big) = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf
+							q\big)$$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Which explicitly means that:
 
-						<div class="fragment" style="margin-top:15px;">
-							<p>$T$ acts on a polynomial to take its derivative:</p>
-							$$T(c_1 + c_2x + c_3x^2) = \frac{d}{dx}(c_1 + c_2x + c_3x^2) = c_2 + 2c_3x$$
-						</div>
-
-						<div class="fragment"
-							style="margin-top:20px; background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 5px;">
-							<h6>Exercise for you:</h6>
-							<p>Can you prove that this derivative operator is a linear transformation?</p>
-							<p style="font-size: 85%; color: #aaa; margin-top:5px;"><em>Hint: Set up two arbitrary
-									general
-									polynomials within $P_2$, say $p_1 = a_1 + a_2x + a_3x^2$ and $p_2 = c_1 + c_2x +
-									c_3x^2$, then test the criteria.</em></p>
+						</p>
+						<div class="cc fragment" data-fragment-index="1">
+							$E_{m}\cdots E_{1}A= I $
+							<span class="fragment" data-fragment-index="2">
+								$ \implies E_{m}\cdots E_{1} = A^{-1} \text{ (!!)}$
+							</span>
 						</div>
 					</div>
+					<div style="margin-top:20px;" class="size-85">
+						<p class="fragment" data-fragment-index="3">It follows directly that if we start with
+							the identity matrix inside the augmented side:</p>
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$E_{m}\cdots E_{1}\big(A \mid I\big) $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=\big (E_{m}\cdots E_{1}A \mid E_{m}\cdots
+									E_{1}I\big)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= \big(I \mid
+									A^{-1}\big)$
+								</span>
+
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="6">
+							<strong>Conclusion:</strong> We can use standard row reduction on the augmented matrix
+							$\big(A
+							\mid I\big)$ to safely find the inverse matrix $A^{-1}$.
+						</p>
+					</div>
+					<br />
 				</section>
+
+				<section>
+					<h4>Matrix Inversion: Simple Example</h4>
+					<div class="size-80">
+						<p class="fragment">Find the inverse of
+							$A =
+							\left(\begin{array}{cc} 2 & 1 \\ 1 & 1 \end{array}\right).
+							$
+						</p>
+					</div>
+					<div class="size-75 cc">
+						<p class="fragment">
+							$
+							\left(\begin{array}{cc|cc}
+							2 & 1 & 1 & 0 \\
+							1 & 1 & 0 & 1
+							\end{array}\right)
+							\begin{array}{c}
+							R1 \\
+							R2
+							\end{array}
+							$
+							<span class="fragment">
+								$\rightarrow
+								\left(\begin{array}{cc|cc} 1 & \frac{1}{2} & \frac{1}{2} & 0 \\ 1 & 1 & 0 & 1
+								\end{array}\right)
+								\begin{array}{r}
+								\frac{1}{2}R1 \\
+								R2
+								\end{array}
+								\qquad \qquad\qquad\qquad
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{cc|cc} 1 & \frac{1}{2} & \frac{1}{2} & 0 \\ 0 & \frac{1}{2} &
+								-\frac{1}{2} & 1 \end{array}
+								\right)
+								\begin{array}{l}
+								R1 \\
+								R1-R2
+								\end{array}
+								$
+							</span>
+							<span class="fragment">
+								$
+								\rightarrow
+								\begin{pmatrix} 1 & 0 & \mid & 1 & -1 \\ 0 & 1 & \mid & -1 & 2 \end{pmatrix}
+								\begin{array}{l}
+								R1-R2 \\
+								2R2
+								\end{array}
+								$
+							</span>
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							$$\Rightarrow A^{-1} = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$$
+						</p>
+						<p class="fragment" style="color: green;font-size: 0.85em;">
+							<strong>Check:</strong>
+							$\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & -1
+							\\ -1 & 2 \end{pmatrix}
+							$
+							<span class="fragment">
+								$= \begin{pmatrix} 2-1 & -2+2 \\ 1-1 & -1+2 \end{pmatrix} $
+							</span>
+							<span class="fragment">
+								$ =
+								\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ ✅
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Matrix Inversion: Less Simple Example</h4>
+
+					<div class="size-65">
+						<p class="fragment">
+							Show that the inverse of
+							$
+							A=
+							\begin{pmatrix}
+							3&2&-1\\
+							3&1&-1\\
+							3&2&1
+							\end{pmatrix}
+							$
+							is
+							$
+							A^{-1}=
+							\begin{pmatrix}
+							-\frac12&\frac23&\frac16\\
+							1&-1&0\\
+							-\frac12&0&\frac12
+							\end{pmatrix}.
+							$
+						</p>
+					</div>
+
+					<div class="size-65 cc">
+
+						<p class="fragment">
+							$
+							\left(
+							\begin{array}{ccc|ccc}
+							3&2&-1&1&0&0\\
+							3&1&-1&0&1&0\\
+							3&2&1&0&0&1
+							\end{array}
+							\right)
+							\begin{array}{c}
+							R_1\\
+							R_2\\
+							R_3
+							\end{array}
+							$
+
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{ccc|ccc}
+								3&2&-1&1&0&0\\
+								0&-1&0&-1&1&0\\
+								0&0&2&-1&0&1
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R_1\\
+								R_2-R_1\\
+								R_3-R_1
+								\end{array}\qquad
+								$
+							</span>
+						</p>
+
+						<p>
+
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{ccc|ccc}
+								3&0&-1&-1&2&0\\
+								0&-1&0&-1&1&0\\
+								0&0&1&-\frac12&0&\frac12
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R_1+2R_2\\
+								R_2\\
+								\frac12R_3
+								\end{array}
+								$
+							</span>
+
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{ccc|ccc}
+								3&0&0&-\frac32&2&\frac12\\
+								0&1&0&1&-1&0\\
+								0&0&1&-\frac12&0&\frac12
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R_1+R_3\\
+								-R_2\\
+								R_3
+								\end{array}
+								$
+							</span>
+
+						</p>
+
+						<p>
+
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&0&-\frac12&\frac23&\frac16\\
+								0&1&0&1&-1&0\\
+								0&0&1&-\frac12&0&\frac12
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\frac13R_1\\
+								R_2\\
+								R_3
+								\end{array}
+								$
+							</span>
+							<span class="fragment" style="margin-top:10px;">
+								$
+								\Rightarrow
+								A^{-1}=
+								\begin{pmatrix}
+								-\frac12&\frac23&\frac16\\
+								1&-1&0\\
+								-\frac12&0&\frac12
+								\end{pmatrix}
+								$
+							</span>
+
+						</p>
+
+
+
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Calculating inverses using Octave/Matlab
+					</h4>
+
+					<div class="size-75">
+						<p>
+							We can confirm our results very easily via Octave or Matlab, using the inv
+							command:
+						</p>
+					</div>
+
+					<pre style="width: 60%;height: 130px; font-size: 60%;margin-top: 25px;" class="fragment">
+						<code data-trim data-noescape  class="language-python">
+>> inv([2 1; 1 2])
+ans =
+1.00000 -1.00000
+-1.00000 2.00000
+  </code></pre>
+					<pre style="width: 60%;height: 180px; font-size: 60%;margin-top: 25px;" class="fragment">
+						<code data-trim data-noescape  class="language-python">
+>> inv([3 2 -1;3 1 -1;3 2 1])
+ans =
+-0.50000 0.66667 0.16667
+1.00000 -1.00000 -0.00000
+-0.50000 0.00000 0.50000
+  </code></pre>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
 
 			</section>
-
 
 			<section>
 
 				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Matrix Form of Linear Mappings</h5>
-						<p>Revisiting our prior example where $T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} =
-							\begin{pmatrix}
-							x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix}$. Let's define matrix $A$ as:</p>
-						$$A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \\ 1 & 1 \end{pmatrix}$$
-
-						<div class="fragment" style="margin-top:15px;">
-							<p>We can rewrite the transformation cleanly as matrix multiplication:</p>
-							$$T(\mathbf{x}) = \begin{pmatrix} x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix} = \begin{pmatrix} 0
-							& 1
-							\\ 1 & 0 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = A\mathbf{x}$$
-						</div>
-						<p class="fragment" style="margin-top:15px;">It is true in general that any operation defined by
-							$T(\mathbf{x}) = A\mathbf{x}$ forms a linear transformation.</p>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>The Standard Basis</h5>
-						<p>The standard basis in $\mathbb{R}^n$ is the collection of mutually orthogonal unit vectors:
-						</p>
-						$$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad \mathbf{e}_2 =
-						\begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad \dots, \quad \mathbf{e}_n =
-						\begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}$$
-
-						<div class="fragment"
-							style="margin-top:10px; display: flex; justify-content: space-around; font-size: 90%;">
-							<div>
-								<h6>In $\mathbb{R}^2$:</h6>
-								$$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \mathbf{j} =
-								\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$
-							</div>
-							<div>
-								<h6>In $\mathbb{R}^3$:</h6>
-								$$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
-								\mathbf{j} =
-								\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad \mathbf{k} =
-								\mathbf{e}_3 =
-								\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$$
-							</div>
-						</div>
-						<p class="fragment" style="margin-top:15px; color: #aaa; font-size: 90%;">We will look at
-							non-standard, more general vector space bases in upcoming classes.</p>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Matrix Representation Theorem (1)</h5>
-						<div style="background-color: rgba(255,255,255,0.05); padding: 12px; border-radius: 5px;">
-							<h6>Theorem</h6>
-							<p>If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into $\mathbb{R}^m$, there
-								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for all
-								$\mathbf{x} \in \mathbb{R}^n$.</p>
-						</div>
-						<p class="fragment" style="margin-top:10px; font-size: 90%;">Crucially, the $j$-th column vector
-							of
-							$A$ is found by transforming the standard basis element $\mathbf{e}_j$: $\mathbf{a}_j =
-							T(\mathbf{e}_j)$ for $j = 1, 2, \dots, n$.</p>
-
-						<div class="fragment" style="font-size: 85%;">
-							<h6>Proof Outline:</h6>
-							<p>Let $A = \begin{pmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \dots & \mathbf{a}_n
-								\end{pmatrix}$
-								where $\mathbf{a}_j = T(\mathbf{e}_j)$.</p>
-							<p>Any vector $\mathbf{x} \in \mathbb{R}^n$ can be broken down as: $\mathbf{x} =
-								x_1\mathbf{e}_1
-								+ x_2\mathbf{e}_2 + \dots + x_n\mathbf{e}_n$</p>
-							<p class="fragment">$$\implies T(\mathbf{x}) = x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) +
-								\dots
-								+ x_n T(\mathbf{e}_n) \quad \text{(by linearity properties)}$$</p>
-							<p class="fragment">$$T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
-								x_n\mathbf{a}_n$$</p>
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Matrix Representation Theorem (2)</h5>
-						<h6>Proof Outline (Cont'd):</h6>
-						<p>Expanding the linear combination $T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
-							x_n\mathbf{a}_n$ into component forms:</p>
-
-						<div class="fragment">
-							$$= x_1 \begin{pmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{pmatrix} + x_2
-							\begin{pmatrix}
-							a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{pmatrix} + \dots + x_n \begin{pmatrix} a_{1n} \\
-							a_{2n} \\ \vdots \\ a_{mn} \end{pmatrix}$$
-						</div>
-
-						<div class="fragment" style="margin-top:15px;">
-							<p>This is exactly equivalent to the standard definition of matrix multiplication:</p>
-							$$= \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n} \\
-							\vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{pmatrix}
-							\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} = A\mathbf{x}$$
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Example</h5>
-						<p>Find the matrix representation for the linear mapping $T: \mathbb{R}^3 \rightarrow
-							\mathbb{R}^2$
-							given by $T(\mathbf{x}) = (x_1 + x_2, x_2 + x_3)^T$ where $\mathbf{x} = (x_1, x_2, x_3)^T$:
-						</p>
-
-						<div class="fragment" style="margin-top:10px;">
-							<p>We evaluate $T$ for each element of the standard basis of $\mathbb{R}^3$:</p>
-							<div style="display: flex; justify-content: space-between; font-size: 90%;">
-								<div>$$T(\mathbf{e}_1) = T\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix}
-									1+0 \\
-									0+0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$$</div>
-								<div>$$T(\mathbf{e}_2) = T\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix}
-									0+1 \\
-									1+0 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$</div>
-								<div>$$T(\mathbf{e}_3) = T\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix}
-									0+0 \\
-									0+1 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$</div>
-							</div>
-						</div>
-
-						<div class="fragment" style="margin-top:15px;">
-							<p>Stacking these results into columns yields the transformation matrix $A$:</p>
-							$$A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$$
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-85">
-						<h5>Geometric Interpretation</h5>
-						<p>Suppose you are given the transformation matrix $A = \begin{pmatrix} 1 & 0 \\ 0 & -1
-							\end{pmatrix}$. How would you describe the operation $T(\mathbf{v}) = A\mathbf{v}$
-							geometrically?</p>
-
-						<div class="fragment"
-							style="margin-top:15px; background-color: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-							<p><strong>Hint:</strong> Use a general vector $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2
-								\end{pmatrix}$ and calculate the output:</p>
-							$$T(\mathbf{v}) = A\mathbf{v} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\begin{pmatrix}
-							v_1
-							\\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}$$
-						</div>
-
-						<p class="fragment" style="margin-top:15px; color:#4df3a9;"><strong>Conclusion:</strong> This
-							transformation reflects points across the horizontal $x$-axis.</p>
-						<p class="fragment" style="margin-top:10px; font-size:90%; color:#aaa;">Now try it yourself:
-							What
-							matrix transformation occurs if $A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$?</p>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-85">
-						<h5>Reflection in the $x$-axis</h5>
-						<p>When coordinates are reflected across the $x$-axis, the mappings translate as follows:</p>
-						$$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} x \\ -y \end{pmatrix}$$
-
-						<div class="fragment" style="margin-top:10px;">
-							<p>Tracing the transformation of standard basis vectors:</p>
-							$$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \mapsto \begin{pmatrix} 1 \\ 0
-							\end{pmatrix} \quad \text{and} \quad \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
-							\mapsto
-							\begin{pmatrix} 0 \\ -1 \end{pmatrix}$$
-						</div>
-
-						<div class="fragment" style="margin-top:15px;">
-							<p>Assembling these vectors into columns gives the transformation matrix:</p>
-							$$A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$$
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-85">
-						<h5>Reflection in the $y$-axis</h5>
-						<p>When coordinates are instead reflected across the vertical $y$-axis, the mappings change to:
-						</p>
-						$$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} -x \\ y \end{pmatrix}$$
-
-						<div class="fragment" style="margin-top:10px;">
-							<p>Tracing the transformation of standard basis vectors:</p>
-							$$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \mapsto \begin{pmatrix} -1 \\ 0
-							\end{pmatrix} \quad \text{and} \quad \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
-							\mapsto
-							\begin{pmatrix} 0 \\ 1 \end{pmatrix}$$
-						</div>
-
-						<div class="fragment" style="margin-top:15px;">
-							<p>Grouping columns together produces the canonical matrix:</p>
-							$$A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$$
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-85">
-						<h5>Rotation through an Angle $\theta$</h5>
-						<p>To rotate the standard 2D axes counterclockwise by a generic angle $\theta$:</p>
-
-						<div class="fragment" style="margin-top:15px;">
-							<ul>
-								<li>The vector $\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ moves onto unit
-									circle
-									coords: $\begin{pmatrix} \cos\theta \\ \sin\theta \end{pmatrix}$</li>
-								<li style="margin-top:5px;">The vector $\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1
-									\end{pmatrix}$
-									moves onto perpendicular coords: $\begin{pmatrix} -\sin\theta \\ \cos\theta
-									\end{pmatrix}$</li>
-							</ul>
-						</div>
-
-						<div class="fragment" style="margin-top:20px;">
-							<p>Combining these columns yields the fundamental 2D rotation matrix:</p>
-							$$A = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$$
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-85">
-						<h5>Class Examples</h5>
-						<ol style="font-size: 85%; line-height: 38px;">
-							<li>For instance, a pure $90^{\circ}$ anti-clockwise rotation sets $\theta = 90^{\circ}$:
-								$$A = \begin{pmatrix} \cos 90^{\circ} & -\sin 90^{\circ} \\ \sin 90^{\circ} & \cos
-								90^{\circ} \end{pmatrix} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \implies
-								\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} =
-								\begin{pmatrix} -y \\ x \end{pmatrix}$$
+					<h4>When is a Matrix Invertible?</h4>
+					<div class="size-85 fragment">
+						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
+						<p>The following statements about $A \in \mathbb{R}^{n \times n}$ are equivalent:</p>
+						<ul>
+							<li><strong>A:</strong> $A$ is invertible (nonsingular)</li>
+							<li><strong>B:</strong> The only solution to $A\mathbf x=\mathbf 0$ is $\mathbf x=\mathbf 0$
 							</li>
-							<li class="fragment" style="margin-top:10px;">Find the standard matrix representation of a
-								transformation $T$ that:
+							<li><strong>C:</strong> $A$ is row-equivalent to $I$ (i.e., there is a sequence of
+								elementary matrices such that $E_m \dots E_1 A = I$)</li>
+						</ul>
+					</div>
+					<div class="size-85" style="margin-top:15px;">
+						<h6 class="fragment">Proof Outline</h6>
+						<p class="fragment">Show that $A \Rightarrow B \Rightarrow C \Rightarrow A$.</p>
+						<p>
+							<span class="fragment">
+								<strong>For $A \Rightarrow B$:</strong>
+							</span>
+							<span class="fragment">
+								If $A$ is invertible and $A\mathbf x=\mathbf 0,$
+							</span>
+
+						</p>
+
+					</div>
+					<div class="size-85 cc">
+						<p>
+							<span class="fragment">
+								then $\;\mathbf x = I\mathbf x $
+							</span>
+							<span class="fragment">
+								$=
+								\left(A^{-1}A\right)\mathbf x$
+							</span>
+							<span class="fragment">
+								$ = A^{-1}\left(A\mathbf x\right) $
+							</span>
+							<span class="fragment">
+								$= A^{-1}\mathbf 0 $
+							</span>
+							<span class="fragment">
+								$= \mathbf 0$.
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p class="fragment">
+							So $\mathbf x=\mathbf 0$ is the only solution.
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>When is a Matrix Invertible? (Cont'd)</h4>
+
+					<div class="size-80">
+						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
+						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=0
+							\Rightarrow
+							\mathbf x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
+					</div>
+					<div class="size-85" style="margin-top:15px;">
+						<h6>Proof Outline (Cont'd)</h6>
+						<p><strong>For $B \Rightarrow C$:</strong>
+							<span class="fragment">
+								Suppose $\mathbf x=\mathbf 0$ is the only solution to $A\mathbf x=\mathbf 0$.
+							</span>
+							<span class="fragment">
+								Reduce
+								the augmented matrix $(A \mid \mathbf 0)$ to $(U \mid \mathbf 0)$
+								where $U$ is in reduced row echelon form.
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment">
+								If $U$ contains a zero row,
+							</span>
+							<span class="fragment">
+								then there is a family of solutions.
+							</span>
+							<span class="fragment">
+								But $\mathbf x=\mathbf 0$
+								is the only solution, so $U$ has no zero rows.
+							</span>
+						</p>
+						<p>
+							<span class="fragment">
+								Since $A$ is an $n \times n$ matrix, $U = I$.
+							</span>
+							<span class="fragment">
+								So there exist elementary
+								matrices $E_1, E_2, \dots, E_m$ such that $E_m \dots E_1 A = I$.
+
+							</span>
+							<span class="fragment">
+
+								Hence $A$ is row-equivalent
+								to $I$.
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>When is a Matrix Invertible? (Cont'd)</h4>
+					<div class="size-80">
+						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
+						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=0
+							\Rightarrow
+							\mathbf x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
+					</div>
+					<div class="size-85" style="margin-top:15px;">
+						<h6>Proof Outline (Cont'd)</h6>
+						<p>
+							<strong>For $C \Rightarrow A$:</strong>
+							<span class="fragment">
+								If $A$ is row-equivalent
+								to $I,$
+							</span>
+							<span class="fragment">
+								then there exist
+								elementary matrices $E_1, E_2, \dots, E_m$ such
+								that $E_m \dots E_1 A = I.$
+							</span>
+						</p>
+						<p>
+							<span class="fragment">
+								Therefore, $A^{-1} = E_m \dots E_1$.
+							</span>
+							<span class="fragment">
+								So $A^{-1}$
+								exists,
+							</span>
+							<span class="fragment">
+								and hence $A$ is
+								invertible.
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>When do Linear Systems have Unique Solutions?</h4>
+					<div class="size-80 fragment">
+						<h5>Corollary (Uniqueness of solutions for linear systems)</h5>
+						<p>The linear system $A\mathbf x=\mathbf b$ comprising $n$
+							equations in $n$ unknowns has a unique solution iff
+							$A$ is nonsingular.</p>
+					</div>
+					<div class="size-85 fragment" style="margin-top:10px;">
+						<h6>Equivalent Two-Part Corollary Proof Outline:</h6>
+						<ol style="line-height: 60px; margin-left: 0px;">
+							<li class="fragment">
+								<strong>
+									$A$ is nonsingular $\Rightarrow A\mathbf x=\mathbf b$ has a unique solution:
+								</strong>
+								<span class="fragment">
+									Since $A$
+									is nonsingular,
+								</span>
+								<span class="fragment">
+									$A^{-1}$ exists,
+								</span>
+								<span class="fragment">
+									so the only possible solution is $\mathbf x = \left(A^{-1}A\right)\mathbf x$
+								</span>
+								<span class="fragment">
+									$ = A^{-1}\left(A\mathbf x\right)$
+								</span>
+								<span class="fragment">
+									$ = A^{-1}\mathbf b$.
+								</span>
+							</li>
+							<li class="fragment">
+								<strong>
+									$A$ is singular $\Rightarrow A\mathbf x=\mathbf b$ has no solution or (at
+									least) two solutions:
+								</strong>
+								<span class="fragment">
+									If $A$ is singular,
+								</span>
+								<span class="fragment">
+									$A\mathbf x=\mathbf 0$ has a non-zero solution
+									$\mathbf x_0$.
+								</span>
+								<span class="fragment">
+									Suppose $\mathbf x_b$ is a solution of $A\mathbf x=\mathbf b.$
+								</span>
+								<span class="fragment">
+									Let $\mathbf y = \mathbf x_b + \mathbf x_0$.
+								</span>
+								<span class="fragment">
+									Then $A\mathbf y = A(\mathbf x_b +
+									\mathbf x_0) = A\mathbf x_b + A\mathbf x_0 $
+								</span>
+								<span class="fragment">
+									$ =\mathbf b + 0 = \mathbf b$.
+								</span>
+
+							</li>
+						</ol>
+						<p class="fragment" style="margin-top:10px;">
+							Thus, if $A$ is singular, $A\mathbf x=\mathbf b$ has either no
+							solution or at least two solutions.</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Determinants: Motivation</h4>
+					<div class="size-80">
+						<h5>A condition for a nonsingular matrix</h5>
+						<p>We have just seen that:</p>
+						<p style="text-align:center;">$A \text{ is nonsingular} \iff A\mathbf x=\mathbf b \text{ has a
+							unique solution}$
+						</p>
+						<p class="fragment">We would like a measurable property of the matrix itself that distinguishes
+							singular from nonsingular matrices.</p>
+						<p class="fragment">To achieve this, we introduce a quantity known as the
+							<strong>determinant</strong>.
+						</p>
+						<ul style="line-height: 60px;">
+							<li class="fragment">We denote the determinant of a square matrix $A$ by $\det A$ or by
+								$|A|$.</li>
+							<li class="fragment">$\det A$ is calculated from the matrix elements $a_{ij}$.</li>
+							<li class="fragment">It will turn out that $\det A \neq 0$ iff $A$ is nonsingular.</li>
+						</ul>
+						<p class="fragment" style="margin-top:15px;"><strong>So how do we calculate $\det A$?</strong>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Determinants: Derivations</h4>
+					<div class="size-80">
+
+						<p class="fragment">
+							<b>
+								For $A \in \mathbb{R}^{1 \times 1}$:
+							</b>
+							A $1 \times 1$ matrix $A = (a_{11})$ will have an inverse if and only if $a_{11} \neq
+							0$.
+							<span class="fragment">
+								We therefore define $\det A = a_{11}$ for a $1 \times 1$ matrix.
+							</span>
+
+						</p>
+
+
+
+					</div>
+					<div class="size-80">
+						<hr />
+						<p class="fragment"><b>For $A \in \mathbb{R}^{2 \times 2}$:</b></p>
+
+						<ol>
+
+							<li class="fragment">An $A \in \mathbb{R}^{2 \times 2}$ matrix $A = \begin{pmatrix} a_{11} &
+								a_{12} \\ a_{21} & a_{22} \end{pmatrix}$ is nonsingular if and only if it can be row
+								reduced to $I$.</li>
+							<li class="fragment">
+								We perform the row reductions:
+								<p style="text-align: center;">
+									$
+									\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}
+									\begin{array}{l} R1 \\ R2\end{array}
+									$
+									<span class="fragment">
+										$
+										\rightarrow
+										\begin{pmatrix} a_{11} & a_{12} \\ 0 & a_{11}a_{22}- a_{12}a_{21} \end{pmatrix}
+										\begin{array}{l} R1 \\ a_{11}R2- a_{21}R1 \end{array}
+										$
+									</span>
+								</p>
+
+							</li>
+							<li class="fragment">
+								We will be able to row reduce $A$ to $I$ as long as
+								$a_{11}a_{22} -
+								a_{12}a_{21} \neq 0$.
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Determinants for $A \in \mathbb{R}^{2 \times 2}$ (Cont'd)</h4>
+					<div class="size-85">
+						<ol style="line-height: 55px;">
+							<li>But what if $a_{11} = 0$?</li>
+							<li class="fragment">Let's assume $a_{21} \neq 0$:
+								<p style="text-align: center; margin-top: -15px;">
+									<span class="fragment">
+										$\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix} \rightarrow
+										\begin{pmatrix} a_{21} & a_{22} \\ 0 & a_{12} \end{pmatrix}$
+									</span>
+								</p>
+							</li>
+							<li class="fragment">We will be able to row reduce $A$ to $I$ as long as $a_{12} \neq 0$ and
+								$a_{21} \neq 0$...
+								<span class="fragment">
+									which is equivalent to $a_{11}a_{22} - a_{12}a_{21} \neq 0$ when
+									$a_{11} = 0$.
+								</span>
+							</li>
+							<li class="fragment">
+								Finally, we note that if $a_{11} = a_{21} = 0,$
+								<span>
+									then $A$ is not
+									row-reducible to $I$...
+								</span>
+								<span class="fragment">
+									but $a_{11}a_{22} - a_{12}a_{21} = 0$
+									in this case!
+								</span>
+							</li>
+						</ol>
+
+						<div class="cc fragment" style="margin-top: 10px; border: 1px solid black;">
+							<p>
+								We therefore define: $\det A = a_{11}a_{22} - a_{12}a_{21}$ for a $ 2 \times 2$ matrix.
+							</p>
+						</div>
+					</div>
+					<Br />
+				</section>
+
+				<section>
+					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$</h4>
+					<div class="size-80">
+						<ol style="line-height: 50px;">
+							<li>$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
+								a_{32} & a_{33} \end{pmatrix}$ is nonsingular iff it can be row reduced to $I$.</li>
+							<li class="fragment">We perform the row reductions:
+								<p style="text-align: center; margin-top: 10px;">
+									$\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
+									a_{32} & a_{33} \end{pmatrix} \rightarrow \begin{pmatrix} a_{11} & a_{12} & a_{13}
+									\\ 0
+									& a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\ 0 &
+									a_{11}a_{32}-a_{31}a_{12}
+									& a_{11}a_{33}-a_{31}a_{13} \end{pmatrix}$
+								</p>
+
+							</li>
+							<li class="fragment">We will be able to row reduce $A$ to $I$ as long as:
+								<p style="text-align: center; margin-top: 10px;">
+									$\det \begin{pmatrix} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
+									a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{pmatrix} \neq 0$
+								</p>
+							</li>
+						</ol>
+					</div>
+					<br>
+					<br>
+				</section>
+
+				<section>
+					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$ (Cont'd)</h4>
+					<div class="size-80">
+						<p>$\left| \begin{array}{cc} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
+							a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{array} \right|$</p>
+						<p class="fragment">$= [a_{11}a_{22}-a_{21}a_{12}][a_{11}a_{33}-a_{31}a_{13}] -
+							[a_{11}a_{32}-a_{31}a_{12}][a_{11}a_{23}-a_{21}a_{13}]$</p>
+						<div class="fragment">
+							<p>$= \dots$</p>
+							<p>$=
+								a_{11}[a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}]$
+							</p>
+						</div>
+					</div>
+					<div class="size-80 fragment" style="margin-top:10px;">
+						<p>In analogy with the $2 \times 2$ case, for a $3 \times 3$ matrix we could propose:</p>
+						<p>$$\det A =
+							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$$
+						</p>
+						<p style="margin-top:5px;;" class="fragment">But what about the cases where $a_{11}=0$, etc.?
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$ (Cont'd)</h4>
+					<div class="size-85">
+						<p>Just as in the $2 \times 2$ case, the $3 \times 3$ definition for $\det A$ works in all the
+							special cases where $a_{11}$, $a_{21}$ or $a_{31}$ are zero.</p>
+						<div class="fragment">
+							<p>We therefore define the determinant of a $3 \times 3$ matrix as:</p>
+							<p style="font-size: 0.9em; text-align: center;">$\det A =
+								a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$
+							</p>
+						</div>
+					</div>
+					<div class="size-80" style="margin-top:15px;">
+						<p class="fragment">But remembering a formula like this is difficult... and it won't get any
+							easier as our
+							matrices get bigger.</p>
+
+					</div>
+					<div class="fragment">
+						<div class="cc">
+							<p><strong>Is there a better way to calculate the determinant?</strong></p>
+						</div>
+						<div>
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+									width="100" height="100">
+							</picture>
+						</div>
+					</div>
+
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Minors and Cofactors</h4>
+					<div class="size-85">
+						<h4 class="fragment" data-fragment-index="0" style="font-size: 0.7em;">Formal Definition of
+							Determinant</h4>
+						<p class="fragment" data-fragment-index="0">For any matrix $A$, we define the
+							<strong>minor</strong> $M_{ij}$ to be the matrix comprising
+							the elements remaining once the row and column containing $a_{ij}$ are removed.
+						</p>
+
+						<p style="margin-top:10px;" class="fragment" data-fragment-index="1">
+							<strong>Example:</strong> For a $4 \times 4$ matrix,
+							<span class="fragment" data-fragment-index="2">
+								removing row 2
+								and column 3 yields $M_{23}$:
+							</span>
+						</p>
+
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} & a_{14} \\
+								a_{21} & a_{22} & a_{23} & a_{24} \\ a_{31} & a_{32} & a_{33} & a_{34} \\
+								a_{41} & a_{42} & a_{43} & a_{44}
+								\end{pmatrix}\qquad\qquad \qquad\qquad \qquad\quad\,
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$A = \begin{pmatrix} a_{11} & a_{12} & \color{red}{a_{13}} & a_{14} \\
+								\color{red}{a_{21}} &
+								\color{red}{a_{22}} & \color{red}{a_{23}} & \color{red}{a_{24}} \\ a_{31} & a_{32} &
+								\color{red}{a_{33}} & a_{34} \\ a_{41} & a_{42} & \color{red}{a_{43}} & a_{44}
+								\end{pmatrix}\qquad\qquad \qquad\qquad \qquad\quad\,
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="4">
+								$A = \begin{pmatrix} a_{11} & a_{12} & \color{red}{a_{13}} & a_{14} \\
+								\color{red}{a_{21}} &
+								\color{red}{a_{22}} & \color{red}{a_{23}} & \color{red}{a_{24}} \\ a_{31} & a_{32} &
+								\color{red}{a_{33}} & a_{34} \\ a_{41} & a_{42} & \color{red}{a_{43}} & a_{44}
+								\end{pmatrix}
+								\implies M_{23} = \begin{pmatrix} a_{11} & a_{12} & a_{14} \\ a_{31} & a_{32} & a_{34}
+								\\ a_{41}
+								& a_{42} & a_{44} \end{pmatrix}$
+							</p>
+						</div>
+					</div>
+					<div class="size-80 fragment" style="margin-top:15px;">
+						<p>We then define the <strong>cofactor</strong> $C_{ij}$ as:</p>
+						$$C_{ij} = \left(-1\right)^{i+j} \det M_{ij}$$
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Formal Definition of Determinant</h4>
+
+					<div class="size-90" style="margin-top: 40px;">
+
+						<p>The determinant of a square matrix $A \in \mathbb{R}^{n \times n}$ is defined inductively by:
+						</p>
+						$$\det A = \begin{cases} a_{11} & \text{if } n=1 \\ \sum_{i=1}^{n} a_{1i} C_{1i} & \text{if }
+						n>1 \end{cases}$$
+						<p style="margin-top:15px;" class="fragment">where $C_{1i}$ is the cofactor of the corresponding
+							element $a_{1i}$
+							in the first row.</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Formal Definition of Determinant (Cont'd): Important Generalization</h4>
+					<div class="size-75">
+
+						<p>We are not forced to sum the terms $a_{ij}C_{ij}$ along the top row only!</p>
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="1">$\det A = \sum_{i=1}^{n} a_{ki} C_{ki}$ along
+								any row $k$</li>
+							<li class="fragment" data-fragment-index="2">$\det A = \sum_{i=1}^{n} a_{ik} C_{ik}$ down
+								any column $k$</li>
+						</ul>
+					</div>
+					<div class="size-70" style="margin-top:20px;">
+
+						<p class="fragment" data-fragment-index="3">
+
+							<span class="fragment" data-fragment-index="3">
+								<b>Example:</b>
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								We can expand down the <span id="rr">first column</span> to take advantage of the zeros:
+							</span>
+
+						</p>
+						<div class="cc r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="3">
+								$
+								\begin{vmatrix} 0 & 2 & 3 & 0 \\ 0 & 4 & 5 & 0 \\ 0 & 1 & 0 & 3 \\ 2 & 0 & 1 & 3
+								\end{vmatrix}
+								\color{white}{= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & 0 \\ 4 & 5 & 0 \\ 1 & 0 & 3
+								\end{vmatrix}}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="4">
+								$
+								\begin{vmatrix} \color{red}{0} & 2 & 3 & 0 \\ \color{red}{0} & 4 & 5 & 0 \\
+								\color{red}{0} & 1 & 0 & 3 \\ \color{red}{2} & 0 & 1 & 3
+								\end{vmatrix}
+								\color{white}{= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & 0 \\ 4 & 5 & 0 \\ 1 & 0 & 3
+								\end{vmatrix}}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="5">
+								$
+								\begin{vmatrix} \color{red}{0} & 2 & 3 & 0 \\ \color{red}{0} & 4 & 5 & 0 \\
+								\color{red}{0} & 1 & 0 & 3 \\ \color{red}{2} & 0 & 1 & 3
+								\end{vmatrix}
+								= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & 0 \\ 4 & 5 & 0 \\ 1 & 0 & 3 \end{vmatrix}
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="6">
+								$
+								\begin{vmatrix} \color{red}{0} & 2 & 3 & 0 \\ \color{red}{0} & 4 & 5 & 0 \\
+								\color{red}{0} & 1 & 0 & 3 \\ \color{red}{2} & 0 & 1 & 3
+								\end{vmatrix}
+								= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & \color{blue}{0} \\ 4 & 5 & \color{blue}{0} \\ 1
+								& 0 & \color{blue}{3} \end{vmatrix}
+								$
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="6">Now, expanding down the <span id="bb">last
+								column</span> of the remaining $3 \times 3$ matrix:
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$= -2 \left( 0 - 0 + 3 \begin{vmatrix} 2 & 3 \\ 4 & 5 \end{vmatrix} \right)$
+								<span class="fragment" data-fragment-index="8">
+									$= -2 \times 3 \times (10 - 12) $
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$ = 12.$
+								</span>
+							</p>
+						</div>
+
+					</div>
+				</section>
+
+				<section>
+					<h4>Useful Properties of Determinants</h4>
+					<div class="size-80">
+						<h5>Core properties to remember:</h5>
+						<ol style="line-height: 45px; margin-top: -15px;">
+							<li class="fragment">$A$ is singular if and only if $\det A = 0$.</li>
+							<li class="fragment">$\det(A) = \det\left(A^T\right)$.</li>
+							<li class="fragment">If $A$ is a triangular matrix, $\det A$ is simply the product of its
+								diagonal elements.</li>
+							<li class="fragment">$\det A = 0$ if:
 								<ul>
-									<li>Rotates each vector $\mathbf{x} \in \mathbb{R}^2$ by $60^{\circ}$ in the
-										anti-clockwise direction.</li>
-									<li>Reflects each vector $\mathbf{x} \in \mathbb{R}^2$ across the $y$-axis.</li>
-									<li>Reflects each vector $\mathbf{x} \in \mathbb{R}^2$ across the $y$-axis and then
-										rotates it $60^{\circ}$ anti-clockwise.</li>
-									<li>Doubles the length of each vector $\mathbf{x} \in \mathbb{R}^2$ and then rotates
-										it
-										$30^{\circ}$ clockwise.</li>
+									<li>$A$ has a row or column consisting entirely of zeros; or</li>
+									<li class="fragment">$A$ has two identical rows or columns; or</li>
+									<li class="fragment">One row (or column) of $A$ is a linear combination of other
+										rows (or columns).</li>
+								</ul>
+							</li>
+							<li class="fragment">$\det\left(AB\right) = \left(\det A\right)\left(\det B\right)$.</li>
+							<li class="fragment">Elementary matrices:
+								<ul>
+									<li>If $E$ swaps two rows in $A$, then $\det E = -1$.</li>
+									<li class="fragment">If $E$ rescales a row of $A$ by a constant $k$, then $\det E =
+										k$.</li>
+									<li class="fragment">If $E$ adds a multiple of a row to another row, then $\det E =
+										1$.</li>
 								</ul>
 							</li>
 						</ol>
 					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Application: Cramer's Rule</h4>
+					<div class="size-85">
+						<h5>Solving a Linear System</h5>
+						<p class="fragment" data-fragment-index="0">Use Cramer's rule to solve the system:</p>
+						<div class="cc" style="margin-top: -20px;">
+							<p>$\begin{aligned} x + 2y + z &= 5 \\ 2x + 2y + z &= 6 \\ x + 2y + 3z &= 9 \end{aligned}$
+							</p>
+						</div>
+					</div>
+					<div class="size-80" style="margin-top:10px;">
+						<p class="fragment" data-fragment-index="1">The determinant of the coefficient matrix is $\det M
+							= -4$.
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								Cramer's rule yields:
+							</span>
+						</p>
+						<div style="display: flex; justify-content: space-evenly; font-size: 90%;">
+							<div class="fragment" data-fragment-index="2">
+								$x =\ds \frac{\begin{vmatrix} 5 & 2 & 1 \\ 6 & 2 & 1 \\ 9 & 2 & 3 \end{vmatrix}}{\det
+								M}$
+								<span class="fragment" data-fragment-index="4">
+									$= \dfrac{-4}{-4} = 1$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= 1,$
+								</span>
+							</div>
+							<div class="fragment" data-fragment-index="2">
+								$y =\ds \frac{\begin{vmatrix} 1 & 5 & 1 \\ 2 & 6 & 1 \\ 1 & 9 & 3 \end{vmatrix}}{\det
+								M}$
+								<span class="fragment" data-fragment-index="6">
+									$= \dfrac{-4}{-4} = 1,$
+								</span>
+							</div>
+							<div class="fragment" data-fragment-index="3">
+								$z = \ds\frac{\begin{vmatrix} 1 & 2 & 5 \\ 2 & 2 & 6 \\ 1 & 2 & 9 \end{vmatrix}}{\det
+								M}$
+								<span class="fragment" data-fragment-index="8">
+									$=\dfrac{-8}{-4} $
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$= 2.$
+								</span>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Application: Cramer's Rule (Cont'd)</h4>
+					<div class="size-85">
+						<h5>General Case Formulation</h5>
+						<p>
+							In general, given a system $M\mathbf x = \mathbf y$ where $\det M \neq 0$,
+							<span>
+								the unique solution for each
+								variable $x_i$ can be calculated by replacing the $i$-th column of $M$ with the vector
+								$y$:
+								$$x_i = \frac{\det(M_i)}{\det(M)}$$
+							</span>
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							Where $M_i$ is constructed as:$$M_i = \begin{pmatrix} M_{11} & \dots & M_{1(i-1)} & y_1 &
+							M_{1(i+1)} &
+							\dots & M_{1n} \\ M_{21} & \dots & M_{2(i-1)} & y_2 & M_{2(i+1)} & \dots & M_{2n} \\ \vdots
+							& & \vdots & \vdots & \vdots & & \vdots \\ M_{n1} & \dots & M_{n(i-1)} & y_n & M_{n(i+1)} &
+							\dots & M_{nn} \end{pmatrix}$$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Why does Cramer's Rule work?</h4>
+					<div class="size-75">
+						<div class="fragment">
+							<p>First, we observe an important property of cofactor expansion identity:</p>
+							<div class="cc">
+								$a_{i1}C_{j1} + a_{i2}C_{j2} + \dots + a_{in}C_{jn} = \begin{cases} \det A & \text{if }
+								i=j
+								\\
+								0 & \text{if } i \neq j \end{cases}$
+							</div>
+						</div>
+
+						<ul>
+							<li class="fragment">When $i=j$, this matches the standard definition of $\det A$.</li>
+							<li class="fragment">When $i \neq j$, this corresponds to evaluating the determinant of an
+								altered matrix where rows $i$ and $j$ are identical, which must equal $0$.</li>
+						</ul>
+					</div>
+					<div class="size-75 fragment" style="margin-top:10px;">
+						<p>Next, we define the <strong>adjoint matrix</strong> ($\text{adj } A$) as the transpose of the
+							cofactor matrix:</p>
+						<p style="font-size: 0.85em; margin-top: -15px;">
+							$$\text{adj } A = \begin{pmatrix} C_{11} & C_{21} & \dots & C_{n1} \\ C_{12} & C_{22} &
+							\dots &
+							C_{n2} \\ \vdots & \vdots & \ddots & \vdots \\ C_{1n} & C_{2n} & \dots & C_{nn}
+							\end{pmatrix}$$
+						</p>
+						<p class="fragment">
+							From this property, it follows that:
+							<span>
+								$A\left(\text{adj } A\right) $
+							</span>
+							<span class="fragment">
+								$ = \left(\det A\right)I$
+							</span>
+							<span class="fragment">
+								$ \Ra A^{-1} = \dfrac{1}{\det A}\text{adj } A.$
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Why does Cramer's Rule work? (Cont'd)</h4>
+					<div class="size-75">
+						<p>If $x$ is the unique solution to the linear system $Ax=b$, we can isolate $x$ using the
+							adjoint matrix inverse:</p>
+						<p style="margin-top: -50px;">
+							$$x = A^{-1}b = \frac{1}{\det A}(\text{adj } A)b$$
+						</p>
+						<p class="fragment" style="margin-top:10px;">Evaluating for an individual component entry $x_i$
+							gives:</p>
+						<p class="fragment" style="text-align: center;">$\ds x_i = \frac{b_1 C_{1i} + b_2 C_{2i} + \dots
+							+ b_n C_{ni}}{\det A}$
+							<span class="fragment">
+								$ =\ds
+								\frac{\det A_i}{\det A}$
+							</span>
+						</p>
+						<p class="fragment" style="font-size: 90%;">
+							This holds because the expression $b_1 C_{1i} + b_2
+							C_{2i} + \dots + b_n C_{ni}$ acts exactly as the
+							cofactor expansion down the $i$-th column
+							of a modified matrix $A_i$,
+							<span class="fragment">
+								where the original
+								$i$-th column elements of $A$ have been
+								replaced by the vector elements of $b$:
+								$$A_i = \begin{pmatrix} a_{11} & \dots & b_1 &
+								\dots & a_{1n} \\ a_{21} &
+								\dots & b_2 & \dots & a_{2n} \\ \vdots & & \vdots & & \vdots \\ a_{n1} & \dots & b_n &
+								\dots
+								& a_{nn} \end{pmatrix}$$
+							</span>
+						</p>
+
+					</div>
+				</section>
+
+				<section>
+					<h4>Determinants and Vector Algebra</h4>
+					<div class="size-75">
+						<div>
+							<h5>Cross Product & Scalar Triple Product</h5>
+							<p class="fragment" data-fragment-index="0">
+								A highly convenient method to evaluate the cross product of two 3D vectors is via a
+								symbolic
+								determinant:
+							</p>
+							<div style="text-align: center;margin-top: -25px;" class="fragment" data-fragment-index="0">
+								$\mathbf b \times \mathbf c = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+								b_1 & b_2 & b_3 \\
+								c_1 &
+								c_2 & c_3 \end{vmatrix}$
+							</div>
+						</div>
+
+						<p style="margin-top:10px;" class="fragment" data-fragment-index="1">
+							It follows directly that the <strong>scalar triple
+								product</strong> can be computed as:
+
+						</p>
+						<div style="text-align: center;margin-top: -15px;" class="fragment" data-fragment-index="1">
+							$\mathbf a \pd (\mathbf b \times \mathbf c) = \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2
+							& b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}$
+						</div>
+					</div>
+					<div style="margin-top:10px; padding: 10px; margin-top: -20px; font-size: 0.7em;">
+						<p class="fragment" data-fragment-index="2"><b>Conceptual Questions:</b></p>
+						<ul style="margin-left: 0px;margin-top: -10px;">
+							<li class="fragment" data-fragment-index="2">What does the scalar triple product represent
+								geometrically?</li>
+							<li class="fragment" data-fragment-index="3">What happens to the value if one vector is a
+								linear combination of the other two?</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Summary</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment"><b>Main Points Covered</b></p>
+							<ul>
+								<li class="fragment">Matrix notation & terminology</li>
+								<li class="fragment">Matrix operations and algebra</li>
+								<li class="fragment">Block matrices</li>
+								<li class="fragment">Inversion via Gaussian elimination</li>
+								<li class="fragment">Determinants and their operational properties</li>
+								<li class="fragment">Cramer's Rule systems</li>
+							</ul>
+						</div>
+						<br />
+						<div class="left-txt">
+							
+							<p class="fragment"><b>Where to Next?</b></p>
+
+							<ul>
+								<li class="fragment">Linear Transformations</li>
+								<ul>
+									<li class="fragment">What are they conceptually?</li>
+									<li class="fragment">Their core algebraic connection with matrices</li>
+								</ul>
+							</ul>
+						
+						</div>
+					</div>
+					<br />
 				</section>
 
 			</section>
