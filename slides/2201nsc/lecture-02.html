@@ -1220,16 +1220,30 @@
 					<h4>Inverse Matrix Properties</h4>
 					<div class="size-95">
 						<ol style="line-height: 60px;margin-left: 0px;">
-							<li class="fragment">
-								<b>Inverses are unique:</b> If $B$ and $C$ are inverses of $A$, then: <p
-									style="text-align: center;">$B = BI = B(AC) = (BA)C = IC = C$ </p>
+							<li class="fragment" data-fragment-index="0">
+								<b>Inverses are unique:</b> If $B$ and $C$ are inverses of $A$, 
+								<span class="fragment" data-fragment-index="1">
+									then:
+								</span>
+								<p  class="fragment" data-fragment-index="1" style="text-align: center;">
+									$B = BI  $ 
+									<span class="fragment" data-fragment-index="2">
+										$= B(AC) $
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$= (BA)C $
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$= IC = C$
+									</span>
+								</p>
 							</li>
-							<li class="fragment">
-								<b>Double Inverse:</b> $(A^{-1})^{-1} = A$
+							<li class="fragment" data-fragment-index="6">
+								<b>Double Inverse:</b> $\left(A^{-1}\right)^{-1} = A$
 							</li>
-							<li class="fragment">
-								<b>Product Inverse:</b> For any invertible matrices $A_1, A_2, \dots, A_k$:<p
-									style="text-align: center;">$(A_1 A_2 \dots A_k)^{-1} = A_k^{-1} \dots A_2^{-1}
+							<li  class="fragment" data-fragment-index="7">
+								<b>Product Inverse:</b> For any invertible matrices $A_1, A_2, \dots, A_k$:
+								<p class="fragment" data-fragment-index="8"style="text-align: center;">$\left(A_1 A_2 \dots A_k\right)^{-1} = A_k^{-1} \dots A_2^{-1}
 									A_1^{-1}$ </p>
 							</li>
 						</ol>
@@ -1260,7 +1274,7 @@
 								$A^T$. </i></p>
 
 						<div class="fragment" data-fragment-index="4">
-							<p><b>Examples:</b> </p>
+							<p><b>Example:</b> </p>
 
 						</div>
 						<div class="cc">
@@ -1648,7 +1662,7 @@
 					</h4>
 					<div class="size-85">
 						<p>
-							After finding $L{-1}$, we can calculate the populations last year:
+							After finding $L^{-1}$, we can calculate the populations last year:
 						</p>
 
 						<table style="text-align: center;" border="collapse">
@@ -1715,11 +1729,11 @@
 						</table>
 
 						<p class="fragment" data-fragment-index="0">
-							But... how did we find $L{-1}$??
+							But... how did we find $L^{-1}$??
 
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							And what if L didn't have an inverse??
+							And what if $L$ didn't have an inverse??
 
 
 						</p>
@@ -2145,10 +2159,10 @@
 						<p>So by the definition of linear combinations, we have the following further results:</p>
 						<ol style="line-height: 60px;">
 							<li class="fragment" data-fragment-index="1">
-								The product $Ax$ is a <strong>linear combination of the columns of $A$</strong>;
+								The product $A\mathbf x$ is a <strong>linear combination of the columns of $A$</strong>;
 							</li>
 							<li class="fragment" data-fragment-index="2">
-								The linear system $Ax = b$ has a solution <strong>iff $b$ is a linear combination of the
+								The linear system $A\mathbf x = \mathbf b$ has a solution <strong>iff $b$ is a linear combination of the
 									columns of $A$</strong>.
 							</li>
 						</ol>
