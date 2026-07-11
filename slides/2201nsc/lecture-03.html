@@ -61,7 +61,7 @@
 					</span>
 
 				</div>
-				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Matrices <br/> Part II
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Matrices <br /> Part II
 				</p>
 
 				<div style="margin-top: -40px; margin-bottom:20px;">
@@ -952,7 +952,7 @@ ans =
 							special cases where $a_{11}$, $a_{21}$ or $a_{31}$ are zero.</p>
 						<div class="fragment">
 							<p>We therefore define the determinant of a $3 \times 3$ matrix as:</p>
-							<p style="font-size: 0.9em; text-align: center;">$\det A =
+							<p style="font-size: 0.95em; text-align: center;">$\det A =
 								a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$
 							</p>
 						</div>
@@ -983,6 +983,302 @@ ans =
 			</section>
 
 			<section>
+
+				<section data-auto-animate>
+					<h4>Patterns with determinant formula</h4>
+					<div class="fragment size-90">
+						<p>The formula to compute the determinant of a $3 \times 3$ matrix as is starting to get
+							complicated:
+						</p>
+
+					</div>
+					<div class="fragment size-85">
+
+						<p style="font-size: 0.95em; text-align: center;">$\det A =
+							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$
+						</p>
+
+					</div>
+					<div class="fragment size-90">
+						<p>Remembering this formula will be difficult
+							and will not get easier as our matrices get bigger!
+						</p>
+						<div>
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬"
+									width="120" height="120">
+							</picture>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<h4>Patterns with the determinant formula</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">
+							For a $2\times2$ matrix
+							$
+							A=
+							\left(
+							\begin{array}{cc}
+							a_{11} & a_{12}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right).
+							$
+						</p>
+					</div>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							Choose the <b>first row</b>.
+						</p>
+
+					</div>
+
+					<div class="cc size-90" style="margin-top:30px;">
+
+						<p class="fragment" data-fragment-index="1">
+							$
+							\left(
+							\begin{array}{cc}
+							\color{red}{a_{11}} & \color{red}{a_{12}}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right)
+							$
+						</p>
+
+
+					</div>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+
+				</section>
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+
+					<div class="size-90">
+						<p>
+							For a $2\times2$ matrix
+							$
+							A=
+							\left(
+							\begin{array}{cc}
+							a_{11} & a_{12}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right).
+							$
+						</p>
+					</div>
+
+					<div class="size-90">
+						<p>
+							Cross out the row and column containing each selected element.
+						<br/>
+							<span class="fragment" data-fragment-index="1">
+								The remaining $1\times1$ matrix has determinant equal to its
+								single entry.
+							</span>
+						</p>
+
+					</div>
+
+					<div class="cc size-90" style="margin-top:30px;">
+
+						<p>
+							$
+							\left(
+							\begin{array}{cc}
+							\color{red}{a_{11}} & \color{red}{a_{12}}\\
+							\color{red}{a_{21}} & \color{blue}{a_{22}}
+							\end{array}
+							\right)
+							\quad
+							\left(
+							\begin{array}{cc}
+							\color{red}{a_{11}} & \color{red}{a_{12}}\\
+							\color{blue}{a_{21}} & \color{red}{a_{22}}
+							\end{array}
+							\right)\qquad \qquad
+							$
+						</p>
+
+
+					</div>
+
+					<div class="cc" style="margin-top:40px;">
+
+						<p>
+
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\;\color{red}{a_{11}}\det(\color{blue}{a_{22}})\;\;\;\;
+								$
+							</span>
+
+							<span class="fragment" data-fragment-index="3">
+								$
+								\color{red}{a_{12}}\det(\color{blue}{a_{21}})\qquad\qquad
+								$
+							</span>
+
+						</p>
+
+					</div>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+
+				</section>
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+
+					<div class="size-90">
+						<p>
+							For a $2\times2$ matrix
+							$
+							A=
+							\left(
+							\begin{array}{cc}
+							a_{11} & a_{12}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right).
+							$
+						</p>
+					</div>
+
+					<div class="size-90">
+						<p>
+							Apply the alternating sign pattern:
+							$
+							\left(
+							\begin{array}{cc}
+							+ & -\\
+							- & +
+							\end{array}
+							\right).
+							$
+						</p>
+
+					</div>
+
+					<div class="cc size-90" style="margin-top:30px;">
+
+						<p>
+							$
+							\left(
+							\begin{array}{cc}
+							\color{red}{a_{11}} & \color{red}{a_{12}}\\
+							\color{red}{a_{21}} & \color{blue}{a_{22}}
+							\end{array}
+							\right)
+							\quad
+							\left(
+							\begin{array}{cc}
+							\color{red}{a_{11}} & \color{red}{a_{12}}\\
+							\color{blue}{a_{21}} & \color{red}{a_{22}}
+							\end{array}
+							\right)\qquad \qquad
+							$
+						</p>
+
+
+					</div>
+
+					<div class="cc" style="margin-top:40px;">
+
+						<p>
+							<span  class="fragment" data-fragment-index="3">
+								$\text{det}\left(A\right)=$
+							</span>
+
+							<span  class="fragment" data-fragment-index="2">
+								$+$
+							</span>
+
+							<span>
+								$
+								\color{red}{a_{11}}\det(\color{blue}{a_{22}})\;
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$-\,$
+							</span>
+
+							<span>
+								$
+								\color{red}{a_{12}}\det(\color{blue}{a_{21}})
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$ = a_{11}a_{22} - a_{21}a_{22}\quad$
+							</span>
+
+						</p>
+
+					</div>
+
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+
+				</section>
+
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+					<div class="size-90">
+						<p>
+							For a $2\times2$ matrix
+							$
+							A=
+							\left(
+							\begin{array}{cc}
+							a_{11} & a_{12}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right).
+							$
+							The determinant is given by:
+						</p>
+					</div>
+					<div class="cc" style="margin-top: 50px; margin-bottom: 50px;">
+						<p>
+							$\large \text{det}\left(A\right)= a_{11}a_{22} - a_{21}a_{22}$
+						</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="6">
+						<p>
+							This same pattern extends to larger matrices, where the remaining
+							matrix is no longer $1\times1$.
+						</p>
+					</div>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+
+				</section>
+
+				
+
 				<section data-auto-animate>
 					<h4>Minors and Cofactors</h4>
 					<div class="size-85">
@@ -1381,7 +1677,7 @@ ans =
 						</div>
 						<br />
 						<div class="left-txt">
-							
+
 							<p class="fragment"><b>Where to Next?</b></p>
 
 							<ul>
@@ -1391,7 +1687,7 @@ ans =
 									<li class="fragment">Their core algebraic connection with matrices</li>
 								</ul>
 							</ul>
-						
+
 						</div>
 					</div>
 					<br />
