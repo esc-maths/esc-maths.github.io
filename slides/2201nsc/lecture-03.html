@@ -1015,7 +1015,7 @@ ans =
 					<br />
 				</section>
 
-				
+
 
 				<section data-auto-animate>
 					<h4>Patterns with the determinant formula</h4>
@@ -1057,13 +1057,13 @@ ans =
 
 
 					</div>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
 
 				</section>
 				<section>
@@ -1087,7 +1087,7 @@ ans =
 					<div class="size-90">
 						<p>
 							Cross out the row and column containing each selected element.
-						<br/>
+							<br />
 							<span class="fragment" data-fragment-index="1">
 								The remaining $1\times1$ matrix has determinant equal to its
 								single entry.
@@ -1102,15 +1102,15 @@ ans =
 							$
 							\left(
 							\begin{array}{cc}
-							\color{red}{a_{11}} & \color{red}{a_{12}}\\
-							\color{red}{a_{21}} & \color{blue}{a_{22}}
+							\color{red}{a_{11}} & \color{lightgrey}{a_{12}}\\
+							\color{lightgrey}{a_{21}} & \color{blue}{a_{22}}
 							\end{array}
 							\right)
 							\quad
 							\left(
 							\begin{array}{cc}
-							\color{red}{a_{11}} & \color{red}{a_{12}}\\
-							\color{blue}{a_{21}} & \color{red}{a_{22}}
+							\color{lightgrey}{a_{11}} & \color{red}{a_{12}}\\
+							\color{blue}{a_{21}} & \color{lightgrey}{a_{22}}
 							\end{array}
 							\right)\qquad \qquad
 							$
@@ -1138,10 +1138,10 @@ ans =
 						</p>
 
 					</div>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
+					<br />
 
 				</section>
 				<section>
@@ -1183,15 +1183,15 @@ ans =
 							$
 							\left(
 							\begin{array}{cc}
-							\color{red}{a_{11}} & \color{red}{a_{12}}\\
-							\color{red}{a_{21}} & \color{blue}{a_{22}}
+							\color{red}{a_{11}} & \color{lightgrey}{a_{12}}\\
+							\color{lightgrey}{a_{21}} & \color{blue}{a_{22}}
 							\end{array}
 							\right)
 							\quad
 							\left(
 							\begin{array}{cc}
-							\color{red}{a_{11}} & \color{red}{a_{12}}\\
-							\color{blue}{a_{21}} & \color{red}{a_{22}}
+							\color{lightgrey}{a_{11}} & \color{red}{a_{12}}\\
+							\color{blue}{a_{21}} & \color{lightgrey}{a_{22}}
 							\end{array}
 							\right)\qquad \qquad
 							$
@@ -1203,11 +1203,11 @@ ans =
 					<div class="cc" style="margin-top:40px;">
 
 						<p>
-							<span  class="fragment" data-fragment-index="3">
+							<span class="fragment" data-fragment-index="3">
 								$\text{det}\left(A\right)=$
 							</span>
 
-							<span  class="fragment" data-fragment-index="2">
+							<span class="fragment" data-fragment-index="2">
 								$+$
 							</span>
 
@@ -1233,10 +1233,10 @@ ans =
 
 					</div>
 
-					<br/>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
+					<br />
 
 				</section>
 
@@ -1269,15 +1269,135 @@ ans =
 							matrix is no longer $1\times1$.
 						</p>
 					</div>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
 
 				</section>
-
 				
+
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+
+					<div class="size-90">
+						<p>
+							For a $3\times3$ matrix:
+						</p>
+					</div>
+
+					<div class="cc" style="margin-top:50px; margin-bottom:50px; font-size:0.85em;">
+
+						<p>
+							$
+							\det(A)=
+							\color{red}{a_{11}}a_{22}a_{33}
+							-
+							a_{22}a_{31}\color{red}{a_{13}}
+							-
+							a_{21}\color{red}{a_{12}}a_{33}
+							-
+							\color{red}{a_{11}}a_{32}a_{23}
+							+
+							a_{32}a_{21}\color{red}{a_{13}}
+							+
+							a_{31}\color{red}{a_{12}}a_{23}
+							$
+						</p>
+
+						<p class="fragment">
+							$
+							=
+							\color{red}{a_{11}}
+							\left(
+							\color{blue}{a_{22}a_{33}}
+							-
+							\color{blue}{a_{32}a_{23}}
+							\right)
+							-
+							\color{red}{a_{12}}
+							\left(
+							\color{blue}{a_{21}a_{33}}
+							-
+							\color{blue}{a_{31}a_{23}}
+							\right)
+							+
+							\color{red}{a_{13}}
+							\left(
+							\color{blue}{a_{21}a_{32}}
+							-
+							\color{blue}{a_{31}a_{22}}
+							\right)
+							$
+						</p>
+
+						<p class="fragment">
+							$
+							=
+							\color{red}{a_{11}}
+							\det\!\left(
+							\begin{array}{cc}
+							\color{blue}{a_{22}} & \color{blue}{a_{23}}\\
+							\color{blue}{a_{32}} & \color{blue}{a_{33}}
+							\end{array}
+							\right)
+							-
+							\color{red}{a_{12}}
+							\det\!\left(
+							\begin{array}{cc}
+							\color{blue}{a_{21}} & \color{blue}{a_{23}}\\
+							\color{blue}{a_{31}} & \color{blue}{a_{33}}
+							\end{array}
+							\right)
+							+
+							\color{red}{a_{13}}
+							\det\!\left(
+							\begin{array}{cc}
+							\color{blue}{a_{21}} & \color{blue}{a_{22}}\\
+							\color{blue}{a_{31}} & \color{blue}{a_{32}}
+							\end{array}
+							\right)
+							$
+						</p>
+
+						<p class="fragment">
+							$
+							\left(
+							\begin{array}{ccc}
+							\color{red}{a_{11}} & \color{lightgray}{a_{12}} & \color{lightgray}{a_{13}}\\
+							\color{lightgray}{a_{21}} & \color{blue}{a_{22}} & \color{blue}{a_{23}}\\
+							\color{lightgray}{a_{31}} & \color{blue}{a_{32}} & \color{blue}{a_{33}}
+							\end{array}
+							\right)
+							\qquad
+							\left(
+							\begin{array}{ccc}
+							\color{lightgray}{a_{11}} & \color{red}{a_{12}} & \color{lightgray}{a_{13}}\\
+							\color{blue}{a_{21}} & \color{lightgray}{a_{22}} & \color{blue}{a_{23}}\\
+							\color{blue}{a_{31}} & \color{lightgray}{a_{32}} & \color{blue}{a_{33}}
+							\end{array}
+							\right)
+							\qquad
+							\left(
+							\begin{array}{ccc}
+							\color{lightgray}{a_{11}} & \color{lightgray}{a_{12}} & \color{red}{a_{13}}\\
+							\color{blue}{a_{21}} & \color{blue}{a_{22}} & \color{lightgray}{a_{23}}\\
+							\color{blue}{a_{31}} & \color{blue}{a_{32}} & \color{lightgray}{a_{33}}
+							\end{array}
+							\right)
+							$
+						</p>
+
+					</div>
+
+					<br/>
+					<br/>
+				</section>
+
+
+
+
 
 				<section data-auto-animate>
 					<h4>Minors and Cofactors</h4>
