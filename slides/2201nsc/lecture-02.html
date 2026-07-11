@@ -522,7 +522,7 @@
 				<section data-auto-animate>
 					<h4>Matrix multiplication</h4>
 
-					<div class="size-80">
+					<div class="size-85">
 						<p class="fragment" data-fragment-index="0">
 							For matrices $A\in \mathbb R^{m\times n}$ and $B\in \mathbb R^{n\times p},$
 							<span class="fragment" data-fragment-index="1">
@@ -584,7 +584,7 @@
 				<section data-auto-animate>
 					<h4>Matrix multiplication</h4>
 
-					<div class="size-65">
+					<div class="size-55">
 
 
 						<div class="cc">
@@ -610,8 +610,8 @@
 
 					</div>
 
-					<div class="size-70">
-						<ul style="line-height: 60px;">
+					<div class="size-75">
+						<ul style="line-height: 50px;">
 							<li class="fragment" data-fragment-index="0">
 								Each element of C is the sum of products
 								between a row of $A$ and a column of $B$
@@ -1062,7 +1062,7 @@
 
 				<section data-auto-animate>
 					<h4>Do these rules apply to Matrices?</h4>
-					<div class="size-85">
+					<div class="size-95">
 						<p>With the exception of an inverse for zero, these properties all hold for numbers. </p>
 						<p class="fragment" data-fragment-index="0"><i>Tip: That's why numbers do such a good job of
 								quantifying our daily
@@ -1079,6 +1079,8 @@
 							<span class="fragment">How about... <b>matrices</b>? </span>
 						</p>
 					</div>
+					<br/>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
@@ -1122,12 +1124,13 @@
 							</tr>
 						</table>
 						<div class="fragment"
-							style="margin-top: 25px; color: #ff5555; text-align: center; font-weight: bold;">
+							style="margin-top: 0px; color: #ff5555; text-align: center; font-weight: bold;">
 							Notice that $AB = BA$ (commutativity under multiplication) is not on the list!<br /> <span
 								style="font-size: 0.8em; color: gray; font-weight: normal; margin-top: 5px;">That's
 								because it doesn't hold for all matrices. </span>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
@@ -1325,7 +1328,7 @@
 				<section data-auto-animate>
 					<h4>Application: Marital Population</h4>
 					<div class="size-90">
-						<p>Imagine the following probabilities within a population setup over a given year: </p>
+						<p class="fragment">Imagine the following probabilities within a population setup over a given year: </p>
 						<ul>
 							<li class="fragment">The probability a <b>married</b> person divorces is <b>30%</b>. </li>
 							<li class="fragment">The probability an <b>unmarried</b> person marries is <b>20%</b>. </li>
@@ -1358,10 +1361,10 @@
 							The proportions of married vs. unmarried people in the next year are given
 							by
 						</p>
-						<div class="fragment cc" style="font-size: 0.90em; line-height: 35px; margin-top: 15px;">
-							<p>$\text{% married next year} = [\% \text{ married}] \times [\% \text{ don't
+						<div class="cc" style="font-size: 0.90em; line-height: 35px; margin-top: 15px;">
+							<p class="fragment">$\text{% married next year} = [\% \text{ married}] \times [\% \text{ don't
 								divorce}] + [\% \text{ unmarried}] \times [\% \text{ marry}]$ </p>
-							<p>$\text{% unmarried next year} = [\% \text{ married}] \times [\% \text{ divorce}] +
+							<p class="fragment">$\text{% unmarried next year} = [\% \text{ married}] \times [\% \text{ divorce}] +
 								[\% \text{ unmarried}] \times [\% \text{ don't marry}]$ </p>
 						</div>
 						<p class="fragment">Given a 30% divorce rate and 20% marriage rate: </p>
@@ -1370,11 +1373,11 @@
 								$\left( \begin{array}{c} \text{% married next yr} \\ \text{% unmarried next yr}
 								\end{array} \right) = \left( \begin{array}{c} [\% \text{ married}] \times 0.7 + [\%
 								\text{ unmarried}] \times 0.2 \\ [\% \text{ married}] \times 0.3 + [\% \text{
-								unmarried}] \times 0.8 \end{array} \right)$ </p>
+								unmarried}] \times 0.8 \end{array} \right)\qquad\quad$ </p>
 						</div>
 						<div class="cc fragment">
 							<p>
-								$= \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+								$\qquad = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
 								\begin{array}{c} \text{% married} \\ \text{% unmarried} \end{array} \right)$ </p>
 						</div>
 					</div>
@@ -1407,7 +1410,7 @@
 						</div>
 
 						<p class="fragment" data-fragment-index="3"><b>After 2 years ($x_2$):</b>
-							<span class="fragment" data-fragment-index="5">$ \quad \rightarrow A^2x_0 = A(Ax_0)=
+							<span class="fragment" data-fragment-index="5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👉 $ A^2x_0 = A(Ax_0)=
 								Ax_1$</span>
 						</p>
 
@@ -1631,7 +1634,7 @@
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="2">
-							If $L$ has an inverse, $L_{-1}$,
+							If $L$ has an inverse, $L^{-1}$,
 							<span class="fragment" data-fragment-index="3">
 								then
 							</span>
@@ -2118,9 +2121,9 @@
 							\mathbf a_n$
 						</p>
 					</div>
-					<div class="size-80 fragment" data-fragment-index="5">
+					<div class="size-80 fragment cc" data-fragment-index="5">
 						<p><b>This first result is a very, very important one!!</b></p>
-						<p>Why?? Because it's an example of a <strong>linear combination</strong>...</p>
+						<p class="fragment">Why?? 🤔 Because it's an example of a <strong>linear combination</strong>...</p>
 					</div>
 				</section>
 
@@ -2162,7 +2165,7 @@
 								The product $A\mathbf x$ is a <strong>linear combination of the columns of $A$</strong>;
 							</li>
 							<li class="fragment" data-fragment-index="2">
-								The linear system $A\mathbf x = \mathbf b$ has a solution <strong>iff $b$ is a linear combination of the
+								The linear system $A\mathbf x = \mathbf b$ has a solution <strong>iff $\mathbf b$ is a linear combination of the
 									columns of $A$</strong>.
 							</li>
 						</ol>
