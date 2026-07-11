@@ -550,20 +550,23 @@ ans =
 
 				<section data-auto-animate>
 					<h4>When is a Matrix Invertible?</h4>
-					<div class="size-85 fragment">
+					<div class="size-90 fragment">
 						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
 						<p>The following statements about $A \in \mathbb{R}^{n \times n}$ are equivalent:</p>
 						<ul>
-							<li><strong>A:</strong> $A$ is invertible (nonsingular)</li>
-							<li><strong>B:</strong> The only solution to $A\mathbf x=\mathbf 0$ is $\mathbf x=\mathbf 0$
+							<li class="fragment"><strong>A:</strong> $A$ is invertible (nonsingular)</li>
+							<li class="fragment"><strong>B:</strong> The only solution to $A\mathbf x=\mathbf 0$ is
+								$\mathbf x=\mathbf 0$
 							</li>
-							<li><strong>C:</strong> $A$ is row-equivalent to $I$ (i.e., there is a sequence of
+							<li class="fragment"><strong>C:</strong> $A$ is row-equivalent to $I$ (i.e., there is a
+								sequence of
 								elementary matrices such that $E_m \dots E_1 A = I$)</li>
 						</ul>
 					</div>
-					<div class="size-85" style="margin-top:15px;">
-						<h6 class="fragment">Proof Outline</h6>
-						<p class="fragment">Show that $A \Rightarrow B \Rightarrow C \Rightarrow A$.</p>
+					<div class="size-90 fragment" style="margin-top:-20px;">
+						<p style="text-align: center; font-size: 0.8em;"><b>Proof Outline:</b></p>
+						<p style="margin-top: -20px; text-align: center;">Show that $A \Rightarrow B \Rightarrow C
+							\Rightarrow A$.</p>
 						<p>
 							<span class="fragment">
 								<strong>For $A \Rightarrow B$:</strong>
@@ -575,7 +578,7 @@ ans =
 						</p>
 
 					</div>
-					<div class="size-85 cc">
+					<div class="size-90 cc">
 						<p>
 							<span class="fragment">
 								then $\;\mathbf x = I\mathbf x $
@@ -613,7 +616,7 @@ ans =
 							\Rightarrow
 							\mathbf x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
 					</div>
-					<div class="size-85" style="margin-top:15px;">
+					<div class="size-90" style="margin-top:15px;">
 						<h6>Proof Outline (Cont'd)</h6>
 						<p><strong>For $B \Rightarrow C$:</strong>
 							<span class="fragment">
@@ -666,7 +669,7 @@ ans =
 							\Rightarrow
 							\mathbf x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
 					</div>
-					<div class="size-85" style="margin-top:15px;">
+					<div class="size-90" style="margin-top:15px;">
 						<h6>Proof Outline (Cont'd)</h6>
 						<p>
 							<strong>For $C \Rightarrow A$:</strong>
@@ -795,7 +798,7 @@ ans =
 
 				<section>
 					<h4>Determinants: Derivations</h4>
-					<div class="size-80">
+					<div class="size-85">
 
 						<p class="fragment">
 							<b>
@@ -812,13 +815,13 @@ ans =
 
 
 					</div>
-					<div class="size-80">
+					<div class="size-85">
 						<hr />
 						<p class="fragment"><b>For $A \in \mathbb{R}^{2 \times 2}$:</b></p>
 
-						<ol>
+						<ol style="line-height: 60px;">
 
-							<li class="fragment">An $A \in \mathbb{R}^{2 \times 2}$ matrix $A = \begin{pmatrix} a_{11} &
+							<li class="fragment">$A = \begin{pmatrix} a_{11} &
 								a_{12} \\ a_{21} & a_{22} \end{pmatrix}$ is nonsingular if and only if it can be row
 								reduced to $I$.</li>
 							<li class="fragment">
@@ -984,17 +987,14 @@ ans =
 
 			<section>
 
-				<section data-auto-animate>
+				<section>
 					<h4>Patterns with determinant formula</h4>
 					<div class="fragment size-90">
 						<p>The formula to compute the determinant of a $3 \times 3$ matrix as is starting to get
 							complicated:
 						</p>
 
-					</div>
-					<div class="fragment size-85">
-
-						<p style="font-size: 0.95em; text-align: center;">$\det A =
+						<p style="font-size: 0.9em; text-align: center;">$\det A =
 							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$
 						</p>
 
@@ -1013,15 +1013,14 @@ ans =
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-
-
-				<section data-auto-animate>
+				<section>
 					<h4>Patterns with the determinant formula</h4>
 
 					<div class="size-90">
-						<p class="fragment" data-fragment-index="0">
+						<p>
 							For a $2\times2$ matrix
 							$
 							A=
@@ -1276,7 +1275,7 @@ ans =
 					<br />
 
 				</section>
-				
+
 
 				<section>
 					<h4>Patterns with the determinant formula</h4>
@@ -1289,24 +1288,42 @@ ans =
 
 					<div class="cc" style="margin-top:50px; margin-bottom:50px; font-size:0.85em;">
 
-						<p>
-							$
-							\det(A)=
-							\color{red}{a_{11}}a_{22}a_{33}
-							-
-							a_{22}a_{31}\color{red}{a_{13}}
-							-
-							a_{21}\color{red}{a_{12}}a_{33}
-							-
-							\color{red}{a_{11}}a_{32}a_{23}
-							+
-							a_{32}a_{21}\color{red}{a_{13}}
-							+
-							a_{31}\color{red}{a_{12}}a_{23}
-							$
-						</p>
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$
+								\det(A)=
+								a_{11}a_{22}a_{33}
+								-
+								a_{22}a_{31}a_{13}
+								-
+								a_{21}a_{12}a_{33}
+								-
+								a_{11}a_{32}a_{23}
+								+
+								a_{32}a_{21}a_{13}
+								+
+								a_{31}a_{12}a_{23}
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
+								$
+								\det(A)=
+								\color{red}{a_{11}}a_{22}a_{33}
+								-
+								a_{22}a_{31}\color{red}{a_{13}}
+								-
+								a_{21}\color{red}{a_{12}}a_{33}
+								-
+								\color{red}{a_{11}}a_{32}a_{23}
+								+
+								a_{32}a_{21}\color{red}{a_{13}}
+								+
+								a_{31}\color{red}{a_{12}}a_{23}
+								$
+							</p>
+						</div>
 
-						<p class="fragment">
+						<p class="fragment" data-fragment-index="2">
 							$
 							=
 							\color{red}{a_{11}}
@@ -1332,7 +1349,7 @@ ans =
 							$
 						</p>
 
-						<p class="fragment">
+						<p class="fragment" data-fragment-index="3">
 							$
 							=
 							\color{red}{a_{11}}
@@ -1357,11 +1374,11 @@ ans =
 							\color{blue}{a_{21}} & \color{blue}{a_{22}}\\
 							\color{blue}{a_{31}} & \color{blue}{a_{32}}
 							\end{array}
-							\right)
+							\right)\;\,
 							$
 						</p>
 
-						<p class="fragment">
+						<p class="fragment" data-fragment-index="4">
 							$
 							\left(
 							\begin{array}{ccc}
@@ -1391,12 +1408,9 @@ ans =
 
 					</div>
 
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
-
-
-
 
 
 				<section data-auto-animate>
@@ -1473,7 +1487,7 @@ ans =
 
 				<section>
 					<h4>Formal Definition of Determinant (Cont'd): Important Generalization</h4>
-					<div class="size-75">
+					<div class="size-80">
 
 						<p>We are not forced to sum the terms $a_{ij}C_{ij}$ along the top row only!</p>
 						<ul style="line-height: 60px;">
@@ -1483,7 +1497,7 @@ ans =
 								any column $k$</li>
 						</ul>
 					</div>
-					<div class="size-70" style="margin-top:20px;">
+					<div class="size-75" style="margin-top:20px;">
 
 						<p class="fragment" data-fragment-index="3">
 
@@ -1581,6 +1595,9 @@ ans =
 					<br />
 				</section>
 
+			</section>
+
+			<section>
 				<section>
 					<h4>Application: Cramer's Rule</h4>
 					<div class="size-85">
@@ -1812,7 +1829,6 @@ ans =
 					</div>
 					<br />
 				</section>
-
 			</section>
 
 			<!-- Ends sections -->
