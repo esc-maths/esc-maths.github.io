@@ -84,12 +84,12 @@
 					</div>
 					<div class="size-85 style=" margin-top:15px;">
 						<p class="fragment" data-fragment-index="4">
-							These operations can be represented by <strong>elementary matrices</strong>, $E_{i}$. There
+							These operations can be represented by <strong>elementary matrices</strong>, $E_{i}.$ There
 							is one elementary matrix for each operation.
 						</p>
 						<p class="fragment" data-fragment-index="5">
 							The operation is achieved by multiplying a given matrix <strong>on the left</strong> by
-							$E_{i}$.
+							$E_{i}.$
 						</p>
 						<p class="fragment" data-fragment-index="6">
 							The steps in <b>Gaussian elimination</b> can then be written as a product sequence:
@@ -282,7 +282,7 @@
 						<p class="fragment" data-fragment-index="6">
 							<strong>Conclusion:</strong> We can use standard row reduction on the augmented matrix
 							$\big(A
-							\mid I\big)$ to safely find the inverse matrix $A^{-1}$.
+							\mid I\big)$ to safely find the inverse matrix $A^{-1}.$
 						</p>
 					</div>
 					<br />
@@ -566,7 +566,7 @@ ans =
 					<div class="size-90 fragment" style="margin-top:-20px;">
 						<p style="text-align: center; font-size: 0.8em;"><b>Proof Outline:</b></p>
 						<p style="margin-top: -20px; text-align: center;">Show that $A \Rightarrow B \Rightarrow C
-							\Rightarrow A$.</p>
+							\Rightarrow A.$</p>
 						<p>
 							<span class="fragment">
 								<strong>For $A \Rightarrow B$:</strong>
@@ -594,7 +594,7 @@ ans =
 								$= A^{-1}\mathbf 0 $
 							</span>
 							<span class="fragment">
-								$= \mathbf 0$.
+								$= \mathbf 0.$
 							</span>
 						</p>
 					</div>
@@ -620,7 +620,7 @@ ans =
 						<h6>Proof Outline (Cont'd)</h6>
 						<p><strong>For $B \Rightarrow C$:</strong>
 							<span class="fragment">
-								Suppose $\mathbf x=\mathbf 0$ is the only solution to $A\mathbf x=\mathbf 0$.
+								Suppose $\mathbf x=\mathbf 0$ is the only solution to $A\mathbf x=\mathbf 0.$
 							</span>
 							<span class="fragment">
 								Reduce
@@ -643,17 +643,17 @@ ans =
 						</p>
 						<p>
 							<span class="fragment">
-								Since $A$ is an $n \times n$ matrix, $U = I$.
+								Since $A$ is an $n \times n$ matrix, $U = I.$
 							</span>
 							<span class="fragment">
 								So there exist elementary
-								matrices $E_1, E_2, \dots, E_m$ such that $E_m \dots E_1 A = I$.
+								matrices $E_1, E_2, \dots, E_m$ such that $E_m \dots E_1 A = I.$
 
 							</span>
 							<span class="fragment">
 
 								Hence $A$ is row-equivalent
-								to $I$.
+								to $I.$
 							</span>
 						</p>
 					</div>
@@ -685,7 +685,7 @@ ans =
 						</p>
 						<p>
 							<span class="fragment">
-								Therefore, $A^{-1} = E_m \dots E_1$.
+								Therefore, $A^{-1} = E_m \dots E_1.$
 							</span>
 							<span class="fragment">
 								So $A^{-1}$
@@ -733,7 +733,7 @@ ans =
 									$ = A^{-1}\left(A\mathbf x\right)$
 								</span>
 								<span class="fragment">
-									$ = A^{-1}\mathbf b$.
+									$ = A^{-1}\mathbf b.$
 								</span>
 							</li>
 							<li class="fragment">
@@ -746,20 +746,20 @@ ans =
 								</span>
 								<span class="fragment">
 									$A\mathbf x=\mathbf 0$ has a non-zero solution
-									$\mathbf x_0$.
+									$\mathbf x_0.$
 								</span>
 								<span class="fragment">
 									Suppose $\mathbf x_b$ is a solution of $A\mathbf x=\mathbf b.$
 								</span>
 								<span class="fragment">
-									Let $\mathbf y = \mathbf x_b + \mathbf x_0$.
+									Let $\mathbf y = \mathbf x_b + \mathbf x_0.$
 								</span>
 								<span class="fragment">
 									Then $A\mathbf y = A(\mathbf x_b +
 									\mathbf x_0) = A\mathbf x_b + A\mathbf x_0 $
 								</span>
 								<span class="fragment">
-									$ =\mathbf b + 0 = \mathbf b$.
+									$ =\mathbf b + 0 = \mathbf b.$
 								</span>
 
 							</li>
@@ -771,10 +771,10 @@ ans =
 					<br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>Determinants: Motivation</h4>
 					<div class="size-85">
-						<h5>A condition for a nonsingular matrix</h5>
+						<h5 class="fragment">A condition for a nonsingular matrix</h5>
 						<p>We have just seen that:</p>
 						<p style="text-align:center;">$A \text{ is nonsingular} \iff A\mathbf x=\mathbf b \text{ has a
 							unique solution}$
@@ -785,9 +785,9 @@ ans =
 							<strong>determinant</strong>.
 						</p>
 						<ul style="line-height: 60px;">
-							<li class="fragment">We denote the determinant of a square matrix $A$ by $\det A$ or by
-								$|A|$.</li>
-							<li class="fragment">$\det A$ is calculated from the matrix elements $a_{ij}$.</li>
+							<li class="fragment">We denote the determinant of a square matrix $A$ by $\det (A)$ or by
+								$|A|.$</li>
+							<li class="fragment">$\det (A)$ is calculated from the matrix elements $a_{ij}.$</li>
 							<li class="fragment">It will turn out that $\det A \neq 0$ iff $A$ is nonsingular.</li>
 						</ul>
 						<p class="fragment" style="margin-top:15px;"><strong>So how do we calculate $\det A$?</strong>
@@ -796,34 +796,51 @@ ans =
 					<br />
 				</section>
 
-				<section>
-					<h4>Determinants: Derivations</h4>
-					<div class="size-85">
+				<section data-auto-animate>
+					<h4>Determinants: Motivation</h4>
+					<h6>Determinants for $A\in \mathbb R^{1\times 1}$</h6>
+
+					<div>
 
 						<p class="fragment">
-							<b>
-								For $A \in \mathbb{R}^{1 \times 1}$:
-							</b>
-							A $1 \times 1$ matrix $A = (a_{11})$ will have an inverse if and only if $a_{11} \neq
-							0$.
+
+							A $1 \times 1$ matrix $$A = (a_{11})$$ will have an
+							inverse
 							<span class="fragment">
-								We therefore define $\det A = a_{11}$ for a $1 \times 1$ matrix.
+								if and only if $a_{11} \neq
+								0.$
 							</span>
+
 
 						</p>
 
 
 
 					</div>
-					<div class="size-85">
-						<hr />
-						<p class="fragment"><b>For $A \in \mathbb{R}^{2 \times 2}$:</b></p>
+					<div class="cc">
+						<p class="fragment">
+							We therefore define $\det( A )= a_{11}$ for a $1 \times 1$ matrix.
+						</p>
 
-						<ol style="line-height: 60px;">
+					</div>
+
+
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Determinants: Motivation</h4>
+					<h6>Determinants for $A\in \mathbb R^{2\times 2}$</h6>
+
+					<div class="size-85 left-txt">
+
+
+						<ol style="line-height: 80px; margin-left: 0px;">
 
 							<li class="fragment">$A = \begin{pmatrix} a_{11} &
 								a_{12} \\ a_{21} & a_{22} \end{pmatrix}$ is nonsingular if and only if it can be row
-								reduced to $I$.</li>
+								reduced to $I.$</li>
 							<li class="fragment">
 								We perform the row reductions:
 								<p style="text-align: center;">
@@ -844,17 +861,20 @@ ans =
 							<li class="fragment">
 								We will be able to row reduce $A$ to $I$ as long as
 								$a_{11}a_{22} -
-								a_{12}a_{21} \neq 0$.
+								a_{12}a_{21} \neq 0.$
 							</li>
 						</ol>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<section>
-					<h4>Determinants for $A \in \mathbb{R}^{2 \times 2}$ (Cont'd)</h4>
+				<section data-auto-animate>
+					<h4>Determinants: Motivation</h4>
+					<h6>Determinants for $A\in \mathbb R^{2\times 2}$</h6>
+
 					<div class="size-85">
-						<ol style="line-height: 55px;">
+						<ul style="line-height: 55px;">
 							<li>But what if $a_{11} = 0$?</li>
 							<li class="fragment">Let's assume $a_{21} \neq 0$:
 								<p style="text-align: center; margin-top: -15px;">
@@ -865,40 +885,40 @@ ans =
 								</p>
 							</li>
 							<li class="fragment">We will be able to row reduce $A$ to $I$ as long as $a_{12} \neq 0$ and
-								$a_{21} \neq 0$...
+								$a_{21} \neq 0$...<br />
 								<span class="fragment">
 									which is equivalent to $a_{11}a_{22} - a_{12}a_{21} \neq 0$ when
-									$a_{11} = 0$.
+									$a_{11} = 0.$
 								</span>
 							</li>
 							<li class="fragment">
 								Finally, we note that if $a_{11} = a_{21} = 0,$
 								<span>
 									then $A$ is not
-									row-reducible to $I$...
+									row-reducible to $I$... <br />
 								</span>
 								<span class="fragment">
 									but $a_{11}a_{22} - a_{12}a_{21} = 0$
 									in this case!
 								</span>
 							</li>
-						</ol>
+						</ul>
 
 						<div class="cc fragment" style="margin-top: 10px; border: 1px solid black;">
 							<p>
-								We therefore define: $\det A = a_{11}a_{22} - a_{12}a_{21}$ for a $ 2 \times 2$ matrix.
+								We therefore define: $\det (A) = a_{11}a_{22} - a_{12}a_{21}$ for a $ 2 \times 2$ matrix.
 							</p>
 						</div>
 					</div>
 					<Br />
 				</section>
 
-				<section>
+				<section data-auto-animate>
 					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$</h4>
-					<div class="size-80">
-						<ol style="line-height: 50px;">
+					<div class="size-80 left-txt">
+						<ol style="line-height: 60px;">
 							<li>$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
-								a_{32} & a_{33} \end{pmatrix}$ is nonsingular iff it can be row reduced to $I$.</li>
+								a_{32} & a_{33} \end{pmatrix}$ is nonsingular iff it can be row reduced to $I.$</li>
 							<li class="fragment">We perform the row reductions:
 								<p style="text-align: center; margin-top: 10px;">
 									$\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
@@ -922,8 +942,8 @@ ans =
 					<br>
 				</section>
 
-				<section>
-					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$ (Cont'd)</h4>
+				<section data-auto-animate>
+					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$</h4>
 					<div class="size-80">
 						<p>$\left| \begin{array}{cc} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
 							a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{array} \right|$</p>
@@ -938,32 +958,37 @@ ans =
 					</div>
 					<div class="size-80 fragment" style="margin-top:10px;">
 						<p>In analogy with the $2 \times 2$ case, for a $3 \times 3$ matrix we could propose:</p>
-						<p>$$\det A =
+						<p style="margin-top: 10px; border: 1px solid black;">$$\det (A) =
 							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$$
 						</p>
-						<p style="margin-top:5px;;" class="fragment">But what about the cases where $a_{11}=0$, etc.?
+						<p style="margin-top:5px;" class="fragment">But what about the cases where $a_{11}=0$, etc.?
 						</p>
 					</div>
 					<br />
 					<br />
 				</section>
 
-				<section>
-					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$ (Cont'd)</h4>
-					<div class="size-85">
+				<section data-auto-animate>
+					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$</h4>
+					<div class="size-80">
 						<p>Just as in the $2 \times 2$ case, the $3 \times 3$ definition for $\det A$ works in all the
 							special cases where $a_{11}$, $a_{21}$ or $a_{31}$ are zero.</p>
 						<div class="fragment">
 							<p>We therefore define the determinant of a $3 \times 3$ matrix as:</p>
-							<p style="font-size: 0.95em; text-align: center;">$\det A =
-								a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$
+							<p style="border: 1px solid black;margin-top: 10px;">
+								$$\det(A)=
+								a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$$
 							</p>
 						</div>
 					</div>
 					<div class="size-80" style="margin-top:15px;">
-						<p class="fragment">But remembering a formula like this is difficult... and it won't get any
-							easier as our
-							matrices get bigger.</p>
+						<p class="fragment">But remembering a formula like this is difficult...
+							<span class="fragment">
+								and it won't get any
+								easier as our
+								matrices get bigger.
+							</span>
+						</p>
 
 					</div>
 					<div class="fragment">
@@ -994,7 +1019,8 @@ ans =
 							complicated:
 						</p>
 
-						<p style="font-size: 0.9em; text-align: center;">$\det A =
+						<p style="font-size: 0.9em; text-align: center;">
+							$\det (A) =
 							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$
 						</p>
 
@@ -1265,7 +1291,7 @@ ans =
 					<div class="fragment" data-fragment-index="6">
 						<p>
 							This same pattern extends to larger matrices, where the remaining
-							matrix is no longer $1\times1$.
+							matrix is no longer $1\times1.$
 						</p>
 					</div>
 					<br />
@@ -1473,7 +1499,7 @@ ans =
 
 						<p>The determinant of a square matrix $A \in \mathbb{R}^{n \times n}$ is defined inductively by:
 						</p>
-						$$\det A = \begin{cases} a_{11} & \text{if } n=1 \\ \sum_{i=1}^{n} a_{1i} C_{1i} & \text{if }
+						$$\det (A )= \begin{cases} a_{11} & \text{if } n=1 \\ \sum_{i=1}^{n} a_{1i} C_{1i} & \text{if }
 						n>1 \end{cases}$$
 						<p style="margin-top:15px;" class="fragment">where $C_{1i}$ is the cofactor of the corresponding
 							element $a_{1i}$
@@ -1491,9 +1517,9 @@ ans =
 
 						<p>We are not forced to sum the terms $a_{ij}C_{ij}$ along the top row only!</p>
 						<ul style="line-height: 60px;">
-							<li class="fragment" data-fragment-index="1">$\det A = \sum_{i=1}^{n} a_{ki} C_{ki}$ along
+							<li class="fragment" data-fragment-index="1">$\det (A) = \sum_{i=1}^{n} a_{ki} C_{ki}$ along
 								any row $k$</li>
-							<li class="fragment" data-fragment-index="2">$\det A = \sum_{i=1}^{n} a_{ik} C_{ik}$ down
+							<li class="fragment" data-fragment-index="2">$\det (A )= \sum_{i=1}^{n} a_{ik} C_{ik}$ down
 								any column $k$</li>
 						</ul>
 					</div>
@@ -1568,11 +1594,11 @@ ans =
 					<div class="size-80">
 						<h5>Core properties to remember:</h5>
 						<ol style="line-height: 45px; margin-top: -15px;">
-							<li class="fragment">$A$ is singular if and only if $\det A = 0$.</li>
-							<li class="fragment">$\det(A) = \det\left(A^T\right)$.</li>
-							<li class="fragment">If $A$ is a triangular matrix, $\det A$ is simply the product of its
+							<li class="fragment">$A$ is singular if and only if $\det (A) = 0.$</li>
+							<li class="fragment">$\det(A) = \det\left(A^T\right).$</li>
+							<li class="fragment">If $A$ is a triangular matrix, $\det (A)$ is simply the product of its
 								diagonal elements.</li>
-							<li class="fragment">$\det A = 0$ if:
+							<li class="fragment">$\det( A) = 0$ if:
 								<ul>
 									<li>$A$ has a row or column consisting entirely of zeros; or</li>
 									<li class="fragment">$A$ has two identical rows or columns; or</li>
@@ -1580,14 +1606,14 @@ ans =
 										rows (or columns).</li>
 								</ul>
 							</li>
-							<li class="fragment">$\det\left(AB\right) = \left(\det A\right)\left(\det B\right)$.</li>
+							<li class="fragment">$\det\left(AB\right) = \left(\det A\right)\left(\det B\right).$</li>
 							<li class="fragment">Elementary matrices:
 								<ul>
-									<li>If $E$ swaps two rows in $A$, then $\det E = -1$.</li>
-									<li class="fragment">If $E$ rescales a row of $A$ by a constant $k$, then $\det E =
-										k$.</li>
-									<li class="fragment">If $E$ adds a multiple of a row to another row, then $\det E =
-										1$.</li>
+									<li>If $E$ swaps two rows in $A$, then $\det(E) = -1.$</li>
+									<li class="fragment">If $E$ rescales a row of $A$ by a constant $k$, then $\det (E) =
+										k.$</li>
+									<li class="fragment">If $E$ adds a multiple of a row to another row, then $\det (E) =
+										1.$</li>
 								</ul>
 							</li>
 						</ol>
@@ -1610,7 +1636,7 @@ ans =
 					</div>
 					<div class="size-80" style="margin-top:10px;">
 						<p class="fragment" data-fragment-index="1">The determinant of the coefficient matrix is $\det M
-							= -4$.
+							= -4.$
 
 						</p>
 						<p>
@@ -1691,9 +1717,9 @@ ans =
 						</div>
 
 						<ul>
-							<li class="fragment">When $i=j$, this matches the standard definition of $\det A$.</li>
+							<li class="fragment">When $i=j$, this matches the standard definition of $\det A.$</li>
 							<li class="fragment">When $i \neq j$, this corresponds to evaluating the determinant of an
-								altered matrix where rows $i$ and $j$ are identical, which must equal $0$.</li>
+								altered matrix where rows $i$ and $j$ are identical, which must equal $0.$</li>
 						</ul>
 					</div>
 					<div class="size-75 fragment" style="margin-top:10px;">
