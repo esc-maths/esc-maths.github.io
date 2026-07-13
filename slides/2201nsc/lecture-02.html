@@ -725,7 +725,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="5">2nd row</td>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="5">2nd
+									row</td>
 								<td style="border: none;" class="fragment" data-fragment-index="5">
 									$2\times (-2) + 4\times 4$
 								</td>
@@ -737,7 +738,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="6">3rd row</td>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="6">3rd
+									row</td>
 								<td style="border: none;" class="fragment" data-fragment-index="6">
 									$1\times (-2) + (-3)\times 4$
 								</td>
@@ -1455,7 +1457,8 @@
 
 						<div class="cc">
 							<p class="cc fragment" data-fragment-index="0">
-								$\mathbf x_1 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+								$\mathbf x_1 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)
+								\left(
 								\begin{array}{c} 80 \\ 20 \end{array} \right) $
 								<span class="fragment" data-fragment-index="1">
 									$= \left( \begin{array}{c} 56 + 4 \\ 24 +
@@ -1475,7 +1478,8 @@
 
 						<div class="cc fragment" data-fragment-index="3" style="margin-top: 15px;">
 
-							<p>$\mathbf x_2 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^2 \left(
+							<p>$\mathbf x_2 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^2
+								\left(
 								\begin{array}{c} 80 \\ 20 \end{array} \right)$
 								<span class="fragment" data-fragment-index="4">
 									$ =\left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
@@ -1496,7 +1500,8 @@
 
 						<div class="cc fragment" data-fragment-index="9" style="margin-top: 15px;">
 
-							<p>$\mathbf x_{10} = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^{10} \left(
+							<p>$\mathbf x_{10} = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array}
+								\right)^{10} \left(
 								\begin{array}{c} 80 \\ 20 \end{array} \right)$
 								<span class="fragment" data-fragment-index="10">
 									$ \approx \left( \begin{array}{c} 40 \\ 60
@@ -1507,6 +1512,356 @@
 					</div>
 				</section>
 
+				<section>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							Loggerhead Sea Turtles have the following demographic
+							stages:
+						</p>
+
+					</div>
+
+					<div class="size-85 fragment" data-fragment-index="0">
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Description <br />
+									(age in years)
+								</th>
+								<th>
+									Annual <br />survivorship
+								</th>
+								<th>
+									Eggs laid <br /> per year
+								</th>
+
+							</tr>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">
+									1
+								</td>
+								<td>
+									Hatchlings ($\lt 1$ )
+								</td>
+								<td>
+									0.67
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									2
+								</td>
+								<td>
+									Juveniles (1-21)
+								</td>
+								<td>
+									0.74
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									3
+								</td>
+								<td>
+									Novice adult (22)
+								</td>
+								<td>
+									0.81
+								</td>
+								<td>
+									127
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									4
+								</td>
+								<td>
+									Mature adult (23+)
+								</td>
+								<td>
+									0.81
+								</td>
+								<td>
+									79
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="size-85">
+
+
+						<p class="fragment" data-fragment-index="1">
+							From one year to the next, these populations must change through turtles dying, growing
+							older and thus changing demographic group, or through eggs hatching to produce hatchlings.
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+				<section>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-50">
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Description <br />
+									(age in years)
+								</th>
+								<th>
+									Annual <br />survivorship
+								</th>
+								<th>
+									Eggs laid <br /> per year
+								</th>
+
+							</tr>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">
+									1
+								</td>
+								<td>
+									Hatchlings ($\lt 1$ )
+								</td>
+								<td>
+									0.67
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									2
+								</td>
+								<td>
+									Juveniles (1-21)
+								</td>
+								<td>
+									0.74
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									3
+								</td>
+								<td>
+									Novice adult (22)
+								</td>
+								<td>
+									0.81
+								</td>
+								<td>
+									127
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									4
+								</td>
+								<td>
+									Mature adult (23+)
+								</td>
+								<td>
+									0.81
+								</td>
+								<td>
+									79
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="size-80">
+						<p>
+							We can represent these changes through a <em>Leslie</em>
+							matrix,
+							<span class="fragment" data-fragment-index="0">
+								which relates the population across the demographic
+								groups to the populations at the previous stage (previous year,
+								in this case).
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								That is:
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$
+								\begin{pmatrix}
+								\text{# hatchlings}_{n+1} \\
+								\text{# juveniles}_{n+1} \\
+								\text{# novice adults}_{n+1} \\
+								\text{# mature adults}_{n+1}
+								\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									= \begin{pmatrix}
+									0 & 0 & 127 & 79 \\
+									0.67 & 0.74 & 0 & 0 \\
+									0 & 0.0006 & 0 & 0 \\
+									0 & 0 & 0.81 & 0.81
+									\end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$
+
+									\begin{pmatrix}
+									\text{# hatchlings}_n \\
+									\text{# juveniles}_n \\
+									\text{# novice adults}_n \\
+									\text{# mature adults}_n
+									\end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+				<section>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-50">
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Description <br />
+									(age in years)
+								</th>
+								<th>
+									Annual <br />survivorship
+								</th>
+								<th>
+									Eggs laid <br /> per year
+								</th>
+
+							</tr>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">
+									1
+								</td>
+								<td>
+									Hatchlings ($\lt 1$ )
+								</td>
+								<td>
+									0.67
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									2
+								</td>
+								<td>
+									Juveniles (1-21)
+								</td>
+								<td>
+									0.74
+								</td>
+								<td>
+									0
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									3
+								</td>
+								<td>
+									Novice adult (22)
+								</td>
+								<td>
+									0.81
+								</td>
+								<td>
+									127
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									4
+								</td>
+								<td>
+									Mature adult (23+)
+								</td>
+								<td>
+									0.81
+								</td>
+								<td>
+									79
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="size-80">
+						<p>
+							We thus define the <em>Leslie</em> matrix $L$,
+							<span class="fragment" data-fragment-index="0">
+								which allows us to calculate the populations
+								after $n$ years, $\xx_n$, from the initial state $\xx_0$:
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								That is:
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$
+								L= \begin{pmatrix}
+								0 & 0 & 127 & 79 \\
+								0.67 & 0.74 & 0 & 0 \\
+								0 & 0.0006 & 0 & 0 \\
+								0 & 0 & 0.81 & 0.81
+								\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\Large \ \Rightarrow\
+									\xx_n = L^n \xx_0
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+					<br />
+				</section>
 				<section data-auto-animate>
 					<h4>
 						Application: Turtle population model
@@ -1617,7 +1972,7 @@
 					<h4>
 						Application: Turtle population model
 					</h4>
-					<div class="size-85">
+					<div class="size-90">
 						<p>
 							Suppose we know the populations this year:
 						</p>
