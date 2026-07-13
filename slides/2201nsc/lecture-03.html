@@ -82,7 +82,7 @@
 							</li>
 						</ol>
 					</div>
-					<div class="size-85 style=" margin-top:15px;">
+					<div class="size-85" style="margin-top:15px;">
 						<p class="fragment" data-fragment-index="4">
 							These operations can be represented by <strong>elementary matrices</strong>, $E_{i}.$ There
 							is one elementary matrix for each operation.
@@ -93,9 +93,29 @@
 						</p>
 						<p class="fragment" data-fragment-index="6">
 							The steps in <b>Gaussian elimination</b> can then be written as a product sequence:
-							$$A \rightarrow E_{1}A \rightarrow E_{2}E_{1}A \rightarrow \cdots \rightarrow
-							E_{k}E_{k-1}\cdots E_{2}E_{1}A$$
+
 						</p>
+						<div class="cc">
+							<p style="font-size: 1.1em;">
+								<span class="fragment" data-fragment-index="6">
+
+									$A \rightarrow E_{1}A $
+
+								</span>
+								<span class="fragment" data-fragment-index="7">
+
+									$ \rightarrow
+									E_{k}E_{k-1}\cdots E_{2}E_{1}A$
+
+								</span>
+								<span class="fragment" data-fragment-index="8">
+
+									$\cdots \rightarrow
+									E_{k}E_{k-1}\cdots E_{2}E_{1}A$
+
+								</span>
+							</p>
+						</div>
 					</div>
 					<br />
 				</section>
@@ -109,7 +129,9 @@
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="2">
-								$\begin{pmatrix} \color{red}0 & \color{red}1 & \color{blue}0 \\ \color{red}1 & \color{red}0 & \color{blue} 0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 \end{pmatrix}$
+								$\begin{pmatrix} \color{red}0 & \color{red}1 & \color{blue}0 \\ \color{red}1 &
+								\color{red}0 & \color{blue} 0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1
+								\end{pmatrix}$
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								$\begin{pmatrix} 0 &
@@ -126,7 +148,9 @@
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="5">
-								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 & \color{red}{-1/4} & \color{blue}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 \end{pmatrix}  $
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 &
+								\color{red}{-1/4} & \color{blue}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1
+								\end{pmatrix} $
 							</span>
 							<span class="fragment" data-fragment-index="4">
 								$ \begin{pmatrix} 1
@@ -144,7 +168,9 @@
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="8">
-								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 & \color{blue}1 & \color{blue}0 \\ \color{red}{-2} & \color{blue}0 & \color{blue}1 \end{pmatrix} $
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 &
+								\color{blue}1 & \color{blue}0 \\ \color{red}{-2} & \color{blue}0 & \color{blue}1
+								\end{pmatrix} $
 							</span>
 							<span class="fragment" data-fragment-index="7">
 								$ \begin{pmatrix} 1 &
@@ -162,38 +188,44 @@
 				</section>
 				<section data-auto-animate>
 					<h4>Elementary Matrices Examples</h4>
-					<br/>
+					<br />
 					<div class="cc" style="font-size: 0.72em;">
-						
+
 						<p>
-							
+
 							<span class="fragment" data-fragment-index="3">
-								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 & \color{blue}1 & \color{blue}0 \\ \color{red}{-2} & \color{blue}0 & \color{blue}1 \end{pmatrix} $
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 &
+								\color{blue}1 & \color{blue}0 \\ \color{red}{-2} & \color{blue}0 & \color{blue}1
+								\end{pmatrix} $
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 & \color{red}{-1/4} & \color{blue}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 \end{pmatrix}  $
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 &
+								\color{red}{-1/4} & \color{blue}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1
+								\end{pmatrix} $
 							</span>
 							<span class="fragment" data-fragment-index="1">
-								$\begin{pmatrix} \color{red}0 & \color{red}1 & \color{blue}0 \\ \color{red}1 & \color{red}0 & \color{blue} 0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 \end{pmatrix}$
+								$\begin{pmatrix} \color{red}0 & \color{red}1 & \color{blue}0 \\ \color{red}1 &
+								\color{red}0 & \color{blue} 0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1
+								\end{pmatrix}$
 							</span>
 							<span>
 								$\begin{pmatrix} 0 &
 								-4 &
 								8 & 4 \\ 1 & -1 & 1 & 0 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
 							</span>
-							
-							
-							
+
+
+
 							<span class="fragment" data-fragment-index="4">
 								$= \begin{pmatrix} 1 & -1 & 1 & 0
 								\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$
 							</span>
 
 						</p>
-						
+
 					</div>
-					<br/>
-					<div  class="fragment" data-fragment-index="5">
+					<br />
+					<div class="fragment" data-fragment-index="5">
 						<p style="text-align: center !important;">
 							<span>
 								$A\rightarrow$
@@ -971,7 +1003,8 @@ ans =
 
 						<div class="cc fragment" style="margin-top: 10px; border: 1px solid black;">
 							<p>
-								We therefore define: $\det (A) = a_{11}a_{22} - a_{12}a_{21}$ for a $ 2 \times 2$ matrix.
+								We therefore define: $\det (A) = a_{11}a_{22} - a_{12}a_{21}$ for a $ 2 \times 2$
+								matrix.
 							</p>
 						</div>
 					</div>
@@ -1394,6 +1427,7 @@ ans =
 								a_{32}a_{21}a_{13}
 								+
 								a_{31}a_{12}a_{23}
+								\;\;
 								$
 							</p>
 							<p class="fragment fade-in" data-fragment-index="1">
@@ -1410,6 +1444,7 @@ ans =
 								a_{32}a_{21}\color{red}{a_{13}}
 								+
 								a_{31}\color{red}{a_{12}}a_{23}
+								\;\;
 								$
 							</p>
 						</div>
@@ -1506,7 +1541,7 @@ ans =
 
 				<section data-auto-animate>
 					<h4>Minors and Cofactors</h4>
-					<div class="size-85">
+					<div class="size-80">
 						<h4 class="fragment" data-fragment-index="0" style="font-size: 0.7em;">Formal Definition of
 							Determinant</h4>
 						<p class="fragment" data-fragment-index="0">For any matrix $A$, we define the
@@ -1552,7 +1587,7 @@ ans =
 					</div>
 					<div class="size-80 fragment" style="margin-top:15px;">
 						<p>We then define the <strong>cofactor</strong> $C_{ij}$ as:</p>
-						$$C_{ij} = \left(-1\right)^{i+j} \det M_{ij}$$
+						$$\large C_{ij} = \left(-1\right)^{i+j} \det M_{ij}$$
 					</div>
 					<br />
 				</section>
@@ -1656,15 +1691,16 @@ ans =
 
 				<section>
 					<h4>Useful Properties of Determinants</h4>
-					<div class="size-80">
-						<h5>Core properties to remember:</h5>
+					<h5 style="font-size: 0.6em;margin-top: -10px;">Core properties to remember:</h5>
+					<div class="size-80 left-txt">
+
 						<ol style="line-height: 45px; margin-top: -15px;">
 							<li class="fragment">$A$ is singular if and only if $\det (A) = 0.$</li>
 							<li class="fragment">$\det(A) = \det\left(A^T\right).$</li>
 							<li class="fragment">If $A$ is a triangular matrix, $\det (A)$ is simply the product of its
 								diagonal elements.</li>
 							<li class="fragment">$\det( A) = 0$ if:
-								<ul>
+								<ul style="margin-left: 0px;">
 									<li>$A$ has a row or column consisting entirely of zeros; or</li>
 									<li class="fragment">$A$ has two identical rows or columns; or</li>
 									<li class="fragment">One row (or column) of $A$ is a linear combination of other
@@ -1675,9 +1711,11 @@ ans =
 							<li class="fragment">Elementary matrices:
 								<ul>
 									<li>If $E$ swaps two rows in $A$, then $\det(E) = -1.$</li>
-									<li class="fragment">If $E$ rescales a row of $A$ by a constant $k$, then $\det (E) =
+									<li class="fragment">If $E$ rescales a row of $A$ by a constant $k$, then $\det (E)
+										=
 										k.$</li>
-									<li class="fragment">If $E$ adds a multiple of a row to another row, then $\det (E) =
+									<li class="fragment">If $E$ adds a multiple of a row to another row, then $\det (E)
+										=
 										1.$</li>
 								</ul>
 							</li>
@@ -1695,45 +1733,159 @@ ans =
 						<h5>Solving a Linear System</h5>
 						<p class="fragment" data-fragment-index="0">Use Cramer's rule to solve the system:</p>
 						<div class="cc" style="margin-top: -20px;">
-							<p>$\begin{aligned} x + 2y + z &= 5 \\ 2x + 2y + z &= 6 \\ x + 2y + 3z &= 9 \end{aligned}$
-							</p>
+							<div class="r-stack">
+								<p class="fragment fade-out" data-fragment-index="1">
+									$
+									\begin{aligned} 
+									x + 2y + z &= 5 \\ 
+									2x + 2y + z &= 6 \\ 
+									x + 2y + 3z &= 9
+									\end{aligned}
+									$
+								</p>
+								<p class="fragment fade-in-then-out" data-fragment-index="1">
+									$
+									\begin{aligned} 
+									x + 2y + z &= 5 \\ 
+									2x + 2y + z &= 6 \\ 
+									x + 2y + 3z &= 9
+									\end{aligned}
+									\rightarrow
+									\left(
+									\begin{array}{cccc}
+									1 & 2 & 1  \\ 
+									2 & 2 & 1  \\ 
+									1 & 2 & 3 \\ 
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									x \\ 
+									y \\ 
+									z \\ 
+									\end{array}
+									\right)
+									=
+									\left(
+									\begin{array}{cccc}
+									5 \\ 
+									6 \\ 
+									9 \\ 
+									\end{array}
+									\right)
+									
+									$
+								</p>
+								<p class="fragment fade-in-then-out" data-fragment-index="2">
+									$
+									\begin{aligned} 
+									x + 2y + z &= 5 \\ 
+									2x + 2y + z &= 6 \\ 
+									x + 2y + 3z &= 9
+									\end{aligned}
+									\rightarrow
+									\left(
+									\color{blue}{
+									\begin{array}{cccc}
+									1 & 2 & 1  \\ 
+									2 & 2 & 1  \\ 
+									1 & 2 & 3 \\ 
+									\end{array}
+									}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									x \\ 
+									y \\ 
+									z \\ 
+									\end{array}
+									\right)
+									=
+									\left(
+									\begin{array}{cccc}
+									5 \\ 
+									6 \\ 
+									9 \\ 
+									\end{array}
+									\right)
+									
+									$
+								</p>
+								<p class="fragment fade-in" data-fragment-index="3">
+									$
+									\begin{aligned} 
+									x + 2y + z &= 5 \\ 
+									2x + 2y + z &= 6 \\ 
+									x + 2y + 3z &= 9
+									\end{aligned}
+									\rightarrow
+									\left(
+									\begin{array}{cccc}
+									1 & 2 & 1  \\ 
+									2 & 2 & 1  \\ 
+									1 & 2 & 3 \\ 
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									x \\ 
+									y \\ 
+									z \\ 
+									\end{array}
+									\right)
+									=
+									\left(
+									\begin{array}{cccc}
+									\color{red}5 \\ 
+									\color{red}6 \\ 
+									\color{red}9 \\ 
+									\end{array}
+									\right)
+									
+									$
+								</p>
+							</div>
 						</div>
 					</div>
 					<div class="size-80" style="margin-top:10px;">
-						<p class="fragment" data-fragment-index="1">The determinant of the coefficient matrix is $\det M
-							= -4.$
+						<p class="fragment" data-fragment-index="2">
+							The determinant of the coefficient matrix is 
+							$\det M= -4.$
 
 						</p>
 						<p>
-							<span class="fragment" data-fragment-index="2">
+							<span class="fragment" data-fragment-index="3">
 								Cramer's rule yields:
 							</span>
 						</p>
 						<div style="display: flex; justify-content: space-evenly; font-size: 90%;">
-							<div class="fragment" data-fragment-index="2">
-								$x =\ds \frac{\begin{vmatrix} 5 & 2 & 1 \\ 6 & 2 & 1 \\ 9 & 2 & 3 \end{vmatrix}}{\det
+							<div class="fragment" data-fragment-index="3">
+								$x =\ds \frac{\begin{vmatrix} \color{red}5 & 2 & 1 \\ \color{red}6 & 2 & 1 \\
+								\color{red}9 & 2 & 3 \end{vmatrix}}{\det
 								M}$
 								<span class="fragment" data-fragment-index="4">
-									$= \dfrac{-4}{-4} = 1$
+									$= \dfrac{-4}{-4}$
 								</span>
 								<span class="fragment" data-fragment-index="5">
 									$= 1,$
 								</span>
 							</div>
-							<div class="fragment" data-fragment-index="2">
-								$y =\ds \frac{\begin{vmatrix} 1 & 5 & 1 \\ 2 & 6 & 1 \\ 1 & 9 & 3 \end{vmatrix}}{\det
+							<div class="fragment" data-fragment-index="6">
+								$y =\ds \frac{\begin{vmatrix} 1 & \color{red}5 & 1 \\ 2 & \color{red}6 & 1 \\ 1 &
+								\color{red}9 & 3 \end{vmatrix}}{\det
 								M}$
-								<span class="fragment" data-fragment-index="6">
+								<span class="fragment" data-fragment-index="7">
 									$= \dfrac{-4}{-4} = 1,$
 								</span>
 							</div>
-							<div class="fragment" data-fragment-index="3">
-								$z = \ds\frac{\begin{vmatrix} 1 & 2 & 5 \\ 2 & 2 & 6 \\ 1 & 2 & 9 \end{vmatrix}}{\det
+							<div class="fragment" data-fragment-index="8">
+								$z = \ds\frac{\begin{vmatrix} 1 & 2 & \color{red}5 \\ 2 & 2 & \color{red}6 \\ 1 & 2 &
+								\color{red}9 \end{vmatrix}}{\det
 								M}$
-								<span class="fragment" data-fragment-index="8">
+								<span class="fragment" data-fragment-index="9">
 									$=\dfrac{-8}{-4} $
 								</span>
-								<span class="fragment" data-fragment-index="9">
+								<span class="fragment" data-fragment-index="10">
 									$= 2.$
 								</span>
 							</div>
@@ -1758,10 +1910,13 @@ ans =
 						</p>
 
 						<p class="fragment" style="margin-top:10px;">
-							Where $M_i$ is constructed as:$$M_i = \begin{pmatrix} M_{11} & \dots & M_{1(i-1)} & \color{red}{y_1} &
+							Where $M_i$ is constructed as:$$M_i = \begin{pmatrix} M_{11} & \dots & M_{1(i-1)} &
+							\color{red}{y_1} &
 							M_{1(i+1)} &
-							\dots & M_{1n} \\ M_{21} & \dots & M_{2(i-1)} & \color{red}{y_2} & M_{2(i+1)} & \dots & M_{2n} \\ \vdots
-							& & \vdots & \vdots & \vdots & & \vdots \\ M_{n1} & \dots & M_{n(i-1)} & \color{red}{y_n} & M_{n(i+1)} &
+							\dots & M_{1n} \\ M_{21} & \dots & M_{2(i-1)} & \color{red}{y_2} & M_{2(i+1)} & \dots &
+							M_{2n} \\ \vdots
+							& & \vdots & \vdots & \vdots & & \vdots \\ M_{n1} & \dots & M_{n(i-1)} & \color{red}{y_n} &
+							M_{n(i+1)} &
 							\dots & M_{nn} \end{pmatrix}$$
 						</p>
 					</div>
