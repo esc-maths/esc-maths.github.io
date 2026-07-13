@@ -1556,7 +1556,7 @@
 							<tr>
 								<td>2</td>
 								<td>Juveniles (1–21)</td>
-								<td>0.74</td>
+								<td>0.7394</td>
 								<td>0.0006 become novice adults</td>
 								<td>0</td>
 							</tr>
@@ -1590,7 +1590,7 @@
 					<br />
 					<br />
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>
 						Application: Turtle population model
 					</h4>
@@ -1626,7 +1626,7 @@
 							<tr>
 								<td>2</td>
 								<td>Juveniles (1–21)</td>
-								<td>0.74</td>
+								<td>0.7394</td>
 								<td>0.0006 become novice adults</td>
 								<td>0</td>
 							</tr>
@@ -1675,7 +1675,7 @@
 									$
 									= \begin{pmatrix}
 									0 & 0 & 127 & 79 \\
-									0.67 & 0.74 & 0 & 0 \\
+									0.67 & 0.7394 & 0 & 0 \\
 									0 & 0.0006 & 0 & 0 \\
 									0 & 0 & 0.81 & 0.81
 									\end{pmatrix}
@@ -1699,7 +1699,7 @@
 					</div>
 					<br />
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>
 						Application: Turtle population model
 					</h4>
@@ -1735,7 +1735,7 @@
 							<tr>
 								<td>2</td>
 								<td>Juveniles (1–21)</td>
-								<td>0.74</td>
+								<td>0.7394</td>
 								<td>0.0006 become novice adults</td>
 								<td>0</td>
 							</tr>
@@ -1762,26 +1762,23 @@
 							We thus define the <em>Leslie</em> matrix $L$,
 							<span class="fragment" data-fragment-index="0">
 								which allows us to calculate the populations
-								after $n$ years, $\xx_n$, from the initial state $\xx_0$:
-							</span>
-							<span class="fragment" data-fragment-index="1">
-								That is:
+								after $n$ years, $\xx_n$, from the initial state $\xx_0$.
 							</span>
 						</p>
 
 						<div class="cc">
-							<p class="fragment" data-fragment-index="1">
+							<p>
 								$
 								L= \begin{pmatrix}
 								0 & 0 & 127 & 79 \\
-								0.67 & 0.74 & 0 & 0 \\
+								0.67 & 0.7394 & 0 & 0 \\
 								0 & 0.0006 & 0 & 0 \\
 								0 & 0 & 0.81 & 0.81
-								\end{pmatrix}
+								\end{pmatrix}.\;\;
 								$
-								<span class="fragment" data-fragment-index="2">
-									$
-									\Large \ \Rightarrow\
+								<span class="fragment" data-fragment-index="1">
+									$\,\text{That is}\;\;
+									\Large  
 									\xx_n = L^n \xx_0
 									$
 								</span>
