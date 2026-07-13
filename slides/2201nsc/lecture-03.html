@@ -109,7 +109,7 @@
 						</p>
 						<p class="fragment" data-fragment-index="1">
 							<span>
-								$\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 0 &
+								$\begin{pmatrix} \color{red}0 & \color{red}1 & \color{blue}0 \\ \color{red}1 & \color{red}0 & \color{blue} 0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 \end{pmatrix} \begin{pmatrix} 0 &
 								-4 &
 								8 & 4 \\ 1 & -1 & 1 & 0 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
 							</span>
@@ -123,7 +123,7 @@
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="4">
-								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & -1/4 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 & \color{red}{-1/4} & \color{blue}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1 \end{pmatrix} \begin{pmatrix} 1
 								&
 								-1 & 1 & 0 \\ 0 & -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
 							</span>
@@ -138,7 +138,7 @@
 						</p>
 						<p>
 							<span class="fragment" data-fragment-index="7">
-								$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -2 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 &
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 & \color{blue}1 & \color{blue}0 \\ \color{red}{-2} & \color{blue}0 & \color{blue}1 \end{pmatrix} \begin{pmatrix} 1 &
 								-1
 								& 1 & 0 \\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
 							</span>
@@ -975,7 +975,7 @@ ans =
 							special cases where $a_{11}$, $a_{21}$ or $a_{31}$ are zero.</p>
 						<div class="fragment">
 							<p>We therefore define the determinant of a $3 \times 3$ matrix as:</p>
-							<p style="border: 1px solid black;margin-top: 10px;">
+							<p style="border: 1px solid black;margin-top: 10px; font-size: 0.9em;">
 								$$\det(A)=
 								a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$$
 							</p>
@@ -1680,7 +1680,7 @@ ans =
 
 				<section>
 					<h4>Application: Cramer's Rule (Cont'd)</h4>
-					<div class="size-85">
+					<div class="size-80">
 						<h5>General Case Formulation</h5>
 						<p>
 							In general, given a system $M\mathbf x = \mathbf y$ where $\det M \neq 0$,
@@ -1693,10 +1693,10 @@ ans =
 						</p>
 
 						<p class="fragment" style="margin-top:10px;">
-							Where $M_i$ is constructed as:$$M_i = \begin{pmatrix} M_{11} & \dots & M_{1(i-1)} & y_1 &
+							Where $M_i$ is constructed as:$$M_i = \begin{pmatrix} M_{11} & \dots & M_{1(i-1)} & \color{red}{y_1} &
 							M_{1(i+1)} &
-							\dots & M_{1n} \\ M_{21} & \dots & M_{2(i-1)} & y_2 & M_{2(i+1)} & \dots & M_{2n} \\ \vdots
-							& & \vdots & \vdots & \vdots & & \vdots \\ M_{n1} & \dots & M_{n(i-1)} & y_n & M_{n(i+1)} &
+							\dots & M_{1n} \\ M_{21} & \dots & M_{2(i-1)} & \color{red}{y_2} & M_{2(i+1)} & \dots & M_{2n} \\ \vdots
+							& & \vdots & \vdots & \vdots & & \vdots \\ M_{n1} & \dots & M_{n(i-1)} & \color{red}{y_n} & M_{n(i+1)} &
 							\dots & M_{nn} \end{pmatrix}$$
 						</p>
 					</div>
