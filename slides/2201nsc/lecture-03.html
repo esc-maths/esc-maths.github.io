@@ -253,10 +253,10 @@
 				<section>
 					<h4>Gaussian Elimination as a Product of Matrices</h4>
 					<div class="size-80">
-						<p class="fragment" data-fragment-index="0">We can systematically write out row reduction on an
+						<p class="fragment" data-fragment-index="1">We can systematically write out row reduction on an
 							augmented matrix:</p>
 						<div class="cc size-75">
-							<p class="fragment" data-fragment-index="0">
+							<p class="fragment" data-fragment-index="1">
 								$
 								\left(
 								\begin{array}{cccc|c}
@@ -267,7 +267,7 @@
 								\end{array}
 								\right)
 								$
-								<span class="fragment" data-fragment-index="1">
+								<span class="fragment" data-fragment-index="2">
 									$\rightarrow
 									\left(
 									\begin{array}{cccc|c}
@@ -279,7 +279,7 @@
 									\right)
 									$
 								</span>
-								<span class="fragment" data-fragment-index="2">
+								<span class="fragment" data-fragment-index="5">
 									$\rightarrow
 									\left(
 									\begin{array}{cccc|c}
@@ -296,40 +296,46 @@
 
 						</div>
 						<div class="cc">
-							<p class="fragment" data-fragment-index="3">
-								$\big(A \mid \mathbf q\big) \rightarrow \big(B \mid \mathbf r\big) \rightarrow \big(I
+							<p class="fragment" data-fragment-index="1">
+								$\big(A \mid \mathbf q\big) $
+								<span class="fragment" data-fragment-index="2">
+									$\quad\quad \rightarrow \qquad\quad  \big(B \mid \mathbf r\big)$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\quad\;\; \rightarrow \qquad  \big(I
 								\mid \mathbf s\big)$
+								</span>
 							</p>
 						</div>
 					</div>
 					<div class="size-80 cc" style="margin-top:15px;">
-						<p class="fragment" data-fragment-index="4">
+						<p class="fragment" data-fragment-index="2">
 							From our initial augmented matrix $\big(A \mid \mathbf q\big)$ we obtain the
 							upper-triangular form:
 
 						</p>
-						<p class="fragment" data-fragment-index="4">
+						<p class="fragment" data-fragment-index="2">
 							$\big(B \mid \mathbf r\big) $
-							<span class="fragment" data-fragment-index="5">
+							<span class="fragment" data-fragment-index="3">
 								$= E_{k}\cdots E_{1}\big(A \mid \mathbf q\big) $
 							</span>
-							<span class="fragment" data-fragment-index="6">
+							<span class="fragment" data-fragment-index="4">
 								$ = \big(E_{k}\cdots E_{1}A \mid E_{k}\cdots E_{1}\mathbf q\big)$
 							</span>
 						</p>
 						<p style="margin-top:15px;">
-							<span class="fragment" data-fragment-index="7">
+							<span class="fragment" data-fragment-index="5">
 								...and eventually the reduced row echelon solution:
 							</span>
 
 						</p>
-						<p class="fragment" data-fragment-index="7">
+						<p class="fragment" data-fragment-index="5">
 							$\big(I \mid \mathbf s\big) $
-							<span class="fragment" data-fragment-index="8">
+							<span class="fragment" data-fragment-index="6">
 								$= \big(E_{m}\cdots E_{k+1}\big)E_{k}\cdots E_{1}\big(A \mid
 								\mathbf q\big)$
 							</span>
-							<span class="fragment" data-fragment-index="9">
+							<span class="fragment" data-fragment-index="7">
 								$ = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf q\big) $
 							</span>
 						</p>
@@ -523,7 +529,7 @@
 								R_1\\
 								R_2-R_1\\
 								R_3-R_1
-								\end{array}\qquad
+								\end{array}\qquad\qquad \qquad
 								$
 							</span>
 						</p>
