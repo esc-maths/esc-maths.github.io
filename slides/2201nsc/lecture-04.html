@@ -844,7 +844,7 @@
 								\mathbf{v}=
 								\begin{pmatrix}v_1\\v_2\end{pmatrix}.
 								$
-								<span  class="fragment" data-fragment-index="4">
+								<span class="fragment" data-fragment-index="4">
 									Then
 								</span>
 							</p>
@@ -916,62 +916,113 @@
 						</p>
 
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>If $T(\mathbf{x})$ is a Linear Transformation, $T(\mathbf{0}) = \mathbf{0}$</h5>
-						<div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px;">
-							<h6>Theorem</h6>
-							<p>For any linear transformation $T(\mathbf{x})$, $T(\mathbf{0}) = \mathbf{0}$.</p>
+					<h4>If $T(\mathbf{x})$ is a Linear Transformation, $T(\mathbf{0}) = \mathbf{0}$</h4>
+					<div class="size-85 left-txt">
+						<div class="fragment" class="fragment" data-fragment-index="0">
+
+							<p><b>Theorem:</b> For any linear transformation $T(\mathbf{x})$,
+								<span>
+									$T(\mathbf{0}) = \mathbf{0}$.
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top:15px;">
-							<h6>Proof Outline</h6>
-							<ol>
-								<li>From the definition of a linear transformation, $\alpha T(\mathbf{0}) = T(\alpha
-									\mathbf{0}) = T(\mathbf{0})$ for any scalar constant $\alpha$.</li>
-								<li class="fragment" style="margin-top:5px;">If $\alpha T(\mathbf{0}) = T(\mathbf{0})$
+						<div class="fragment" data-fragment-index="1" style="margin-top:15px;">
+							<p><b>Proof Outline</b></p>
+							<ol style="line-height: 60px;">
+								<li class="fragment" data-fragment-index="1">
+									From the definition of a linear transformation,
+									<p style="text-align: center;">
+										<span class="fragment" data-fragment-index="1">
+											$\alpha T(\mathbf{0}) $
+										</span>
+										<span class="fragment" data-fragment-index="2">
+											$ = T(\alpha
+											\mathbf{0})$
+										</span>
+										<span class="fragment" data-fragment-index="3">
+											$= T(\mathbf{0})$
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="3">for any scalar constant $\alpha$.</p>
+								</li>
+								<li class="fragment" data-fragment-index="4" style="margin-top:5px;">
+									If $\alpha T(\mathbf{0}) = T(\mathbf{0})$
 									holds
-									true for all $\alpha$, then $T(\mathbf{0})$ must equal $\mathbf{0}$.</li>
+									true for all $\alpha$,
+									<span class="fragment" data-fragment-index="5">
+										then $T(\mathbf{0})$
+										must equal $\mathbf{0}$.
+									</span>
+
+								</li>
 							</ol>
 						</div>
 
+						<br />
+
 						<div class="fragment"
-							style="margin-top:15px; border-left: 3px solid #ff5555; padding-left: 15px;">
-							<h6>Corollary</h6>
-							<p>If $T(\mathbf{0}) \neq \mathbf{0}$ for any given mapping structure, it
+							style="margin-top:15px; border-left: 6px solid #ff5555; padding-left: 15px;">
+
+							<p><b>Corollary:</b> If $T(\mathbf{0}) \neq \mathbf{0}$ for any given mapping structure, it
 								<strong>cannot</strong> be a linear transformation.
 							</p>
 						</div>
 					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>A Linear Transformation That is Not on $\mathbb{R}^n$</h5>
-						<p>Consider the definite integral operator $I : C[a, b] \rightarrow \mathbb{R}$ defined by:</p>
-						$$I(f) = \int_{a}^{b} f(t) \, dt$$
-						<p style="font-size: 80%; color: #aaa;">(where $C[a, b]$ represents the set of all continuous
+					<h4>A Linear Transformation That is Not on $\mathbb{R}^n$</h4>
+					<div class="size-80">
+						<p>Consider the definite integral operator
+							$I : C[a, b] \rightarrow \mathbb{R}$ defined by: 
+							$$I\left(f\right) = \ds \int_{a}^{b} f(t) \,dt$$</p>
+
+						<p style="font-size: 80%; color: #8d8d8d;">(where $C[a, b]$ represents the set of all continuous
 							functions on the interval $[a, b]$).</p>
 
-						<div class="fragment" style="margin-top:10px;">
-							<p>Let's show that $I(\alpha f + \beta g) = \alpha I(f) + \beta I(g)$, for functions $f, g
-								\in
-								C[a, b]$ and constants $\alpha, \beta \in \mathbb{R}$:</p>
-							$$I(\alpha f + \beta g) = \int_{a}^{b} [\alpha f(t) + \beta g(t)] \, dt$$
-							<span class="fragment">$$= \alpha \int_{a}^{b} f(t) \, dt + \beta \int_{a}^{b} g(t) \,
-								dt$$</span>
-							<span class="fragment">$$= \alpha I(f) + \beta I(g) \quad \text{(using calculus rules of
-								integration)}$$</span>
+						<div style="margin-top:10px;">
+							<p class="fragment" data-fragment-index="1">
+								Let's show that $I\left(\alpha f + \beta g\right) = \alpha I(f) + \beta I(g)$,
+								<span class="fragment" data-fragment-index="2">
+									for functions $f, g
+									\in
+									C[a, b]$ and constants $\alpha, \beta \in \mathbb{R}$:
+								</span>
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="2">
+									$\ds I\left(\alpha f + \beta g\right) $
+									<span class="fragment" data-fragment-index="3">
+										$\ds = \int_{a}^{b} \big[\alpha f(t) + \beta g(t)\big] \, dt$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds = \alpha \int_{a}^{b} f(t) \, dt + 
+										\beta \int_{a}^{b} g(t) \, dt \quad \quad\;\; $
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="5">
+									$\quad \ds = \alpha I(f) + \beta I(g) \quad \text{(using calculus rules of
+									integration)}$
+								</p>
+							</div>
+
+
 						</div>
-						<p class="fragment" style="color: #4df3a9; margin-top:5px;">Thus, this calculus integration
+						<p class="fragment" data-fragment-index="6" style="color: #036338; margin-top:5px;">Thus, this calculus integration
 							operator
-							is a linear transformation.</p>
+							is a linear transformation.
+						</p>
 					</div>
+
+					<br/>
+					<br/>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
