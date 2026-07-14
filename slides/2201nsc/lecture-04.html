@@ -979,11 +979,11 @@
 				<section data-auto-animate>
 					<h4>A Linear Transformation That is Not on $\mathbb{R}^n$</h4>
 					<div class="size-80">
-						<p>Consider the definite integral operator
-							$I : C[a, b] \rightarrow \mathbb{R}$ defined by: 
+						<p class="fragment" data-fragment-index="0">Consider the definite integral operator
+							$I : C[a, b] \rightarrow \mathbb{R}$ defined by:
 							$$I\left(f\right) = \ds \int_{a}^{b} f(t) \,dt$$</p>
 
-						<p style="font-size: 80%; color: #8d8d8d;">(where $C[a, b]$ represents the set of all continuous
+						<p style="font-size: 80%; color: #8d8d8d;" class="fragment" data-fragment-index="0">(where $C[a, b]$ represents the set of all continuous
 							functions on the interval $[a, b]$).</p>
 
 						<div style="margin-top:10px;">
@@ -1002,7 +1002,7 @@
 										$\ds = \int_{a}^{b} \big[\alpha f(t) + \beta g(t)\big] \, dt$
 									</span>
 									<span class="fragment" data-fragment-index="4">
-										$\ds = \alpha \int_{a}^{b} f(t) \, dt + 
+										$\ds = \alpha \int_{a}^{b} f(t) \, dt +
 										\beta \int_{a}^{b} g(t) \, dt \quad \quad\;\; $
 									</span>
 								</p>
@@ -1014,40 +1014,65 @@
 
 
 						</div>
-						<p class="fragment" data-fragment-index="6" style="color: #036338; margin-top:5px;">Thus, this calculus integration
+						<p class="fragment" data-fragment-index="6" style="color: #036338; margin-top:5px;">Thus, this
+							calculus integration
 							operator
 							is a linear transformation.
 						</p>
 					</div>
 
-					<br/>
-					<br/>
-					<br/>
+					<br />
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Another Linear Transformation That is Not on $\mathbb{R}^n$</h4>
 					<div class="size-85">
-						<h5>Another Linear Transformation That is Not on $\mathbb{R}^n$</h5>
-						<p>Consider the derivative operator $T = \frac{d}{dx}$ mapping $P_2 \rightarrow P_1$, where
-							$P_n$ is
-							the vector space of polynomials of degree $n$ or less.</p>
 
-						<div class="fragment" style="margin-top:15px;">
-							<p>$T$ acts on a polynomial to take its derivative:</p>
-							$$T(c_1 + c_2x + c_3x^2) = \frac{d}{dx}(c_1 + c_2x + c_3x^2) = c_2 + 2c_3x$$
+						<p class="fragment" data-fragment-index="0">Consider the derivative operator
+							$T = \dfrac{d}{dx}$ mapping $P_2 \rightarrow P_1$,
+							<span class="fragment" data-fragment-index="1">
+								where
+								$P_n$ is
+								the <em>vector space</em> of
+								polynomials of degree $n$ or less.
+							</span>
+
+						</p>
+
+						<div style="margin-top:15px;">
+							<p class="fragment" data-fragment-index="2">$T$ acts on a polynomial to take its derivative:
+							</p>
+							<div class="cc" style="margin-top:15px;">
+								<p class="fragment" data-fragment-index="2">
+									$T\left(c_1 + c_2x + c_3x^2\right) $
+									<span class="fragment" data-fragment-index="3">
+										$=
+										\dfrac{d}{dx}\left(c_1 + c_2x + c_3x^2\right) $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$= c_2 + 2c_3x$
+									</span>
+								</p>
+
+
+							</div>
 						</div>
+
 
 						<div class="fragment"
 							style="margin-top:20px; background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 5px;">
-							<h6>Exercise for you:</h6>
+							<h6>📝 Exercise for you:</h6>
 							<p>Can you prove that this derivative operator is a linear transformation?</p>
-							<p style="font-size: 85%; color: #aaa; margin-top:5px;"><em>Hint: Set up two arbitrary
+							<p style="font-size: 85%; color: #686868; margin-top:5px;" class="fragment">
+								<em>Hint:</em> Set up two arbitrary
 									general
 									polynomials within $P_2$, say $p_1 = a_1 + a_2x + a_3x^2$ and $p_2 = c_1 + c_2x +
-									c_3x^2$, then test the criteria.</em></p>
+									c_3x^2$, then test the criteria.</p>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 			</section>
