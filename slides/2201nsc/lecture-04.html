@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>2201NSC - Lecture 3</title>
+	<title>2201NSC - Lecture 4</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -86,103 +86,191 @@
 
 						</div>
 
-						<p class="fragment" style="margin-top:15px; text-align: center;">This mapping rotates vectors through an angle of
+						<p class="fragment" style="margin-top:15px; text-align: center;">This mapping rotates vectors
+							through an angle of
 							$90^{\circ}$ (anticlockwise).</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
 					<h4>Linear Transformations</h4>
-					<div class="size-85">
+					<div class="size-95">
 						<h5>Definition</h5>
-						<p>A mapping $T$ from a vector space $V$ into a vector space $W$ (written $T:V \rightarrow W$)
+						<p>A mapping $T$ from a vector space $V$ into a vector
+							space $W$ (written $T:V \rightarrow W$)
 							is
-							said to be a <strong>linear transformation</strong> if for all $\mathbf{u}, \mathbf{v} \in
-							V$
-							and $\alpha, \beta \in \mathbb{R}$:</p>
+							said to be a <strong>linear transformation</strong>
 
-						<div class="fragment" style="margin-top:10px;">
-							$$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v}) \quad \text{and} \quad T(\alpha
-							\mathbf{u}) = \alpha T(\mathbf{u})$$
+							<span class="fragment" data-fragment-index="0">
+								if for all $\mathbf{u}, \mathbf{v} \in
+								V$
+								and $\alpha, \beta \in \mathbb{R}$:
+							</span>
+						</p>
+
+						<div class="cc" style="margin-top:10px;">
+							<p class="fragment" data-fragment-index="1">
+								$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\quad$
+								<span class="fragment" data-fragment-index="2">
+									and $\quad T(\alpha
+									\mathbf{u}) = \alpha T(\mathbf{u})$
+								</span>
+							</p>
 						</div>
 
-						<p class="fragment" style="margin-top:10px;">or equivalently:</p>
+						<p class="fragment" data-fragment-index="3" style="margin-top:10px;">or equivalently:</p>
 
-						<div class="fragment">
+						<div class="fragment" data-fragment-index="3">
 							$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$$
 						</div>
 					</div>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Example of a Linear Transformation (1)</h5>
-						<p>Suppose $T$ is an anti-clockwise rotation by $90^{\circ}$ in the $x$-$y$ plane.</p>
-						<p class="fragment" style="margin-top:15px;">Geometrically, we can see that the diagonal of the
+					<h4>Example of a Linear Transformation (1)</h4>
+					<div class="size-80">
+
+						<p>Suppose $T$ is an anti-clockwise rotation by $90^{\circ}$ in the $xy$-plane.</p>
+
+						<div class="r-stack">
+							<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-01.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-02.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-03.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="3" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-04.svg">
+							<img class="fragment fade-in" data-fragment-index="4" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-05.svg">
+						</div>
+						<p class="fragment" data-fragment-index="5" style="margin-top:15px;">Geometrically, we can see
+							that the diagonal of the
 							sum
-							vector parallelogram rotates along with its components:</p>
-						<div class="fragment">
-							$$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$$
+							vector parallelogram rotates along with its components.
+							<span class="fragment" data-fragment-index="6">
+								In other words,
+							</span>
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$
+							</p>
 						</div>
 					</div>
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Example of a Linear Transformation (2)</h5>
-						<p>Similarly, for scaling a vector by a scalar constant $\alpha$ under the same $90^{\circ}$
-							anti-clockwise rotation:</p>
-						<div class="fragment" style="margin-top:20px;">
-							$$\alpha T(\mathbf{v}) = T(\alpha \mathbf{v})$$
+					<h4>Example of a Linear Transformation (2)</h4>
+					<div class="size-90">
+						<p>Similarly, for scaling a vector by a scalar constant $\alpha$,
+							<span class="fragment" data-fragment-index="2">
+								under the same $90^{\circ}$
+								anti-clockwise rotation:
+							</span>
+						</p>
+
+						<div class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="1" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-01.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-02.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-03.svg">
+							<img class="fragment fade-in" data-fragment-index="4" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-04.svg">
 						</div>
+
+
+					</div>
+					<div class="cc size-90">
 						<p class="fragment" style="margin-top:15px;">Therefore, $T(\alpha \mathbf{v}) = \alpha
 							T(\mathbf{v})$ holds true.</p>
 					</div>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>A Mapping That is Not a Linear Transformation</h5>
-						<p>$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2$ given by $T\begin{pmatrix} x \\ y \end{pmatrix} =
-							\begin{pmatrix} x + 1 \\ y \end{pmatrix}$</p>
+					<h4>A Mapping That is <b>NOT</b> a Linear Transformation</h4>
+					<div class="size-80">
 
-						<div class="fragment" style="margin-top:10px;">
-							<p>Let's test with a counterexample. Say $\mathbf{u} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$
-								and
-								$\mathbf{v} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$:</p>
-							$$\mathbf{u}+\mathbf{v} = \begin{pmatrix} 3 \\ 2 \end{pmatrix} \implies
-							T(\mathbf{u}+\mathbf{v})
-							= \begin{pmatrix} 4 \\ 2 \end{pmatrix}$$
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2$ given
+								by $T\begin{pmatrix} x \\ y \end{pmatrix}
+								=
+								\begin{pmatrix} x + 1 \\ y \end{pmatrix}$</p>
 						</div>
 
-						<div class="fragment" style="margin-top:10px;">
+						<div style="margin-top:10px;">
+							<p class="fragment" data-fragment-index="2">
+								Let's test with a counterexample.
+								<span class="fragment" data-fragment-index="3">
+									Say $\mathbf{u} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$
+									and
+									$\mathbf{v} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$:
+								</span>
+							</p>
+
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$\mathbf{u}+\mathbf{v} = \begin{pmatrix} 3 \\ 2 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="5">
+									$
+									\implies
+									T(\mathbf{u}+\mathbf{v})
+									= \begin{pmatrix} 4 \\ 2 \end{pmatrix}
+									$
+								</span>
+							</p>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="6" style="margin-top:10px;">
 							<p>But computing them individually yields:</p>
-							$$T(\mathbf{u}) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad T(\mathbf{v}) =
-							\begin{pmatrix} 2
-							\\ 1 \end{pmatrix} \implies T(\mathbf{u}) + T(\mathbf{v}) = \begin{pmatrix} 5 \\ 2
-							\end{pmatrix}$$
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$
+								T(\mathbf{u}) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad T(\mathbf{v}) =
+								\begin{pmatrix} 2
+								\\ 1 \end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="7">
+									$
+									\implies T(\mathbf{u}) + T(\mathbf{v}) = \begin{pmatrix} 5 \\ 2
+									\end{pmatrix}
+									$
+								</span>
+							</p>
 						</div>
 
-						<p class="fragment" style="color: #ff5555; margin-top:10px;">Since $T(\mathbf{u}) +
+						<p class="fragment" style="color: #f91515; margin-top:10px;">
+							Since $T(\mathbf{u}) +
 							T(\mathbf{v})
 							\neq T(\mathbf{u}+\mathbf{v})$, it is <strong>not</strong> a linear transformation.</p>
 
-						<p class="fragment" style="font-size: 85%; margin-top:10px;"><em>Note: You can disprove
-								linearity
-								with a single counterexample. However, to prove a mapping is a linear transformation,
-								you
-								must show it holds in general.</em></p>
+						<p class="fragment" style="font-size: 85%; margin-top:10px;">
+							<b>Note:</b> You can disprove
+							linearity
+							with a single counterexample. However, to prove a
+							mapping is a linear transformation,
+							you
+							must show it holds in general.
+						</p>
 					</div>
 				</section>
 
 				<section data-auto-animate>
 					<h4>Linear Transformations</h4>
 					<div class="size-85">
-						<h5>Class Examples</h5>
+						<h5>Practice examples</h5>
 						<ol style="line-height: 50px;">
 							<li>Show that the following mapping $T:\mathbb{R}^2 \mapsto \mathbb{R}^2$ is not linear:
 								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ x_1 - 1
@@ -197,6 +285,249 @@
 						</ol>
 					</div>
 				</section>
+
+				<section data-auto-animate>
+					<h4>Practice examples 1</h4>
+
+					<div class="size-80">
+
+						<div class="cc">
+							<p>
+								$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2$
+								given by
+								$
+								T\begin{pmatrix}x_1\\x_2\end{pmatrix}
+								=
+								\begin{pmatrix}
+								x_2\\
+								x_1-1
+								\end{pmatrix}
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							Let's test with a counterexample.
+							<span class="fragment" data-fragment-index="3">
+								Say
+								$
+								\mathbf{u}=
+								\begin{pmatrix}1\\0\end{pmatrix},
+								\;\;
+								\mathbf{v}=
+								\begin{pmatrix}0\\1\end{pmatrix}.
+								$
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$
+								\mathbf{u}+\mathbf{v}
+								=
+								\begin{pmatrix}1\\1\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="5">
+									$
+									\implies
+									T(\mathbf{u}+\mathbf{v})
+									=
+									\begin{pmatrix}1\\0\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="6">
+							But computing them individually yields:
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$
+								T(\mathbf{u})
+								=
+								\begin{pmatrix}0\\0\end{pmatrix},
+								\;\;
+								T(\mathbf{v})
+								=
+								\begin{pmatrix}1\\-1\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="7">
+									$
+									\implies
+									T(\mathbf{u})+T(\mathbf{v})
+									=
+									\begin{pmatrix}1\\-1\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" style="color:#f91515;margin-top:10px;">
+							Since
+							$
+							T(\mathbf{u}+\mathbf{v})
+							\neq
+							T(\mathbf{u})+T(\mathbf{v}),
+							$
+							the mapping is <strong>not</strong> a linear transformation.
+						</p>
+
+						<p class="fragment" style="font-size:85%;margin-top:10px;">
+							<b>Note:</b> A single counterexample is enough to disprove linearity.
+						</p>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Practice examples 2</h4>
+
+					<div class="size-75">
+
+						<div class="cc">
+							<p style="font-size: 0.9em;">
+								$T:\mathbb{R}^2 \rightarrow \mathbb{R}^3$
+								given by
+								$
+								T\begin{pmatrix}x_1\\x_2\end{pmatrix}
+								=
+								\begin{pmatrix}
+								x_1\\
+								x_2\\
+								x_1^2+x_2^2
+								\end{pmatrix}
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							Let's test the additivity property.
+							<span class="fragment" data-fragment-index="3">
+								Take
+								$
+								\mathbf{u}=
+								\begin{pmatrix}1\\0\end{pmatrix},
+								\;
+								\mathbf{v}=
+								\begin{pmatrix}0\\1\end{pmatrix}.
+								$
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$
+								\mathbf{u}+\mathbf{v}
+								=
+								\begin{pmatrix}1\\1\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="5">
+									$
+									\implies
+									T(\mathbf{u}+\mathbf{v})
+									=
+									\begin{pmatrix}1\\1\\2\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="6">
+							Individual computation gives:
+
+							$
+							T(\mathbf{u})
+							=
+							\begin{pmatrix}1\\0\\1\end{pmatrix},
+							\;
+							T(\mathbf{v})
+							=
+							\begin{pmatrix}0\\1\\1\end{pmatrix}
+							$
+							<span class="fragment" data-fragment-index="7">
+								$
+								\implies
+								T(\mathbf{u})+T(\mathbf{v})
+								=
+								\begin{pmatrix}1\\1\\2\end{pmatrix}
+								$
+							</span>
+
+						</p>
+
+
+
+						<p class="fragment" style="margin-top:10px;">
+							So, for these vectors,
+							$
+							T(\mathbf{u}+\mathbf{v})
+							=
+							T(\mathbf{u})+T(\mathbf{v}).
+							$
+						</p>
+
+
+
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Practice examples 2</h4>
+
+					<div class="size-90">
+
+						<div class="cc">
+							<p>
+								$T:\mathbb{R}^2 \rightarrow \mathbb{R}^3$
+								given by
+								$
+								T\begin{pmatrix}x_1\\x_2\end{pmatrix}
+								=
+								\begin{pmatrix}
+								x_1\\
+								x_2\\
+								x_1^2+x_2^2
+								\end{pmatrix}
+								$
+							</p>
+						</div>
+
+
+
+						<div class="cc">
+							<p style="color:#f91515;margin-top:10px;">
+								However, this <strong>does not</strong> prove that $T$ is linear.<br/>
+								<span class="fragment">
+									The mapping is still <strong>not</strong> a linear transformation.
+								</span>
+							</p>
+
+							<p class="fragment" style="margin-top:10px;">
+								<b>Why?</b> We must also verify the <b>homogeneity</b> property,
+								$
+								T(c\mathbf{x}) = c\,T(\mathbf{x}),
+								$
+								<br/>
+								<span class="fragment">
+									which this mapping does <strong>not</strong> satisfy because of the quadratic term
+									$x_1^2+x_2^2$.
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				
 
 				<section data-auto-animate>
 					<h4>Linear Transformations</h4>
