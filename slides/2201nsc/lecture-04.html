@@ -271,7 +271,7 @@
 					<h4>Linear Transformations</h4>
 					<h5>Practice examples</h5>
 					<div class="size-85 left-txt">
-						
+
 						<ol style="line-height: 50px;">
 							<li>Show that the following mapping $T:\mathbb{R}^2 \mapsto \mathbb{R}^2$ is not linear:
 								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ x_1 - 1
@@ -285,7 +285,7 @@
 							</li>
 						</ol>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -503,7 +503,7 @@
 
 						<div class="cc">
 							<p style="color:#f91515;margin-top:10px;">
-								However, this <strong>does not</strong> prove that $T$ is linear.<br/>
+								However, this <strong>does not</strong> prove that $T$ is linear.<br />
 								<span class="fragment">
 									The mapping is still <strong>not</strong> a linear transformation.
 								</span>
@@ -514,7 +514,7 @@
 								$
 								T(c\mathbf{x}) = c\,T(\mathbf{x}),
 								$
-								<br/>
+								<br />
 								<span class="fragment">
 									which this mapping does <strong>not</strong> satisfy because of the quadratic term
 									$x_1^2+x_2^2$.
@@ -529,102 +529,257 @@
 					<br />
 				</section>
 
-				
+
 
 				<section data-auto-animate>
-					<h4>Proving a Mapping is a Linear Transformation (a)</h4>
+					<h4>Proving a Mapping is a Linear Transformation</h4>
 					<div class="size-85">
-						<h5></h5>
-						<p>Consider another transformation on $\mathbb{R}^2$ given by $T(\mathbf{v}) = 3\mathbf{v}$. We
-							check the core properties to confirm if $T$ is linear.</p>
+						<p class="fragment" data-fragment-index="0">
+							Consider another transformation on $\mathbb{R}^2$ given by
+							$T(\mathbf{v}) = 3\mathbf{v}$.
+							<span class="fragment" data-fragment-index="1">
+								We check the core properties to confirm if $T$ is linear.
+							</span>
+						</p>
 
-						<div class="fragment" style="margin-top:15px;">
-							<h6>(a) Check whether $T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$</h6>
-							<p>Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
-								\begin{pmatrix}
-								v_1 \\ v_2 \end{pmatrix}$, meaning $\mathbf{u}+\mathbf{v} = \begin{pmatrix} u_1 + v_1 \\
-								u_2
-								+ v_2 \end{pmatrix}$:</p>
-							$$T(\mathbf{u}+\mathbf{v}) = T\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix} =
-							3\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix} = \begin{pmatrix} 3u_1 + 3v_1 \\ 3u_2
-							+
-							3v_2 \end{pmatrix}$$
-							$$= 3\begin{pmatrix} u_1 \\ u_2 \end{pmatrix} + 3\begin{pmatrix} v_1 \\ v_2 \end{pmatrix} =
-							T(\mathbf{u}) + T(\mathbf{v})$$
+						<div style="margin-top:15px;">
+							<h5 class="fragment" data-fragment-index="2">(a) Check whether $T(\mathbf{u}+\mathbf{v}) =
+								T(\mathbf{u}) + T(\mathbf{v})$</h5>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
+									\begin{pmatrix}
+									v_1 \\ v_2 \end{pmatrix}$,
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									meaning $\mathbf{u}+\mathbf{v} = \begin{pmatrix} u_1 + v_1 \\
+									u_2
+									+ v_2 \end{pmatrix}$:
+								</span>
+
+							</p>
+							<div class="cc">
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$
+										T(\mathbf{u}+\mathbf{v}) = T\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$
+										= 3\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$
+										= \begin{pmatrix} 3u_1 + 3v_1 \\ 3u_2
+										+
+										3v_2 \end{pmatrix}
+										$
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="8">
+									$
+									\quad = 3\begin{pmatrix} u_1 \\ u_2 \end{pmatrix} + 3\begin{pmatrix} v_1 \\ v_2
+									\end{pmatrix}
+									$
+									<span class="fragment" data-fragment-index="9">
+										$
+										=
+										T(\mathbf{u}) + T(\mathbf{v})\quad
+										$ ✅
+									</span>
+								</p>
+							</div>
 						</div>
 					</div>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Proving a Mapping is a Linear Transformation</h4>
 					<div class="size-85">
-						<h5>Proving a Mapping is a Linear Transformation (b)</h5>
-						<h6>(b) Check whether $T(\alpha \mathbf{u}) = \alpha T(\mathbf{u})$</h6>
+						<p>
+							Consider another transformation on $\mathbb{R}^2$ given by
+							$T(\mathbf{v}) = 3\mathbf{v}$.
+							<span>
+								We check the core properties to confirm if $T$ is linear.
+							</span>
+						</p>
+						<h5 style="color: #aaa;">(a) Check whether $T(\mathbf{u}+\mathbf{v}) =
+							T(\mathbf{u}) + T(\mathbf{v})$</h5>
+						<h5>(b) Check whether $T(\alpha \mathbf{u}) = \alpha T(\mathbf{u})$</h5>
 
-						<div class="fragment" style="margin-top:20px;">
-							<p>Using the same mapping $T(\mathbf{v}) = 3\mathbf{v}$ with an arbitrary scalar $\alpha \in
-								\mathbb{R}$:</p>
-							$$T(\alpha \mathbf{u}) = T\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix} =
-							3\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix} = \alpha \left[ 3\begin{pmatrix} u_1
-							\\
-							u_2 \end{pmatrix} \right] = \alpha T(\mathbf{u})$$
+						<div style="margin-top:20px;">
+							<p class="fragment" data-fragment-index="0">Using the same mapping $T(\mathbf{v}) =
+								3\mathbf{v}$ with an arbitrary scalar $\alpha \in
+								\mathbb{R}$:
+							</p>
+							<div class="cc">
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$
+										T(\alpha \mathbf{u}) = T\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$
+										= 3\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$
+										= \alpha \left[ 3\begin{pmatrix} u_1
+										\\
+										u_2 \end{pmatrix} \right]
+										$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$
+										= \alpha T(\mathbf{u})\quad
+										$ ✅
+									</span>
+
+								</p>
+							</div>
 						</div>
 
-						<p class="fragment" style="color: #4df3a9; margin-top:20px;">Both rules are satisfied, so
-							$T(\mathbf{v}) = 3\mathbf{v}$ is rigorously proven to be a linear transformation!</p>
 					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Proving a Mapping is a Linear Transformation</h4>
+					<div class="size-85">
+						<p>
+							Consider another transformation on $\mathbb{R}^2$ given by
+							$T(\mathbf{v}) = 3\mathbf{v}$.
+							<span>
+								We check the core properties to confirm if $T$ is linear.
+							</span>
+						</p>
+						<h5 style="font-size: 1em;">(a) Check whether $T(\mathbf{u}+\mathbf{v}) =
+							T(\mathbf{u}) + T(\mathbf{v})$</h5>
+						<h5 style="font-size: 1em;">(b) Check whether $T(\alpha \mathbf{u}) = \alpha T(\mathbf{u})$</h5>
+
+						<h5 class="fragment" style="color: #016b3c;font-size: 1.3em;">
+							Both rules are satisfied!
+						</h5>
+
+
+						<p style="margin-top:20px; font-size: 1.2em;">
+
+							<span class="fragment">
+								So
+								$T(\mathbf{v}) = 3\mathbf{v}$ is rigorously proven to
+								be a linear transformation!
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Using the Alternate Definition (1)</h5>
-						<p>Consider the mapping from $\mathbb{R}^2$ to $\mathbb{R}^3$ given by:</p>
-						$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = (x_2, x_1, x_1 + x_2)^T = \begin{pmatrix} x_2 \\
-						x_1
-						\\ x_1 + x_2 \end{pmatrix}$$
+					<h4>Using the Alternate Definition</h4>
+					<div class="size-80">
+						<p>
+							Consider the mapping from $\mathbb{R}^2$ to $\mathbb{R}^3$ given by:
+						</p>
+						<p style="text-align: center; margin-top: -20px">
+							$
+							T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \left(x_2, x_1, x_1 + x_2\right)^T =
+							\begin{pmatrix} x_2 \\
+							x_1
+							\\ x_1 + x_2 \end{pmatrix}$
+						</p>
 
-						<p class="fragment" style="margin-top:15px;">We will show that this is linear using the single
-							consolidated criteria: $T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) +
+						<p class="fragment" style="margin-top:15px;">
+							We will show that this is linear using the single
+							consolidated criteria:
+							$$T\left(\alpha \mathbf{u} + \beta \mathbf{v}\right) = \alpha T(\mathbf{u}) +
 							\beta
-							T(\mathbf{v})$.</p>
+							T(\mathbf{v}).$$
+						</p>
 
-						<div class="fragment" style="margin-top:10px;">
-							<p>Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
+						<div class="fragment cc" style="margin-top:10px;">
+							<p>
+								Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
 								\begin{pmatrix}
-								v_1 \\ v_2 \end{pmatrix}$. Then:</p>
-							$$\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\ \alpha
-							u_2 +
-							\beta v_2 \end{pmatrix}$$
+								v_1 \\ v_2 \end{pmatrix}$.
+								<span class="fragment">
+									Then
+									$\;\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\
+									\alpha u_2 + \beta v_2 \end{pmatrix}.$
+								</span>
+							</p>
+
+
 						</div>
 					</div>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Using the Alternate Definition (2)</h5>
-						<p>Recall $\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\
+					<h4>Using the Alternate Definition</h4>
+					<div class="size-80">
+						<p>
+							Consider the mapping from $\mathbb{R}^2$ to $\mathbb{R}^3$ given by:
+						</p>
+						<p style="text-align: center; margin-top: -20px;">
+							$
+							T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \left(x_2, x_1, x_1 + x_2\right)^T =
+							\begin{pmatrix} x_2 \\
+							x_1
+							\\ x_1 + x_2 \end{pmatrix}$
+						</p>
+						<p>Thus $\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\
 							\alpha
-							u_2 + \beta v_2 \end{pmatrix}$. Applying the rules of mapping $T$ gives:</p>
+							u_2 + \beta v_2 \end{pmatrix}$.
+							<span class="fragment" data-fragment-index="0">
+								Applying the rules of mapping $T$ gives:
+							</span>
+						</p>
 
-						<div class="fragment">
-							$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \begin{pmatrix} \alpha u_2 + \beta v_2 \\ \alpha
-							u_1
-							+ \beta v_1 \\ (\alpha u_1 + \beta v_1) + (\alpha u_2 + \beta v_2) \end{pmatrix}$$
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \begin{pmatrix} \alpha u_2 + \beta v_2 \\
+									\alpha
+									u_1
+									+ \beta v_1 \\ (\alpha u_1 + \beta v_1) + (\alpha u_2 + \beta v_2) \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$= \begin{pmatrix} \alpha u_2 \\ \alpha u_1 \\ \alpha u_1 + \alpha u_2 \end{pmatrix}
+									+
+									\begin{pmatrix} \beta v_2 \\ \beta v_1 \\ \beta v_1 + \beta v_2 \end{pmatrix}$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$= \alpha \begin{pmatrix} u_2 \\ u_1 \\ u_1 + u_2 \end{pmatrix} + \beta
+									\begin{pmatrix} v_2
+									\\
+									v_1 \\ v_1 + v_2 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$
+								</span>
+							</p>
+
+
 						</div>
 
-						<div class="fragment" style="margin-top:10px;">
-							$$= \begin{pmatrix} \alpha u_2 \\ \alpha u_1 \\ \alpha u_1 + \alpha u_2 \end{pmatrix} +
-							\begin{pmatrix} \beta v_2 \\ \beta v_1 \\ \beta v_1 + \beta v_2 \end{pmatrix}$$
-						</div>
 
-						<div class="fragment" style="margin-top:10px;">
-							$$= \alpha \begin{pmatrix} u_2 \\ u_1 \\ u_1 + u_2 \end{pmatrix} + \beta \begin{pmatrix} v_2
-							\\
-							v_1 \\ v_1 + v_2 \end{pmatrix} = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$$
-						</div>
 					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
