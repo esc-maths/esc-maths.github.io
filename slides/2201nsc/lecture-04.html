@@ -779,26 +779,144 @@
 
 
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Exercises</h4>
 					<div class="size-85">
-						<h5>Class Examples</h5>
 						<ol style="line-height: 50px;">
 							<li>Show that the following transformation $T : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ is
 								linear:
 								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 2x_1 \\ x_2
 								\end{pmatrix}$$
 							</li>
-							<li class="fragment" style="margin-top:15px;">Show that $T : \mathbb{R}^2 \rightarrow
+							<li style="margin-top:15px;">Show that $T : \mathbb{R}^2 \rightarrow
 								\mathbb{R}^2$ given by the following mapping is a linear transformation:
 								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ 3x_1
 								\end{pmatrix}$$
 							</li>
 						</ol>
 					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solution to Exercise 1</h4>
+
+					<div class="size-80">
+
+						<div class="cc">
+							<p>
+								1. Consider
+								$
+								T:\mathbb{R}^2\rightarrow\mathbb{R}^2,
+								\quad
+								T\begin{pmatrix}x_1\\x_2\end{pmatrix}
+								=
+								\begin{pmatrix}
+								2x_1\\
+								x_2
+								\end{pmatrix}.
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							To prove that $T$ is linear, show that
+							$
+							T(\alpha\mathbf{u}+\beta\mathbf{v})
+							=
+							\alpha T(\mathbf{u})
+							+
+							\beta T(\mathbf{v})
+							$
+							for all vectors $\mathbf{u},\mathbf{v}$ and scalars $\alpha,\beta$.
+						</p>
+
+						<div>
+							<p class="fragment" data-fragment-index="3">
+								Let
+								$
+								\mathbf{u}=
+								\begin{pmatrix}u_1\\u_2\end{pmatrix},
+								\;
+								\mathbf{v}=
+								\begin{pmatrix}v_1\\v_2\end{pmatrix}.
+								$
+								<span  class="fragment" data-fragment-index="4">
+									Then
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$
+								T(\alpha\mathbf{u}+\beta\mathbf{v})
+								=
+								T\!\left(
+								\begin{pmatrix}
+								\alpha u_1+\beta v_1\\
+								\alpha u_2+\beta v_2
+								\end{pmatrix}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="5">
+									$
+									=
+									\begin{pmatrix}
+									2(\alpha u_1+\beta v_1)\\
+									\alpha u_2+\beta v_2
+									\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$
+								=
+								\alpha
+								\begin{pmatrix}
+								2u_1\\
+								u_2
+								\end{pmatrix}
+								+
+								\beta
+								\begin{pmatrix}
+								2v_1\\
+								v_2
+								\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="7">
+									$
+									=
+									\alpha T(\mathbf{u})
+									+
+									\beta T(\mathbf{v}).
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+
+						</div>
+
+						<p class="fragment" style="color:#04723b;margin-top:15px;">
+							Since this holds for all $\mathbf{u},\mathbf{v}\in\mathbb{R}^2$
+							and all $\alpha,\beta\in\mathbb{R}$,
+							<strong>$T$ is a linear transformation.</strong>
+						</p>
+
+					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
