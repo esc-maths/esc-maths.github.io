@@ -30,7 +30,8 @@
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { SimplifyModifier } from 'three/addons/modifiers/SimplifyModifier.js';
 
-        let renderer, scene, camera;
+        // Fixed: Added controls to the global scope so the animate loop can access it
+        let renderer, scene, camera, controls;
 
         init();
 
@@ -54,8 +55,10 @@
             camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 1000);
             camera.position.z = 15;
 
-            const controls = new OrbitControls(camera, renderer.domElement);
-            controls.addEventListener('change', render); // use if there is no animation loop
+            // Assigned to the global variable and added auto-rotation properties
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.autoRotate = false;
+            //controls.autoRotateSpeed = 0.5;
             controls.enablePan = false;
             controls.enableZoom = false;
 
@@ -69,10 +72,7 @@
 
                 const mesh = gltf.scene.children[0];
 
-                // 1. Create the new MeshNormalMaterial
                 const normalMaterial = new THREE.MeshNormalMaterial();
-
-                // 2. Assign it to the original mesh
                 mesh.material = normalMaterial;
 
                 mesh.position.x = - 3;
@@ -82,19 +82,18 @@
                 const modifier = new SimplifyModifier();
 
                 const simplified = mesh.clone();
-
-                // 3. Assign a cloned version to the simplified mesh and keep flatShading true
                 simplified.material = normalMaterial.clone();
                 simplified.material.flatShading = true;
 
-                const count = Math.floor(simplified.geometry.attributes.position.count * 0.91); // number of vertices to remove
+                const count = Math.floor(simplified.geometry.attributes.position.count * 0.91);
                 simplified.geometry = modifier.modify(simplified.geometry, count);
 
                 simplified.position.x = 3;
                 simplified.rotation.y = - Math.PI / 2;
                 scene.add(simplified);
 
-                render();
+                // Swapped out manual render() for the animation loop initiation
+                animate();
 
             });
 
@@ -109,11 +108,15 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
 
-            render();
-
         }
 
-        function render() {
+        // Added continuous animation loop
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            // Required to calculate the next step of auto-rotation
+            controls.update();
 
             renderer.render(scene, camera);
 
