@@ -813,9 +813,10 @@ ans =
 					<h4>When do Linear Systems have Unique Solutions?</h4>
 
 					<div class="size-75 fragment">
-						
+
 						<p>
-							<b>Corollary (Uniqueness of solutions for linear systems)</b> The linear system \(A\mathbf x=\mathbf b\) with \(n\) equations in
+							<b>Corollary (Uniqueness of solutions for linear systems)</b> The linear system \(A\mathbf
+							x=\mathbf b\) with \(n\) equations in
 							\(n\) unknowns has a unique solution iff \(A\) is nonsingular.
 						</p>
 					</div>
@@ -825,7 +826,7 @@ ans =
 
 						<ol style="line-height:60px; margin-left:0px; margin-top: -20px;">
 
-							
+
 
 							<li class="fragment">
 								<strong>
@@ -855,7 +856,10 @@ ans =
 								<span class="fragment">
 									Then
 									\(A\mathbf y
-									=A(\mathbf x_b+\mathbf x_0)
+									=A(\mathbf x_b+\mathbf x_0)\)
+								</span>
+								<span class="fragment">
+									\(
 									=A\mathbf x_b+A\mathbf x_0\)
 								</span>
 
@@ -867,6 +871,12 @@ ans =
 									and since \(\mathbf x_0\ne\mathbf0,\)
 									\(\mathbf y\ne\mathbf x_b.\)
 								</span>
+								<p class="fragment" style="margin-top:10px;">
+									Thus, if \(A\) is singular, the system
+									\(A\mathbf x=\mathbf b\) cannot have a unique solution: it has
+									either no solution or at least two distinct solutions.
+								</p>
+
 
 							</li>
 
@@ -900,11 +910,6 @@ ans =
 
 						</ol>
 
-						<p class="fragment" style="margin-top:10px;">
-							Thus, if \(A\) is singular, the system
-							\(A\mathbf x=\mathbf b\) cannot have a unique solution: it has
-							either no solution or at least two distinct solutions.
-						</p>
 
 					</div>
 
@@ -912,72 +917,7 @@ ans =
 				</section>
 
 
-				<section>
-					<h4>When do Linear Systems have Unique Solutions?</h4>
-					<div class="size-80 fragment">
-						<h5>Corollary (Uniqueness of solutions for linear systems)</h5>
-						<p>The linear system $A\mathbf x=\mathbf b$ comprising $n$
-							equations in $n$ unknowns has a unique solution iff
-							$A$ is nonsingular.</p>
-					</div>
-					<div class="size-85 fragment" style="margin-top:10px;">
-						<h6>Equivalent Two-Part Corollary Proof Outline:</h6>
-						<ol style="line-height: 60px; margin-left: 0px;">
-							<li class="fragment">
-								<strong>
-									$A$ is nonsingular $\Rightarrow A\mathbf x=\mathbf b$ has a unique solution:
-								</strong>
-								<span class="fragment">
-									Since $A$
-									is nonsingular,
-								</span>
-								<span class="fragment">
-									$A^{-1}$ exists,
-								</span>
-								<span class="fragment">
-									so the only possible solution is $\mathbf x = \left(A^{-1}A\right)\mathbf x$
-								</span>
-								<span class="fragment">
-									$ = A^{-1}\left(A\mathbf x\right)$
-								</span>
-								<span class="fragment">
-									$ = A^{-1}\mathbf b.$
-								</span>
-							</li>
-							<li class="fragment">
-								<strong>
-									$A$ is singular $\Rightarrow A\mathbf x=\mathbf b$ has no solution or (at
-									least) two solutions:
-								</strong>
-								<span class="fragment">
-									If $A$ is singular,
-								</span>
-								<span class="fragment">
-									$A\mathbf x=\mathbf 0$ has a non-zero solution
-									$\mathbf x_0.$
-								</span>
-								<span class="fragment">
-									Suppose $\mathbf x_b$ is a solution of $A\mathbf x=\mathbf b.$
-								</span>
-								<span class="fragment">
-									Let $\mathbf y = \mathbf x_b + \mathbf x_0.$
-								</span>
-								<span class="fragment">
-									Then $A\mathbf y = A(\mathbf x_b +
-									\mathbf x_0) = A\mathbf x_b + A\mathbf x_0 $
-								</span>
-								<span class="fragment">
-									$ =\mathbf b + 0 = \mathbf b.$
-								</span>
-
-							</li>
-						</ol>
-						<p class="fragment" style="margin-top:10px;">
-							Thus, if $A$ is singular, $A\mathbf x=\mathbf b$ has either no
-							solution or at least two solutions.</p>
-					</div>
-					<br />
-				</section>
+				
 
 				<section data-auto-animate>
 					<h4>Determinants: Motivation</h4>
