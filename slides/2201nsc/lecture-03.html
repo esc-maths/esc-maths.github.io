@@ -105,8 +105,8 @@
 								<span class="fragment" data-fragment-index="7">
 
 									$ \rightarrow
-									 E_{2}E_{1}A
-									 \rightarrow$
+									E_{2}E_{1}A
+									\rightarrow$
 
 								</span>
 								<span class="fragment" data-fragment-index="8">
@@ -299,11 +299,11 @@
 							<p class="fragment" data-fragment-index="1">
 								$\big(A \mid \mathbf q\big) $
 								<span class="fragment" data-fragment-index="2">
-									$\quad\quad \rightarrow \qquad\quad  \big(B \mid \mathbf r\big)$
+									$\quad\quad \rightarrow \qquad\quad \big(B \mid \mathbf r\big)$
 								</span>
 								<span class="fragment" data-fragment-index="5">
-									$\quad\;\; \rightarrow \qquad  \big(I
-								\mid \mathbf s\big)$
+									$\quad\;\; \rightarrow \qquad \big(I
+									\mid \mathbf s\big)$
 								</span>
 							</p>
 						</div>
@@ -716,9 +716,9 @@ ans =
 
 					<div class="size-80">
 						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
-						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=0
+						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=\mathbf 0
 							\Rightarrow
-							\mathbf x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
+							\mathbf x=\mathbf 0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
 					</div>
 					<div class="size-90" style="margin-top:15px;">
 						<h6>Proof Outline (Cont'd)</h6>
@@ -769,9 +769,9 @@ ans =
 					<h4>When is a Matrix Invertible? (Cont'd)</h4>
 					<div class="size-80">
 						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
-						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=0
+						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=\mathbf 0
 							\Rightarrow
-							\mathbf x=0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
+							\mathbf x=\mathbf 0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
 					</div>
 					<div class="size-90" style="margin-top:15px;">
 						<h6>Proof Outline (Cont'd)</h6>
@@ -808,72 +808,116 @@ ans =
 					<br />
 				</section>
 
+
 				<section>
 					<h4>When do Linear Systems have Unique Solutions?</h4>
-					<div class="size-80 fragment">
-						<h5>Corollary (Uniqueness of solutions for linear systems)</h5>
-						<p>The linear system $A\mathbf x=\mathbf b$ comprising $n$
-							equations in $n$ unknowns has a unique solution iff
-							$A$ is nonsingular.</p>
+
+					<div class="size-75 fragment">
+
+						<p>
+							<b>Corollary (Uniqueness of solutions for linear systems)</b> The linear system \(A\mathbf
+							x=\mathbf b\) with \(n\) equations in
+							\(n\) unknowns has a unique solution iff \(A\) is nonsingular.
+						</p>
 					</div>
-					<div class="size-85 fragment" style="margin-top:10px;">
+
+					<div class="size-85 fragment" style="margin-top:-10px;">
 						<h6>Equivalent Two-Part Corollary Proof Outline:</h6>
-						<ol style="line-height: 60px; margin-left: 0px;">
+
+						<ol style="line-height:60px; margin-left:0px; margin-top: -20px;">
+
+
+
 							<li class="fragment">
 								<strong>
-									$A$ is nonsingular $\Rightarrow A\mathbf x=\mathbf b$ has a unique solution:
+									\(A\) is singular \(\Rightarrow\)
+									\(A\mathbf x=\mathbf b\) has no solution or at least two distinct
+									solutions:
 								</strong>
+
 								<span class="fragment">
-									Since $A$
-									is nonsingular,
-								</span>
-								<span class="fragment">
-									$A^{-1}$ exists,
-								</span>
-								<span class="fragment">
-									so the only possible solution is $\mathbf x = \left(A^{-1}A\right)\mathbf x$
-								</span>
-								<span class="fragment">
-									$ = A^{-1}\left(A\mathbf x\right)$
-								</span>
-								<span class="fragment">
-									$ = A^{-1}\mathbf b.$
-								</span>
-							</li>
-							<li class="fragment">
-								<strong>
-									$A$ is singular $\Rightarrow A\mathbf x=\mathbf b$ has no solution or (at
-									least) two solutions:
-								</strong>
-								<span class="fragment">
-									If $A$ is singular,
-								</span>
-								<span class="fragment">
-									$A\mathbf x=\mathbf 0$ has a non-zero solution
-									$\mathbf x_0.$
-								</span>
-								<span class="fragment">
-									Suppose $\mathbf x_b$ is a solution of $A\mathbf x=\mathbf b.$
-								</span>
-								<span class="fragment">
-									Let $\mathbf y = \mathbf x_b + \mathbf x_0.$
-								</span>
-								<span class="fragment">
-									Then $A\mathbf y = A(\mathbf x_b +
-									\mathbf x_0) = A\mathbf x_b + A\mathbf x_0 $
-								</span>
-								<span class="fragment">
-									$ =\mathbf b + 0 = \mathbf b.$
+									If \(A\) is singular,
 								</span>
 
+								<span class="fragment">
+									\(A\mathbf x=\mathbf0\) has a non-zero solution
+									\(\mathbf x_0.\)
+								</span>
+
+								<span class="fragment">
+									If \(\mathbf x_b\) is a solution of
+									\(A\mathbf x=\mathbf b,\)
+								</span>
+
+								<span class="fragment">
+									let \(\mathbf y=\mathbf x_b+\mathbf x_0.\)
+								</span>
+
+								<span class="fragment">
+									Then
+									\(A\mathbf y
+									=A(\mathbf x_b+\mathbf x_0)\)
+								</span>
+								<span class="fragment">
+									\(
+									=A\mathbf x_b+A\mathbf x_0\)
+								</span>
+
+								<span class="fragment">
+									\(=\mathbf b+\mathbf0=\mathbf b,\)
+								</span>
+
+								<span class="fragment">
+									and since \(\mathbf x_0\ne\mathbf0,\)
+									\(\mathbf y\ne\mathbf x_b.\)
+								</span>
+								<p class="fragment" style="margin-top:10px;">
+									Thus, if \(A\) is singular, the system
+									\(A\mathbf x=\mathbf b\) cannot have a unique solution: it has
+									either no solution or at least two distinct solutions.
+								</p>
+
+
 							</li>
+
+							<li class="fragment">
+								<strong>
+									\(A\) is nonsingular \(\Rightarrow\)
+									\(A\mathbf x=\mathbf b\) has a unique solution:
+								</strong>
+
+								<span class="fragment">
+									Since \(A\) is nonsingular,
+								</span>
+
+								<span class="fragment">
+									\(A^{-1}\) exists,
+								</span>
+
+								<span class="fragment">
+									so any solution must satisfy
+									\(\mathbf x=(A^{-1}A)\mathbf x\)
+								</span>
+
+								<span class="fragment">
+									\(=A^{-1}(A\mathbf x)\)
+								</span>
+
+								<span class="fragment">
+									\(=A^{-1}\mathbf b.\)
+								</span>
+							</li>
+
 						</ol>
-						<p class="fragment" style="margin-top:10px;">
-							Thus, if $A$ is singular, $A\mathbf x=\mathbf b$ has either no
-							solution or at least two solutions.</p>
+
+
 					</div>
+
 					<br />
 				</section>
+
+
+				
 
 				<section data-auto-animate>
 					<h4>Determinants: Motivation</h4>
@@ -1118,9 +1162,10 @@ ans =
 			<section>
 
 				<section>
-					<h4>Patterns with determinant formula</h4>
+					<h4>Patterns with the determinant formula</h4>
 					<div class="fragment size-90">
-						<p>The formula to compute the determinant of a $3 \times 3$ matrix as is starting to get
+						<p>The formula to compute the determinant of a $3 \times 3$ matrix
+							 is starting to get
 							complicated:
 						</p>
 
@@ -1356,7 +1401,7 @@ ans =
 								$
 							</span>
 							<span class="fragment" data-fragment-index="3">
-								$ = a_{11}a_{22} - a_{21}a_{22}\quad$
+								$ = a_{11}a_{22} - a_{12}a_{21}\quad$
 							</span>
 
 						</p>
@@ -1389,7 +1434,7 @@ ans =
 					</div>
 					<div class="cc" style="margin-top: 50px; margin-bottom: 50px;">
 						<p>
-							$\large \text{det}\left(A\right)= a_{11}a_{22} - a_{21}a_{22}$
+							$\large \text{det}\left(A\right)= a_{11}a_{22} - a_{12}a_{21}$
 						</p>
 					</div>
 
@@ -1743,112 +1788,112 @@ ans =
 							<div class="r-stack">
 								<p class="fragment fade-out" data-fragment-index="1">
 									$
-									\begin{aligned} 
-									x + 2y + z &= 5 \\ 
-									2x + 2y + z &= 6 \\ 
+									\begin{aligned}
+									x + 2y + z &= 5 \\
+									2x + 2y + z &= 6 \\
 									x + 2y + 3z &= 9
 									\end{aligned}
 									$
 								</p>
 								<p class="fragment fade-in-then-out" data-fragment-index="1">
 									$
-									\begin{aligned} 
-									x + 2y + z &= 5 \\ 
-									2x + 2y + z &= 6 \\ 
+									\begin{aligned}
+									x + 2y + z &= 5 \\
+									2x + 2y + z &= 6 \\
 									x + 2y + 3z &= 9
 									\end{aligned}
 									\rightarrow
 									\left(
 									\begin{array}{cccc}
-									1 & 2 & 1  \\ 
-									2 & 2 & 1  \\ 
-									1 & 2 & 3 \\ 
+									1 & 2 & 1 \\
+									2 & 2 & 1 \\
+									1 & 2 & 3 \\
 									\end{array}
 									\right)
 									\left(
 									\begin{array}{cccc}
-									x \\ 
-									y \\ 
-									z \\ 
+									x \\
+									y \\
+									z \\
 									\end{array}
 									\right)
 									=
 									\left(
 									\begin{array}{cccc}
-									5 \\ 
-									6 \\ 
-									9 \\ 
+									5 \\
+									6 \\
+									9 \\
 									\end{array}
 									\right)
-									
+
 									$
 								</p>
 								<p class="fragment fade-in-then-out" data-fragment-index="2">
 									$
-									\begin{aligned} 
-									x + 2y + z &= 5 \\ 
-									2x + 2y + z &= 6 \\ 
+									\begin{aligned}
+									x + 2y + z &= 5 \\
+									2x + 2y + z &= 6 \\
 									x + 2y + 3z &= 9
 									\end{aligned}
 									\rightarrow
 									\left(
 									\color{blue}{
 									\begin{array}{cccc}
-									1 & 2 & 1  \\ 
-									2 & 2 & 1  \\ 
-									1 & 2 & 3 \\ 
+									1 & 2 & 1 \\
+									2 & 2 & 1 \\
+									1 & 2 & 3 \\
 									\end{array}
 									}
 									\right)
 									\left(
 									\begin{array}{cccc}
-									x \\ 
-									y \\ 
-									z \\ 
+									x \\
+									y \\
+									z \\
 									\end{array}
 									\right)
 									=
 									\left(
 									\begin{array}{cccc}
-									5 \\ 
-									6 \\ 
-									9 \\ 
+									5 \\
+									6 \\
+									9 \\
 									\end{array}
 									\right)
-									
+
 									$
 								</p>
 								<p class="fragment fade-in" data-fragment-index="3">
 									$
-									\begin{aligned} 
-									x + 2y + z &= 5 \\ 
-									2x + 2y + z &= 6 \\ 
+									\begin{aligned}
+									x + 2y + z &= 5 \\
+									2x + 2y + z &= 6 \\
 									x + 2y + 3z &= 9
 									\end{aligned}
 									\rightarrow
 									\left(
 									\begin{array}{cccc}
-									1 & 2 & 1  \\ 
-									2 & 2 & 1  \\ 
-									1 & 2 & 3 \\ 
+									1 & 2 & 1 \\
+									2 & 2 & 1 \\
+									1 & 2 & 3 \\
 									\end{array}
 									\right)
 									\left(
 									\begin{array}{cccc}
-									x \\ 
-									y \\ 
-									z \\ 
+									x \\
+									y \\
+									z \\
 									\end{array}
 									\right)
 									=
 									\left(
 									\begin{array}{cccc}
-									\color{red}5 \\ 
-									\color{red}6 \\ 
-									\color{red}9 \\ 
+									\color{red}5 \\
+									\color{red}6 \\
+									\color{red}9 \\
 									\end{array}
 									\right)
-									
+
 									$
 								</p>
 							</div>
@@ -1856,7 +1901,7 @@ ans =
 					</div>
 					<div class="size-80" style="margin-top:10px;">
 						<p class="fragment" data-fragment-index="2">
-							The determinant of the coefficient matrix is 
+							The determinant of the coefficient matrix is
 							$\det M= -4.$
 
 						</p>
@@ -1977,10 +2022,10 @@ ans =
 				<section>
 					<h4>Why does Cramer's Rule work? (Cont'd)</h4>
 					<div class="size-75">
-						<p>If $x$ is the unique solution to the linear system $Ax=b$, we can isolate $x$ using the
+						<p>If $\mathbf x$ is the unique solution to the linear system $A\mathbf x=\mathbf b$, we can isolate $\mathbf x$ using the
 							adjoint matrix inverse:</p>
 						<p style="margin-top: -50px;">
-							$$x = A^{-1}b = \frac{1}{\det A}(\text{adj } A)b$$
+							$$\mathbf x = A^{-1}\mathbf b = \frac{1}{\det A}(\text{adj } A)\mathbf b$$
 						</p>
 						<p class="fragment" style="margin-top:10px;">Evaluating for an individual component entry $x_i$
 							gives:</p>
@@ -2012,7 +2057,7 @@ ans =
 				</section>
 
 				<section>
-					<h4>Determinants and Vector Algebra</h4>
+					<h4>Application: Determinants and Vector Algebra</h4>
 					<div class="size-75">
 						<div>
 							<h5>Cross Product & Scalar Triple Product</h5>
