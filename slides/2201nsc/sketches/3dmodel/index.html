@@ -42,6 +42,24 @@
             width: 100%;
             margin-top: 5px;
         }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #004b99;
+        }
         
         .hint {
             font-size: 0.85em;
@@ -65,6 +83,9 @@
 <body>
 
     <div id="ui">
+        <label>Visualization Mode</label>
+        <button id="toggleBtn">Switch to Transparent Mesh</button>
+
         <label>
             Geometry Resolution Slider
             <input id="slider" type="range" min="3" max="150" value="60">
@@ -75,7 +96,7 @@
         <label>
             Total Triangles: <span id="faceCount" class="count-display">0</span>
         </label>
-        <div class="hint">Slide left for low poly, slide right for high poly. Drag to rotate the knot!</div>
+        <div class="hint">Toggle transparent mode to see how the geometric triangles fit together internally!</div>
     </div>
 
     <script type="module">
@@ -102,7 +123,7 @@
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
 
-        // --- 2. Lighting (Crucial for visualizing solid faces) ---
+        // --- 2. Lighting ---
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
         scene.add(ambientLight);
 
@@ -110,41 +131,42 @@
         dirLight1.position.set(10, 10, 10);
         scene.add(dirLight1);
 
-        const dirLight2 = new THREE.DirectionalLight(0x0088ff, 1.0); // Subtle blue rim light
+        const dirLight2 = new THREE.DirectionalLight(0x0088ff, 1.0);
         dirLight2.position.set(-10, -10, -10);
         scene.add(dirLight2);
 
-        // --- 3. Mesh Setup ---
-        // Flat shading makes individual polygons highly visible at lower resolutions
-        const material = new THREE.MeshStandardMaterial({
+        // --- 3. Mesh & Material Setup ---
+        // Enabling transparent and setting flatShading allows us to alter opacity easily
+        const solidMaterial = new THREE.MeshStandardMaterial({
             color: 0x00b4d8,
             roughness: 0.3,
             metalness: 0.2,
             flatShading: true, 
-            side: THREE.DoubleSide
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 1.0 // Fully solid by default
         });
 
-        let knotMesh = new THREE.Mesh(new THREE.BufferGeometry(), material);
+        const knotMesh = new THREE.Mesh(new THREE.BufferGeometry(), solidMaterial);
         scene.add(knotMesh);
+
+        // State tracking: default to standard solid mesh view
+        let isTransparentMode = false;
 
         // --- 4. UI Elements ---
         const slider = document.getElementById("slider");
+        const toggleBtn = document.getElementById("toggleBtn");
         const vertexCountLabel = document.getElementById("vertexCount");
         const faceCountLabel = document.getElementById("faceCount");
 
         // --- 5. Dynamic Geometry Generation Function ---
         function rebuildKnot(resolution) {
-            // Dispose of old geometry to prevent memory leaks
             knotMesh.geometry.dispose();
 
-            // TorusKnot parameters: radius, tubeRadius, tubularSegments, radialSegments
-            // We tie tubularSegments directly to our slider resolution value
             const tubularSegments = resolution;
             const radialSegments = Math.max(3, Math.floor(resolution / 4)); 
 
             const newGeometry = new THREE.TorusKnotGeometry(3, 0.8, tubularSegments, radialSegments);
-            
-            // Assign the new geometric structure to our mesh
             knotMesh.geometry = newGeometry;
 
             // Update UI Counters
@@ -160,7 +182,27 @@
             rebuildKnot(Number(slider.value));
         };
 
-        // Initialize with default slider value
+        toggleBtn.onclick = () => {
+            isTransparentMode = !isTransparentMode;
+
+            if (isTransparentMode) {
+                // Drop material opacity down and display structural lines
+                solidMaterial.opacity = 0.4;
+                solidMaterial.wireframe = true;
+                
+                toggleBtn.textContent = "Switch to Solid Shape";
+                toggleBtn.style.backgroundColor = "#2a9d8f"; 
+            } else {
+                // Return to opaque, solid shading
+                solidMaterial.opacity = 1.0;
+                solidMaterial.wireframe = false;
+
+                toggleBtn.textContent = "Switch to Transparent Mesh";
+                toggleBtn.style.backgroundColor = "#0066cc";
+            }
+        };
+
+        // Initialize
         rebuildKnot(Number(slider.value));
 
         // --- 7. Animation Loop & Resizing ---
@@ -173,9 +215,8 @@
         renderer.setAnimationLoop(() => {
             controls.update();
             
-            // Slow automatic rotation so students can observe the changing facets
-            knotMesh.rotation.y += 0.002;
-            knotMesh.rotation.x += 0.002;
+            knotMesh.rotation.y += 0.0015;
+            knotMesh.rotation.x += 0.0015;
 
             renderer.render(scene, camera);
         });
