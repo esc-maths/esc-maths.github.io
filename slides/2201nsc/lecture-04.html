@@ -1160,32 +1160,52 @@
 
 				<section data-auto-animate>
 					<h4>Matrix Representation Theorem (1)</h4>
-					<div class="size-75">
-						<div>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							<b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
+							$\mathbb{R}^m$,
+							<span class="fragment" data-fragment-index="1">
+								there
+								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for
+								all
+								$\mathbf{x} \in \mathbb{R}^n$.
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
 
-							<p><b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
-								$\mathbb{R}^m$, there
-								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for all
-								$\mathbf{x} \in \mathbb{R}^n$.</p>
-						</div>
-						<p class="fragment" style="margin-top:10px; font-size: 90%;">Crucially, the $j$-th column vector
+						<p class="fragment" data-fragment-index="2" style="margin-top:10px;">
+							Crucially, the $j$-th column vector
 							of
-							$A$ is found by transforming the standard basis element $\mathbf{e}_j$: $\mathbf{a}_j =
-							T(\mathbf{e}_j)$ for $j = 1, 2, \dots, n$.</p>
+							$A$ is found by transforming the standard basis
+							element $\mathbf{e}_j$.
+							<span class="fragment" data-fragment-index="3">
+								That is, $\,\mathbf{a}_j =
+								T(\mathbf{e}_j)$ for $j = 1, 2, \dots, n$.
+							</span>
+						</p>
 
-						<div class="fragment">
-							<h6>Proof Outline:</h6>
-							<p>Let $A = \begin{pmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \dots & \mathbf{a}_n
+						<div>
+							<h6 class="fragment" data-fragment-index="4">Proof Outline:</h6>
+							<p class="fragment" data-fragment-index="5">
+								Let $A = \begin{pmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \dots & \mathbf{a}_n
 								\end{pmatrix}$
-								where $\mathbf{a}_j = T(\mathbf{e}_j)$.</p>
-							<p>Any vector $\mathbf{x} \in \mathbb{R}^n$ can be broken down as: $\mathbf{x} =
+								where $\mathbf{a}_j = T(\mathbf{e}_j)$.
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								Any vector $\mathbf{x} \in \mathbb{R}^n$ can be broken down as: $\mathbf{x} =
 								x_1\mathbf{e}_1
 								+ x_2\mathbf{e}_2 + \dots + x_n\mathbf{e}_n$</p>
-							<p class="fragment">$$\implies T(\mathbf{x}) = x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) +
+
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$\implies T(\mathbf{x}) = x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) +
 								\dots
-								+ x_n T(\mathbf{e}_n) \quad \text{(by linearity properties)}$$</p>
-							<p class="fragment">$$T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
-								x_n\mathbf{a}_n$$</p>
+								+ x_n T(\mathbf{e}_n) \quad \text{(by linearity properties)}$</p>
+							<p class="fragment">
+								$\implies T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
+								x_n\mathbf{a}_n$</p>
 						</div>
 					</div>
 					<br />
@@ -1193,15 +1213,28 @@
 
 				<section data-auto-animate>
 					<h4>Matrix Representation Theorem (1)</h4>
+					<div class="size-85">
+						<p>
+							<b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
+							$\mathbb{R}^m$,
+							<span>
+								there
+								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for
+								all
+								$\mathbf{x} \in \mathbb{R}^n$.
+							</span>
+						</p>
+					</div>
 					<div class="size-75">
-						<div>
 
-							<p><b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
-								$\mathbb{R}^m$, there
-								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for all
-								$\mathbf{x} \in \mathbb{R}^n$.</p>
-						</div>
 						<h6>Proof Outline:</h6>
+
+						<div class="cc">
+
+							<p>
+								$\implies T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
+								x_n\mathbf{a}_n$</p>
+						</div>
 						<p>Expanding the linear combination $T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
 							x_n\mathbf{a}_n$ into component forms:</p>
 
@@ -1213,28 +1246,29 @@
 								a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{pmatrix} + \dots + x_n \begin{pmatrix} a_{1n}
 								\\
 								a_{2n} \\ \vdots \\ a_{mn} \end{pmatrix}$
-							</p>
-						</div>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top:15px;">
-							<p>This is exactly equivalent to the standard definition of matrix multiplication:</p>
-
-						</div>
-						<div class="cc" style="margin-top:15px; font-size: 0.9em;">
-							<p class="fragment" data-fragment-index="0">
-								<span>
-									$T(\mathbf{x})$
+								<span class="fragment" data-fragment-index="0">
+									$= \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots &
+									a_{2n}
+									\\
+									\vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{pmatrix}
+									\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} $
 								</span>
-								$= \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n}
-								\\
-								\vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{pmatrix}
-								\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} $
-								<span class="fragment" data-fragment-index="1">
+
+								<span class="fragment" data-fragment-index="0">
 									$= A\mathbf{x}$
 								</span>
+
 							</p>
 						</div>
+
+						<div class="fragment" data-fragment-index="0">
+							<p>This is exactly equivalent to the standard definition of matrix multiplication.</p>
+
+						</div>
 					</div>
+
+					<br />
 
 				</section>
 
@@ -1242,12 +1276,14 @@
 					<h4>Matrix Representation - Example</h4>
 					<div class="size-80">
 
-						<p class="fragment" data-fragment-index="0">Find the matrix representation for the linear mapping $T: \mathbb{R}^3 \rightarrow
+						<p class="fragment" data-fragment-index="0">Find the matrix representation for the linear
+							mapping $T: \mathbb{R}^3 \rightarrow
 							\mathbb{R}^2$
 							given by
 						</p>
 						<div class="cc">
-							<p> $T(\mathbf{x}) = (x_1 + x_2, x_2 + x_3)^T$ where $\mathbf{x} = (x_1, x_2, x_3)^T$.</p>
+							<p class="fragment" data-fragment-index="0"> $T(\mathbf{x}) = (x_1 + x_2, x_2 + x_3)^T$
+								where $\mathbf{x} = (x_1, x_2, x_3)^T$.</p>
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top:10px;">
@@ -1297,35 +1333,58 @@
 						</div>
 
 						<div style="margin-top:15px;">
-							<p class="fragment" data-fragment-index="11" >Stacking these results into columns yields the transformation matrix $A$:</p>
-							
+							<p class="fragment" data-fragment-index="11">Stacking these results into columns yields the
+								transformation matrix $A$:</p>
+
 						</div>
 						<div class="cc">
-							<p class="fragment" data-fragment-index="11" >$A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$</p>
+							<p class="fragment" data-fragment-index="11">$A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1
+								\end{pmatrix}$</p>
 						</div>
 					</div>
 				</section>
 
 				<section data-auto-animate>
 					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-85">
-						<h5>Geometric Interpretation</h5>
-						<p>Suppose you are given the transformation matrix $A = \begin{pmatrix} 1 & 0 \\ 0 & -1
-							\end{pmatrix}$. How would you describe the operation $T(\mathbf{v}) = A\mathbf{v}$
-							geometrically?</p>
+					<div class="size-80">
+						<h5 class="fragment">Geometric Interpretation</h5>
+						<p class="fragment">Suppose you are given the transformation matrix $A = \begin{pmatrix} 1 & 0
+							\\ 0 & -1
+							\end{pmatrix}$. <br />
 
-						<div class="fragment"
-							style="margin-top:15px; background-color: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-							<p><strong>Hint:</strong> Use a general vector $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2
+						</p>
+						<p class="fragment">
+							How would you describe the operation $T(\mathbf{v}) = A\mathbf{v}$
+							geometrically?
+
+						</p>
+
+						<div class="fragment">
+							<p>Use a general vector $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2
 								\end{pmatrix}$ and calculate the output:</p>
-							$$T(\mathbf{v}) = A\mathbf{v} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\begin{pmatrix}
-							v_1
-							\\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}$$
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$T(\mathbf{v}) = A\mathbf{v} $
+								<span class="fragment">
+									$
+									= \begin{pmatrix} 1 & 0 \\ 0 & -1
+								\end{pmatrix}\begin{pmatrix}
+								v_1
+								\\ v_2 \end{pmatrix} $
+								</span>
+								<span class="fragment">
+									$= \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}
+									$
+								</span>
+							</p>
 						</div>
 
-						<p class="fragment" style="margin-top:15px; color:#4df3a9;"><strong>Conclusion:</strong> This
+						<p class="fragment" style="margin-top:15px; color:#067342;">
+							<strong>Conclusion:</strong> This
 							transformation reflects points across the horizontal $x$-axis.</p>
-						<p class="fragment" style="margin-top:10px; font-size:90%; color:#aaa;">Now try it yourself:
+						<p class="fragment" style="margin-top:10px; font-size:90%; color:#5b5b5b;">
+							Now try it yourself:
 							What
 							matrix transformation occurs if $A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$?</p>
 					</div>
