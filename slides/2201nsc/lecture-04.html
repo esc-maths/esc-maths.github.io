@@ -1239,32 +1239,69 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Example</h5>
-						<p>Find the matrix representation for the linear mapping $T: \mathbb{R}^3 \rightarrow
-							\mathbb{R}^2$
-							given by $T(\mathbf{x}) = (x_1 + x_2, x_2 + x_3)^T$ where $\mathbf{x} = (x_1, x_2, x_3)^T$:
-						</p>
+					<h4>Matrix Representation - Example</h4>
+					<div class="size-80">
 
-						<div class="fragment" style="margin-top:10px;">
-							<p>We evaluate $T$ for each element of the standard basis of $\mathbb{R}^3$:</p>
-							<div style="display: flex; justify-content: space-between; font-size: 90%;">
-								<div>$$T(\mathbf{e}_1) = T\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix}
-									1+0 \\
-									0+0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$$</div>
-								<div>$$T(\mathbf{e}_2) = T\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix}
-									0+1 \\
-									1+0 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$</div>
-								<div>$$T(\mathbf{e}_3) = T\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix}
-									0+0 \\
-									0+1 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$</div>
-							</div>
+						<p class="fragment" data-fragment-index="0">Find the matrix representation for the linear mapping $T: \mathbb{R}^3 \rightarrow
+							\mathbb{R}^2$
+							given by
+						</p>
+						<div class="cc">
+							<p> $T(\mathbf{x}) = (x_1 + x_2, x_2 + x_3)^T$ where $\mathbf{x} = (x_1, x_2, x_3)^T$.</p>
 						</div>
 
-						<div class="fragment" style="margin-top:15px;">
-							<p>Stacking these results into columns yields the transformation matrix $A$:</p>
-							$$A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$$
+						<div class="fragment" data-fragment-index="1" style="margin-top:10px;">
+							<p>We evaluate $T$ for each element of the standard basis of $\mathbb{R}^3$:</p>
+
+						</div>
+
+						<div class="cc size-80">
+							<p class="fragment" data-fragment-index="2">
+								$T(\mathbf{e}_1) = T\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="3">
+									$
+									= \begin{pmatrix}
+									1+0 \\
+									0+0 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 1 \\ 0 \end{pmatrix},\quad$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$T(\mathbf{e}_2) = T\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ = \begin{pmatrix}
+									0+1 \\
+									1+0 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$ = \begin{pmatrix} 1 \\ 1 \end{pmatrix},$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="8">
+								$T(\mathbf{e}_3) = T\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="9">
+									$
+									= \begin{pmatrix}
+									0+0 \\
+									0+1 \end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$ = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top:15px;">
+							<p class="fragment" data-fragment-index="11" >Stacking these results into columns yields the transformation matrix $A$:</p>
+							
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="11" >$A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$</p>
 						</div>
 					</div>
 				</section>
