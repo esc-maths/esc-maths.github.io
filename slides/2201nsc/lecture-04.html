@@ -985,7 +985,8 @@
 							$I : C[a, b] \rightarrow \mathbb{R}$ defined by:
 							$$I\left(f\right) = \ds \int_{a}^{b} f(t) \,dt$$</p>
 
-						<p style="font-size: 80%; color: #8d8d8d;" class="fragment" data-fragment-index="0">(where $C[a, b]$ represents the set of all continuous
+						<p style="font-size: 80%; color: #8d8d8d;" class="fragment" data-fragment-index="0">(where $C[a,
+							b]$ represents the set of all continuous
 							functions on the interval $[a, b]$).</p>
 
 						<div style="margin-top:10px;">
@@ -1069,12 +1070,13 @@
 							<p>Can you prove that this derivative operator is a linear transformation?</p>
 							<p style="font-size: 85%; color: #686868; margin-top:5px;" class="fragment">
 								<em>Hint:</em> Set up two arbitrary
-									general
-									polynomials within $P_2$, say $p_1 = a_1 + a_2x + a_3x^2$ and $p_2 = c_1 + c_2x +
-									c_3x^2$, then test the criteria.</p>
+								general
+								polynomials within $P_2$, say $p_1 = a_1 + a_2x + a_3x^2$ and $p_2 = c_1 + c_2x +
+								c_3x^2$, then test the criteria.
+							</p>
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 			</section>
@@ -1084,28 +1086,46 @@
 
 				<section data-auto-animate>
 					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Matrix Form of Linear Mappings</h5>
-						<p>Revisiting our prior example where $T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} =
-							\begin{pmatrix}
-							x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix}$. Let's define matrix $A$ as:</p>
-						$$A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \\ 1 & 1 \end{pmatrix}$$
+					<div class="size-75">
 
-						<div class="fragment" style="margin-top:15px;">
-							<p>We can rewrite the transformation cleanly as matrix multiplication:</p>
-							$$T(\mathbf{x}) = \begin{pmatrix} x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix} = \begin{pmatrix} 0
-							& 1
-							\\ 1 & 0 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = A\mathbf{x}$$
+						<p class="fragment" data-fragment-index="0">Revisiting our prior example where $T\begin{pmatrix}
+							x_1 \\ x_2 \end{pmatrix} =
+							\begin{pmatrix}
+							x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix}.$</p>
+
+
+						<p class="fragment" data-fragment-index="1">
+							Let's define matrix $A\,$ as
+							$\,A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \\ 1 & 1 \end{pmatrix}.$
+							<span class="fragment" data-fragment-index="2">
+								We can rewrite the transformation cleanly as matrix multiplication:
+							</span>
+						</p>
+
+						<div class="cc" style="margin-top:15px;">
+							<p class="fragment" data-fragment-index="3">
+								$T(\mathbf{x}) = \begin{pmatrix} x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix}$
+
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 0 & 1 \\ 1 & 0 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2
+									\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ = A\mathbf{x}$
+								</span>
+							</p>
+
 						</div>
-						<p class="fragment" style="margin-top:15px;">It is true in general that any operation defined by
+						<p class="fragment" data-fragment-index="6" style="margin-top:15px;">It is true in general that
+							any operation defined by
 							$T(\mathbf{x}) = A\mathbf{x}$ forms a linear transformation.</p>
 					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>The Standard Basis</h5>
+					<h4>The Standard Basis</h4>
+					<div class="size-75">
 						<p>The standard basis in $\mathbb{R}^n$ is the collection of mutually orthogonal unit vectors:
 						</p>
 						$$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad \mathbf{e}_2 =
@@ -1113,33 +1133,38 @@
 						\begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}$$
 
 						<div class="fragment"
-							style="margin-top:10px; display: flex; justify-content: space-around; font-size: 90%;">
+							style="margin-top:10px; display: flex; justify-content:space-evenly; font-size: 90%;">
 							<div>
-								<h6>In $\mathbb{R}^2$:</h6>
-								$$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \mathbf{j} =
-								\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$
+								<h5 style="font-size: 1.2em;">In $\mathbb{R}^2$:</h5>
+								<div style="margin-top: 40px;">
+
+									$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \mathbf{j}
+									=
+									\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$
+								</div>
 							</div>
 							<div>
-								<h6>In $\mathbb{R}^3$:</h6>
-								$$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
+								<h5 style="font-size: 1.2em;">In $\mathbb{R}^3$:</h5>
+								$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
 								\mathbf{j} =
 								\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad \mathbf{k} =
 								\mathbf{e}_3 =
-								\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$$
+								\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$
 							</div>
 						</div>
-						<p class="fragment" style="margin-top:15px; color: #aaa; font-size: 90%;">We will look at
+						<p class="fragment" style="margin-top:15px; color: #626262; font-size: 90%;">We will look at
 							non-standard, more general vector space bases in upcoming classes.</p>
 					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Matrix Representation Theorem (1)</h5>
-						<div style="background-color: rgba(255,255,255,0.05); padding: 12px; border-radius: 5px;">
-							<h6>Theorem</h6>
-							<p>If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into $\mathbb{R}^m$, there
+					<h4>Matrix Representation Theorem (1)</h4>
+					<div class="size-75">
+						<div>
+
+							<p><b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
+								$\mathbb{R}^m$, there
 								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for all
 								$\mathbf{x} \in \mathbb{R}^n$.</p>
 						</div>
@@ -1148,7 +1173,7 @@
 							$A$ is found by transforming the standard basis element $\mathbf{e}_j$: $\mathbf{a}_j =
 							T(\mathbf{e}_j)$ for $j = 1, 2, \dots, n$.</p>
 
-						<div class="fragment" style="font-size: 85%;">
+						<div class="fragment">
 							<h6>Proof Outline:</h6>
 							<p>Let $A = \begin{pmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \dots & \mathbf{a}_n
 								\end{pmatrix}$
@@ -1163,30 +1188,54 @@
 								x_n\mathbf{a}_n$$</p>
 						</div>
 					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Matrix Representation Theorem (2)</h5>
-						<h6>Proof Outline (Cont'd):</h6>
+					<h4>Matrix Representation Theorem (1)</h4>
+					<div class="size-75">
+						<div>
+
+							<p><b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
+								$\mathbb{R}^m$, there
+								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for all
+								$\mathbf{x} \in \mathbb{R}^n$.</p>
+						</div>
+						<h6>Proof Outline:</h6>
 						<p>Expanding the linear combination $T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
 							x_n\mathbf{a}_n$ into component forms:</p>
 
-						<div class="fragment">
-							$$= x_1 \begin{pmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{pmatrix} + x_2
-							\begin{pmatrix}
-							a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{pmatrix} + \dots + x_n \begin{pmatrix} a_{1n} \\
-							a_{2n} \\ \vdots \\ a_{mn} \end{pmatrix}$$
+						<div class="cc" style="font-size: 0.9em;">
+							<p>
+								$T(\mathbf x)= x_1 \begin{pmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{pmatrix} +
+								x_2
+								\begin{pmatrix}
+								a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{pmatrix} + \dots + x_n \begin{pmatrix} a_{1n}
+								\\
+								a_{2n} \\ \vdots \\ a_{mn} \end{pmatrix}$
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top:15px;">
+						<div class="fragment" data-fragment-index="0" style="margin-top:15px;">
 							<p>This is exactly equivalent to the standard definition of matrix multiplication:</p>
-							$$= \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n} \\
-							\vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{pmatrix}
-							\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} = A\mathbf{x}$$
+
+						</div>
+						<div class="cc" style="margin-top:15px; font-size: 0.9em;">
+							<p class="fragment" data-fragment-index="0">
+								<span>
+									$T(\mathbf{x})$
+								</span>
+								$= \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n}
+								\\
+								\vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{pmatrix}
+								\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} $
+								<span class="fragment" data-fragment-index="1">
+									$= A\mathbf{x}$
+								</span>
+							</p>
 						</div>
 					</div>
+
 				</section>
 
 				<section data-auto-animate>
