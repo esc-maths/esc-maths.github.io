@@ -1124,42 +1124,108 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>The Standard Basis</h4>
+					<h4>Matrix Representation Theorem</h4>
+					<h5 class="fragment">The Standard Basis</h5>
 					<div class="size-75">
-						<p>The standard basis in $\mathbb{R}^n$ is the collection of mutually orthogonal unit vectors:
-						</p>
-						$$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad \mathbf{e}_2 =
-						\begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad \dots, \quad \mathbf{e}_n =
-						\begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}$$
-
-						<div class="fragment"
-							style="margin-top:10px; display: flex; justify-content:space-evenly; font-size: 90%;">
-							<div>
-								<h5 style="font-size: 1.2em;">In $\mathbb{R}^2$:</h5>
-								<div style="margin-top: 40px;">
-
-									$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \mathbf{j}
+						<div class="fragment">
+							<p>The standard basis in $\mathbb{R}^n$ is the collection of mutually
+								orthogonal unit vectors:
+							</p>
+							<div class="cc">
+								<p>$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad
+									\mathbf{e}_2 =
+									\begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad \dots, \quad \mathbf{e}_n
 									=
-									\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$
-								</div>
-							</div>
-							<div>
-								<h5 style="font-size: 1.2em;">In $\mathbb{R}^3$:</h5>
-								$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
-								\mathbf{j} =
-								\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad \mathbf{k} =
-								\mathbf{e}_3 =
-								\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$
+									\begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}$</p>
 							</div>
 						</div>
-						<p class="fragment" style="margin-top:15px; color: #626262; font-size: 90%;">We will look at
-							non-standard, more general vector space bases in upcoming classes.</p>
+
+
+
+
 					</div>
+
+					<div class="fragment">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="150"
+								height="150">
+						</picture>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Matrix Representation Theorem</h4>
+					<h5>The Standard Basis</h5>
+
+					<table style="width: 90%; margin-top: -20px;">
+						<tr>
+							<td style="font-size: 0.9em; width: 45%;">
+								<div class="cc">
+									<p><b>For $\mathbb R^2$</b></p>
+									<p>
+										$\mathbf{e}_1 = \begin{pmatrix} 1 \\  0 \end{pmatrix}, \;\;
+										\mathbf{e}_2 =
+										\begin{pmatrix} 0 \\ 1  \end{pmatrix}$
+									</p>
+								</div>
+
+								<br/>
+								<br/>
+								<br/>
+							</td>
+							<td style="width: 55%;" class="fragment">
+								<img style="width: 100%;" src="images/lecture-04/004-basis-r2.svg">
+							</td>
+						</tr>
+					</table>
+
+
+
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Matrix Representation Theorem</h4>
+					<h5>The Standard Basis</h5>
+
+					<table style="width: 90%; margin-top: 0px;">
+						<tr>
+							<td style="font-size: 0.8em; width: 35%;">
+								<div class="cc">
+									<p><b>For $\mathbb R^3$</b></p>
+									<p>
+										$\mathbf{e}_1 = \begin{pmatrix} 1 \\  0 \\ 0\end{pmatrix}, \;\;
+										\mathbf{e}_2 =
+										\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix},
+										$
+									</p>
+									<p>
+										$\mathbf{e}_3 =
+										\begin{pmatrix} 0 \\ 0 \\ 1  \end{pmatrix}$
+									</p>
+								</div>
+
+								<br/>
+								<br/>
+								<br/>
+							</td>
+							<td style="width: 65%;">
+								<img style="width: 100%;" src="images/lecture-04/basis-r3.png">
+							</td>
+						</tr>
+					</table>
+
+
+
+
 					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Matrix Representation Theorem (1)</h4>
+					<h4>Matrix Representation Theorem</h4>
 					<div class="size-85">
 						<p class="fragment" data-fragment-index="0">
 							<b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
@@ -1212,7 +1278,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Matrix Representation Theorem (1)</h4>
+					<h4>Matrix Representation Theorem</h4>
 					<div class="size-85">
 						<p>
 							<b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
@@ -1369,9 +1435,9 @@
 								<span class="fragment">
 									$
 									= \begin{pmatrix} 1 & 0 \\ 0 & -1
-								\end{pmatrix}\begin{pmatrix}
-								v_1
-								\\ v_2 \end{pmatrix} $
+									\end{pmatrix}\begin{pmatrix}
+									v_1
+									\\ v_2 \end{pmatrix} $
 								</span>
 								<span class="fragment">
 									$= \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}
@@ -1382,7 +1448,8 @@
 
 						<p class="fragment" style="margin-top:15px; color:#067342;">
 							<strong>Conclusion:</strong> This
-							transformation reflects points across the horizontal $x$-axis.</p>
+							transformation reflects points across the horizontal $x$-axis.
+						</p>
 						<p class="fragment" style="margin-top:10px; font-size:90%; color:#5b5b5b;">
 							Now try it yourself:
 							What
