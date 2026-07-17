@@ -1193,7 +1193,7 @@
 
 					<table style="width: 90%; margin-top: 0px;">
 						<tr>
-							<td style="font-size: 0.8em; width: 35%;">
+							<td style="font-size: 0.8em; width:45%;">
 								<div class="cc">
 									<p><b>For $\mathbb R^3$</b></p>
 									<p>
@@ -1212,7 +1212,7 @@
 								<br/>
 								<br/>
 							</td>
-							<td style="width: 65%;">
+							<td style="width: 55%;">
 								<img style="width: 100%;" src="images/lecture-04/basis-r3.png">
 							</td>
 						</tr>
@@ -1227,7 +1227,7 @@
 				<section data-auto-animate>
 					<h4>Matrix Representation Theorem</h4>
 					<div class="size-85">
-						<p class="fragment" data-fragment-index="0">
+						<p>
 							<b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
 							$\mathbb{R}^m$,
 							<span class="fragment" data-fragment-index="1">
@@ -1412,7 +1412,7 @@
 
 				<section data-auto-animate>
 					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-80">
+					<div class="size-85">
 						<h5 class="fragment">Geometric Interpretation</h5>
 						<p class="fragment">Suppose you are given the transformation matrix $A = \begin{pmatrix} 1 & 0
 							\\ 0 & -1
@@ -1450,16 +1450,60 @@
 							<strong>Conclusion:</strong> This
 							transformation reflects points across the horizontal $x$-axis.
 						</p>
+						<!--
 						<p class="fragment" style="margin-top:10px; font-size:90%; color:#5b5b5b;">
 							Now try it yourself:
 							What
-							matrix transformation occurs if $A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$?</p>
+							matrix transformation occurs if $A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$?</p>-->
 					</div>
+					<br/>
+				</section>
+				
+				<section data-auto-animate>
+					<h4>2D Rotation and Reflection Matrices</h4>
+					<div class="size-80">
+						<h5>Geometric Interpretation</h5>
+						
+						<p style="font-size: 0.9em;">
+							How would you describe the operation $T(\mathbf{v}) = A\mathbf{v}$
+							geometrically?
+
+						</p>
+
+						
+						<div class="cc size-80">
+							<p>
+								$T(\mathbf{v}) = A\mathbf{v} $
+								<span>
+									$
+									= \begin{pmatrix} 1 & 0 \\ 0 & -1
+									\end{pmatrix}\begin{pmatrix}
+									v_1
+									\\ v_2 \end{pmatrix} $
+								</span>
+								<span>
+									$= \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						
+					</div>
+
+					<div class="r-stack" style="margin-top: -20px;">
+							<img class="fragment fade-out" data-fragment-index="0" style="width: 35%;"
+								src="images/lecture-04/006-reflection-x-01.svg">
+							<img class="fragment fade-in" data-fragment-index="0" style="width: 35%;"
+								src="images/lecture-04/006-reflection-x-02.svg">
+						</div>
+
+					
 				</section>
 
 				<section data-auto-animate>
 					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-80">
+					<div class="size-75">
 						<h5>Reflection in the $x$-axis</h5>
 						<p>When coordinates are reflected across the $x$-axis, the mappings translate as follows:</p>
 						$$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} x \\ -y \end{pmatrix}$$
