@@ -1166,18 +1166,18 @@
 								<div class="cc">
 									<p><b>For $\mathbb R^2$</b></p>
 									<p>
-										$\mathbf{e}_1 = \begin{pmatrix} 1 \\  0 \end{pmatrix}, \;\;
+										$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \;\;
 										\mathbf{e}_2 =
-										\begin{pmatrix} 0 \\ 1  \end{pmatrix}$
+										\begin{pmatrix} 0 \\ 1 \end{pmatrix}$
 									</p>
 								</div>
 
-								<br/>
-								<br/>
-								<br/>
+								<br />
+								<br />
+								<br />
 							</td>
 							<td style="width: 55%;" class="fragment">
-								<img style="width: 100%;" src="images/lecture-04/004-basis-r2.svg">
+								<img style="width: 100%;" src="images/lecture-04/005-basis-r2.png">
 							</td>
 						</tr>
 					</table>
@@ -1197,23 +1197,23 @@
 								<div class="cc">
 									<p><b>For $\mathbb R^3$</b></p>
 									<p>
-										$\mathbf{e}_1 = \begin{pmatrix} 1 \\  0 \\ 0\end{pmatrix}, \;\;
+										$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ 0\end{pmatrix}, \;\;
 										\mathbf{e}_2 =
 										\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix},
 										$
 									</p>
 									<p>
 										$\mathbf{e}_3 =
-										\begin{pmatrix} 0 \\ 0 \\ 1  \end{pmatrix}$
+										\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$
 									</p>
 								</div>
 
-								<br/>
-								<br/>
-								<br/>
+								<br />
+								<br />
+								<br />
 							</td>
 							<td style="width: 55%;">
-								<img style="width: 100%;" src="images/lecture-04/basis-r3.png">
+								<img style="width: 100%;" src="images/lecture-04/005-basis-r3.png">
 							</td>
 						</tr>
 					</table>
@@ -1456,49 +1456,61 @@
 							What
 							matrix transformation occurs if $A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$?</p>-->
 					</div>
-					<br/>
+					<br />
 				</section>
-				
+
 				<section data-auto-animate>
 					<h4>2D Rotation and Reflection Matrices</h4>
 					<div class="size-80">
 						<h5>Geometric Interpretation</h5>
-						
-						<p style="font-size: 0.8em;">
+
+						<p>
 							How would you describe the operation $T(\mathbf{v}) = A\mathbf{v}$
 							geometrically?
 
 						</p>
 
-						
-						<div class="cc size-75">
-							<p>
-								$T(\mathbf{v}) = A\mathbf{v} $
-								<span>
-									$
-									= \begin{pmatrix} 1 & 0 \\ 0 & -1
-									\end{pmatrix}\begin{pmatrix}
-									v_1
-									\\ v_2 \end{pmatrix} $
-								</span>
-								<span>
-									$= \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}
-									$
-								</span>
-							</p>
-						</div>
-
-						
 					</div>
 
-					<div class="r-stack" style="margin-top: -20px;">
-							<img class="fragment fade-out" data-fragment-index="0" style="width: 38%;"
-								src="images/lecture-04/006-reflection-x-01.svg">
-							<img class="fragment fade-in" data-fragment-index="0" style="width: 38%;"
-								src="images/lecture-04/006-reflection-x-02.svg">
-						</div>
+					<table style="width: 90%;">
+						<tr>
+							<td style="width: 50%;">
+								<div class="size-90">
+									<p style="text-align: right;">
+										$T(\mathbf{v}) = A\mathbf{v}
+										= \begin{pmatrix} 1 & 0 \\ 0 & -1
+										\end{pmatrix}\begin{pmatrix}
+										v_1
+										\\ v_2 \end{pmatrix} $
+										</span>
 
-					
+									</p>
+									<p style="text-align: left;">
+										<span>
+											$
+											\qquad = \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}
+											$
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="0">
+										👉 Reflection in the $x$-axis
+									</p>
+									<br />
+									<br />
+								</div>
+							</td>
+							<td style="width: 50%;">
+								<div class="r-stack" style="margin-top: -20px;">
+									<img class="fragment fade-out" data-fragment-index="0" style="width:100%;"
+										src="images/lecture-04/006-reflection-x-01.svg">
+									<img class="fragment fade-in" data-fragment-index="0" style="width: 100%;"
+										src="images/lecture-04/006-reflection-x-02.svg">
+								</div>
+							</td>
+						</tr>
+					</table>
+
+
 				</section>
 
 				<section data-auto-animate>
@@ -1506,14 +1518,32 @@
 					<div class="size-75">
 						<h5>Reflection in the $x$-axis</h5>
 						<p>When coordinates are reflected across the $x$-axis, the mappings translate as follows:</p>
-						$$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} x \\ -y \end{pmatrix}$$
+						<div class="cc" style="margin-top: -10px;">
+							<p>
+								$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} x \\ -y \end{pmatrix}$
+							</p>
+						</div>
 
-						<div class="fragment" style="margin-top:10px;">
+
+						<div class="fragment" data-fragment-index="0" style="margin-top:10px;">
 							<p>Tracing the transformation of standard basis vectors:</p>
-							$$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \mapsto \begin{pmatrix} 1 \\ 0
-							\end{pmatrix} \quad \text{and} \quad \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
-							\mapsto
-							\begin{pmatrix} 0 \\ -1 \end{pmatrix}$$
+
+						</div>
+
+						<div class="cc" style="margin-top: -10px;">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \mapsto \begin{pmatrix} 1 \\ 0
+								\end{pmatrix} \quad
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\text{and} \quad \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+									\mapsto
+									\begin{pmatrix} 0 \\ -1 \end{pmatrix}
+									$
+								</span>
+							</p>
 						</div>
 
 						<div class="fragment" style="margin-top:15px;">
@@ -1521,29 +1551,101 @@
 							$$A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$$
 						</div>
 					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>2D Rotation and Reflection Matrices</h4>
+					<div class="size-75">
+						<h5>Reflection in the $y$-axis</h5>
+						<p class="fragment" data-fragment-index="0">When coordinates are instead reflected across the vertical $y$-axis, the mappings change to:
+						</p>
+						<div class="cc" style="margin-top: -10px;">
+							<p class="fragment" data-fragment-index="0">
+								$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} -x \\ y \end{pmatrix}$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top:10px;">
+							<p>Tracing the transformation of standard basis vectors:</p>
+
+						</div>
+
+						<div class="cc" style="margin-top: -10px;">
+							<p class="fragment" data-fragment-index="1">
+								$
+								\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+								\mapsto \begin{pmatrix} -1 \\ 0 \end{pmatrix} \quad
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\text{and} \quad \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+									\mapsto
+									\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top:15px;">
+							<p>Grouping columns together produces the canonical matrix:</p>
+							$$A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$$
+						</div>
+					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>2D Rotation and Reflection Matrices</h4>
 					<div class="size-80">
 						<h5>Reflection in the $y$-axis</h5>
-						<p>When coordinates are instead reflected across the vertical $y$-axis, the mappings change to:
+
+						<p style="text-align: center;">
+							Geometric interpretation
+
 						</p>
-						$$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} -x \\ y \end{pmatrix}$$
 
-						<div class="fragment" style="margin-top:10px;">
-							<p>Tracing the transformation of standard basis vectors:</p>
-							$$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \mapsto \begin{pmatrix} -1 \\ 0
-							\end{pmatrix} \quad \text{and} \quad \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
-							\mapsto
-							\begin{pmatrix} 0 \\ 1 \end{pmatrix}$$
-						</div>
-
-						<div class="fragment" style="margin-top:15px;">
-							<p>Grouping columns together produces the canonical matrix:</p>
-							$$A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$$
-						</div>
 					</div>
+
+					<table style="width: 90%;">
+						<tr>
+							<td style="width: 50%;">
+								<div class="size-90">
+									<p style="text-align: right;">
+										$T(\mathbf{v}) = A\mathbf{v}
+										= \begin{pmatrix} -1 & 0 \\ 0 & 1
+										\end{pmatrix}\begin{pmatrix}
+										v_1
+										\\ v_2 \end{pmatrix} $
+										
+
+									</p>
+									<p style="text-align: left;">
+										<span class="fragment" data-fragment-index="0">
+											$
+											\qquad = \begin{pmatrix} -v_1 \\ v_2 \end{pmatrix}
+											$
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="1">
+										👉 Reflection in the $y$-axis
+									</p>
+									<br />
+									<br />
+								</div>
+							</td>
+							<td style="width: 50%;">
+								<div class="r-stack" style="margin-top: -20px;">
+									<img class="fragment fade-out" data-fragment-index="1" style="width:100%;"
+										src="images/lecture-04/006-reflection-y-01.svg">
+									<img class="fragment fade-in" data-fragment-index="1" style="width: 100%;"
+										src="images/lecture-04/006-reflection-y-02.svg">
+								</div>
+							</td>
+						</tr>
+					</table>
+
+
 				</section>
 
 				<section data-auto-animate>
