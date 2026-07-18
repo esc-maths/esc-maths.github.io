@@ -2137,21 +2137,25 @@
 
 				<!-- Slide 35/38 -->
 				<section data-auto-animate>
-					<h4>Properties of Linear Transformations</h4>
+					<h4>Composition of Linear Transformations</h4>
+					<br />
 					<div class="size-85 fragment">
-						<h5>Theorem (Composition of Linear Transformations)</h5>
-						<p>Let $T_{1}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ and
+						<p><b>Theorem:</b>Let $T_{1}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ and
 							$T_{2}:\mathbb{R}^{m}\rightarrow\mathbb{R}^{p}$ be linear transformations with matrices $A$
-							and $B$, respectively. Then the product transformation
-							$T_{2}T_{1}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{p}$ is a linear transformation with matrix
+							and $B$, respectively. Then the composition transformation
+							$T_{2}\circ T_{1}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{p}$ is a linear transformation with
+							matrix
 							$BA$.</p>
 					</div>
 
-					<div class="size-85 cc" style="margin-top:15px;">
+					<div class="size-85 cc" style="margin-top:15px; font-size: 1.1em;">
 						<h6 class="fragment">Proof Outline</h6>
 						<p>
 							<span class="fragment">
-								$(T_{2}T_{1})(\mathbf{x}) = T_{2}(T_{1}(\mathbf{x}))$
+								$(T_{2}\circ T_{1})(\mathbf{x}) $
+							</span>
+							<span class="fragment">
+								$ = T_{2}(T_{1}(\mathbf{x}))$
 							</span>
 							<span class="fragment">
 								$= T_{2}(A\mathbf{x})$
@@ -2164,14 +2168,161 @@
 							</span>
 						</p>
 					</div>
-					<br/>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Composition of Linear Transformations</h4>
+
+					<div class="size-75">
+						<h5>Example of a Product Transformation</h5>
+
+						<p>
+							Reflect each vector $\mathbf{x}\in\mathbb{R}^2$ across the $y$-axis and then rotate it
+							$60^\circ$ anti-clockwise.
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							$$
+							R_y=\begin{pmatrix}-1&0\\0&1\end{pmatrix},
+							\qquad
+							R_{60}=
+							\begin{pmatrix}
+							\frac12&-\frac{\sqrt3}{2}\\
+							\frac{\sqrt3}{2}&\frac12
+							\end{pmatrix}.
+							$$
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							Since the reflection is applied first,
+							$
+							T\rightarrow R_{60}R_y.
+							$
+						</p>
+
+						<div class="cc">
+							<p class="fragment" style="margin-top:10px;">
+								$
+								T\rightarrow R_{60}R_y
+								=
+								\begin{pmatrix}
+								\frac12&-\frac{\sqrt3}{2}\\
+								\frac{\sqrt3}{2}&\frac12
+								\end{pmatrix}
+								\begin{pmatrix}
+								-1&0\\
+								0&1
+								\end{pmatrix}
+
+								$
+								<span>
+									$=
+									\begin{pmatrix}
+									-\frac12&-\frac{\sqrt3}{2}\\
+									-\frac{\sqrt3}{2}&\frac12
+									\end{pmatrix}.$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-75" style="margin-top:15px;">
+						<p class="fragment">
+							Thus, the matrix representing the composition is
+							$
+							\begin{pmatrix}
+							-\frac12&-\frac{\sqrt3}{2}\\
+							-\frac{\sqrt3}{2}&\frac12
+							\end{pmatrix}
+							$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Composition of Linear Transformations</h4>
+
+					<div class="size-75">
+						<h5>Example of a Product Transformation</h5>
+
+						<p>
+							Double the length of each vector $\mathbf{x}\in\mathbb{R}^2$ and then rotate it
+							$30^\circ$ clockwise.
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							$$
+							S=
+							\begin{pmatrix}
+							2&0\\
+							0&2
+							\end{pmatrix},
+							\qquad
+							R_{-30}=
+							\begin{pmatrix}
+							\frac{\sqrt3}{2}&\frac12\\
+							-\frac12&\frac{\sqrt3}{2}
+							\end{pmatrix}.
+							$$
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							Since the scaling is applied first,
+							$
+							T\rightarrow R_{-30}S.
+							$
+						</p>
+
+						<div class="cc">
+							<p class="fragment" style="margin-top:10px;">
+								$
+
+								T
+								=
+								\begin{pmatrix}
+								\frac{\sqrt3}{2}&\frac12\\
+								-\frac12&\frac{\sqrt3}{2}
+								\end{pmatrix}
+								\begin{pmatrix}
+								2&0\\
+								0&2
+								\end{pmatrix}
+								$
+								<span>
+									$
+									=
+									\begin{pmatrix}
+									\sqrt3&1\\
+									-1&\sqrt3
+									\end{pmatrix}.$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-75" style="margin-top:15px;">
+						<p class="fragment">
+							Thus, the matrix representing the composition is
+							$
+							\begin{pmatrix}
+							\sqrt3&1\\
+							-1&\sqrt3
+							\end{pmatrix}
+							$
+						</p>
+					</div>
 					<br/>
 					<br/>
 				</section>
 
-				<!-- Slide 36/38 -->
+
 				<section data-auto-animate>
-					<h4>Properties of Linear Transformations</h4>
+					<h4>Composition of Linear Transformations</h4>
 					<div class="size-80">
 						<h5>Example of a Product Transformation</h5>
 						<p>Let $T_{1}:\mathbb{R}^{n\times n}\rightarrow\mathbb{R}^{n\times n}$ and
@@ -2238,8 +2389,8 @@
 							<li class="fragment">Inverse and Composite linear transformations</li>
 						</ul>
 					</div>
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 
