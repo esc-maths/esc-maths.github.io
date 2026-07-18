@@ -2105,7 +2105,7 @@
 
 						</div>
 						<p class="fragment" data-fragment-index="11">
-							So 
+							So
 							\(\,
 							T^{-1}\left(\mathbf x^T\right)
 							\)
@@ -2134,6 +2134,115 @@
 					</div>
 					<br />
 				</section>
+
+				<!-- Slide 35/38 -->
+				<section data-auto-animate>
+					<h4>Properties of Linear Transformations</h4>
+					<div class="size-85 fragment">
+						<h5>Theorem (Composition of Linear Transformations)</h5>
+						<p>Let $T_{1}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ and
+							$T_{2}:\mathbb{R}^{m}\rightarrow\mathbb{R}^{p}$ be linear transformations with matrices $A$
+							and $B$, respectively. Then the product transformation
+							$T_{2}T_{1}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{p}$ is a linear transformation with matrix
+							$BA$.</p>
+					</div>
+
+					<div class="size-85 cc" style="margin-top:15px;">
+						<h6 class="fragment">Proof Outline</h6>
+						<p>
+							<span class="fragment">
+								$(T_{2}T_{1})(\mathbf{x}) = T_{2}(T_{1}(\mathbf{x}))$
+							</span>
+							<span class="fragment">
+								$= T_{2}(A\mathbf{x})$
+							</span>
+							<span class="fragment">
+								$= B(A\mathbf{x})$
+							</span>
+							<span class="fragment">
+								$= (BA)\mathbf{x}$.
+							</span>
+						</p>
+					</div>
+					<br/>
+					<br/>
+					<br/>
+				</section>
+
+				<!-- Slide 36/38 -->
+				<section data-auto-animate>
+					<h4>Properties of Linear Transformations</h4>
+					<div class="size-80">
+						<h5>Example of a Product Transformation</h5>
+						<p>Let $T_{1}:\mathbb{R}^{n\times n}\rightarrow\mathbb{R}^{n\times n}$ and
+							$T_{2}:\mathbb{R}^{n\times n}\rightarrow\mathbb{R}$ be linear transformations where
+							$\text{tr}(A)$ is the trace of $A$ (the sum of elements on the main diagonal).</p>
+						<p class="fragment" style="margin-top:10px;">
+							$$T_{1}(A)=A+A^{T}, \quad T_{2}(A)=\text{tr}(A)$$
+						</p>
+						<p class="fragment" style="margin-top:10px;">
+							Then $T_{2}T_{1}:M_{n}(\mathbb{R})\rightarrow\mathbb{R}$ is defined by:
+							$$(T_{2}T_{1})(A)=T_{2}(T_{1}(A))=T_{2}(A+A^{T})=\text{tr}(A+A^{T})$$
+						</p>
+					</div>
+
+					<div class="size-80" style="margin-top:15px;">
+						<p class="fragment">
+							For example, if $A=\begin{pmatrix}2&-1\\ -3&6\end{pmatrix}$ then:
+						</p>
+						<p>
+							<span class="fragment">
+								$T_{1}(A)=A+A^{T}=\begin{pmatrix}4&-4\\ -4&12\end{pmatrix}$,
+							</span>
+							<span class="fragment">
+								so that $T_{2}(T_{1}(A))=\text{tr}\begin{pmatrix}4&-4\\ -4&12\end{pmatrix}=16$.
+							</span>
+						</p>
+					</div>
+				</section>
+
+				<!-- Slide 37/38 -->
+				<section data-auto-animate>
+					<h4>Properties of Linear Transformations</h4>
+					<div class="size-95">
+						<h5>Summary of Properties of Linear Transformations</h5>
+						<ul style="line-height: 70px;">
+							<li class="fragment">
+								For any linear transformation $T$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{m}$ we can find
+								an $m\times n$ matrix $A$ so that $T(\mathbf{v})=A\mathbf{v}$.
+							</li>
+							<li class="fragment">
+								If the transformation is invertible, the inverse transformation has the matrix $A^{-1}$.
+							</li>
+							<li class="fragment">
+								The composition of two transformations $T_{1}(\mathbf{v})=A_{1}\mathbf{v}$ and
+								$T_{2}(\mathbf{v})=A_{2}\mathbf{v}$ is the product matrix $A_{2}A_{1}$.
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Slide 38/38 -->
+				<section>
+					<h4>Summary</h4>
+					<div class="size-85 fragment">
+						<h5>Summary of Linear Transformations Section</h5>
+						<ul style="line-height: 55px; margin-top: 15px;">
+							<li class="fragment">Examples of linear transformations</li>
+							<li class="fragment">Demonstration that some mappings are not linear transformations</li>
+							<li class="fragment">How to show that a mapping is a linear transformation</li>
+							<li class="fragment">Matrix representation of a linear transformation using the standard
+								basis</li>
+							<li class="fragment">Rotation and reflection matrices (2D)</li>
+							<li class="fragment">Application Example: Simple computer graphics</li>
+							<li class="fragment">Inverse and Composite linear transformations</li>
+						</ul>
+					</div>
+					<br/>
+					<br/>
+				</section>
+
+
 			</section>
 
 			<!-- Ends sections -->
