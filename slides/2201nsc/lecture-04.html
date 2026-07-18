@@ -1819,8 +1819,8 @@
 					<div style="margin-top: -30px;">
 						<img style="width: 70%;" src="images/3d-rendering/3d-rendering-01.jpg">
 					</div>
-					
-					<br/>
+
+					<br />
 				</section>
 
 
@@ -1852,6 +1852,262 @@
 				</section>
 
 
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Inverse Linear Transformations</h4>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							<b>Theorem:</b>
+							Let $T:\mathbb R^n \to \mathbb R^n$ be a linear transformation
+							with matrix $A.$
+							<span class="fragment" data-fragment-index="1">
+								Then the inverse transformation $T^{-1}$ exists
+								if and only if $\det(A)\neq 0.$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Furthermore, $T^{-1}:\mathbb R^n \to \mathbb R^n$
+								is a linear transformation with matrix $A^{-1}.$
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							<b>Example:</b> If $T:\mathbb R^3 \to \mathbb R^3$ has a matrix
+							\[A =
+							\left(
+							\begin{array}{ccc}
+							2 & 3 & 1\\
+							-1 & 2 & 3\\
+							4 & 2 & 6\\
+							\end{array}
+							\right),
+							\]
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								then \(T^{-1}\) exists since
+								\(\det(A) = 63\)
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								\(\neq 0.\)
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								This means that $A$ is invertible and $A^{-1}$ exists.
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								Therefore $T^{-1}$ exists and is given by $T^{-1}(\mathbf x) = A^{-1}\mathbf x.$
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Inverse Linear Transformations</h4>
+					<div class="size-85">
+						<p>
+							<b>Theorem:</b>
+							Let $T:\mathbb R^n \to \mathbb R^n$ be a linear transformation
+							with matrix $A.$
+							<span>
+								Then the inverse transformation $T^{-1}$ exists
+								if and only if $\det(A)\neq 0.$
+							</span>
+							<span>
+								Furthermore, $T^{-1}:\mathbb R^n \to \mathbb R^n$
+								is a linear transformation with matrix $A^{-1}.$
+							</span>
+						</p>
+
+						<p>
+							<b>Example:</b> To determine the inverse of $A$ we can apply
+							the Gauss Jordan elimination:
+
+						</p>
+
+						<div class="r-stack">
+							<p class="fragment fade-out" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								2 & 3 & 1 & 1 & 0 & 0 \\
+								-1 & 2 & 3& 0 & 1 & 0 \\
+								4 & 1 & 6 & 0 & 0 & 1 \\
+								\end{array}
+								\right)
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+								-1 & 2 & 3& 0 & 1 & 0 \\
+								4 & 1 & 6 & 0 & 0 & 1 \\
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\frac{1}{2}R1 \\
+								\\
+								\\
+								\end{array}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+								0 & \frac{7}{2} & \frac{7}{2} & \frac{1}{2} & 1 & 0 \\
+								4 & 1 & 6 & 0 & 0 & 1 \\
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								R2 +R1 \\
+								\\
+								\end{array}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1 & \frac32 & \frac12 & \frac12&0&0\\
+								0&1&1&\frac17&\frac27&0\\
+								4&1&6&0&0&1
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								\frac27R2\\
+								\\
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="3">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&-1&\frac27&-\frac37&0\\
+								0&1&1&\frac17&\frac27&0\\
+								4&1&6&0&0&1
+								\end{array}
+								\right)
+								\begin{array}{c}
+								R1-\frac32R2\\
+								\\
+								\\
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="4">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&-1&\frac27&-\frac37&0\\
+								0&1&1&\frac17&\frac27&0\\
+								0&1&10&-\frac87&\frac{12}{7}&1
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								\\
+								R3-4R1
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="5">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&-1&\frac27&-\frac37&0\\
+								0&1&1&\frac17&\frac27&0\\
+								0&0&9&-\frac97&\frac{10}{7}&1
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								\\
+								R3-R2
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="6">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&-1&\frac27&-\frac37&0\\
+								0&1&1&\frac17&\frac27&0\\
+								0&0&1&-\frac17&\frac{10}{63}&\frac19
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								\\
+								\frac19R3
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="7">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&0&\frac17&-\frac{17}{63}&\frac19\\
+								0&1&1&\frac17&\frac27&0\\
+								0&0&1&-\frac17&\frac{10}{63}&\frac19
+								\end{array}
+								\right)
+								\begin{array}{c}
+								R1+R3\\
+								\\
+								\\
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="8">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&0&\frac17&-\frac{17}{63}&\frac19\\
+								0&1&0&\frac27&\frac{8}{63}&-\frac19\\
+								0&0&1&-\frac17&\frac{10}{63}&\frac19
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								R2-R3\\
+								\\
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in" data-fragment-index="9">
+								$
+								A^{-1}=
+								\left(
+								\begin{array}{ccc}
+								\frac17&-\frac{17}{63}&\frac19\\
+								\frac27&\frac{8}{63}&-\frac19\\
+								-\frac17&\frac{10}{63}&\frac19
+								\end{array}
+								\right)
+								$
+							</p>
+
+						</div>
+
+					</div>
+					<br />
+				</section>
 			</section>
 
 			<!-- Ends sections -->
