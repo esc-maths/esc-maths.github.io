@@ -75,7 +75,7 @@
 					<h4>Linear Transformations</h4>
 					<div class="size-80">
 						<p>Consider the mapping (transformation) from $\mathbb{R}^2 \mapsto \mathbb{R}^2$, given by:</p>
-						<p style="font-size: 1em; margin-top: -10px; text-align: center;">
+						<p style="font-size: 1em; margin-top: -15px; text-align: center;">
 							$(x,y) \mapsto (-y,x)$
 						</p>
 
@@ -86,7 +86,7 @@
 
 						</div>
 
-						<p class="fragment" style="margin-top:15px; text-align: center;">This mapping rotates vectors
+						<p class="fragment" style="margin-top:-10px; text-align: center;">This mapping rotates vectors
 							through an angle of
 							$90^{\circ}$ (anticlockwise).</p>
 					</div>
@@ -95,12 +95,12 @@
 
 				<section data-auto-animate>
 					<h4>Linear Transformations</h4>
-					<div class="size-95">
-						<h5>Definition</h5>
-						<p>A mapping $T$ from a vector space $V$ into a vector
+					<div class="size-90">
+
+						<p><b>Definition:</b> A mapping $T$ from a vector space $V$ into a vector
 							space $W$ (written $T:V \rightarrow W$)
 							is
-							said to be a <strong>linear transformation</strong>
+							said to be a <strong>linear transformation</strong>,
 
 							<span class="fragment" data-fragment-index="0">
 								if for all $\mathbf{u}, \mathbf{v} \in
@@ -121,10 +121,13 @@
 
 						<p class="fragment" data-fragment-index="3" style="margin-top:10px;">or equivalently:</p>
 
-						<div class="fragment" data-fragment-index="3">
-							$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$$
+						<div class="fragment cc" data-fragment-index="3" style="font-size: 1.1em;">
+							<p>
+								$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$
+							</p>
 						</div>
 					</div>
+					<br />
 					<br />
 					<br />
 				</section>
@@ -219,7 +222,7 @@
 
 
 						</div>
-						<div class="cc">
+						<div class="cc" style="font-size: 0.96em;">
 							<p class="fragment" data-fragment-index="4">
 								$\mathbf{u}+\mathbf{v} = \begin{pmatrix} 3 \\ 2 \end{pmatrix} $
 								<span class="fragment" data-fragment-index="5">
@@ -253,7 +256,7 @@
 							</p>
 						</div>
 
-						<p class="fragment" style="color: #f91515; margin-top:10px;">
+						<p class="fragment" style="color: #f91515; margin-top:10px;text-align: center;">
 							Since $T(\mathbf{u}) +
 							T(\mathbf{v})
 							\neq T(\mathbf{u}+\mathbf{v})$, it is <strong>not</strong> a linear transformation.</p>
@@ -271,7 +274,7 @@
 
 				<section data-auto-animate>
 					<h4>Linear Transformations</h4>
-					<h5>Practice examples</h5>
+					<h5>📝 Practice examples</h5>
 					<div class="size-85 left-txt">
 
 						<ol style="line-height: 50px;">
@@ -291,7 +294,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Practice example 1</h4>
+					<h4>📝 Practice example 1</h4>
 
 					<div class="size-80">
 
@@ -368,7 +371,7 @@
 							</p>
 						</div>
 
-						<p class="fragment" style="color:#f91515;margin-top:10px;">
+						<p class="fragment" style="color:#f91515;margin-top:10px;text-align: center;">
 							Since
 							$
 							T(\mathbf{u}+\mathbf{v})
@@ -387,7 +390,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Practice example 2</h4>
+					<h4>📝 Practice example 2</h4>
 
 					<div class="size-75">
 
@@ -512,10 +515,13 @@
 							</p>
 
 							<p class="fragment" style="margin-top:10px;">
-								<b>Why?</b> We must also verify the <b>homogeneity</b> property,
-								$
-								T(c\mathbf{x}) = c\,T(\mathbf{x}),
-								$
+								<b>Why?</b>
+								<span class="fragment">
+									We must also verify the <b>homogeneity</b> property,
+									$
+									T(c\mathbf{x}) = c\,T(\mathbf{x}),
+									$
+								</span>
 								<br />
 								<span class="fragment">
 									which this mapping does <strong>not</strong> satisfy because of the quadratic term
@@ -785,7 +791,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Exercises</h4>
+					<h4>📝 Exercises</h4>
 					<div class="size-85">
 						<ol style="line-height: 50px;">
 							<li>Show that the following transformation $T : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ is
@@ -1411,7 +1417,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
+					<h4>2D Geometric Transformations with Matrices</h4>
 					<div class="size-85">
 						<h5 class="fragment">Geometric Interpretation</h5>
 						<p class="fragment">Suppose you are given the transformation matrix $A = \begin{pmatrix} 1 & 0
@@ -1460,7 +1466,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
+					<h4>2D Geometric Transformations with Matrices</h4>
 					<div class="size-80">
 						<h5>Geometric Interpretation</h5>
 
@@ -1514,7 +1520,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
+					<h4>2D Geometric Transformations with Matrices</h4>
 					<div class="size-75">
 						<h5>Reflection in the $x$-axis</h5>
 						<p>When coordinates are reflected across the $x$-axis, the mappings translate as follows:</p>
@@ -1551,14 +1557,15 @@
 							$$A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$$
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
+					<h4>2D Geometric Transformations with Matrices</h4>
 					<div class="size-75">
 						<h5>Reflection in the $y$-axis</h5>
-						<p class="fragment" data-fragment-index="0">When coordinates are instead reflected across the vertical $y$-axis, the mappings change to:
+						<p class="fragment" data-fragment-index="0">When coordinates are instead reflected across the
+							vertical $y$-axis, the mappings change to:
 						</p>
 						<div class="cc" style="margin-top: -10px;">
 							<p class="fragment" data-fragment-index="0">
@@ -1592,11 +1599,11 @@
 							$$A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$$
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
+					<h4>2D Geometric Transformations with Matrices</h4>
 					<div class="size-80">
 						<h5>Reflection in the $y$-axis</h5>
 
@@ -1617,17 +1624,17 @@
 										\end{pmatrix}\begin{pmatrix}
 										v_1
 										\\ v_2 \end{pmatrix} $
-										
+
 
 									</p>
 									<p style="text-align: left;">
-										<span class="fragment" data-fragment-index="0">
+										<span class="fragment" data-fragment-index="1">
 											$
 											\qquad = \begin{pmatrix} -v_1 \\ v_2 \end{pmatrix}
 											$
 										</span>
 									</p>
-									<p class="fragment" data-fragment-index="1">
+									<p class="fragment" data-fragment-index="2">
 										👉 Reflection in the $y$-axis
 									</p>
 									<br />
@@ -1636,7 +1643,7 @@
 							</td>
 							<td style="width: 50%;">
 								<div class="r-stack" style="margin-top: -20px;">
-									<img class="fragment fade-out" data-fragment-index="1" style="width:100%;"
+									<img class="fragment fade-in-then-out" data-fragment-index="0" style="width:100%;"
 										src="images/lecture-04/006-reflection-y-01.svg">
 									<img class="fragment fade-in" data-fragment-index="1" style="width: 100%;"
 										src="images/lecture-04/006-reflection-y-02.svg">
@@ -1649,17 +1656,17 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
+					<h4>2D Geometric Transformations with Matrices</h4>
 					<div class="size-85">
 						<h5>Rotation through an Angle $\theta$</h5>
-						<p>To rotate the standard 2D axes counterclockwise by a generic angle $\theta$:</p>
+						<p class="fragment">To rotate the standard 2D axes counterclockwise by a generic angle $\theta$:</p>
 
-						<div class="fragment" style="margin-top:15px;">
-							<ul>
-								<li>The vector $\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ moves onto unit
+						<div style="margin-top:15px;">
+							<ul style="line-height: 120px;">
+								<li class="fragment">The vector $\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ moves onto unit
 									circle
 									coords: $\begin{pmatrix} \cos\theta \\ \sin\theta \end{pmatrix}$</li>
-								<li style="margin-top:5px;">The vector $\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1
+								<li class="fragment">The vector $\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1
 									\end{pmatrix}$
 									moves onto perpendicular coords: $\begin{pmatrix} -\sin\theta \\ \cos\theta
 									\end{pmatrix}$</li>
@@ -1674,7 +1681,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
+					<h4>2D Geometric Transformations with Matrices</h4>
 					<div class="size-85">
 						<h5>Class Examples</h5>
 						<ol style="font-size: 85%; line-height: 38px;">
