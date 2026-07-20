@@ -1335,27 +1335,829 @@
 				</section>
 			</section>
 
+			<section>
+				<!-- Slide 48/69 -->
+				<section data-auto-animate>
+					<h4>Similar Matrices</h4>
+					<div class="size-90">
+						<h5>Linear Transformations Using an Alternative Basis</h5>
+						<hr>
+						<p>Up to this point, we have leveraged coordinate changes to rewrite individual spatial
+							positions in terms of alternative coordinate systems.</p>
+
+						<div class="fragment style-section-card" style="margin-top: 30px;">
+							<h6>Expanding the Scope: Transforming Operations</h6>
+							<p>Can we also rewrite entire <strong>spatial transformations</strong> (geometric maps) to
+								operate natively within an alternative coordinate system?</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 25px; line-height: 1.6;">
+							<ul>
+								<li>The <strong>Matrix Representation Theorem</strong> relies implicitly on coordinates
+									referenced to the standard basis $\{\mathbf{e}_1, \mathbf{e}_2, \dots,
+									\mathbf{e}_n\}$.</li>
+								<li style="margin-top: 10px;">If we select a different structural basis, the
+									transformation is represented by an entirely different operational matrix.</li>
+							</ul>
+						</div>
+
+						<div class="fragment font-weight-bold"
+							style="margin-top: 35px; text-align: center; color: #4df3a9; font-size: 1.1em;">
+							Core Question: How do we algebraically map a standard-basis transformation matrix into an
+							alternative basis representation?
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 49/69 -->
+				<section data-auto-animate>
+					<h4>Similar Matrices</h4>
+					<div class="size-80">
+						<h5>Matrix Representations Across Different Bases</h5>
+						<p>Consider a transformation $T: \mathbb{R}^2 \to \mathbb{R}^2$ represented by the matrix $A$ in
+							the standard basis $\{\mathbf{e}_1, \mathbf{e}_2\}$:</p>
+						$$ A = \begin{pmatrix} 7 & 2 \\ 3 & 8 \end{pmatrix} $$
+						<p>Let's determine its matrix representation with respect to the alternative basis
+							$\{\mathbf{v}_1 = \begin{pmatrix} 2 \\ 3 \end{pmatrix}, \mathbf{v}_2 = \begin{pmatrix} 1 \\
+							4 \end{pmatrix}\}$.</p>
+
+						<div class="fragment" style="font-size: 0.85em; margin-top: 10px;">
+							<h6>Step 1: Map the basis vectors through transformation $A$</h6>
+							$$ T(\mathbf{v}_1) = A\mathbf{v}_1 = \begin{pmatrix} 7 & 2 \\ 3 & 8
+							\end{pmatrix}\begin{pmatrix} 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 20 \\ 30 \end{pmatrix} =
+							10\mathbf{v}_1 + 0\mathbf{v}_2 $$
+							$$ T(\mathbf{v}_2) = A\mathbf{v}_2 = \begin{pmatrix} 7 & 2 \\ 3 & 8
+							\end{pmatrix}\begin{pmatrix} 1 \\ 4 \end{pmatrix} = \begin{pmatrix} 15 \\ 35 \end{pmatrix} =
+							5\mathbf{v}_1 + 5\mathbf{v}_2 $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
+							<h6>Step 2: Assemble the coordinate columns into the new matrix $B$</h6>
+							$$ B = \begin{pmatrix} 10 & 5 \\ 0 & 5 \end{pmatrix} $$
+							<p style="font-size: 0.9em; color: #aaa; margin-top: 5px;">
+								Operational Meaning: If $\mathbf{x} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$, then
+								$T(\mathbf{x}) = d_1\mathbf{v}_1 + d_2\mathbf{v}_2$, calculated via:
+								$$ \begin{pmatrix} d_1 \\ d_2 \end{pmatrix} = \begin{pmatrix} 10 & 5 \\ 0 & 5
+								\end{pmatrix}\begin{pmatrix} c_1 \\ c_2 \end{pmatrix} $$
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 50/69 -->
+				<section data-auto-animate>
+					<h4>Similar Matrices</h4>
+					<div class="size-85">
+						<h5>The Algebraic Relationship Between $A$ and $B$</h5>
+						<p>Let's map out the coordinate change pipeline explicitly to see how $A$ and $B$ connect:</p>
+
+						<div
+							style="display: flex; justify-content: space-around; font-size: 0.85em; margin-top: 20px; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 5px;">
+							<div>
+								<h6>Alternative Basis Coordinates</h6>
+								$$\mathbf{d} = B\mathbf{c}$$
+							</div>
+							<div>
+								<h6>Standard Coordinate Mapping</h6>
+								$$\mathbf{x} = V\mathbf{c}$$
+								$$T(\mathbf{x}) = V\mathbf{d}$$
+							</div>
+							<div>
+								<h6>Standard Transformation</h6>
+								$$T(\mathbf{x}) = A\mathbf{x}$$
+							</div>
+						</div>
+
+						<div class="fragment" style="margin-top: 25px;">
+							<p>Substituting the structural expressions together reveals:</p>
+							$$ V\mathbf{d} = A\mathbf{x} \implies V\mathbf{d} = A(V\mathbf{c}) \implies V\mathbf{d} =
+							AV\mathbf{c} $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>Since the vectors $\{\mathbf{v}_i\}$ form a valid basis, $V^{-1}$ is guaranteed to exist.
+								Left-multiplying by $V^{-1}$ yields:</p>
+							$$ \mathbf{d} = (V^{-1}AV)\mathbf{c} $$
+						</div>
+
+						<div class="fragment"
+							style="margin-top: 20px; background: rgba(77,243,169,0.1); padding: 15px; border-radius: 5px; text-align: center; font-weight: bold; font-size: 1.1em;">
+							The Conjugation Link: $B = V^{-1}AV$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 51/69 -->
+				<section data-auto-animate>
+					<h4>Similar Matrices</h4>
+					<div class="size-80">
+						<h5>Formalizing Matrix Similarity</h5>
+
+						<div
+							style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #4df3a9;">
+							<h6>Definition: Similar Matrices</h6>
+							<p style="font-size: 0.9em;">Two square $n \times n$ matrices $A$ and $B$ are said to be
+								<strong>similar</strong> if there exists an invertible (non-singular) matrix $S$ such
+								that:
+							</p>
+							$$ B = S^{-1}AS $$
+						</div>
+
+						<div class="fragment" style="font-size: 0.85em; margin-top: 15px; line-height: 1.4;">
+							<ul>
+								<li><strong>Equivalence Relation:</strong> Matrix similarity is completely symmetric. If
+									$B$ is similar to $A$, then $A$ is inherently similar to $B$, since $A = SBS^{-1} =
+									(S^{-1})^{-1}BS^{-1}$.</li>
+								<li style="margin-top: 5px;"><strong>Shared Invariant Transformations:</strong> Similar
+									matrices represent the exact same geometric mapping, viewed from different
+									coordinate systems.</li>
+								<li style="margin-top: 5px; color: #4df3a9;"><strong>Spectral Invariance:</strong>
+									Similar matrices share identical characteristic polynomials, which means they
+									possess identical sets of eigenvalues.</li>
+							</ul>
+						</div>
+
+						<div class="fragment"
+							style="margin-top: 15px; font-size: 0.78em; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 5px;">
+							<h6>Proof Outline (Characteristic Polynomial Identity):</h6>
+							$$ p_B(\lambda) = \det(B - \lambda I) = \det(S^{-1}AS - \lambda S^{-1}IS) $$
+							$$ = \det(S^{-1}(A - \lambda I)S) = \det(S^{-1})\det(A - \lambda I)\det(S) $$
+							$$ = \det(S^{-1})\det(S)\det(A - \lambda I) = \det(S^{-1}S)\det(A - \lambda I) =
+							p_A(\lambda) \quad \blacksquare $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 52/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Transformations Relative to an Eigenvector Basis</h5>
+						<p>Let's evaluate the marital population matrix $A$ relative to its own coordinate eigenvectors:
+						</p>
+						$$ A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}, \quad \mathbf{v}_1 =
+						\begin{pmatrix} 2 \\ 3 \end{pmatrix}, \; \mathbf{v}_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix} $$
+
+						<div class="fragment" style="font-size: 0.85em; margin-top: 15px;">
+							<h6>Map the eigenvector basis through transformation $A$:</h6>
+							$$ T(\mathbf{v}_1) = A\mathbf{v}_1 = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+							\end{pmatrix}\begin{pmatrix} 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \end{pmatrix} =
+							1\mathbf{v}_1 + 0\mathbf{v}_2 $$
+							$$ T(\mathbf{v}_2) = A\mathbf{v}_2 = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+							\end{pmatrix}\begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 0.5 \\ -0.5
+							\end{pmatrix} = 0\mathbf{v}_1 + \frac{1}{2}\mathbf{v}_2 $$
+						</div>
+
+						<div class="fragment" style="margin-top: 20px;">
+							<p>Assembling these coordinate columns yields the transformed matrix representation $B$:</p>
+							$$ B = \begin{pmatrix} 1 & 0 \\ 0 & \frac{1}{2} \end{pmatrix} $$
+						</div>
+
+						<div class="fragment style-section-card"
+							style="margin-top: 15px; text-align: center; border-left-color: #4df3a9;">
+							<strong style="color: #4df3a9;">Key Insight:</strong> Because the coordinate system is built
+							entirely from the matrix's eigenvectors, the resulting matrix $B$ simplifies into a clean
+							<strong>diagonal matrix</strong>, which simplifies long-term analysis.
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 53/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>The Matrix Diagonalisation Theorem</h5>
+						<div
+							style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #4df3a9;">
+							<h6>Theorem</h6>
+							<p style="font-size: 0.9em;">An $n \times n$ matrix $A$ containing $n$ linearly independent
+								eigenvectors can be factored into:
+								$$ A = VDV^{-1} $$
+								where $D$ is the diagonal matrix of eigenvalues, and $V$ is the matrix whose columns are
+								the corresponding eigenvectors. In this scenario, we say that $V$
+								<strong>diagonalises</strong> $A$.
+							</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<h6>Interactive MATLAB Verification</h6>
+							<pre><code class="language-matlab">&gt;&gt; A = [1 0 0; 0 2 1; 0 1 2];
+&gt;&gt; [V, D] = eig(A)
+
+V = 
+    1.0000         0         0
+         0   -0.7071    0.7071
+         0    0.7071    0.7071
+D = 
+    1    0    0
+    0    1    0
+    0    0    3
+
+&gt;&gt; V * D * inv(V)
+ans = 
+    1    0    0
+    0    2    1
+    0    1    2</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 54/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Fundamental Properties of Diagonal Matrices</h5>
+						<p>Let $D = \text{diag}(a_1, a_2, \dots, a_n)$ represent a standard square diagonal matrix:</p>
+
+						<table style="width: 100%; font-size: 0.72em; margin-top: 15px; border-collapse: collapse;">
+							<thead>
+								<tr style="border-bottom: 2px solid #555;">
+									<th style="padding: 8px; text-align: left; width: 15%;">Property</th>
+									<th style="padding: 8px; text-align: left;">Mathematical Expression</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">1. Matrix Sum</td>
+									<td style="padding: 8px;">$\text{diag}(a_1, \dots, a_n) + \text{diag}(b_1, \dots,
+										b_n) = \text{diag}(a_1+b_1, \dots, a_n+b_n)$</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">2. Product</td>
+									<td style="padding: 8px;">$\text{diag}(a_1, \dots, a_n) \cdot \text{diag}(b_1,
+										\dots, b_n) = \text{diag}(a_1b_1, \dots, a_nb_n)$</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">3. Determinant</td>
+									<td style="padding: 8px;">$\det(\text{diag}(a_1, a_2, \dots, a_n)) = a_1 \cdot a_2
+										\cdots a_n \quad (\text{Invertible} \iff a_i \neq 0 \, \forall i)$</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">4. Inversion</td>
+									<td style="padding: 8px;">$\text{diag}(a_1, a_2, \dots, a_n)^{-1} =
+										\text{diag}(a_1^{-1}, a_2^{-1}, \dots, a_n^{-1})$</td>
+								</tr>
+								<tr>
+									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">5. Spectrum</td>
+									<td style="padding: 8px;">The eigenvalues of $D$ are exactly its main diagonal
+										elements: $\lambda_i = a_i$</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+				<!-- Slide 55/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Proof Outlines for Diagonal Matrix Properties</h5>
+						<hr>
+						<p style="font-size: 0.9em; line-height: 1.5;">Properties <strong>(1)</strong> and
+							<strong>(2)</strong> stem directly from the definitions of element-wise array operations. We
+							have previously observed properties <strong>(3)</strong> and <strong>(5)</strong> in our
+							matrix algebra fundamentals.
+						</p>
+
+						<div class="fragment" style="margin-top: 25px;">
+							<h6>Verification Proof for Property 4 (Matrix Inverse):</h6>
+							<p style="font-size: 0.85em;">To verify the inverse identity matrix property, we establish
+								the matrix relation $D B = I \implies B = D^{-1}$:</p>
+
+							<div style="font-size: 0.85em; margin-top: 15px;">
+								$$ \begin{pmatrix} a_1 & 0 & \dots & 0 \\ 0 & a_2 & \dots & 0 \\ \vdots & \vdots &
+								\ddots & \vdots \\ 0 & 0 & \dots & a_n \end{pmatrix}
+								\begin{pmatrix} a_1^{-1} & 0 & \dots & 0 \\ 0 & a_2^{-1} & \dots & 0 \\ \vdots & \vdots
+								& \ddots & \vdots \\ 0 & 0 & \dots & a_n^{-1} \end{pmatrix} =
+								\begin{pmatrix} 1 & 0 & \dots & 0 \\ 0 & 1 & \dots & 0 \\ \vdots & \vdots & \ddots &
+								\vdots \\ 0 & 0 & \dots & 1 \end{pmatrix} $$
+							</div>
+
+							$$ \therefore \text{diag}(a_1, a_2, \dots, a_n)^{-1} = \text{diag}(a_1^{-1}, a_2^{-1},
+							\dots, a_n^{-1}) \quad \blacksquare $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 56/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Computing Large Matrix Powers Efficiently</h5>
+						<p>Factoring a matrix into the form $A = VDV^{-1}$ simplifies computing integer powers of $A$:
+						</p>
+
+						<div style="font-size: 0.9em; line-height: 1.4;">
+							$$ A^2 = AA = (VDV^{-1})(VDV^{-1}) = VD(V^{-1}V)DV^{-1} = V(D \cdot D)V^{-1} = VD^2V^{-1} $$
+							<div class="fragment" style="margin-top: 10px;">
+								$$ A^3 = A^2A = (VD^2V^{-1})(VDV^{-1}) = VD^2(V^{-1}V)DV^{-1} = V(D^2 \cdot D)V^{-1} =
+								VD^3V^{-1} $$
+							</div>
+						</div>
+
+						<div class="fragment style-section-card" style="margin-top: 15px; border-left-color: #4df3a9;">
+							<h6>Generalization for All Positive Integers ($n$)</h6>
+							<p>Using mathematical induction, we can establish that for any positive integer exponent:
+							</p>
+							$$ A^n = VD^nV^{-1} $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
+							<p>This relation naturally extends to negative integers as well by evaluating the matrix
+								inverse: </p>
+							$$ A^{-1} = (VDV^{-1})^{-1} = (V^{-1})^{-1}D^{-1}V^{-1} = VD^{-1}V^{-1} $$
+							$$ A^{-2} = (A^{-1})^2 = (VD^{-1}V^{-1})(VD^{-1}V^{-1}) = V(D^{-1})^2V^{-1} $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 57/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Worked Example — Matrix Diagonalisation</h5>
+						<p>Let's find the diagonal decomposition factors for the matrix: $$ A = \begin{pmatrix} -1 & -2
+							\\ -2 & 2 \end{pmatrix} $$</p>
+
+						<div class="fragment" style="font-size: 0.82em;">
+							<h6>Step 1: Compute Eigenvalues using Trace &amp; Determinant</h6>
+							$$ \text{tr}(A) = -1 + 2 = 1 \implies \lambda_1 + \lambda_2 = 1 $$
+							$$ \det(A) = (-1)(2) - (-2)(-2) = -6 \implies \lambda_1\lambda_2 = -6 $$
+							<p>Solving these equations simultaneously yields our eigenvalues: $\lambda_1 = -2$ and
+								$\lambda_2 = 3$.</p>
+						</div>
+
+						<div class="fragment" style="font-size: 0.82em; margin-top: 5px;">
+							<h6>Step 2: Calculate Corresponding Eigenvectors</h6>
+							$$ \mathbf{v}_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \quad \mathbf{v}_2 = \begin{pmatrix}
+							1 \\ -2 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="font-size: 0.82em; margin-top: 5px;">
+							<h6>Step 3: Construct the Component Decompositions ($D$, $V$, and $V^{-1}$)</h6>
+							$$ D = \begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix}, \quad V = \begin{pmatrix} 2 & 1 \\ 1 &
+							-2 \end{pmatrix} \implies V^{-1} = \frac{1}{-5}\begin{pmatrix} -2 & -1 \\ -1 & 2
+							\end{pmatrix} = \frac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment style-code-note" style="margin-top: 8px; font-size: 0.78em; color: #aaa;">
+							Recall the standard analytical $2 \times 2$ matrix inverse identity: $\begin{pmatrix} a & b
+							\\ c & d \end{pmatrix}^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a
+							\end{pmatrix}$.
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 58/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Worked Example — Matrix Powers &amp; Inverses</h5>
+
+						<div style="font-size: 0.85em;">
+							<h6>Application 1: Calculate $A^4$ Efficiently</h6>
+							$$ A^4 = VD^4V^{-1} = \frac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2
+							\end{pmatrix}\begin{pmatrix} (-2)^4 & 0 \\ 0 & 3^4 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 1 &
+							-2 \end{pmatrix} $$
+							$$ = \frac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} 16 & 0 \\ 0 &
+							81 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} = \frac{1}{5}\begin{pmatrix}
+							145 & -130 \\ -130 & 340 \end{pmatrix} = \begin{pmatrix} 29 & -26 \\ -26 & 68 \end{pmatrix}
+							$$
+						</div>
+
+						<div class="fragment"
+							style="font-size: 0.85em; margin-top: 15px; border-top: 1px dashed #555; padding-top: 15px;">
+							<h6>Application 2: Calculate the Inverse $A^{-1}$</h6>
+							$$ A^{-1} = VD^{-1}V^{-1} = \frac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2
+							\end{pmatrix}\begin{pmatrix} -\frac{1}{2} & 0 \\ 0 & \frac{1}{3}
+							\end{pmatrix}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} $$
+							$$ = \frac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} -1 &
+							-\frac{1}{2} \\ \frac{1}{3} & -\frac{2}{3} \end{pmatrix} = \begin{pmatrix} -\frac{1}{3} &
+							-\frac{1}{3} \\ -\frac{1}{3} & \frac{1}{6} \end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 59/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Class Exercises</h5>
+						<p>Consider the symmetric $2 \times 2$ matrix: $$ A = \begin{pmatrix} \frac{1}{2} & \frac{1}{2}
+							\\ \frac{1}{2} & \frac{1}{2} \end{pmatrix} $$</p>
+
+						<div style="margin-top: 30px;">
+							<ol style="line-height: 2;">
+								<li class="fragment">Find an invertible matrix $V$ and a diagonal matrix $D$ such that
+									$A = VDV^{-1}$.</li>
+								<li class="fragment">Use your computed $VDV^{-1}$ factorization to evaluate $A^2$. What
+									does this reveal about the transformation?</li>
+								<li class="fragment">Can you use this $VDV^{-1}$ factorization to compute the matrix
+									inverse $A^{-1}$? Explain why or why not based on the properties of $D$.</li>
+							</ol>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 60/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Application Resolution: Marital Population Limits</h5>
+						<p>We can now determine the long-term stable state behavior of the system $\mathbf{x}_n =
+							A^n\mathbf{x}_0$:</p>
+
+						<div style="font-size: 0.82em; margin-top: 10px;">
+							<p>Because $A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}$ has distinct
+								eigenvalues, its eigenvectors form a valid basis: </p>
+							$$ A^n = VD^nV^{-1} = \begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix}\begin{pmatrix} 1^n & 0
+							\\ 0 & (0.5)^n \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="font-size: 0.82em; margin-top: 10px;">
+							<p>Taking the mathematical limit as $n \to \infty$, the transient eigenvalue vanishes
+								($0.5^n \to 0$):</p>
+							$$ A^n \;\longrightarrow\; \begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix}\begin{pmatrix} 1 &
+							0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{pmatrix} =
+							\begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0 & 0
+							\end{pmatrix} = \begin{pmatrix} 0.4 & 0.4 \\ 0.6 & 0.6 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment style-section-card"
+							style="margin-top: 15px; font-size: 0.85em; border-left-color: #4df3a9;">
+							For any initial configuration vector representing population percentages ($p + (100-p) =
+							100$), the long-term system always converges to a single stable ratio:
+							$$ \mathbf{x}_{\infty} = \begin{pmatrix} 0.4 & 0.4 \\ 0.6 & 0.6 \end{pmatrix}\begin{pmatrix}
+							p \\ 100-p \end{pmatrix} = \begin{pmatrix} 0.4p + 40 - 0.4p \\ 0.6p + 60 - 0.6p
+							\end{pmatrix} = \begin{pmatrix} 40 \\ 60 \end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 61/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Real-World Application: Fleet Optimization (1)</h5>
+						<p>A vehicle leasing company operates across three separate geographic hubs. Historical logs
+							reveal the transition probabilities for customer drop-offs between locations:</p>
+
+						<table
+							style="width: 100%; font-size: 0.75em; margin-top: 20px; text-align: center; border-collapse: collapse;">
+							<thead>
+								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+									<th style="padding: 10px; text-align: left;">Pick-up Location</th>
+									<th style="padding: 10px;">Drop-off: Domestic</th>
+									<th style="padding: 10px;">Drop-off: International</th>
+									<th style="padding: 10px;">Drop-off: CBD</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 10px; text-align: left; font-weight: bold;">Domestic Airport
+									</td>
+									<td>0.8</td>
+									<td>0.1</td>
+									<td>0.1</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 10px; text-align: left; font-weight: bold;">International
+										Airport</td>
+									<td>0.2</td>
+									<td>0.6</td>
+									<td>0.2</td>
+								</tr>
+								<tr>
+									<td style="padding: 10px; text-align: left; font-weight: bold;">CBD Office</td>
+									<td>0.3</td>
+									<td>0.2</td>
+									<td>0.5</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="fragment font-weight-bold"
+							style="margin-top: 25px; text-align: center; color: #4df3a9;">
+							Objective: Determine the optimal fleet distribution strategy across these hubs.
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 62/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Real-World Application: Fleet Optimization (2)</h5>
+						<p>Let $x_1, x_2, x_3$ represent the initial counts of vehicles dispatched from the Domestic,
+							International, and CBD hubs, respectively. Let $y_1, y_2, y_3$ track the end-of-day
+							balances:</p>
+
+						<div style="font-size: 0.9em; margin-top: 15px;">
+							$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
+							$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
+							$$ y_3 = 0.1x_1 + 0.2x_2 + 0.5x_3 $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>Expressing this system as a linear matrix transformation $\mathbf{y} = A\mathbf{x}$:</p>
+							$$ \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} = \begin{pmatrix} 0.8 & 0.2 & 0.3 \\ 0.1
+							& 0.6 & 0.2 \\ 0.1 & 0.2 & 0.5 \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+							$$
+						</div>
+
+						<div class="fragment style-section-card" style="margin-top: 20px; font-size: 0.9em;">
+							The vehicle distribution after two operational days is $\mathbf{x}_2 = A(A\mathbf{x}_0) =
+							A^2\mathbf{x}_0$. <br>
+							Extrapolating this out, distribution patterns after $n$ operational cycles follow:
+							$\mathbf{x}_n = A^n\mathbf{x}_0$.
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 63/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Real-World Application: Fleet Optimization (3)</h5>
+						<p>Let's find the long-term state distribution $\mathbf{x}_n = A^n\mathbf{x}_0$ using its
+							spectral components:</p>
+
+						<div style="margin-top: 10px;">
+							<pre><code class="language-matlab">&gt;&gt; [V, D] = eig([0.8, 0.2, 0.3; 0.1, 0.6, 0.2; 0.1, 0.2, 0.5])
+
+V = 
+    0.86645    0.80902   -0.30902
+    0.37907   -0.50000   -0.50000
+    0.32492   -0.30902    0.80902
+D = 
+    1.00000          0          0
+          0    0.56180          0
+          0          0    0.33820</code></pre>
+						</div>
+
+						<div class="fragment" style="margin-top: 15px; font-size: 0.85em; line-height: 1.5;">
+							<p>Decomposing the initial state vector using our eigenvector basis elements:</p>
+							$$ \mathbf{x}_0 = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3 $$
+							<p>Applying $n$ operational iterations projects the long-term steady state:</p>
+							$$ \mathbf{x}_n = c_1(1)^n\mathbf{v}_1 + c_2(0.5618)^n\mathbf{v}_2 +
+							c_3(0.3382)^n\mathbf{v}_3 \;\implies\; \lim_{n \to \infty}\mathbf{x}_n = c_1\mathbf{v}_1 $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 64/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Real-World Application: Fleet Optimization (4)</h5>
+						<p>The dominant eigenvalue ($\lambda_1 = 1$) isolates the steady-state vector distribution. For
+							a fleet of 100 vehicles, we establish the total scale relation:</p>
+						$$ x_1 + x_2 + x_3 = 100 $$
+
+						<div class="fragment" style="margin-top: 15px; font-size: 0.9em;">
+							<p>Scaling our unnormalized dominant eigenvector $\mathbf{v}_1$ to match our total fleet
+								size:</p>
+							$$ \mathbf{x}_{\infty} = \frac{100}{0.86645 + 0.37907 + 0.32492}\mathbf{v}_1 \approx
+							\begin{pmatrix} 55.174 \\ 24.139 \\ 20.690 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment style-section-card"
+							style="margin-top: 15px; text-align: center; font-size: 0.9em; border-left-color: #4df3a9;">
+							<strong style="color: #4df3a9;">Steady-State Fleet Allocation Target:</strong><br>
+							<strong>55%</strong> at Domestic Airport &bull; <strong>24%</strong> at International
+							Airport &bull; <strong>21%</strong> at the CBD Office
+						</div>
+
+						<p class="fragment" style="margin-top: 15px; font-size: 0.85em; color: #aaa;">
+							This model helps businesses adapt to disruptions. For example, if the international hub
+							closes, we can modify the system matrix to project the new fleet distribution.
+						</p>
+					</div>
+				</section>
+
+				<!-- Slide 65/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Handling Operational Closures &amp; Disruptions</h5>
+						<p>If the international hub closes, we assume its typical traffic diverts directly to the
+							domestic airport. This updates our operational network flow mapping:</p>
+
+						<div
+							style="display: flex; justify-content: space-between; font-size: 0.52em; margin-top: 10px;">
+							<div
+								style="width: 48%; background: rgba(255,255,255,0.02); padding: 8px; border-radius: 4px;">
+								<center><strong>Prior 3-Hub Grid Flows (Weighted)</strong></center>
+								Dom (55) $\to$ 44 Dom / 5.5 Int / 5.5 CBD <br>
+								Int (24) $\to$ 4.8 Dom / 14.4 Int / 4.8 CBD <br>
+								CBD (21) $\to$ 6.3 Dom / 4.2 Int / 10.5 CBD
+							</div>
+							<div
+								style="width: 48%; background: rgba(77,243,169,0.05); padding: 8px; border-radius: 4px;">
+								<center><strong>Diverted 2-Hub Network Scheme</strong></center>
+								Dom (79) $\to$ 68.5 Dom / 10.5 CBD <br>
+								CBD (21) $\to$ 10.0 Dom / 11.0 CBD
+							</div>
+						</div>
+
+						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
+							<p>This generates a new reduced transition model system: </p>
+							$$ y_1 = \frac{68.5}{79}x_1 + \frac{10}{21}x_2, \quad y_2 = \frac{10.5}{79}x_1 +
+							\frac{11}{21}x_2 \implies A_{\text{new}} = \begin{pmatrix} 0.87 & 0.48 \\ 0.13 & 0.52
+							\end{pmatrix} $$
+						</div>
+
+						<div class="fragment style-code-note" style="font-size: 0.8em; margin-top: 10px;">
+							Evaluating $A_{\text{new}}$ yields eigenvalues $\lambda_1 = 1, \lambda_2 = 0.39$, with the
+							dominant eigenvector:
+							$$ \mathbf{v}_1 \approx \begin{pmatrix} 0.97 \\ 0.26 \end{pmatrix} \implies \frac{97}{97+26}
+							\approx 79\% $$
+							<strong>New Allocation:</strong> Station <strong>79%</strong> of the fleet at Domestic and
+							<strong>21%</strong> within the CBD.
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 66/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Application: Dominance Ranking Systems (1)</h5>
+						<p>Consider a round-robin tournament where 5 players compete. Every player matches up once
+							against all others, yielding the following results matrix:</p>
+
+						<table
+							style="width: 100%; font-size: 0.72em; margin-top: 15px; text-align: center; border-collapse: collapse;">
+							<thead>
+								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+									<th style="padding: 6px; text-align: left;">Player</th>
+									<th style="padding: 6px;">Beats P1</th>
+									<th style="padding: 6px;">Beats P2</th>
+									<th style="padding: 6px;">Beats P3</th>
+									<th style="padding: 6px;">Beats P4</th>
+									<th style="padding: 6px;">Beats P5</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 6px; text-align: left; font-weight: bold;">P1</td>
+									<td style="color:#555;">-</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 6px; text-align: left; font-weight: bold;">P2</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#555;">-</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 6px; text-align: left; font-weight: bold;">P3</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#555;">-</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+									<td style="color:#ff5555;">No</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 6px; text-align: left; font-weight: bold;">P4</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#555;">-</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+								</tr>
+								<tr>
+									<td style="padding: 6px; text-align: left; font-weight: bold;">P5</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+									<td style="color:#ff5555;">No</td>
+									<td style="color:#555;">-</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="fragment style-section-card" style="margin-top: 15px; font-size: 0.85em;">
+							<strong>The Ranking Paradox:</strong> P1 beat P2, P2 beat P3, yet P3 beat P1. How can we
+							build a rigorous ranking system? Let's use a standard rule: a player's score $r_i$ should be
+							proportional to the sum of the ranks of the opponents they defeated.
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 67/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Application: Dominance Ranking Systems (2)</h5>
+						<p>Translating our ranking rule into a system of equations:</p>
+
+						<div style="font-size: 0.85em; margin-top: 15px; line-height: 1.4;">
+							$$ r_1 = \alpha(r_2 + r_4 + r_5) $$
+							$$ r_2 = \alpha(r_3 + r_4 + r_5) $$
+							$$ r_3 = \alpha(r_1 + r_4) $$
+							$$ r_4 = \alpha(r_5) $$
+							$$ r_5 = \alpha(r_3) $$
+						</div>
+
+						<div class="fragment style-section-card" style="margin-top: 25px; border-left-color: #4df3a9;">
+							<h6>Conversion to an Eigenvalue Framework</h6>
+							<p>Introducing the scaling factor $\alpha$ transforms this network relation into a standard
+								eigenvalue problem:
+								$$ A\mathbf{r} = \lambda\mathbf{r} \quad \text{where } \lambda = \frac{1}{\alpha} $$</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 68/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>Application: Dominance Ranking Systems (3)</h5>
+						<p style="font-size: 0.88em; line-height: 1.4;">Tournament outcome matrices where each
+							participant secures at least one win belong to the class of <strong>primitive
+								matrices</strong>. By the Perron-Frobenius theorem, these matrices possess exactly one
+							dominant eigenvector with strictly positive components.</p>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>Constructing our adjacency matrix $A$ and computing its dominant components:</p>
+							$$ A = \begin{pmatrix} 0 & 1 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 & 1 \\ 1 & 0 & 0 & 1 & 0 \\ 0 & 0
+							& 0 & 0 & 1 \\ 0 & 0 & 1 & 0 & 0 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
+							Evaluating this system yields the dominant eigenvalue $\lambda_1 = 1.6593$ and eigenvector:
+							$$ \mathbf{u}_1 = \begin{pmatrix} 0.60572 \\ 0.54474 \\ 0.46734 \\ 0.16972 \\ 0.28165
+							\end{pmatrix} $$
+						</div>
+
+						<div class="fragment style-section-card"
+							style="margin-top: 15px; text-align: center; font-weight: bold; border-left-color: #4df3a9; color: #4df3a9;">
+							Final Tournament Rankings: P1 &gt; P2 &gt; P3 &gt; P5 &gt; P4
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 69/69 -->
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Why Use the Dominant Eigenvector?</h5>
+						<hr>
+						<p>To understand why the dominant eigenvector yields a robust ranking, let's examine the squared
+							matrix $A^2$:</p>
+
+						<div style="font-size: 0.85em;">
+							$$ A^2 = \begin{pmatrix} 0 & 0 & 2 & 1 & 2 \\ 1 & 0 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 2 \\ 0 &
+							0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 1 & 0 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment style-section-card" style="margin-top: 20px; font-size: 0.9em;">
+							<h6>Physical Meaning of Matrix Powers</h6>
+							<ul>
+								<li>$A^2$ tracks indirect dominance: it counts how many times opponents beaten by Player
+									$i$ went on to defeat other competitors.</li>
+								<li style="margin-top: 5px;">Higher powers $A^n$ trace these direct and indirect paths
+									across $n$ tiers of connection.</li>
+								<li style="margin-top: 5px; color: #4df3a9;">As $n \rightarrow \infty$, the normalized
+									column structures converge directly to the components of the dominant positive
+									eigenvector.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+
 
 
 
 			<section>
-				<h4>Summary of Linear Transformations Section</h4>
+				<h4>Summary of Similar Matrices &amp; Diagonalisation Section</h4>
 				<div class="size-85">
-					<ul style="line-height: 60px; margin-top: 15px;">
-						<li class="fragment">Examples of linear transformations</li>
-						<li class="fragment">Demonstration that some mappings are not linear transformations</li>
-						<li class="fragment">How to show that a mapping is a linear transformation</li>
-						<li class="fragment">Matrix representation of a linear transformation using the standard
+					<ul style="line-height: 55px; margin-top: 15px;">
+						<li class="fragment">Matrix representation of linear transformations using an alternative
 							basis</li>
-						<li class="fragment">Rotation and reflection matrices (2D)</li>
-						<li class="fragment">Application Example: Simple computer graphics</li>
-						<li class="fragment">Inverse and Composite linear transformations</li>
+						<li class="fragment">The algebraic relationship between change-of-basis matrices ($B =
+							V^{-1}AV$)</li>
+						<li class="fragment">Formal definition and spectral invariance properties of similar
+							matrices</li>
+						<li class="fragment">Matrix representation using an eigenvector basis to yield a diagonal
+							matrix</li>
+						<li class="fragment">The Matrix Diagonalisation Theorem ($A = VDV^{-1}$)</li>
+						<li class="fragment">Fundamental algebraic properties and operational rules of diagonal
+							matrices</li>
+						<li class="fragment">Efficient computation of integer matrix powers and inverses via
+							diagonalisation</li>
 					</ul>
 				</div>
 				<br />
 				<br />
 			</section>
-
 			<!-- Ends sections -->
 
 		</div>
