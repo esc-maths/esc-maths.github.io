@@ -61,7 +61,8 @@
 					</span>
 
 				</div>
-				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Linear Transformations
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">
+					Eigenvalues &amp; Eigenvectors
 				</p>
 
 				<div style="margin-top: -40px; margin-bottom:20px;">
@@ -71,529 +72,643 @@
 
 			<section>
 
-				<!-- Slide 2/38 -->
+				<!-- Slide 2/69 -->
 				<section data-auto-animate>
-					<h4>Outline</h4>
-					<div class="size-85">
-						<h5>Linear Transformations</h5>
-						<p><b>Over the next 2 weeks:</b></p>
-						<ul style="line-height: 50px; margin-top: 15px;">
-							<li class="fragment">Linear Transformations</li>
-							<li class="fragment">Eigenvalues and eigenvectors</li>
-						</ul>
-						<div class="fragment"
-							style="margin-top: 20px; background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 5px; font-size: 0.9em;">
-							<p>Identified applications include physical rotation coordinates:</p>
-							<ul>
-								<li>Pitch Axis</li>
-								<li>Roll Axis</li>
-								<li>Yaw Axis</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide 3/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Summary of Linear Transformations Section</h5>
-						<ul style="line-height: 45px; margin-top: 15px;">
-							<li class="fragment">Examples of linear transformations</li>
-							<li class="fragment">Demonstration that some mappings are not linear transformations</li>
-							<li class="fragment">Showing that a mapping is a linear transformation</li>
-							<li class="fragment">Matrix representation of a linear transformation using the standard
-								basis</li>
-							<li class="fragment">Rotation and reflection matrices (2D)</li>
-							<li class="fragment">Application Example: Simple computer graphics</li>
-							<li class="fragment">Inverse and Composite linear transformations</li>
-						</ul>
-					</div>
-				</section>
-
-				<!-- Slide 4/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Eigenvalues and Eigenvectors Motivation</h4>
 					<div class="size-80">
-						<h5>Mapping</h5>
-						<p>Consider the mapping (transformation) from $\mathbb{R}^2 \mapsto \mathbb{R}^2$, given by:</p>
-						<p style="font-size: 1.2em; text-align: center; margin: 15px 0;">
-							$(x,y) \mapsto (-y,x)$
+						<h5>Returning to the Marital Population Problem</h5>
+						<p>Recall the problem: if 80% of the population is married, and in any given year:</p>
+						<ul>
+							<li>The probability a married person divorces is 30%</li>
+							<li>The probability an unmarried person marries is 20%</li>
+						</ul>
+						<p style="margin-top: 15px;">What percentage of the population will be married in future years?
 						</p>
-						<p class="fragment" style="text-align: center; margin-top: 20px;">
-							This mapping rotates vectors through an angle of $90^{\circ}$ (anticlockwise).
-						</p>
-					</div>
-				</section>
-
-				<!-- Slide 5/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-90">
-						<h5>Definition</h5>
-						<p>A mapping $T$ from a vector space $V$ into a vector space $W$ (written $T:V \rightarrow W$)
-							is said to be a <strong>linear transformation</strong>,
-							<span class="fragment" data-fragment-index="0">if for all $\mathbf{u}, \mathbf{v} \in V$ and
-								$\alpha, \beta \in \mathbb{R}$:</span>
-						</p>
-
-						<div class="cc" style="margin-top:20px;">
-							<p class="fragment" data-fragment-index="1">
-								$$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$$
-								<span class="fragment" data-fragment-index="2">and $\quad T(\alpha \mathbf{u}) = \alpha
-									T(\mathbf{u})$</span>
-							</p>
-						</div>
-
-						<p class="fragment" data-fragment-index="3" style="margin-top:20px; text-align: center;">or
-							equivalently:</p>
-
-						<div class="fragment cc" data-fragment-index="3" style="font-size: 1.1em; margin-top: 10px;">
-							$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$$
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide 6/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Example of a Linear Transformation (1)</h5>
-						<p>Suppose $T$ is an anti-clockwise rotation by $90^{\circ}$ in the $x$-$y$ plane.</p>
-						<p class="fragment" style="margin-top: 20px;">
-							Geometrically, we see that the components track linearly with the vector addition
-							parallelogram:
-						</p>
-						<div class="fragment cc" style="margin-top: 15px;">
-							$$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$$
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide 7/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Example of a Linear Transformation (2)</h5>
-						<p>Similarly, scaling a vector before or after the transformation preserves proportional size:
-						</p>
-						<div class="fragment cc" style="margin-top: 20px;">
-							$$\alpha T(\mathbf{v}) = T(\alpha \mathbf{v})$$
-						</div>
-						<p class="fragment" style="margin-top: 15px;">
-							Therefore, the scalar homogeneity rule $T(\alpha \mathbf{v}) = \alpha T(\mathbf{v})$ is
-							satisfied.
-						</p>
-					</div>
-				</section>
-
-				<!-- Slide 8/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>A Mapping That is Not a Linear Transformation</h5>
-						<p>$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2$ given by $T\begin{pmatrix} x \\ y \end{pmatrix} =
-							\begin{pmatrix} x + 1 \\ y \end{pmatrix}$</p>
 
 						<div class="fragment" style="margin-top: 15px;">
-							<p>Let $\mathbf{u} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$ and $\mathbf{v} = \begin{pmatrix}
-								1 \\ 1 \end{pmatrix}$. Then:</p>
-							$$\mathbf{u}+\mathbf{v} = \begin{pmatrix} 3 \\ 2 \end{pmatrix} \implies
-							T(\mathbf{u}+\mathbf{v}) = \begin{pmatrix} 4 \\ 2 \end{pmatrix}$$
+							$$ \begin{pmatrix} \% \text{ married next yr} \\ \% \text{ unmarried next yr} \end{pmatrix}
+							= \begin{pmatrix} [\% \text{ married}] \times 0.7 + [\% \text{ unmarried}] \times 0.2 \\ [\%
+							\text{ married}] \times 0.3 + [\% \text{ unmarried}] \times 0.8 \end{pmatrix} $$
+							$$ = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix} \begin{pmatrix} \% \text{ married}
+							\\ \% \text{ unmarried} \end{pmatrix} $$
 						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<p>But calculating individual mappings gives:</p>
-							$$T(\mathbf{u}) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad T(\mathbf{v}) =
-							\begin{pmatrix} 2 \\ 1 \end{pmatrix} \implies T(\mathbf{u}) + T(\mathbf{v}) =
-							\begin{pmatrix} 5 \\ 2 \end{pmatrix}$$
-						</div>
-
-						<p class="fragment" style="color: #ff5555; margin-top: 15px; font-weight: bold;">
-							Since $T(\mathbf{u}) + T(\mathbf{v}) \neq T(\mathbf{u}+\mathbf{v})$, this is NOT a linear
-							transformation.
-						</p>
-						<p class="fragment" style="font-size: 0.8em; color: #aaa; margin-top: 10px;">
-							Note: You can disprove linearity with a single counterexample. To prove a mapping is a
-							linear transformation, you must show it holds generally.
-						</p>
-					</div>
-				</section>
-
-				<!-- Slide 9/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Class Examples</h5>
-						<ol style="line-height: 50px;">
-							<li>Show that the following mapping $T:\mathbb{R}^2 \mapsto \mathbb{R}^2$ is not linear:
-								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ x_1 - 1
-								\end{pmatrix}$$
-							</li>
-							<li class="fragment" style="margin-top: 15px;">Determine whether the transformation
-								$T:\mathbb{R}^2 \mapsto \mathbb{R}^3$ is linear:
-								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_1 \\ x_2 \\ x_1^2 +
-								x_2^2 \end{pmatrix}$$
-							</li>
-						</ol>
-					</div>
-				</section>
-
-				<!-- Slide 10/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Proving a Mapping is a Linear Transformation (a)</h5>
-						<p>Consider another transformation on $\mathbb{R}^2$ given by $T(\mathbf{v}) = 3\mathbf{v}$. We
-							check the properties to confirm that $T$ is linear.</p>
-
-						<div class="fragment" style="margin-top: 15px;">
-							<h6>(a) Check whether $T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$</h6>
-							<p>Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
-								\begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$, so $\mathbf{u}+\mathbf{v} = \begin{pmatrix}
-								u_1 + v_1 \\ u_2 + v_2 \end{pmatrix}$:</p>
-							$$T(\mathbf{u}+\mathbf{v}) = T\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix} =
-							3\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix} = \begin{pmatrix} 3u_1 + 3v_1 \\ 3u_2
-							+ 3v_2 \end{pmatrix}$$
-							$$= 3\begin{pmatrix} u_1 \\ u_2 \end{pmatrix} + 3\begin{pmatrix} v_1 \\ v_2 \end{pmatrix} =
-							T(\mathbf{u}) + T(\mathbf{v})$$
+						<div class="fragment" style="display: flex; justify-content: space-around; margin-top: 10px;">
+							<div>$$\mathbf{x}_{1} = A\mathbf{x}_{0}$$</div>
+							<div>$$\mathbf{x}_{n} = A^{n}\mathbf{x}_{0}$$</div>
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 11/38 -->
+				<!-- Slide 3/69 -->
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Eigenvalues and Eigenvectors Motivation</h4>
 					<div class="size-85">
-						<h5>Proving a Mapping is a Linear Transformation (b)</h5>
-						<h6>(b) Check whether $T(\alpha \mathbf{u}) = \alpha T(\mathbf{u})$</h6>
+						<h5>Returning to the Marital Population Problem</h5>
+						<p>Initially, 80% of the population is married: $\mathbf{x}_{0} = \begin{pmatrix} 80 \\ 20
+							\end{pmatrix}$</p>
 
 						<div class="fragment" style="margin-top: 20px;">
-							<p>Using the definition for scalar multiplication with $\alpha \in \mathbb{R}$:</p>
-							$$T(\alpha \mathbf{u}) = T\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix} =
-							3\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix} = \alpha \left[ 3\begin{pmatrix} u_1
-							\\ u_2 \end{pmatrix} \right] = \alpha T(\mathbf{u})$$
+							<p>After 1 year, we have:</p>
+							$$ \mathbf{x}_{1} = A\mathbf{x}_{0} = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}
+							\begin{pmatrix} 80 \\ 20 \end{pmatrix} = \begin{pmatrix} 60 \\ 40 \end{pmatrix} $$
 						</div>
-						<p class="fragment" style="color: #4df3a9; margin-top: 20px; font-weight: bold;">
-							Both criteria are satisfied, confirming $T$ is a linear transformation!
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>After 2 years, we have:</p>
+							$$ \mathbf{x}_{2} = A^{2}\mathbf{x}_{0} = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+							\end{pmatrix}^{2} \begin{pmatrix} 80 \\ 20 \end{pmatrix} = \begin{pmatrix} 50 \\ 50
+							\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>After 10 years, we have:</p>
+							$$ \mathbf{x}_{10} = A^{10}\mathbf{x}_{0} = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+							\end{pmatrix}^{10} \begin{pmatrix} 80 \\ 20 \end{pmatrix} \approx \begin{pmatrix} 40 \\ 60
+							\end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 4/69 -->
+				<section data-auto-animate>
+					<h4>Eigenvalues and Eigenvectors Motivation</h4>
+					<div class="size-85">
+						<h5>Returning to the Marital Population Problem</h5>
+						<p>After 20 and 30 years, the state converges:</p>
+						$$ \mathbf{x}_{20} = A^{20}\mathbf{x}_{0} \approx \begin{pmatrix} 40 \\ 60 \end{pmatrix}, \quad
+						\mathbf{x}_{30} = A^{30}\mathbf{x}_{0} \approx \begin{pmatrix} 40 \\ 60 \end{pmatrix} $$
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>If we start with a completely different initial population distribution, we head toward
+								the exact same endpoint:</p>
+							<div style="display: flex; justify-content: space-around; margin-top: 10px;">
+								<div>$$ A^{20}\begin{pmatrix} 20 \\ 80 \end{pmatrix} \approx \begin{pmatrix} 40 \\ 60
+									\end{pmatrix} $$</div>
+								<div>$$ A^{20}\begin{pmatrix} 99 \\ 1 \end{pmatrix} \approx \begin{pmatrix} 40 \\ 60
+									\end{pmatrix} $$</div>
+							</div>
+						</div>
+
+						<div class="fragment"
+							style="margin-top: 25px; text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+							<p>Therefore, $\begin{pmatrix} 40 \\ 60 \end{pmatrix}$ is a <strong>steady-state
+									vector</strong> for this process — but why?</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 5/69 -->
+				<section data-auto-animate>
+					<h4>Eigenvalues and Eigenvectors Motivation</h4>
+					<div class="size-80">
+						<h5>Returning to the Sea Turtle Problem</h5>
+						<p>Is it the same for the Loggerhead Sea Turtle stage-based population model?</p>
+
+						<div class="fragment" style="margin-top: 10px; font-size: 0.85em;">
+							$$ \mathbf{x}_{25} = L^{25}\mathbf{x}_{0} = \begin{pmatrix} 0 & 0 & 127 & 79 \\ 0.67 & 0.74
+							& 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81 \end{pmatrix}^{25} \begin{pmatrix}
+							200000 \\ 30000 \\ 5000 \\ 1500 \end{pmatrix} \approx \begin{pmatrix} 67574 \\ 196492 \\ 123
+							\\ 630 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="margin-top: 10px; font-size: 0.85em;">
+							$$ \mathbf{x}_{26} = L^{26}\mathbf{x}_{0} = \begin{pmatrix} 0 & 0 & 127 & 79 \\ 0.67 & 0.74
+							& 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81 \end{pmatrix}^{26} \begin{pmatrix}
+							200000 \\ 30000 \\ 5000 \\ 1500 \end{pmatrix} \approx \begin{pmatrix} 65418 \\ 192159 \\ 119
+							\\ 610 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment"
+							style="margin-top: 15px; text-align: center; color: #ff5555; font-weight: bold;">
+							$$ \begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix} \approx 0.96809
+							\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} $$
+						</div>
+						<p class="fragment" style="text-align: center; font-size: 0.9em;">Instead of a fixed endpoint,
+							the state vector is shrinking at a constant percentage rate!</p>
+					</div>
+				</section>
+
+				<!-- Slide 6/69 -->
+				<section data-auto-animate>
+					<h4>Eigenvalues and Eigenvectors Motivation</h4>
+					<div class="size-80">
+						<h5>Returning to the Sea Turtle Problem</h5>
+						<p>If we alter the initial population vector, we observe a structurally identical rate limit:
+						</p>
+
+						<div class="fragment" style="font-size: 0.85em; margin-top: 10px;">
+							$$ L^{25}\begin{pmatrix} 10000 \\ 10000 \\ 1000 \\ 1000 \end{pmatrix} \approx
+							\begin{pmatrix} 52726 \\ 154883 \\ 96 \\ 492 \end{pmatrix}, \quad L^{26}\begin{pmatrix}
+							10000 \\ 10000 \\ 1000 \\ 1000 \end{pmatrix} \approx \begin{pmatrix} 51046 \\ 149941 \\ 93
+							\\ 476 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							$$ \begin{pmatrix} 51046 \\ 149941 \\ 93 \\ 476 \end{pmatrix} \approx 0.96809
+							\begin{pmatrix} 52726 \\ 154883 \\ 96 \\ 492 \end{pmatrix} \left[ \approx 0.7803
+							\begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix} \right] $$
+						</div>
+
+						<p class="fragment"
+							style="margin-top: 25px; text-align: center; font-weight: bold; color: #4df3a9;">
+							How can we mathematically explain these asymptotic behaviors?
 						</p>
 					</div>
 				</section>
 
-				<!-- Slide 12/38 -->
+				<!-- Slide 7/69 -->
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Eigenvalues and Eigenvectors Motivation</h4>
 					<div class="size-85">
-						<h5>Using the Alternate Definition (1)</h5>
-						<p>Consider the mapping from $\mathbb{R}^2$ to $\mathbb{R}^3$ given by:</p>
-						$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = (x_2, x_1, x_1 + x_2)^T = \begin{pmatrix} x_2 \\
-						x_1 \\ x_1 + x_2 \end{pmatrix}$$
+						<h5>Eigenvectors</h5>
+						<p>The state layout distributions $\mathbf{v}_1 = \begin{pmatrix} 40 \\ 60 \end{pmatrix}$ and
+							$\mathbf{v}_2 = \begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix}$ are highly
+							unique:</p>
 
-						<p class="fragment" style="margin-top: 10px;">We will show that this is linear using the
-							combined equivalent rule: $T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) +
-							\beta T(\mathbf{v})$.</p>
+						<div class="fragment" style="font-size: 0.9em;">
+							$$ A\begin{pmatrix} 40 \\ 60 \end{pmatrix} = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+							\end{pmatrix}\begin{pmatrix} 40 \\ 60 \end{pmatrix} = 1 \cdot \begin{pmatrix} 40 \\ 60
+							\end{pmatrix} $$
+						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<p>Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
-								\begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$. Then:</p>
-							$$\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\ \alpha
-							u_2 + \beta v_2 \end{pmatrix}$$
+						<div class="fragment" style="font-size: 0.9em; margin-top: 10px;">
+							$$ L\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} = \begin{pmatrix} 0 & 0 &
+							127 & 79 \\ 0.67 & 0.74 & 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81
+							\end{pmatrix}\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} \approx 0.96809
+							\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment"
+							style="margin-top: 20px; border-left: 4px solid #4df3a9; padding-left: 15px;">
+							<p>These satisfy the fundamental characteristic equation structure:</p>
+							$$ A\mathbf{v} = \lambda\mathbf{v} $$
+							<p>The non-zero directional vector $\mathbf{v}$ is an <strong>eigenvector</strong>, and the
+								scalar multiplier $\lambda$ is its corresponding <strong>eigenvalue</strong>.</p>
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 13/38 -->
+				<!-- Slide 8/69 -->
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Eigenvalues and Eigenvectors Definition</h4>
 					<div class="size-85">
-						<h5>Using the Alternate Definition (2)</h5>
-						<p>Recall $\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\
-							\alpha u_2 + \beta v_2 \end{pmatrix}$. Applying the rules of mapping $T$ gives:</p>
+						<h5>What are Eigenvalues and Eigenvectors?</h5>
+						<p>They are fundamental intrinsic properties of square matrices that reveal stable structural
+							states across engineering and science systems:</p>
+						<ul style="margin-top: 10px; font-size: 0.85em; line-height: 1.6;">
+							<li>Systems of differential equations &amp; structural analysis</li>
+							<li>Natural frequencies, acoustics, and mechanical resonance</li>
+							<li>Quantum mechanics state space formulations</li>
+							<li>Computer Vision (e.g., Eigenfaces for recognition algorithms)</li>
+							<li>Google's PageRank web indexing systems</li>
+						</ul>
+						<p class="fragment" style="margin-top: 15px;">
+							Geometrically, eigenvectors represent directions that are <strong>not rotated</strong> by
+							the matrix transformation matrix mapping $A\mathbf{v}$. Instead, they are simply scaled,
+							stretched, shrunk, or flipped.
+						</p>
+						<p class="fragment">The eigenvalue $\lambda$ quantifies this exact scaling magnitude and
+							orientation shift.</p>
+					</div>
+				</section>
 
-						<div class="fragment">
-							$$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \begin{pmatrix} \alpha u_2 + \beta v_2 \\ \alpha
-							u_1 + \beta v_1 \\ (\alpha u_1 + \beta v_1) + (\alpha u_2 + \beta v_2) \end{pmatrix}$$
+				<!-- Slide 9/69 -->
+				<section data-auto-animate>
+					<h4>Eigenvalues and Eigenvectors Definition</h4>
+					<div class="size-85">
+						<h5>Matrix Transformations</h5>
+						<p>Consider the linear map $T : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ where $T(\mathbf{u}) =
+							A\mathbf{u}$ and $A = \begin{pmatrix} 1 & 2 \\ 2 & -2 \end{pmatrix}$.</p>
+						<p>Evaluating this mapping transformation against arbitrary test inputs reveals distinct
+							behaviors:</p>
+
+						<div class="fragment"
+							style="display: flex; justify-content: space-between; font-size: 0.85em; margin-top: 20px;">
+							<div>(a) $$ T\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 2 & -2
+								\end{pmatrix}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+								$$</div>
+							<div>(b) $$ T\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 \\ -2 \end{pmatrix} $$
+							</div>
+							<div>(c) $$ T\begin{pmatrix} -1 \\ -1 \end{pmatrix} = \begin{pmatrix} -3 \\ 0 \end{pmatrix}
+								$$</div>
 						</div>
 
-						<div class="fragment" style="margin-top: 10px;">
-							$$= \begin{pmatrix} \alpha u_2 \\ \alpha u_1 \\ \alpha u_1 + \alpha u_2 \end{pmatrix} +
-							\begin{pmatrix} \beta v_2 \\ \beta v_1 \\ \beta v_1 + \beta v_2 \end{pmatrix}$$
-						</div>
-
-						<div class="fragment" style="margin-top: 10px;">
-							$$= \alpha \begin{pmatrix} u_2 \\ u_1 \\ u_1 + u_2 \end{pmatrix} + \beta \begin{pmatrix} v_2
-							\\ v_1 \\ v_1 + v_2 \end{pmatrix} = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$$
+						<div class="fragment"
+							style="display: flex; justify-content: space-around; font-size: 0.85em; margin-top: 20px; background: rgba(77,243,169,0.05); padding: 10px; border-radius: 5px;">
+							<div>(d) $$ T\begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 2 \end{pmatrix} =
+								2\begin{pmatrix} 2 \\ 1 \end{pmatrix} $$</div>
+							<div>(e) $$ T\begin{pmatrix} 1 \\ -2 \end{pmatrix} = \begin{pmatrix} -3 \\ 6 \end{pmatrix} =
+								-3\begin{pmatrix} 1 \\ -2 \end{pmatrix} $$</div>
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 14/38 -->
+				<!-- Slide 10/69 -->
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Eigenvalues and Eigenvectors Definition</h4>
 					<div class="size-85">
-						<h5>Class Examples</h5>
-						<ol style="line-height: 50px;">
-							<li>Show that the following transformation $T : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ is
-								linear:
-								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 2x_1 \\ x_2
-								\end{pmatrix}$$
+						<h5>Geometrical Interpretation (1)</h5>
+						<p>Plotting the input vectors alongside their transformed outputs from options (d) and (e):</p>
+
+						<div style="display: flex; justify-content: space-around; margin-top: 20px;">
+							<!-- Vector D Visual Component -->
+							<div
+								style="text-align: center; border: 1px solid #444; padding: 15px; border-radius: 5px; width: 45%;">
+								<h6>Stretched Matrix Action (d)</h6>
+								<svg width="200" height="200" viewBox="-1 -1 6 6" style="background: #111;">
+									<line x1="0" y1="0" x2="2" y2="1" stroke="#ff5555" stroke-width="0.1"
+										marker-end="url(#arrow)" />
+									<line x1="0" y1="0" x2="4" y2="2" stroke="#4df3a9" stroke-width="0.08"
+										stroke-dasharray="0.2" />
+									<text x="2.2" y="1" fill="#ff5555" font-size="0.5">(2,1)</text>
+									<text x="4.2" y="2" fill="#4df3a9" font-size="0.5">(4,2)</text>
+								</svg>
+							</div>
+
+							<!-- Vector E Visual Component -->
+							<div
+								style="text-align: center; border: 1px solid #444; padding: 15px; border-radius: 5px; width: 45%;">
+								<h6>Reversed &amp; Scaled Action (e)</h6>
+								<svg width="200" height="200" viewBox="-4 -4 8 8" style="background: #111;">
+									<line x1="0" y1="0" x2="1" y2="-2" stroke="#ff5555" stroke-width="0.1" />
+									<line x1="0" y1="0" x2="-3" y2="6" stroke="#4df3a9" stroke-width="0.08"
+										stroke-dasharray="0.2" />
+									<text x="1.2" y="-2" fill="#ff5555" font-size="0.6">(1,-2)</text>
+									<text x="-3.8" y="5.5" fill="#4df3a9" font-size="0.6">(-3,6)</text>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 11/69 -->
+				<section data-auto-animate>
+					<h4>Eigenvalues and Eigenvectors Definition</h4>
+					<div class="size-85">
+						<h5>Geometrical Interpretation (2)</h5>
+						<ul>
+							<li>The spatial domain vector in (d) is scaled identically along its span: <br>
+								$$T\begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 2 \end{pmatrix} =
+								2\begin{pmatrix} 2 \\ 1 \end{pmatrix}$$
 							</li>
-							<li class="fragment" style="margin-top: 15px;">Show that $T : \mathbb{R}^2 \rightarrow
-								\mathbb{R}^2$ given by the following mapping is a linear transformation:
-								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ 3x_1
-								\end{pmatrix}$$
+							<li class="fragment" style="margin-top: 10px;">The vector in (e) scales by a factor of 3 and
+								points directly backward: <br>
+								$$T\begin{pmatrix} 1 \\ -2 \end{pmatrix} = \begin{pmatrix} -3 \\ 6 \end{pmatrix} =
+								-3\begin{pmatrix} 1 \\ -2 \end{pmatrix}$$
 							</li>
-						</ol>
+						</ul>
+
+						<div class="fragment"
+							style="margin-top: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px;">
+							<p>An $n \times n$ matrix $A$ can hold up to $n$ linearly distinct pairings $(\lambda_i,
+								\mathbf{v}_i)$ such that:</p>
+							$$ A\mathbf{v}_i = \lambda_i\mathbf{v}_i $$
+							<p style="font-size: 0.9em; color: #aaa;">We state that the specific eigenvector belongs
+								explicitly to its baseline eigenvalue partner.</p>
+						</div>
 					</div>
 				</section>
 
-				<!-- Slide 15/38 -->
+				<!-- Slide 12/69 -->
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Finding Eigenvalues Analytically</h4>
 					<div class="size-85">
-						<h5>If $T(\mathbf{x})$ is a Linear Transformation, $T(\mathbf{0}) = \mathbf{0}$</h5>
-						<div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px;">
-							<h6>Theorem</h6>
-							<p>For any linear transformation $T(\mathbf{x})$, $T(\mathbf{0}) = \mathbf{0}$.</p>
-						</div>
+						<h5>How to Solve for Eigenvalues and Eigenvectors</h5>
+						<p>We solve the relation: $$ A\mathbf{v} = \lambda\mathbf{v} \iff A\mathbf{v} - \lambda
+							I\mathbf{v} = \mathbf{0} \iff (A - \lambda I)\mathbf{v} = \mathbf{0} $$</p>
+						<p class="fragment">This homogeneous matrix system yields a non-trivial vector solution
+							$\mathbf{v} \neq \mathbf{0}$ if and only if the matrix kernel is singular: $$ \det(A -
+							\lambda I) = 0 $$</p>
+						<p class="fragment style-code-note" style="font-size: 0.85em; color: #aaa;">The expression
+							$\det(A - \lambda I)$ forms the <strong>characteristic polynomial</strong> of matrix $A$.
+						</p>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<h6>Proof Outline</h6>
-							<ol>
-								<li>From the linear mapping definition, $\alpha T(\mathbf{0}) = T(\alpha \mathbf{0}) =
-									T(\mathbf{0})$ for any scalar constant $\alpha$.</li>
-								<li class="fragment" style="margin-top: 5px;">If $\alpha T(\mathbf{0}) = T(\mathbf{0})$
-									for all values of $\alpha$, then $T(\mathbf{0})$ must evaluate to $\mathbf{0}$.</li>
+						<div class="fragment" style="margin-top: 15px; border-top: 1px solid #555; padding-top: 10px;">
+							<h6>Analytical Routine:</h6>
+							<ol style="font-size: 0.85em;">
+								<li>Construct the characteristic equation: $\det(A - \lambda I) = 0$</li>
+								<li>Solve the roots of the polynomial to discover all eigenvalues $\lambda_i$</li>
+								<li>For each unique $\lambda_i$, find the nullspace bases solving $(A - \lambda_i
+									I)\mathbf{v}_i = \mathbf{0}$</li>
 							</ol>
 						</div>
-
-						<div class="fragment"
-							style="margin-top: 15px; border-left: 3px solid #ff5555; padding-left: 15px;">
-							<h6>Corollary</h6>
-							<p>If $T(\mathbf{0}) \neq \mathbf{0}$ for a given mapping, it <strong>cannot</strong> be a
-								linear transformation.</p>
-						</div>
 					</div>
 				</section>
 
-				<!-- Slide 16/38 -->
+				<!-- Slide 13/69 -->
 				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
+					<h4>Finding Eigenvalues Analytically</h4>
 					<div class="size-85">
-						<h5>A Linear Transformation That is Not on $\mathbb{R}^n$</h5>
-						<p>Consider the definite integral operator $I : C[a, b] \rightarrow \mathbb{R}$ defined by:</p>
-						$$I(f) = \int_{a}^{b} f(t) \, dt$$
-						<p style="font-size: 0.8em; color: #aaa;">(where $C[a, b]$ defines the vector space of
-							continuous functions on $[a, b]$).</p>
+						<h5>Example 2</h5>
+						<p>Let $A = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$.</p>
 
 						<div class="fragment" style="margin-top: 10px;">
-							<p>We check $I(\alpha f + \beta g) = \alpha I(f) + \beta I(g)$ for $f, g \in C[a, b]$ and
-								scalars $\alpha, \beta \in \mathbb{R}$:</p>
-							$$I(\alpha f + \beta g) = \int_{a}^{b} [\alpha f(t) + \beta g(t)] \, dt$$
-							<span class="fragment">$$= \alpha \int_{a}^{b} f(t) \, dt + \beta \int_{a}^{b} g(t) \,
-								dt$$</span>
-							<span class="fragment">$$= \alpha I(f) + \beta I(g) \quad \text{(by calculus properties of
-								linearity)}$$</span>
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide 17/38 -->
-				<section data-auto-animate>
-					<h4>Linear Transformations</h4>
-					<div class="size-85">
-						<h5>Another Linear Transformation That is Not on $\mathbb{R}^n$</h5>
-						<p>Consider the derivative operator $T = \frac{d}{dx}$ mapping $P_2 \rightarrow P_1$, where
-							$P_n$ is the space of polynomials of degree $n$ or less.</p>
-
-						<div class="fragment" style="margin-top: 15px;">
-							<p>$T$ acts to evaluate the derivative:</p>
-							$$T(c_1 + c_2x + c_3x^2) = \frac{d}{dx}(c_1 + c_2x + c_3x^2) = c_2 + 2c_3x$$
+							<h6>1. Find the Characteristic Polynomial:</h6>
+							$$ \det(A - \lambda I) = \begin{vmatrix} 3-\lambda & 1 \\ 1 & 3-\lambda \end{vmatrix} =
+							(3-\lambda)^2 - 1 $$
+							$$ = \lambda^2 - 6\lambda + 8 = (\lambda - 2)(\lambda - 4) $$
 						</div>
 
-						<div class="fragment"
-							style="margin-top: 20px; border: 1px dashed #666; padding: 15px; border-radius: 5px;">
-							<h6>Exercise:</h6>
-							<p>Can you check that this is a linear transformation?</p>
-							<p style="font-size: 0.85em; color: #aaa; margin-top: 5px;"><em>Hint: Consider two arbitrary
-									polynomials within $P_2$, say $p_1 = a_1 + a_2x + a_3x^2$ and $p_2 = c_1 + c_2x +
-									c_3x^2$.</em></p>
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide 18/38 -->
-				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Matrix Form of Mappings</h5>
-						<p>Revisiting the example where $T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2
-							\\ x_1 \\ x_1 + x_2 \end{pmatrix}$. Let's isolate coefficients into matrix $A$:</p>
-						$$A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \\ 1 & 1 \end{pmatrix}$$
-
-						<div class="fragment" style="margin-top: 15px;">
-							<p>We can formulate the structure using matrix multiplication:</p>
-							$$T(\mathbf{x}) = \begin{pmatrix} x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix} = \begin{pmatrix} 0
-							& 1 \\ 1 & 0 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = A\mathbf{x}$$
-						</div>
-						<p class="fragment" style="margin-top: 15px; color: #aaa;">It is true in general that any
-							operation defined by $T(\mathbf{x}) = A\mathbf{x}$ forms a valid linear transformation.</p>
-					</div>
-				</section>
-
-				<!-- Slide 19/38 -->
-				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>The Standard Basis</h5>
-						<p>The standard basis in $\mathbb{R}^n$ consists of orthogonal unit column vectors:</p>
-						$$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad \mathbf{e}_2 =
-						\begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad \dots, \quad \mathbf{e}_n =
-						\begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}$$
-
-						<div class="fragment" style="margin-top: 20px; display: flex; justify-content: space-around;">
-							<div>
-								<h6>In $\mathbb{R}^2$:</h6>
-								$$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \mathbf{j} =
-								\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$
-							</div>
-							<div>
-								<h6>In $\mathbb{R}^3$:</h6>
-								$$\mathbf{i} = \mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
-								\mathbf{j} = \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad \mathbf{k}
-								= \mathbf{e}_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$$
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide 20/38 -->
-				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Matrix Representation Theorem (1)</h5>
-						<div style="background-color: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px;">
-							<h6>Theorem</h6>
-							<p>If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into $\mathbb{R}^m$, there
-								is a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for all
-								$\mathbf{x} \in \mathbb{R}^n$. The $j$-th column vector of $A$ is given by transforming
-								standard basis components: $\mathbf{a}_j = T(\mathbf{e}_j)$ for $j = 1, 2, \dots, n$.
+						<div class="fragment" style="margin-top: 10px;">
+							<h6>2. Solve for Eigenvalues:</h6>
+							<p>Setting $\det(A - \lambda I) = 0$ yields our roots: $\lambda_1 = 2$ and $\lambda_2 = 4$.
 							</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<h6>3. Solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$ for $\lambda_1 = 2$:</h6>
+							$$ (A - 2I)\mathbf{v} = \begin{pmatrix} 3-2 & 1 \\ 1 & 3-2 \end{pmatrix}\begin{pmatrix} v_1
+							\\ v_2 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 14/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Example 2 — Continued</h5>
+						<p>Evaluating the linear row equations for $\lambda_1 = 2$:</p>
+						$$ v_1 + v_2 = 0 \implies v_2 = -v_1 $$
+						<p>Setting the free variable parameter $v_1 = r$ generates the eigenspace map:</p>
+						$$ \mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} r \\ -r \end{pmatrix}
+						= r\begin{pmatrix} 1 \\ -1 \end{pmatrix} $$
+						<p style="font-size: 0.85em; color: #aaa;">Any non-zero scaled variant of $\begin{pmatrix} 1 \\
+							-1 \end{pmatrix}$ forms an eigenvector for $\lambda_1 = 2$.</p>
+
+						<div class="fragment" style="margin-top: 15px; border-top: 1px dashed #444; padding-top: 10px;">
+							<h6>Evaluating the Second Root ($\lambda_2 = 4$):</h6>
+							$$ (A - 4I)\mathbf{v} = \begin{pmatrix} -1 & 1 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies -v_1 + v_2 = 0 \implies
+							v_1 = v_2 $$
+							<p>Setting free variable parameter $v_2 = s$ yields:</p>
+							$$ \mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} s \\ s
+							\end{pmatrix} = s\begin{pmatrix} 1 \\ 1 \end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 15/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Key Structural Observations</h5>
+						<ul style="line-height: 1.6;">
+							<li><strong>Row Reduction:</strong> While full Gaussian elimination works cleanly, $2 \times
+								2$ systems can typically be evaluated by inspection since the rows are linearly
+								dependent by construction.</li>
+							<li class="fragment"><strong>Non-Uniqueness:</strong> Eigenvectors identify an infinite line
+								or directional span. Any scaled non-zero scalar value along that vector trajectory
+								remains a valid structural eigenvector.</li>
+							<li class="fragment"><strong>Matrix Invariant Checks:</strong> For any square matrix $A$:
+								<ol
+									style="margin-top: 5px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+									<li>$$\sum \lambda_i = \text{trace}(A) \quad \text{(Sum of principal diagonals)}$$
+									</li>
+									<li>$$\prod \lambda_i = \det(A) \quad \text{(Matrix determinant calculation)}$$</li>
+								</ol>
+							</li>
+						</ul>
+						<div class="fragment" style="font-size: 0.8em; color: #4df3a9; margin-top: 10px;">
+							Verification from Example 2: $\sum \lambda = 2+4=6$ (Trace = $3+3=6$). $\prod \lambda = 2
+							\times 4 = 8$ ($\det = 9 - 1 = 8$). Perfect match!
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 16/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Eigenvalue Theorem for $2 \times 2$ Matrices</h5>
+						<div
+							style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #4df3a9;">
+							<h6>Theorem</h6>
+							<p>The eigenvalues of any arbitrary $2 \times 2$ matrix are found explicitly via: <br>
+								$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 $$</p>
 						</div>
 
 						<div class="fragment" style="margin-top: 15px; font-size: 0.9em;">
 							<h6>Proof Outline:</h6>
-							<p>Let $A = \begin{pmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \dots & \mathbf{a}_n
-								\end{pmatrix}$ where $\mathbf{a}_j = T(\mathbf{e}_j)$.</p>
-							<p>Any vector $\mathbf{x} \in \mathbb{R}^n$ evaluates as: $\mathbf{x} = x_1\mathbf{e}_1 +
-								x_2\mathbf{e}_2 + \dots + x_n\mathbf{e}_n$</p>
-							<p class="fragment">$$\implies T(\mathbf{x}) = x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) +
-								\dots + x_n T(\mathbf{e}_n) \quad \text{(by linearity properties)}$$</p>
-							<p class="fragment">$$T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
-								x_n\mathbf{a}_n$$</p>
+							<p>Let $A = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}$. The
+								characteristic equation satisfies:</p>
+							$$ \det(A - \lambda I) = \begin{vmatrix} a_{11}-\lambda & a_{12} \\ a_{21} & a_{22}-\lambda
+							\end{vmatrix} = (a_{11}-\lambda)(a_{22}-\lambda) - a_{12}a_{21} $$
+							$$ = \lambda^2 - (a_{11} + a_{22})\lambda + (a_{11}a_{22} - a_{12}a_{21}) $$
+							$$ = \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 \quad \blacksquare $$
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 21/38 -->
+				<!-- Slide 17/69 -->
 				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
+					<h4>Finding Eigenvalues Analytically</h4>
 					<div class="size-85">
-						<h5>Matrix Representation Theorem (2)</h5>
-						<h6>Proof Outline (Continued):</h6>
-						<p>Expanding components of the column addition $T(\mathbf{x}) = x_1\mathbf{a}_1 +
-							x_2\mathbf{a}_2 + \dots + x_n\mathbf{a}_n$ explicitly:</p>
-
-						<div class="fragment" style="margin-top: 10px;">
-							$$= x_1 \begin{pmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{pmatrix} + x_2
-							\begin{pmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{pmatrix} + \dots + x_n
-							\begin{pmatrix} a_{1n} \\ a_{2n} \\ \vdots \\ a_{mn} \end{pmatrix}$$
-						</div>
+						<h5>Corollary: Factoring the Characteristic System</h5>
+						<p>If $\lambda_1, \lambda_2$ represent the true root solutions to matrix $A$, then their
+							polynomial product equation yields:</p>
+						$$ (\lambda - \lambda_1)(\lambda - \lambda_2) = 0 \implies \lambda^2 - (\lambda_1 +
+						\lambda_2)\lambda + \lambda_1\lambda_2 = 0 $$
 
 						<div class="fragment" style="margin-top: 15px;">
-							<p>This matches row-column expansion configurations for standard matrix multiplication:</p>
-							$$= \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n} \\
-							\vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{pmatrix}
-							\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} = A\mathbf{x}$$
+							<p>Equating coefficients directly with the primary theorem equation:</p>
+							$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 $$
 						</div>
-					</div>
-				</section>
-
-				<!-- Slide 22/38 -->
-				<section data-auto-animate>
-					<h4>Matrix Representation</h4>
-					<div class="size-85">
-						<h5>Example</h5>
-						<p>Find the matrix representation $A$ for the transformation $T: \mathbb{R}^3 \rightarrow
-							\mathbb{R}^2$ given by $T(\mathbf{x}) = (x_1 + x_2, x_2 + x_3)^T$:</p>
-
-						<div class="fragment" style="margin-top: 10px;">
-							<p>Evaluate mapping projections against standard basis vectors:</p>
-							<div style="display: flex; justify-content: space-between; font-size: 0.9em;">
-								<div>$$T(\mathbf{e}_1) = T\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix}
-									1+0 \\ 0+0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$$</div>
-								<div>$$T(\mathbf{e}_2) = T\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix}
-									0+1 \\ 1+0 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$$</div>
-								<div>$$T(\mathbf{e}_3) = T\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix}
-									0+0 \\ 0+1 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$</div>
-							</div>
-						</div>
-
-						<div class="fragment" style="margin-top: 15px;">
-							<p>Arranging these output columns together constructs the standard transformation matrix:
-							</p>
-							$$A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$$
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide 23/38 -->
-				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
-					<div class="size-85">
-						<h5>Geometric Interpretation</h5>
-						<p>Suppose you are given the matrix operation $A = \begin{pmatrix} 1 & 0 \\ 0 & -1
-							\end{pmatrix}$. How would you describe the transformation $T(\mathbf{v}) = A\mathbf{v}$
-							geometrically?</p>
 
 						<div class="fragment"
-							style="margin-top: 15px; background-color: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-							<p><strong>Hint:</strong> Evaluate with an arbitrary test vector $\mathbf{v} =
-								\begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$:</p>
-							$$T(\mathbf{v}) = A\mathbf{v} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
-							\begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}$$
+							style="margin-top: 15px; background: rgba(77,243,169,0.1); padding: 15px; border-radius: 5px; text-align: center;">
+							$$ \lambda_1 + \lambda_2 = \text{trace}(A) \quad \text{and} \quad \lambda_1\lambda_2 =
+							\det(A) $$
+						</div>
+						<p class="fragment" style="margin-top: 10px; font-size: 0.9em; color: #aaa;">This relationship
+							generalizes across all larger $n \times n$ polynomial expansions.</p>
+					</div>
+				</section>
+
+				<!-- Slide 18/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Example 3</h5>
+						<p>Find the eigenvalues and corresponding eigenvectors for $A = \begin{pmatrix} 0 & -1 \\ 1 & 0
+							\end{pmatrix}$.</p>
+
+						<div class="fragment" style="font-size: 0.9em;">
+							$$ \det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} =
+							\lambda^2 + 1 = 0 \implies \lambda = \pm i $$
+							<p style="color: #ff5555; font-weight: bold; margin-top: 5px;">A real matrix can yield
+								complex conjugate eigenvalues!</p>
 						</div>
 
-						<p class="fragment" style="color: #4df3a9; margin-top: 15px; font-weight: bold;">
-							Conclusion: This transformation reflects coordinates directly across the horizontal
-							$x$-axis.
+						<div class="fragment" style="margin-top: 10px; font-size: 0.85em;">
+							<h6>Solving Eigenspace for $\lambda_1 = i$:</h6>
+							$$ (A - iI)\mathbf{v} = \begin{pmatrix} -i & -1 \\ 1 & -i \end{pmatrix}\begin{pmatrix} v_1
+							\\ v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies -iv_1 - v_2 = 0
+							\implies v_2 = -iv_1 $$
+							<p>Setting free variable $v_1 = r$ gives: $$ \mathbf{v} = \begin{pmatrix} v_1 \\ v_2
+								\end{pmatrix} = \begin{pmatrix} r \\ -ri \end{pmatrix} = r\begin{pmatrix} 1 \\ -i
+								\end{pmatrix} $$</p>
+						</div>
+
+						<div class="fragment" style="font-size: 0.85em;">
+							<h6>Solving Eigenspace for $\lambda_2 = -i$:</h6>
+							<p>Evaluating via standard parameter choices ($v_1=r$ or $v_2=s$):</p>
+							$$ \mathbf{v} = r\begin{pmatrix} 1 \\ i \end{pmatrix} \quad \text{or equivalencies like}
+							\quad \mathbf{v} = s\begin{pmatrix} -i \\ 1 \end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 19/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Question: Why does this real matrix have complex roots?</h5>
+						<p class="fragment"><strong>Answer:</strong> This matrix matches the structure of a standard 2D
+							rotation matrix:</p>
+						<div class="fragment">
+							$$ \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \quad
+							\text{evaluated at } \theta = 90^{\circ} $$
+						</div>
+						<p class="fragment" style="margin-top: 15px;">Because a pure $90^{\circ}$ rotation changes the
+							direction of <em>every</em> non-zero vector in the real plane, no real steady-state
+							directional vector can exist!</p>
+
+						<div class="fragment"
+							style="margin-top: 15px; border-left: 3px solid #aaa; padding-left: 15px; font-size: 0.85em; color: #aaa;">
+							<p><strong>Conjugate Pair Property:</strong> For any real matrix, complex eigenvalues must
+								appear as conjugate pairs $a \pm bi$. This ensures that when factoring the
+								characteristic equation $(x - \lambda_1)(x - \lambda_2) = 0$, all polynomial
+								coefficients remain completely real.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 20/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Example 4 — Repeated Roots &amp; Shear</h5>
+						<p>Find the eigenvalues and eigenvectors for $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
 						</p>
-						<p class="fragment" style="margin-top: 10px; font-size: 0.9em; color: #aaa;">
-							Now try it yourself: Describe the geometry if $A = \begin{pmatrix} -1 & 0 \\ 0 & 1
-							\end{pmatrix}$.
+
+						<div class="fragment" style="margin-top: 10px;">
+							$$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 1 \\ 0 & 1-\lambda \end{vmatrix} =
+							(1-\lambda)^2 = 0 \implies \lambda = 1 \quad \text{(Algebraic Multiplicity = 2)} $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<h6>Evaluating the Eigenspace for $\lambda = 1$:</h6>
+							$$ (A - 1I)\mathbf{v} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies v_2 = 0 $$
+							<p>Setting the single free parameter $v_1 = r$ yields: $$ \mathbf{v} = \begin{pmatrix} r \\
+								0 \end{pmatrix} = r\begin{pmatrix} 1 \\ 0 \end{pmatrix} $$</p>
+						</div>
+
+						<p class="fragment" style="color: #ff9999; margin-top: 15px; font-size: 0.9em;">
+							In this case, there is only one linearly independent eigenvector. This occurs because $A$ is
+							a <strong>shear transformation</strong> (it skews the coordinate grid horizontally), leaving
+							only a single stable invariant direction along the $x$-axis.
 						</p>
 					</div>
 				</section>
 
-				<!-- Slide 24/38 -->
+				<!-- Slide 21/69 -->
 				<section data-auto-animate>
-					<h4>2D Rotation and Reflection Matrices</h4>
+					<h4>Finding Eigenvalues Analytically</h4>
 					<div class="size-85">
-						<h5>Reflection across the $x$-axis</h5>
-						<p>When coordinate points undergo reflection across the $x$-axis, the mapping follows:</p>
-						$$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} x \\ -y \end{pmatrix}$$
+						<h5>Example 5 — $3 \times 3$ Matrix System</h5>
+						<p>Take the matrix: $$ A = \begin{pmatrix} 1 & 0 & 2 \\ 0 & 2 & 1 \\ 3 & 0 & 2 \end{pmatrix} $$
+						</p>
 
-						<div class="fragment" style="margin-top: 10px;">
-							<p>Tracing individual transformations across the standard basis vectors:</p>
-							$$\begin{pmatrix} 1 \\ 0 \end{pmatrix} \mapsto \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad
-							\text{and} \quad \begin{pmatrix} 0 \\ 1 \end{pmatrix} \mapsto \begin{pmatrix} 0 \\ -1
-							\end{pmatrix}$$
+						<div class="fragment" style="font-size: 0.85em; margin-top: 10px;">
+							<p>Expand the determinant along the second column to exploit the zero entry:</p>
+							$$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 0 & 2 \\ 0 & 2-\lambda & 1 \\ 3 & 0 &
+							2-\lambda \end{vmatrix} $$
+							$$ = (2-\lambda) \begin{vmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{vmatrix} =
+							(2-\lambda)[(1-\lambda)(2-\lambda) - 6] $$
+							$$ = (2-\lambda)[\lambda^2 - 3\lambda - 4] = (2-\lambda)(\lambda + 1)(\lambda - 4) = 0 $$
 						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<p>Grouping the output columns gives the standard reflection matrix:</p>
-							$$A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$$
+						<p class="fragment"
+							style="color: #4df3a9; font-weight: bold; margin-top: 10px; text-align: center;">
+							Eigenvalue solutions: $\lambda_1 = 2, \quad \lambda_2 = -1, \quad \lambda_3 = 4$
+						</p>
+					</div>
+				</section>
+
+				<!-- Slide 22/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-80">
+						<h5>Example 5 — Eigenspace Calculations</h5>
+
+						<div class="fragment" style="font-size: 0.8em; margin-top: 5px;">
+							<h6>For $\lambda_1 = 2$:</h6>
+							$$ \begin{pmatrix} -1 & 0 & 2 \\ 0 & 0 & 1 \\ 3 & 0 & 0 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1=0, v_3=0, v_2=r \implies \mathbf{v}_1 =
+							r\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $$
 						</div>
+
+						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
+							<h6>For $\lambda_2 = 4$:</h6>
+							$$ \begin{pmatrix} -3 & 0 & 2 \\ 0 & -2 & 1 \\ 3 & 0 & -2 \end{pmatrix}\begin{pmatrix} v_1
+							\\ v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1 = \frac{2}{3}v_3, v_2 = \frac{1}{2}v_3
+							\implies \mathbf{v}_2 = \frac{s}{6}\begin{pmatrix} 4 \\ 3 \\ 6 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
+							<h6>For $\lambda_3 = -1$:</h6>
+							$$ \begin{pmatrix} 2 & 0 & 2 \\ 0 & 3 & 1 \\ 3 & 0 & 3 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1 = -v_3, v_2 = -\frac{1}{3}v_3 \implies
+							\mathbf{v}_3 = \frac{t}{3}\begin{pmatrix} -3 \\ -1 \\ 3\end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 23/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Eigenvalues of Triangular Matrices</h5>
+						<div
+							style="background: rgba(77,243,169,0.05); padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+							<p><strong>Theorem:</strong> The eigenvalues of any triangular (upper or lower) or diagonal
+								matrix are precisely the entry values sitting directly on the main diagonal.</p>
+						</div>
+
+						<p>Consider: $$ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} \implies
+							\lambda_1 = 4, \quad \lambda_2 = 2, \quad \lambda_3 = 1 $$</p>
+
+						<div class="fragment" style="margin-top: 15px; font-size: 0.9em; color: #aaa;">
+							<h6>Why does this hold?</h6>
+							<p>When computing the characteristic determinant of a triangular system:</p>
+							$$ \det(A - \lambda I) = \begin{vmatrix} 4-\lambda & 4 & 6 \\ 0 & 2-\lambda & 7 \\ 0 & 0 &
+							1-\lambda \end{vmatrix} $$
+							<p>Cofactor expansion along the first column shows the determinant is just the product of
+								diagonal elements: $(4-\lambda)(2-\lambda)(1-\lambda) = 0$.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Slide 24/69 -->
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<h5>Class Exercises</h5>
+					<div class="size-85 left-txt">
+						
+						<p>Work through the following matrix problems analytically to find all eigenvalues and
+							associated eigenvectors:</p>
+
+						<ol style="line-height: 4; margin-top: -20px; font-size: 0.9em;">
+							<li>$ A = \begin{pmatrix} 1 & 1 \\ 4 & 1 \end{pmatrix} $</li>
+							<li>$ A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix} \quad \text{(Marital
+								Motivation Matrix)} $</li>
+							<li>$ A = \begin{pmatrix} 1 & 1 & 2 \\ 0 & 7 & 11 \\ 0 & 0 & 3 \end{pmatrix} $</li>
+							<li>$ A = \begin{pmatrix} 1 & 0 & 0 \\ -2 & 1 & 3 \\ 1 & 1 & -1 \end{pmatrix} $</li>
+						</ol>
 					</div>
 				</section>
 
