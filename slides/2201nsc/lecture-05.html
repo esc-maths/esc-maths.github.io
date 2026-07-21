@@ -691,82 +691,6 @@
 			-->
 
 
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
-						<h5>Key Structural Observations</h5>
-						<ul style="line-height: 1.6;">
-							<li><strong>Row Reduction:</strong> While full Gaussian elimination works cleanly, $2 \times
-								2$ systems can typically be evaluated by inspection since the rows are linearly
-								dependent by construction.</li>
-							<li class="fragment"><strong>Non-Uniqueness:</strong> Eigenvectors identify an infinite line
-								or directional span. Any scaled non-zero scalar value along that vector trajectory
-								remains a valid structural eigenvector.</li>
-							<li class="fragment"><strong>Matrix Invariant Checks:</strong> For any square matrix $A$:
-								<ol
-									style="margin-top: 5px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-									<li>$$\sum \lambda_i = \text{trace}(A) \quad \text{(Sum of principal diagonals)}$$
-									</li>
-									<li>$$\prod \lambda_i = \det(A) \quad \text{(Matrix determinant calculation)}$$</li>
-								</ol>
-							</li>
-						</ul>
-						<div class="fragment" style="font-size: 0.8em; color: #4df3a9; margin-top: 10px;">
-							Verification from Example 2: $\sum \lambda = 2+4=6$ (Trace = $3+3=6$). $\prod \lambda = 2
-							\times 4 = 8$ ($\det = 9 - 1 = 8$). Perfect match!
-						</div>
-					</div>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
-						<h5>Eigenvalue Theorem for $2 \times 2$ Matrices</h5>
-						<div
-							style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #4df3a9;">
-							<h6>Theorem</h6>
-							<p>The eigenvalues of any arbitrary $2 \times 2$ matrix are found explicitly via: <br>
-								$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 $$</p>
-						</div>
-
-						<div class="fragment" style="margin-top: 15px; font-size: 0.9em;">
-							<h6>Proof Outline:</h6>
-							<p>Let $A = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}$. The
-								characteristic equation satisfies:</p>
-							$$ \det(A - \lambda I) = \begin{vmatrix} a_{11}-\lambda & a_{12} \\ a_{21} & a_{22}-\lambda
-							\end{vmatrix} = (a_{11}-\lambda)(a_{22}-\lambda) - a_{12}a_{21} $$
-							$$ = \lambda^2 - (a_{11} + a_{22})\lambda + (a_{11}a_{22} - a_{12}a_{21}) $$
-							$$ = \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 \quad \blacksquare $$
-						</div>
-					</div>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
-						<h5>Corollary: Factoring the Characteristic System</h5>
-						<p>If $\lambda_1, \lambda_2$ represent the true root solutions to matrix $A$, then their
-							polynomial product equation yields:</p>
-						$$ (\lambda - \lambda_1)(\lambda - \lambda_2) = 0 \implies \lambda^2 - (\lambda_1 +
-						\lambda_2)\lambda + \lambda_1\lambda_2 = 0 $$
-
-						<div class="fragment" style="margin-top: 15px;">
-							<p>Equating coefficients directly with the primary theorem equation:</p>
-							$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 $$
-						</div>
-
-						<div class="fragment"
-							style="margin-top: 15px; background: rgba(77,243,169,0.1); padding: 15px; border-radius: 5px; text-align: center;">
-							$$ \lambda_1 + \lambda_2 = \text{trace}(A) \quad \text{and} \quad \lambda_1\lambda_2 =
-							\det(A) $$
-						</div>
-						<p class="fragment" style="margin-top: 10px; font-size: 0.9em; color: #aaa;">This relationship
-							generalizes across all larger $n \times n$ polynomial expansions.</p>
-					</div>
-				</section>
-
 
 				<section data-auto-animate>
 					<h4>Finding Eigenvalues Analytically</h4>
@@ -2340,6 +2264,81 @@
 					<br /><br />
 				</section>
 
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Key Structural Observations</h5>
+						<ul style="line-height: 1.6;">
+							<li><strong>Row Reduction:</strong> While full Gaussian elimination works cleanly, $2 \times
+								2$ systems can typically be evaluated by inspection since the rows are linearly
+								dependent by construction.</li>
+							<li class="fragment"><strong>Non-Uniqueness:</strong> Eigenvectors identify an infinite line
+								or directional span. Any scaled non-zero scalar value along that vector trajectory
+								remains a valid structural eigenvector.</li>
+							<li class="fragment"><strong>Matrix Invariant Checks:</strong> For any square matrix $A$:
+								<ol
+									style="margin-top: 5px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+									<li>$$\sum \lambda_i = \text{trace}(A) \quad \text{(Sum of principal diagonals)}$$
+									</li>
+									<li>$$\prod \lambda_i = \det(A) \quad \text{(Matrix determinant calculation)}$$</li>
+								</ol>
+							</li>
+						</ul>
+						<div class="fragment" style="font-size: 0.8em; color: #4df3a9; margin-top: 10px;">
+							Verification from Example 2: $\sum \lambda = 2+4=6$ (Trace = $3+3=6$). $\prod \lambda = 2
+							\times 4 = 8$ ($\det = 9 - 1 = 8$). Perfect match!
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Eigenvalue Theorem for $2 \times 2$ Matrices</h5>
+						<div
+							style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #4df3a9;">
+							<h6>Theorem</h6>
+							<p>The eigenvalues of any arbitrary $2 \times 2$ matrix are found explicitly via: <br>
+								$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 $$</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 15px; font-size: 0.9em;">
+							<h6>Proof Outline:</h6>
+							<p>Let $A = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}$. The
+								characteristic equation satisfies:</p>
+							$$ \det(A - \lambda I) = \begin{vmatrix} a_{11}-\lambda & a_{12} \\ a_{21} & a_{22}-\lambda
+							\end{vmatrix} = (a_{11}-\lambda)(a_{22}-\lambda) - a_{12}a_{21} $$
+							$$ = \lambda^2 - (a_{11} + a_{22})\lambda + (a_{11}a_{22} - a_{12}a_{21}) $$
+							$$ = \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 \quad \blacksquare $$
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Corollary: Factoring the Characteristic System</h5>
+						<p>If $\lambda_1, \lambda_2$ represent the true root solutions to matrix $A$, then their
+							polynomial product equation yields:</p>
+						$$ (\lambda - \lambda_1)(\lambda - \lambda_2) = 0 \implies \lambda^2 - (\lambda_1 +
+						\lambda_2)\lambda + \lambda_1\lambda_2 = 0 $$
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>Equating coefficients directly with the primary theorem equation:</p>
+							$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 $$
+						</div>
+
+						<div class="fragment"
+							style="margin-top: 15px; background: rgba(77,243,169,0.1); padding: 15px; border-radius: 5px; text-align: center;">
+							$$ \lambda_1 + \lambda_2 = \text{trace}(A) \quad \text{and} \quad \lambda_1\lambda_2 =
+							\det(A) $$
+						</div>
+						<p class="fragment" style="margin-top: 10px; font-size: 0.9em; color: #aaa;">This relationship
+							generalizes across all larger $n \times n$ polynomial expansions.</p>
+					</div>
+				</section>
 
 
 			</section>
