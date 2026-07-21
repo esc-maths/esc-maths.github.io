@@ -136,8 +136,12 @@ ol.r>li:before {
   text-align: left;
 }
 
-
-
+.reveal .fragment.highlight-blue.visible {
+  color:rgb(5, 48, 191);
+}
+.reveal .fragment.highlight-red.visible {
+  color:rgb(231, 8, 8);
+}
 
 
 
