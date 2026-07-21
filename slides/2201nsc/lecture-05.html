@@ -238,12 +238,14 @@
 				<section data-auto-animate>
 					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
 					<div class="size-75">
-						<p class="fragment" data-fragment-index="1" style="text-align: center; font-size: 0.85em;">
+						<p style="text-align: center; font-size: 0.85em;">
 							<b>Returning to the Sea Turtle Problem</b>
 						</p>
 
-						<p class="fragment" data-fragment-index="2">Is it the same for the Loggerhead Sea Turtle
-							stage-based population model?</p>
+						<p class="fragment" data-fragment-index="2">
+							Is it the same for the Loggerhead Sea Turtle
+							stage-based population model?
+						</p>
 
 						<div class="cc size-70">
 							<p class="fragment" data-fragment-index="3">
@@ -283,7 +285,7 @@
 								</span>
 								<span class="fragment" data-fragment-index="8">
 									$\approx$
-									<span class="fragment highlight-blue" data-fragment-index="9">
+									<span class="fragment highlight-green" data-fragment-index="9">
 										$
 										\begin{pmatrix} 65418 \\ 192159 \\ 119
 										\\ 610 \end{pmatrix}
@@ -298,13 +300,13 @@
 						<div class="cc size-75" style="margin-top: 0px; text-align: center;">
 							<p class="fragment" data-fragment-index="9">
 								<span style="font-size: 2.5em;">👉 &nbsp;&nbsp;</span>
-								<span id="rr">
+								<span id="gg">
 									$ \begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix}$
 								</span>
 								<span>
 									$\approx 0.96809$
 								</span>
-								<span id="bb">
+								<span id="rr">
 									$
 									\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} $
 								</span>
@@ -321,6 +323,24 @@
 					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
 					<div class="size-80">
 
+						<div class="cc size-60" style="margin-top: 0px; text-align: center;">
+							<p>
+								<span style="font-size: 2.5em;">👉 &nbsp;&nbsp;</span>
+								<span id="gg">
+									$ \begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix}$
+								</span>
+								<span>
+									$\approx 0.96809$
+								</span>
+								<span id="rr">
+									$
+									\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} $
+								</span>
+
+							</p>
+						</div>
+
+
 						<p>
 							If we alter the initial population vector,
 							<span class="fragment" data-fragment-index="0">
@@ -328,35 +348,60 @@
 							</span>
 						</p>
 
-						<div class="cc" style="font-size: 0.85em; margin-top: 10px;">
+						<div class="cc" style="font-size: 0.8em; margin-top: 10px;">
 							<p class="fragment" data-fragment-index="1">
 								$ L^{25}\begin{pmatrix} 10\,000 \\ 10\,000 \\ 1\,000 \\ 1\,000 \end{pmatrix} $
 								<span class="fragment" data-fragment-index="2">
 									$
 									\approx
-									\begin{pmatrix} 52726 \\ 154883 \\ 96 \\ 492 \end{pmatrix},\qquad 
 									$
+									<span class="fragment highlight-red" data-fragment-index="5">
+										$\begin{pmatrix} 52726 \\ 154883 \\ 96 \\ 492 \end{pmatrix},\qquad$
+									</span>
 								</span>
 								<span class="fragment" data-fragment-index="3">
 									$L^{26}\begin{pmatrix}
 									10\,000 \\ 10\,000 \\ 1\,000 \\ 1\,000 \end{pmatrix} $
 								</span>
 								<span class="fragment" data-fragment-index="4">
-									$\approx \begin{pmatrix} 51046 \\ 149941
-									\\ 93
-									\\ 476 \end{pmatrix} $
+									$\approx$
+									<span class="fragment highlight-blue" data-fragment-index="5">
+										$\begin{pmatrix} 51046 \\ 149941
+										\\ 93
+										\\ 476 \end{pmatrix} $
+									</span>
+
 								</span>
 							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
-							$$ \begin{pmatrix} 51046 \\ 149941 \\ 93 \\ 476 \end{pmatrix} \approx 0.96809
-							\begin{pmatrix} 52726 \\ 154883 \\ 96 \\ 492 \end{pmatrix} \left[ \approx 0.7803
-							\begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix} \right] $$
+						<div class="cc" style="margin-top: 15px; font-size: 0.8em;">
+							<p>
+								<span class="fragment" data-fragment-index="5" id="bb">
+									$ \begin{pmatrix} 51046 \\ 149941 \\ 93 \\ 476 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$
+									\approx 0.96809
+									$
+								</span>
+								<span id="rr" class="fragment" data-fragment-index="5">
+									$\begin{pmatrix} 52726 \\ 154883 \\ 96 \\ 492 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$
+									\;\;  \approx\; 0.7803
+									 $
+								</span>
+								<span class="fragment" data-fragment-index="6" id="gg">
+									$\begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix} $
+								</span>
+							</p>
+
 						</div>
 
 						<p class="fragment"
-							style="margin-top: 25px; text-align: center; font-weight: bold; color: #068c50;">
+							style="margin-top: 25px; text-align: center; font-weight: bold;">
 							How can we mathematically explain these asymptotic behaviors? 🤔
 						</p>
 					</div>

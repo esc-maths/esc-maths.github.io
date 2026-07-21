@@ -139,8 +139,13 @@ ol.r>li:before {
 .reveal .fragment.highlight-blue.visible {
   color:rgb(5, 48, 191);
 }
+
 .reveal .fragment.highlight-red.visible {
   color:rgb(231, 8, 8);
+}
+
+.reveal .fragment.highlight-green.visible {
+  color:rgb(23, 125, 3);
 }
 
 
@@ -228,7 +233,7 @@ h7 {
 }
 /* For green text highlighted */
 #gg {
-  color:rgb(28, 145, 5);
+  color:rgb(23, 125, 3);
   font-weight: bold;
 }
 
