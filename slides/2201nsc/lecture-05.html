@@ -390,8 +390,8 @@
 								</span>
 								<span class="fragment" data-fragment-index="6">
 									$
-									\;\;  \approx\; 0.7803
-									 $
+									\;\; \approx\; 0.7803
+									$
 								</span>
 								<span class="fragment" data-fragment-index="6" id="gg">
 									$\begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix} $
@@ -400,8 +400,7 @@
 
 						</div>
 
-						<p class="fragment"
-							style="margin-top: 25px; text-align: center; font-weight: bold;">
+						<p class="fragment" style="margin-top: 25px; text-align: center; font-weight: bold;">
 							How can we mathematically explain these asymptotic behaviors? 🤔
 						</p>
 					</div>
@@ -416,33 +415,33 @@
 							$\mathbf{v}_2 = \begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix}$ are highly
 							unique:</p>
 
-						<div class="cc" style="font-size: 0.9em;">
+						<div class="cc" style="font-size: 1em;">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="0">
 									$A\begin{pmatrix} 40 \\ 60 \end{pmatrix}$
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									$= \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
 									\end{pmatrix}\begin{pmatrix} 40 \\ 60 \end{pmatrix}$
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="2">
 									$= 1 \cdot \begin{pmatrix} 40 \\ 60
 									\end{pmatrix}$
 								</span>
 							</p>
 						</div>
 
-						<div class="cc" style="font-size: 0.9em;">
+						<div class="cc" style="font-size: 1em;margin-top: 30px;">
 							<p>
-								<span>
+								<span class="fragment" data-fragment-index="3">
 									$L\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} $
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="4">
 									$= \begin{pmatrix} 0 & 0 &
 									127 & 79 \\ 0.67 & 0.74 & 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81
 									\end{pmatrix}\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix}$
 								</span>
-								<span>
+								<span class="fragment" data-fragment-index="5">
 									$\approx 0.96809
 									\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix}$
 								</span>
@@ -458,12 +457,14 @@
 
 				<section data-auto-animate>
 					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
-					<div class="size-65">
-						<p>The state layout distributions $\mathbf{v}_1 = \begin{pmatrix} 40 \\ 60 \end{pmatrix}$ and
+					<div class="size-75">
+						<p>
+							The state layout distributions $\mathbf{v}_1 = \begin{pmatrix} 40 \\ 60 \end{pmatrix}$ and
 							$\mathbf{v}_2 = \begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix}$ are highly
-							unique:</p>
+							unique:
+						</p>
 
-						<div class="cc" style="font-size: 0.9em;">
+						<div class="cc" style="font-size: 0.8em;">
 							<p>
 								<span>
 									$A\begin{pmatrix} 40 \\ 60 \end{pmatrix}$
@@ -479,7 +480,7 @@
 							</p>
 						</div>
 
-						<div class="cc" style="font-size: 0.9em;">
+						<div class="cc" style="font-size: 0.8em;">
 							<p>
 								<span>
 									$L\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} $
@@ -495,13 +496,18 @@
 								</span>
 							</p>
 						</div>
+					</div>
+					<div class="size-85">
+						<div style="margin-top: 20px; padding-left: 15px;">
+							<p>
+								These satisfy the fundamental characteristic equation structure: $ A\mathbf{v} =
+								\lambda\mathbf{v} $
+							</p>
 
-						<div class="fragment"
-							style="margin-top: 20px; border-left: 4px solid #4df3a9; padding-left: 15px;">
-							<p>These satisfy the fundamental characteristic equation structure:</p>
-							$$ A\mathbf{v} = \lambda\mathbf{v} $$
-							<p>The non-zero directional vector $\mathbf{v}$ is an <strong>eigenvector</strong>, and the
-								scalar multiplier $\lambda$ is its corresponding <strong>eigenvalue</strong>.</p>
+							<p class="fragment">
+								The non-zero directional vector $\mathbf{v}$ is an <strong>eigenvector</strong>, and the
+								scalar multiplier $\lambda$ is its corresponding <strong>eigenvalue</strong>.
+							</p>
 						</div>
 					</div>
 				</section>
