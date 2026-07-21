@@ -72,132 +72,257 @@
 
 			<section>
 
-				<!-- Slide 2/69 -->
+
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors Motivation</h4>
-					<div class="size-80">
-						<h5>Returning to the Marital Population Problem</h5>
-						<p>Recall the problem: if 80% of the population is married, and in any given year:</p>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="1" style="text-align: center; font-size: 0.85em;">
+							<b>Returning to the Marital Population Problem</b>
+						</p>
+						<p class="fragment" data-fragment-index="1">Recall the problem: if 80% of the population is
+							married, and in any given year:</p>
 						<ul>
-							<li>The probability a married person divorces is 30%</li>
-							<li>The probability an unmarried person marries is 20%</li>
+							<li class="fragment" data-fragment-index="2">The probability a married person divorces is
+								30%</li>
+							<li class="fragment" data-fragment-index="3">The probability an unmarried person marries is
+								20%</li>
 						</ul>
-						<p style="margin-top: 15px;">What percentage of the population will be married in future years?
+						<p style="margin-top: 15px;" class="fragment" data-fragment-index="4">What percentage of the
+							population will be married in future years?
 						</p>
 
-						<div class="fragment" style="margin-top: 15px;">
-							$$ \begin{pmatrix} \% \text{ married next yr} \\ \% \text{ unmarried next yr} \end{pmatrix}
-							= \begin{pmatrix} [\% \text{ married}] \times 0.7 + [\% \text{ unmarried}] \times 0.2 \\ [\%
-							\text{ married}] \times 0.3 + [\% \text{ unmarried}] \times 0.8 \end{pmatrix} $$
-							$$ = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix} \begin{pmatrix} \% \text{ married}
-							\\ \% \text{ unmarried} \end{pmatrix} $$
+
+					</div>
+					<div class="size-80 cc">
+						<div style="margin-top: 15px;">
+							<p class="fragment">
+								$ \begin{pmatrix} \% \text{ married next yr} \\ \% \text{ unmarried next yr}
+								\end{pmatrix}
+								= \begin{pmatrix} [\% \text{ married}] \times 0.7 + [\% \text{ unmarried}] \times 0.2 \\
+								[\%
+								\text{ married}] \times 0.3 + [\% \text{ unmarried}] \times 0.8 \end{pmatrix} $
+
+							</p>
+							<p class="fragment">
+								<span>
+									$\qquad \qquad = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}
+									\begin{pmatrix} \% \text{
+									married}
+									\\ \% \text{ unmarried} \end{pmatrix} $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" style="display: flex; justify-content: space-around; margin-top: 10px;">
-							<div>$$\mathbf{x}_{1} = A\mathbf{x}_{0}$$</div>
-							<div>$$\mathbf{x}_{n} = A^{n}\mathbf{x}_{0}$$</div>
+						<div class="fragment" style="margin-top: 0px; font-size: 1.4em;">
+							<p>
+								$\mathbf{x}_{1} = A\mathbf{x}_{0}$
+
+								<span class="fragment">
+									$\;\Ra\; \mathbf{x}_{n} = A^{n}\mathbf{x}_{0}$
+								</span>
+							</p>
 						</div>
 					</div>
+					<br />
+
 				</section>
 
-				<!-- Slide 3/69 -->
+
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors Motivation</h4>
-					<div class="size-85">
-						<h5>Returning to the Marital Population Problem</h5>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-75">
+
 						<p>Initially, 80% of the population is married: $\mathbf{x}_{0} = \begin{pmatrix} 80 \\ 20
 							\end{pmatrix}$</p>
 
-						<div class="fragment" style="margin-top: 20px;">
-							<p>After 1 year, we have:</p>
-							$$ \mathbf{x}_{1} = A\mathbf{x}_{0} = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}
-							\begin{pmatrix} 80 \\ 20 \end{pmatrix} = \begin{pmatrix} 60 \\ 40 \end{pmatrix} $$
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="0">After 1 year, we have:</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="0">
+									$ \mathbf{x}_{1} =
+									A\mathbf{x}_{0} $
+									<span class="fragment" data-fragment-index="1">
+										$=
+										\begin{pmatrix}
+										0.7 & 0.2 \\
+										0.3 & 0.8
+										\end{pmatrix}
+										\begin{pmatrix} 80 \\ 20 \end{pmatrix}$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$ =
+										\begin{pmatrix} 60 \\ 40 \end{pmatrix} $
+									</span>
+								</p>
+							</div>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<p>After 2 years, we have:</p>
-							$$ \mathbf{x}_{2} = A^{2}\mathbf{x}_{0} = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
-							\end{pmatrix}^{2} \begin{pmatrix} 80 \\ 20 \end{pmatrix} = \begin{pmatrix} 50 \\ 50
-							\end{pmatrix} $$
+						<div style="margin-top: 10px;">
+
+							<p class="fragment" data-fragment-index="3">
+								After 2 years, we have:
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="3">
+									$ \mathbf{x}_{2} = A^{2}\mathbf{x}_{0} $
+									<span class="fragment" data-fragment-index="4">
+										$= \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+										\end{pmatrix}^{2} \begin{pmatrix} 80 \\ 20 \end{pmatrix}$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$ = \begin{pmatrix} 50 \\ 50
+										\end{pmatrix} $
+									</span>
+								</p>
+							</div>
+
 						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<p>After 10 years, we have:</p>
-							$$ \mathbf{x}_{10} = A^{10}\mathbf{x}_{0} = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
-							\end{pmatrix}^{10} \begin{pmatrix} 80 \\ 20 \end{pmatrix} \approx \begin{pmatrix} 40 \\ 60
-							\end{pmatrix} $$
+						<div style="margin-top: 10px;">
+
+							<p class="fragment" data-fragment-index="6">
+								After 10 years, we have:
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="6">
+									$ \mathbf{x}_{10} = A^{10}\mathbf{x}_{0} $
+									<span class="fragment" data-fragment-index="7">
+										$ = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+										\end{pmatrix}^{10} \begin{pmatrix} 80 \\ 20 \end{pmatrix}$
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										$ \approx \begin{pmatrix} 40 \\ 60
+										\end{pmatrix} $
+									</span>
+								</p>
+							</div>
+
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 4/69 -->
-				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors Motivation</h4>
-					<div class="size-85">
-						<h5>Returning to the Marital Population Problem</h5>
-						<p>After 20 and 30 years, the state converges:</p>
-						$$ \mathbf{x}_{20} = A^{20}\mathbf{x}_{0} \approx \begin{pmatrix} 40 \\ 60 \end{pmatrix}, \quad
-						\mathbf{x}_{30} = A^{30}\mathbf{x}_{0} \approx \begin{pmatrix} 40 \\ 60 \end{pmatrix} $$
 
-						<div class="fragment" style="margin-top: 15px;">
+				<section data-auto-animate>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-80">
+
+						<p>After 20 and 30 years, the state converges:</p>
+						$$ \mathbf{x}_{20} = A^{20}\mathbf{x}_{0} \approx \color{red}{\begin{pmatrix} 40 \\ 60
+						\end{pmatrix}}, \quad
+						\mathbf{x}_{30} = A^{30}\mathbf{x}_{0} \approx \color{red}{\begin{pmatrix} 40 \\ 60
+						\end{pmatrix}} $$
+
+						<div class="fragment" style="margin-top: 5px;">
 							<p>If we start with a completely different initial population distribution, we head toward
 								the exact same endpoint:</p>
-							<div style="display: flex; justify-content: space-around; margin-top: 10px;">
-								<div>$$ A^{20}\begin{pmatrix} 20 \\ 80 \end{pmatrix} \approx \begin{pmatrix} 40 \\ 60
-									\end{pmatrix} $$</div>
-								<div>$$ A^{20}\begin{pmatrix} 99 \\ 1 \end{pmatrix} \approx \begin{pmatrix} 40 \\ 60
-									\end{pmatrix} $$</div>
+							<div style="display: flex; justify-content: space-around; margin-top: -20px;">
+								<div>$$\qquad A^{20}\begin{pmatrix} 20 \\ 80 \end{pmatrix} \approx
+									\color{red}{\begin{pmatrix} 40 \\ 60
+									\end{pmatrix}} $$</div>
+								<div>$$ A^{20}\begin{pmatrix} 99 \\ 1 \end{pmatrix} \approx \color{red}{\begin{pmatrix}
+									40 \\ 60
+									\end{pmatrix}}\qquad $$</div>
 							</div>
 						</div>
 
 						<div class="fragment"
-							style="margin-top: 25px; text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+							style="margin-top:-15px; text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 5px;">
 							<p>Therefore, $\begin{pmatrix} 40 \\ 60 \end{pmatrix}$ is a <strong>steady-state
-									vector</strong> for this process — but why?</p>
+									vector</strong> for this process — but why? 🤔</p>
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 5/69 -->
+
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors Motivation</h4>
-					<div class="size-80">
-						<h5>Returning to the Sea Turtle Problem</h5>
-						<p>Is it the same for the Loggerhead Sea Turtle stage-based population model?</p>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-75">
+						<p class="fragment" data-fragment-index="1" style="text-align: center; font-size: 0.85em;">
+							<b>Returning to the Sea Turtle Problem</b>
+						</p>
 
-						<div class="fragment" style="margin-top: 10px; font-size: 0.85em;">
-							$$ \mathbf{x}_{25} = L^{25}\mathbf{x}_{0} = \begin{pmatrix} 0 & 0 & 127 & 79 \\ 0.67 & 0.74
-							& 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81 \end{pmatrix}^{25} \begin{pmatrix}
-							200000 \\ 30000 \\ 5000 \\ 1500 \end{pmatrix} \approx \begin{pmatrix} 67574 \\ 196492 \\ 123
-							\\ 630 \end{pmatrix} $$
+						<p class="fragment" data-fragment-index="2">Is it the same for the Loggerhead Sea Turtle
+							stage-based population model?</p>
+
+						<div class="cc size-70">
+							<p class="fragment" data-fragment-index="3">
+								<span style="font-size: 1.7em;">
+									$ \mathbf{x}_{25} = L^{25}\mathbf{x}_{0}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 0 & 0 & 127 & 79 \\ 0.67 & 0.74
+									& 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81 \end{pmatrix}^{25}
+									\begin{pmatrix}
+									200000 \\ 30000 \\ 5000 \\ 1500 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$
+									\approx \color{red}{\begin{pmatrix} 67574 \\ 196492 \\ 123
+									\\ 630 \end{pmatrix}}
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 10px; font-size: 0.85em;">
-							$$ \mathbf{x}_{26} = L^{26}\mathbf{x}_{0} = \begin{pmatrix} 0 & 0 & 127 & 79 \\ 0.67 & 0.74
-							& 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81 \end{pmatrix}^{26} \begin{pmatrix}
-							200000 \\ 30000 \\ 5000 \\ 1500 \end{pmatrix} \approx \begin{pmatrix} 65418 \\ 192159 \\ 119
-							\\ 610 \end{pmatrix} $$
+						<div class="cc size-70">
+							<p class="fragment" data-fragment-index="6">
+								<span style="font-size: 1.7em;">
+									$ \mathbf{x}_{26} = L^{26}\mathbf{x}_{0} $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									= \begin{pmatrix} 0 & 0 & 127 & 79 \\ 0.67 & 0.74
+									& 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81 \end{pmatrix}^{26}
+									\begin{pmatrix}
+									200000 \\ 30000 \\ 5000 \\ 1500 \end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$
+									\approx \color{blue}{\begin{pmatrix} 65418 \\ 192159 \\ 119
+									\\ 610 \end{pmatrix}}
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment"
-							style="margin-top: 15px; text-align: center; color: #ff5555; font-weight: bold;">
-							$$ \begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix} \approx 0.96809
-							\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} $$
+
+
+						<div class="cc size-75" style="margin-top: 0px; text-align: center;">
+							<p class="fragment">
+								<span style="font-size: 2.5em;">👉 &nbsp;&nbsp;</span>
+								<span id="rr">
+									$ \begin{pmatrix} 65418 \\ 192159 \\ 119 \\ 610 \end{pmatrix}$
+								</span>
+								<span>
+									$\approx 0.96809$
+								</span>
+								<span id="bb">
+									$
+									\begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix} $
+								</span>
+
+							</p>
 						</div>
 						<p class="fragment" style="text-align: center; font-size: 0.9em;">Instead of a fixed endpoint,
 							the state vector is shrinking at a constant percentage rate!</p>
 					</div>
 				</section>
 
-				<!-- Slide 6/69 -->
+				
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors Motivation</h4>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
 					<div class="size-80">
-						<h5>Returning to the Sea Turtle Problem</h5>
-						<p>If we alter the initial population vector, we observe a structurally identical rate limit:
+						
+						<p>
+							If we alter the initial population vector, 
+							<span class="fragment" data-fragment-index="0">
+								we observe a structurally identical rate limit:
+							</span>
 						</p>
 
-						<div class="fragment" style="font-size: 0.85em; margin-top: 10px;">
+						<div  class="fragment" data-fragment-index="0" style="font-size: 0.85em; margin-top: 10px;">
 							$$ L^{25}\begin{pmatrix} 10000 \\ 10000 \\ 1000 \\ 1000 \end{pmatrix} \approx
 							\begin{pmatrix} 52726 \\ 154883 \\ 96 \\ 492 \end{pmatrix}, \quad L^{26}\begin{pmatrix}
 							10000 \\ 10000 \\ 1000 \\ 1000 \end{pmatrix} \approx \begin{pmatrix} 51046 \\ 149941 \\ 93
@@ -211,17 +336,17 @@
 						</div>
 
 						<p class="fragment"
-							style="margin-top: 25px; text-align: center; font-weight: bold; color: #4df3a9;">
-							How can we mathematically explain these asymptotic behaviors?
+							style="margin-top: 25px; text-align: center; font-weight: bold; color: #068c50;">
+							How can we mathematically explain these asymptotic behaviors? 🤔
 						</p>
 					</div>
+					<br/>
 				</section>
 
-				<!-- Slide 7/69 -->
+			
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors Motivation</h4>
-					<div class="size-85">
-						<h5>Eigenvectors</h5>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-65">
 						<p>The state layout distributions $\mathbf{v}_1 = \begin{pmatrix} 40 \\ 60 \end{pmatrix}$ and
 							$\mathbf{v}_2 = \begin{pmatrix} 67574 \\ 196492 \\ 123 \\ 630 \end{pmatrix}$ are highly
 							unique:</p>
