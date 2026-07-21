@@ -692,192 +692,6 @@
 
 
 
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
-						<h5>Example 3</h5>
-						<p>Find the eigenvalues and corresponding eigenvectors for $A = \begin{pmatrix} 0 & -1 \\ 1 & 0
-							\end{pmatrix}$.</p>
-
-						<div class="fragment" style="font-size: 0.9em;">
-							$$ \det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} =
-							\lambda^2 + 1 = 0 \implies \lambda = \pm i $$
-							<p style="color: #ff5555; font-weight: bold; margin-top: 5px;">A real matrix can yield
-								complex conjugate eigenvalues!</p>
-						</div>
-
-						<div class="fragment" style="margin-top: 10px; font-size: 0.85em;">
-							<h6>Solving Eigenspace for $\lambda_1 = i$:</h6>
-							$$ (A - iI)\mathbf{v} = \begin{pmatrix} -i & -1 \\ 1 & -i \end{pmatrix}\begin{pmatrix} v_1
-							\\ v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies -iv_1 - v_2 = 0
-							\implies v_2 = -iv_1 $$
-							<p>Setting free variable $v_1 = r$ gives: $$ \mathbf{v} = \begin{pmatrix} v_1 \\ v_2
-								\end{pmatrix} = \begin{pmatrix} r \\ -ri \end{pmatrix} = r\begin{pmatrix} 1 \\ -i
-								\end{pmatrix} $$</p>
-						</div>
-
-						<div class="fragment" style="font-size: 0.85em;">
-							<h6>Solving Eigenspace for $\lambda_2 = -i$:</h6>
-							<p>Evaluating via standard parameter choices ($v_1=r$ or $v_2=s$):</p>
-							$$ \mathbf{v} = r\begin{pmatrix} 1 \\ i \end{pmatrix} \quad \text{or equivalencies like}
-							\quad \mathbf{v} = s\begin{pmatrix} -i \\ 1 \end{pmatrix} $$
-						</div>
-					</div>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
-						<h5>Question: Why does this real matrix have complex roots?</h5>
-						<p class="fragment"><strong>Answer:</strong> This matrix matches the structure of a standard 2D
-							rotation matrix:</p>
-						<div class="fragment">
-							$$ \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \quad
-							\text{evaluated at } \theta = 90^{\circ} $$
-						</div>
-						<p class="fragment" style="margin-top: 15px;">Because a pure $90^{\circ}$ rotation changes the
-							direction of <em>every</em> non-zero vector in the real plane, no real steady-state
-							directional vector can exist!</p>
-
-						<div class="fragment"
-							style="margin-top: 15px; border-left: 3px solid #aaa; padding-left: 15px; font-size: 0.85em; color: #aaa;">
-							<p><strong>Conjugate Pair Property:</strong> For any real matrix, complex eigenvalues must
-								appear as conjugate pairs $a \pm bi$. This ensures that when factoring the
-								characteristic equation $(x - \lambda_1)(x - \lambda_2) = 0$, all polynomial
-								coefficients remain completely real.</p>
-						</div>
-					</div>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
-						<h5>Example 4 — Repeated Roots &amp; Shear</h5>
-						<p>Find the eigenvalues and eigenvectors for $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
-						</p>
-
-						<div class="fragment" style="margin-top: 10px;">
-							$$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 1 \\ 0 & 1-\lambda \end{vmatrix} =
-							(1-\lambda)^2 = 0 \implies \lambda = 1 \quad \text{(Algebraic Multiplicity = 2)} $$
-						</div>
-
-						<div class="fragment" style="margin-top: 15px;">
-							<h6>Evaluating the Eigenspace for $\lambda = 1$:</h6>
-							$$ (A - 1I)\mathbf{v} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} v_1 \\
-							v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies v_2 = 0 $$
-							<p>Setting the single free parameter $v_1 = r$ yields: $$ \mathbf{v} = \begin{pmatrix} r \\
-								0 \end{pmatrix} = r\begin{pmatrix} 1 \\ 0 \end{pmatrix} $$</p>
-						</div>
-
-						<p class="fragment" style="color: #ff9999; margin-top: 15px; font-size: 0.9em;">
-							In this case, there is only one linearly independent eigenvector. This occurs because $A$ is
-							a <strong>shear transformation</strong> (it skews the coordinate grid horizontally), leaving
-							only a single stable invariant direction along the $x$-axis.
-						</p>
-					</div>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
-						<h5>Example 5 — $3 \times 3$ Matrix System</h5>
-						<p>Take the matrix: $$ A = \begin{pmatrix} 1 & 0 & 2 \\ 0 & 2 & 1 \\ 3 & 0 & 2 \end{pmatrix} $$
-						</p>
-
-						<div class="fragment" style="font-size: 0.85em; margin-top: 10px;">
-							<p>Expand the determinant along the second column to exploit the zero entry:</p>
-							$$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 0 & 2 \\ 0 & 2-\lambda & 1 \\ 3 & 0 &
-							2-\lambda \end{vmatrix} $$
-							$$ = (2-\lambda) \begin{vmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{vmatrix} =
-							(2-\lambda)[(1-\lambda)(2-\lambda) - 6] $$
-							$$ = (2-\lambda)[\lambda^2 - 3\lambda - 4] = (2-\lambda)(\lambda + 1)(\lambda - 4) = 0 $$
-						</div>
-
-						<p class="fragment"
-							style="color: #4df3a9; font-weight: bold; margin-top: 10px; text-align: center;">
-							Eigenvalue solutions: $\lambda_1 = 2, \quad \lambda_2 = -1, \quad \lambda_3 = 4$
-						</p>
-					</div>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-80">
-						<h5>Example 5 — Eigenspace Calculations</h5>
-
-						<div class="fragment" style="font-size: 0.8em; margin-top: 5px;">
-							<h6>For $\lambda_1 = 2$:</h6>
-							$$ \begin{pmatrix} -1 & 0 & 2 \\ 0 & 0 & 1 \\ 3 & 0 & 0 \end{pmatrix}\begin{pmatrix} v_1 \\
-							v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1=0, v_3=0, v_2=r \implies \mathbf{v}_1 =
-							r\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $$
-						</div>
-
-						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
-							<h6>For $\lambda_2 = 4$:</h6>
-							$$ \begin{pmatrix} -3 & 0 & 2 \\ 0 & -2 & 1 \\ 3 & 0 & -2 \end{pmatrix}\begin{pmatrix} v_1
-							\\ v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1 = \frac{2}{3}v_3, v_2 = \frac{1}{2}v_3
-							\implies \mathbf{v}_2 = \frac{s}{6}\begin{pmatrix} 4 \\ 3 \\ 6 \end{pmatrix} $$
-						</div>
-
-						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
-							<h6>For $\lambda_3 = -1$:</h6>
-							$$ \begin{pmatrix} 2 & 0 & 2 \\ 0 & 3 & 1 \\ 3 & 0 & 3 \end{pmatrix}\begin{pmatrix} v_1 \\
-							v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1 = -v_3, v_2 = -\frac{1}{3}v_3 \implies
-							\mathbf{v}_3 = \frac{t}{3}\begin{pmatrix} -3 \\ -1 \\ 3\end{pmatrix} $$
-						</div>
-					</div>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
-						<h5>Eigenvalues of Triangular Matrices</h5>
-						<div
-							style="background: rgba(77,243,169,0.05); padding: 15px; border-radius: 5px; margin-bottom: 15px;">
-							<p><strong>Theorem:</strong> The eigenvalues of any triangular (upper or lower) or diagonal
-								matrix are precisely the entry values sitting directly on the main diagonal.</p>
-						</div>
-
-						<p>Consider: $$ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} \implies
-							\lambda_1 = 4, \quad \lambda_2 = 2, \quad \lambda_3 = 1 $$</p>
-
-						<div class="fragment" style="margin-top: 15px; font-size: 0.9em; color: #aaa;">
-							<h6>Why does this hold?</h6>
-							<p>When computing the characteristic determinant of a triangular system:</p>
-							$$ \det(A - \lambda I) = \begin{vmatrix} 4-\lambda & 4 & 6 \\ 0 & 2-\lambda & 7 \\ 0 & 0 &
-							1-\lambda \end{vmatrix} $$
-							<p>Cofactor expansion along the first column shows the determinant is just the product of
-								diagonal elements: $(4-\lambda)(2-\lambda)(1-\lambda) = 0$.</p>
-						</div>
-					</div>
-				</section>
-
-
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<h5>Class Exercises</h5>
-					<div class="size-85 left-txt">
-
-						<p>Work through the following matrix problems analytically to find all eigenvalues and
-							associated eigenvectors:</p>
-
-						<ol style="line-height: 4; margin-top: -20px; font-size: 0.9em;">
-							<li>$ A = \begin{pmatrix} 1 & 1 \\ 4 & 1 \end{pmatrix} $</li>
-							<li>$ A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix} \quad \text{(Marital
-								Motivation Matrix)} $</li>
-							<li>$ A = \begin{pmatrix} 1 & 1 & 2 \\ 0 & 7 & 11 \\ 0 & 0 & 3 \end{pmatrix} $</li>
-							<li>$ A = \begin{pmatrix} 1 & 0 & 0 \\ -2 & 1 & 3 \\ 1 & 1 & -1 \end{pmatrix} $</li>
-						</ol>
-					</div>
-				</section>
-
-
-
 			</section>
 
 			<section>
@@ -2266,7 +2080,7 @@
 
 				<section data-auto-animate>
 					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-85">
+					<div class="size-80">
 						<h5>Key Structural Observations</h5>
 						<ul style="line-height: 1.6;">
 							<li><strong>Row Reduction:</strong> While full Gaussian elimination works cleanly, $2 \times
@@ -2277,16 +2091,18 @@
 								remains a valid structural eigenvector.</li>
 							<li class="fragment"><strong>Matrix Invariant Checks:</strong> For any square matrix $A$:
 								<ol
-									style="margin-top: 5px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-									<li>$$\sum \lambda_i = \text{trace}(A) \quad \text{(Sum of principal diagonals)}$$
+									style="margin-top: 5px; line-height: 65px;">
+									<li>$\ds \sum \lambda_i = \text{trace}(A) $ (Sum of principal diagonals)
 									</li>
-									<li>$$\prod \lambda_i = \det(A) \quad \text{(Matrix determinant calculation)}$$</li>
+									<li>$\ds \prod \lambda_i = \det(A)$ (Matrix determinant calculation)</li>
 								</ol>
 							</li>
 						</ul>
-						<div class="fragment" style="font-size: 0.8em; color: #4df3a9; margin-top: 10px;">
-							Verification from Example 2: $\sum \lambda = 2+4=6$ (Trace = $3+3=6$). $\prod \lambda = 2
+						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
+							<p>
+								Verification from Example 2: $\sum \lambda = 2+4=6$ (Trace = $3+3=6$). $\prod \lambda = 2
 							\times 4 = 8$ ($\det = 9 - 1 = 8$). Perfect match!
+							</p>
 						</div>
 					</div>
 				</section>
@@ -2337,6 +2153,190 @@
 						</div>
 						<p class="fragment" style="margin-top: 10px; font-size: 0.9em; color: #aaa;">This relationship
 							generalizes across all larger $n \times n$ polynomial expansions.</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Example 3</h5>
+						<p>Find the eigenvalues and corresponding eigenvectors for $A = \begin{pmatrix} 0 & -1 \\ 1 & 0
+							\end{pmatrix}$.</p>
+
+						<div class="fragment" style="font-size: 0.9em;">
+							$$ \det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} =
+							\lambda^2 + 1 = 0 \implies \lambda = \pm i $$
+							<p style="color: #ff5555; font-weight: bold; margin-top: 5px;">A real matrix can yield
+								complex conjugate eigenvalues!</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 10px; font-size: 0.85em;">
+							<h6>Solving Eigenspace for $\lambda_1 = i$:</h6>
+							$$ (A - iI)\mathbf{v} = \begin{pmatrix} -i & -1 \\ 1 & -i \end{pmatrix}\begin{pmatrix} v_1
+							\\ v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies -iv_1 - v_2 = 0
+							\implies v_2 = -iv_1 $$
+							<p>Setting free variable $v_1 = r$ gives: $$ \mathbf{v} = \begin{pmatrix} v_1 \\ v_2
+								\end{pmatrix} = \begin{pmatrix} r \\ -ri \end{pmatrix} = r\begin{pmatrix} 1 \\ -i
+								\end{pmatrix} $$</p>
+						</div>
+
+						<div class="fragment" style="font-size: 0.85em;">
+							<h6>Solving Eigenspace for $\lambda_2 = -i$:</h6>
+							<p>Evaluating via standard parameter choices ($v_1=r$ or $v_2=s$):</p>
+							$$ \mathbf{v} = r\begin{pmatrix} 1 \\ i \end{pmatrix} \quad \text{or equivalencies like}
+							\quad \mathbf{v} = s\begin{pmatrix} -i \\ 1 \end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Question: Why does this real matrix have complex roots?</h5>
+						<p class="fragment"><strong>Answer:</strong> This matrix matches the structure of a standard 2D
+							rotation matrix:</p>
+						<div class="fragment">
+							$$ \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \quad
+							\text{evaluated at } \theta = 90^{\circ} $$
+						</div>
+						<p class="fragment" style="margin-top: 15px;">Because a pure $90^{\circ}$ rotation changes the
+							direction of <em>every</em> non-zero vector in the real plane, no real steady-state
+							directional vector can exist!</p>
+
+						<div class="fragment"
+							style="margin-top: 15px; border-left: 3px solid #aaa; padding-left: 15px; font-size: 0.85em; color: #aaa;">
+							<p><strong>Conjugate Pair Property:</strong> For any real matrix, complex eigenvalues must
+								appear as conjugate pairs $a \pm bi$. This ensures that when factoring the
+								characteristic equation $(x - \lambda_1)(x - \lambda_2) = 0$, all polynomial
+								coefficients remain completely real.</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Example 4 — Repeated Roots &amp; Shear</h5>
+						<p>Find the eigenvalues and eigenvectors for $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
+							$$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 1 \\ 0 & 1-\lambda \end{vmatrix} =
+							(1-\lambda)^2 = 0 \implies \lambda = 1 \quad \text{(Algebraic Multiplicity = 2)} $$
+						</div>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<h6>Evaluating the Eigenspace for $\lambda = 1$:</h6>
+							$$ (A - 1I)\mathbf{v} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies v_2 = 0 $$
+							<p>Setting the single free parameter $v_1 = r$ yields: $$ \mathbf{v} = \begin{pmatrix} r \\
+								0 \end{pmatrix} = r\begin{pmatrix} 1 \\ 0 \end{pmatrix} $$</p>
+						</div>
+
+						<p class="fragment" style="color: #ff9999; margin-top: 15px; font-size: 0.9em;">
+							In this case, there is only one linearly independent eigenvector. This occurs because $A$ is
+							a <strong>shear transformation</strong> (it skews the coordinate grid horizontally), leaving
+							only a single stable invariant direction along the $x$-axis.
+						</p>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Example 5 — $3 \times 3$ Matrix System</h5>
+						<p>Take the matrix: $$ A = \begin{pmatrix} 1 & 0 & 2 \\ 0 & 2 & 1 \\ 3 & 0 & 2 \end{pmatrix} $$
+						</p>
+
+						<div class="fragment" style="font-size: 0.85em; margin-top: 10px;">
+							<p>Expand the determinant along the second column to exploit the zero entry:</p>
+							$$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 0 & 2 \\ 0 & 2-\lambda & 1 \\ 3 & 0 &
+							2-\lambda \end{vmatrix} $$
+							$$ = (2-\lambda) \begin{vmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{vmatrix} =
+							(2-\lambda)[(1-\lambda)(2-\lambda) - 6] $$
+							$$ = (2-\lambda)[\lambda^2 - 3\lambda - 4] = (2-\lambda)(\lambda + 1)(\lambda - 4) = 0 $$
+						</div>
+
+						<p class="fragment"
+							style="color: #4df3a9; font-weight: bold; margin-top: 10px; text-align: center;">
+							Eigenvalue solutions: $\lambda_1 = 2, \quad \lambda_2 = -1, \quad \lambda_3 = 4$
+						</p>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-80">
+						<h5>Example 5 — Eigenspace Calculations</h5>
+
+						<div class="fragment" style="font-size: 0.8em; margin-top: 5px;">
+							<h6>For $\lambda_1 = 2$:</h6>
+							$$ \begin{pmatrix} -1 & 0 & 2 \\ 0 & 0 & 1 \\ 3 & 0 & 0 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1=0, v_3=0, v_2=r \implies \mathbf{v}_1 =
+							r\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
+							<h6>For $\lambda_2 = 4$:</h6>
+							$$ \begin{pmatrix} -3 & 0 & 2 \\ 0 & -2 & 1 \\ 3 & 0 & -2 \end{pmatrix}\begin{pmatrix} v_1
+							\\ v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1 = \frac{2}{3}v_3, v_2 = \frac{1}{2}v_3
+							\implies \mathbf{v}_2 = \frac{s}{6}\begin{pmatrix} 4 \\ 3 \\ 6 \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
+							<h6>For $\lambda_3 = -1$:</h6>
+							$$ \begin{pmatrix} 2 & 0 & 2 \\ 0 & 3 & 1 \\ 3 & 0 & 3 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1 = -v_3, v_2 = -\frac{1}{3}v_3 \implies
+							\mathbf{v}_3 = \frac{t}{3}\begin{pmatrix} -3 \\ -1 \\ 3\end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Eigenvalues of Triangular Matrices</h5>
+						<div
+							style="background: rgba(77,243,169,0.05); padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+							<p><strong>Theorem:</strong> The eigenvalues of any triangular (upper or lower) or diagonal
+								matrix are precisely the entry values sitting directly on the main diagonal.</p>
+						</div>
+
+						<p>Consider: $$ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} \implies
+							\lambda_1 = 4, \quad \lambda_2 = 2, \quad \lambda_3 = 1 $$</p>
+
+						<div class="fragment" style="margin-top: 15px; font-size: 0.9em; color: #aaa;">
+							<h6>Why does this hold?</h6>
+							<p>When computing the characteristic determinant of a triangular system:</p>
+							$$ \det(A - \lambda I) = \begin{vmatrix} 4-\lambda & 4 & 6 \\ 0 & 2-\lambda & 7 \\ 0 & 0 &
+							1-\lambda \end{vmatrix} $$
+							<p>Cofactor expansion along the first column shows the determinant is just the product of
+								diagonal elements: $(4-\lambda)(2-\lambda)(1-\lambda) = 0$.</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<h5>Class Exercises</h5>
+					<div class="size-85 left-txt">
+
+						<p>Work through the following matrix problems analytically to find all eigenvalues and
+							associated eigenvectors:</p>
+
+						<ol style="line-height: 4; margin-top: -20px; font-size: 0.9em;">
+							<li>$ A = \begin{pmatrix} 1 & 1 \\ 4 & 1 \end{pmatrix} $</li>
+							<li>$ A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix} \quad \text{(Marital
+								Motivation Matrix)} $</li>
+							<li>$ A = \begin{pmatrix} 1 & 1 & 2 \\ 0 & 7 & 11 \\ 0 & 0 & 3 \end{pmatrix} $</li>
+							<li>$ A = \begin{pmatrix} 1 & 0 & 0 \\ -2 & 1 & 3 \\ 1 & 1 & -1 \end{pmatrix} $</li>
+						</ol>
 					</div>
 				</section>
 
