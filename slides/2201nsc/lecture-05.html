@@ -2502,7 +2502,7 @@
 								</p>
 							</div>
 						</div>
-						<hr  class="fragment" data-fragment-index="5"/>
+						<hr class="fragment" data-fragment-index="5" />
 
 						<div style="font-size: 0.9em; margin-top: 10px;">
 
@@ -2522,7 +2522,7 @@
 							</div>
 						</div>
 
-						<hr  class="fragment" data-fragment-index="8" />
+						<hr class="fragment" data-fragment-index="8" />
 
 						<div style="font-size: 0.9em; margin-top: 10px;">
 
@@ -2545,14 +2545,14 @@
 
 
 					</div>
-					<br/>
+					<br />
 				</section>
 
 
 				<section data-auto-animate>
 					<h4>Eigenvalues of Triangular Matrices</h4>
 					<div class="size-70">
-						
+
 						<div>
 							<p>The eigenvalues of any triangular (upper or lower) or diagonal
 								matrix are precisely the entry values sitting directly on the main diagonal.</p>
@@ -2560,11 +2560,11 @@
 
 						<div class="cc">
 							<p>Consider $ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} \implies
-							\lambda_1 = 4, \quad \lambda_2 = 2, \quad \lambda_3 = 1 $</p>
+								\lambda_1 = 4, \quad \lambda_2 = 2, \quad \lambda_3 = 1 $</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.9em; color: #aaa;">
-							<h6>Why does this hold?</h6>
+						<div class="fragment" style="margin-top: 15px; font-size: 0.9em;">
+							<h5>Why does this hold?</h5>
 							<p>When computing the characteristic determinant of a triangular system:</p>
 							$$ \det(A - \lambda I) = \begin{vmatrix} 4-\lambda & 4 & 6 \\ 0 & 2-\lambda & 7 \\ 0 & 0 &
 							1-\lambda \end{vmatrix} $$
@@ -2576,44 +2576,71 @@
 
 
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors</h4>
-					<div class="size-80">
-						<h5>Example 6: Finding Eigenvalues Analytically</h5>
-						<p>Consider the matrix: $$ A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
-							$$</p>
+					<h4>Example 5: Finding eigenvalues and eigenvector using the computer</h4>
+					<div class="size-70">
 
-						<div class="fragment" style="font-size: 0.85em;">
-							<p>The characteristic equation evaluates to:</p>
-							$$ \det(A - \lambda I) = (1-\lambda)[(2-\lambda)^{2}-1] = (1-\lambda)(\lambda-3)(\lambda-1)
-							= 0 $$
+						<div class="cc">
+							<p>
+
+								$
+								A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
+								$
+								<span>
+									$\Ra\det(A - \lambda I) = (1-\lambda)[(2-\lambda)^{2}-1] =
+									(1-\lambda)(\lambda-3)(\lambda-1)= 0 $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" style="font-size: 0.9em;">
+
+
 							<p>This yields our eigenvalues: $\lambda_1 = 3$ and a repeated root $\lambda_2 = 1$
 								(Algebraic Multiplicity = 2).</p>
 						</div>
 
-						<div class="fragment" style="font-size: 0.8em; margin-top: 5px;">
-							<h6>For $\lambda_1 = 3$:</h6>
-							$$ \begin{pmatrix} -2 & 0 & 0 \\ 0 & -1 & 1 \\ 0 & 1 & -1 \end{pmatrix}\begin{pmatrix} v_1
-							\\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} \implies v_1 = 0, \;
-							v_2 = v_3 \implies \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $$
+						<div class="cc" style="font-size: 0.9em; margin-top: 5px;">
+							<p>
+								For $\lambda_1 = 3$:
+
+								$ \begin{pmatrix} -2 & 0 & 0 \\ 0 & -1 & 1 \\ 0 & 1 & -1 \end{pmatrix}\begin{pmatrix}
+								v_1
+								\\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} \implies v_1 =
+								0, \;
+								v_2 = v_3 \implies \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
+
+							</p>
 						</div>
 
-						<div class="fragment" style="font-size: 0.8em; margin-top: 5px;">
-							<h6>For $\lambda_2 = 1$:</h6>
-							$$ \begin{pmatrix} 0 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} v_1 \\
-							v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} \implies v_2 + v_3 = 0
-							\implies v_2 = -v_3 $$
-							<p>Setting free parameters $v_1 = r$ and $v_3 = t$ generates a 2D eigenspace plane:</p>
-							$$ \mathbf{v} = \begin{pmatrix} r \\ -t \\ t \end{pmatrix} = r\begin{pmatrix} 1 \\ 0 \\ 0
-							\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $$
+						<div class="cc" style="font-size: 0.9em; margin-top: 5px;">
+							<p>
+								For $\lambda_2 = 1$:
+								$ \begin{pmatrix} 0 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} v_1
+								\\
+								v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} \implies v_2 + v_3
+								= 0
+								\implies v_2 = -v_3 $
+
+							</p>
+
+							<p>
+								Setting free parameters $v_1 = r$ and $v_3 = t$ generates a <b>2D eigenspace plane</b>:
+
+							</p>
+							<p>
+								$ \mathbf{v}_2 = \begin{pmatrix} r \\ -t \\ t \end{pmatrix} = r\begin{pmatrix} 1 \\ 0 \\
+								0
+								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
+							</p>
+
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 31/69 -->
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors</h4>
-					<div class="size-85">
-						<h5>Example 6 — MATLAB Verification</h5>
+					<h4>Example 5: Finding eigenvalues and eigenvector using the computer</h4>
+					<div class="size-70">
+						
 						<p>What structural matrix forms does MATLAB return for this repeated eigenvalue scenario?</p>
 
 						<div class="fragment" style="display: flex; justify-content: space-around; margin-top: 15px;">
