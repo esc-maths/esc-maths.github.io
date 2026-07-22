@@ -2217,13 +2217,13 @@
 							\end{pmatrix}$.</p>
 
 						<div class="cc">
-							
+
 							<p class="fragment" data-fragment-index="0">
 								$\det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} $
 								<span class="fragment" data-fragment-index="1">
 									$
 									=
-							        \lambda^2 + 1 
+									\lambda^2 + 1
 									$
 								</span>
 								<span class="fragment" data-fragment-index="2">
@@ -2232,8 +2232,9 @@
 									$
 								</span>
 							</p>
-							
-							<p class="fragment" data-fragment-index="3" style="font-weight: bold; margin-top: 5px; text-align: center;" id="rr">
+
+							<p class="fragment" data-fragment-index="3"
+								style="font-weight: bold; margin-top: 5px; text-align: center;" id="rr">
 								A real matrix can yield
 								complex conjugate eigenvalues!
 							</p>
@@ -2250,7 +2251,7 @@
 								</span>
 								<span class="fragment" data-fragment-index="6">
 									$\Ra -iv_1 - v_2 = 0
-									 $
+									$
 								</span>
 								<span class="fragment" data-fragment-index="7">
 									$
@@ -2280,7 +2281,7 @@
 
 
 					</div>
-					<br/>
+					<br />
 				</section>
 				<section data-auto-animate>
 					<h4>Example 2 - <span>Complex eigenvalues</span></h4>
@@ -2289,13 +2290,13 @@
 							\end{pmatrix}$.</p>
 
 						<div class="cc">
-							
+
 							<p>
 								$\det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} $
 								<span>
 									$
 									=
-							        \lambda^2 + 1 
+									\lambda^2 + 1
 									$
 								</span>
 								<span>
@@ -2304,7 +2305,7 @@
 									$
 								</span>
 							</p>
-							
+
 							<p style="font-weight: bold; margin-top: 5px; text-align: center;" id="rr">
 								A real matrix can yield
 								complex conjugate eigenvalues!
@@ -2314,33 +2315,33 @@
 						<div class="cc" style="margin-top: 10px;">
 							<p>
 								The eigenvectors associated to $\lambda_1 = i\,$
-								are 
+								are
 								\(\,\mathbf{v}_1 = r\begin{pmatrix} 1 \\ -i
-									\end{pmatrix}.\)
+								\end{pmatrix}.\)
 							</p>
 							<p class="fragment">
 								The eigenvectors associated to $\lambda_2 = -i\,$
-								are 
+								are
 								\(\mathbf{v}_2 = s\begin{pmatrix} -i \\ 1
-									\end{pmatrix}.\)
+								\end{pmatrix}.\)
 							</p>
 
 
-							
+
 						</div>
 
 
 					</div>
-					<br/>
+					<br />
 				</section>
-				
+
 
 
 				<section data-auto-animate>
 					<h4>Example 2 - <span>Complex eigenvalues</span></h4>
 					<div class="size-85">
-						<h5>Question: Why does this real matrix have complex roots?</h5>
-						<p style="font-size: 0.75em;">
+						<h5>Question: Why does this real matrix have complex roots? 🤔</h5>
+						<p style="font-size: 0.70em;">
 							$$A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$$
 						</p>
 						<p class="fragment"><strong>Answer:</strong> This matrix matches the structure of a standard 2D
@@ -2362,104 +2363,205 @@
 						</div>
 					</div>
 
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 
 				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-60">
-						<h5>Example 3 - <span>Repeated Roots &amp; Shear</span></h5>
-						<p>Find the eigenvalues and eigenvectors for $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+					<h4>Example 3 <span>- Repeated Roots</span> <span>&amp; Shear</span></h4>
+					<div class="size-75">
+						<h5></h5>
+						<p>
+							Find the eigenvalues and eigenvectors for
+							$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
 						</p>
 
-						<div class="fragment" style="margin-top: 10px;">
-							$$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 1 \\ 0 & 1-\lambda \end{vmatrix} =
-							(1-\lambda)^2 = 0 \implies \lambda = 1 \quad \text{(Algebraic Multiplicity = 2)} $$
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 1 \\ 0 & 1-\lambda \end{vmatrix} =
+								$
+								<span class="fragment" data-fragment-index="1">
+									$ (1-\lambda)^2 = 0$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ \Ra \lambda = 1 \;\;$
+								</span>
+								<span class="fragment" data-fragment-index="3" id="bb">
+									(Algebraic Multiplicity = 2)
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<h6>Evaluating the Eigenspace for $\lambda = 1$:</h6>
-							$$ (A - 1I)\mathbf{v} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} v_1 \\
-							v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies v_2 = 0 $$
-							<p>Setting the single free parameter $v_1 = r$ yields: $$ \mathbf{v} = \begin{pmatrix} r \\
-								0 \end{pmatrix} = r\begin{pmatrix} 1 \\ 0 \end{pmatrix} $$</p>
+						<div class="cc" style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="4">
+								For $\lambda = 1$:
+								<span class="fragment" data-fragment-index="5">
+									$ \;(A - 1I)\mathbf{v} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix}
+									v_1 \\
+									v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ \Ra v_2 = 0 $
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								Setting the single free parameter $v_1 = r$ yields:
+								$\, \mathbf{v} = \begin{pmatrix} r \\
+								0 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="8">
+									$= r\begin{pmatrix} 1 \\ 0 \end{pmatrix} $
+								</span>
+
+							</p>
 						</div>
 
-						<p class="fragment" style="color: #ff9999; margin-top: 15px; font-size: 0.9em;">
-							In this case, there is only one linearly independent eigenvector. This occurs because $A$ is
-							a <strong>shear transformation</strong> (it skews the coordinate grid horizontally), leaving
-							only a single stable invariant direction along the $x$-axis.
+						<p class="fragment" style="margin-top: 15px;">
+							In this case, there is only one linearly independent eigenvector.
+							<span class="fragment">
+								This occurs because $A$ is
+								a <strong>shear transformation</strong>
+								(it skews the coordinate grid horizontally), leaving
+								only a single stable invariant direction along the $x$-axis.
+							</span>
 						</p>
 					</div>
+					<br />
 				</section>
 
 
 				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-70">
-						<h5>Example 4 — $3 \times 3$ Matrix System</h5>
-						<p>Take the matrix: $$ A = \begin{pmatrix} 1 & 0 & 2 \\ 0 & 2 & 1 \\ 3 & 0 & 2 \end{pmatrix} $$
-						</p>
+					<h4>Example 4 - $3 \times 3$ Matrix System</h4>
+					<div class="size-80">
 
-						<div class="fragment" style="font-size: 0.85em; margin-top: 10px;">
-							<p>Expand the determinant along the second column to exploit the zero entry:</p>
-							$$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 0 & 2 \\ 0 & 2-\lambda & 1 \\ 3 & 0 &
-							2-\lambda \end{vmatrix} $$
-							$$ = (2-\lambda) \begin{vmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{vmatrix} =
-							(2-\lambda)[(1-\lambda)(2-\lambda) - 6] $$
-							$$ = (2-\lambda)[\lambda^2 - 3\lambda - 4] = (2-\lambda)(\lambda + 1)(\lambda - 4) = 0 $$
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								Take the matrix $A = \begin{pmatrix} 1 & 0 & 2 \\ 0 & 2 & 1 \\ 3 & 0 & 2 \end{pmatrix} $
+							</p>
+						</div>
+
+						<div style="font-size: 0.9em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								Expand the determinant along the second column to exploit the zero entry:
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 0 & 2 \\ 0 & 2-\lambda & 1 \\ 3 & 0
+								&
+								2-\lambda \end{vmatrix}$
+								<span class="fragment" data-fragment-index="4">
+									$ = (2-\lambda) \begin{vmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{vmatrix}
+									\qquad\qquad $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								$=
+								(2-\lambda)[(1-\lambda)(2-\lambda) - 6]$
+								<span class="fragment" data-fragment-index="6">
+									$= (2-\lambda)[\lambda^2 - 3\lambda - 4]$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$
+								= (2-\lambda)(\lambda + 1)(\lambda - 4) = 0 \qquad\qquad\qquad\qquad\;\,\, $
+							</p>
 						</div>
 
 						<p class="fragment"
 							style="color: #068e51; font-weight: bold; margin-top: 10px; text-align: center;">
-							Eigenvalue solutions: $\lambda_1 = 2, \quad \lambda_2 = -1, \quad \lambda_3 = 4$
+							Eigenvalue solutions: $\lambda_1 = 2,\;$ $\lambda_2 = -1,\;$ $\lambda_3 = 4$
 						</p>
 					</div>
+					<br />
 				</section>
 
 
 				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
+					<h4>Example 4 - $3 \times 3$ Matrix System</h4>
 					<div class="size-80">
-						<h5>Example 4 — Eigenspace Calculations</h5>
 
-						<div class="fragment" style="font-size: 0.8em; margin-top: 5px;">
-							<h6>For $\lambda_1 = 2$:</h6>
-							$$ \begin{pmatrix} -1 & 0 & 2 \\ 0 & 0 & 1 \\ 3 & 0 & 0 \end{pmatrix}\begin{pmatrix} v_1 \\
-							v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1=0, v_3=0, v_2=r \implies \mathbf{v}_1 =
-							r\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $$
+						<div style="font-size: 0.9em; margin-top: 5px;">
+							<div class="cc">
+								<p class="fragment" data-fragment-index="1">
+									For $\lambda_1 = 2$: $ \;\begin{pmatrix} -1 & 0 & 2 \\ 0 & 0 & 1 \\ 3 & 0 & 0
+									\end{pmatrix}\begin{pmatrix}
+									v_1 \\
+									v_2 \\ v_3 \end{pmatrix} = \mathbf{0} $
+									<span class="fragment" data-fragment-index="2">
+										$ \implies v_1=0,\, v_3=0, \,v_2=r$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$ \implies \mathbf{v}_1 =
+										r\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $
+									</span>
+
+								</p>
+							</div>
+						</div>
+						<hr  class="fragment" data-fragment-index="5"/>
+
+						<div style="font-size: 0.9em; margin-top: 10px;">
+
+							<div class="cc">
+								<p class="fragment" data-fragment-index="5">
+									For $\lambda_2 = 4$: $ \; \begin{pmatrix} -3 & 0 & 2 \\ 0 & -2 & 1 \\ 3 & 0 & -2
+									\end{pmatrix}\begin{pmatrix} v_1
+									\\ v_2 \\ v_3 \end{pmatrix} = \mathbf{0} $
+									<span class="fragment" data-fragment-index="6">
+										$ \implies v_1 = \dfrac{2}{3}v_3,\, v_2 = \dfrac{1}{2}v_3$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$ \implies \mathbf{v}_2 = \dfrac{s}{6}\begin{pmatrix} 4 \\ 3 \\ 6 \end{pmatrix}$
+									</span>
+
+								</p>
+							</div>
 						</div>
 
-						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
-							<h6>For $\lambda_2 = 4$:</h6>
-							$$ \begin{pmatrix} -3 & 0 & 2 \\ 0 & -2 & 1 \\ 3 & 0 & -2 \end{pmatrix}\begin{pmatrix} v_1
-							\\ v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1 = \frac{2}{3}v_3, v_2 = \frac{1}{2}v_3
-							\implies \mathbf{v}_2 = \frac{s}{6}\begin{pmatrix} 4 \\ 3 \\ 6 \end{pmatrix} $$
+						<hr  class="fragment" data-fragment-index="8" />
+
+						<div style="font-size: 0.9em; margin-top: 10px;">
+
+							<div class="cc">
+								<p class="fragment" data-fragment-index="8">
+									For $\lambda_3 = -1$: $ \; \begin{pmatrix} 2 & 0 & 2 \\ 0 & 3 & 1 \\ 3 & 0 & 3
+									\end{pmatrix}\begin{pmatrix} v_1 \\
+									v_2 \\ v_3 \end{pmatrix} = \mathbf{0}$
+									<span class="fragment" data-fragment-index="9">
+										$ \implies v_1 = -v_3,\, v_2 = -\dfrac{1}{3}v_3 $
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$ \implies
+										\mathbf{v}_3 = \dfrac{t}{3}\begin{pmatrix} -3 \\ -1 \\ 3\end{pmatrix} $
+									</span>
+
+								</p>
+							</div>
 						</div>
 
-						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
-							<h6>For $\lambda_3 = -1$:</h6>
-							$$ \begin{pmatrix} 2 & 0 & 2 \\ 0 & 3 & 1 \\ 3 & 0 & 3 \end{pmatrix}\begin{pmatrix} v_1 \\
-							v_2 \\ v_3 \end{pmatrix} = \mathbf{0} \implies v_1 = -v_3, v_2 = -\frac{1}{3}v_3 \implies
-							\mathbf{v}_3 = \frac{t}{3}\begin{pmatrix} -3 \\ -1 \\ 3\end{pmatrix} $$
-						</div>
+
 					</div>
+					<br/>
 				</section>
 
 
 				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
+					<h4>Eigenvalues of Triangular Matrices</h4>
 					<div class="size-70">
-						<h5>Eigenvalues of Triangular Matrices</h5>
+						
 						<div>
-							<p><strong>Theorem:</strong> The eigenvalues of any triangular (upper or lower) or diagonal
+							<p>The eigenvalues of any triangular (upper or lower) or diagonal
 								matrix are precisely the entry values sitting directly on the main diagonal.</p>
 						</div>
 
-						<p>Consider: $$ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} \implies
-							\lambda_1 = 4, \quad \lambda_2 = 2, \quad \lambda_3 = 1 $$</p>
+						<div class="cc">
+							<p>Consider $ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} \implies
+							\lambda_1 = 4, \quad \lambda_2 = 2, \quad \lambda_3 = 1 $</p>
+						</div>
 
 						<div class="fragment" style="margin-top: 15px; font-size: 0.9em; color: #aaa;">
 							<h6>Why does this hold?</h6>
