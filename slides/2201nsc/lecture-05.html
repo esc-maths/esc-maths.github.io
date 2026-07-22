@@ -2175,10 +2175,11 @@
 				<section data-auto-animate>
 					<h4>Factoring the Characteristic System</h4>
 					<div class="size-85">
-						<p class="fragment" data-fragment-index="0"><b>Corollary:</b> If $\lambda_1, \lambda_2$ represent the true root solutions to matrix $A$,
+						<p class="fragment" data-fragment-index="0"><b>Corollary:</b> If $\lambda_1, \lambda_2$
+							represent the true root solutions to matrix $A$,
 							<span class="fragment" data-fragment-index="1">
 								then their polynomial product equation yields:
-								
+
 							</span>
 						</p>
 						<div class="cc">
@@ -2186,7 +2187,7 @@
 								$(\lambda - \lambda_1)(\lambda - \lambda_2)=0$
 								<span class="fragment" data-fragment-index="2">
 									$\implies \lambda^2 - (\lambda_1 +
-								\lambda_2)\lambda + \lambda_1\lambda_2 = 0 $
+									\lambda_2)\lambda + \lambda_1\lambda_2 = 0 $
 								</span>
 							</p>
 						</div>
@@ -2201,52 +2202,147 @@
 							$$ \lambda_1 + \lambda_2 = \text{trace}(A) \quad \text{and} \quad \lambda_1\lambda_2 =
 							\det(A) $$
 						</div>
-						<p class="fragment" style="margin-top: 10px; font-size: 0.9em; color: #3c3b3b;">This
+						<p class="fragment" style="margin-top: 10px; ">This
 							relationship
 							generalizes across all larger $n \times n$ polynomial expansions.</p>
 					</div>
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<div class="size-65">
-						<h5>Example 2 - <span>Complex eigenvalues</span></h5>
+					<h4>Example 2 <span class="fragment" data-fragment-index="3">- Complex eigenvalues</span></h4>
+					<div class="size-80">
 						<p>Find the eigenvalues and corresponding eigenvectors for $A = \begin{pmatrix} 0 & -1 \\ 1 & 0
 							\end{pmatrix}$.</p>
 
-						<div class="fragment" style="font-size: 0.9em;">
-							$$ \det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} =
-							\lambda^2 + 1 = 0 \implies \lambda = \pm i $$
-							<p style="color: #ff5555; font-weight: bold; margin-top: 5px;">A real matrix can yield
-								complex conjugate eigenvalues!</p>
+						<div class="cc">
+							
+							<p class="fragment" data-fragment-index="0">
+								$\det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} $
+								<span class="fragment" data-fragment-index="1">
+									$
+									=
+							        \lambda^2 + 1 
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$
+									= 0 \implies \lambda = \pm i
+									$
+								</span>
+							</p>
+							
+							<p class="fragment" data-fragment-index="3" style="font-weight: bold; margin-top: 5px; text-align: center;" id="rr">
+								A real matrix can yield
+								complex conjugate eigenvalues!
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 10px; font-size: 0.85em;">
-							<h6>Solving Eigenspace for $\lambda_1 = i$:</h6>
-							$$ (A - iI)\mathbf{v} = \begin{pmatrix} -i & -1 \\ 1 & -i \end{pmatrix}\begin{pmatrix} v_1
-							\\ v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies -iv_1 - v_2 = 0
-							\implies v_2 = -iv_1 $$
-							<p>Setting free variable $v_1 = r$ gives: $$ \mathbf{v} = \begin{pmatrix} v_1 \\ v_2
-								\end{pmatrix} = \begin{pmatrix} r \\ -ri \end{pmatrix} = r\begin{pmatrix} 1 \\ -i
-								\end{pmatrix} $$</p>
+						<div class="cc" style="margin-top: 10px; font-size: 0.90em;">
+							<p class="fragment" data-fragment-index="4">
+								For $\lambda_1 = i$:
+								<span class="fragment" data-fragment-index="5">
+									$\;(A - iI)\mathbf{v} = \begin{pmatrix} -i & -1 \\ 1 & -i
+									\end{pmatrix}\begin{pmatrix}
+									v_1
+									\\ v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\Ra -iv_1 - v_2 = 0
+									 $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									\Ra v_2 = -iv_1 $
+								</span>
+
+							</p>
+
+
+							<p class="fragment" data-fragment-index="8">
+								Setting free variable $v_1 = r$ gives:
+							</p>
+							<p class="fragment" data-fragment-index="8">
+								$
+								\mathbf{v} = \begin{pmatrix} v_1 \\ v_2
+								\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="9">
+									$= \begin{pmatrix} r \\ -ri \end{pmatrix} $
+								</span>
+								<span class="fragment">
+									$ = r\begin{pmatrix} 1 \\ -i
+									\end{pmatrix} $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" style="font-size: 0.85em;">
-							<h6>Solving Eigenspace for $\lambda_2 = -i$:</h6>
-							<p>Evaluating via standard parameter choices ($v_1=r$ or $v_2=s$):</p>
-							$$ \mathbf{v} = r\begin{pmatrix} 1 \\ i \end{pmatrix} \quad \text{or equivalencies like}
-							\quad \mathbf{v} = s\begin{pmatrix} -i \\ 1 \end{pmatrix} $$
-						</div>
+
 					</div>
+					<br/>
 				</section>
+				<section data-auto-animate>
+					<h4>Example 2 - <span>Complex eigenvalues</span></h4>
+					<div class="size-80">
+						<p>Find the eigenvalues and corresponding eigenvectors for $A = \begin{pmatrix} 0 & -1 \\ 1 & 0
+							\end{pmatrix}$.</p>
+
+						<div class="cc">
+							
+							<p>
+								$\det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} $
+								<span>
+									$
+									=
+							        \lambda^2 + 1 
+									$
+								</span>
+								<span>
+									$
+									= 0 \implies \lambda = \pm i
+									$
+								</span>
+							</p>
+							
+							<p style="font-weight: bold; margin-top: 5px; text-align: center;" id="rr">
+								A real matrix can yield
+								complex conjugate eigenvalues!
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p>
+								The eigenvectors associated to $\lambda_1 = i\,$
+								are 
+								\(\,\mathbf{v}_1 = r\begin{pmatrix} 1 \\ -i
+									\end{pmatrix}.\)
+							</p>
+							<p class="fragment">
+								The eigenvectors associated to $\lambda_2 = -i\,$
+								are 
+								\(\mathbf{v}_2 = s\begin{pmatrix} -i \\ 1
+									\end{pmatrix}.\)
+							</p>
+
+
+							
+						</div>
+
+
+					</div>
+					<br/>
+				</section>
+				
 
 
 				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
+					<h4>Example 2 - <span>Complex eigenvalues</span></h4>
 					<div class="size-85">
 						<h5>Question: Why does this real matrix have complex roots?</h5>
+						<p style="font-size: 0.75em;">
+							$$A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$$
+						</p>
 						<p class="fragment"><strong>Answer:</strong> This matrix matches the structure of a standard 2D
 							rotation matrix:</p>
 						<div class="fragment">
@@ -2258,13 +2354,16 @@
 							directional vector can exist!</p>
 
 						<div class="fragment"
-							style="margin-top: 15px; border-left: 3px solid #aaa; padding-left: 15px; font-size: 0.85em; color: #aaa;">
+							style="margin-top: 15px; border-left: 3px solid #aaa; padding-left: 15px; font-size: 0.85em; color: #2b51e8;">
 							<p><strong>Conjugate Pair Property:</strong> For any real matrix, complex eigenvalues must
 								appear as conjugate pairs $a \pm bi$. This ensures that when factoring the
 								characteristic equation $(x - \lambda_1)(x - \lambda_2) = 0$, all polynomial
 								coefficients remain completely real.</p>
 						</div>
 					</div>
+
+					<br/>
+					<br/>
 				</section>
 
 
