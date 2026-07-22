@@ -700,7 +700,8 @@
 					<h4>What are Eigenvalues and Eigenvectors?</h4>
 					<div class="size-85 left-txt">
 
-						<p class="fragment">They are fundamental intrinsic properties of square matrices that reveal stable structural
+						<p class="fragment">They are fundamental intrinsic properties of square matrices that reveal
+							stable structural
 							states across engineering and science systems:</p>
 						<ul style="margin-top: 10px; font-size: 0.85em; line-height: 1.6;" class="fragment">
 							<li>Systems of differential equations &amp; structural analysis</li>
@@ -2099,9 +2100,8 @@
 						</ul>
 						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
 							<p>
-								Verification from Example 2: $\sum \lambda = 2+4=6$ (Trace = $3+3=6$). $\prod \lambda =
-								2
-								\times 4 = 8$ ($\det = 9 - 1 = 8$). Perfect match!
+								From Example 1: $\sum \lambda = 3+2=5$ (Trace = $3+2=5$). $\prod \lambda =
+								3 \times 2 = 6$ ($\det = 6 - 0 = 6$). Perfect match!
 							</p>
 						</div>
 					</div>
@@ -2111,35 +2111,86 @@
 				<section data-auto-animate>
 					<h4>Eigenvalue Theorem for $2 \times 2$ Matrices</h4>
 					<div class="size-85">
-						
-						<div>
+
+						<div class="fragment" data-fragment-index="0">
 
 							<p><b>Theorem:</b> The eigenvalues of any arbitrary $2 \times 2$ matrix are found explicitly
 								via: <br>
-								$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 $$</p>
+								$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0. $$</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.9em;">
-							<h6>Proof Outline:</h6>
-							<p>Let $A = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}$. The
-								characteristic equation satisfies:</p>
-							$$ \det(A - \lambda I) = \begin{vmatrix} a_{11}-\lambda & a_{12} \\ a_{21} & a_{22}-\lambda
-							\end{vmatrix} = (a_{11}-\lambda)(a_{22}-\lambda) - a_{12}a_{21} $$
-							$$ = \lambda^2 - (a_{11} + a_{22})\lambda + (a_{11}a_{22} - a_{12}a_{21}) $$
-							$$ = \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 \quad \blacksquare $$
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px; font-size: 0.9em;">
+
+							<p><b>Proof Outline:</b>
+								Let $A = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}$.
+								<span class="fragment" data-fragment-index="2">
+									Then
+								</span>
+							</p>
+
 						</div>
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$
+									\det(A - \lambda I) = \begin{vmatrix} a_{11}-\lambda & a_{12} \\ a_{21} &
+									a_{22}-\lambda
+									\end{vmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									= (a_{11}-\lambda)(a_{22}-\lambda) - a_{12}a_{21}
+									$
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$
+									= \lambda^2 - (a_{11} + a_{22})\lambda + (a_{11}a_{22} - a_{12}a_{21})
+									$
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									$
+									= \lambda^2 - \text{trace}(A)\lambda + \det(A)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									= 0 \;\qquad \blacksquare
+									$
+								</span>
+							</p>
+						</div>
+
 					</div>
+					<br />
 				</section>
 
 
 				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
+					<h4>Factoring the Characteristic System</h4>
 					<div class="size-85">
-						<h5>Corollary: Factoring the Characteristic System</h5>
-						<p>If $\lambda_1, \lambda_2$ represent the true root solutions to matrix $A$, then their
-							polynomial product equation yields:</p>
-						$$ (\lambda - \lambda_1)(\lambda - \lambda_2) = 0 \implies \lambda^2 - (\lambda_1 +
-						\lambda_2)\lambda + \lambda_1\lambda_2 = 0 $$
+						<p class="fragment" data-fragment-index="0"><b>Corollary:</b> If $\lambda_1, \lambda_2$ represent the true root solutions to matrix $A$,
+							<span class="fragment" data-fragment-index="1">
+								then their polynomial product equation yields:
+								
+							</span>
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$(\lambda - \lambda_1)(\lambda - \lambda_2)=0$
+								<span class="fragment" data-fragment-index="2">
+									$\implies \lambda^2 - (\lambda_1 +
+								\lambda_2)\lambda + \lambda_1\lambda_2 = 0 $
+								</span>
+							</p>
+						</div>
+
 
 						<div class="fragment" style="margin-top: 15px;">
 							<p>Equating coefficients directly with the primary theorem equation:</p>
@@ -2154,6 +2205,8 @@
 							relationship
 							generalizes across all larger $n \times n$ polynomial expansions.</p>
 					</div>
+					<br/>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
