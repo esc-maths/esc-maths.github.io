@@ -2577,21 +2577,87 @@
 
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
-					<div class="size-70">
-						<pre style="width: 60%;height: 130px; font-size: 60%;margin-top: 25px;" class="fragment">
-						<code data-trim data-noescape  class="language-python">
->> [V, D] = A
-</code></pre>
-					<pre style="width: 60%;height: 180px; font-size: 60%;margin-top: 25px;" class="fragment">
-						<code data-trim data-noescape  class="language-python">
->> ans
-  </code></pre>
 
-						
+					<div class="size-95">
+
+						<p class="fragment" data-fragment-index="0">
+							Eigenvalues and eigenvectors can be computed quickly using
+							many programming languages and mathematical software packages.
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								<tt>Python, Mathematica, MATLAB/Octave, <br /> GeoGebra CAS, Maple, Julia, etc.</tt>
+							</p>
+						</div>
+						<br />
+
+						<p class="fragment" data-fragment-index="1">
+							There are also many free online calculators that can compute
+							them automatically 
+							(<span style="color: #7e7e7e;">just Google "eigenvalues/eigenvectors calculator"</span>).
+						</p>
+
 					</div>
+
+					<br />
+					<br />
+
 				</section>
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
+					<div class="size-80">
+
+
+						<div class="cc">
+							<p><tt>MATLAB/Octave</tt>
+
+								has efficient algorithms for finding eigenvalues and eigenvectors.
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="1">
+							1. Construct the matrix $A$, e.g. &nbsp;<tt>A = [[1,0,0]; [0,2,1]; [0,1,2]]</tt>
+						</p>
+
+						<p class="fragment" data-fragment-index="2">
+							2. Use the command <tt>eig</tt> as follows: &nbsp;<tt>[V, D] = eig(A)</tt>
+						</p>
+
+
+
+					</div>
+					<div class="size-75">
+						<p class="fragment" data-fragment-index="3"><b>Interpretation:</b></p>
+						<p class="fragment" data-fragment-index="3">
+							<tt>D</tt> = diagonal matrix containing the eigenvalues of $A$.
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							<tt>V</tt> = matrix whose columns are the eigenvectors of $A$, where each column has been
+							normalised, and the order of the eigenvectors matches the order of the eigenvalues.
+						</p>
+
+						<p class="fragment" data-fragment-index="5">
+							<b>NOTE!!</b> The eigenvectors found by Matlab are
+							normalised (i.e. length=1), which
+							is ok since eigenvectors are not unique.
+							<span class="fragment" data-fragment-index="6">
+								So the eigenvectors found by Matlab may
+								not appear to agree with your hand-calculations
+								at first glance.
+							</span>
+
+						</p>
+
+					</div>
+
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
+
+
 					<div class="size-70">
 
 						<div class="cc">
@@ -2600,52 +2666,72 @@
 								$
 								A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
 								$
-								<span>
-									$\Ra\det(A - \lambda I) = (1-\lambda)[(2-\lambda)^{2}-1] =
-									(1-\lambda)(\lambda-3)(\lambda-1)= 0 $
+								<span class="fragment" data-fragment-index="1">
+									$\Ra\det(A - \lambda I) = (1-\lambda)[(2-\lambda)^{2}-1] $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ =
+									(1-\lambda)(\lambda-3)(\lambda-1) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= 0 $
 								</span>
 							</p>
 						</div>
 
-						<div class="fragment" style="font-size: 0.9em;">
-
-
-							<p>This yields our eigenvalues: $\lambda_1 = 3$ and a repeated root $\lambda_2 = 1$
+						<div style="font-size: 0.9em;">
+							<p class="fragment" data-fragment-index="4">This yields our eigenvalues: $\lambda_1 = 3$ and a repeated root $\lambda_2 = 1$
 								(Algebraic Multiplicity = 2).</p>
 						</div>
 
 						<div class="cc" style="font-size: 0.9em; margin-top: 5px;">
-							<p>
+							<p class="fragment" data-fragment-index="5">
 								For $\lambda_1 = 3$:
 
 								$ \begin{pmatrix} -2 & 0 & 0 \\ 0 & -1 & 1 \\ 0 & 1 & -1 \end{pmatrix}\begin{pmatrix}
 								v_1
-								\\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} \implies v_1 =
+								\\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+								<span class="fragment" data-fragment-index="6">
+									$ \implies v_1 =
 								0, \;
-								v_2 = v_3 \implies \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
+								v_2 = v_3  $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$\implies \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
+								</span>
 
 							</p>
 						</div>
 
 						<div class="cc" style="font-size: 0.9em; margin-top: 5px;">
-							<p>
+							<p class="fragment" data-fragment-index="8">
 								For $\lambda_2 = 1$:
 								$ \begin{pmatrix} 0 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} v_1
 								\\
-								v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} \implies v_2 + v_3
-								= 0
-								\implies v_2 = -v_3 $
+								v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+
+								<span class="fragment" data-fragment-index="9">
+									$  \implies v_2 + v_3
+								= 0 $
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$
+								\implies v_2 = -v_3  $
+								</span>
 
 							</p>
 
-							<p>
+							<p class="fragment" data-fragment-index="11">
 								Setting free parameters $v_1 = r$ and $v_3 = t$ generates a <b>2D eigenspace plane</b>:
 
 							</p>
-							<p>
-								$ \mathbf{v}_2 = \begin{pmatrix} r \\ -t \\ t \end{pmatrix} = r\begin{pmatrix} 1 \\ 0 \\
+							<p class="fragment" data-fragment-index="11">
+								$ \mathbf{v}_2 = \begin{pmatrix} r \\ -t \\ t \end{pmatrix}$
+								<span class="fragment" data-fragment-index="12">
+									$ = r\begin{pmatrix} 1 \\ 0 \\
 								0
 								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
+								</span>
 							</p>
 
 						</div>
@@ -2655,7 +2741,7 @@
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
 					<div class="size-70">
-						
+
 						<p>What structural matrix forms does MATLAB return for this repeated eigenvalue scenario?</p>
 
 						<div class="fragment" style="display: flex; justify-content: space-around; margin-top: 15px;">
