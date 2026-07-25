@@ -1998,7 +1998,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h3>Example 1</h3>
+					<h3>Example 1 - Two eigenvalues</h3>
 					<div class="size-80">
 						<div style="margin-top:-15px;">
 
@@ -2080,9 +2080,8 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
+					<h4>Key Structural Observations</h4>
 					<div class="size-80">
-						<h5>Key Structural Observations</h5>
 						<ul style="line-height: 1.6;">
 							<li><strong>Row Reduction:</strong> While full Gaussian elimination works cleanly, $2 \times
 								2$ systems can typically be evaluated by inspection since the rows are linearly
@@ -2096,15 +2095,17 @@
 									</li>
 									<li>$\ds \prod \lambda_i = \det(A)$ (Matrix determinant calculation)</li>
 								</ol>
+								<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
+									<p>
+										From Example 1: $\sum \lambda = 3+2=5$ (Trace = $3+2=5$). $\prod \lambda =
+										3 \times 2 = 6$ ($\det = 6 - 0 = 6$).
+									</p>
+								</div>
 							</li>
 						</ul>
-						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
-							<p>
-								From Example 1: $\sum \lambda = 3+2=5$ (Trace = $3+2=5$). $\prod \lambda =
-								3 \times 2 = 6$ ($\det = 6 - 0 = 6$). Perfect match!
-							</p>
-						</div>
+
 					</div>
+					<br />
 				</section>
 
 
@@ -2333,13 +2334,14 @@
 
 					</div>
 					<br />
+					<br />
 				</section>
 
 
 
 				<section data-auto-animate>
 					<h4>Example 2 - <span>Complex eigenvalues</span></h4>
-					<div class="size-85">
+					<div class="size-80">
 						<h5>Question: Why does this real matrix have complex roots? 🤔</h5>
 						<p style="font-size: 0.70em;">
 							$$A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$$
@@ -2369,7 +2371,7 @@
 
 
 				<section data-auto-animate>
-					<h4>Example 3 <span>- Repeated Roots</span> <span>&amp; Shear</span></h4>
+					<h4>Example 3 <span class="fragment" data-fragment-index="9">- A single eigenvalue</span></h4>
 					<div class="size-75">
 						<h5></h5>
 						<p>
@@ -2418,9 +2420,9 @@
 							</p>
 						</div>
 
-						<p class="fragment" style="margin-top: 15px;">
+						<p class="fragment" data-fragment-index="9" style="margin-top: 15px;">
 							In this case, there is only one linearly independent eigenvector.
-							<span class="fragment">
+							<span class="fragment" data-fragment-index="10">
 								This occurs because $A$ is
 								a <strong>shear transformation</strong>
 								(it skews the coordinate grid horizontally), leaving
@@ -2486,7 +2488,7 @@
 
 						<div style="font-size: 0.9em; margin-top: 5px;">
 							<div class="cc">
-								<p class="fragment" data-fragment-index="1">
+								<p>
 									For $\lambda_1 = 2$: $ \;\begin{pmatrix} -1 & 0 & 2 \\ 0 & 0 & 1 \\ 3 & 0 & 0
 									\end{pmatrix}\begin{pmatrix}
 									v_1 \\
@@ -2551,34 +2553,46 @@
 
 				<section data-auto-animate>
 					<h4>Eigenvalues of Triangular Matrices</h4>
-					<div class="size-70">
+					<div class="size-75">
 
-						<div>
+						<div class="fragment" data-fragment-index="0">
 							<p>The eigenvalues of any triangular (upper or lower) or diagonal
 								matrix are precisely the entry values sitting directly on the main diagonal.</p>
 						</div>
 
 						<div class="cc">
-							<p>Consider $ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} \implies
-								\lambda_1 = 4, \quad \lambda_2 = 2, \quad \lambda_3 = 1 $</p>
+							<p class="fragment" data-fragment-index="1">
+								Consider $ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="2">
+									$\implies
+									\lambda_1 = 4, \;\; \lambda_2 = 2, \;\; \lambda_3 = 1$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.9em;">
-							<h5>Why does this hold?</h5>
-							<p>When computing the characteristic determinant of a triangular system:</p>
-							$$ \det(A - \lambda I) = \begin{vmatrix} 4-\lambda & 4 & 6 \\ 0 & 2-\lambda & 7 \\ 0 & 0 &
-							1-\lambda \end{vmatrix} $$
-							<p>Cofactor expansion along the first column shows the determinant is just the product of
+						<div style="margin-top: 15px; font-size: 0.9em;">
+							<h5 class="fragment" data-fragment-index="3">Why does this hold? 🤔</h5>
+							<p class="fragment" data-fragment-index="4">
+								When computing the characteristic determinant of a triangular system:
+								$$ \det(A - \lambda I) = \begin{vmatrix} 4-\lambda & 4 & 6 \\ 0 & 2-\lambda & 7 \\ 0 & 0
+								&
+								1-\lambda \end{vmatrix} $$
+							</p>
+
+
+							<p class="fragment" data-fragment-index="5">
+								Cofactor expansion along the first column shows the determinant is just the product of
 								diagonal elements: $(4-\lambda)(2-\lambda)(1-\lambda) = 0$.</p>
 						</div>
 					</div>
+					<br />
 				</section>
 
 
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
 
-					<div class="size-95">
+					<div class="size-80">
 
 						<p class="fragment" data-fragment-index="0">
 							Eigenvalues and eigenvectors can be computed quickly using
@@ -2590,12 +2604,15 @@
 								<tt>Python, Mathematica, MATLAB/Octave, <br /> GeoGebra CAS, Maple, Julia, etc.</tt>
 							</p>
 						</div>
-						<br />
+						
+						<div style="margin-top: -20px;margin-bottom: -20px;">
+							<img style="width: 20%;" src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
+						</div>
 
 						<p class="fragment" data-fragment-index="1">
 							There are also many free online calculators that can compute
-							them automatically 
-							(<span style="color: #7e7e7e;">just Google "eigenvalues/eigenvectors calculator"</span>).
+							them automatically <br>
+							(<span id="bb">just Google "eigenvalues/eigenvectors calculator"</span>).
 						</p>
 
 					</div>
@@ -2680,7 +2697,8 @@
 						</div>
 
 						<div style="font-size: 0.9em;">
-							<p class="fragment" data-fragment-index="4">This yields our eigenvalues: $\lambda_1 = 3$ and a repeated root $\lambda_2 = 1$
+							<p class="fragment" data-fragment-index="4">This yields our eigenvalues: $\lambda_1 = 3$ and
+								a repeated root $\lambda_2 = 1$
 								(Algebraic Multiplicity = 2).</p>
 						</div>
 
@@ -2693,8 +2711,8 @@
 								\\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
 								<span class="fragment" data-fragment-index="6">
 									$ \implies v_1 =
-								0, \;
-								v_2 = v_3  $
+									0, \;
+									v_2 = v_3 $
 								</span>
 								<span class="fragment" data-fragment-index="7">
 									$\implies \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
@@ -2711,26 +2729,24 @@
 								v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
 
 								<span class="fragment" data-fragment-index="9">
-									$  \implies v_2 + v_3
-								= 0 $
+									$ \implies v_2 + v_3
+									= 0 $
 								</span>
 								<span class="fragment" data-fragment-index="10">
 									$
-								\implies v_2 = -v_3  $
+									\implies v_2 = -v_3 $
 								</span>
 
 							</p>
 
 							<p class="fragment" data-fragment-index="11">
-								Setting free parameters $v_1 = r$ and $v_3 = t$ generates a <b>2D eigenspace plane</b>:
+								Setting free parameters $v_1 = r$ and $v_3 = t$ we obtain
 
-							</p>
-							<p class="fragment" data-fragment-index="11">
 								$ \mathbf{v}_2 = \begin{pmatrix} r \\ -t \\ t \end{pmatrix}$
 								<span class="fragment" data-fragment-index="12">
 									$ = r\begin{pmatrix} 1 \\ 0 \\
-								0
-								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
+									0
+									\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
 								</span>
 							</p>
 
