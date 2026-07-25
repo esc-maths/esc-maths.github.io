@@ -2604,9 +2604,10 @@
 								<tt>Python, Mathematica, MATLAB/Octave, <br /> GeoGebra CAS, Maple, Julia, etc.</tt>
 							</p>
 						</div>
-						
+
 						<div style="margin-top: -20px;margin-bottom: -20px;">
-							<img style="width: 20%;" src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
+							<img style="width: 20%;"
+								src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
 						</div>
 
 						<p class="fragment" data-fragment-index="1">
@@ -2753,143 +2754,259 @@
 						</div>
 					</div>
 				</section>
-
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
-					<div class="size-70">
 
-						<p>What structural matrix forms does MATLAB return for this repeated eigenvalue scenario?</p>
+					<table style="width: 100%; font-size: 0.65em;" border="collapse">
+						<tr>
+							<td style="width: 30%;text-align: center;">
+								$
+								A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
+								$
+							</td>
+							<td style="width: 30%;text-align: center;">
+								$\lambda_1 =3,\,$ $ \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
+							</td>
+							<td style="width: 40%;text-align: center;">
+								$\lambda_1 =1,\,$ $ \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\
+								0
+								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
+							</td>
+						</tr>
+					</table>
 
-						<div class="fragment" style="display: flex; justify-content: space-around; margin-top: 15px;">
-							<div>
-								<h6>Eigenvector Matrix ($V$)</h6>
-								$$ V = \begin{pmatrix} 1.0000 & 0 & 0 \\ 0 & -0.7071 & 0.7071 \\ 0 & 0.7071 & 0.7071
-								\end{pmatrix} $$
-							</div>
-							<div>
-								<h6>Eigenvalue Matrix ($D$)</h6>
-								$$ D = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 3 \end{pmatrix} $$
-							</div>
-						</div>
+					<div class="cc size-80">
+						<p class="fragment"><tt>MATLAB/Octave</tt></p>
+					</div>
 
-						<div class="fragment" style="margin-top: 20px; font-size: 0.85em; line-height: 1.5;">
-							<ul>
-								<li>The column vector for $\lambda = 3$ matches the normalized unit form of our
-									analytical vector: <br>
-									$$ \frac{1}{\sqrt{0^2 + 1^2 + 1^2}}\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} =
-									\begin{pmatrix} 0 \\ 0.7071 \\ 0.7071 \end{pmatrix} $$
-								</li>
-								<li style="margin-top: 10px;">The independent vector set returned for $\lambda = 1$
-									completely matches our calculated directional basis plane.</li>
-							</ul>
-						</div>
+					<pre style="width: 60%;height: 50px; font-size: 60%;margin-top: -15px;" class="fragment">
+						<code data-trim data-noescape  class="language-python">
+>> [V, D] = eig([1 0 0; 0 2 1; 0 1 2])
+  </code></pre>
 
-						<div class="fragment"
-							style="margin-top: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px; font-size: 0.85em; text-align: center;">
-							<strong>Note:</strong> Repeated eigenvalues appear frequently in physical scenarios that
-							feature structural symmetry.
-						</div>
+					<div class="cc fragment">
+						<p class="size-80"><tt>Output</tt></p>
+
+						<pre style="width: 60%;height: 220px; font-size: 60%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python">
+V = 1.0000        0        0
+    0         -0.7071   0.7071
+    0          0.7071   0.7071
+
+D = 1   0   0
+    0   1   0
+    0   0   3
+  </code></pre>
+
+						<br />
 					</div>
 				</section>
-
-				<!-- Slide 32/69 -->
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors</h4>
-					<div class="size-80">
-						<h5>Example 7 — Sea Turtle MATLAB Outputs</h5>
+					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
+
+					<table style="width: 100%; font-size: 0.65em;" border="collapse">
+						<tr>
+							<td style="width: 30%;text-align: center;">
+								$
+								A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
+								$
+							</td>
+							<td style="width: 30%;text-align: center;">
+								$\lambda_1 =3,\,$ $ \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
+							</td>
+							<td style="width: 40%;text-align: center;">
+								$\lambda_1 =1,\,$ $ \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\
+								0
+								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
+							</td>
+						</tr>
+					</table>
+
+					<div class="cc" style="margin-top: -20px;">
+						<p class="size-80"><tt>Output</tt></p>
+
+						<pre style="width: 60%;height: 220px; font-size: 60%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python">
+V = 1.0000        0        0
+    0         -0.7071   0.7071
+    0          0.7071   0.7071
+
+D = 1   0   0
+    0   1   0
+    0   0   3
+  </code></pre>
+
+						<br />
+					</div>
+
+					<table style="width: 100%; font-size: 0.65em; margin-top: -40px;">
+
+						<tr>
+
+							<td style="width: 50%;text-align: center;" class="fragment">
+								<tt>λ₁ = 3</tt>, $\;\; \begin{pmatrix} 0 \\ 0.7071 \\ 0.7071 \end{pmatrix} $
+								<span class="fragment">
+									$=\dfrac{1}{\sqrt{0^2+1^2+1^2}}\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}$
+								</span>
+							</td>
+							<td style="width: 50%;text-align: center;" class="fragment">
+								<tt>λ₂ = 1</tt>, $\;\; \begin{pmatrix} 1 \\ 0 \\
+								0
+								\end{pmatrix}\,$ and $\,\begin{pmatrix} 0 \\ -0.7071 \\ 0.7071 \end{pmatrix} $
+							</td>
+						</tr>
+					</table>
+					<div class="fragment cc" style="margin-top: 15px; font-size: 0.60em;">
+						<p><strong>Note:</strong> Repeated eigenvalues appear frequently in physical scenarios that
+							feature structural symmetry.</p>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 6 - Sea Turtle MATLAB Outputs</h4>
+					<div class="size-85">
+
+						<p class="fragment">Recall our <em>Leslie</em> matrix defined earlier as
+							$$L = \begin{pmatrix} 0 & 0 &
+							127 & 79 \\ 0.67 & 0.74 & 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81
+							\end{pmatrix}$$
+						</p>
+						<br />
+						<pre style="width: 100%;height: 42px; font-size: 78%;margin-top: 15px;" class="fragment">
+						<code data-trim data-noescape  class="language-python">
+>> [V, D] = eig([0 0 127 79; 0.67 0.74 0 0; 0 0.0006 0 0; 0 0 0.81 0.81])
+  </code></pre>
+
+						<br />
+						<br />
+
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 6 - Sea Turtle MATLAB Outputs</h4>
+					<div class="size-75">
+						<pre style="width: 90%;height: 42px; font-size: 78%;margin-top: -5px;">
+						<code data-trim data-noescape  class="language-python">
+>> [V, D] = eig([0 0 127 79; 0.67 0.74 0 0; 0 0.0006 0 0; 0 0 0.81 0.81])
+  </code></pre>
 						<p>Evaluating the stage-based Loggerhead Sea Turtle population matrix $L$ yields:</p>
 
-						<div
-							style="font-size: 0.52em; font-family: monospace; background: #111; padding: 10px; border-radius: 5px; margin-top: 10px; line-height: 1.3;">
-							V = <br>
-							&nbsp;[ 0.74679+0.00000i &nbsp;-0.64818-0.14885i &nbsp;-0.64818+0.14885i
-							&nbsp;&nbsp;0.32270+0.00000i ]<br>
-							&nbsp;[ 0.66503+0.00000i &nbsp;&nbsp;0.24806+0.00000i &nbsp;&nbsp;0.24806+0.00000i
-							&nbsp;&nbsp;0.94664+0.00000i ]<br>
-							&nbsp;[ 0.00039+0.00000i &nbsp;-0.00062+0.00228i &nbsp;-0.00062-0.00228i
-							&nbsp;&nbsp;0.00059+0.00000i ]<br>
-							&nbsp;[ 0.00213+0.00000i &nbsp;&nbsp;0.00106-0.00208i &nbsp;&nbsp;0.00106+0.00208i
-							&nbsp;&nbsp;0.00301+0.00000i ]<br><br>
-							D = <br>
-							&nbsp;[ -0.01971+0.00000i
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000 ]<br>
-							&nbsp;[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000 &nbsp;0.00674+0.16840i
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000 ]<br>
-							&nbsp;[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000 &nbsp;0.00674-0.16840i
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000 ]<br>
-							&nbsp;[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.00000 &nbsp;0.96809+0.00000i ]
+
+						<pre style="width: 74%;height: 220px; font-size: 60%;margin-top: -10px;">
+						<code data-trim data-noescape  class="language-python">
+V =  -0.7468 +      0i  -0.7468 -      0i  -0.2481 +      0i   0.3223 +      0i
+      0.6482 + 0.1489i   0.6482 - 0.1489i   0.9687 +      0i   0.9466 +      0i
+      0.0006 - 0.0023i   0.0006 + 0.0023i   0.0010 +      0i   0.0006 +      0i
+     -0.0011 + 0.0021i  -0.0011 - 0.0021i  -0.0034 +      0i   0.0030 +      0i
+
+D = 0.0067 + 0.1684i                  0                  0                  0
+                   0   0.0067 - 0.1684i                  0                  0
+                   0                  0   0.5684 +      0i                  0
+                   0                  0                  0   0.9681 +      0i
+
+  </code></pre>
+
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="0">The dominant long-term eigenvalue is $\lambda_4 = 0.9681$,
+								<span class="fragment" data-fragment-index="1">
+									with corresponding
+									eigenvector:
+								</span>
+
+							</p>
+							<div class="cc">
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$\mathbf v_4 = \begin{pmatrix}0.3223 \\ 0.9466 \\ 0.0006 \\ 0.0030
+										\end{pmatrix}$
+									</span>
+
+								</p>
+							</div>
 						</div>
 
-						<div class="fragment" style="margin-top: 10px; font-size: 0.8em;">
-							<p>The dominant long-term eigenvalue is $\lambda_4 = 0.96809$, with corresponding
-								eigenvector:</p>
-							$$ \mathbf{v}_4 = \begin{pmatrix} 0.32270 \\ 0.94664 \\ 0.00059 \\ 0.00301 \end{pmatrix} $$
+
+					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 6 - Sea Turtle MATLAB Outputs</h4>
+					<div class="size-80">
+
+						<pre style="width: 65%;height: 190px; font-size: 50%;margin-top: -10px;">
+						<code data-trim data-noescape  class="language-python">
+V =  -0.7468 +      0i  -0.7468 -      0i  -0.2481 +      0i   0.3223 +      0i
+      0.6482 + 0.1489i   0.6482 - 0.1489i   0.9687 +      0i   0.9466 +      0i
+      0.0006 - 0.0023i   0.0006 + 0.0023i   0.0010 +      0i   0.0006 +      0i
+     -0.0011 + 0.0021i  -0.0011 - 0.0021i  -0.0034 +      0i   0.0030 +      0i
+
+D = 0.0067 + 0.1684i                  0                  0                  0
+                   0   0.0067 - 0.1684i                  0                  0
+                   0                  0   0.5684 +      0i                  0
+                   0                  0                  0   0.9681 +      0i
+
+  </code></pre>
+
+
+						<div style="margin-top: 10px;">
+							<p>The dominant long-term eigenvalue is $\lambda_4 = 0.9681$,
+								<span>
+									with corresponding
+									eigenvector:
+								</span>
+
+							</p>
+							<div class="cc">
+								<p>
+									<span>
+										$\mathbf v_4 = \begin{pmatrix}0.3223 \\ 0.9466 \\ 0.0006 \\ 0.0030
+										\end{pmatrix}$
+									</span>
+
+								</p>
+							</div>
 						</div>
 
-						<div class="fragment"
-							style="font-size: 0.78em; background: rgba(77,243,169,0.05); padding: 8px; border-radius: 5px;">
+						<div style="font-size: 0.95em;">
 							Our historical iterations align perfectly as pure scalar multiples of this stable state:
-							$$ \mathbf{x}_{26,\text{ init}_1} \approx 202991\mathbf{v}_4, \quad \mathbf{x}_{26,\text{
-							init}_2} \approx 158394\mathbf{v}_4 $$
+							$$ \mathbf{x}_{26,\text{ init}_1} \approx 202\,991\mathbf{v}_4, \quad \mathbf{x}_{26,\text{
+							init}_2} \approx 158\,394\mathbf{v}_4 $$
 						</div>
 					</div>
+					<br />
 				</section>
 
-				<!-- Slide 33/69 -->
+
 				<section data-auto-animate>
-					<h4>Eigenvalues and Eigenvectors</h4>
+					<h4>Summary of Eigenvalue &amp; Eigenvector Calculations</h4>
 					<div class="size-85">
-						<h5>Summary of Eigenvalue &amp; Eigenvector Calculations</h5>
+						
 						<hr>
 						<ul style="line-height: 1.6; font-size: 0.85em;">
 							<li>For an $n \times n$ matrix $A$, we discover eigenvalues by solving the $n$-th degree
-								characteristic polynomial equation: <br>
-								$$ \det(A - \lambda I) = 0 $$
+								characteristic polynomial equation: 
+								$ \det(A - \lambda I) = 0 .$
 							</li>
 							<li class="fragment" style="margin-top: 10px;">This polynomial yields exactly $n$ total
 								roots (accounting for repeated values and complex conjugate pairs $a \pm bi$).</li>
 							<li class="fragment" style="margin-top: 10px;">When repeated roots occur, the matrix may
 								produce fewer than $n$ linearly independent eigenvectors (Example 4), though it can
 								still yield a full set (Example 6).</li>
-							<li class="fragment" style="margin-top: 10px; color: #4df3a9;">Securing $n$ completely
+							<li class="fragment" style="margin-top: 10px;">Securing $n$ completely
 								independent eigenvectors is a required property for several advanced engineering
 								applications (e.g., matrix diagonalization).</li>
 						</ul>
 
 						<div class="fragment"
-							style="margin-top: 15px; border-left: 3px solid #ff5555; padding-left: 10px; font-size: 0.8em; color: #aaa;">
+							style="margin-top: 15px; border-left: 5px solid #db1010; padding-left: 10px; font-size: 0.8em; ">
 							<strong>Advanced Note:</strong> When a matrix lacks $n$ independent eigenvectors, analyze
 							the system using Jordan canonical forms (which lies beyond the scope of this course).
 						</div>
 					</div>
+					<br/>
 				</section>
 
 
-				<!--
-				<section data-auto-animate>
-					<h4>Finding Eigenvalues Analytically</h4>
-					<h5>Class Exercises</h5>
-					<div class="size-85 left-txt">
-
-						<p>Work through the following matrix problems analytically to find all eigenvalues and
-							associated eigenvectors:</p>
-
-						<ol style="line-height: 4; margin-top: -20px; font-size: 0.9em;">
-							<li>$ A = \begin{pmatrix} 1 & 1 \\ 4 & 1 \end{pmatrix} $</li>
-							<li>$ A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix} \quad \text{(Marital
-								Motivation Matrix)} $</li>
-							<li>$ A = \begin{pmatrix} 1 & 1 & 2 \\ 0 & 7 & 11 \\ 0 & 0 & 3 \end{pmatrix} $</li>
-							<li>$ A = \begin{pmatrix} 1 & 0 & 0 \\ -2 & 1 & 3 \\ 1 & 1 & -1 \end{pmatrix} $</li>
-						</ol>
-					</div>
-				</section>
-				-->
 
 
 			</section>
