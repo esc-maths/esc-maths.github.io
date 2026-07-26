@@ -2636,11 +2636,15 @@
 						</div>
 
 						<p class="fragment" data-fragment-index="1">
-							1. Construct the matrix $A$, e.g. &nbsp; <span style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;"><tt>A = [1 0 0; 0 2 1; 0 1 2]</tt></span>
+							1. Construct the matrix $A$, e.g. &nbsp; <span
+								style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;"><tt>A =
+									[1 0 0; 0 2 1; 0 1 2]</tt></span>
 						</p>
 
 						<p class="fragment" data-fragment-index="2">
-							2. Use the command <tt>eig</tt> as follows: &nbsp;<span style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;"><tt>[V, D] = eig(A)</tt></span>
+							2. Use the command <tt>eig</tt> as follows: &nbsp;<span
+								style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;"><tt>[V,
+									D] = eig(A)</tt></span>
 						</p>
 
 
@@ -3091,9 +3095,10 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 						</div>
 
 						<p class="fragment" style="font-size: 0.85em;  margin-top: 10px;">
-							This mirrors the <strong>Matrix Representation Theorem</strong> 
-							$\rightarrow T(\mathbf x) = x_1 T(\mathbf e_1)+x_2 T(\mathbf e_2)+\cdots + x_n T(\mathbf e_n)$ <br/>
-							but uses intrinsic structural eigenvectors $\mathbf{v}_i$ 
+							This mirrors the <strong>Matrix Representation Theorem</strong>
+							$\rightarrow T(\mathbf x) = x_1 T(\mathbf e_1)+x_2 T(\mathbf e_2)+\cdots + x_n T(\mathbf
+							e_n)$ <br />
+							but uses intrinsic structural eigenvectors $\mathbf{v}_i$
 							rather than the standard coordinate basis
 							$\mathbf{e}_i$.
 						</p>
@@ -3890,73 +3895,130 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 			</section>
 
 			<section>
-				<!-- Slide 48/69 -->
+
 				<section data-auto-animate>
 					<h4>Similar Matrices</h4>
-					<div class="size-90">
+					<div class="size-70">
 						<h5>Linear Transformations Using an Alternative Basis</h5>
-						<hr>
+
 						<p>Up to this point, we have leveraged coordinate changes to rewrite individual spatial
 							positions in terms of alternative coordinate systems.</p>
 
-						<div class="fragment style-section-card" style="margin-top: 30px;">
+						<div class="fragment style-section-card" style="margin-top: 10px;">
 							<h6>Expanding the Scope: Transforming Operations</h6>
 							<p>Can we also rewrite entire <strong>spatial transformations</strong> (geometric maps) to
 								operate natively within an alternative coordinate system?</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 25px; line-height: 1.6;">
+						<div style="margin-top: 25px; line-height: 1.6;">
 							<ul>
-								<li>The <strong>Matrix Representation Theorem</strong> relies implicitly on coordinates
+								<li class="fragment">The <strong>Matrix Representation Theorem</strong> relies
+									implicitly on coordinates
 									referenced to the standard basis $\{\mathbf{e}_1, \mathbf{e}_2, \dots,
 									\mathbf{e}_n\}$.</li>
-								<li style="margin-top: 10px;">If we select a different structural basis, the
+								<li class="fragment" style="margin-top: 10px;">If we select a different structural
+									basis, the
 									transformation is represented by an entirely different operational matrix.</li>
 							</ul>
 						</div>
 
-						<div class="fragment font-weight-bold"
-							style="margin-top: 35px; text-align: center; color: #4df3a9; font-size: 1.1em;">
-							Core Question: How do we algebraically map a standard-basis transformation matrix into an
-							alternative basis representation?
+						<div id="gg" class="fragment font-weight-bold"
+							style="margin-top: -5px; text-align: center;  font-size: 1.1em;">
+							<p>🤔 How do we algebraically map a standard-basis transformation matrix into an
+								alternative basis representation?</p>
 						</div>
 					</div>
+					<br />
 				</section>
 
-				<!-- Slide 49/69 -->
+
 				<section data-auto-animate>
-					<h4>Similar Matrices</h4>
-					<div class="size-80">
-						<h5>Matrix Representations Across Different Bases</h5>
-						<p>Consider a transformation $T: \mathbb{R}^2 \to \mathbb{R}^2$ represented by the matrix $A$ in
-							the standard basis $\{\mathbf{e}_1, \mathbf{e}_2\}$:</p>
-						$$ A = \begin{pmatrix} 7 & 2 \\ 3 & 8 \end{pmatrix} $$
-						<p>Let's determine its matrix representation with respect to the alternative basis
-							$\{\mathbf{v}_1 = \begin{pmatrix} 2 \\ 3 \end{pmatrix}, \mathbf{v}_2 = \begin{pmatrix} 1 \\
-							4 \end{pmatrix}\}$.</p>
+					<h4>Matrix Representations Across Different Bases</h4>
+					<div style="font-size: 0.65em;">
 
-						<div class="fragment" style="font-size: 0.85em; margin-top: 10px;">
-							<h6>Step 1: Map the basis vectors through transformation $A$</h6>
-							$$ T(\mathbf{v}_1) = A\mathbf{v}_1 = \begin{pmatrix} 7 & 2 \\ 3 & 8
-							\end{pmatrix}\begin{pmatrix} 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 20 \\ 30 \end{pmatrix} =
-							10\mathbf{v}_1 + 0\mathbf{v}_2 $$
-							$$ T(\mathbf{v}_2) = A\mathbf{v}_2 = \begin{pmatrix} 7 & 2 \\ 3 & 8
-							\end{pmatrix}\begin{pmatrix} 1 \\ 4 \end{pmatrix} = \begin{pmatrix} 15 \\ 35 \end{pmatrix} =
-							5\mathbf{v}_1 + 5\mathbf{v}_2 $$
-						</div>
+						<p>
+							Consider $T: \mathbb{R}^2 \to \mathbb{R}^2$ represented by the matrix $A = \begin{pmatrix} 7
+							& 2 \\ 3 & 8 \end{pmatrix}$ in
+							the standard basis $\{\mathbf{e}_1, \mathbf{e}_2\}$.
+						</p>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
-							<h6>Step 2: Assemble the coordinate columns into the new matrix $B$</h6>
-							$$ B = \begin{pmatrix} 10 & 5 \\ 0 & 5 \end{pmatrix} $$
-							<p style="font-size: 0.9em; color: #aaa; margin-top: 5px;">
-								Operational Meaning: If $\mathbf{x} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$, then
-								$T(\mathbf{x}) = d_1\mathbf{v}_1 + d_2\mathbf{v}_2$, calculated via:
-								$$ \begin{pmatrix} d_1 \\ d_2 \end{pmatrix} = \begin{pmatrix} 10 & 5 \\ 0 & 5
-								\end{pmatrix}\begin{pmatrix} c_1 \\ c_2 \end{pmatrix} $$
+
+						<p class="fragment" data-fragment-index="1">
+							Let's determine its matrix representation with
+							respect to the alternative basis:
+
+						</p>
+
+						<div class="cc" style="margin-top: -15px;">
+							<p class="fragment" data-fragment-index="1">
+								$\left\{\mathbf{v}_1 = \begin{pmatrix} 2 & 3 \end{pmatrix}^T, \mathbf{v}_2 =
+								\begin{pmatrix} 1 &
+								4 \end{pmatrix}^T\right\}.$
 							</p>
 						</div>
+
+						<div class="cc" style="font-size: 0.9em; margin-top: 10px;">
+							<b class="fragment" data-fragment-index="2">Step 1. Map the basis vectors through
+								transformation $A$:</b>
+							<p class="fragment" data-fragment-index="2">
+								$ T(\mathbf{v}_1) = A\mathbf{v}_1 $
+								<span class="fragment" data-fragment-index="3">
+									$= \begin{pmatrix} 7 & 2 \\ 3 & 8
+									\end{pmatrix}\begin{pmatrix} 2 \\ 3 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 20 \\ 30
+									\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=
+									10\mathbf{v}_1 + 0\mathbf{v}_2 $
+								</span>
+
+							</p>
+
+							<p class="fragment" data-fragment-index="6">
+								$ T(\mathbf{v}_2) = A\mathbf{v}_2 $
+								<span class="fragment" data-fragment-index="7">
+									$= \begin{pmatrix} 7 & 2 \\ 3 & 8
+								\end{pmatrix}\begin{pmatrix} 1 \\ 4 \end{pmatrix}  $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$= \begin{pmatrix} 15 \\ 35
+								\end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$ =
+								5\mathbf{v}_1 + 5\mathbf{v}_2  $
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 15px;font-size: 0.9em;">
+							<b class="fragment" data-fragment-index="10">Step 2: Assemble the coordinate columns into the new matrix $B= \begin{pmatrix} 10 & 5 \\
+								0 & 5 \end{pmatrix}$</b>
+
+							<p style="margin-top: 5px;" class="fragment">
+								<b>In other words:</b> If $\mathbf{x} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$,
+								<span class="fragment">
+									then
+									$T(\mathbf{x}) = d_1\mathbf{v}_1 + d_2\mathbf{v}_2$,
+								</span>
+								<span class="fragment">
+									calculated via:
+									$ \begin{pmatrix} d_1 \\ d_2 \end{pmatrix} = \begin{pmatrix} 10 & 5 \\ 0 & 5
+									\end{pmatrix}\begin{pmatrix} c_1 \\ c_2 \end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+
 					</div>
+					<br/>
 				</section>
+
+
+
 
 				<!-- Slide 50/69 -->
 				<section data-auto-animate>
