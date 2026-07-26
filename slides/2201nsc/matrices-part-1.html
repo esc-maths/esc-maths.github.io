@@ -1,0 +1,2643 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Lecture 2</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Matrices <br /> Part I
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f002.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+				<section>
+					<h4>Matrix notation</h4>
+
+					<div class="left-txt size-85">
+						<p class="fragment" data-fragment-index="0">
+							A <b>matrix</b> is an $m\times n$ array of numbers
+						</p>
+					</div>
+					<div class=" size-85 cc">
+						<p class="fragment" data-fragment-index="0">
+							$
+							A =
+							\left(
+							\begin{array}{cccc}
+							a_{11} & a_{12} & \cdots & a_{1n} \\
+							a_{21} & a_{22} & \cdots & a_{12n} \\
+							\vdots & \vdots & \ddots & \vdots \\
+							a_{m1} & a_{m2} & \cdots & a_{mn} \\
+							\end{array}
+							\right)
+							$
+
+						</p>
+					</div>
+					<div class="left-txt size-85">
+
+						<ul>
+							<li class="fragment" data-fragment-index="1">
+								The order of the subscripts is (row, column)
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								We can also denote $A = (a_{ij})$
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								For real matrices (matrices with real elements), we write $A\in \mathbb R^{m\times n}$
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								A matrix with $m = 1$ or $n = 1$ is usually called a <b>vector</b>
+								<ul>
+									<li class="fragment" data-fragment-index="5">
+										we will denote column vectors as $\mathbf a,$ $\mathbf b,$ etc.
+									</li>
+									<li class="fragment" data-fragment-index="6">
+										and we will denote row vectors as $\overrightarrow{\mathbf a},$
+										$\overrightarrow{\mathbf b},$ etc.
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h4>Row and column vector notation</h4>
+
+					<div class="size-90">
+						<p>If</p>
+						<div class="cc">
+							<p>
+								$A =
+								\left(
+								\begin{array}{ccc}
+								3 & 2 & 5 \\
+								-1 & 8 & 4 \\
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="0">
+							then we denote
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$\mathbf a_1 =
+								\left(
+								\begin{array}{c}
+								3 \\
+								-1 \\
+								\end{array}
+								\right),\;
+								$
+								$\mathbf a_2 =
+								\left(
+								\begin{array}{c}
+								2 \\
+								8 \\
+								\end{array}
+								\right),\;
+								$
+								$\mathbf a_3 =
+								\left(
+								\begin{array}{c}
+								5 \\
+								4 \\
+								\end{array}
+								\right);
+								$
+
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="1">
+							and
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$\overrightarrow{\mathbf a_1} =
+								\left(
+								\begin{array}{ccc}
+								3 & 2 & 5\\
+								\end{array}
+								\right),\;
+								$
+								$\overrightarrow{\mathbf a_2} =
+								\left(
+								\begin{array}{ccc}
+								-1 & 8 & 4 \\
+								\end{array}
+								\right).
+								$
+
+
+							</p>
+						</div>
+
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h4>Matrix equality</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">
+							Two matrices, $A$ and $B,$ are equal
+							<span class="fragment" data-fragment-index="1">
+								iff $a_{ij}= b_{ij}$ for each $i$ and $j.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							Examples:
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$A =
+								\left(
+								\begin{array}{ccc}
+								3 & 2 & 5 \\
+								-1 & 8 & 4 \\
+								\end{array}
+								\right),\quad
+								B =
+								\left(
+								\begin{array}{ccc}
+								3 & 2 & 5 \\
+								-1 & 8 & 4 \\
+								\end{array}
+								\right).
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="3">
+							For all $i$ and $j$, $a_{ij}= b_{ij}.$
+							<span class="fragment" data-fragment-index="4">
+								Therefore $A=B.$
+							</span>
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="5">
+								$C =
+								\left(
+								\begin{array}{ccc}
+								3 & 2 & 5 \\
+								-1 & 8 & 4 \\
+								\end{array}
+								\right),\quad
+								D =
+								\left(
+								\begin{array}{ccc}
+								3 & 2 & 0 \\
+								-1 & 8 & 4 \\
+								\end{array}
+								\right).
+								$
+
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="6">
+							Here $c_{13} \neq d_{13}.$
+							<span class="fragment" data-fragment-index="7">
+								Therefore $C\neq D.$
+							</span>
+						</p>
+
+
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h4>Matrix multiplication by a scalar</h4>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">
+							If $A\in \mathbb R^{m\times n}$ and $\alpha\in \mathbb R$ (i.e. a scalar),
+							<span class="fragment" data-fragment-index="1">
+								then
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$\alpha A$
+								<span class="fragment" data-fragment-index="2">
+									$
+									=
+									\left(
+									\begin{array}{cccc}
+									\alpha a_{11} & \alpha a_{12} & \cdots & \alpha a_{1n} \\
+									\alpha a_{21} & \alpha a_{22} & \cdots & \alpha a_{2n} \\
+									\vdots & \vdots & \ddots & \vdots \\
+									\alpha a_{m1} & \alpha a_{m2} & \cdots & \alpha a_{mn} \\
+									\end{array}
+									\right).
+									$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								If
+								$\;
+								A = \left(
+								\begin{array}{ccc}
+								3 & 2 & 5 \\
+								-1 & 8 & 4 \\
+								\end{array}
+								\right),\;
+								$
+								<span class="fragment" data-fragment-index="4">
+									then
+									$ \;2A=
+									\left(
+									\begin{array}{ccc}
+									6 & 4 & 10 \\
+									-2 & 16 & 8 \\
+									\end{array}
+									\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="5">
+								If $\;B =
+								\left(
+								\begin{array}{ccc}
+								3 & 3 \\
+								-6 & 9 \\
+								0 & 3 \\
+								\end{array}
+								\right),\;
+								$
+								<span class="fragment" data-fragment-index="6">
+									then
+									$ \;\dfrac{1}{3}B =
+									\left(
+									\begin{array}{ccc}
+									1 & 1 \\
+									-2 & 3 \\
+									0 & 1 \\
+									\end{array}
+									\right).$
+								</span>
+
+							</p>
+						</div>
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix addition</h4>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">
+							If $A\in \mathbb R^{m\times n}$ and $B\in \mathbb R^{m\times n}$,
+							<span class="fragment" data-fragment-index="1">
+								then
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$A+B$
+								<span class="fragment" data-fragment-index="2">
+									$
+									=
+									\left(
+									\begin{array}{cccc}
+									a_{11} & a_{12} & \cdots & a_{1n} \\
+									a_{21} & a_{22} & \cdots & a_{2n} \\
+									\vdots & \vdots & \ddots & \vdots \\
+									a_{m1} & a_{m2} & \cdots & a_{mn} \\
+									\end{array}
+									\right)+
+									\left(
+									\begin{array}{cccc}
+									b_{11} & b_{12} & \cdots & b_{1n} \\
+									b_{21} & b_{22} & \cdots & b_{2n} \\
+									\vdots & \vdots & \ddots & \vdots \\
+									b_{m1} & b_{m2} & \cdots & b_{mn} \\
+									\end{array}
+									\right)
+									$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$
+								=
+								\left(
+								\begin{array}{cccc}
+								a_{11}+ b_{11} & a_{12} + b_{12}& \cdots & a_{1n} + b_{1n}\\
+								a_{21} + b_{21}& a_{22} + b_{22}& \cdots & a_{2n} + b_{2n}\\
+								\vdots & \vdots & \ddots & \vdots \\
+								a_{m1} + b_{m1}& a_{m2}+ b_{m2} & \cdots & a_{mn} + b_{mn}\\
+								\end{array}
+								\right).
+								$
+							</p>
+
+						</div>
+
+
+
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix addition</h4>
+
+					<div class="size-80">
+						<p>
+							If $A\in \mathbb R^{m\times n}$ and $B\in \mathbb R^{m\times n}$,
+							<span>
+								then
+							</span>
+						</p>
+
+						<div class="cc">
+							<p>
+								$A+B$
+								<span>
+									$
+									=
+									\left(
+									\begin{array}{cccc}
+									a_{11}+ b_{11} & a_{12} + b_{12}& \cdots & a_{1n} + b_{1n}\\
+									a_{21} + b_{21}& a_{22} + b_{22}& \cdots & a_{2n} + b_{2n}\\
+									\vdots & \vdots & \ddots & \vdots \\
+									a_{m1} + b_{m1}& a_{m2}+ b_{m2} & \cdots & a_{mn} + b_{mn}\\
+									\end{array}
+									\right).
+									$
+							</p>
+
+						</div>
+						<br />
+
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								If
+								$\;
+								A = \left(
+								\begin{array}{ccc}
+								3 & 2 & 5 \\
+								-1 & 8 & 4 \\
+								\end{array}
+								\right)\;
+								$
+								<span class="fragment" data-fragment-index="4">
+									and
+									$ \;B=
+									\left(
+									\begin{array}{ccc}
+									2 & 2 & 1 \\
+									2 & 0 & -1 \\
+									\end{array}
+									\right),
+									$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								then $\;A+B =
+								\left(
+								\begin{array}{ccc}
+								5 & 4 & 6 \\
+								1 & 8 & 3 \\
+								\end{array}
+								\right),\;
+								$
+								<span class="fragment" data-fragment-index="6">
+									and
+									$ \;A-B =
+									\left(
+									\begin{array}{ccc}
+									1 & 0 & 4 \\
+									-3 & 8 & 5\\
+									\end{array}
+									\right).$
+								</span>
+
+							</p>
+						</div>
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix multiplication</h4>
+
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							For matrices $A\in \mathbb R^{m\times n}$ and $B\in \mathbb R^{n\times p},$
+							<span class="fragment" data-fragment-index="1">
+								we define th product
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$C = A B$
+								<span class="fragment" data-fragment-index="2">
+									$
+									=
+									\left(
+									\begin{array}{cccc}
+									a_{11} & a_{12} & \cdots & a_{1n} \\
+									a_{21} & a_{22} & \cdots & a_{2n} \\
+									\vdots & \vdots & \ddots & \vdots \\
+									a_{m1} & a_{m2} & \cdots & a_{mn} \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									b_{11} & b_{12} & \cdots & b_{1p} \\
+									b_{21} & b_{22} & \cdots & b_{2p} \\
+									\vdots & \vdots & \ddots & \vdots \\
+									b_{n1} & b_{n2} & \cdots & b_{np} \\
+									\end{array}
+									\right)
+									$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$\qquad
+								=
+								\left(
+								\begin{array}{cccc}
+								\sum_{i}a_{1i} b_{i1} & \sum_{i}a_{1i} b_{i2}& \cdots & \sum_{i}a_{1i} b_{ip}\\
+								\sum_{i}a_{2i} b_{i1}& \sum_{i}a_{2i}b_{i2}& \cdots & \sum_{i}a_{2i} b_{ip}\\
+								\vdots & \vdots & \ddots & \vdots \\
+								\sum_{i}a_{mi} b_{i1}& \sum_{i}a_{mi} b_{i2} & \cdots & \sum_{i}a_{mi} b_{ip}\\
+								\end{array}
+								\right).
+								$
+							</p>
+
+						</div>
+
+
+
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix multiplication</h4>
+
+					<div class="size-45">
+
+
+						<div class="cc">
+							<p>
+								$C = A B
+								=
+								\left(
+								\begin{array}{cccc}
+								\sum_{i}a_{1i} b_{i1} & \sum_{i}a_{1i} b_{i2}& \cdots & \sum_{i}a_{1i} b_{ip}\\
+								\sum_{i}a_{2i} b_{i1}& \sum_{i}a_{2i}b_{i2}& \cdots & \sum_{i}a_{2i} b_{ip}\\
+								\vdots & \vdots & \ddots & \vdots \\
+								\sum_{i}a_{mi} b_{i1}& \sum_{i}a_{mi} b_{i2} & \cdots & \sum_{i}a_{mi} b_{ip}\\
+								\end{array}
+								\right).
+								$
+							</p>
+
+						</div>
+
+
+
+
+
+					</div>
+
+					<div class="size-75">
+						<ul style="line-height: 40px;">
+							<li class="fragment" data-fragment-index="0">
+								Each element of C is the sum of products
+								between a row of $A$ and a column of $B$
+								<p style="text-align: center;" class="fragment" data-fragment-index="1">
+									$c_{22} = \ds \sum_{i} a_{2i}b_{i2}$
+									<span class="fragment" data-fragment-index="2">
+										$=a_{21}b_{12} +a_{22}b_{22} +\cdots +a_{2n}b_{n2} $
+									</span>
+								</p>
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								For this to work, we require that
+								<p style="text-align: center;">
+									the number of columns of $A=$ the number of rows of $B.$
+								</p>
+							</li>
+							<li class="fragment" data-fragment-index="5">
+
+								If $A\in \mathbb R^{m\times n}$ and $B\in \mathbb R^{n\times p},$
+								<span class="fragment" data-fragment-index="6">
+									then the result of $AB$ is a matrix with $m$ rows and $p$
+									columns.
+
+								</span>
+								<p class="fragment" data-fragment-index="7">
+									<b>Example:</b> the matrix $C$, above, is an $m \times p$ matrix ($C\in \mathbb
+									R^{m\times p}$).
+								</p>
+							</li>
+						</ul>
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Matrix multiplication examples
+					</h4>
+
+					<div class="size-80">
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$A =
+								\left(
+								\begin{array}{cc}
+								3 & -2 \\
+								2 & 4 \\
+								1 & -3 \\
+								\end{array}
+								\right),\quad
+								B=
+								\left(
+								\begin{array}{ccc}
+								-2 & 1 & 3 \\
+								4 & 1 & 6 \\
+								\end{array}
+								\right).
+								$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								$A B
+								$
+								<span class="fragment" data-fragment-index="2">
+									$ =
+									\left(
+									\begin{array}{cc}
+									3 & -2 \\
+									2 & 4 \\
+									1 & -3 \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{ccc}
+									-2 & 1 & 3 \\
+									4 & 1 & 6 \\
+									\end{array}
+									\right)$
+								</span>
+								<span class="fragment" data-fragment-index="15">
+									$ =
+									\left(
+									\begin{array}{rrr}
+									-14 & 1 & -3 \\
+									12 & 6 & 30 \\
+									-14 & -2 & -15 \\
+									\end{array}
+									\right)
+									\quad\quad
+									$
+								</span>
+							</p>
+
+						</div>
+
+						<table>
+							<tr>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="3">1st
+									row</td>
+								<td style="border: none;" class="fragment" data-fragment-index="4">
+									$3\times (-2) + (-2)\times 4\quad$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="8">
+									$3\times 1 + (-2)\times 1\quad$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="12">
+									$3\times 3 + (-2)\times 6$
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="5">2nd
+									row</td>
+								<td style="border: none;" class="fragment" data-fragment-index="5">
+									$2\times (-2) + 4\times 4$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="9">
+									$2\times 1 + 4\times 1$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="13">
+									$2\times 3 + 4\times 6$
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="6">3rd
+									row</td>
+								<td style="border: none;" class="fragment" data-fragment-index="6">
+									$1\times (-2) + (-3)\times 4$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="10">
+									$1\times 1 + (-3)\times 1$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="14">
+									$1\times 3 + (-3)\times 6$
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td style="border: none; color: #02a2d7;" class="fragment" data-fragment-index="3">
+									1st column
+								</td>
+								<td style="border: none; color: #02a2d7;" class="fragment" data-fragment-index="7">
+									2nd column
+								</td>
+								<td style="border: none; color: #02a2d7;" class="fragment" data-fragment-index="11">
+									3rd column
+								</td>
+							</tr>
+						</table>
+
+
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Matrix multiplication examples
+					</h4>
+
+					<div>
+						<iframe style="width: 70%; height: 600px; border: 0px solid;"
+							src="sketches/matrixmult/example-01.html" scrolling="no"></iframe>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Matrix multiplication examples
+					</h4>
+
+
+					<div class="size-80">
+						<div class="cc">
+							<p>
+								$A =
+								\left(
+								\begin{array}{cc}
+								3 & -2 \\
+								2 & 4 \\
+								1 & -3 \\
+								\end{array}
+								\right),\quad
+								B=
+								\left(
+								\begin{array}{ccc}
+								-2 & 1 & 3 \\
+								4 & 1 & 6 \\
+								\end{array}
+								\right),\quad
+
+								AB =
+								\left(
+								\begin{array}{rrr}
+								-14 & 1 & -3 \\
+								12 & 6 & 30 \\
+								-14 & -2 & -15 \\
+								\end{array}
+								\right).
+								$
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								$
+								BA
+								$
+								<span class="fragment" data-fragment-index="1">
+									$
+									=
+									\left(
+									\begin{array}{ccc}
+									-2 & 1 & 3 \\
+									4 & 1 & 6 \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cc}
+									3 & -2 \\
+									2 & 4 \\
+									1 & -3 \\
+									\end{array}
+									\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ =
+									\left(
+									\begin{array}{rr}
+									-1 & -1 \\
+									20 & -22 \\
+									\end{array}
+									\right)
+									\quad\quad
+									$
+								</span>
+
+							</p>
+
+
+						</div>
+
+						<table>
+							<tr>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="2">1st
+									row</td>
+								<td style="border: none;" class="fragment" data-fragment-index="3">
+									$(-2)\times 3 + 1\times 2 + 3 \times 1\quad$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="5">
+									$(-2)\times (-2) + 1\times 4 + 3 \times (-3) $
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="4">2nd
+									row</td>
+								<td style="border: none;" class="fragment" data-fragment-index="4">
+									$4\times 3 + 1\times 2 + 6 \times 1$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="7">
+									$4\times (-2) + 1\times 4 + 6 \times (-3) $
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td style="border: none; color: #02a2d7;" class="fragment" data-fragment-index="2">
+									1st column
+								</td>
+								<td style="border: none; color: #02a2d7;" class="fragment" data-fragment-index="5">
+									2nd column
+								</td>
+							</tr>
+
+						</table>
+
+						<div class="cc">
+
+
+							<p style="font-size: 120%;" class="fragment" data-fragment-index="9">
+								👉 <b>Note that here</b> $AB\neq BA$!!!
+							</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Matrix multiplication examples
+					</h4>
+
+					<div>
+						<iframe style="width: 70%; height: 600px; border: 0px solid;"
+							src="sketches/matrixmult/example-02.html" scrolling="no"></iframe>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Matrix multiplication examples
+					</h4>
+
+					<div class="size-80">
+						<div class="cc">
+							<p>
+								$A =
+								\left(
+								\begin{array}{cc}
+								1 & 2 \\
+								4 & 5 \\
+								3 & 6 \\
+								\end{array}
+								\right),\quad
+								B=
+								\left(
+								\begin{array}{ccc}
+								3 & 4 \\
+								1 & 2 \\
+								\end{array}
+								\right)
+								$
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								$
+								AB
+								$
+								<span>
+									$
+									=
+									\left(
+									\begin{array}{cc}
+									1 & 2 \\
+									4 & 5 \\
+									3 & 6 \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{ccc}
+									3 & 4 \\
+									1 & 2 \\
+									\end{array}
+									\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ =
+									\left(
+									\begin{array}{rr}
+									5 & 8 \\
+									17 & 26 \\
+									15 & 24 \\
+									\end{array}
+									\right)
+									\quad
+									$
+								</span>
+
+							</p>
+
+
+						</div>
+
+						<table>
+							<tr>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="1">1st
+									row</td>
+								<td style="border: none;" class="fragment" data-fragment-index="2">
+									$1\times 3 + 2\times 1 \quad$
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="5">
+									$1\times 4 + 2\times 2$
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="3">2nd
+									row</td>
+								<td style="border: none;" class="fragment" data-fragment-index="3">
+									$4\times 3 + 5\times 1 $
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="6">
+									$4\times 4 + 5\times 2 $
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none; color: #ff3c3c;" class="fragment" data-fragment-index="4">3rd
+									row</td>
+								<td style="border: none;" class="fragment" data-fragment-index="4">
+									$3\times 3 + 6\times 1 $
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="7">
+									$3\times 4 + 6\times 2 $
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td style="border: none; color: #02a2d7;" class="fragment" data-fragment-index="1">
+									1st column
+								</td>
+								<td style="border: none; color: #02a2d7;" class="fragment" data-fragment-index="5">
+									2nd column
+								</td>
+							</tr>
+
+						</table>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="9">
+
+								👉 In this case, $BA $ <b>is not even defined!!!</b>
+
+							</p>
+
+
+
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Matrix multiplication examples
+					</h4>
+
+					<div>
+						<iframe style="width: 70%; height: 600px; border: 0px solid;"
+							src="sketches/matrixmult/example-03.html" scrolling="no"></iframe>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Motivation for Matrix Multiplication</h4>
+					<div class="size-80">
+						<p>Consider the following system of linear equations: </p>
+						<div class="cc">
+							<p>
+								$u = 2x\quad$ <br>
+								$v = x + y$ </p>
+						</div>
+						<p class="fragment">With matrix multiplication defined, we can write this system as: </p>
+						<div class="cc fragment">
+							<p>
+								$\left( \begin{array}{c} u \\ v \end{array} \right) = \left( \begin{array}{cc} 2 & 0 \\
+								1 & 1 \end{array} \right) \left( \begin{array}{c} x \\ y \end{array} \right)$ </p>
+						</div>
+						<ul>
+							<li class="fragment">We can represent linear systems as <b>matrix equations</b>. </li>
+							<li class="fragment">This makes them much easier to work with, especially when they get
+								complicated. </li>
+							<li class="fragment">But what are the rules when working with matrices? Do the rules of
+								regular algebra apply? </li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Important Rules of Algebra</h4>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">Whenever we have a set of mathematical objects with
+							addition and multiplication operations,
+							<span class="fragment" data-fragment-index="1">
+								we check standard algebraic properties:
+							</span>
+						</p>
+						<ol style="line-height: 60px;margin-left: 0px;">
+							<li class="fragment" data-fragment-index="2"><b>Commutativity:</b> $a + b = b + a$ </li>
+							<li class="fragment"><b>Associativity:</b> $(a + b) + c = a + (b + c) = a + b + c$ </li>
+							<li class="fragment"><b>Distributivity:</b> $a(b + c) = ab + ac$ </li>
+							<li class="fragment"><b>Identity:</b> Existence of a structure $i$ such that $ia = ai = a$
+							</li>
+							<li class="fragment"><b>Inverse:</b> For each structure $a$, there exists $a^{-1}$ such that
+								$aa^{-1} = a^{-1}a = i.$ <br />
+								<span class="fragment">
+									If such structure exists, we call it the "inverse of $a$".
+								</span>
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Do these rules apply to Matrices?</h4>
+					<div class="size-95">
+						<p>With the exception of an inverse for zero, these properties all hold for numbers. </p>
+						<p class="fragment" data-fragment-index="0"><i>Tip: That's why numbers do such a good job of
+								quantifying our daily
+								lives! </i></p>
+						<picture class="fragment" data-fragment-index="1">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="90"
+								height="90">
+						</picture>
+
+						<p class="fragment" data-fragment-index="1" style="text-align: center; margin-top: 30px;">
+							But do these properties hold for structures other than numbers? <br>
+							<span class="fragment">How about... <b>matrices</b>? </span>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Algebra: Most Rules Hold...</h4>
+					<div class="size-85">
+						<table style="width: 100%; border: none;">
+							<tr>
+								<td style="border: none;" class="fragment" data-fragment-index="0">1. $A+B = B+A$
+									<br><small>(Addition Commutativity)</small>
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="5">6. $(\alpha\beta)A =
+									\alpha(\beta A)$ </td>
+							</tr>
+							<tr>
+								<td style="border: none;" class="fragment" data-fragment-index="1">2. $(A+B)+C =
+									A+(B+C)$ <br><small>(Addition
+										Associativity)</small> </td>
+								<td style="border: none;" class="fragment" data-fragment-index="6">7. $\alpha(AB) =
+									(\alpha A)B = A(\alpha B)$ </td>
+							</tr>
+							<tr>
+								<td style="border: none;" class="fragment" data-fragment-index="2">3. $(AB)C = A(BC)$
+									<br><small>(Multiplication
+										Associativity)</small>
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="7">8. $(\alpha+\beta)B =
+									\alpha B + \beta B$ </td>
+							</tr>
+							<tr>
+								<td style="border: none;" class="fragment" data-fragment-index="3">4. $A(B+C) = AB + AC$
+									<br><small>(Left-distributivity)</small>
+								</td>
+								<td style="border: none;" class="fragment" data-fragment-index="8">9. $\alpha(A+B) =
+									\alpha A + \alpha B$ </td>
+							</tr>
+							<tr>
+								<td style="border: none;" class="fragment" data-fragment-index="4">5. $(A+B)C = AC + BC$
+									<br><small>(Right-distributivity)</small>
+								</td>
+								<td style="border: none;"></td>
+							</tr>
+						</table>
+						<div class="fragment"
+							style="margin-top: 0px; color: #ff5555; text-align: center; font-weight: bold;">
+							Notice that $AB = BA$ (commutativity under multiplication) is not on the list!<br /> <span
+								style="font-size: 0.8em; color: gray; font-weight: normal; margin-top: 5px;">That's
+								because it doesn't hold for all matrices. </span>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Identity Matrix</h4>
+					<div class="size-80">
+						<p>The multiplicative identity for numbers, $1$,
+							<span class="fragment">
+								leaves a number unchanged: $1n = n1 = n.$
+							</span>
+						</p>
+						<p class="fragment">For matrix multiplication, <b>only square matrices</b> have identities. </p>
+						<div class="cc fragment">
+							<p>The $n \times n$ identity matrix: $I_{n} = (\delta_{ij}) = \begin{cases} 1 & \text{if }
+								i=j \\ 0 & \text{if } i \neq j \end{cases}$ </p>
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$
+								I_{2} = \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array} \right), \quad
+								$
+								<span class="fragment">
+									$
+									I_{3} = \left( \begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{array}
+									\right),\quad$ etc.
+								</span>
+							</p>
+						</div>
+						<div class="cc fragment" style="margin-top: 15px;">
+							<p><b>Example:</b></p>
+							<p>$
+								\left( \begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right) \left( \begin{array}{cc} 1 &
+								0 \\ 0 & 1 \end{array} \right) $
+								<span class="fragment">
+									$
+									= \left( \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}
+									\right) \left( \begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right) $
+								</span>
+								<span class="fragment">
+									$= \left(
+									\begin{array}{cc} 2 & 3 \\ 4 & 5 \end{array} \right)$
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Inverse Matrix</h4>
+					<div class="size-85">
+						<div class="fragment">
+							<p>The multiplicative inverse $A^{-1}$ of matrix $A$ is a matrix such that: </p>
+							<div class="cc">
+								<p style="font-size: 1.5em;">
+									<span class="fragment">
+										$A^{-1}A$
+									</span>
+									<span class="fragment">
+										$ =AA^{-1} $
+									</span>
+									<span class="fragment">
+										$= I$
+									</span>
+
+								</p>
+							</div>
+						</div>
+
+						<br>
+						<div class="fragment">
+							<p>Important Notes:</p>
+							<ul style="margin-left: 0px; line-height: 65px;">
+								<li><b>Only square matrices</b> have inverses, but not all square
+									matrices
+									do. $\qquad $ </li>
+								<li class="fragment">A square matrix is <b>invertible</b> (or <i>nonsingular</i>) iff it
+									has
+									an inverse. </li>
+								<li class="fragment">We can use <b>Gaussian Elimination</b> to find $A^{-1}.$ </li>
+							</ul>
+						</div>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Inverse Matrix Properties</h4>
+					<div class="size-95">
+						<ol style="line-height: 60px;margin-left: 0px;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Inverses are unique:</b> If $B$ and $C$ are inverses of $A$,
+								<span class="fragment" data-fragment-index="1">
+									then:
+								</span>
+								<p class="fragment" data-fragment-index="1" style="text-align: center;">
+									$B = BI $
+									<span class="fragment" data-fragment-index="2">
+										$= B(AC) $
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$= (BA)C $
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$= IC = C$
+									</span>
+								</p>
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								<b>Double Inverse:</b> $\left(A^{-1}\right)^{-1} = A$
+							</li>
+							<li class="fragment" data-fragment-index="7">
+								<b>Product Inverse:</b> For any invertible matrices $A_1, A_2, \dots, A_k$:
+								<p class="fragment" data-fragment-index="8" style="text-align: center;">$\left(A_1 A_2
+									\dots A_k\right)^{-1} = A_k^{-1} \dots A_2^{-1}
+									A_1^{-1}$ </p>
+							</li>
+						</ol>
+						<p class="fragment" style="margin-top: 20px; font-size: 0.8em; color: gray;">
+							<i>Property (3) is particularly useful for deriving results and solving complex matrix
+								equations. </i>
+						</p>
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Transpose</h4>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">Let $A = (a_{ij})$ be a matrix.
+							<span class="fragment" data-fragment-index="1">
+								Then the transpose of $A$, denoted $A^T$,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								is given by
+								$$A^T =(a_{ji}).$$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3"><i>The element in row $i$, column $j$ of $A$ moves
+								to row $j$, column $i$ of
+								$A^T.$ </i></p>
+
+						<div class="fragment" data-fragment-index="4">
+							<p><b>Example:</b> </p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$A = \left( \begin{array}{cc} 3 & -2 \\ 2 & 4 \\ 1 & -3 \end{array} \right)$
+								<span class="fragment" data-fragment-index="5">
+									$\implies A^T
+									= \left( \begin{array}{ccc} 3 & 2 & 1 \\ -2 & 4 & -3 \end{array} \right)$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								$B = \left( \begin{array}{ccc} 3 & -2 & 1 \\ 1 & 4 & 5 \\ -2 & 1 & -3 \end{array}
+								\right) $
+								<span class="fragment" data-fragment-index="7">
+									$\implies B^T = \left( \begin{array}{ccc} 3 & 1 & -2 \\ -2 & 4 & 1 \\ 1 & 5 & -3
+									\end{array} \right)$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Transpose Properties</h4>
+					<div class="size-90">
+						<ol style="line-height: 70px;">
+							<li class="fragment">$\left(A^T\right)^T = A$ </li>
+							<li class="fragment cloud">$(\alpha A)^T = \alpha A^T$ (where $\alpha$ is any scalar
+								number) </li>
+							<li class="fragment">$(A + B)^T = A^T + B^T$ </li>
+							<li class="fragment">$(A_1 A_2 \dots A_k)^T = A_k^T \dots A_2^T A_1^T$ </li>
+						</ol>
+						<br>
+						<div class="fragment" style="border-top: 1px solid #555; padding-top: 25px; margin-top: 15px;">
+							<p><b>Symmetric Matrix Definition:</b> </p>
+							<p style="text-align: center; font-size: 1.1em;">Finally, a matrix $A$ is symmetric iff
+								<b>$A =
+									A^T$</b>
+							</p>
+						</div>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Marital Population</h4>
+					<div class="size-90">
+						<p class="fragment">Imagine the following probabilities within a population setup over a given
+							year: </p>
+						<ul>
+							<li class="fragment">The probability a <b>married</b> person divorces is <b>30%</b>. </li>
+							<li class="fragment">The probability an <b>unmarried</b> person marries is <b>20%</b>. </li>
+						</ul>
+						<div class="fragment" style="margin-top: 40px;">
+							<p>If <b>80%</b> of the population is currently married, what percentage is married after:
+							</p>
+							<div style="text-align: left;">
+								<ul>
+									<li>1 year? </li>
+									<li>2 years? </li>
+									<li>10 years? </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Translating into a Mathematical Problem</h4>
+					<div class="size-75">
+						<p>Let's describe the population state as a vector: </p>
+						<div class="cc">
+							<p>$\left( \begin{array}{c} \text{% married} \\ \text{% unmarried} \end{array} \right)$
+							</p>
+						</div>
+						<p>
+							The proportions of married vs. unmarried people in the next year are given
+							by
+						</p>
+						<div class="cc" style="font-size: 0.90em; line-height: 35px; margin-top: 15px;">
+							<p class="fragment">$\text{% married next year} = [\% \text{ married}] \times [\% \text{
+								don't
+								divorce}] + [\% \text{ unmarried}] \times [\% \text{ marry}]$ </p>
+							<p class="fragment">$\text{% unmarried next year} = [\% \text{ married}] \times [\% \text{
+								divorce}] +
+								[\% \text{ unmarried}] \times [\% \text{ don't marry}]$ </p>
+						</div>
+						<p class="fragment">Given a 30% divorce rate and 20% marriage rate: </p>
+						<div class="cc fragment" style="font-size: 0.90em;">
+							<p>
+								$\left( \begin{array}{c} \text{% married next yr} \\ \text{% unmarried next yr}
+								\end{array} \right) = \left( \begin{array}{c} [\% \text{ married}] \times 0.7 + [\%
+								\text{ unmarried}] \times 0.2 \\ [\% \text{ married}] \times 0.3 + [\% \text{
+								unmarried}] \times 0.8 \end{array} \right)\qquad\quad$ </p>
+						</div>
+						<div class="cc fragment">
+							<p>
+								$\qquad = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+								\begin{array}{c} \text{% married} \\ \text{% unmarried} \end{array} \right)$ </p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving the Population Problem</h4>
+					<div class="size-70">
+						<p>Initially, 80% of the population is married: </p>
+						<div class="cc">
+							<p>$\mathbf x_0 = \left( \begin{array}{c} 80 \\ 20 \end{array} \right)$ </p>
+						</div>
+
+
+						<p class="fragment" data-fragment-index="0"><b>After 1 year ($\mathbf x_1$):</b> </p>
+
+						<div class="cc">
+							<p class="cc fragment" data-fragment-index="0">
+								$\mathbf x_1 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)
+								\left(
+								\begin{array}{c} 80 \\ 20 \end{array} \right) $
+								<span class="fragment" data-fragment-index="1">
+									$= \left( \begin{array}{c} 56 + 4 \\ 24 +
+									16 \end{array} \right) $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$= \left( \begin{array}{c} 60 \\ 40 \end{array} \right)$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="3"><b>After 2 years ($\mathbf x_2$):</b>
+							<span class="fragment" data-fragment-index="5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👉 $
+								A^2\mathbf x_0 = A\left(A\mathbf x_0\right)=
+								A\mathbf x_1$</span>
+						</p>
+
+						<div class="cc fragment" data-fragment-index="3" style="margin-top: 15px;">
+
+							<p>$\mathbf x_2 = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right)^2
+								\left(
+								\begin{array}{c} 80 \\ 20 \end{array} \right)$
+								<span class="fragment" data-fragment-index="4">
+									$ =\left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array} \right) \left(
+									\begin{array}{c} 60 \\ 40 \end{array} \right)$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= \left( \begin{array}{c} 42 + 8 \\ 18 +
+									32 \end{array} \right) $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$ = \left( \begin{array}{c} 50 \\ 50 \end{array} \right)$
+								</span>
+
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="8"><b>After 10 years ($\mathbf x_{10}$):</b> </p>
+
+						<div class="cc fragment" data-fragment-index="9" style="margin-top: 15px;">
+
+							<p>$\mathbf x_{10} = \left( \begin{array}{cc} 0.7 & 0.2 \\ 0.3 & 0.8 \end{array}
+								\right)^{10} \left(
+								\begin{array}{c} 80 \\ 20 \end{array} \right)$
+								<span class="fragment" data-fragment-index="10">
+									$ \approx \left( \begin{array}{c} 40 \\ 60
+									\end{array} \right)$
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							Loggerhead Sea Turtles have the following demographic
+							stages:
+						</p>
+
+					</div>
+
+					<div class="size-70 fragment" data-fragment-index="0">
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Description <br />
+									(age in years)
+								</th>
+								<th>
+									Annual <br />survivorship
+								</th>
+								<th>
+									Transition to <br />next stage
+								</th>
+								<th>
+									Eggs laid <br />per year
+								</th>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>Hatchlings ($\lt1$)</td>
+								<td>0.67</td>
+								<td>100% become juveniles</td>
+								<td>0</td>
+							</tr>
+
+							<tr>
+								<td>2</td>
+								<td>Juveniles (1–21)</td>
+								<td>0.7394</td>
+								<td>0.0006 become novice adults</td>
+								<td>0</td>
+							</tr>
+
+							<tr>
+								<td>3</td>
+								<td>Novice adults (22)</td>
+								<td>0.81</td>
+								<td>100% become mature adults</td>
+								<td>127</td>
+							</tr>
+
+							<tr>
+								<td>4</td>
+								<td>Mature adults (23+)</td>
+								<td>0.81</td>
+								<td>Remain mature adults</td>
+								<td>79</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="size-85">
+
+
+						<p class="fragment" data-fragment-index="1">
+							From one year to the next, these populations must change through turtles dying, growing
+							older and thus changing demographic group, or through eggs hatching to produce hatchlings.
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-50">
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Description <br />
+									(age in years)
+								</th>
+								<th>
+									Annual <br />survivorship
+								</th>
+								<th>
+									Transition to <br />next stage
+								</th>
+								<th>
+									Eggs laid <br />per year
+								</th>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>Hatchlings ($\lt 1$)</td>
+								<td>0.67</td>
+								<td>100% become juveniles</td>
+								<td>0</td>
+							</tr>
+
+							<tr>
+								<td>2</td>
+								<td>Juveniles (1–21)</td>
+								<td>0.7394</td>
+								<td>0.0006 become novice adults</td>
+								<td>0</td>
+							</tr>
+
+							<tr>
+								<td>3</td>
+								<td>Novice adults (22)</td>
+								<td>0.81</td>
+								<td>100% become mature adults</td>
+								<td>127</td>
+							</tr>
+
+							<tr>
+								<td>4</td>
+								<td>Mature adults (23+)</td>
+								<td>0.81</td>
+								<td>Remain mature adults</td>
+								<td>79</td>
+							</tr>
+						</table>
+					</div>
+					<div class="size-80">
+						<p>
+							We can represent these changes using a <em>Leslie</em>
+							matrix,
+							<span class="fragment" data-fragment-index="0">
+								which relates the population across the demographic
+								groups to the populations at the previous year.
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								That is:
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$
+								\begin{pmatrix}
+								\text{# hatchlings}_{n+1} \\
+								\text{# juveniles}_{n+1} \\
+								\text{# novice adults}_{n+1} \\
+								\text{# mature adults}_{n+1}
+								\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									= \begin{pmatrix}
+									0 & 0 & 127 & 79 \\
+									0.67 & 0.7394 & 0 & 0 \\
+									0 & 0.0006 & 0 & 0 \\
+									0 & 0 & 0.81 & 0.81
+									\end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$
+
+									\begin{pmatrix}
+									\text{# hatchlings}_n \\
+									\text{# juveniles}_n \\
+									\text{# novice adults}_n \\
+									\text{# mature adults}_n
+									\end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-50">
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Description <br />
+									(age in years)
+								</th>
+								<th>
+									Annual <br />survivorship
+								</th>
+								<th>
+									Transition to <br />next stage
+								</th>
+								<th>
+									Eggs laid <br />per year
+								</th>
+							</tr>
+
+							<tr>
+								<td>1</td>
+								<td>Hatchlings ($\lt 1$)</td>
+								<td>0.67</td>
+								<td>100% become juveniles</td>
+								<td>0</td>
+							</tr>
+
+							<tr>
+								<td>2</td>
+								<td>Juveniles (1–21)</td>
+								<td>0.7394</td>
+								<td>0.0006 become novice adults</td>
+								<td>0</td>
+							</tr>
+
+							<tr>
+								<td>3</td>
+								<td>Novice adults (22)</td>
+								<td>0.81</td>
+								<td>100% become mature adults</td>
+								<td>127</td>
+							</tr>
+
+							<tr>
+								<td>4</td>
+								<td>Mature adults (23+)</td>
+								<td>0.81</td>
+								<td>Remain mature adults</td>
+								<td>79</td>
+							</tr>
+						</table>
+					</div>
+					<div class="size-80">
+						<p>
+							We thus define the <em>Leslie</em> matrix $L$,
+							<span class="fragment" data-fragment-index="0">
+								which allows us to calculate the populations
+								after $n$ years, $\xx_n$, from the initial state $\xx_0$.
+							</span>
+						</p>
+
+						<div class="cc">
+							<p>
+								$
+								L= \begin{pmatrix}
+								0 & 0 & 127 & 79 \\
+								0.67 & 0.7394 & 0 & 0 \\
+								0 & 0.0006 & 0 & 0 \\
+								0 & 0 & 0.81 & 0.81
+								\end{pmatrix}.\;\;
+								$
+								<span class="fragment" data-fragment-index="1">
+									$\,\text{That is}\;\;
+									\Large  
+									\xx_n = L^n \xx_0
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-85">
+						<p>
+							Given an initial population, the Leslie population model then makes the
+							following predictions
+						</p>
+
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Initial population
+								</th>
+								<th>
+									10 years
+								</th>
+								<th>
+									25 years
+								</th>
+								<th>
+									50 years
+								</th>
+							</tr>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">
+									1
+								</td>
+								<td>
+									200,000
+								</td>
+								<td>
+									114,264
+								</td>
+								<td>
+									74,039
+								</td>
+								<td>
+									35,966
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									2
+								</td>
+								<td>
+									300,000
+								</td>
+								<td>
+									329,212
+								</td>
+								<td>
+									213,669
+								</td>
+								<td>
+									103,795
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									3
+								</td>
+								<td>
+									500
+								</td>
+								<td>
+									214
+								</td>
+								<td>
+									139
+								</td>
+								<td>
+									68
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									4
+								</td>
+								<td>
+									1,500
+								</td>
+								<td>
+									1,061
+								</td>
+								<td>
+									687
+								</td>
+								<td>
+									334
+								</td>
+							</tr>
+						</table>
+
+						<p class="fragment" data-fragment-index="0">
+							That is, the populations decrease over time.
+						</p>
+
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-90">
+						<p>
+							Suppose we know the populations this year:
+						</p>
+
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Last year ($\mathbf x_0$)
+								</th>
+								<th>
+									This year
+								</th>
+
+							</tr>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">
+									1
+								</td>
+								<td style="text-align: center;">
+									?
+								</td>
+								<td>
+									182,000
+								</td>
+
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									2
+								</td>
+								<td style="text-align: center;">
+									?
+								</td>
+								<td>
+									355,810
+								</td>
+
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									3
+								</td>
+								<td style="text-align: center;">
+									?
+								</td>
+								<td>
+									190
+								</td>
+
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									4
+								</td>
+								<td style="text-align: center;">
+									?
+								</td>
+								<td>
+									1,620
+								</td>
+
+							</tr>
+						</table>
+
+						<p class="fragment" data-fragment-index="0">
+							Can we determine the population last year?
+							<span class="fragment" data-fragment-index="1">
+								We know that
+								$L\mathbf x_0 = \mathbf x_1.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							If $L$ has an inverse, $L^{-1}$,
+							<span class="fragment" data-fragment-index="3">
+								then
+							</span>
+
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3" style="font-size: 1.1em;">
+								$L\mathbf x_0=\mathbf x_1$
+								<span class="fragment" data-fragment-index="4">
+									$\Ra L^{-1}L \mathbf x_0 = L^{-1} \mathbf x_1$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\Ra I \mathbf x_0 = L^{-1} \mathbf x_1$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\Ra \mathbf x_0 = L^{-1} \mathbf x_1$
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application: Turtle population model
+					</h4>
+					<div class="size-90">
+						<p>
+							After finding $L^{-1}$, we can calculate the populations last year:
+						</p>
+
+						<table style="text-align: center;" border="collapse">
+							<tr>
+								<th>
+									Stage #
+								</th>
+								<th>
+									Last year ($\mathbf x_0$)
+								</th>
+								<th>
+									This year
+								</th>
+
+							</tr>
+							<tr style="text-align: center;">
+								<td style="text-align: center;">
+									1
+								</td>
+								<td style="text-align: center;">
+									199,259
+								</td>
+								<td>
+									182,000
+								</td>
+
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									2
+								</td>
+								<td style="text-align: center;">
+									300,671
+								</td>
+								<td>
+									355,810
+								</td>
+
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									3
+								</td>
+								<td style="text-align: center;">
+									499
+								</td>
+								<td>
+									190
+								</td>
+
+							</tr>
+							<tr>
+								<td style="text-align: center;">
+									4
+								</td>
+								<td style="text-align: center;">
+									1,501
+								</td>
+								<td>
+									1,620
+								</td>
+
+							</tr>
+						</table>
+
+						<p class="fragment" data-fragment-index="0">
+							But... how did we find $L^{-1}$??
+							<span class="fragment" data-fragment-index="2">
+								And what if $L$ didn't have an inverse??
+							</span>
+
+
+						</p>
+
+
+
+						<p class="fragment" data-fragment-index="3">
+							We'll soon see a way to determine whether an inverse exists.
+							<span class="fragment" data-fragment-index="4">
+								But first we'll need some more important results from matrix algebra...
+							</span>
+						</p>
+
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Sub-matrices</h4>
+
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							Let $A$ be an $m \times n$ matrix. Then a matrix $B$ is called a <b>sub-matrix</b> of $A$
+							iff $B$ is formed by removing up to $m-1$ rows and up to $n-1$ columns of $A.$
+						</p>
+
+						<p class="fragment" data-fragment-index="1" style="margin-top: 25px; font-weight: bold;">
+							Example:
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$
+								A = \left( \begin{array}{cccc} 1 & 2 & 3 & 4 \\ 5 & 6 & 7 & 8 \\ 9 & 10 & 11 & 12
+								\end{array} \right)
+								\qquad
+								B = \left( \begin{array}{cc} 1 & 3 \\ 5 & 7 \end{array} \right)
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+							$B$ was formed by removing the third row, and the second
+							and fourth columns of $A.$
+							<span class="fragment">
+								So $B$ is a sub-matrix of $A.$
+							</span>
+
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrices: block form and block matrices</h4>
+
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							With the idea of sub-matrices, we can write matrices in <b>"block form"</b>.
+						</p>
+
+						<p class="fragment" data-fragment-index="1" style="margin-top: 20px; ">
+							For example:
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								Let $U = \left( \begin{array}{ccc} 1 & 2 & 3 \end{array} \right), \;\; V = \left(
+								\begin{array}{ccc} 4 & 5 & 6 \end{array} \right), \;\; \text{and}\;\;$
+
+								$W = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 4 & 5 & 6 \end{array} \right)$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="4" style="margin-top: 20px;">
+							Then $W$ can be written as
+							$W = \left( \begin{array}{c} U \\ V \end{array} \right)$ which is
+							in block form.
+						</p>
+
+						<p class="fragment" data-fragment-index="5"
+							style="color: #034574; text-align: center; margin-top: 30px; text-transform: none;">
+							A matrix that is in block form is called a <b>"block matrix"</b>.
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix multiplication: reminder</h4>
+
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							Recall the definition of matrix multiplication:
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$
+								AB =
+								\left(
+								\begin{array}{cccc}
+								a_{11} & a_{12} & \cdots & a_{1n} \\
+								a_{21} & a_{22} & \cdots & a_{2n} \\
+								\vdots & \vdots & \ddots & \vdots \\
+								a_{m1} & a_{m2} & \cdots & a_{mn} \\
+								\end{array}
+								\right)
+								\left(
+								\begin{array}{cccc}
+								b_{11} & b_{12} & \cdots & b_{1p} \\
+								b_{21} & b_{22} & \cdots & b_{2p} \\
+								\vdots & \vdots & \ddots & \vdots \\
+								b_{n1} & b_{n2} & \cdots & b_{np} \\
+								\end{array}
+								\right)
+								$
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								$
+								=
+								\left(
+								\begin{array}{cccc}
+								\sum_{i}a_{1i} b_{i1} & \sum_{i}a_{1i} b_{i2}& \cdots & \sum_{i}a_{1i} b_{ip}\\
+								\sum_{i}a_{2i} b_{i1}& \sum_{i}a_{2i}b_{i2}& \cdots & \sum_{i}a_{2i} b_{ip}\\
+								\vdots & \vdots & \ddots & \vdots \\
+								\sum_{i}a_{mi} b_{i1}& \sum_{i}a_{mi} b_{i2} & \cdots & \sum_{i}a_{mi} b_{ip}\\
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Block matrix multiplication</h4>
+
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							This definition can also be used when multiplying block matrices.
+						</p>
+
+						<p class="fragment" data-fragment-index="1" style="font-size: 0.9em;">
+							For example: if we write an $m \times n$ matrix $A$ and an $n \times p$ matrix $B$ in terms
+							of blocks $A_{ij}$ and $B_{ij}$ (respectively), we then have:
+						</p>
+
+						<div class="cc" style="font-size: 0.8em;">
+							<p class="fragment" data-fragment-index="2">
+								$
+								AB =
+								\left( \begin{array}{cccc} A_{11} & A_{12} & \cdots & A_{1r} \\ A_{21} & A_{22} & \cdots
+								& A_{2r} \\ \vdots & \vdots & \ddots & \vdots \\ A_{s1} & A_{s2} & \cdots & A_{sr}
+								\end{array} \right)
+								\left( \begin{array}{cccc} B_{11} & B_{12} & \cdots & B_{1p} \\ B_{21} & B_{22} & \cdots
+								& B_{2p} \\ \vdots & \vdots & \ddots & \vdots \\ B_{r1} & B_{r2} & \cdots & B_{rp}
+								\end{array} \right)
+								$
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$
+								=
+								\left( \begin{array}{cccc} \sum_{k} A_{1k}B_{k1} & \sum_{k} A_{1k}B_{k2} & \cdots &
+								\sum_{k} A_{1k}B_{kp} \\ \sum_{k} A_{2k}B_{k1} & \sum_{k} A_{2k}B_{k2} & \cdots &
+								\sum_{k} A_{2k}B_{kp} \\ \vdots & \vdots & \ddots & \vdots \\ \sum_{k} A_{sk}B_{k1} &
+								\sum_{k} A_{sk}B_{k2} & \cdots & \sum_{k} A_{sk}B_{kp} \end{array} \right)
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="4"
+							style="text-align: center; margin-top: 15px; font-weight: bold;">
+							as long as the block products are defined!
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Block multiplication cont'd</h4>
+
+					<div class="size-85" style="text-align: center; margin-top: 40px;">
+						<p class="fragment" data-fragment-index="0" style="font-size: 1.1em;">
+							This form of matrix multiplication is called <b>"block multiplication"</b>.
+						</p>
+
+						<p class="fragment" data-fragment-index="1"
+							style="color: #d31515; font-size: 1.2em; margin-top: 25px;text-align: center;">
+							It's a very important form of multiplication!!
+						</p>
+
+						<p class="fragment" data-fragment-index="2"
+							style="margin-top: 30px; font-size: 1.05em; text-align: justify; line-height: 40px;">
+							It can greatly simplify the calculation of matrix products, and has some very, very
+							important results that get used extensively in Linear Algebra.
+						</p>
+
+						<p class="fragment" data-fragment-index="3"
+							style="color: #055187; font-weight: bold; margin-top: 40px; font-size: 1.2em; text-align: center;">
+							First, let's see an example of block multiplication.
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Block multiplication: example
+					</h4>
+
+					<div class="size-75">
+						<p>
+							The following example shows how block multiplication can greatly simplify the calculation of
+							matrix products.
+							<span>
+								Suppose
+
+							</span>
+						</p>
+					</div>
+
+					<div class="size-70">
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+
+								$\;A=
+								\left(
+								\begin{array}{cccc}
+								1 & 0 & 0 & 2 \\
+								0 & 1 & 0 & 0 \\
+								0 & 0 & 1 & 3 \\
+								0 & 0 & 0 & 1 \\
+								\end{array}
+								\right)
+								$
+
+								<span class="fragment" data-fragment-index="1">
+									$
+									=
+									\left(
+									\begin{array}{ccc|c}
+									& & & \\
+									& A_{11}=I & & A_{12} \\
+									& & & \\\hline
+									& A_{21} & & A_{22} \\
+									\end{array}
+									\right)
+									$
+								</span>
+
+
+
+								and
+
+								$\;B=
+								\left(
+								\begin{array}{cc}
+								-1 & 2 \\
+								-3 & 4 \\
+								1 & -2 \\
+								3 & -4 \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									=
+									\left(
+									\begin{array}{cc}
+									\\
+									B_{11} \\
+									\\\hline
+									B_{21} \\
+									\end{array}
+									\right)
+									$
+								</span>
+
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="3">then</p>
+
+					</div>
+					<div style="font-size: 64%;">
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$\;AB=
+								\left(
+								\begin{array}{c}
+								\\
+								I B_{11}+ A_{12}B_{21} \\
+								\\ \hline
+								A_{21} B_{11}+ I B_{21} \\
+								\end{array}
+								\right)\;$
+
+								<span class="fragment" data-fragment-index="4">
+									$=
+									\left(
+									\begin{array}{c}
+									\\
+									\color{red}{B_{11}} + \color{blue}{A_{12}B_{21}}\\
+									\\ \hline
+									B_{21} \\
+									\end{array}
+									\right)\;$
+								</span>
+
+								<span class="fragment" data-fragment-index="5">
+									$=
+									\left(
+									\begin{array}{cc}
+									\color{red}{-1}+\color{blue}{6} & \color{red}{2}+\color{blue}{(-8)}\\
+									\color{red}{-3}+\color{blue}{0} & \color{red}{4}+\color{blue}{0}\\
+									\color{red}{1}+\color{blue}{9} & \color{red}{(-2)}+\color{blue}{(-12)}\\ \hline
+									3 & -4 \\
+									\end{array}
+									\right)\;$
+								</span>
+
+								<span class="fragment" data-fragment-index="6">
+									$=
+									\left(
+									\begin{array}{cc}
+									5 & -6\\
+									-3 & 4\\
+									10 & -14\\
+									3 & -4 \\
+									\end{array}
+									\right)\;$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-65">
+						<p class="fragment" data-fragment-index="7">Blocks were then defined so that block
+							multiplication
+							could use those sub-matrices to
+							significantly reduce the amount of working
+							required for the calculation of the product.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Important results of block matrix multiplication (I)</h4>
+					<div class="size-80" style="text-align: left;">
+						<p>We now look at some important results of block multiplication.</p>
+						<p class="fragment" data-fragment-index="1">
+							Firstly, consider the product $A\mathbf b$ where:
+						</p>
+						<ol>
+							<li class="fragment" data-fragment-index="2">$A$ is divided into blocks made from its
+								columns,
+								and</li>
+							<li class="fragment" data-fragment-index="3">$\mathbf b$ is divided into blocks of its
+								individual
+								elements.</li>
+						</ol>
+						<p class="fragment" data-fragment-index="4">It then follows that</p>
+					</div>
+					<div class="size-75 cc fragment" data-fragment-index="4">
+						<p>
+							$A\mathbf b = \begin{pmatrix} | & | & & | \\ \mathbf a_1 & \mathbf a_2 & \cdots & \mathbf
+							a_n \\ | & | & & | \end{pmatrix}
+							\begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix} = b_1 \mathbf a_1 + b_2 \mathbf
+							a_2 + \cdots + b_n
+							\mathbf a_n$
+						</p>
+					</div>
+					<div class="size-80 fragment cc" data-fragment-index="5">
+						<p><b>This first result is a very, very important one!!</b></p>
+						<p class="fragment">Why?? 🤔 Because it's an example of a <strong>linear combination</strong>...
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h4>Linear combinations</h4>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">
+							We define a linear combination of vectors, matrices, functions, etc.
+							$A_1, A_2, \cdots, A_n$
+							<span class="fragment" data-fragment-index="1">
+								as any sum:
+							</span>
+
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							$$\sum_{i=1}^{n}x_{i}A_{i} = x_{1}A_{1} + x_{2}A_{2} + \cdots + x_{n}A_{n}$$
+							for real numbers $x_{1}, x_{2}, \dots, x_{n}.$
+						</p>
+					</div>
+					<div class="size-80 fragment" data-fragment-index="2" style="margin-top:20px;">
+						<p>On the previous slide, we saw that:</p>
+						<p>
+							$$A\mathbf x = \begin{pmatrix} | & | & & | \\ \mathbf a_{1} & \mathbf a_{2} & \cdots &
+							\mathbf a_{n} \\ | & | & & |
+							\end{pmatrix} \begin{pmatrix} x_{1} \\ x_{2} \\ \vdots \\ x_{n} \end{pmatrix} = x_{1}\mathbf
+							a_{1} +
+							x_{2}\mathbf a_{2} + \cdots + x_{n}\mathbf a_{n}$$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Linear combinations cont'd</h4>
+					<div class="size-90">
+						<p>So by the definition of linear combinations, we have the following further results:</p>
+						<ol style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="1">
+								The product $A\mathbf x$ is a <strong>linear combination of the columns of $A$</strong>;
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								The linear system $A\mathbf x = \mathbf b$ has a solution <strong>iff $\mathbf b$ is a
+									linear combination of the
+									columns of $A$</strong>.
+							</li>
+						</ol>
+						<p class="fragment" data-fragment-index="3">These two results are very, very important!!</p>
+						<p class="fragment" data-fragment-index="4">We'll use them extensively later in the course. For
+							now though, a few more important results
+							of block multiplication before we move on...</p>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h4>Important results of block matrix multiplication (II)</h4>
+					<div class="size-80">
+						<p>We finish this section with the following three important results of block multiplication.
+						</p>
+						<p class="fragment" data-fragment-index="0">For matrices $A \in \mathbb{R}^{m \times n}$ and $B
+							\in \mathbb{R}^{n \times p}$:</p>
+						<p class="fragment" data-fragment-index="1">
+							<strong>1. Row-Column Block Expansion:</strong>
+						</p>
+					</div>
+					<div class="size-75 cc" style="margin-top:15px;">
+						<p class="fragment" data-fragment-index="1">
+
+							$AB = \begin{pmatrix} - & \overrightarrow{\mathbf a_{1}} & - \\ - & \overrightarrow{\mathbf
+							a_{2}} & - \\ & \vdots & \\ - & \overrightarrow{\mathbf a_{m}}& -
+							\end{pmatrix} \begin{pmatrix} | & | & & | \\ \mathbf b_{1} & \mathbf b_{2}& \cdots & \mathbf
+							b_{p} \\ | & | & & |
+							\end{pmatrix} $
+							<span class="fragment" data-fragment-index="2">
+								$
+								= \begin{pmatrix} \overrightarrow{\mathbf a_{1}}\,\mathbf b_{1} &
+								\overrightarrow{\mathbf a_{1}}\,\mathbf b_{2} & \cdots & \overrightarrow{\mathbf
+								a_{1}}\,\mathbf b_{p} \\ \overrightarrow{\mathbf a_{2}}\,\mathbf b_{1}
+								& \overrightarrow{\mathbf a_{2}}\,\mathbf b_{2} & \cdots & \overrightarrow{\mathbf
+								a_{2}}\,\mathbf b_{p} \\ \vdots & \vdots & \ddots & \vdots \\ \overrightarrow{\mathbf
+								a_{m}}\,\mathbf b_{1} &
+								\overrightarrow{\mathbf a_{m}}\,\mathbf b_{2} & \cdots & \overrightarrow{\mathbf
+								a_{m}}\,\mathbf b_{p} \end{pmatrix}
+								$
+							</span>
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Important results of block matrix multiplication (II) cont'd</h4>
+
+
+					<div class="size-75">
+						<p><strong>2. Matrix-Column Block Multiplication:</strong></p>
+					</div>
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="1">
+
+							$AB = A \begin{pmatrix} | & | & & | \\ \mathbf b_{1} & \mathbf b_{2} & \cdots & \mathbf
+							b_{p} \\ | & | & & |
+							\end{pmatrix} $
+							<span class="fragment" data-fragment-index="2">
+								$
+								= \begin{pmatrix} | & | & & | \\ A\mathbf b_{1} & A\mathbf b_{2} & \cdots & A\mathbf
+								b_{p} \\ | & | &
+								& | \end{pmatrix}
+								$
+							</span>
+						</p>
+
+					</div>
+					<div class="size-75">
+						<p class="fragment" data-fragment-index="3"><strong>3. Column-Row (Outer Product)
+								Expansion:</strong>
+
+					</div>
+
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="3">
+
+							$AB = \begin{pmatrix} | & | & & | \\ \mathbf a_{1} & \mathbf a_{2} & \cdots & \mathbf a_{n}
+							\\ | & | & & |
+							\end{pmatrix} \begin{pmatrix} - & \overrightarrow{\mathbf b_{1}} & - \\ - &
+							\overrightarrow{\mathbf b_{2}} & - \\ & \vdots & \\ - & \overrightarrow{\mathbf b_{n}} & -
+							\end{pmatrix} $
+							<span class="fragment" data-fragment-index="4">
+								$
+								= \mathbf a_{1} \overrightarrow{\mathbf b_{1}} + \mathbf a_{2} \overrightarrow{\mathbf
+								b_{2}} + \cdots + \mathbf a_{n} \overrightarrow{\mathbf b_{n}}
+								$
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+			</section>
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

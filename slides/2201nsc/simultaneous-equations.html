@@ -1,0 +1,2718 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Lecture 1</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Simultaneous Equations
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f001.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+
+				<section>
+					<h4>Linear Equations</h4>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="0">
+							A (real) <b>linear equation</b> in $n$ unknowns is an
+							equation of the form
+						</p>
+					</div>
+					<div class=" size-90 cc">
+						<p class="fragment" data-fragment-index="0">
+							$ a_1x_1 + a_2x_2 + \cdots + a_nx_n = b $
+
+						</p>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="1">
+							where
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="1">
+								$a_1, a_2, \ldots, a_n$ and $b$ are (real) coefficients;
+								<span class="fragment" data-fragment-index="2">and</span>
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$x_1, x_2, \ldots, x_n$ are (real) variables.
+							</li>
+						</ul>
+					</div>
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="3">
+							Examples:
+						</p>
+						<ul>
+							<li class="fragment" data-fragment-index="3">
+								$ 2 x_1 + 3 x_2 - x_3 - 5x_4 = 0 $
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								$2 r + 3 s = 4$
+							</li>
+						</ul>
+					</div>
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h4>Systems of Linear Simultaneous Equations</h4>
+
+					<div class="left-txt size-95">
+						<p class="fragment" data-fragment-index="0"><b>Systems of Linear Equations</b></p>
+						<p class="fragment" data-fragment-index="0">
+							A <em>system</em> of linear equations is a collection of
+							$m$ simultaneous equations
+							<span class="fragment" data-fragment-index="1">in $n$ unknowns,</span>
+							<span class="fragment" data-fragment-index="2">of the form</span>
+						</p>
+					</div>
+					<div class=" size-95">
+						<p class="fragment" data-fragment-index="2">
+							\begin{align*}
+							a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= b_1 \\
+							a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= b_2 \\
+							&\vdots \\
+							a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n &= b_m
+							\end{align*}
+						</p>
+					</div>
+
+
+					<br />
+					<br />
+
+
+				</section>
+				<section>
+					<h4>Examples of Systems of Linear Simultaneous Equations</h4>
+
+
+					<div class="size-95" style="text-align: left; margin-left: 25%;">
+						<ul style="line-height: 150px;">
+							<li class="fragment" data-fragment-index="0">
+								$\begin{aligned}
+								2x + 3y &= 1 \\
+								3x - y &= 2
+								\end{aligned}$
+							</li>
+
+							<li class="fragment" data-fragment-index="1">
+								$\begin{aligned}
+								ax + by &= r \\
+								cx + dy &= s
+								\end{aligned}$
+							</li>
+
+
+						</ul>
+						<br />
+						<ul style="margin-top: 20px;">
+							<li class="fragment" data-fragment-index="2">
+								$ \begin{aligned}
+								x_1 + x_2 + x_3 &= 3 \\
+								x_1 + x_2 - x_3 &= 1 \\
+								x_1 - x_2 + x_3 &= 1
+								\end{aligned}$
+							</li>
+						</ul>
+					</div>
+
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h4>
+						Application example - Balancing a chemical equation
+					</h4>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="0">
+							Photosynthesis converts water and carbon dioxide into oxygen and glucose:
+						</p>
+					</div>
+					<div class="cc size-80">
+						<p class="fragment" data-fragment-index="0">
+							$ x_1\text{CO}_2 + x_2\text{H}_2\text{O}\ \rightarrow\ x_3\text{O}_2 +
+							x_4\text{C}_6\text{H}_{12}\text{O}_6 $
+						</p>
+					</div>
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="1">
+							What are the coefficients $x_i$?
+							<span class="fragment" data-fragment-index="2">
+								Since matter is neither created nor
+								destroyed,
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								we must have equal amounts of each element on either side.
+							</span>
+						</p>
+					</div>
+					<div class=" size-80">
+						<table style="border-collapse: collapse; margin: 0 auto; text-align: center;" class="fragment"
+							data-fragment-index="3">
+							<tr>
+								<th style="border: 1px solid black; padding: 8px;"></th>
+								<th style="border: 1px solid black; padding: 8px;">C</th>
+								<th style="border: 1px solid black; padding: 8px;">H</th>
+								<th style="border: 1px solid black; padding: 8px;">O</th>
+							</tr>
+
+							<tr>
+								<th style="border: 1px solid black; padding: 8px;" class="fragment"
+									data-fragment-index="4">LHS</th>
+								<td style="border: 1px solid black; padding: 8px;" class="fragment"
+									data-fragment-index="5">\(x_1\)</td>
+								<td style="border: 1px solid black; padding: 8px;" class="fragment"
+									data-fragment-index="6">\(2x_2\)</td>
+								<td style="border: 1px solid black; padding: 8px;" class="fragment"
+									data-fragment-index="7">\(2x_1+x_2\)</td>
+							</tr>
+
+							<tr>
+								<th style="border: 1px solid black; padding: 8px;" class="fragment"
+									data-fragment-index="8">RHS</th>
+								<td style="border: 1px solid black; padding: 8px;" class="fragment"
+									data-fragment-index="9">\(6x_4\)</td>
+								<td style="border: 1px solid black; padding: 8px;" class="fragment"
+									data-fragment-index="10">\(12x_4\)</td>
+								<td style="border: 1px solid black; padding: 8px;" class="fragment"
+									data-fragment-index="11">\(2x_3+6x_4\)</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="size-80">
+						<table style="margin: 0 auto; border-collapse: collapse;">
+							<tr>
+								<td style="padding: 0 30px; vertical-align: top;" class="fragment"
+									data-fragment-index="12">
+									\[
+									\begin{aligned}
+									x_1 &= 6x_4 \\
+									2x_2 &= 12x_4 \\
+									2x_1 + x_2 &= 2x_3 + 6x_4
+									\end{aligned}
+									\]
+								</td>
+
+								<td style="padding: 0 20px; vertical-align: middle; text-align: center;"
+									class="fragment" data-fragment-index="13">
+									$\rightarrow$
+								</td>
+
+								<td style="padding: 0 30px; vertical-align: top;" class="fragment"
+									data-fragment-index="13">
+									\[
+									\begin{aligned}
+									x_1 - 6x_4 &= 0 \\
+									2x_2 - 12x_4 &= 0 \\
+									2x_1 + x_2 - 2x_3 - 6x_4 &= 0
+									\end{aligned}
+									\]
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Solving systems of 2 variables
+					</h4>
+
+					<div class="size-85">
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								How can we solve the following system?
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$\begin{align}
+								2x_1 + x_2 &= 3 \quad \quad (1)\\
+								x_1 - x_2 &= 0 \quad \quad (2)
+								\end{align}$
+							</p>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="1">
+								From (2):
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$x_2 = x_1$
+							</p>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="3">
+								Sub into (1):
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$2x_1+x_1=3$
+								<span class="fragment" data-fragment-index="5">
+									$\implies x_1=1$
+								</span>
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="6">
+								Sub back into (2):
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$x_2 = x_1 =1$
+							</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section>
+
+					<h4>
+						Further problems
+					</h4>
+
+					<div class="size-85">
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="0">
+								How can we solve the following system?
+							</p>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								\begin{align*}
+								2x_1 + x_2 + x_3 - 4 x_4 + 2x_5 &= 3 \\
+								x_1 - x_2 - x_4 + x_5 &= 0 \\
+								x_2 + 2x_3 - x_4 + 2x_5 &=1 \\
+								x_1 - x_2 - 2x_3 - 3x_4 - 4x_5 &=10 \\
+								x_1 + 2x_2 + 3x_3 - 4x_4 + x_5 &=-2
+								\end{align*}
+							</p>
+
+						</div>
+						<div class="left-txt">
+							<ul>
+								<li class="fragment" data-fragment-index="1">
+									Does a solution always exist?
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									If it exists, what is the solution?
+								</li>
+
+							</ul>
+						</div>
+
+
+					</div>
+					<div class="cc">
+						<p class="fragment" data-fragment-index="3">
+						<b>We need a systematic approach!! 🤔</b>
+					</p>
+					</div>
+					<br />
+
+				</section>
+
+				<section>
+					<h4>
+						A systematic approach...
+					</h4>
+					<div class="size-85">
+
+						<p class="fragment" data-fragment-index="0">We represent the system</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\begin{align*}
+								2x_1 + x_2 &= 3 \\
+								x_1 - x_2 &= 0
+								\end{align*}
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							using the <em>augmented matrix</em>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+
+								$
+								\left(
+								\begin{array}{rr|r} 2 & 1 & 3
+								\\ 1 & -1 & 0
+								\end{array}
+								\right)
+								$
+
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="3">
+							and <em>solve</em> this system using <em>row operations</em>
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								This approach is called <b>row reduction</b>,
+								or <b>Gaussian elimination</b>
+							</p>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Allowed row operations
+					</h4>
+					<div class="size-65" style="margin-top: -15px;">
+
+						<p class="fragment" data-fragment-index="0">
+							There are three allowed row operations:
+						</p>
+
+						<ol style="margin-top: -15px;">
+							<li class="fragment" data-fragment-index="1">
+								Interchanging two rows,
+								<span class="fragment" data-fragment-index="2">
+									i.e.
+								</span>
+								<div class="cc">
+									<p class="fragment" data-fragment-index="2">
+										$
+										\left(
+										\begin{array}{rrr|r}
+										0 & -4 & 8 & 4 \\
+										1 & -1 & 1& 0 \\
+										2 & 2 & 3 & 4
+										\end{array}
+										\right)
+										$
+										<span class="fragment" data-fragment-index="3">
+											$
+
+
+											\begin{array}{rrr|r}
+											R1 \\
+											R2 \\
+											R3
+											\end{array}
+											$
+
+										</span>
+										<span class="fragment" data-fragment-index="4">
+											$\quad\rightarrow\quad$
+										</span>
+										<span class="fragment" data-fragment-index="4">
+											$
+											\left(
+											\begin{array}{rrr|r}
+											1 & -1 & 1 & 0 \\
+											0 & -4 & 8 & 4 \\
+											2 & 2 & 3 & 4
+											\end{array}
+											\right)
+											$
+										</span>
+										<span class="fragment" data-fragment-index="5">
+											$
+											\begin{array}{rrr|r}
+											\color{red}{R2} \\
+											\color{red}{R1} \\
+											R3
+											\end{array}
+											\qquad \qquad \qquad 
+											$
+										</span>
+									</p>
+								</div>
+
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								Rescaling one row,
+								<span class="fragment" data-fragment-index="7">
+									i.e.
+								</span>
+								<div class="cc">
+									<p class="fragment" data-fragment-index="7">
+										$
+										\left(
+										\begin{array}{rrr|r}
+										1 & -1 & 1& 0 \\
+										0 & -4 & 8 & 4 \\
+										2 & 2 & 3 & 4
+										\end{array}
+										\right)
+										$
+										<span class="fragment" data-fragment-index="8">
+											$
+
+
+											\begin{array}{rrr|r}
+											R1a \\
+											R2a \\
+											R3
+											\end{array}
+											$
+
+										</span>
+										<span class="fragment" data-fragment-index="9">
+											$\quad\rightarrow\quad$
+										</span>
+										<span class="fragment" data-fragment-index="9">
+											$
+											\left(
+											\begin{array}{rrr|r}
+											1 & -1 & 1 & 0 \\
+											0 & 1 & -2 & -1 \\
+											2 & 2 & 3 & 4
+											\end{array}
+											\right)
+											$
+										</span>
+										<span class="fragment" data-fragment-index="10">
+											$
+											\begin{array}{r}
+											R1a \\
+											\color{red}{-\frac{1}{4}R2a} \\
+											R3
+											\end{array}\qquad \qquad 
+											$
+										</span>
+									</p>
+								</div>
+
+							</li>
+							<li class="fragment" data-fragment-index="11">
+								Adding a multiple of one row to another row,
+								<span class="fragment" data-fragment-index="12">
+									i.e.
+								</span>
+								<div class="cc">
+									<p class="fragment" data-fragment-index="12">
+										$
+										\left(
+										\begin{array}{rrr|r}
+										1 & -1 & 1 & 0 \\
+										0 & 1 & -2 & -1 \\
+										2 & 2 & 3 & 4
+										\end{array}
+										\right)
+										$
+										<span class="fragment" data-fragment-index="13">
+											$
+											\begin{array}{r}
+											R1a \\
+											R2b \\
+											R3
+											\end{array}
+											$
+
+										</span>
+										<span class="fragment" data-fragment-index="14">
+											$\quad\rightarrow\quad$
+										</span>
+										<span class="fragment" data-fragment-index="14">
+											$
+											\left(
+											\begin{array}{rrr|r}
+											1 & -1 & 1 & 0 \\
+											0 & 1 & -2 & -1 \\
+											0 & 4 & 1 & 4
+											\end{array}
+											\right)
+											$
+										</span>
+										<span class="fragment" data-fragment-index="15">
+											$
+											\begin{array}{l}
+											R1a \\
+											R2b \\
+											\color{red}{R3 - 2 R1a}
+											\end{array}\qquad \qquad 
+											$
+										</span>
+									</p>
+								</div>
+
+							</li>
+						</ol>
+
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Allowed row operations
+					</h4>
+
+					<div class="size-80">
+						<p>
+							These operations are allowed because
+							<b>they
+								produce a new set of
+								equations with the same solution</b>.
+						</p>
+
+						<p class="fragment" data-fragment-index="0">
+							1. Interchanging two rows:
+							<span class="fragment" data-fragment-index="1">
+								<b>Hopefully obvious</b> 😃
+							</span>
+						</p>
+
+
+
+						<p class="fragment" data-fragment-index="2">
+							2. Rescaling one row:
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								If $\;-4y + 8z = 4\;$
+								<span class="fragment" data-fragment-index="4">
+									then $\;y- 2z = -1$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="5">
+							3.Adding a multiple of one row to another row:
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								If $\color{red}{x- y + z = 0}\;$ and $\;\color{blue}{2x + 2y + 3z = 4}\;$
+								<span class="fragment" data-fragment-index="7">
+									then
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$\color{blue}{2x + 2y + 3z} - 2(\color{red}{x - y + z}) = \color{blue}{4}- 2(\color{red}0) $
+								<span class="fragment" data-fragment-index="8">$ = 4$</span>
+							</p>
+							<p class="fragment" data-fragment-index="9">
+								$\Ra \; 2x + 2y + 3z- 2x + 2y- 2z = 4$
+							</p>
+							<p class="fragment" data-fragment-index="10">
+								$\Ra \; 4y + z =  4$
+							</p>
+
+						</div>
+
+
+					</div>
+
+				</section>
+
+				<section>
+					<h4>Our objective - Upper triangular form</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">
+							A square matrix is in upper triangular form if and only if
+							(iff) $a_{ij} = 0$
+							whenever $i > j.$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							That is, whenever all entries below the main diagonal are zero.
+						</p>
+						<p class="fragment" data-fragment-index="2">Example:</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$
+								\left(
+								\begin{array}{rrrr}
+								a_{11} & a_{11} & \cdots & a_{1n} \\
+								0 & a_{22} & \cdots & a_{2n} \\
+								\vdots & \vdots & \ddots & \vdots\\
+								0 & 0 & 0 & a_{nn}
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+					</div>
+
+					<br />
+
+				</section>
+				<section>
+					<h4>Our objective - Upper triangular form</h4>
+
+					<div class="size-85">
+						<p>
+							Our objective using row reduction on an augmented matrix:
+						</p>
+
+						<div class="cc" style="font-size: 77%;">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{cccc|c}
+								a_{11} & a_{12} & \cdots & a_{1n} & q_1 \\
+								a_{21} & a_{22} & \cdots & a_{2n} & q_2 \\
+								\vdots & \vdots & \ddots & \vdots & \vdots \\
+								a_{n1} & a_{n2} & \cdots & a_{nn} & q_n \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="1">
+									$\;\;\rightarrow\;\;
+									\left(
+									\begin{array}{ccccc|c}
+									1 & b_{12} & b_{13} & \cdots & b_{1n} & r_1 \\
+									0 & 1 & b_{23} & \cdots & b_{2n} & r_2 \\
+									0 & 0 & 1 & \ldots & b_{3n} & r_3 \\
+									\vdots & \vdots & \vdots & \ddots & \vdots \\
+									0 &0 & 0 & \cdots & 1 & r_n \\
+									\end{array}
+									\right)
+									$
+								</span>
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="2">
+							With equations in this form, we obtain the solution by back-substitution.
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							The bottom line gives: $\;x_n = r_n.$
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							The line above then gives:
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$x_{n-1}+ b_{(n-1)n}x_n = r_{n-1}$
+								<span class="fragment" data-fragment-index="5">
+									$\;\Ra \; x_{n-1} = r_{n-1}-b_{(n-1)n}r_n .$
+								</span>
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="6">
+							and so on...
+						</p>
+					</div>
+
+					<br />
+
+				</section>
+
+				<section>
+					<h4>
+						Example 1
+					</h4>
+
+					<table class="size-75">
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								$
+								\begin{array}{r}
+								2x_1+ x_2 =3 \\
+								x_1 -x_2 = 0
+								\end{array}
+								$
+								<span class="fragment" data-fragment-index="1">
+									$\Ra$
+								</span>
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{rr|r}
+								2 & 1 & 3 \\
+								1 & -1 & 0
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1 \\
+								R2
+								\end{array}
+								$
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="2">
+								$
+								\left(
+								\begin{array}{rr|r}
+								1 & -1 & 0 \\
+								2 & 1 & 3
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1a = R2 \\
+								R2a = R1
+								\end{array}
+								$
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="3">
+								$
+								\left(
+								\begin{array}{rr|r}
+								1 & -1 & 0 \\
+								0 & 3 & 3
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1a \\
+								R2b = R2a-2R1a
+								\end{array}
+								$
+
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="4">
+								$
+								\left(
+								\begin{array}{rr|r}
+								1 & -1 & 0 \\
+								0 & 1 & 1
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1a \\
+								R2c = \frac{1}{3}R2b
+								\end{array}
+								$
+
+							</td>
+							<td class="fragment" data-fragment-index="5">
+								$\Ra
+								\begin{array}{r}
+								x_1- x_2 =0 \\
+								x_2 = 1
+								\end{array}
+								$
+							</td>
+						</tr>
+
+					</table>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="6">
+							Hence $x_2=1$,
+							<span class="fragment" data-fragment-index="7">
+								and back-substitution in $x_1 - x_2 = 0\;$
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								gives $\;x_1 -1 = 0$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$\; \Ra\; x_1 = 1.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="10">
+							Therefore $x_1 = 1$ and $x_2=1.$
+						</p>
+					</div>
+
+				</section>
+				<section>
+					<h4>
+						Example 2
+					</h4>
+
+					<table class="size-75">
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								$
+								\begin{array}{r}
+								2x_1+ x_2 =3 \\
+								x_1 -x_2 = 0
+								\end{array}
+								$
+								<span class="fragment" data-fragment-index="1">
+									$\Ra$
+								</span>
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{rr|r}
+								2 & 1 & 3 \\
+								1 & -1 & 0
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1 \\
+								R2
+								\end{array}
+								$
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="2">
+								$
+								\left(
+								\begin{array}{rr|r}
+								1 & \frac{1}{2} & \frac{3}{2} \\
+								1 & -1 & 0
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1a = \frac{1}{2}R1 \\
+								R2
+								\end{array}
+								$
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="3">
+								$
+								\left(
+								\begin{array}{rr|r}
+								1 & \frac{1}{2} & \frac{3}{2} \\
+								0 & -\frac{3}{2} & -\frac{3}{2}
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1a \\
+								R2a = R2-R1a
+								\end{array}
+								$
+
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+
+							</td>
+							<td class="fragment" data-fragment-index="4">
+								$
+								\left(
+								\begin{array}{rr|r}
+								1 & \frac{1}{2} & \frac{3}{2} \\
+								0 & 1 & 1
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1a \\
+								R2b = -\frac{2}{3}R2a
+								\end{array}
+								$
+
+							</td>
+							<td class="fragment" data-fragment-index="5">
+								$\Ra
+								\begin{array}{r}
+								x_1+ \frac{1}{2}x_2 =\frac{3}{2} \\
+								x_2 = 1
+								\end{array}
+								$
+							</td>
+						</tr>
+
+					</table>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="6">
+							Hence $x_2=1$,
+							<span class="fragment" data-fragment-index="7">
+								and back-substitution in $x_1+ \frac{1}{2}x_2 =\frac{3}{2}\;$
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								gives $\;x_1 +\frac{1}{2} = \frac{3}{2}$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$\; \Ra\; x_1 = 1.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="10">
+							Therefore $x_1 = 1$ and $x_2=1.$
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h4>
+						Extending to larger systems
+					</h4>
+					<p class="size-75 fragment" data-fragment-index="0">
+						How do we solve the following problem?
+					</p>
+
+					<table class="size-75" style="margin-top: -20px;">
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								$
+								\begin{array}{rcl}
+								3x_1 + 2x_2-x_3 & = & -2 \\
+								3x_1 + x_2-x_3 & = & -5 \\
+								3x_1 + 2x_2+x_3 & = & 2 \\
+								\end{array}
+								$
+
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+
+								$
+								\Ra
+								\left(
+								\begin{array}{rrr|r}
+								3 & 2 & - 1 & -2 \\
+								3 & 1 & - 1 & -5 \\
+								3 & 2 & 1 & 2 \\
+								\end{array}
+								\right)
+
+								$
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="2">
+								$
+								\Ra
+								\left(
+								\begin{array}{rrr|r}
+								3 & 2 & - 1 & -2 \\
+								0 & -1 & 0 & -3 \\
+								0 & 0 & 2 & 4 \\
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1 \\
+								R2 - R1 \\
+								R3 - R1\\
+								\end{array}
+								$
+							</td>
+						</tr>
+					</table>
+
+					<p class="size-75 fragment" data-fragment-index="3">
+						Back-substitution gives
+					</p>
+
+					<table class="size-75" style="margin-top: -50px;">
+						<tr>
+							<td style="border: none; text-align: right" class="fragment" data-fragment-index="3">
+								$
+								2x_3 = 4
+								$
+
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="4">
+								$
+								\Ra\;
+								x_3 = 2
+								$
+
+							</td>
+
+						</tr>
+						<tr>
+
+							<td style="border: none; text-align: right" class="fragment" data-fragment-index="5">
+								$
+								-x_2 = -3
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="6">
+								$
+								\Ra\;
+								x_2 = 3
+								$
+
+							</td>
+						</tr>
+						<tr>
+
+							<td style="border: none; text-align: right;" class="fragment" data-fragment-index="7">
+								$
+								3x_1 + 2x_2 -x_3
+								$
+								<span class="fragment" data-fragment-index="8">
+									$
+									= 3x_1 + 6 - 2
+									$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$=
+									- 2
+									$
+								</span>
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="10">
+								$
+								\Ra\;
+								x_1 = -2
+								$
+
+							</td>
+						</tr>
+					</table>
+					<p class="size-75 fragment" data-fragment-index="11">
+						Therefore $\;x_1 = -2,\, x_2 = 3,\,$ and $\, x_3 = 2.$
+					</p>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Don't forget to check your answer!!!
+					</h4>
+
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							We found that
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\begin{array}{rcl}
+								3x_1 + 2x_2-x_3 & = & -2 \\
+								3x_1 + x_2-x_3 & = & -5 \\
+								3x_1 + 2x_2+x_3 & = & 2 \\
+								\end{array}
+								$
+								<span class="fragment" data-fragment-index="1">
+									$
+									\;\Ra\; x_1 = -2,\, x_2 = 3, x_3 = 2
+									$
+								</span>
+
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							It's easy and wise to check your answer...
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$
+								3(-2)+ 2(3)-(2)
+								$
+								<span class="fragment" data-fragment-index="3">
+									$
+									=-6+6 -2
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									=-2\;
+									$ ✅
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								$
+								3(-2)+ (3)-(2)
+								$
+								<span class="fragment" data-fragment-index="6">
+									$
+									=-6+3 -2
+									$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									=-5\;
+									$ ✅
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="8">
+								$
+								3(-2)+ 2(3)+(2)
+								$
+								<span class="fragment" data-fragment-index="9">
+									$
+									=-6+6 +2
+									$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$
+									=2\;
+									$ ✅
+								</span>
+
+							</p>
+						</div>
+
+						<div style="margin-top: -25px;">
+							<picture class="fragment" data-fragment-index="10">
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃"
+									width="80" height="80">
+							</picture>
+
+						</div>
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Using Matlab/Octave
+					</h4>
+
+					<div class="size-85">
+						<p>
+							We found that
+						</p>
+						<div class="cc">
+							<p>
+								$
+								\begin{array}{rcl}
+								3x_1 + 2x_2-x_3 & = & -2 \\
+								3x_1 + x_2-x_3 & = & -5 \\
+								3x_1 + 2x_2+x_3 & = & 2 \\
+								\end{array}
+								$
+								<span>
+									$
+									\;\Ra\; x_1 = -2,\, x_2 = 3, x_3 = 2
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+
+					</div>
+
+					<pre style="width: 60%;height: 40px; font-size: 60%;margin-top: -10px;" class="fragment"
+						data-fragment-index="0">
+						<code data-trim data-noescape  class="language-python">
+>> A = [3 2 -1 -2; 3 1 -1 -5; 3 2 1 2]
+  </code></pre>
+					<pre style="width: 60%;height: 125px; font-size: 60%;margin-top: 25px;" class="fragment"
+						data-fragment-index="1">
+						<code data-trim data-noescape  class="language-python">
+A =
+3 2 -1 -2
+3 1 -1 -5
+3 2  1  2
+  </code></pre>
+
+					<pre style="width: 60%;height: 40px; font-size: 60%;margin-top: 30px;" class="fragment"
+						data-fragment-index="2">
+						<code data-trim data-noescape  class="language-python">
+>> rref(A)
+  </code></pre>
+					<pre style="width: 60%;height: 125px; font-size: 60%;margin-top: 25px;" class="fragment"
+						data-fragment-index="3">
+						<code data-trim data-noescape  class="language-python">
+ans =
+1 0 0 -2
+0 1 0  3
+0 0 1  2
+  </code></pre>
+					<br />
+				</section>
+
+
+
+			</section>
+
+			<section>
+				<section>
+					<h4>
+						Row Echelon form
+					</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">
+							<b>
+								Definition (Row Echelon Form)
+							</b>
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							A matrix is in <b>row echelon form</b> if
+						</p>
+
+					</div>
+					<div class="left-txt size-90">
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								any rows of zeros are at the bottom;
+								<span>and</span>
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								the first nonzero term in any row - the <em>leading</em> entry -
+								is <b>to the left
+									of any leading entries below it</b>.
+							</li>
+						</ol>
+					</div>
+
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="2">Once your row-reduced augmented matrix has this
+							property</p>
+						<p class="fragment" data-fragment-index="3">
+							<b>it is in row echelon form</b>
+						</p>
+						<p class="fragment" data-fragment-index="4">
+							... and you can stop row reducing!!
+						</p>
+					</div>
+				</section>
+				<section>
+					<h4>
+						In row echelon form? Check the leading entries...
+					</h4>
+
+					<table class="size-85">
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 2 & 1 & 3 \\
+								0 & 0 & \color{red}{-1} & 0 \\
+								0 & \color{red}{2} & 0 & 4\\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								R2's leading entry is <b>not to the left</b><br />
+								of R3's leading entry &nbsp;❌
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+								&nbsp;
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="2">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 2 & 1 & 3 \\
+								0 & \color{green}{2} & 0 & 4 \\
+								0 & 0 & \color{green}{-1} & 0 \\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="2">
+								Swapping R2 and R3&nbsp;✅
+							</td>
+						</tr>
+					</table>
+
+
+					<br />
+					<br />
+
+
+				</section>
+				<section>
+					<h4>
+						In row echelon form? Check the leading entries...
+					</h4>
+
+					<table class="size-85">
+						<tr>
+							<td style="border: none;">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 2 & 1 & 3 \\
+								0 & \color{red}{1} & -1 & 0 \\
+								0 & \color{red}{2} & 0 & 4\\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								R2's leading entry is <b>not to the left</b><br />
+								of R3's leading entry &nbsp;❌
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+								&nbsp;
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 2 & 1 & 3 \\
+								0 & \color{green}{1} & -1 & 0 \\
+								0 & 0 & \color{green}{2} & 4 \\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								R3a $\rightarrow$ R3$\,-\,$2R2 &nbsp;✅
+							</td>
+						</tr>
+					</table>
+
+
+					<br />
+					<br />
+
+
+				</section>
+				<section>
+					<h4>
+						In row echelon form? Check the leading entries...
+					</h4>
+
+					<table class="size-80">
+						<tr>
+							<td style="border: none;">
+								$
+								\left(
+								\begin{array}{rrrrr|r}
+								\color{green}{1} & 1 & 1 & 1 & 1 & 1 \\
+								0 & 0 & \color{green}{1} & 1 & 1 & 0 \\
+								0 & 0 & 0 & 0 & \color{green}{1} & -3 \\
+								0 & 0 & 0 & 0 & 0 & -4 \\
+								0 & 0 & 0 & 0 & 0 & -3 \\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="0">
+								All leading entries are <b>to the left</b> of <br />
+								all lower leading entries &nbsp;✅
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">
+								&nbsp;
+							</td>
+							<td style="border: none;">
+
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{rrrrr|r}
+								\color{red}{1} & 1 & 1 & 1 & 1 & 1 \\
+								\color{red}{1} & 0 & 1 & 1 & 2 & 0 \\
+								0 & 0 & 0 & 1 & 3 & -3 \\
+								0 & 0 & 0 & 0 & 0 & -4 \\
+								0 & 0 & 0 & 0 & 0 & -3 \\
+								\end{array}
+								\right)
+								$
+							</td>
+							<td style="border: none;" class="fragment" data-fragment-index="1">
+								R1's leading entry is <b>not to the left</b> <br />
+								of R2's leading entry &nbsp;❌
+							</td>
+						</tr>
+					</table>
+
+
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">
+							Let's try some simple examples...
+						</p>
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 1</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2 = 2\\
+							x_1 - x_2 = 2\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								1 & -1 & 2
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & 2 & 0
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>As many</b> equations as variables.
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>upper triangular form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is a <b>unique solution</b>: $x_1 = 2,\, x_2 = 0.$
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 2</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2 = 2\\
+							x_1 + x_2 = 1\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								1 & 1 & 1
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & 0 & 1
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>As many</b> equations as variables.
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>row echelon form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is <b>no solution</b>.
+								<span class="fragment" data-fragment-index="7">
+									This is because there are
+									no $x_1,$ $x_2$ for which
+									$0x_1+0x_2 = 1.$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									This type of system is said to be
+									<b>inconsistent</b>.
+								</span>
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 3</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2 = 2\\
+							-x_1 - x_2 = -2\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								-1 & -1 & -2
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & 0 & 0
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>As many</b> equations as variables.
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>row echelon form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is a <b>family of solutions</b>:
+								$x_1=2-x_2,$
+								<span class="fragment" data-fragment-index="8">
+									where the value of $x_2$ may be chosen arbitrarily.
+								</span>
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 4</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2 + x_3 = 1\\
+							x_1 + x_2 +2x_3= 2\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rrr|r}
+								1 & 1 & 1 & 1 \\
+								1 & 1 & 2 & 2
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rrr|r}
+								1 & 1 & 1 & 1 \\
+								0 & 0 & 1 & 1
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 55px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>Fewer</b> equations than variables.
+								<span>
+									This type of system is called an
+									<b>underdetermined</b> system.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>row echelon form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is a <b>family of solutions</b>:
+								<ul>
+									<li>
+										$x_3=1.$
+									</li>
+									<li>
+										$x_1 + x_2 + 1 = 1$
+										<span class="fragment" data-fragment-index="8">
+											$\;\Ra\; x_1 = -x_2,$
+										</span>
+										<span class="fragment" data-fragment-index="8">
+											where the value of $x_2$ may be chosen arbitrarily.
+										</span>
+									</li>
+								</ul>
+
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 5</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2 = 2\\
+							x_1 + 2x_2 = 3\\
+							2x_1 + 2x_2 = 4\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								1 & 2 & 3 \\
+								2 & 2 & 4 \\
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & 1 & 1 \\
+								0 & 0 & 0 \\
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>More</b> equations than variables.
+								<span>
+									This type of system is called an
+									<b>overdetermined</b> system.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>row echelon form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is a <b>unique solution</b>: $x_1=1,\; x_2=1.$
+
+
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>
+						Can we always obtain upper triangular form?
+					</h4>
+
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							<b>Example 6</b>
+						</p>
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" data-fragment-index="1">
+							$
+							\begin{array} {r}
+							x_1 + x_2 = 2\\
+							x_1 + 2x_2 = 3\\
+							2x_1 + 2x_2 = 5\\
+							\end{array}
+							$
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								1 & 2 & 3 \\
+								2 & 2 & 5 \\
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\;\rightarrow\;
+								\left(
+								\begin{array}{rr|r}
+								1 & 1 & 2 \\
+								0 & 1 & 1 \\
+								0 & 0 & 1 \\
+								\end{array}
+								\right)
+								$
+							</span>
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="4">
+								<b>More</b> equations than variables
+								<span>
+									- <b>overdetermined</b> system.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								We obtain <b>row echelon form</b>.
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								There is <b>no solution</b>.
+								<span class="fragment" data-fragment-index="7">
+									This is because there are no $x_1,$ $x_2$ for which
+									$0x_1 + 0x_2 = 1$.
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									The system is <b>inconsistent</b>.
+								</span>
+							</li>
+						</ul>
+
+					</div>
+
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h4>
+						Summary
+					</h4>
+
+					<div class="left-txt size-90">
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								Reduce to row echelon form (triangular if possible)
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Interpret the results
+								<ul>
+									<li class="fragment" data-fragment-index="2">
+										Rows of the form $(0 \; 0 \; \cdots\; 0 \;|\; 1)$
+										<ul>
+											<li class="fragment" data-fragment-index="3">
+												<span id="rr">Inconsistent system</span>
+											</li>
+										</ul>
+									</li>
+									<li class="fragment" data-fragment-index="4">
+										Rows of the form $(0 \; 0 \; \cdots\; 0 \;|\; 0)$
+										<ul>
+											<li class="fragment" data-fragment-index="5">
+												There is a redundant equation for each such row
+											</li>
+										</ul>
+									</li>
+									<li class="fragment" data-fragment-index="6">
+										Rows of the form $(\cdots \; a_1 \; a_2 \; \cdots\; a_n \;|\; r)$
+										<ul>
+											<li class="fragment" data-fragment-index="7">
+												<b>As many such rows</b> as variables $\Ra$ <span id="gg">unique
+													solution</span>
+											</li>
+											<li class="fragment" data-fragment-index="8">
+												<b>Fewer such rows</b> than variables $\Ra$ <span id="gg">family of
+													solutions</span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="fragment" data-fragment-index="9">
+								Common (but not guaranteed) outcomes:
+								<ul>
+									<li class="fragment" data-fragment-index="10">
+										<b>Overdetermined</b> systems often have <span id="rr">no solution</span>.
+									</li>
+									<li class="fragment" data-fragment-index="11">
+										<b>Underdetermined</b> systems often have a <span id="gg">family of
+											solutions</span>.
+									</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+
+			</section>
+
+			<section>
+
+				<section>
+					<h4>
+						Determining families of solutions
+					</h4>
+
+					<div class="left-txt size-80">
+						<ol>
+							<li class="fragment" data-fragment-index="0">
+								Write out each equation from the row echelon form.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Each variable appearing first in an equation is a <span id="bb">lead</span> variable.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								The remaining variables are the <span id="rr">free</span> (or undetermined) variables.
+							</li>
+						</ol>
+					</div>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="3"><b>Examples:</b></p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$
+
+								\left(
+								\begin{array}{rrr|r}
+								1 & 1 & 1 & 1 \\
+								0 & 1 & 2 & 0 \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="4">
+									$\;\rightarrow\;
+									\begin{array} {r}
+									\color{blue}{x_1} + \color{blue}{x_2} + \color{red}{x_3} = 1\\
+									\color{blue}{x_2} + 2\color{red}{x_3} = 0\\
+									\end{array}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="5">
+							From the second equation: $\color{blue}{x_2}=-2\color{red}{x_3}.$
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							Therefore from the first equation: $\color{blue}{x_1}=1-\color{red}{x_3}- \color{blue}{x_2}$
+							<span class="fragment" data-fragment-index="7">
+								$= 1 + \color{red}{x_3}.$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="8">
+							So $\color{blue}{x_2}=-2\color{red}{x_3}$
+							and $\color{blue}{x_1}=1+\color{red}{x_3}.$
+						</p>
+						<p class="fragment" data-fragment-index="9">
+							That is, once $\color{red}{x_3}$ is given,
+							<span class="fragment" data-fragment-index="10">$\color{blue}{x_1}$ and $\color{blue}{x_2}$
+								are uniquely
+								determined.
+							</span>
+						</p>
+
+					</div>
+				</section>
+				<section>
+					<h4>
+						Determining families of solutions
+					</h4>
+
+					<div class="size-65">
+						<p><b>Examples:</b></p>
+
+						<div class="cc">
+							<p>
+								$
+
+								\left(
+								\begin{array}{rrrrr|r}
+								1 & 1 & 1 & 1 & 1 & 1 \\
+								0 & 0 & 1 & 1 & 2 & 0 \\
+								0 & 0 & 0 & 0 & 1 & -3 \\
+								0 & 0 & 0 & 0 & 0& 0 \\
+								0 & 0 & 0 & 0 & 0 & 0 \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="0">
+									$\rightarrow\;
+									\begin{array} {r}
+									\color{blue}{x_1} + \color{red}{x_2} + \color{blue}{x_3} + \color{red}{x_4} +
+									\color{blue}{x_5} = 1\;\;\\
+									\color{blue}{x_3} + \color{red}{x_4} + 2\color{blue}{x_5} = 0\;\;\\
+									\color{blue}{x_5} = -3
+									\end{array}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\rightarrow\;
+									\begin{array} {r}
+									\color{blue}{x_1} + \color{blue}{x_3} +\color{blue}{x_5} = 1- \color{red}{x_2} -
+									\color{red}{x_4}\\
+									\color{blue}{x_3} + 2\color{blue}{x_5} = - \color{red}{x_4}\quad\quad\;\;\,\\
+									\color{blue}{x_5} = -3\quad\quad\;\;\;\;
+									\end{array}
+									$
+								</span>
+							</p>
+						</div>
+
+
+
+					</div>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="2">
+							From the second and third equations: $\color{blue}{x_3}=-\color{red}{x_4} -
+							2\color{blue}{x_5}$
+							<span class="fragment" data-fragment-index="3">
+								$=-\color{red}{x_4} + 6.$
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$\color{blue}{x_1} = 1- \color{red}{x_2}-\color{red}{x_4} - \color{blue}{x_3} -
+								\color{blue}{x_5}$
+								<span class="fragment" data-fragment-index="5">
+									$=1- \color{red}{x_2}-\color{red}{x_4} -(-\color{red}{x_4} + 6)+
+									3\qquad\qquad$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								$\;\quad\qquad=1- \color{red}{x_2}-\color{red}{x_4} + \color{red}{x_4}-3$
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$=-2- \color{red}{x_2}\quad\;$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="8">
+							Therefore $\,\color{blue}{x_1}= -2-\color{red}{x_2},\, \color{blue}{x_3} =
+							-\color{red}{x_4}+6, \,$ and $\,\color{blue}{x_5}=-3.$
+						</p>
+					</div>
+
+
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Gauss-Jordan elimination: reduced row echelon form
+					</h4>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="1">
+							<b>
+								Definition (Reduced Row Echelon Form)
+							</b>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							A matrix is in <b>reduced row echelon form</b>
+							<span class="fragment" data-fragment-index="2">
+								if
+							</span>
+						</p>
+
+					</div>
+					<div class="left-txt size-80">
+						<ol>
+							<li class="fragment" data-fragment-index="2">
+								it is in row echelon form;
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								all leading entries in the nonzero rows are all 1;
+								<span class="fragment" data-fragment-index="4">and</span>
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								all leading entries are the only nonzero entry in their column.
+							</li>
+						</ol>
+					</div>
+
+					<hr class="fragment" data-fragment-index="5">
+
+					<div class="left-txt size-70">
+						<ul>
+							<li class="fragment" data-fragment-index="5">
+								Gaussian elimination $\rightarrow$ row echelon form
+								<ul>
+									<li class="fragment" data-fragment-index="6">
+										Easier (for humans)
+									</li>
+									<li class="fragment" data-fragment-index="7">
+										Need to back-substitute
+									</li>
+									<li class="fragment" data-fragment-index="8">
+										Row echelon forms not unique
+									</li>
+								</ul>
+							</li>
+							<li class="fragment" data-fragment-index="9">
+								Gauss-Jordan elimination $\rightarrow$ reduced row echelon form
+								<ul>
+									<li class="fragment" data-fragment-index="10">
+										More work (but easy for computers)
+									</li>
+									<li class="fragment" data-fragment-index="11">
+										No need for back-substitution
+									</li>
+									<li class="fragment" data-fragment-index="12">
+										Reduced row echelon form is unique
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Determining families of solutions
+					</h4>
+
+					<div class="size-70">
+
+
+						<div class="cc">
+							<p>
+								$
+
+								\left(
+								\begin{array}{rrrrr|r}
+								\color{blue}{1} & 1 & 1 & 1 & 1 & 1 \\
+								0 & 0 & \color{blue}{1} & 1 & 2 & 0 \\
+								0 & 0 & 0 & 0 & \color{blue}{1} & -3 \\
+								0 & 0 & 0 & 0 & 0& 0 \\
+								0 & 0 & 0 & 0 & 0 & 0 \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="0">
+									$\rightarrow\;
+
+									\left(
+									\begin{array}{rrrrr|r}
+									\color{blue}{1} & 1 & 0 & 0 & 0 & -2 \\
+									0 & 0 & \color{blue}{1} & 1 & 0 & 6 \\
+									0 & 0 & 0 & 0 & \color{blue}{1} & -3 \\
+									0 & 0 & 0 & 0 & 0& 0 \\
+									0 & 0 & 0 & 0 & 0 & 0 \\
+									\end{array}
+									\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\rightarrow\;
+									\begin{array} {l}
+									\color{blue}{x_1}= -2-\color{red}{x_2} \\
+									\color{blue}{x_3}= 6-\color{red}{x_4} \\
+									\color{blue}{x_5}= -3
+									\end{array}
+									$
+								</span>
+							</p>
+						</div>
+
+
+
+
+
+					</div>
+
+					<div class="left-txt size-75">
+						<ul>
+							<li class="fragment" data-fragment-index="2">No need for back-substitution.
+								<ul>
+									<li class="fragment" data-fragment-index="3">Lead variables all expressed in terms
+										of free variables</li>
+								</ul>
+							</li>
+							<li class="fragment" data-fragment-index="4">This is the form given by the <tt>Matlab</tt>
+								command <tt>rref</tt></li>
+						</ul>
+					</div>
+
+					<pre style="width: 60%;height: 30px; font-size: 60%;margin-top: 20px;" class="fragment"
+						data-fragment-index="5">
+						<code data-trim data-noescape  class="language-python">
+>> rref([1 1 1 1 1 1; 0 0 1 1 2 0; 0 0 0 0 1 -3])
+  </code></pre>
+					<pre style="width: 60%;height: 120px; font-size: 60%;margin-top: 25px;" class="fragment"
+						data-fragment-index="6">
+						<code data-trim data-noescape  class="language-python">
+ans =
+1 1 0 0 0 -2
+0 0 1 1 0  6
+0 0 0 0 1 -3
+  </code></pre>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Application example - Dimensional Analysis
+					</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">What could the period of a pendulum depend on?</p>
+						<ul>
+							<li class="fragment" data-fragment-index="1">
+								Pendulum length $l$, measured in $\text{m}$.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Pendulum mass $\text{m}$, measured in $\text{kg}$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Strength of the earth's gravitational field, measured as the
+								acceleration due to gravity, $g$, in $\text{m}/\text{s}^2$.
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="4">
+							We assume that $T \propto l^a\text{m}^bg^c,$
+							<span class="fragment" data-fragment-index="5">where $T$ is the period of the pendulum in
+								seconds.</span>
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							Comparing units, we get
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$s = \text{m}^a\text{kg}^b\left(\text{m}/\text{s}^2\right)^c$
+								<span class="fragment" data-fragment-index="7">
+									$ = \text{m}^{a+c}\text{kg}^b\text{s}^{-2c}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application example - Dimensional Analysis
+					</h4>
+
+					<div class="size-85">
+
+						<div class="cc" style="font-size: 120%;">
+							<p>
+								$s = \text{m}^a\text{kg}^b\left(\text{m}/\text{s}^2\right)^c$
+								<span>
+									$ = \text{m}^{a+c}\text{kg}^b\text{s}^{-2c}$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="0">Equating the exponents:</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$a+c = 0,\qquad b = 0, \qquad -2c=1$
+
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="2">Row reduction gives:</p>
+
+					</div>
+
+					<div class="size-65">
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								1 & 0 & 1 & 0 \\
+								0 & 1 & 0 & 0 \\
+								0 & 0 & -2 & 1 \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\rightarrow
+									\left(
+									\begin{array}{rrr|r}
+									1 & 0 & 1 & 0 \\
+									0 & 1 & 0 & 0 \\
+									0 & 0 & 1 & -\frac{1}{2} \\
+									\end{array}
+									\right)
+									\begin{array}{r}
+									R1 \\
+									R2 \\
+									-\frac{1}{2}R3 \\
+									\end{array}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$
+									\rightarrow
+									\left(
+									\begin{array}{rrr|r}
+									1 & 0 & 0 & \frac{1}{2} \\
+									0 & 1 & 0 & 0 \\
+									0 & 0 & 1 & -\frac{1}{2} \\
+									\end{array}
+									\right)
+									\begin{array}{l}
+									R1-R3a \\
+									R2 \\
+									R3a \\
+									\end{array}
+									$
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="4">
+							So $a = 1/ 2, \, b = 0$ and $c =-1/ 2,$
+							<span class="fragment" data-fragment-index="5">
+								and the formula for the period becomes
+							</span>
+						</p>
+					</div>
+					<div class="cc">
+						<p class="fragment" data-fragment-index="5">
+							$T\propto \sqrt{\frac{l}{g}}$
+						</p>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application example - Dimensional Analysis
+					</h4>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">Let's include a fourth quantity, and see what
+							happens.</p>
+						<ul>
+							<li>
+								Pendulum length $l$, measured in $\text{m}$.
+							</li>
+							<li>
+								Pendulum mass $\text{m}$, measured in $\text{kg}$.
+							</li>
+							<li>
+								Strength of the earth's gravitational field, measured as the
+								acceleration due to gravity, $g$, in $\text{m}/\text{s}^2$.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Initial pendulum height $h_0$ (above equilibrium point)
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="4">
+							Now we assume that $T \propto l^a\text{m}^bg^c h_0^d.$
+
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							Comparing units, we get
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$s = \text{m}^a\text{kg}^b\left(\text{m}/\text{s}^2\right)^c\text{m}^d$
+								<span class="fragment" data-fragment-index="7">
+									$ = \text{m}^{a+c+d}\text{kg}^b\text{s}^{-2c}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application example - Dimensional Analysis
+					</h4>
+
+					<div class="size-85">
+
+						<div class="cc" style="font-size: 110%;">
+							<p>
+								$s = \text{m}^a\text{kg}^b\left(\text{m}/\text{s}^2\right)^c\text{m}^d$
+								<span>
+									$ = \text{m}^{a+c+d}\text{kg}^b\text{s}^{-2c}$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="0">Equating the exponents:</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$a+c +d= 0,\qquad b = 0, \qquad -2c=1$
+
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="2">Row reduction gives:</p>
+
+					</div>
+
+					<div class="size-60">
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{rrrr|r}
+								1 & 0 & 1 & 1 & 0 \\
+								0 & 1 & 0 & 0 & 0 \\
+								0 & 0 & -2 & 0 & 1 \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\rightarrow
+									\left(
+									\begin{array}{rrrr|r}
+									1 & 0 & 1 & 1 & 0 \\
+									0 & 1 & 0 & 0 & 0 \\
+									0 & 0 & 1 & 0 & -\frac{1}{2} \\
+									\end{array}
+									\right)
+									\begin{array}{r}
+									R1 \\
+									R2 \\
+									-\frac{1}{2}R3 \\
+									\end{array}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$
+									\rightarrow
+									\left(
+									\begin{array}{rrrr|r}
+									1 & 0 & 0 & 1 & \frac{1}{2} \\
+									0 & 1 & 0 & 0 & 0 \\
+									0 & 0 & 1 & 0 & -\frac{1}{2} \\
+									\end{array}
+									\right)
+									\begin{array}{l}
+									R1-R3a \\
+									R2 \\
+									R3a \\
+									\end{array}
+									$
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="4">
+							So $a = 1/ 2-d, \, b = 0$ and $c =-1/ 2,$
+							<span class="fragment" data-fragment-index="5">
+								with free variable $d$.
+
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								Thus
+							</span>
+
+						</p>
+					</div>
+					<div class="size-80 cc">
+						<p class="fragment" data-fragment-index="6">
+							$T \propto l^{1/2-d}h_0^{d}\,g^{-1/2}$
+							<span class="fragment" data-fragment-index="7">
+								$=\ds \sqrt{\frac{l}{g}\left(\frac{h_0}{l}\right)^d}\;$
+								for $d$ as a free variable.
+							</span>
+
+
+						</p>
+					</div>
+
+				</section>
+
+				<section>
+					<h4>
+						Summary
+					</h4>
+
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">
+							<b>
+								Main points about row reduction
+							</b>
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							To solve systems of linear equations
+						</p>
+
+						<ol>
+							<li class="fragment" data-fragment-index="2">
+								Reduce the system to row echelon form
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Interpret the results in terms of row-types
+								<ul>
+									<li class="fragment" data-fragment-index="4">
+										Rows of the form $(0\; 0\; \cdots 0 \; | \;1)$ $\Ra$ inconsistent system
+									</li>
+									<li class="fragment" data-fragment-index="5">
+										As many non-zero rows as variables $\Ra$ unique solution
+									</li>
+									<li class="fragment" data-fragment-index="6">
+										Fewer non-zero rows than variables $\Ra$ family of solutions
+										$\qquad\qquad\qquad$
+									</li>
+								</ul>
+							</li>
+						</ol>
+
+					</div>
+
+					<div class="left-txt size-80">
+						<p class="fragment" data-fragment-index="7"><b>Where to next?</b></p>
+						<ul>
+							<li class="fragment" data-fragment-index="8">Matrices
+								<ul>
+									<li>notation and operations (addition, multiplication, etc.) on matrices</li>
+									<li>their connection with linear systems</li>
+									<li>some applications</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

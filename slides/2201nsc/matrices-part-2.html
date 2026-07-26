@@ -1,0 +1,2157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Lecture 3</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Matrices <br /> Part II
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f003.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+				<section>
+					<h4>Elementary Matrices and Row Operations</h4>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="0">Recall the three row operations permitted in
+							Gaussian elimination:</p>
+						<ol>
+							<li class="fragment" data-fragment-index="1">Swapping rows;</li>
+							<li class="fragment" data-fragment-index="2">Rescaling one row;</li>
+							<li class="fragment" data-fragment-index="3">Adding a multiple of one row to another row.
+							</li>
+						</ol>
+					</div>
+					<div class="size-85" style="margin-top:15px;">
+						<p class="fragment" data-fragment-index="4">
+							These operations can be represented by <strong>elementary matrices</strong>, $E_{i}.$ There
+							is one elementary matrix for each operation.
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							The operation is achieved by multiplying a given matrix <strong>on the left</strong> by
+							$E_{i}.$
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							The steps in <b>Gaussian elimination</b> can then be written as a product sequence:
+
+						</p>
+						<div class="cc">
+							<p style="font-size: 1.1em;">
+								<span class="fragment" data-fragment-index="6">
+
+									$A \rightarrow E_{1}A $
+
+								</span>
+								<span class="fragment" data-fragment-index="7">
+
+									$ \rightarrow
+									E_{2}E_{1}A
+									\rightarrow$
+
+								</span>
+								<span class="fragment" data-fragment-index="8">
+
+									$\cdots \rightarrow
+									E_{k}E_{k-1}\cdots E_{2}E_{1}A$
+
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Elementary Matrices Examples</h4>
+					<div class="size-70 cc">
+						<p class="fragment" data-fragment-index="0" style="text-align: left !important;">
+							<strong>1. Interchanging two rows:</strong> Identity matrix with two off-diagonal 1s
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="2">
+								$\begin{pmatrix} \color{red}0 & \color{red}1 & \color{blue}0 \\ \color{red}1 &
+								\color{red}0 & \color{blue} 0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1
+								\end{pmatrix}$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\begin{pmatrix} 0 &
+								-4 &
+								8 & 4 \\ 1 & -1 & 1 & 0 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$ = \begin{pmatrix} 1 & -1 & 1 & 0 \\ 0
+								& -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix}$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="4" style="text-align: left !important;">
+							<strong>2. Rescaling one row:</strong> Identity matrix with one non-unit diagonal term
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="5">
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 &
+								\color{red}{-1/4} & \color{blue}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1
+								\end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ \begin{pmatrix} 1
+								&
+								-1 & 1 & 0 \\ 0 & -4 & 8 & 4 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								$= \begin{pmatrix} 1 & -1 & 1 & 0
+								\\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix}$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="7" style="text-align: left !important;">
+							<strong>3. Adding a multiple of one row to another:</strong>
+							identity matrix with extra off-diagonal term
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="8">
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 &
+								\color{blue}1 & \color{blue}0 \\ \color{red}{-2} & \color{blue}0 & \color{blue}1
+								\end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$ \begin{pmatrix} 1 &
+								-1
+								& 1 & 0 \\ 0 & 1 & -2 & -1 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$= \begin{pmatrix} 1 & -1 & 1 & 0
+								\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$
+							</span>
+
+						</p>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Elementary Matrices Examples</h4>
+					<br />
+					<div class="cc" style="font-size: 0.72em;">
+
+						<p>
+
+							<span class="fragment" data-fragment-index="3">
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 &
+								\color{blue}1 & \color{blue}0 \\ \color{red}{-2} & \color{blue}0 & \color{blue}1
+								\end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$\begin{pmatrix} \color{blue}1 & \color{blue}0 & \color{blue}0 \\ \color{blue}0 &
+								\color{red}{-1/4} & \color{blue}0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1
+								\end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$\begin{pmatrix} \color{red}0 & \color{red}1 & \color{blue}0 \\ \color{red}1 &
+								\color{red}0 & \color{blue} 0 \\ \color{blue}0 & \color{blue}0 & \color{blue}1
+								\end{pmatrix}$
+							</span>
+							<span>
+								$\begin{pmatrix} 0 &
+								-4 &
+								8 & 4 \\ 1 & -1 & 1 & 0 \\ 2 & 2 & 3 & 4 \end{pmatrix} $
+							</span>
+
+
+
+							<span class="fragment" data-fragment-index="4">
+								$= \begin{pmatrix} 1 & -1 & 1 & 0
+								\\ 0 & 1 & -2 & -1 \\ 0 & 4 & 1 & 4 \end{pmatrix}$
+							</span>
+
+						</p>
+
+					</div>
+					<br />
+					<div class="fragment" data-fragment-index="5">
+						<p style="text-align: center !important;">
+							<span>
+								$A\rightarrow$
+							</span>
+							<span>
+								$E_3$
+							</span>
+							<span>
+								$E_2$
+							</span>
+							<span>
+								$E_1$
+							</span>
+							<span>
+								$A\qquad $
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Gaussian Elimination as a Product of Matrices</h4>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="1">We can systematically write out row reduction on an
+							augmented matrix:</p>
+						<div class="cc size-75">
+							<p class="fragment" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{cccc|c}
+								a_{11} & a_{12} & \cdots & a_{1n} & q_{1}\\
+								a_{21} & a_{22} & \cdots & a_{2n} & q_{2} \\
+								\vdots & \vdots & \ddots & \vdots & \vdots \\
+								a_{n1} & a_{n2} & \cdots & a_{nn} & q_{n} \\
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="2">
+									$\rightarrow
+									\left(
+									\begin{array}{cccc|c}
+									b_{11} & b_{12} & \cdots & b_{1n} & r_{1}\\
+									0 & b_{22} & \cdots & b_{2n} & r_{2} \\
+									\vdots & \vdots & \ddots & \vdots & \vdots \\
+									0 & 0 & \cdots & b_{nn} & r_{n} \\
+									\end{array}
+									\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\rightarrow
+									\left(
+									\begin{array}{cccc|c}
+									1 & 0 & \cdots & 0 & s_{1}\\
+									0 & 1 & \cdots & 0 & s_{2} \\
+									\vdots & \vdots & \ddots & \vdots & \vdots \\
+									0 & 0 & \cdots & 1 & s_{n} \\
+									\end{array}
+									\right)
+									$
+								</span>
+
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$\big(A \mid \mathbf q\big) $
+								<span class="fragment" data-fragment-index="2">
+									$\quad\quad \rightarrow \qquad\quad \big(B \mid \mathbf r\big)$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\quad\;\; \rightarrow \qquad \big(I
+									\mid \mathbf s\big)$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80 cc" style="margin-top:15px;">
+						<p class="fragment" data-fragment-index="2">
+							From our initial augmented matrix $\big(A \mid \mathbf q\big)$ we obtain the
+							upper-triangular form:
+
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							$\big(B \mid \mathbf r\big) $
+							<span class="fragment" data-fragment-index="3">
+								$= E_{k}\cdots E_{1}\big(A \mid \mathbf q\big) $
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								$ = \big(E_{k}\cdots E_{1}A \mid E_{k}\cdots E_{1}\mathbf q\big)$
+							</span>
+						</p>
+						<p style="margin-top:15px;">
+							<span class="fragment" data-fragment-index="5">
+								...and eventually the reduced row echelon solution:
+							</span>
+
+						</p>
+						<p class="fragment" data-fragment-index="5">
+							$\big(I \mid \mathbf s\big) $
+							<span class="fragment" data-fragment-index="6">
+								$= \big(E_{m}\cdots E_{k+1}\big)E_{k}\cdots E_{1}\big(A \mid
+								\mathbf q\big)$
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								$ = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf q\big) $
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Important Consequence: Matrix Inversion</h4>
+					<div class="size-85">
+						<p>We have just seen that the reduction process creates the tracking identity:</p>
+						<p>
+							$$\big(I \mid \mathbf s\big) = \big(E_{m}\cdots E_{1}A \mid E_{m}\cdots E_{1}\mathbf
+							q\big)$$
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							Which explicitly means that:
+
+						</p>
+						<div class="cc fragment" data-fragment-index="1">
+							$E_{m}\cdots E_{1}A= I $
+							<span class="fragment" data-fragment-index="2">
+								$ \implies E_{m}\cdots E_{1} = A^{-1} \text{ (!!)}$
+							</span>
+						</div>
+					</div>
+					<div style="margin-top:20px;" class="size-85">
+						<p class="fragment" data-fragment-index="3">It follows directly that if we start with
+							the identity matrix inside the augmented side:</p>
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$E_{m}\cdots E_{1}\big(A \mid I\big) $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=\big (E_{m}\cdots E_{1}A \mid E_{m}\cdots
+									E_{1}I\big)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= \big(I \mid
+									A^{-1}\big)$
+								</span>
+
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="6">
+							<strong>Conclusion:</strong> We can use standard row reduction on the augmented matrix
+							$\big(A
+							\mid I\big)$ to safely find the inverse matrix $A^{-1}.$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Matrix Inversion: Simple Example</h4>
+					<div class="size-80">
+						<p class="fragment">Find the inverse of
+							$A =
+							\left(\begin{array}{cc} 2 & 1 \\ 1 & 1 \end{array}\right).
+							$
+						</p>
+					</div>
+					<div class="size-75 cc">
+						<p class="fragment">
+							$
+							\left(\begin{array}{cc|cc}
+							2 & 1 & 1 & 0 \\
+							1 & 1 & 0 & 1
+							\end{array}\right)
+							\begin{array}{c}
+							R1 \\
+							R2
+							\end{array}
+							$
+							<span class="fragment">
+								$\rightarrow
+								\left(\begin{array}{cc|cc} 1 & \frac{1}{2} & \frac{1}{2} & 0 \\ 1 & 1 & 0 & 1
+								\end{array}\right)
+								\begin{array}{r}
+								\frac{1}{2}R1 \\
+								R2
+								\end{array}
+								\qquad \qquad\qquad\qquad
+								$
+							</span>
+						</p>
+						<p>
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{cc|cc} 1 & \frac{1}{2} & \frac{1}{2} & 0 \\ 0 & \frac{1}{2} &
+								-\frac{1}{2} & 1 \end{array}
+								\right)
+								\begin{array}{l}
+								R1 \\
+								R1-R2
+								\end{array}
+								$
+							</span>
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{cc|cc} 1 & 0 & 1 & -1 \\ 0 & 1  & -1 & 2 \end{array}
+								\right)
+								\begin{array}{l}
+								R1-R2 \\
+								2R2
+								\end{array}
+								$
+							</span>
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							$$\Rightarrow A^{-1} = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$$
+						</p>
+						<p class="fragment" style="color: green;font-size: 0.85em;">
+							<strong>Check:</strong>
+							$\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & -1
+							\\ -1 & 2 \end{pmatrix}
+							$
+							<span class="fragment">
+								$= \begin{pmatrix} 2-1 & -2+2 \\ 1-1 & -1+2 \end{pmatrix} $
+							</span>
+							<span class="fragment">
+								$ =
+								\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ ✅
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Matrix Inversion: Less Simple Example</h4>
+
+					<div class="size-65">
+						<p class="fragment">
+							Show that the inverse of
+							$
+							A=
+							\begin{pmatrix}
+							3&2&-1\\
+							3&1&-1\\
+							3&2&1
+							\end{pmatrix}
+							$
+							is
+							$
+							A^{-1}=
+							\begin{pmatrix}
+							-\frac12&\frac23&\frac16\\
+							1&-1&0\\
+							-\frac12&0&\frac12
+							\end{pmatrix}.
+							$
+						</p>
+					</div>
+
+					<div class="size-65 cc">
+
+						<p class="fragment">
+							$
+							\left(
+							\begin{array}{ccc|ccc}
+							3&2&-1&1&0&0\\
+							3&1&-1&0&1&0\\
+							3&2&1&0&0&1
+							\end{array}
+							\right)
+							\begin{array}{c}
+							R1\\
+							R2\\
+							R3
+							\end{array}
+							$
+
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{ccc|ccc}
+								3&2&-1&1&0&0\\
+								0&-1&0&-1&1&0\\
+								0&0&2&-1&0&1
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1\\
+								R2-R1\\
+								R3-R1
+								\end{array}\qquad\qquad \qquad
+								$
+							</span>
+						</p>
+
+						<p>
+
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{ccc|ccc}
+								3&0&-1&-1&2&0\\
+								0&-1&0&-1&1&0\\
+								0&0&1&-\frac12&0&\frac12
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1+2R2\\
+								R2\\
+								\frac12R3
+								\end{array}
+								$
+							</span>
+
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{ccc|ccc}
+								3&0&0&-\frac32&2&\frac12\\
+								0&1&0&1&-1&0\\
+								0&0&1&-\frac12&0&\frac12
+								\end{array}
+								\right)
+								\begin{array}{l}
+								R1+R3\\
+								-R2\\
+								R3
+								\end{array}
+								$
+							</span>
+
+						</p>
+
+						<p>
+
+							<span class="fragment">
+								$
+								\rightarrow
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&0&-\frac12&\frac23&\frac16\\
+								0&1&0&1&-1&0\\
+								0&0&1&-\frac12&0&\frac12
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\frac13R1\\
+								R2\\
+								R3
+								\end{array}
+								$
+							</span>
+							<span class="fragment" style="margin-top:10px;">
+								$
+								\Rightarrow
+								A^{-1}=
+								\begin{pmatrix}
+								-\frac12&\frac23&\frac16\\
+								1&-1&0\\
+								-\frac12&0&\frac12
+								\end{pmatrix}
+								$
+							</span>
+
+						</p>
+
+
+
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<h4>
+						Calculating inverses using Octave/Matlab
+					</h4>
+
+					<div class="size-75">
+						<p>
+							We can confirm our results very easily via Octave or Matlab, using the inv
+							command:
+						</p>
+					</div>
+
+					<pre style="width: 60%;height: 130px; font-size: 60%;margin-top: 25px;" class="fragment">
+						<code data-trim data-noescape  class="language-python">
+>> inv([2 1; 1 2])
+ans =
+1.00000 -1.00000
+-1.00000 2.00000
+  </code></pre>
+					<pre style="width: 60%;height: 180px; font-size: 60%;margin-top: 25px;" class="fragment">
+						<code data-trim data-noescape  class="language-python">
+>> inv([3 2 -1;3 1 -1;3 2 1])
+ans =
+-0.50000 0.66667 0.16667
+1.00000 -1.00000 -0.00000
+-0.50000 0.00000 0.50000
+  </code></pre>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>When is a Matrix Invertible?</h4>
+					<div class="size-90 fragment">
+						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
+						<p>The following statements about $A \in \mathbb{R}^{n \times n}$ are equivalent:</p>
+						<ul>
+							<li class="fragment"><strong>A:</strong> $A$ is invertible (nonsingular)</li>
+							<li class="fragment"><strong>B:</strong> The only solution to $A\mathbf x=\mathbf 0$ is
+								$\mathbf x=\mathbf 0$
+							</li>
+							<li class="fragment"><strong>C:</strong> $A$ is row-equivalent to $I$ (i.e., there is a
+								sequence of
+								elementary matrices such that $E_m \dots E_1 A = I$)</li>
+						</ul>
+					</div>
+					<div class="size-90 fragment" style="margin-top:-20px;">
+						<p style="text-align: center; font-size: 0.8em;"><b>Proof Outline:</b></p>
+						<p style="margin-top: -20px; text-align: center;">Show that $A \Rightarrow B \Rightarrow C
+							\Rightarrow A.$</p>
+						<p>
+							<span class="fragment">
+								<strong>For $A \Rightarrow B$:</strong>
+							</span>
+							<span class="fragment">
+								If $A$ is invertible and $A\mathbf x=\mathbf 0,$
+							</span>
+
+						</p>
+
+					</div>
+					<div class="size-90 cc">
+						<p>
+							<span class="fragment">
+								then $\;\mathbf x = I\mathbf x $
+							</span>
+							<span class="fragment">
+								$=
+								\left(A^{-1}A\right)\mathbf x$
+							</span>
+							<span class="fragment">
+								$ = A^{-1}\left(A\mathbf x\right) $
+							</span>
+							<span class="fragment">
+								$= A^{-1}\mathbf 0 $
+							</span>
+							<span class="fragment">
+								$= \mathbf 0.$
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+						<p class="fragment">
+							So $\mathbf x=\mathbf 0$ is the only solution.
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>When is a Matrix Invertible? (Cont'd)</h4>
+
+					<div class="size-80">
+						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
+						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=\mathbf 0
+							\Rightarrow
+							\mathbf x=\mathbf 0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
+					</div>
+					<div class="size-90" style="margin-top:15px;">
+						<h6>Proof Outline (Cont'd)</h6>
+						<p><strong>For $B \Rightarrow C$:</strong>
+							<span class="fragment">
+								Suppose $\mathbf x=\mathbf 0$ is the only solution to $A\mathbf x=\mathbf 0.$
+							</span>
+							<span class="fragment">
+								Reduce
+								the augmented matrix $(A \mid \mathbf 0)$ to $(U \mid \mathbf 0)$
+								where $U$ is in reduced row echelon form.
+							</span>
+
+						</p>
+						<p>
+							<span class="fragment">
+								If $U$ contains a zero row,
+							</span>
+							<span class="fragment">
+								then there is a family of solutions.
+							</span>
+							<span class="fragment">
+								But $\mathbf x=\mathbf 0$
+								is the only solution, so $U$ has no zero rows.
+							</span>
+						</p>
+						<p>
+							<span class="fragment">
+								Since $A$ is an $n \times n$ matrix, $U = I.$
+							</span>
+							<span class="fragment">
+								So there exist elementary
+								matrices $E_1, E_2, \dots, E_m$ such that $E_m \dots E_1 A = I.$
+
+							</span>
+							<span class="fragment">
+
+								Hence $A$ is row-equivalent
+								to $I.$
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>When is a Matrix Invertible? (Cont'd)</h4>
+					<div class="size-80">
+						<h5>Theorem (Equivalent conditions for nonsingularity)</h5>
+						<p>Statements: <strong>A</strong> ($A$ is invertible), <strong>B</strong> ($A\mathbf x=\mathbf 0
+							\Rightarrow
+							\mathbf x=\mathbf 0$), <strong>C</strong> ($A$ is row-equivalent to $I$).</p>
+					</div>
+					<div class="size-90" style="margin-top:15px;">
+						<h6>Proof Outline (Cont'd)</h6>
+						<p>
+							<strong>For $C \Rightarrow A$:</strong>
+							<span class="fragment">
+								If $A$ is row-equivalent
+								to $I,$
+							</span>
+							<span class="fragment">
+								then there exist
+								elementary matrices $E_1, E_2, \dots, E_m$ such
+								that $E_m \dots E_1 A = I.$
+							</span>
+						</p>
+						<p>
+							<span class="fragment">
+								Therefore, $A^{-1} = E_m \dots E_1.$
+							</span>
+							<span class="fragment">
+								So $A^{-1}$
+								exists,
+							</span>
+							<span class="fragment">
+								and hence $A$ is
+								invertible.
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section>
+					<h4>When do Linear Systems have Unique Solutions?</h4>
+
+					<div class="size-75 fragment">
+
+						<p>
+							<b>Corollary (Uniqueness of solutions for linear systems)</b> The linear system \(A\mathbf
+							x=\mathbf b\) with \(n\) equations in
+							\(n\) unknowns has a unique solution iff \(A\) is nonsingular.
+						</p>
+					</div>
+
+					<div class="size-85 fragment" style="margin-top:-10px;">
+						<h6>Equivalent Two-Part Corollary Proof Outline:</h6>
+
+						<ol style="line-height:60px; margin-left:0px; margin-top: -20px;">
+
+
+
+							<li class="fragment">
+								<strong>
+									\(A\) is singular \(\Rightarrow\)
+									\(A\mathbf x=\mathbf b\) has no solution or at least two distinct
+									solutions:
+								</strong>
+
+								<span class="fragment">
+									If \(A\) is singular,
+								</span>
+
+								<span class="fragment">
+									\(A\mathbf x=\mathbf0\) has a non-zero solution
+									\(\mathbf x_0.\)
+								</span>
+
+								<span class="fragment">
+									If \(\mathbf x_b\) is a solution of
+									\(A\mathbf x=\mathbf b,\)
+								</span>
+
+								<span class="fragment">
+									let \(\mathbf y=\mathbf x_b+\mathbf x_0.\)
+								</span>
+
+								<span class="fragment">
+									Then
+									\(A\mathbf y
+									=A(\mathbf x_b+\mathbf x_0)\)
+								</span>
+								<span class="fragment">
+									\(
+									=A\mathbf x_b+A\mathbf x_0\)
+								</span>
+
+								<span class="fragment">
+									\(=\mathbf b+\mathbf0=\mathbf b,\)
+								</span>
+
+								<span class="fragment">
+									and since \(\mathbf x_0\ne\mathbf0,\)
+									\(\mathbf y\ne\mathbf x_b.\)
+								</span>
+								<p class="fragment" style="margin-top:10px;">
+									Thus, if \(A\) is singular, the system
+									\(A\mathbf x=\mathbf b\) cannot have a unique solution: it has
+									either no solution or at least two distinct solutions.
+								</p>
+
+
+							</li>
+
+							<li class="fragment">
+								<strong>
+									\(A\) is nonsingular \(\Rightarrow\)
+									\(A\mathbf x=\mathbf b\) has a unique solution:
+								</strong>
+
+								<span class="fragment">
+									Since \(A\) is nonsingular,
+								</span>
+
+								<span class="fragment">
+									\(A^{-1}\) exists,
+								</span>
+
+								<span class="fragment">
+									so any solution must satisfy
+									\(\mathbf x=(A^{-1}A)\mathbf x\)
+								</span>
+
+								<span class="fragment">
+									\(=A^{-1}(A\mathbf x)\)
+								</span>
+
+								<span class="fragment">
+									\(=A^{-1}\mathbf b.\)
+								</span>
+							</li>
+
+						</ol>
+
+
+					</div>
+
+					<br />
+				</section>
+
+
+				
+
+				<section data-auto-animate>
+					<h4>Determinants: Motivation</h4>
+					<div class="size-85">
+						<h5 class="fragment">A condition for a nonsingular matrix</h5>
+						<p>We have just seen that:</p>
+						<p style="text-align:center;">$A \text{ is nonsingular} \iff A\mathbf x=\mathbf b \text{ has a
+							unique solution}$
+						</p>
+						<p class="fragment">We would like a measurable property of the matrix itself that distinguishes
+							singular from nonsingular matrices.</p>
+						<p class="fragment">To achieve this, we introduce a quantity known as the
+							<strong>determinant</strong>.
+						</p>
+						<ul style="line-height: 60px;">
+							<li class="fragment">We denote the determinant of a square matrix $A$ by $\det (A)$ or by
+								$|A|.$</li>
+							<li class="fragment">$\det (A)$ is calculated from the matrix elements $a_{ij}.$</li>
+							<li class="fragment">It will turn out that $\det A \neq 0$ iff $A$ is nonsingular.</li>
+						</ul>
+						<p class="fragment" style="margin-top:15px;"><strong>So how do we calculate $\det A$?</strong>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Determinants: Motivation</h4>
+					<h6>Determinants for $A\in \mathbb R^{1\times 1}$</h6>
+
+					<div>
+
+						<p class="fragment">
+
+							A $1 \times 1$ matrix $$A = (a_{11})$$ will have an
+							inverse
+							<span class="fragment">
+								if and only if $a_{11} \neq
+								0.$
+							</span>
+
+
+						</p>
+
+
+
+					</div>
+					<div class="cc">
+						<p class="fragment">
+							We therefore define $\det( A )= a_{11}$ for a $1 \times 1$ matrix.
+						</p>
+
+					</div>
+
+
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Determinants: Motivation</h4>
+					<h6>Determinants for $A\in \mathbb R^{2\times 2}$</h6>
+
+					<div class="size-85 left-txt">
+
+
+						<ol style="line-height: 80px; margin-left: 0px;">
+
+							<li class="fragment">$A = \begin{pmatrix} a_{11} &
+								a_{12} \\ a_{21} & a_{22} \end{pmatrix}$ is nonsingular if and only if it can be row
+								reduced to $I.$</li>
+							<li class="fragment">
+								We perform the row reductions:
+								<p style="text-align: center;">
+									$
+									\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}
+									\begin{array}{l} R1 \\ R2\end{array}
+									$
+									<span class="fragment">
+										$
+										\rightarrow
+										\begin{pmatrix} a_{11} & a_{12} \\ 0 & a_{11}a_{22}- a_{12}a_{21} \end{pmatrix}
+										\begin{array}{l} R1 \\ a_{11}R2- a_{21}R1 \end{array}
+										$
+									</span>
+								</p>
+
+							</li>
+							<li class="fragment">
+								We will be able to row reduce $A$ to $I$ as long as
+								$a_{11}a_{22} -
+								a_{12}a_{21} \neq 0.$
+							</li>
+						</ol>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Determinants: Motivation</h4>
+					<h6>Determinants for $A\in \mathbb R^{2\times 2}$</h6>
+
+					<div class="size-85">
+						<ul style="line-height: 55px;">
+							<li>But what if $a_{11} = 0$?</li>
+							<li class="fragment">Let's assume $a_{21} \neq 0$:
+								<p style="text-align: center; margin-top: -15px;">
+									<span class="fragment">
+										$\begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix} \rightarrow
+										\begin{pmatrix} a_{21} & a_{22} \\ 0 & a_{12} \end{pmatrix}$
+									</span>
+								</p>
+							</li>
+							<li class="fragment">We will be able to row reduce $A$ to $I$ as long as $a_{12} \neq 0$ and
+								$a_{21} \neq 0$...<br />
+								<span class="fragment">
+									which is equivalent to $a_{11}a_{22} - a_{12}a_{21} \neq 0$ when
+									$a_{11} = 0.$
+								</span>
+							</li>
+							<li class="fragment">
+								Finally, we note that if $a_{11} = a_{21} = 0,$
+								<span>
+									then $A$ is not
+									row-reducible to $I$... <br />
+								</span>
+								<span class="fragment">
+									but $a_{11}a_{22} - a_{12}a_{21} = 0$
+									in this case!
+								</span>
+							</li>
+						</ul>
+
+						<div class="cc fragment" style="margin-top: 10px; border: 1px solid black;">
+							<p>
+								We therefore define: $\det (A) = a_{11}a_{22} - a_{12}a_{21}$ for a $ 2 \times 2$
+								matrix.
+							</p>
+						</div>
+					</div>
+					<Br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$</h4>
+					<div class="size-80 left-txt">
+						<ol style="line-height: 60px;">
+							<li>$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
+								a_{32} & a_{33} \end{pmatrix}$ is nonsingular iff it can be row reduced to $I.$</li>
+							<li class="fragment">We perform the row reductions:
+								<p style="text-align: center; margin-top: 10px;">
+									$\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} &
+									a_{32} & a_{33} \end{pmatrix} \rightarrow \begin{pmatrix} a_{11} & a_{12} & a_{13}
+									\\ 0
+									& a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\ 0 &
+									a_{11}a_{32}-a_{31}a_{12}
+									& a_{11}a_{33}-a_{31}a_{13} \end{pmatrix}$
+								</p>
+
+							</li>
+							<li class="fragment">We will be able to row reduce $A$ to $I$ as long as:
+								<p style="text-align: center; margin-top: 10px;">
+									$\det \begin{pmatrix} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
+									a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{pmatrix} \neq 0$
+								</p>
+							</li>
+						</ol>
+					</div>
+					<br>
+					<br>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$</h4>
+					<div class="size-80">
+						<p>$\left| \begin{array}{cc} a_{11}a_{22}-a_{21}a_{12} & a_{11}a_{23}-a_{21}a_{13} \\
+							a_{11}a_{32}-a_{31}a_{12} & a_{11}a_{33}-a_{31}a_{13} \end{array} \right|$</p>
+						<p class="fragment">$= [a_{11}a_{22}-a_{21}a_{12}][a_{11}a_{33}-a_{31}a_{13}] -
+							[a_{11}a_{32}-a_{31}a_{12}][a_{11}a_{23}-a_{21}a_{13}]$</p>
+						<div class="fragment">
+							<p>$= \dots$</p>
+							<p>$=
+								a_{11}[a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}]$
+							</p>
+						</div>
+					</div>
+					<div class="size-80 fragment" style="margin-top:10px;">
+						<p>In analogy with the $2 \times 2$ case, for a $3 \times 3$ matrix we could propose:</p>
+						<p style="margin-top: 10px; border: 1px solid black;">$$\det (A) =
+							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$$
+						</p>
+						<p style="margin-top:5px;" class="fragment">But what about the cases where $a_{11}=0$, etc.?
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Determinants for $A \in \mathbb{R}^{3 \times 3}$</h4>
+					<div class="size-80">
+						<p>Just as in the $2 \times 2$ case, the $3 \times 3$ definition for $\det A$ works in all the
+							special cases where $a_{11}$, $a_{21}$ or $a_{31}$ are zero.</p>
+						<div class="fragment">
+							<p>We therefore define the determinant of a $3 \times 3$ matrix as:</p>
+							<p style="border: 1px solid black;margin-top: 10px; font-size: 0.9em;">
+								$$\det(A)=
+								a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$$
+							</p>
+						</div>
+					</div>
+					<div class="size-80" style="margin-top:15px;">
+						<p class="fragment">But remembering a formula like this is difficult...
+							<span class="fragment">
+								and it won't get any
+								easier as our
+								matrices get bigger.
+							</span>
+						</p>
+
+					</div>
+					<div class="fragment">
+						<div class="cc">
+							<p><strong>Is there a better way to calculate the determinant?</strong></p>
+						</div>
+						<div>
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+									width="100" height="100">
+							</picture>
+						</div>
+					</div>
+
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+					<div class="fragment size-90">
+						<p>The formula to compute the determinant of a $3 \times 3$ matrix
+							 is starting to get
+							complicated:
+						</p>
+
+						<p style="font-size: 0.9em; text-align: center;">
+							$\det (A) =
+							a_{11}a_{22}a_{33}-a_{22}a_{31}a_{13}-a_{21}a_{12}a_{33}-a_{11}a_{32}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}$
+						</p>
+
+					</div>
+					<div class="fragment size-90">
+						<p>Remembering this formula will be difficult
+							and will not get easier as our matrices get bigger!
+						</p>
+						<div>
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬"
+									width="120" height="120">
+							</picture>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+
+					<div class="size-90">
+						<p>
+							For a $2\times2$ matrix
+							$
+							A=
+							\left(
+							\begin{array}{cc}
+							a_{11} & a_{12}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right).
+							$
+						</p>
+					</div>
+
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="1">
+							Choose the <b>first row</b>.
+						</p>
+
+					</div>
+
+					<div class="cc size-90" style="margin-top:30px;">
+
+						<p class="fragment" data-fragment-index="1">
+							$
+							\left(
+							\begin{array}{cc}
+							\color{red}{a_{11}} & \color{red}{a_{12}}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right)
+							$
+						</p>
+
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+
+					<div class="size-90">
+						<p>
+							For a $2\times2$ matrix
+							$
+							A=
+							\left(
+							\begin{array}{cc}
+							a_{11} & a_{12}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right).
+							$
+						</p>
+					</div>
+
+					<div class="size-90">
+						<p>
+							Cross out the row and column containing each selected element.
+							<br />
+							<span class="fragment" data-fragment-index="1">
+								The remaining $1\times1$ matrix has determinant equal to its
+								single entry.
+							</span>
+						</p>
+
+					</div>
+
+					<div class="cc size-90" style="margin-top:30px;">
+
+						<p>
+							$
+							\left(
+							\begin{array}{cc}
+							\color{red}{a_{11}} & \color{lightgrey}{a_{12}}\\
+							\color{lightgrey}{a_{21}} & \color{blue}{a_{22}}
+							\end{array}
+							\right)
+							\quad
+							\left(
+							\begin{array}{cc}
+							\color{lightgrey}{a_{11}} & \color{red}{a_{12}}\\
+							\color{blue}{a_{21}} & \color{lightgrey}{a_{22}}
+							\end{array}
+							\right)\qquad \qquad
+							$
+						</p>
+
+
+					</div>
+
+					<div class="cc" style="margin-top:40px;">
+
+						<p>
+
+							<span class="fragment" data-fragment-index="2">
+								$
+								\;\;\color{red}{a_{11}}\det(\color{blue}{a_{22}})\;\;\;\;
+								$
+							</span>
+
+							<span class="fragment" data-fragment-index="3">
+								$
+								\color{red}{a_{12}}\det(\color{blue}{a_{21}})\qquad\qquad
+								$
+							</span>
+
+						</p>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+
+					<div class="size-90">
+						<p>
+							For a $2\times2$ matrix
+							$
+							A=
+							\left(
+							\begin{array}{cc}
+							a_{11} & a_{12}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right).
+							$
+						</p>
+					</div>
+
+					<div class="size-90">
+						<p>
+							Apply the alternating sign pattern:
+							$
+							\left(
+							\begin{array}{cc}
+							+ & -\\
+							- & +
+							\end{array}
+							\right).
+							$
+						</p>
+
+					</div>
+
+					<div class="cc size-90" style="margin-top:30px;">
+
+						<p>
+							$
+							\left(
+							\begin{array}{cc}
+							\color{red}{a_{11}} & \color{lightgrey}{a_{12}}\\
+							\color{lightgrey}{a_{21}} & \color{blue}{a_{22}}
+							\end{array}
+							\right)
+							\quad
+							\left(
+							\begin{array}{cc}
+							\color{lightgrey}{a_{11}} & \color{red}{a_{12}}\\
+							\color{blue}{a_{21}} & \color{lightgrey}{a_{22}}
+							\end{array}
+							\right)\qquad \qquad
+							$
+						</p>
+
+
+					</div>
+
+					<div class="cc" style="margin-top:40px;">
+
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								$\text{det}\left(A\right)=$
+							</span>
+
+							<span class="fragment" data-fragment-index="2">
+								$+$
+							</span>
+
+							<span>
+								$
+								\color{red}{a_{11}}\det(\color{blue}{a_{22}})\;
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$-\,$
+							</span>
+
+							<span>
+								$
+								\color{red}{a_{12}}\det(\color{blue}{a_{21}})
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$ = a_{11}a_{22} - a_{12}a_{21}\quad$
+							</span>
+
+						</p>
+
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+					<div class="size-90">
+						<p>
+							For a $2\times2$ matrix
+							$
+							A=
+							\left(
+							\begin{array}{cc}
+							a_{11} & a_{12}\\
+							a_{21} & a_{22}
+							\end{array}
+							\right).
+							$
+							The determinant is given by:
+						</p>
+					</div>
+					<div class="cc" style="margin-top: 50px; margin-bottom: 50px;">
+						<p>
+							$\large \text{det}\left(A\right)= a_{11}a_{22} - a_{12}a_{21}$
+						</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="6">
+						<p>
+							This same pattern extends to larger matrices, where the remaining
+							matrix is no longer $1\times1.$
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+
+				<section>
+					<h4>Patterns with the determinant formula</h4>
+
+					<div class="size-90">
+						<p>
+							For a $3\times3$ matrix:
+						</p>
+					</div>
+
+					<div class="cc" style="margin-top:50px; margin-bottom:50px; font-size:0.85em;">
+
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$
+								\det(A)=
+								a_{11}a_{22}a_{33}
+								-
+								a_{22}a_{31}a_{13}
+								-
+								a_{21}a_{12}a_{33}
+								-
+								a_{11}a_{32}a_{23}
+								+
+								a_{32}a_{21}a_{13}
+								+
+								a_{31}a_{12}a_{23}
+								\;\;
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
+								$
+								\det(A)=
+								\color{red}{a_{11}}a_{22}a_{33}
+								-
+								a_{22}a_{31}\color{red}{a_{13}}
+								-
+								a_{21}\color{red}{a_{12}}a_{33}
+								-
+								\color{red}{a_{11}}a_{32}a_{23}
+								+
+								a_{32}a_{21}\color{red}{a_{13}}
+								+
+								a_{31}\color{red}{a_{12}}a_{23}
+								\;\;
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							$
+							=
+							\color{red}{a_{11}}
+							\left(
+							\color{blue}{a_{22}a_{33}}
+							-
+							\color{blue}{a_{32}a_{23}}
+							\right)
+							-
+							\color{red}{a_{12}}
+							\left(
+							\color{blue}{a_{21}a_{33}}
+							-
+							\color{blue}{a_{31}a_{23}}
+							\right)
+							+
+							\color{red}{a_{13}}
+							\left(
+							\color{blue}{a_{21}a_{32}}
+							-
+							\color{blue}{a_{31}a_{22}}
+							\right)
+							$
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							$
+							=
+							\color{red}{a_{11}}
+							\det\!\left(
+							\begin{array}{cc}
+							\color{blue}{a_{22}} & \color{blue}{a_{23}}\\
+							\color{blue}{a_{32}} & \color{blue}{a_{33}}
+							\end{array}
+							\right)
+							-
+							\color{red}{a_{12}}
+							\det\!\left(
+							\begin{array}{cc}
+							\color{blue}{a_{21}} & \color{blue}{a_{23}}\\
+							\color{blue}{a_{31}} & \color{blue}{a_{33}}
+							\end{array}
+							\right)
+							+
+							\color{red}{a_{13}}
+							\det\!\left(
+							\begin{array}{cc}
+							\color{blue}{a_{21}} & \color{blue}{a_{22}}\\
+							\color{blue}{a_{31}} & \color{blue}{a_{32}}
+							\end{array}
+							\right)\;\,
+							$
+						</p>
+
+						<p class="fragment" data-fragment-index="4">
+							$
+							\left(
+							\begin{array}{ccc}
+							\color{red}{a_{11}} & \color{lightgray}{a_{12}} & \color{lightgray}{a_{13}}\\
+							\color{lightgray}{a_{21}} & \color{blue}{a_{22}} & \color{blue}{a_{23}}\\
+							\color{lightgray}{a_{31}} & \color{blue}{a_{32}} & \color{blue}{a_{33}}
+							\end{array}
+							\right)
+							\qquad
+							\left(
+							\begin{array}{ccc}
+							\color{lightgray}{a_{11}} & \color{red}{a_{12}} & \color{lightgray}{a_{13}}\\
+							\color{blue}{a_{21}} & \color{lightgray}{a_{22}} & \color{blue}{a_{23}}\\
+							\color{blue}{a_{31}} & \color{lightgray}{a_{32}} & \color{blue}{a_{33}}
+							\end{array}
+							\right)
+							\qquad
+							\left(
+							\begin{array}{ccc}
+							\color{lightgray}{a_{11}} & \color{lightgray}{a_{12}} & \color{red}{a_{13}}\\
+							\color{blue}{a_{21}} & \color{blue}{a_{22}} & \color{lightgray}{a_{23}}\\
+							\color{blue}{a_{31}} & \color{blue}{a_{32}} & \color{lightgray}{a_{33}}
+							\end{array}
+							\right)
+							$
+						</p>
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Minors and Cofactors</h4>
+					<div class="size-80">
+						<h4 class="fragment" data-fragment-index="0" style="font-size: 0.7em;">Formal Definition of
+							Determinant</h4>
+						<p class="fragment" data-fragment-index="0">For any matrix $A$, we define the
+							<strong>minor</strong> $M_{ij}$ to be the matrix comprising
+							the elements remaining once the row and column containing $a_{ij}$ are removed.
+						</p>
+
+						<p style="margin-top:10px;" class="fragment" data-fragment-index="1">
+							<strong>Example:</strong> For a $4 \times 4$ matrix,
+							<span class="fragment" data-fragment-index="2">
+								removing row 2
+								and column 3 yields $M_{23}$:
+							</span>
+						</p>
+
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} & a_{14} \\
+								a_{21} & a_{22} & a_{23} & a_{24} \\ a_{31} & a_{32} & a_{33} & a_{34} \\
+								a_{41} & a_{42} & a_{43} & a_{44}
+								\end{pmatrix}\qquad\qquad \qquad\qquad \qquad\quad\,
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$A = \begin{pmatrix} a_{11} & a_{12} & \color{red}{a_{13}} & a_{14} \\
+								\color{red}{a_{21}} &
+								\color{red}{a_{22}} & \color{red}{a_{23}} & \color{red}{a_{24}} \\ a_{31} & a_{32} &
+								\color{red}{a_{33}} & a_{34} \\ a_{41} & a_{42} & \color{red}{a_{43}} & a_{44}
+								\end{pmatrix}\qquad\qquad \qquad\qquad \qquad\quad\,
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="4">
+								$A = \begin{pmatrix} a_{11} & a_{12} & \color{red}{a_{13}} & a_{14} \\
+								\color{red}{a_{21}} &
+								\color{red}{a_{22}} & \color{red}{a_{23}} & \color{red}{a_{24}} \\ a_{31} & a_{32} &
+								\color{red}{a_{33}} & a_{34} \\ a_{41} & a_{42} & \color{red}{a_{43}} & a_{44}
+								\end{pmatrix}
+								\implies M_{23} = \begin{pmatrix} a_{11} & a_{12} & a_{14} \\ a_{31} & a_{32} & a_{34}
+								\\ a_{41}
+								& a_{42} & a_{44} \end{pmatrix}$
+							</p>
+						</div>
+					</div>
+					<div class="size-80 fragment" style="margin-top:15px;">
+						<p>We then define the <strong>cofactor</strong> $C_{ij}$ as:</p>
+						$$\large C_{ij} = \left(-1\right)^{i+j} \det M_{ij}$$
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Formal Definition of Determinant</h4>
+
+					<div class="size-90" style="margin-top: 40px;">
+
+						<p>The determinant of a square matrix $A \in \mathbb{R}^{n \times n}$ is defined inductively by:
+						</p>
+						$$\det (A )= \begin{cases} a_{11} & \text{if } n=1 \\ \sum_{i=1}^{n} a_{1i} C_{1i} & \text{if }
+						n>1 \end{cases}$$
+						<p style="margin-top:15px;" class="fragment">where $C_{1i}$ is the cofactor of the corresponding
+							element $a_{1i}$
+							in the first row.</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Formal Definition of Determinant (Cont'd): Important Generalization</h4>
+					<div class="size-80">
+
+						<p>We are not forced to sum the terms $a_{ij}C_{ij}$ along the top row only!</p>
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="1">$\det (A) = \sum_{i=1}^{n} a_{ki} C_{ki}$ along
+								any row $k$</li>
+							<li class="fragment" data-fragment-index="2">$\det (A )= \sum_{i=1}^{n} a_{ik} C_{ik}$ down
+								any column $k$</li>
+						</ul>
+					</div>
+					<div class="size-75" style="margin-top:20px;">
+
+						<p class="fragment" data-fragment-index="3">
+
+							<span class="fragment" data-fragment-index="3">
+								<b>Example:</b>
+							</span>
+							<span class="fragment" data-fragment-index="4">
+								We can expand down the <span id="rr">first column</span> to take advantage of the zeros:
+							</span>
+
+						</p>
+						<div class="cc r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="3">
+								$
+								\begin{vmatrix} 0 & 2 & 3 & 0 \\ 0 & 4 & 5 & 0 \\ 0 & 1 & 0 & 3 \\ 2 & 0 & 1 & 3
+								\end{vmatrix}
+								\color{white}{= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & 0 \\ 4 & 5 & 0 \\ 1 & 0 & 3
+								\end{vmatrix}}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="4">
+								$
+								\begin{vmatrix} \color{red}{0} & 2 & 3 & 0 \\ \color{red}{0} & 4 & 5 & 0 \\
+								\color{red}{0} & 1 & 0 & 3 \\ \color{red}{2} & 0 & 1 & 3
+								\end{vmatrix}
+								\color{white}{= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & 0 \\ 4 & 5 & 0 \\ 1 & 0 & 3
+								\end{vmatrix}}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="5">
+								$
+								\begin{vmatrix} \color{red}{0} & 2 & 3 & 0 \\ \color{red}{0} & 4 & 5 & 0 \\
+								\color{red}{0} & 1 & 0 & 3 \\ \color{red}{2} & 0 & 1 & 3
+								\end{vmatrix}
+								= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & 0 \\ 4 & 5 & 0 \\ 1 & 0 & 3 \end{vmatrix}
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="6">
+								$
+								\begin{vmatrix} \color{red}{0} & 2 & 3 & 0 \\ \color{red}{0} & 4 & 5 & 0 \\
+								\color{red}{0} & 1 & 0 & 3 \\ \color{red}{2} & 0 & 1 & 3
+								\end{vmatrix}
+								= 0 - 0 + 0 - 2 \begin{vmatrix} 2 & 3 & \color{blue}{0} \\ 4 & 5 & \color{blue}{0} \\ 1
+								& 0 & \color{blue}{3} \end{vmatrix}
+								$
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="6">Now, expanding down the <span id="bb">last
+								column</span> of the remaining $3 \times 3$ matrix:
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$= -2 \left( 0 - 0 + 3 \begin{vmatrix} 2 & 3 \\ 4 & 5 \end{vmatrix} \right)$
+								<span class="fragment" data-fragment-index="8">
+									$= -2 \times 3 \times (10 - 12) $
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$ = 12.$
+								</span>
+							</p>
+						</div>
+
+					</div>
+				</section>
+
+				<section>
+					<h4>Useful Properties of Determinants</h4>
+					<h5 style="font-size: 0.6em;margin-top: -10px;">Core properties to remember:</h5>
+					<div class="size-80 left-txt">
+
+						<ol style="line-height: 45px; margin-top: -15px;">
+							<li class="fragment">$A$ is singular if and only if $\det (A) = 0.$</li>
+							<li class="fragment">$\det(A) = \det\left(A^T\right).$</li>
+							<li class="fragment">If $A$ is a triangular matrix, $\det (A)$ is simply the product of its
+								diagonal elements.</li>
+							<li class="fragment">$\det( A) = 0$ if:
+								<ul style="margin-left: 0px;">
+									<li>$A$ has a row or column consisting entirely of zeros; or</li>
+									<li class="fragment">$A$ has two identical rows or columns; or</li>
+									<li class="fragment">One row (or column) of $A$ is a linear combination of other
+										rows (or columns).</li>
+								</ul>
+							</li>
+							<li class="fragment">$\det\left(AB\right) = \left(\det A\right)\left(\det B\right).$</li>
+							<li class="fragment">Elementary matrices:
+								<ul>
+									<li>If $E$ swaps two rows in $A$, then $\det(E) = -1.$</li>
+									<li class="fragment">If $E$ rescales a row of $A$ by a constant $k$, then $\det (E)
+										=
+										k.$</li>
+									<li class="fragment">If $E$ adds a multiple of a row to another row, then $\det (E)
+										=
+										1.$</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h4>Application: Cramer's Rule</h4>
+					<div class="size-85">
+						<h5>Solving a Linear System</h5>
+						<p class="fragment" data-fragment-index="0">Use Cramer's rule to solve the system:</p>
+						<div class="cc" style="margin-top: -20px;">
+							<div class="r-stack">
+								<p class="fragment fade-out" data-fragment-index="1">
+									$
+									\begin{aligned}
+									x + 2y + z &= 5 \\
+									2x + 2y + z &= 6 \\
+									x + 2y + 3z &= 9
+									\end{aligned}
+									$
+								</p>
+								<p class="fragment fade-in-then-out" data-fragment-index="1">
+									$
+									\begin{aligned}
+									x + 2y + z &= 5 \\
+									2x + 2y + z &= 6 \\
+									x + 2y + 3z &= 9
+									\end{aligned}
+									\rightarrow
+									\left(
+									\begin{array}{cccc}
+									1 & 2 & 1 \\
+									2 & 2 & 1 \\
+									1 & 2 & 3 \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									x \\
+									y \\
+									z \\
+									\end{array}
+									\right)
+									=
+									\left(
+									\begin{array}{cccc}
+									5 \\
+									6 \\
+									9 \\
+									\end{array}
+									\right)
+
+									$
+								</p>
+								<p class="fragment fade-in-then-out" data-fragment-index="2">
+									$
+									\begin{aligned}
+									x + 2y + z &= 5 \\
+									2x + 2y + z &= 6 \\
+									x + 2y + 3z &= 9
+									\end{aligned}
+									\rightarrow
+									\left(
+									\color{blue}{
+									\begin{array}{cccc}
+									1 & 2 & 1 \\
+									2 & 2 & 1 \\
+									1 & 2 & 3 \\
+									\end{array}
+									}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									x \\
+									y \\
+									z \\
+									\end{array}
+									\right)
+									=
+									\left(
+									\begin{array}{cccc}
+									5 \\
+									6 \\
+									9 \\
+									\end{array}
+									\right)
+
+									$
+								</p>
+								<p class="fragment fade-in" data-fragment-index="3">
+									$
+									\begin{aligned}
+									x + 2y + z &= 5 \\
+									2x + 2y + z &= 6 \\
+									x + 2y + 3z &= 9
+									\end{aligned}
+									\rightarrow
+									\left(
+									\begin{array}{cccc}
+									1 & 2 & 1 \\
+									2 & 2 & 1 \\
+									1 & 2 & 3 \\
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									x \\
+									y \\
+									z \\
+									\end{array}
+									\right)
+									=
+									\left(
+									\begin{array}{cccc}
+									\color{red}5 \\
+									\color{red}6 \\
+									\color{red}9 \\
+									\end{array}
+									\right)
+
+									$
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="size-80" style="margin-top:10px;">
+						<p class="fragment" data-fragment-index="2">
+							The determinant of the coefficient matrix is
+							$\det M= -4.$
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="3">
+								Cramer's rule yields:
+							</span>
+						</p>
+						<div style="display: flex; justify-content: space-evenly; font-size: 90%;">
+							<div class="fragment" data-fragment-index="3">
+								$x =\ds \frac{\begin{vmatrix} \color{red}5 & 2 & 1 \\ \color{red}6 & 2 & 1 \\
+								\color{red}9 & 2 & 3 \end{vmatrix}}{\det
+								M}$
+								<span class="fragment" data-fragment-index="4">
+									$= \dfrac{-4}{-4}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= 1,$
+								</span>
+							</div>
+							<div class="fragment" data-fragment-index="6">
+								$y =\ds \frac{\begin{vmatrix} 1 & \color{red}5 & 1 \\ 2 & \color{red}6 & 1 \\ 1 &
+								\color{red}9 & 3 \end{vmatrix}}{\det
+								M}$
+								<span class="fragment" data-fragment-index="7">
+									$= \dfrac{-4}{-4} = 1,$
+								</span>
+							</div>
+							<div class="fragment" data-fragment-index="8">
+								$z = \ds\frac{\begin{vmatrix} 1 & 2 & \color{red}5 \\ 2 & 2 & \color{red}6 \\ 1 & 2 &
+								\color{red}9 \end{vmatrix}}{\det
+								M}$
+								<span class="fragment" data-fragment-index="9">
+									$=\dfrac{-8}{-4} $
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$= 2.$
+								</span>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Application: Cramer's Rule (Cont'd)</h4>
+					<div class="size-80">
+						<h5>General Case Formulation</h5>
+						<p>
+							In general, given a system $M\mathbf x = \mathbf y$ where $\det M \neq 0$,
+							<span>
+								the unique solution for each
+								variable $x_i$ can be calculated by replacing the $i$-th column of $M$ with the vector
+								$\mathbf y$:
+								$$x_i = \frac{\det(M_i)}{\det(M)}$$
+							</span>
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							Where $M_i$ is constructed as:$$M_i = \begin{pmatrix} M_{11} & \dots & M_{1(i-1)} &
+							\color{red}{y_1} &
+							M_{1(i+1)} &
+							\dots & M_{1n} \\ M_{21} & \dots & M_{2(i-1)} & \color{red}{y_2} & M_{2(i+1)} & \dots &
+							M_{2n} \\ \vdots
+							& & \vdots & \vdots & \vdots & & \vdots \\ M_{n1} & \dots & M_{n(i-1)} & \color{red}{y_n} &
+							M_{n(i+1)} &
+							\dots & M_{nn} \end{pmatrix}$$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Why does Cramer's Rule work?</h4>
+					<div class="size-75">
+						<div class="fragment">
+							<p>First, we observe an important property of cofactor expansion identity:</p>
+							<div class="cc">
+								$a_{i1}C_{j1} + a_{i2}C_{j2} + \dots + a_{in}C_{jn} = \begin{cases} \det A & \text{if }
+								i=j
+								\\
+								0 & \text{if } i \neq j \end{cases}$
+							</div>
+						</div>
+
+						<ul>
+							<li class="fragment">When $i=j$, this matches the standard definition of $\det A.$</li>
+							<li class="fragment">When $i \neq j$, this corresponds to evaluating the determinant of an
+								altered matrix where rows $i$ and $j$ are identical, which must equal $0.$</li>
+						</ul>
+					</div>
+					<div class="size-75 fragment" style="margin-top:10px;">
+						<p>Next, we define the <strong>adjoint matrix</strong> ($\text{adj } A$) as the transpose of the
+							cofactor matrix:</p>
+						<p style="font-size: 0.85em; margin-top: -15px;">
+							$$\text{adj } A = \begin{pmatrix} C_{11} & C_{21} & \dots & C_{n1} \\ C_{12} & C_{22} &
+							\dots &
+							C_{n2} \\ \vdots & \vdots & \ddots & \vdots \\ C_{1n} & C_{2n} & \dots & C_{nn}
+							\end{pmatrix}$$
+						</p>
+						<p class="fragment">
+							From this property, it follows that:
+							<span>
+								$A\left(\text{adj } A\right) $
+							</span>
+							<span class="fragment">
+								$ = \left(\det A\right)I$
+							</span>
+							<span class="fragment">
+								$ \Ra A^{-1} = \dfrac{1}{\det A}\text{adj } A.$
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Why does Cramer's Rule work? (Cont'd)</h4>
+					<div class="size-75">
+						<p>If $\mathbf x$ is the unique solution to the linear system $A\mathbf x=\mathbf b$, we can isolate $\mathbf x$ using the
+							adjoint matrix inverse:</p>
+						<p style="margin-top: -50px;">
+							$$\mathbf x = A^{-1}\mathbf b = \frac{1}{\det A}(\text{adj } A)\mathbf b$$
+						</p>
+						<p class="fragment" style="margin-top:10px;">Evaluating for an individual component entry $x_i$
+							gives:</p>
+						<p class="fragment" style="text-align: center;">$\ds x_i = \frac{b_1 C_{1i} + b_2 C_{2i} + \dots
+							+ b_n C_{ni}}{\det A}$
+							<span class="fragment">
+								$ =\ds
+								\frac{\det A_i}{\det A}$
+							</span>
+						</p>
+						<p class="fragment" style="font-size:80%;">
+							This holds because the expression $b_1 C_{1i} + b_2
+							C_{2i} + \dots + b_n C_{ni}$ acts exactly as the
+							cofactor expansion down the $i$-th column
+							of a modified matrix $A_i$,
+							<span class="fragment">
+								where the original
+								$i$-th column elements of $A$ have been
+								replaced by the vector elements of $\mathbf b$:
+								$$A_i = \begin{pmatrix} a_{11} & \dots & b_1 &
+								\dots & a_{1n} \\ a_{21} &
+								\dots & b_2 & \dots & a_{2n} \\ \vdots & & \vdots & & \vdots \\ a_{n1} & \dots & b_n &
+								\dots
+								& a_{nn} \end{pmatrix}$$
+							</span>
+						</p>
+
+					</div>
+				</section>
+
+				<section>
+					<h4>Application: Determinants and Vector Algebra</h4>
+					<div class="size-75">
+						<div>
+							<h5>Cross Product & Scalar Triple Product</h5>
+							<p class="fragment" data-fragment-index="0">
+								A highly convenient method to evaluate the cross product of two 3D vectors is via a
+								symbolic
+								determinant:
+							</p>
+							<div style="text-align: center;margin-top: -25px;" class="fragment" data-fragment-index="0">
+								$\mathbf b \times \mathbf c = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+								b_1 & b_2 & b_3 \\
+								c_1 &
+								c_2 & c_3 \end{vmatrix}$
+							</div>
+						</div>
+
+						<p style="margin-top:10px;" class="fragment" data-fragment-index="1">
+							It follows directly that the <strong>scalar triple
+								product</strong> can be computed as:
+
+						</p>
+						<div style="text-align: center;margin-top: -15px;" class="fragment" data-fragment-index="1">
+							$\mathbf a \pd (\mathbf b \times \mathbf c) = \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2
+							& b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}$
+						</div>
+					</div>
+					<div style="margin-top:10px; padding: 10px; margin-top: -20px; font-size: 0.7em;">
+						<p class="fragment" data-fragment-index="2"><b>Conceptual Questions:</b></p>
+						<ul style="margin-left: 0px;margin-top: -10px;">
+							<li class="fragment" data-fragment-index="2">What does the scalar triple product represent
+								geometrically?</li>
+							<li class="fragment" data-fragment-index="3">What happens to the value if one vector is a
+								linear combination of the other two?</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h4>Summary</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p class="fragment"><b>Main Points Covered</b></p>
+							<ul>
+								<li class="fragment">Matrix notation & terminology</li>
+								<li class="fragment">Matrix operations and algebra</li>
+								<li class="fragment">Block matrices</li>
+								<li class="fragment">Inversion via Gaussian elimination</li>
+								<li class="fragment">Determinants and their operational properties</li>
+								<li class="fragment">Cramer's Rule systems</li>
+							</ul>
+						</div>
+						<br />
+						<div class="left-txt">
+
+							<p class="fragment"><b>Where to Next?</b></p>
+
+							<ul>
+								<li class="fragment">Linear Transformations</li>
+								<ul>
+									<li class="fragment">What are they conceptually?</li>
+									<li class="fragment">Their core algebraic connection with matrices</li>
+								</ul>
+							</ul>
+
+						</div>
+					</div>
+					<br />
+				</section>
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>

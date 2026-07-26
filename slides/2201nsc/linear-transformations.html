@@ -1,0 +1,2529 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Lecture 4</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Linear Transformations
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f004.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Linear Transformations</h4>
+					<div class="size-80">
+						<p>Consider the mapping (transformation) from $\mathbb{R}^2 \mapsto \mathbb{R}^2$, given by:</p>
+						<p style="font-size: 1em; margin-top: -15px; text-align: center;">
+							$(x,y) \mapsto (-y,x)$
+						</p>
+
+						<div class="fragment" style="margin-top: -15px;">
+							<iframe scrolling="no" title="Mapping: 90 degress transformation"
+								src="https://www.geogebra.org/material/iframe/id/mnfbkstv/width/761/height/460/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+								width="761px" height="460px" style="border:0px;"> </iframe>
+
+						</div>
+
+						<p class="fragment" style="margin-top:-10px; text-align: center;">This mapping rotates vectors
+							through an angle of
+							$90^{\circ}$ (anticlockwise).</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Linear Transformations</h4>
+					<div class="size-90">
+
+						<p><b>Definition:</b> A mapping $T$ from a vector space $V$ into a vector
+							space $W$ (written $T:V \rightarrow W$)
+							is
+							said to be a <strong>linear transformation</strong>,
+
+							<span class="fragment" data-fragment-index="0">
+								if for all $\mathbf{u}, \mathbf{v} \in
+								V$
+								and $\alpha, \beta \in \mathbb{R}$:
+							</span>
+						</p>
+
+						<div class="cc" style="margin-top:10px;">
+							<p class="fragment" data-fragment-index="1">
+								$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\quad$
+								<span class="fragment" data-fragment-index="2">
+									and $\quad T(\alpha
+									\mathbf{u}) = \alpha T(\mathbf{u})$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top:10px;">or equivalently:</p>
+
+						<div class="fragment cc" data-fragment-index="3" style="font-size: 1.1em;">
+							<p>
+								$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example of a Linear Transformation (1)</h4>
+					<div class="size-80">
+
+						<p>Suppose $T$ is an anti-clockwise rotation by $90^{\circ}$ in the $xy$-plane.</p>
+
+						<div class="r-stack">
+							<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-01.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-02.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-03.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="3" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-04.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="4" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-05.svg">
+							<img class="fragment fade-in" data-fragment-index="5" style="width: 60%;"
+								src="images/lecture-04/002-mapping-90deg-06.svg">
+						</div>
+						<p class="fragment" data-fragment-index="4" style="margin-top:15px;">Geometrically, we can see
+							that the diagonal of the
+							sum
+							vector parallelogram rotates along with its components.
+							<span class="fragment" data-fragment-index="5">
+								In other words,
+							</span>
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="5">
+								$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example of a Linear Transformation (2)</h4>
+					<div class="size-90">
+						<p>Similarly, for scaling a vector by a scalar constant $\alpha$,
+							<span class="fragment" data-fragment-index="2">
+								under the same $90^{\circ}$
+								anti-clockwise rotation:
+							</span>
+						</p>
+
+						<div class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="1" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-01.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-02.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-03.svg">
+							<img class="fragment fade-in-then-out" data-fragment-index="3" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-04.svg">
+							<img class="fragment fade-in" data-fragment-index="4" style="width: 60%;"
+								src="images/lecture-04/003-mapping-scalling-vec-05.svg">
+						</div>
+
+
+					</div>
+					<div class="cc size-90">
+						<p class="fragment" style="margin-top:15px;">Therefore, $T(\alpha \mathbf{u}) = \alpha
+							T(\mathbf{u})$ holds true.</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>A Mapping That is <b>NOT</b> a Linear Transformation</h4>
+					<div class="size-80">
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2$ given
+								by $T\begin{pmatrix} x \\ y \end{pmatrix}
+								=
+								\begin{pmatrix} x + 1 \\ y \end{pmatrix}$</p>
+						</div>
+
+						<div style="margin-top:10px;">
+							<p class="fragment" data-fragment-index="2">
+								Let's test with a counterexample.
+								<span class="fragment" data-fragment-index="3">
+									Say $\mathbf{u} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$
+									and
+									$\mathbf{v} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$:
+								</span>
+							</p>
+
+
+						</div>
+						<div class="cc" style="font-size: 0.96em;">
+							<p class="fragment" data-fragment-index="4">
+								$\mathbf{u}+\mathbf{v} = \begin{pmatrix} 3 \\ 2 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="5">
+									$
+									\implies
+									T(\mathbf{u}+\mathbf{v})
+									= \begin{pmatrix} 4 \\ 2 \end{pmatrix}
+									$
+								</span>
+							</p>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="6" style="margin-top:10px;">
+							<p>But computing them individually yields:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$
+								T(\mathbf{u}) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad T(\mathbf{v}) =
+								\begin{pmatrix} 2
+								\\ 1 \end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="7">
+									$
+									\implies T(\mathbf{u}) + T(\mathbf{v}) = \begin{pmatrix} 5 \\ 2
+									\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" style="color: #f91515; margin-top:10px;text-align: center;">
+							Since $T(\mathbf{u}) +
+							T(\mathbf{u}+\mathbf{v})
+							\neq T(\mathbf{v})$, it is <strong>not</strong> a linear transformation.</p>
+
+						<p class="fragment" style="font-size: 85%; margin-top:10px;">
+							<b>Note:</b> You can disprove
+							linearity
+							with a single counterexample. However, to prove a
+							mapping is a linear transformation,
+							you
+							must show it holds in general.
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Linear Transformations</h4>
+					<h5>📝 Practice examples</h5>
+					<div class="size-85 left-txt">
+
+						<ol style="line-height: 50px;">
+							<li>Show that the following mapping $T:\mathbb{R}^2 \mapsto \mathbb{R}^2$ is not linear:
+								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ x_1 - 1
+								\end{pmatrix}$$
+							</li>
+							<li style="margin-top:15px;">Determine whether the transformation
+								$T:\mathbb{R}^2 \mapsto \mathbb{R}^3$ is linear:
+								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_1 \\ x_2 \\ x_1^2 +
+								x_2^2
+								\end{pmatrix}$$
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Practice example 1</h4>
+
+					<div class="size-80">
+
+						<div class="cc">
+							<p>
+								$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2$
+								given by
+								$
+								T\begin{pmatrix}x_1\\x_2\end{pmatrix}
+								=
+								\begin{pmatrix}
+								x_2\\
+								x_1-1
+								\end{pmatrix}
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							Let's test with a counterexample.
+							<span class="fragment" data-fragment-index="3">
+								Say
+								$
+								\mathbf{u}=
+								\begin{pmatrix}1\\0\end{pmatrix},
+								\;\;
+								\mathbf{v}=
+								\begin{pmatrix}0\\1\end{pmatrix}.
+								$
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$
+								\mathbf{u}+\mathbf{v}
+								=
+								\begin{pmatrix}1\\1\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="5">
+									$
+									\implies
+									T(\mathbf{u}+\mathbf{v})
+									=
+									\begin{pmatrix}1\\0\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="6">
+							But computing them individually yields:
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$
+								T(\mathbf{u})
+								=
+								\begin{pmatrix}0\\0\end{pmatrix},
+								\;\;
+								T(\mathbf{v})
+								=
+								\begin{pmatrix}1\\-1\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="7">
+									$
+									\implies
+									T(\mathbf{u})+T(\mathbf{v})
+									=
+									\begin{pmatrix}1\\-1\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" style="color:#f91515;margin-top:10px;text-align: center;">
+							Since
+							$
+							T(\mathbf{u}+\mathbf{v})
+							\neq
+							T(\mathbf{u})+T(\mathbf{v}),
+							$
+							the mapping is <strong>not</strong> a linear transformation.
+						</p>
+
+						<p class="fragment" style="font-size:85%;margin-top:10px;">
+							<b>Note:</b> A single counterexample is enough to disprove linearity.
+						</p>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Practice example 2</h4>
+
+					<div class="size-75">
+
+						<div class="cc">
+							<p style="font-size: 0.9em;">
+								$T:\mathbb{R}^2 \rightarrow \mathbb{R}^3$
+								given by
+								$
+								T\begin{pmatrix}x_1\\x_2\end{pmatrix}
+								=
+								\begin{pmatrix}
+								x_1\\
+								x_2\\
+								x_1^2+x_2^2
+								\end{pmatrix}
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							Let's test the additivity property.
+							<span class="fragment" data-fragment-index="3">
+								Take
+								$
+								\mathbf{u}=
+								\begin{pmatrix}1\\0\end{pmatrix},
+								\;
+								\mathbf{v}=
+								\begin{pmatrix}0\\1\end{pmatrix}.
+								$
+							</span>
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$
+								\mathbf{u}+\mathbf{v}
+								=
+								\begin{pmatrix}1\\1\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="5">
+									$
+									\implies
+									T(\mathbf{u}+\mathbf{v})
+									=
+									\begin{pmatrix}1\\1\\2\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="6">
+							Individual computation gives:
+
+							$
+							T(\mathbf{u})
+							=
+							\begin{pmatrix}1\\0\\1\end{pmatrix},
+							\;
+							T(\mathbf{v})
+							=
+							\begin{pmatrix}0\\1\\1\end{pmatrix}
+							$
+							<span class="fragment" data-fragment-index="7">
+								$
+								\implies
+								T(\mathbf{u})+T(\mathbf{v})
+								=
+								\begin{pmatrix}1\\1\\2\end{pmatrix}
+								$
+							</span>
+
+						</p>
+
+
+
+						<p class="fragment" style="margin-top:10px;">
+							So, for these vectors,
+							$
+							T(\mathbf{u}+\mathbf{v})
+							=
+							T(\mathbf{u})+T(\mathbf{v}).
+							$
+						</p>
+
+
+
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Practice example 2</h4>
+
+					<div class="size-90">
+
+						<div class="cc">
+							<p>
+								$T:\mathbb{R}^2 \rightarrow \mathbb{R}^3$
+								given by
+								$
+								T\begin{pmatrix}x_1\\x_2\end{pmatrix}
+								=
+								\begin{pmatrix}
+								x_1\\
+								x_2\\
+								x_1^2+x_2^2
+								\end{pmatrix}
+								$
+							</p>
+						</div>
+
+
+
+						<div class="cc">
+							<p style="color:#f91515;margin-top:10px;">
+								However, this <strong>does not</strong> prove that $T$ is linear.<br />
+								<span class="fragment">
+									The mapping is still <strong>not</strong> a linear transformation.
+								</span>
+							</p>
+
+							<p class="fragment" style="margin-top:10px;">
+								<b>Why?</b>
+								<span class="fragment">
+									We must also verify the <b>homogeneity</b> property,
+									$
+									T(c\mathbf{x}) = c\,T(\mathbf{x}),
+									$
+								</span>
+								<br />
+								<span class="fragment">
+									which this mapping does <strong>not</strong> satisfy because of the quadratic term
+									$x_1^2+x_2^2$.
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Proving a Mapping is a Linear Transformation</h4>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							Consider another transformation on $\mathbb{R}^2$ given by
+							$T(\mathbf{v}) = 3\mathbf{v}$.
+							<span class="fragment" data-fragment-index="1">
+								We check the core properties to confirm if $T$ is linear.
+							</span>
+						</p>
+
+						<div style="margin-top:15px;">
+							<h5 class="fragment" data-fragment-index="2">(a) Check whether $T(\mathbf{u}+\mathbf{v}) =
+								T(\mathbf{u}) + T(\mathbf{v})$</h5>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
+									\begin{pmatrix}
+									v_1 \\ v_2 \end{pmatrix}$,
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									meaning $\mathbf{u}+\mathbf{v} = \begin{pmatrix} u_1 + v_1 \\
+									u_2
+									+ v_2 \end{pmatrix}$:
+								</span>
+
+							</p>
+							<div class="cc">
+								<p>
+									<span class="fragment" data-fragment-index="5">
+										$
+										T(\mathbf{u}+\mathbf{v}) = T\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$
+										= 3\begin{pmatrix} u_1 + v_1 \\ u_2 + v_2 \end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$
+										= \begin{pmatrix} 3u_1 + 3v_1 \\ 3u_2
+										+
+										3v_2 \end{pmatrix}
+										$
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="8">
+									$
+									\quad = 3\begin{pmatrix} u_1 \\ u_2 \end{pmatrix} + 3\begin{pmatrix} v_1 \\ v_2
+									\end{pmatrix}
+									$
+									<span class="fragment" data-fragment-index="9">
+										$
+										=
+										T(\mathbf{u}) + T(\mathbf{v})\quad
+										$ ✅
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Proving a Mapping is a Linear Transformation</h4>
+					<div class="size-85">
+						<p>
+							Consider another transformation on $\mathbb{R}^2$ given by
+							$T(\mathbf{v}) = 3\mathbf{v}$.
+							<span>
+								We check the core properties to confirm if $T$ is linear.
+							</span>
+						</p>
+						<h5 style="color: #aaa;">(a) Check whether $T(\mathbf{u}+\mathbf{v}) =
+							T(\mathbf{u}) + T(\mathbf{v})$</h5>
+						<h5>(b) Check whether $T(\alpha \mathbf{u}) = \alpha T(\mathbf{u})$</h5>
+
+						<div style="margin-top:20px;">
+							<p class="fragment" data-fragment-index="0">Using the same mapping $T(\mathbf{v}) =
+								3\mathbf{v}$ with an arbitrary scalar $\alpha \in
+								\mathbb{R}$:
+							</p>
+							<div class="cc">
+								<p>
+									<span class="fragment" data-fragment-index="1">
+										$
+										T(\alpha \mathbf{u}) = T\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$
+										= 3\begin{pmatrix} \alpha u_1 \\ \alpha u_2 \end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$
+										= \alpha \left[ 3\begin{pmatrix} u_1
+										\\
+										u_2 \end{pmatrix} \right]
+										$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$
+										= \alpha T(\mathbf{u})\quad
+										$ ✅
+									</span>
+
+								</p>
+							</div>
+						</div>
+
+					</div>
+
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Proving a Mapping is a Linear Transformation</h4>
+					<div class="size-85">
+						<p>
+							Consider another transformation on $\mathbb{R}^2$ given by
+							$T(\mathbf{v}) = 3\mathbf{v}$.
+							<span>
+								We check the core properties to confirm if $T$ is linear.
+							</span>
+						</p>
+						<h5 style="font-size: 1em;">(a) Check whether $T(\mathbf{u}+\mathbf{v}) =
+							T(\mathbf{u}) + T(\mathbf{v})$</h5>
+						<h5 style="font-size: 1em;">(b) Check whether $T(\alpha \mathbf{u}) = \alpha T(\mathbf{u})$</h5>
+
+						<h5 class="fragment" style="color: #016b3c;font-size: 1.3em;">
+							Both rules are satisfied!
+						</h5>
+
+
+						<p style="margin-top:20px; font-size: 1.2em;">
+
+							<span class="fragment">
+								So
+								$T(\mathbf{v}) = 3\mathbf{v}$ is rigorously proven to
+								be a linear transformation!
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Using the Alternate Definition</h4>
+					<div class="size-80">
+						<p>
+							Consider the mapping from $\mathbb{R}^2$ to $\mathbb{R}^3$ given by:
+						</p>
+						<p style="text-align: center; margin-top: -20px">
+							$
+							T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \left(x_2, x_1, x_1 + x_2\right)^T =
+							\begin{pmatrix} x_2 \\
+							x_1
+							\\ x_1 + x_2 \end{pmatrix}$
+						</p>
+
+						<p class="fragment" style="margin-top:15px;">
+							We will show that this is linear using the single
+							consolidated criteria:
+							$$T\left(\alpha \mathbf{u} + \beta \mathbf{v}\right) = \alpha T(\mathbf{u}) +
+							\beta
+							T(\mathbf{v}).$$
+						</p>
+
+						<div class="fragment cc" style="margin-top:10px;">
+							<p>
+								Let $\mathbf{u} = \begin{pmatrix} u_1 \\ u_2 \end{pmatrix}$ and $\mathbf{v} =
+								\begin{pmatrix}
+								v_1 \\ v_2 \end{pmatrix}$.
+								<span class="fragment">
+									Then
+									$\;\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\
+									\alpha u_2 + \beta v_2 \end{pmatrix}.$
+								</span>
+							</p>
+
+
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Using the Alternate Definition</h4>
+					<div class="size-80">
+						<p>
+							Consider the mapping from $\mathbb{R}^2$ to $\mathbb{R}^3$ given by:
+						</p>
+						<p style="text-align: center; margin-top: -20px;">
+							$
+							T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \left(x_2, x_1, x_1 + x_2\right)^T =
+							\begin{pmatrix} x_2 \\
+							x_1
+							\\ x_1 + x_2 \end{pmatrix}$
+						</p>
+						<p>Thus $\alpha \mathbf{u} + \beta \mathbf{v} = \begin{pmatrix} \alpha u_1 + \beta v_1 \\
+							\alpha
+							u_2 + \beta v_2 \end{pmatrix}$.
+							<span class="fragment" data-fragment-index="0">
+								Applying the rules of mapping $T$ gives:
+							</span>
+						</p>
+
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$T(\alpha \mathbf{u} + \beta \mathbf{v}) = \begin{pmatrix} \alpha u_2 + \beta v_2 \\
+									\alpha
+									u_1
+									+ \beta v_1 \\ (\alpha u_1 + \beta v_1) + (\alpha u_2 + \beta v_2) \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$= \begin{pmatrix} \alpha u_2 \\ \alpha u_1 \\ \alpha u_1 + \alpha u_2 \end{pmatrix}
+									+
+									\begin{pmatrix} \beta v_2 \\ \beta v_1 \\ \beta v_1 + \beta v_2 \end{pmatrix}$
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$= \alpha \begin{pmatrix} u_2 \\ u_1 \\ u_1 + u_2 \end{pmatrix} + \beta
+									\begin{pmatrix} v_2
+									\\
+									v_1 \\ v_1 + v_2 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= \alpha T(\mathbf{u}) + \beta T(\mathbf{v})$
+								</span>
+							</p>
+
+
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Exercises</h4>
+					<div class="size-85">
+						<ol style="line-height: 50px;">
+							<li>Show that the following transformation $T : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ is
+								linear:
+								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 2x_1 \\ x_2
+								\end{pmatrix}$$
+							</li>
+							<li style="margin-top:15px;">Show that $T : \mathbb{R}^2 \rightarrow
+								\mathbb{R}^2$ given by the following mapping is a linear transformation:
+								$$T\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} x_2 \\ 3x_1
+								\end{pmatrix}$$
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solution to Exercise 1</h4>
+
+					<div class="size-80">
+
+						<div class="cc">
+							<p>
+								1. Consider
+								$
+								T:\mathbb{R}^2\rightarrow\mathbb{R}^2,
+								\quad
+								T\begin{pmatrix}x_1\\x_2\end{pmatrix}
+								=
+								\begin{pmatrix}
+								2x_1\\
+								x_2
+								\end{pmatrix}.
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							To prove that $T$ is linear, show that
+							$
+							T(\alpha\mathbf{u}+\beta\mathbf{v})
+							=
+							\alpha T(\mathbf{u})
+							+
+							\beta T(\mathbf{v})
+							$
+							for all vectors $\mathbf{u},\mathbf{v}$ and scalars $\alpha,\beta$.
+						</p>
+
+						<div>
+							<p class="fragment" data-fragment-index="3">
+								Let
+								$
+								\mathbf{u}=
+								\begin{pmatrix}u_1\\u_2\end{pmatrix},
+								\;
+								\mathbf{v}=
+								\begin{pmatrix}v_1\\v_2\end{pmatrix}.
+								$
+								<span class="fragment" data-fragment-index="4">
+									Then
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$
+								T(\alpha\mathbf{u}+\beta\mathbf{v})
+								=
+								T\!\left(
+								\begin{pmatrix}
+								\alpha u_1+\beta v_1\\
+								\alpha u_2+\beta v_2
+								\end{pmatrix}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="5">
+									$
+									=
+									\begin{pmatrix}
+									2(\alpha u_1+\beta v_1)\\
+									\alpha u_2+\beta v_2
+									\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$
+								=
+								\alpha
+								\begin{pmatrix}
+								2u_1\\
+								u_2
+								\end{pmatrix}
+								+
+								\beta
+								\begin{pmatrix}
+								2v_1\\
+								v_2
+								\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="7">
+									$
+									=
+									\alpha T(\mathbf{u})
+									+
+									\beta T(\mathbf{v}).
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+
+						</div>
+
+						<p class="fragment" style="color:#04723b;margin-top:15px;">
+							Since this holds for all $\mathbf{u},\mathbf{v}\in\mathbb{R}^2$
+							and all $\alpha,\beta\in\mathbb{R}$,
+							<strong>$T$ is a linear transformation.</strong>
+						</p>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>If $T(\mathbf{x})$ is a Linear Transformation, $T(\mathbf{0}) = \mathbf{0}$</h4>
+					<div class="size-85 left-txt">
+						<div class="fragment" class="fragment" data-fragment-index="0">
+
+							<p><b>Theorem:</b> For any linear transformation $T(\mathbf{x})$,
+								<span>
+									$T(\mathbf{0}) = \mathbf{0}$.
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top:15px;">
+							<p><b>Proof Outline</b></p>
+							<ol style="line-height: 60px;">
+								<li class="fragment" data-fragment-index="1">
+									From the definition of a linear transformation,
+									<p style="text-align: center;">
+										<span class="fragment" data-fragment-index="1">
+											$\alpha T(\mathbf{0}) $
+										</span>
+										<span class="fragment" data-fragment-index="2">
+											$ = T(\alpha
+											\mathbf{0})$
+										</span>
+										<span class="fragment" data-fragment-index="3">
+											$= T(\mathbf{0})$
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="3">for any scalar constant $\alpha$.</p>
+								</li>
+								<li class="fragment" data-fragment-index="4" style="margin-top:5px;">
+									If $\alpha T(\mathbf{0}) = T(\mathbf{0})$
+									holds
+									true for all $\alpha$,
+									<span class="fragment" data-fragment-index="5">
+										then $T(\mathbf{0})$
+										must equal $\mathbf{0}$.
+									</span>
+
+								</li>
+							</ol>
+						</div>
+
+						<br />
+
+						<div class="fragment"
+							style="margin-top:15px; border-left: 6px solid #ff5555; padding-left: 15px;">
+
+							<p><b>Corollary:</b> If $T(\mathbf{0}) \neq \mathbf{0}$ for any given mapping structure, it
+								<strong>cannot</strong> be a linear transformation.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>A Linear Transformation That is Not on $\mathbb{R}^n$</h4>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0">Consider the definite integral operator
+							$I : C[a, b] \rightarrow \mathbb{R}$ defined by:
+							$$I\left(f\right) = \ds \int_{a}^{b} f(t) \,dt$$</p>
+
+						<p style="font-size: 80%; color: #8d8d8d;" class="fragment" data-fragment-index="0">(where $C[a,
+							b]$ represents the set of all continuous
+							functions on the interval $[a, b]$).</p>
+
+						<div style="margin-top:10px;">
+							<p class="fragment" data-fragment-index="1">
+								Let's show that $I\left(\alpha f + \beta g\right) = \alpha I(f) + \beta I(g)$,
+								<span class="fragment" data-fragment-index="2">
+									for functions $f, g
+									\in
+									C[a, b]$ and constants $\alpha, \beta \in \mathbb{R}$:
+								</span>
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="2">
+									$\ds I\left(\alpha f + \beta g\right) $
+									<span class="fragment" data-fragment-index="3">
+										$\ds = \int_{a}^{b} \big[\alpha f(t) + \beta g(t)\big] \, dt$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\ds = \alpha \int_{a}^{b} f(t) \, dt +
+										\beta \int_{a}^{b} g(t) \, dt \quad \quad\;\; $
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="5">
+									$\quad \ds = \alpha I(f) + \beta I(g) \quad \text{(using calculus rules of
+									integration)}$
+								</p>
+							</div>
+
+
+						</div>
+						<p class="fragment" data-fragment-index="6" style="color: #036338; margin-top:5px;">Thus, this
+							calculus integration
+							operator
+							is a linear transformation.
+						</p>
+					</div>
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Another Linear Transformation That is Not on $\mathbb{R}^n$</h4>
+					<div class="size-85">
+
+						<p class="fragment" data-fragment-index="0">Consider the derivative operator
+							$T = \dfrac{d}{dx}$ mapping $P_2 \rightarrow P_1$,
+							<span class="fragment" data-fragment-index="1">
+								where
+								$P_n$ is
+								the <em>vector space</em> of
+								polynomials of degree $n$ or less.
+							</span>
+
+						</p>
+
+						<div style="margin-top:15px;">
+							<p class="fragment" data-fragment-index="2">$T$ acts on a polynomial to take its derivative:
+							</p>
+							<div class="cc" style="margin-top:15px;">
+								<p class="fragment" data-fragment-index="2">
+									$T\left(c_1 + c_2x + c_3x^2\right) $
+									<span class="fragment" data-fragment-index="3">
+										$=
+										\dfrac{d}{dx}\left(c_1 + c_2x + c_3x^2\right) $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$= c_2 + 2c_3x$
+									</span>
+								</p>
+
+
+							</div>
+						</div>
+
+
+						<div class="fragment"
+							style="margin-top:20px; background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 5px;">
+							<h6>📝 Exercise for you:</h6>
+							<p>Can you prove that this derivative operator is a linear transformation?</p>
+							<p style="font-size: 85%; color: #686868; margin-top:5px;" class="fragment">
+								<em>Hint:</em> Set up two arbitrary
+								general
+								polynomials within $P_2$, say $p_1 = a_1 + a_2x + a_3x^2$ and $p_2 = c_1 + c_2x +
+								c_3x^2$, then test the criteria.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Matrix Representation</h4>
+					<div class="size-75">
+
+						<p class="fragment" data-fragment-index="0">Revisiting our prior example where $T\begin{pmatrix}
+							x_1 \\ x_2 \end{pmatrix} =
+							\begin{pmatrix}
+							x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix}.$</p>
+
+
+						<p class="fragment" data-fragment-index="1">
+							Let's define matrix $A\,$ as
+							$\,A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \\ 1 & 1 \end{pmatrix}.$
+							<span class="fragment" data-fragment-index="2">
+								We can rewrite the transformation cleanly as matrix multiplication:
+							</span>
+						</p>
+
+						<div class="cc" style="margin-top:15px;">
+							<p class="fragment" data-fragment-index="3">
+								$T(\mathbf{x}) = \begin{pmatrix} x_2 \\ x_1 \\ x_1 + x_2 \end{pmatrix}$
+
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 0 & 1 \\ 1 & 0 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2
+									\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ = A\mathbf{x}$
+								</span>
+							</p>
+
+						</div>
+						<p class="fragment" data-fragment-index="6" style="margin-top:15px;">It is true in general that
+							any operation defined by
+							$T(\mathbf{x}) = A\mathbf{x}$ forms a linear transformation.</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Representation Theorem</h4>
+					<h5 class="fragment">The Standard Basis</h5>
+					<div class="size-75">
+						<div class="fragment">
+							<p>The standard basis in $\mathbb{R}^n$ is the collection of mutually
+								orthogonal unit vectors:
+							</p>
+							<div class="cc">
+								<p>$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad
+									\mathbf{e}_2 =
+									\begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad \dots, \quad \mathbf{e}_n
+									=
+									\begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}$</p>
+							</div>
+						</div>
+
+
+
+
+					</div>
+
+					<div class="fragment">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="150"
+								height="150">
+						</picture>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Matrix Representation Theorem</h4>
+					<h5>The Standard Basis</h5>
+
+					<table style="width: 90%; margin-top: -20px;">
+						<tr>
+							<td style="font-size: 0.9em; width: 45%;">
+								<div class="cc">
+									<p><b>For $\mathbb R^2$</b></p>
+									<p>
+										$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \;\;
+										\mathbf{e}_2 =
+										\begin{pmatrix} 0 \\ 1 \end{pmatrix}$
+									</p>
+								</div>
+
+								<br />
+								<br />
+								<br />
+							</td>
+							<td style="width: 55%;" class="fragment">
+								<img style="width: 100%;" src="images/lecture-04/005-basis-r2.png">
+							</td>
+						</tr>
+					</table>
+
+
+
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Matrix Representation Theorem</h4>
+					<h5>The Standard Basis</h5>
+
+					<table style="width: 90%; margin-top: 0px;">
+						<tr>
+							<td style="font-size: 0.8em; width:45%;">
+								<div class="cc">
+									<p><b>For $\mathbb R^3$</b></p>
+									<p>
+										$\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ 0\end{pmatrix}, \;\;
+										\mathbf{e}_2 =
+										\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix},
+										$
+									</p>
+									<p>
+										$\mathbf{e}_3 =
+										\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$
+									</p>
+								</div>
+
+								<br />
+								<br />
+								<br />
+							</td>
+							<td style="width: 55%;">
+								<img style="width: 100%;" src="images/lecture-04/005-basis-r3.png">
+							</td>
+						</tr>
+					</table>
+
+
+
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Representation Theorem</h4>
+					<div class="size-85">
+						<p>
+							<b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
+							$\mathbb{R}^m$,
+							<span class="fragment" data-fragment-index="1">
+								there
+								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for
+								all
+								$\mathbf{x} \in \mathbb{R}^n$.
+							</span>
+						</p>
+					</div>
+					<div class="size-85">
+
+						<p class="fragment" data-fragment-index="2" style="margin-top:10px;">
+							Crucially, the $j$-th column vector
+							of
+							$A$ is found by transforming the standard basis
+							element $\mathbf{e}_j$.
+							<span class="fragment" data-fragment-index="3">
+								That is, $\,\mathbf{a}_j =
+								T(\mathbf{e}_j)$ for $j = 1, 2, \dots, n$.
+							</span>
+						</p>
+
+						<div>
+							<h6 class="fragment" data-fragment-index="4">Proof Outline:</h6>
+							<p class="fragment" data-fragment-index="5">
+								Let $A = \begin{pmatrix} \mathbf{a}_1 & \mathbf{a}_2 & \dots & \mathbf{a}_n
+								\end{pmatrix}$
+								where $\mathbf{a}_j = T(\mathbf{e}_j)$.
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								Any vector $\mathbf{x} \in \mathbb{R}^n$ can be broken down as: $\mathbf{x} =
+								x_1\mathbf{e}_1
+								+ x_2\mathbf{e}_2 + \dots + x_n\mathbf{e}_n$</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$\implies T(\mathbf{x}) = x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) +
+								\dots
+								+ x_n T(\mathbf{e}_n) \quad \text{(by linearity properties)}$</p>
+							<p class="fragment">
+								$\implies T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
+								x_n\mathbf{a}_n$</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Representation Theorem</h4>
+					<div class="size-85">
+						<p>
+							<b>Theorem:</b> If $T$ is a linear transformation mapping from $\mathbb{R}^n$ into
+							$\mathbb{R}^m$,
+							<span>
+								there
+								exists a unique $m \times n$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for
+								all
+								$\mathbf{x} \in \mathbb{R}^n$.
+							</span>
+						</p>
+					</div>
+					<div class="size-75">
+
+						<h6>Proof Outline:</h6>
+
+						<div class="cc">
+
+							<p>
+								$\implies T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
+								x_n\mathbf{a}_n$</p>
+						</div>
+						<p>Expanding the linear combination $T(\mathbf{x}) = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots +
+							x_n\mathbf{a}_n$ into component forms:</p>
+
+						<div class="cc" style="font-size: 0.9em;">
+							<p>
+								$T(\mathbf x)= x_1 \begin{pmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{m1} \end{pmatrix} +
+								x_2
+								\begin{pmatrix}
+								a_{12} \\ a_{22} \\ \vdots \\ a_{m2} \end{pmatrix} + \dots + x_n \begin{pmatrix} a_{1n}
+								\\
+								a_{2n} \\ \vdots \\ a_{mn} \end{pmatrix}$
+
+								<span class="fragment" data-fragment-index="0">
+									$= \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots &
+									a_{2n}
+									\\
+									\vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn} \end{pmatrix}
+									\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} $
+								</span>
+
+								<span class="fragment" data-fragment-index="0">
+									$= A\mathbf{x}$
+								</span>
+
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="0">
+							<p>This is exactly equivalent to the standard definition of matrix multiplication.</p>
+
+						</div>
+					</div>
+
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Matrix Representation - Example</h4>
+					<div class="size-80">
+
+						<p class="fragment" data-fragment-index="0">Find the matrix representation for the linear
+							mapping $T: \mathbb{R}^3 \rightarrow
+							\mathbb{R}^2$
+							given by
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0"> $T(\mathbf{x}) = (x_1 + x_2, x_2 + x_3)^T$
+								where $\mathbf{x} = (x_1, x_2, x_3)^T$.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top:10px;">
+							<p>We evaluate $T$ for each element of the standard basis of $\mathbb{R}^3$:</p>
+
+						</div>
+
+						<div class="cc size-80">
+							<p class="fragment" data-fragment-index="2">
+								$T(\mathbf{e}_1) = T\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="3">
+									$
+									= \begin{pmatrix}
+									1+0 \\
+									0+0 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 1 \\ 0 \end{pmatrix},\quad$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$T(\mathbf{e}_2) = T\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ = \begin{pmatrix}
+									0+1 \\
+									1+0 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$ = \begin{pmatrix} 1 \\ 1 \end{pmatrix},$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="8">
+								$T(\mathbf{e}_3) = T\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="9">
+									$
+									= \begin{pmatrix}
+									0+0 \\
+									0+1 \end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$ = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top:15px;">
+							<p class="fragment" data-fragment-index="11">Stacking these results into columns yields the
+								transformation matrix $A$:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="11">$A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1
+								\end{pmatrix}$</p>
+						</div>
+					</div>
+				</section>
+
+
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>2D Geometric Transformations with Matrices</h4>
+					<div class="size-85">
+						<h5 class="fragment">Geometric Interpretation</h5>
+						<p class="fragment">Suppose you are given the transformation matrix $A = \begin{pmatrix} 1 & 0
+							\\ 0 & -1
+							\end{pmatrix}$. <br />
+
+						</p>
+						<p class="fragment">
+							How would you describe the operation $T(\mathbf{v}) = A\mathbf{v}$
+							geometrically?
+
+						</p>
+
+						<div class="fragment">
+							<p>Use a general vector $\mathbf{v} = \begin{pmatrix} v_1 \\ v_2
+								\end{pmatrix}$ and calculate the output:</p>
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$T(\mathbf{v}) = A\mathbf{v} $
+								<span class="fragment">
+									$
+									= \begin{pmatrix} 1 & 0 \\ 0 & -1
+									\end{pmatrix}\begin{pmatrix}
+									v_1
+									\\ v_2 \end{pmatrix} $
+								</span>
+								<span class="fragment">
+									$= \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" style="margin-top:15px; color:#067342;">
+							<strong>Conclusion:</strong> This
+							transformation reflects points across the horizontal $x$-axis.
+						</p>
+						<!--
+						<p class="fragment" style="margin-top:10px; font-size:90%; color:#5b5b5b;">
+							Now try it yourself:
+							What
+							matrix transformation occurs if $A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$?</p>-->
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>2D Geometric Transformations with Matrices</h4>
+					<div class="size-80">
+						<h5>Geometric Interpretation</h5>
+
+						<p>
+							How would you describe the operation $T(\mathbf{v}) = A\mathbf{v}$
+							geometrically?
+
+						</p>
+
+					</div>
+
+					<table style="width: 90%;">
+						<tr>
+							<td style="width: 50%;">
+								<div class="size-90">
+									<p style="text-align: right;">
+										$T(\mathbf{v}) = A\mathbf{v}
+										= \begin{pmatrix} 1 & 0 \\ 0 & -1
+										\end{pmatrix}\begin{pmatrix}
+										v_1
+										\\ v_2 \end{pmatrix} $
+										</span>
+
+									</p>
+									<p style="text-align: left;">
+										<span>
+											$
+											\qquad = \begin{pmatrix} v_1 \\ -v_2 \end{pmatrix}
+											$
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="0">
+										👉 Reflection in the $x$-axis
+									</p>
+									<br />
+									<br />
+								</div>
+							</td>
+							<td style="width: 50%;">
+								<div class="r-stack" style="margin-top: -20px;">
+									<img class="fragment fade-out" data-fragment-index="0" style="width:100%;"
+										src="images/lecture-04/006-reflection-x-01.svg">
+									<img class="fragment fade-in" data-fragment-index="0" style="width: 100%;"
+										src="images/lecture-04/006-reflection-x-02.svg">
+								</div>
+							</td>
+						</tr>
+					</table>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>2D Geometric Transformations with Matrices</h4>
+					<div class="size-75">
+						<h5>Reflection in the $x$-axis</h5>
+						<p>When coordinates are reflected across the $x$-axis, the mappings translate as follows:</p>
+						<div class="cc" style="margin-top: -10px;">
+							<p>
+								$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} x \\ -y \end{pmatrix}$
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="0" style="margin-top:10px;">
+							<p>Tracing the transformation of standard basis vectors:</p>
+
+						</div>
+
+						<div class="cc" style="margin-top: -10px;">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \mapsto \begin{pmatrix} 1 \\ 0
+								\end{pmatrix} \quad
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\text{and} \quad \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+									\mapsto
+									\begin{pmatrix} 0 \\ -1 \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" style="margin-top:15px;">
+							<p>Assembling these vectors into columns gives the transformation matrix:</p>
+							$$A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>2D Geometric Transformations with Matrices</h4>
+					<div class="size-75">
+						<h5>Reflection in the $y$-axis</h5>
+						<p class="fragment" data-fragment-index="0">When coordinates are instead reflected across the
+							vertical $y$-axis, the mappings change to:
+						</p>
+						<div class="cc" style="margin-top: -10px;">
+							<p class="fragment" data-fragment-index="0">
+								$\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} -x \\ y \end{pmatrix}$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top:10px;">
+							<p>Tracing the transformation of standard basis vectors:</p>
+
+						</div>
+
+						<div class="cc" style="margin-top: -10px;">
+							<p class="fragment" data-fragment-index="1">
+								$
+								\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+								\mapsto \begin{pmatrix} -1 \\ 0 \end{pmatrix} \quad
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\text{and} \quad \mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+									\mapsto
+									\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top:15px;">
+							<p>Grouping columns together produces the canonical matrix:</p>
+							$$A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>2D Geometric Transformations with Matrices</h4>
+					<div class="size-80">
+						<h5>Reflection in the $y$-axis</h5>
+
+						<p style="text-align: center;">
+							Geometric interpretation
+
+						</p>
+
+					</div>
+
+					<table style="width: 90%;">
+						<tr>
+							<td style="width: 50%;">
+								<div class="size-90">
+									<p style="text-align: right;">
+										$T(\mathbf{v}) = A\mathbf{v}
+										= \begin{pmatrix} -1 & 0 \\ 0 & 1
+										\end{pmatrix}\begin{pmatrix}
+										v_1
+										\\ v_2 \end{pmatrix} $
+
+
+									</p>
+									<p style="text-align: left;">
+										<span class="fragment" data-fragment-index="1">
+											$
+											\qquad = \begin{pmatrix} -v_1 \\ v_2 \end{pmatrix}
+											$
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="2">
+										👉 Reflection in the $y$-axis
+									</p>
+									<br />
+									<br />
+								</div>
+							</td>
+							<td style="width: 50%;">
+								<div class="r-stack" style="margin-top: -20px;">
+									<img class="fragment fade-in-then-out" data-fragment-index="0" style="width:100%;"
+										src="images/lecture-04/006-reflection-y-01.svg">
+									<img class="fragment fade-in" data-fragment-index="1" style="width: 100%;"
+										src="images/lecture-04/006-reflection-y-02.svg">
+								</div>
+							</td>
+						</tr>
+					</table>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>2D Geometric Transformations with Matrices</h4>
+					<h6>Rotation through an Angle $\theta$</h6>
+					<div class="size-85">
+
+						<p class="fragment">To rotate the standard 2D axes counterclockwise by a generic angle $\theta$:
+						</p>
+
+						<div style="margin-top:15px;">
+							<ul style="line-height: 120px;">
+								<li class="fragment">The vector $\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$
+									moves onto unit
+									circle
+									coords: $\begin{pmatrix} \cos\theta \\ \sin\theta \end{pmatrix}$</li>
+								<li class="fragment">The vector $\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1
+									\end{pmatrix}$
+									moves onto perpendicular coords: $\begin{pmatrix} -\sin\theta \\ \cos\theta
+									\end{pmatrix}$</li>
+							</ul>
+						</div>
+
+						<div class="fragment" style="margin-top:20px;">
+							<p>Combining these columns yields the fundamental 2D rotation matrix:</p>
+							$$A = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$$
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>2D Geometric Transformations with Matrices</h4>
+					<h6>Rotation through an Angle $\theta$</h6>
+					<div class="size-80 left-txt">
+
+
+						<p>
+							For instance, a pure $90^{\circ}$ anti-clockwise rotation sets $\theta =
+							\dfrac{\pi}{2}$.
+							<span class="fragment" data-fragment-index="0">
+								Thus
+							</span>
+						</p>
+
+						<p style="text-align: center;">
+							<span class="fragment" data-fragment-index="0">
+								$A = \begin{pmatrix} \cos \dfrac{\pi}{2} & -\sin \dfrac{\pi}{2} \\ \sin
+								\dfrac{\pi}{2} & \cos
+								\dfrac{\pi}{2} \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$= \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$ \Ra
+								\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} x \\ y
+								\end{pmatrix} =
+								\begin{pmatrix} -y \\ x \end{pmatrix}$
+							</span>
+						</p>
+
+
+
+						<div class="cc" style="margin-bottom: 0px; margin-top:130px;">
+							<p style="color: #686868;font-size: 0.9em;" class="fragment fade-out"
+								data-fragment-index="0">
+								<b>Note:</b> For numerical computations, it is
+								more common to use
+								radians instead of degrees.
+							</p>
+						</div>
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>Matrices as Linear transformations</h4>
+					<div>
+
+						<iframe scrolling="no" title="Week 7: Transformations and Determinant"
+							src="https://www.geogebra.org/material/iframe/id/ugvur8p2/width/750/height/422/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="750px" height="422px" style="border:0px;" allowfullscreen=""> </iframe>
+
+					</div>
+					<div class="cc" style="font-size:90%;margin-top:-10px;">
+						<p><i class="fa fa-solid fa-link"></i> <a href="https://shorturl.at/dsoGz"
+								target="_blank"><tt>shorturl.at/dsoGz</tt></a></p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Application: Computer graphics and Animations
+					</h4>
+
+					<div class="r-stack" style="margin-top: -35px;">
+						<img class="fragment fade-out" data-fragment-index="0"
+							src="images/3d-rendering/3d-rendering-02.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							src="images/3d-rendering/3d-rendering-03.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="2"
+							src="images/3d-rendering/3d-rendering-04.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="3"
+							src="images/3d-rendering/3d-rendering-05.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="5"
+							src="images/3d-rendering/3d-rendering-07.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="7"
+							src="images/3d-rendering/3d-rendering-09.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="8"
+							src="images/3d-rendering/3d-rendering-010.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="9"
+							src="images/3d-rendering/3d-rendering-011.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="10"
+							src="images/3d-rendering/3d-rendering-012.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="12"
+							src="images/3d-rendering/3d-rendering-014.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="13"
+							src="images/3d-rendering/3d-rendering-015.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="14"
+							src="images/3d-rendering/3d-rendering-016.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="15"
+							src="images/3d-rendering/3d-rendering-017.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="17"
+							src="images/3d-rendering/3d-rendering-019.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="18"
+							src="images/3d-rendering/3d-rendering-020.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="19"
+							src="images/3d-rendering/3d-rendering-021.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="20"
+							src="images/3d-rendering/3d-rendering-022.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="21"
+							src="images/3d-rendering/3d-rendering-023.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="22"
+							src="images/3d-rendering/3d-rendering-024.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="23"
+							src="images/3d-rendering/3d-rendering-025.jpg">
+						<img class="fragment fade-in-then-out" data-fragment-index="24"
+							src="images/3d-rendering/3d-rendering-026.jpg">
+						<img class="fragment fade-in" data-fragment-index="30"
+							src="images/3d-rendering/3d-rendering-012.jpg">
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Application: Computer graphics and Animations
+					</h4>
+
+					<div style="font-size: 0.8em;margin-top: 20px;" class="cc">
+						<p>
+							<b>Source:</b>
+							🎥 Branch Education - How do Video Game Graphics Work?
+						</p>
+						<p style="font-size: 0.9em;margin-top: -20px;"><tt>www.youtube.com/@BranchEducation</tt></p>
+					</div>
+
+					<div style="margin-top: -30px;">
+						<img style="width: 70%;" src="images/3d-rendering/3d-rendering-01.jpg">
+					</div>
+
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>2D Geometric Transformations with Matrices</h4>
+					<h6>📝 Practice</h6>
+					<div class="size-85 left-txt">
+
+						<ol style="line-height: 50px;margin-left: 0px;">
+
+							<li>Find the standard matrix representation of a
+								transformation $T$ that:
+								<ul>
+									<li>Rotates each vector $\mathbf{x} \in \mathbb{R}^2$ by $60^{\circ}$ in the
+										anti-clockwise direction.</li>
+									<li>Reflects each vector $\mathbf{x} \in \mathbb{R}^2$ across the $y$-axis.</li>
+									<li>Reflects each vector $\mathbf{x} \in \mathbb{R}^2$ across the $y$-axis and then
+										rotates it $60^{\circ}$ anti-clockwise.</li>
+									<li>Doubles the length of each vector $\mathbf{x} \in \mathbb{R}^2$ and then rotates
+										it
+										$30^{\circ}$ clockwise.</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Inverse Linear Transformations</h4>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							<b>Theorem:</b>
+							Let $T:\mathbb R^n \to \mathbb R^n$ be a linear transformation
+							with matrix $A.$
+							<span class="fragment" data-fragment-index="1">
+								Then the inverse transformation $T^{-1}$ exists
+								if and only if $\det(A)\neq 0.$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Furthermore, $T^{-1}:\mathbb R^n \to \mathbb R^n$
+								is a linear transformation with matrix $A^{-1}.$
+							</span>
+						</p>
+
+						<p class="fragment" data-fragment-index="3">
+							<b>Example:</b> If $T:\mathbb R^3 \to \mathbb R^3$ has a matrix
+							\[A =
+							\left(
+							\begin{array}{ccc}
+							2 & 3 & 1\\
+							-1 & 2 & 3\\
+							4 & 2 & 6\\
+							\end{array}
+							\right),
+							\]
+
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="4">
+								then \(T^{-1}\) exists since
+								\(\det(A) = 63\)
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								\(\neq 0.\)
+							</span>
+							<span class="fragment" data-fragment-index="6">
+								This means that $A$ is invertible and $A^{-1}$ exists.
+							</span>
+							<span class="fragment" data-fragment-index="7">
+								Therefore $T^{-1}$ exists and is given by $T^{-1}(\mathbf x) = A^{-1}\mathbf x.$
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Inverse Linear Transformations</h4>
+					<div class="size-85">
+						<p>
+							<b>Theorem:</b>
+							Let $T:\mathbb R^n \to \mathbb R^n$ be a linear transformation
+							with matrix $A.$
+							<span>
+								Then the inverse transformation $T^{-1}$ exists
+								if and only if $\det(A)\neq 0.$
+							</span>
+							<span>
+								Furthermore, $T^{-1}:\mathbb R^n \to \mathbb R^n$
+								is a linear transformation with matrix $A^{-1}.$
+							</span>
+						</p>
+
+						<p>
+							<b>Example:</b> To determine the inverse of $A$ we can apply
+							the Gauss-Jordan elimination:
+
+						</p>
+
+						<div class="r-stack" style="margin-top: -20px;" style="font-size: 0.9em;">
+							<p class="fragment fade-out" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								2 & 3 & 1 & 1 & 0 & 0 \\
+								-1 & 2 & 3& 0 & 1 & 0 \\
+								4 & 1 & 6 & 0 & 0 & 1 \\
+								\end{array}
+								\right)
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+								-1 & 2 & 3& 0 & 1 & 0 \\
+								4 & 1 & 6 & 0 & 0 & 1 \\
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\frac{1}{2}R1 \\
+								\\
+								\\
+								\end{array}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1 & \frac{3}{2} & \frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+								0 & \frac{7}{2} & \frac{7}{2} & \frac{1}{2} & 1 & 0 \\
+								4 & 1 & 6 & 0 & 0 & 1 \\
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								R2 +R1 \\
+								\\
+								\end{array}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1 & \frac32 & \frac12 & \frac12&0&0\\
+								0&1&1&\frac17&\frac27&0\\
+								4&1&6&0&0&1
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								\frac27R2\\
+								\\
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="3">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&-1&\frac27&-\frac37&0\\
+								0&1&1&\frac17&\frac27&0\\
+								4&1&6&0&0&1
+								\end{array}
+								\right)
+								\begin{array}{c}
+								R1-\frac32R2\\
+								\\
+								\\
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="4">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&-1&\frac27&-\frac37&0\\
+								0&1&1&\frac17&\frac27&0\\
+								0&1&10&-\frac87&\frac{12}{7}&1
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								\\
+								R3-4R1
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="5">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&-1&\frac27&-\frac37&0\\
+								0&1&1&\frac17&\frac27&0\\
+								0&0&9&-\frac97&\frac{10}{7}&1
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								\\
+								R3-R2
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="6">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&-1&\frac27&-\frac37&0\\
+								0&1&1&\frac17&\frac27&0\\
+								0&0&1&-\frac17&\frac{10}{63}&\frac19
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								\\
+								\frac19R3
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="7">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&0&\frac17&-\frac{17}{63}&\frac19\\
+								0&1&1&\frac17&\frac27&0\\
+								0&0&1&-\frac17&\frac{10}{63}&\frac19
+								\end{array}
+								\right)
+								\begin{array}{c}
+								R1+R3\\
+								\\
+								\\
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in-then-out" data-fragment-index="8">
+								$
+								\left(
+								\begin{array}{ccc|ccc}
+								1&0&0&\frac17&-\frac{17}{63}&\frac19\\
+								0&1&0&\frac27&\frac{8}{63}&-\frac19\\
+								0&0&1&-\frac17&\frac{10}{63}&\frac19
+								\end{array}
+								\right)
+								\begin{array}{c}
+								\\
+								R2-R3\\
+								\\
+								\end{array}
+								$
+							</p>
+
+							<p class="fragment fade-in" data-fragment-index="9">
+								$
+								A^{-1}=
+								\left(
+								\begin{array}{ccc}
+								\frac17&-\frac{17}{63}&\frac19\\
+								\frac27&\frac{8}{63}&-\frac19\\
+								-\frac17&\frac{10}{63}&\frac19
+								\end{array}
+								\right)
+								$
+							</p>
+
+						</div>
+						<p class="fragment" data-fragment-index="11">
+							So
+							\(\,
+							T^{-1}\left(\mathbf x \right)
+							\)
+							<span class="fragment" data-fragment-index="12">
+								\(
+								=T^{-1}\left( \left(x_1, x_2, x_3\right)^T\right)
+								\)
+							</span>
+
+						</p>
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="13">
+									\(
+									=
+									\big(
+									\frac{1}{7} x_1 - \frac{17}{63}x_2+\frac{1}{9}x_3,
+									\frac{2}{7} x_1 + \frac{8}{63}x_2-\frac{1}{9}x_3,
+									-\frac{1}{7} x_1 + \frac{10}{63}x_2+\frac{1}{9}x_3
+									\big)^T
+									\)
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Composition of Linear Transformations</h4>
+					<br />
+					<div class="size-85 fragment">
+						<p><b>Theorem:</b> Let $T_{1}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{m}$ and
+							$T_{2}:\mathbb{R}^{m}\rightarrow\mathbb{R}^{p}$ be linear transformations with matrices $A$
+							and $B$, respectively. Then the composition transformation
+							$T_{2}\circ T_{1}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{p}$ is a linear transformation with
+							matrix
+							$BA$.</p>
+					</div>
+
+					<div class="size-85 cc" style="margin-top:15px; font-size: 1.1em;">
+						<h6 class="fragment">Proof Outline</h6>
+						<p>
+							<span class="fragment">
+								$\big(T_{2}\circ T_{1}\big)(\mathbf{x}) $
+							</span>
+							<span class="fragment">
+								$ = T_{2}\big(T_{1}(\mathbf{x})\big)$
+							</span>
+							<span class="fragment">
+								$= T_{2}\left(A\mathbf{x}\right)$
+							</span>
+							<span class="fragment">
+								$= B\left(A\mathbf{x}\right)$
+							</span>
+							<span class="fragment">
+								$= \left(BA\right)\mathbf{x}$.
+							</span>
+						</p>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Composition of Linear Transformations</h4>
+
+					<div class="size-75">
+						<h5>Example of a Product Transformation</h5>
+
+						<p>
+							Reflect each vector $\mathbf{x}\in\mathbb{R}^2$ across the $y$-axis and then rotate it
+							$60^\circ$ anti-clockwise.
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							$$
+							R_y=\begin{pmatrix}-1&0\\0&1\end{pmatrix},
+							\qquad
+							R_{60}=
+							\begin{pmatrix}
+							\frac12&-\frac{\sqrt3}{2}\\
+							\frac{\sqrt3}{2}&\frac12
+							\end{pmatrix}.
+							$$
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							Since the reflection is applied first,
+							$
+							T\rightarrow R_{60}R_y.
+							$
+						</p>
+
+						<div class="cc">
+							<p class="fragment" style="margin-top:10px;">
+								$
+								R_{60}R_y
+								=
+								\begin{pmatrix}
+								\frac12&-\frac{\sqrt3}{2}\\
+								\frac{\sqrt3}{2}&\frac12
+								\end{pmatrix}
+								\begin{pmatrix}
+								-1&0\\
+								0&1
+								\end{pmatrix}
+
+								$
+								<span class="fragment">
+									$=
+									\begin{pmatrix}
+									-\frac12&-\frac{\sqrt3}{2}\\
+									-\frac{\sqrt3}{2}&\frac12
+									\end{pmatrix}.$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-75" style="margin-top:15px;">
+						<p class="fragment">
+							Thus, the matrix representing the composition is
+							$
+							\begin{pmatrix}
+							-\frac12&-\frac{\sqrt3}{2}\\
+							-\frac{\sqrt3}{2}&\frac12
+							\end{pmatrix}.
+							$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Composition of Linear Transformations</h4>
+
+					<div class="size-75">
+						<h5>Example of a Product Transformation</h5>
+
+						<p>
+							Double the length of each vector $\mathbf{x}\in\mathbb{R}^2$ and then rotate it
+							$30^\circ$ clockwise.
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							$$
+							S=
+							\begin{pmatrix}
+							2&0\\
+							0&2
+							\end{pmatrix},
+							\qquad
+							R_{-30}=
+							\begin{pmatrix}
+							\frac{\sqrt3}{2}&\frac12\\
+							-\frac12&\frac{\sqrt3}{2}
+							\end{pmatrix}.
+							$$
+						</p>
+
+						<p class="fragment" style="margin-top:10px;">
+							Since the scaling is applied first,
+							$
+							T\rightarrow R_{-30}S.
+							$
+						</p>
+
+						<div class="cc">
+							<p class="fragment" style="margin-top:10px;">
+								$
+
+								R_{-30}S
+								=
+								\begin{pmatrix}
+								\frac{\sqrt3}{2}&\frac12\\
+								-\frac12&\frac{\sqrt3}{2}
+								\end{pmatrix}
+								\begin{pmatrix}
+								2&0\\
+								0&2
+								\end{pmatrix}
+								$
+								<span class="fragment">
+									$
+									=
+									\begin{pmatrix}
+									\sqrt3&1\\
+									-1&\sqrt3
+									\end{pmatrix}.$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-75" style="margin-top:15px;">
+						<p class="fragment">
+							Thus, the matrix representing the composition is
+							$
+							\begin{pmatrix}
+							\sqrt3&1\\
+							-1&\sqrt3
+							\end{pmatrix}.
+							$
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Composition of Linear Transformations</h4>
+					<div class="size-85">
+						<h5>General Example</h5>
+
+						<p class="fragment" data-fragment-index="0">
+							Let
+						</p>
+						<div class="cc" style="margin-top: -30px;">
+							<p class="fragment" data-fragment-index="0">
+								$T_{1}:M_n\big(\mathbb R\big)\to M_n\big(\mathbb R\big)\;$ and
+								$\;T_{2}:M_n\big(\mathbb R\big)\to \mathbb R$
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="0">
+							be linear transformations defined as
+						</p>
+						<div class="cc" style="margin-top: -5px;">
+							<p class="fragment" data-fragment-index="0">
+								$T_1 \left(A\right) = A + A^T\;$ 
+								and $\;T_2\left(A\right) = \text{tr}\left(A\right),$
+							</p>
+						</div>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								where $M_n\big(\mathbb R\big)$ is 
+								<b>the set of real $n\times n$
+								matrices</b>
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								and 
+								$\text{tr}(A)$ is 
+								<b>the trace of $A$ </b>
+								(i.e. the sum of elements on the main diagonal).
+							</span>
+
+						</p>
+
+
+						<p class="fragment" data-fragment-index="3" style="margin-top:10px;">
+							Then $T_{2}\circ T_{1}:M_n\big(\mathbb R\big)\rightarrow\mathbb{R}$ is defined by:
+							
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$
+								\big(T_{2}\circ T_{1}\big)(A)
+								$
+								<span class="fragment" >
+									$=T_{2}\big(T_{1}(A)\big)$
+								</span>
+								<span class="fragment" >
+									$=T_{2}\left(A+A^{T}\right)$
+								</span>
+								<span class="fragment">
+									$=\text{tr}\left(A+A^{T}\right)$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<br/>
+					<br/>
+
+					
+				</section>
+
+				<section data-auto-animate>
+					<h4>Composition of Linear Transformations</h4>
+					<div class="size-85">
+						<h5>General Example</h5>
+
+						<p>
+							Let
+						</p>
+						<div class="cc" style="margin-top: -30px;">
+							<p>
+								$T_{1}:M_n\big(\mathbb R\big)\to M_n\big(\mathbb R\big)\;$ and
+								$\;T_{2}:M_n\big(\mathbb R\big)\to \mathbb R$
+							</p>
+						</div>
+						<p>
+							be linear transformations defined as
+						</p>
+						<div class="cc" style="margin-top: -5px;">
+							<p>
+								$T_1 \left(A\right) = A + A^T\;$ 
+								and $\;T_2\left(A\right) = \text{tr}\left(A\right),$
+							</p>
+						</div>
+						
+						<div class="cc">
+							<p>
+								$
+								\big(T_{2}\circ T_{1}\big)(A)
+								$
+								<span>
+									$=T_{2}\big(T_{1}(A)\big)$
+								</span>
+								<span>
+									$=T_{2}\left(A+A^{T}\right)$
+								</span>
+								<span>
+									$=\text{tr}\left(A+A^{T}\right)$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="size-80" style="margin-top:15px;">
+						<p class="fragment" data-fragment-index="0">
+							For example, if $A=\begin{pmatrix}2&-1\\ -3&6\end{pmatrix}$ 
+							<span class="fragment" data-fragment-index="1">
+								then:
+							</span>
+						</p>
+						<p>
+							<span class="fragment" data-fragment-index="1">
+								$T_{1}(A)=A+A^{T}$
+							</span>
+							<span class="fragment">
+								$=\begin{pmatrix}4&-4\\ -4&12\end{pmatrix}$,
+							</span>
+							<span class="fragment">
+								so that $T_{2}\big(T_{1}(A)\big)$
+							</span>
+							<span class="fragment">
+								$=\text{tr}\begin{pmatrix}4&-4\\ -4&12\end{pmatrix}$
+							</span>
+							<span class="fragment">
+								$=16$.
+							</span>
+						</p>
+					</div>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Summary of Properties of Linear Transformations</h4>
+					<Br/>
+					<div class="size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment">
+								For any linear transformation $T$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{m}$ we can find
+								an $m\times n$ matrix $A$ so that $T(\mathbf{v})=A\mathbf{v}$.
+							</li>
+							<li class="fragment">
+								If the transformation is invertible, the inverse transformation has the matrix $A^{-1}$.
+							</li>
+							<li class="fragment">
+								The composition of two transformations $T_{1}(\mathbf{v})=A_{1}\mathbf{v}$ and
+								$T_{2}(\mathbf{v})=A_{2}\mathbf{v}$ is the product matrix $A_{2}A_{1}$.
+							</li>
+						</ul>
+					</div>
+					<br/>
+					<br/>
+					<br/>
+				</section>
+
+
+			</section>
+
+			<section>
+					<h4>Summary of Linear Transformations</h4>
+					<div class="size-85">
+						<ul style="line-height: 60px; margin-top: 15px;">
+							<li class="fragment">Examples of linear transformations</li>
+							<li class="fragment">Demonstration that some mappings are not linear transformations</li>
+							<li class="fragment">How to show that a mapping is a linear transformation</li>
+							<li class="fragment">Matrix representation of a linear transformation using the standard
+								basis</li>
+							<li class="fragment">Rotation and reflection matrices (2D)</li>
+							<li class="fragment">Application Example: Simple computer graphics</li>
+							<li class="fragment">Inverse and Composite linear transformations</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+				</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
