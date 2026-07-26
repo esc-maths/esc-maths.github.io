@@ -3219,15 +3219,16 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							\mathbf{v}_n\}$ forms a <strong>basis</strong> for the vector space $\mathbb{R}^m$
 							<span class="fragment" data-fragment-index="1">
 								if
-							and only if every vector $\mathbf{x} \in \mathbb{R}^m$ can be uniquely expressed as a
-							linear combination of those vectors.
+								and only if every vector $\mathbf{x} \in \mathbb{R}^m$ can be uniquely expressed as a
+								linear combination of those vectors.
 							</span>
-							
+
 						</p>
 
 
 						<div style="margin-top: 20px;">
-							<p class="fragment" data-fragment-index="2">This means that for any arbitrary vector $\mathbf{x}$, a unique coefficient vector
+							<p class="fragment" data-fragment-index="2">This means that for any arbitrary vector
+								$\mathbf{x}$, a unique coefficient vector
 								$\mathbf{c}$ must exist such that:</p>
 
 						</div>
@@ -3249,19 +3250,22 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							</p>
 						</div>
 
-						<div style="display: flex; justify-content: space-around; margin-top: 15px; font-size: 0.85em;" id="bb">
-							<div class="fragment" data-fragment-index="5">1. The vectors must span the entire space.</div>
-							<div class="fragment" data-fragment-index="6">2. The coordinates must be completely unique.</div>
+						<div style="display: flex; justify-content: space-around; margin-top: 15px; font-size: 0.85em;"
+							id="bb">
+							<div class="fragment" data-fragment-index="5">1. The vectors must span the entire space.
+							</div>
+							<div class="fragment" data-fragment-index="6">2. The coordinates must be completely unique.
+							</div>
 						</div>
 					</div>
 					<br />
 				</section>
 
-			
+
 				<section data-auto-animate>
 					<h4>Evaluating Systems with Excess Vectors</h4>
 					<div class="size-70">
-						
+
 						<p>Do the following 4 vectors form a valid basis for the 3D space $\mathbb{R}^3$?</p>
 						$$ \begin{pmatrix} 1 \\ 2 \\ 4 \end{pmatrix}, \; \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix}, \;
 						\begin{pmatrix} 3 \\ 1 \\ 2 \end{pmatrix}, \; \begin{pmatrix} 4 \\ 0 \\ 1 \end{pmatrix} $$
@@ -3280,16 +3284,16 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							contains free variables. This creates infinite solution sets rather than a single unique
 							vector transformation.
 						</p>
-						<p id="rr" class="fragment font-weight-bold" style="text-align: center;">A basis cannot
+						<p id="rr" class="fragment" style="text-align: center;">A basis cannot
 							contain more vectors than the dimension of the target space.</p>
 					</div>
 				</section>
 
-				
+
 				<section data-auto-animate>
 					<h4>Evaluating Systems with Insufficient Vectors</h4>
 					<div class="size-65">
-						
+
 						<p>Can the following 2 vectors form a valid basis for the 3D space $\mathbb{R}^3$?</p>
 						$$ \begin{pmatrix} 1 \\ 2 \\ 4 \end{pmatrix}, \; \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} $$
 
@@ -3310,39 +3314,43 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							</ul>
 						</div>
 
-						<p class="fragment font-weight-bold"
-							style="margin-top: 15px; text-align: center;" id="rr">A basis cannot contain fewer
+						<p class="fragment font-weight-bold" style="margin-top: 15px; text-align: center;" id="rr">A
+							basis cannot contain fewer
 							vectors than the dimension of the target space.</p>
 					</div>
 				</section>
 
-				
+
 				<section data-auto-animate>
 					<h4>Dimensional Constraints for a Basis</h4>
 
 					<div class="size-85" style="margin-top: 60px;">
-						
-						
+
+
 						<p class="fragment">
-							To establish a valid basis within an $n$-dimensional 
-							space $\mathbb{R}^n$, 
+							To establish a valid basis within an $n$-dimensional
+							space $\mathbb{R}^n$,
 							<span class="fragment">
 								the set must
-							contain <strong>exactly $n$ vectors</strong>.
+								contain <strong>exactly $n$ vectors</strong>.
 							</span>
 						</p>
 
 						<div style="display: flex; justify-content: space-between; margin-top: 30px;">
-							<div class="fragment" style="width: 48%; border: 1px dashed #ff5555; padding: 15px; border-radius: 5px;">
+							<div class="fragment"
+								style="width: 48%; border: 1px dashed #ff5555; padding: 15px; border-radius: 5px;">
 								<h6>Fewer than $n$ Vectors</h6>
-								<p style="font-size: 0.8em; color: #313131;">You might successfully map specific subspace
+								<p style="font-size: 0.8em; color: #313131;">You might successfully map specific
+									subspace
 									paths, but you are mathematically blocked from reaching the rest of the target
 									domain space.</p>
 							</div>
 
-							<div class="fragment" style="width: 48%; border: 1px dashed #ff5555; padding: 15px; border-radius: 5px;">
+							<div class="fragment"
+								style="width: 48%; border: 1px dashed #ff5555; padding: 15px; border-radius: 5px;">
 								<h6>More than $n$ Vectors</h6>
-								<p style="font-size: 0.8em; color: #313131;">You might cover the structural space, but you
+								<p style="font-size: 0.8em; color: #313131;">You might cover the structural space, but
+									you
 									introduce linear dependencies, which destroys coordinate uniqueness.</p>
 							</div>
 						</div>
@@ -3353,15 +3361,15 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 						</div>
 					</div>
 
-					<br/>
-					<br/>
+					<br />
+					<br />
 				</section>
 
-			
+
 				<section data-auto-animate>
-					<h4>Bases and Linear Independence</h4>
+					<h4>The Linear Independence Requirement</h4>
 					<div class="size-70">
-						<h5>The Linear Independence Requirement</h5>
+
 						<p>Does containing exactly $n$ vectors guarantee the formation of a valid basis for
 							$\mathbb{R}^n$?</p>
 
@@ -3372,60 +3380,79 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 								-1 \end{pmatrix} $$</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 10px; color: #ff9999;">
+						<div class="fragment" id="rr">
 							Notice that $\mathbf{v}_3$ is built directly from the other two vectors: $\mathbf{v}_3 =
 							\mathbf{v}_2 - \mathbf{v}_1$.
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
-							<p>Grouping these into a matrix format results in a singular determinant:</p>
-							$$ \det(V) = \begin{vmatrix} 1 & 2 & 1 \\ 2 & 1 & -1 \\ 4 & 3 & -1 \end{vmatrix} = 0 $$
-							<p>Because the columns contain redundant paths, unique solutions for $V\mathbf{c} =
-								\mathbf{x}$ cannot exist.</p>
+						<div style="margin-top: -15px; ">
+							<p class="fragment">Grouping these into a matrix format results in a singular determinant:
+								$$ \det(V) = \begin{vmatrix} 1 & 2 & 1 \\ 2 & 1 & -1 \\ 4 & 3 & -1 \end{vmatrix} = 0 $$
+							</p>
+
+							<p class="fragment">Hence, $\mathbf v_k$ is a linear combination of the others.
+								<span class="fragment">
+									So, there is no unique $\mathbf c$ such that $V\mathbf c = \mathbf x$
+								</span>
+							</p>
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 41/69 -->
-				<section data-auto-animate>
-					<h4>Bases and Linear Independence</h4>
-					<div class="size-85">
-						<h5>Formalizing Linear Independence</h5>
 
-						<div
-							style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #4df3a9;">
-							<h6>Definition: Linear Independence</h6>
-							<p style="font-size: 0.9em;">A collection of vectors $\{\mathbf{v}_1, \mathbf{v}_2, \dots,
-								\mathbf{v}_n\}$ is <strong>linearly independent</strong> if and only if the vector
-								equation:</p>
-							$$ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_n\mathbf{v}_n = \mathbf{0} $$
-							<p style="font-size: 0.9em;">forces the trivial solution exclusively: $c_1 = c_2 = \dots =
-								c_n = 0$. This guarantees that no individual vector functions as a linear combination of
-								the others.</p>
+				<section data-auto-animate>
+					<h4>Formalizing Linear Independence</h4>
+					<div class="size-85">
+
+
+						<div>
+
+							<p class="fragment" data-fragment-index="0">
+								<b>Definition:</b> A collection of vectors $\{\mathbf{v}_1, \mathbf{v}_2, \dots,
+								\mathbf{v}_n\}$ is <strong>linearly independent</strong>
+								<span class="fragment" data-fragment-index="1">
+									if and only if the vector
+									equation:
+									$$ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_n\mathbf{v}_n = \mathbf{0} $$
+
+									forces the trivial solution exclusively: $c_1 = c_2 = \dots =
+									c_n = 0$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									This guarantees that no individual vector functions as a linear combination of
+									the others.
+								</span>
+							</p>
+
 						</div>
 
-						<div class="fragment"
-							style="margin-top: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #ff5555;">
-							<h6>Definition: Linear Dependence</h6>
-							<p style="font-size: 0.9em;">If any non-zero coefficients exist that satisfy the homogeneous
-								combination equation:</p>
-							$$ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_n\mathbf{v}_n = \mathbf{0} $$
-							<p style="font-size: 0.9em;">then the vector collection $\{\mathbf{v}_1, \mathbf{v}_2,
-								\dots, \mathbf{v}_n\}$ is <strong>linearly dependent</strong>.</p>
+						<div>
+
+							<p class="fragment" data-fragment-index="3">
+								<b>Definition:</b> If any non-zero coefficients exist that satisfy the homogeneous
+								combination equation:
+								$$ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_n\mathbf{v}_n = \mathbf{0} $$
+								<span class="fragment" data-fragment-index="4">
+									then the vector collection $\{\mathbf{v}_1, \mathbf{v}_2,
+									\dots, \mathbf{v}_n\}$ is <strong>linearly dependent</strong>.
+								</span>
+							</p>
+
 						</div>
 					</div>
+					<br />
 				</section>
 
-				<!-- Slide 42/69 -->
 				<section data-auto-animate>
-					<h4>Bases and Linear Independence</h4>
-					<div class="size-85">
-						<h5>Methods to Determine Linear Independence</h5>
+					<h4>Methods to Determine Linear Independence</h4>
+					<div class="size-85 left-txt">
+
 						<p>Testing for independence equates to verifying that $V\mathbf{c} = \mathbf{0}$ yields only the
 							unique solution $\mathbf{c} = \mathbf{0}$.</p>
 
 						<div class="fragment" style="margin-top: 15px;">
-							<h6>Method 1: Row Reduction Techniques</h6>
+							<p style="text-align: center; font-size: 0.8em;font-weight: bold;">Method 1: Row Reduction
+								Techniques</p>
 							<p>Perform Gaussian elimination on the augmented system matrix:
 								$$ \begin{pmatrix} | & & | & \big| & 0 \\ \mathbf{v}_1 & \dots & \mathbf{v}_n & \big| &
 								0 \\ | & & | & \big| & 0 \end{pmatrix} $$</p>
@@ -3437,25 +3464,42 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							</ul>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; border-top: 1px dashed #555; padding-top: 10px;">
-							<h6>Method 2: The Square Determinant Test</h6>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Methods to Determine Linear Independence</h4>
+					<div class="size-85 left-txt">
+
+						<p>Testing for independence equates to verifying that $V\mathbf{c} = \mathbf{0}$ yields only the
+							unique solution $\mathbf{c} = \mathbf{0}$.</p>
+
+
+
+						<div style="margin-top: 15px; ">
+							<p style="text-align: center; font-size: 0.8em;font-weight: bold;">Method 2: The Square
+								Determinant Test</p>
 							<p>For the specific case of checking exactly $n$ vectors within $\mathbb{R}^n$:</p>
 							$$ \det \begin{pmatrix} | & & | \\ \mathbf{v}_1 & \dots & \mathbf{v}_n \\ | & & |
 							\end{pmatrix} \neq 0 \iff \{\mathbf{v}_1, \dots, \mathbf{v}_n\} \text{ are linearly
 							independent} $$
 						</div>
 					</div>
+					<br />
+					<br />
+					<br />
 				</section>
 
-				<!-- Slide 43/69 -->
+
 				<section data-auto-animate>
-					<h4>Bases and Linear Independence</h4>
+					<h4>The Fundamental Basis Theorem</h4>
 					<div class="size-85">
-						<h5>The Fundamental Basis Theorem</h5>
-						<div
-							style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #4df3a9;">
-							<h6>Theorem</h6>
-							<p>A set of vectors forms a valid basis for $\mathbb{R}^n$ if and only if it consists of
+
+						<div>
+
+							<p><b>Theorem:</b>A set of vectors forms a valid basis for $\mathbb{R}^n$ if and only if it
+								consists of
 								exactly $n$ linearly independent vectors.</p>
 						</div>
 
@@ -3476,90 +3520,143 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							</ol>
 						</div>
 					</div>
+					<br />
 				</section>
 
-				<!-- Slide 44/69 -->
+
 				<section data-auto-animate>
 					<h4>Eigenvectors as a Basis</h4>
 					<div class="size-85">
 						<h5>Constructing Bases from Eigenvectors</h5>
-						<div
-							style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 5px; margin-bottom: 12px;">
-							<h6>Theorem 1</h6>
-							<p style="font-size: 0.9em;">If an $n \times n$ matrix $A$ possesses $n$ linearly
+						<div>
+
+							<p>
+								<b>Theorem:</b> If an $n \times n$ matrix $A$ possesses $n$ linearly
 								independent eigenvectors, those eigenvectors form a valid coordinate basis for
-								$\mathbb{R}^n$.</p>
+								$\mathbb{R}^n$.
+							</p>
+							<p>
+								<b>Proof:</b> This follows immediately from the previous result
+							</p>
 						</div>
 
-						<div class="fragment"
-							style="background: rgba(77,243,169,0.05); padding: 12px; border-radius: 5px; margin-bottom: 12px;">
-							<h6>Theorem 2</h6>
-							<p style="font-size: 0.9em;">If the eigenvalues of an $n \times n$ matrix $A$ are all
+						<div class="fragment">
+							<p>
+								<b>Theorem:</b> If the eigenvalues of an $n \times n$ matrix $A$ are all
 								distinct, their corresponding eigenvectors are guaranteed to form a basis for
-								$\mathbb{R}^n$.</p>
+								$\mathbb{R}^n$.
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
-							<h6>Proof Outline (By Contradiction):</h6>
-							<p>We will show that if the first $r$ eigenvectors ($r < n$) are linearly independent,
+						<div class="fragment" style="margin-top: 15px; ">
+							<h5>Proof Outline (By Contradiction):</h5>
+							
+						</div>
+						<div class="fragment" style="margin-top: 15px;">
+							<p>We will show that if the first $r$ eigenvectors ($r \lt n$) are linearly independent,
 									adding the next distinct eigenvector $\mathbf{v}_{r+1}$ cannot introduce linear
 									dependence. Since this holds true for $r=1$, it extends inductively across all $n$
 									eigenvectors.</p>
 						</div>
 
-						<div class="fragment" style="text-align: right; font-size: 0.8em; color: #4df3a9;">
-							Continued on next slide &rarr;
-						</div>
+						
 					</div>
+					<br/>
 				</section>
 
-				<!-- Slide 45/69 -->
+				
 				<section data-auto-animate>
 					<h4>Eigenvectors as a Basis</h4>
 					<div class="size-85">
-						<h5>Proof of Eigenvector Independence</h5>
-						<div style="font-size: 0.85em; line-height: 1.5;">
+						<div style="font-size: 0.8em;">
+							<p>
+								<b>Theorem:</b> If the eigenvalues of an $n \times n$ matrix $A$ are all
+								distinct, their corresponding eigenvectors are guaranteed to form a basis for
+								$\mathbb{R}^n$.
+							</p>
+						</div>
+
+						<div style="margin-top: 15px; font-size: 0.8em;">
+							<h5>Proof Outline (By Contradiction):</h5>
+							
+						</div>
+
+						
+						<div style="font-size: 0.75em; line-height: 0.5;">
 							<p>Assume the first $r$ eigenvectors are independent, but the addition of $\mathbf{v}_{r+1}$
 								makes the set dependent:
 								$$ \mathbf{v}_{r+1} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_r\mathbf{v}_r \quad
 								\text{--- (Eq. 1)} $$</p>
 
-							<div class="fragment" style="margin-top: 10px;">
-								<p>Multiplying Eq. 1 by the matrix $A$ yields:</p>
-								$$ A\mathbf{v}_{r+1} = c_1(A\mathbf{v}_1) + \dots + c_r(A\mathbf{v}_r) $$
+							<div class="fragment" style="margin-top: 5px;">
+								<p>Multiplying Eq. 1 by the matrix $A$ yields: $\; A\mathbf{v}_{r+1} = c_1(A\mathbf{v}_1) + \dots + c_r(A\mathbf{v}_r) $</p>
+								
 								$$ \lambda_{r+1}\mathbf{v}_{r+1} = c_1\lambda_1\mathbf{v}_1 + c_2\lambda_2\mathbf{v}_2 +
 								\dots + c_r\lambda_r\mathbf{v}_r \quad \text{--- (Eq. 2)} $$
 							</div>
 
-							<div class="fragment" style="margin-top: 10px;">
+							<div class="fragment" style="margin-top: 5px;">
 								<p>Multiplying Eq. 1 by the scalar value $\lambda_{r+1}$ yields:</p>
 								$$ \lambda_{r+1}\mathbf{v}_{r+1} = c_1\lambda_{r+1}\mathbf{v}_1 +
 								c_2\lambda_{r+1}\mathbf{v}_2 + \dots + c_r\lambda_{r+1}\mathbf{v}_r \quad \text{--- (Eq.
 								3)} $$
 							</div>
 
-							<div class="fragment" style="margin-top: 10px; color: #ff9999;">
+							<div class="fragment" style="margin-top: 5px; ">
 								<p>Subtracting Eq. 3 from Eq. 2 isolates the system relationship:</p>
+								
+							</div>
+							<div style="margin-top: 5px;">
+								$$ \mathbf{0} = c_1(\lambda_1 - \lambda_{r+1})\mathbf{v}_1 + c_2(\lambda_2 -
+								\lambda_{r+1})\mathbf{v}_2 + \dots + c_r(\lambda_r - \lambda_{r+1})\mathbf{v}_r $$
+							</div>
+
+							
+						</div>
+					</div>
+					<br>
+				</section>
+				<section data-auto-animate>
+					<h4>Eigenvectors as a Basis</h4>
+					<div class="size-85">
+						<div style="font-size: 1em;">
+							<p>
+								<b>Theorem:</b> If the eigenvalues of an $n \times n$ matrix $A$ are all
+								distinct, their corresponding eigenvectors are guaranteed to form a basis for
+								$\mathbb{R}^n$.
+							</p>
+						</div>
+
+						<div style="margin-top: 15px; font-size: 1em;">
+							<h5>Proof Outline (By Contradiction):</h5>
+							
+						</div>
+
+						
+						<div style="font-size: 1em; line-height: 1.0;">
+							<div style="margin-top: 5px;">
 								$$ \mathbf{0} = c_1(\lambda_1 - \lambda_{r+1})\mathbf{v}_1 + c_2(\lambda_2 -
 								\lambda_{r+1})\mathbf{v}_2 + \dots + c_r(\lambda_r - \lambda_{r+1})\mathbf{v}_r $$
 							</div>
 
 							<div class="fragment"
-								style="margin-top: 10px; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;">
-								Because all eigenvalues are distinct, $(\lambda_i - \lambda_{r+1}) \neq 0$. This
+								style="margin-top: 10px;">
+								<p>
+									Because all eigenvalues are distinct, $(\lambda_i - \lambda_{r+1}) \neq 0$. This
 								requires at least some non-zero coefficients to sum to $\mathbf{0}$, which directly
 								contradicts our initial assumption that the first $r$ eigenvectors were independent.
 								Thus, the full set must be independent. $\quad\blacksquare$
+								</p>
 							</div>
 						</div>
 					</div>
+					<br/>
+					<br/>
 				</section>
 
-				<!-- Slide 46/69 -->
 				<section data-auto-animate>
-					<h4>Changing Bases</h4>
-					<div class="size-85">
-						<h5>Change of Basis — 2D Example</h5>
+					<h4>Changing Bases - 2D Example</h4>
+					<div class="size-65">
 						<p>Given the basis vectors $\mathbf{v}_1 = \begin{pmatrix} 2 \\ 3 \end{pmatrix}$ and
 							$\mathbf{v}_2 = \begin{pmatrix} 1 \\ 4 \end{pmatrix}$, express $\mathbf{x} = \begin{pmatrix}
 							5 \\ 5 \end{pmatrix}$ in terms of this new basis.</p>
@@ -3580,31 +3677,32 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 						</div>
 
 						<div class="fragment"
-							style="margin-top: 15px; background: rgba(77,243,169,0.05); padding: 10px; border-radius: 5px; font-size: 0.9em;">
-							<strong>Verification Check:</strong> <br>
-							$$ 3\mathbf{v}_1 - 1\mathbf{v}_2 = 3\begin{pmatrix} 2 \\ 3 \end{pmatrix} - \begin{pmatrix} 1
+							style="margin-top: 15px; background: rgba(12, 184, 107, 0.076); padding: 10px; border-radius: 5px; font-size: 0.9em;">
+							<strong>Verification Check:</strong> 
+							$ 3\mathbf{v}_1 - 1\mathbf{v}_2 = 3\begin{pmatrix} 2 \\ 3 \end{pmatrix} - \begin{pmatrix} 1
 							\\ 4 \end{pmatrix} = \begin{pmatrix} 6 \\ 9 \end{pmatrix} - \begin{pmatrix} 1 \\ 4
-							\end{pmatrix} = \begin{pmatrix} 5 \\ 5 \end{pmatrix} \quad \checkmark $$
+							\end{pmatrix} = \begin{pmatrix} 5 \\ 5 \end{pmatrix} \quad \checkmark $ <br/>
 							We state that $\mathbf{x}$ has the coordinate description $\begin{pmatrix} 3 \\ -1
-							\end{pmatrix}^T$ relative to the basis set $\{\mathbf{v}_1, \mathbf{v}_2\}$.
+							\end{pmatrix}$ relative to the basis set $\{\mathbf{v}_1, \mathbf{v}_2\}$.
 						</div>
 					</div>
+					<br/>
 				</section>
 
 				<!-- Slide 47/69 -->
 				<section data-auto-animate>
-					<h4>Changing Bases</h4>
-					<div class="size-80">
-						<h5>Change of Basis — 3D Example</h5>
-						<p>Express the standard vector $\mathbf{x} = (1, 0, 0)^T$ using the alternative basis: <br>
+					<h4>Changing Bases - 3D Example</h4>
+					<div class="size-65">
+						
+						<p style="font-size: 0.9em;">Express the standard vector $\mathbf{x} = (1, 0, 0)^T$ using the alternative basis: <br>
 							$$ \mathbf{v}_1 = \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}, \; \mathbf{v}_2 =
 							\begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix}, \; \mathbf{v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1
 							\end{pmatrix} $$</p>
 
 						<div class="fragment" style="font-size: 0.85em;">
-							<p>Set up the system equation $V\mathbf{c} = \mathbf{x}$ and solve by matrix inversion:</p>
-							$$ \begin{pmatrix} 1 & -2 & 1 \\ -1 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} c_1 \\
-							c_2 \\ c_3 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} $$
+							<p>Set up the system equation $V\mathbf{c} = \mathbf{x}$ and solve by matrix inversion:
+							$ \begin{pmatrix} 1 & -2 & 1 \\ -1 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} c_1 \\
+							c_2 \\ c_3 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} $</p>
 						</div>
 
 						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
@@ -3616,16 +3714,17 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 						</div>
 
 						<div class="fragment"
-							style="background: rgba(77,243,169,0.05); padding: 8px; border-radius: 5px; font-size: 0.82em; margin-top: 10px;">
-							<strong>Verification Check:</strong> <br>
-							$$ 0\mathbf{v}_1 - \frac{1}{3}\begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix} +
+							style="background: rgba(77,243,169,0.15); padding: 8px; border-radius: 5px; font-size: 0.82em; margin-top: 10px;">
+							<strong>Verification Check:</strong> 
+							$ 0\mathbf{v}_1 - \frac{1}{3}\begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix} +
 							\frac{1}{3}\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} \frac{2}{3} \\
 							-\frac{1}{3} \\ -\frac{1}{3} \end{pmatrix} + \begin{pmatrix} \frac{1}{3} \\ \frac{1}{3} \\
-							\frac{1}{3} \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \quad \checkmark $$
+							\frac{1}{3} \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \quad \checkmark $ <br/>
 							The target vector holds the coordinates $\begin{pmatrix} 0 & -\frac{1}{3} & \frac{1}{3}
 							\end{pmatrix}^T$ relative to the basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$.
 						</div>
 					</div>
+					<br/>
 				</section>
 			</section>
 
