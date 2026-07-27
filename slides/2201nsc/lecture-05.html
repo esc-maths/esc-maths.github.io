@@ -2606,7 +2606,7 @@
 							</p>
 						</div>
 
-						<div style="margin-top: -20px;margin-bottom: -20px;">
+						<div class="fragment" data-fragment-index="0" style="margin-top: -20px;margin-bottom: -20px;">
 							<img style="width: 20%;"
 								src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
 						</div>
@@ -2762,23 +2762,23 @@
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
 
-					<table style="width: 100%; font-size: 0.65em;" border="collapse">
-						<tr>
-							<td style="width: 30%;text-align: center;">
-								$
-								A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
-								$
-							</td>
-							<td style="width: 30%;text-align: center;">
-								$\lambda_1 =3,\,$ $ \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
-							</td>
-							<td style="width: 40%;text-align: center;">
-								$\lambda_1 =1,\,$ $ \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\
+					<div class="cc" style="font-size: 0.65em;">
+						<p>
+							$
+							A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}\;\rightarrow\;
+							$
+							
+								<span>$\lambda_1 =3,\,$</span> 
+								<span>$\lambda_2 =1\,$</span>  and  
+								<span>$\, \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, $</span>
+								<span>$\, \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\
 								0
-								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
-							</td>
-						</tr>
-					</table>
+								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}$</span>
+								
+						</p>
+					</div>
+
+					
 
 					<div class="cc size-80">
 						<p class="fragment"><tt>MATLAB/Octave</tt></p>
@@ -2809,23 +2809,21 @@ D = 1   0   0
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
 
-					<table style="width: 100%; font-size: 0.65em;" border="collapse">
-						<tr>
-							<td style="width: 30%;text-align: center;">
-								$
-								A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
-								$
-							</td>
-							<td style="width: 30%;text-align: center;">
-								$\lambda_1 =3,\,$ $ \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
-							</td>
-							<td style="width: 40%;text-align: center;">
-								$\lambda_1 =1,\,$ $ \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\
+					<div class="cc" style="font-size: 0.65em;">
+						<p>
+							$
+							A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}\;\rightarrow\;
+							$
+							
+								<span class="fragment highlight-red" data-fragment-index="0">$\lambda_1 =3,\,$</span> 
+								<span class="fragment highlight-blue" data-fragment-index="2">$\lambda_2 =1\,$</span>  and  
+								<span class="fragment highlight-red" data-fragment-index="0">$\, \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, $</span>
+								<span class="fragment highlight-blue" data-fragment-index="2">$\, \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\
 								0
-								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
-							</td>
-						</tr>
-					</table>
+								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}$</span>
+								
+						</p>
+					</div>
 
 					<div class="cc" style="margin-top: -20px;">
 						<p class="size-80"><tt>Output</tt></p>
@@ -2848,13 +2846,13 @@ D = 1   0   0
 
 						<tr>
 
-							<td style="width: 50%;text-align: center;" class="fragment">
+							<td id="rr" style="width: 50%;text-align: center;" class="fragment" data-fragment-index="0">
 								<tt>λ₁ = 3</tt>, $\;\; \begin{pmatrix} 0 \\ 0.7071 \\ 0.7071 \end{pmatrix} $
-								<span class="fragment">
+								<span class="fragment" data-fragment-index="1">
 									$=\dfrac{1}{\sqrt{0^2+1^2+1^2}}\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}$
 								</span>
 							</td>
-							<td style="width: 50%;text-align: center;" class="fragment">
+							<td id="bb" style="width: 50%;text-align: center;" class="fragment" data-fragment-index="2">
 								<tt>λ₂ = 1</tt>, $\;\; \begin{pmatrix} 1 \\ 0 \\
 								0
 								\end{pmatrix}\,$ and $\,\begin{pmatrix} 0 \\ -0.7071 \\ 0.7071 \end{pmatrix} $
@@ -4369,7 +4367,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 									$ p_B\left(\lambda\right) = \det\left(B - \lambda I\right) $
 									<span class="fragment">
 										$= \det\left(S^{-1}AS -
-									\lambda S^{-1}IS\right)\qquad \qquad\qquad \qquad \qquad \qquad $
+										\lambda S^{-1}IS\right)\qquad \qquad\qquad \qquad \qquad \qquad $
 									</span>
 								</p>
 								<p class="fragment">
@@ -4713,7 +4711,7 @@ ans =
 						</div>
 						<div class="cc">
 							<p class="fragment">
-								 $A^{-1} = \left(VDV^{-1}\right)^{-1}$
+								$A^{-1} = \left(VDV^{-1}\right)^{-1}$
 								<span class="fragment">
 									$= \left(V^{-1}\right)^{-1}D^{-1}V^{-1}$
 								</span>
@@ -4726,7 +4724,7 @@ ans =
 								<span class="fragment">
 									$= \left(VD^{-1}V^{-1}\right)\left(VD^{-1}V^{-1}\right)$
 								</span>
-								
+
 								<span class="fragment">
 									$=V\left(D^{-2}\right)V^{-1} $
 								</span>
