@@ -5168,9 +5168,11 @@ ans =
 							spectral components:
 						</p>
 
-						<div class="cc fragment" data-fragment-index="0" style="margin-top: -10px;">
-							<p style="font-size: 0.8em; margin-bottom: -18px;"><b>💻 <tt>MATLAB/Octave</tt></b></p>
-							<pre style="width: 60%;"><code class="language-python">&gt;&gt; [V, D] = eig([0.8, 0.2, 0.3; 0.1, 0.6, 0.2; 0.1, 0.2, 0.5])
+						<div class="r-stack" style="margin-top: -20px;">
+							<div class="fragment fade-in-then-out" data-fragment-index="0">
+								<p style="font-size: 0.8em; margin-bottom: -18px; text-align: center;"><b>💻
+										<tt>MATLAB/Octave</tt></b></p>
+								<pre style="width: 100%;"><code class="language-python">&gt;&gt; [V, D] = eig([0.8, 0.2, 0.3; 0.1, 0.6, 0.2; 0.1, 0.2, 0.5])
 
 V = 0.86645    0.80902   -0.30902
     0.37907   -0.50000   -0.50000
@@ -5179,21 +5181,44 @@ V = 0.86645    0.80902   -0.30902
 D = 1.00000          0          0
           0    0.56180          0
           0          0    0.33820</code></pre>
+							</div>
+							<div class="fragment fade-in" data-fragment-index="1">
+								<div class="cc">
+									<p>
+										<b>Eigenvalues:</b> 
+										$\,\lambda_1 = 1,\,$
+										$\lambda_2 = 0.5618,\,$
+										$\lambda_3 = 0.3382\quad\qquad \qquad \qquad $
+										
+									</p>
+									<p>
+										<b>Eigenvectors:</b>
+										$\,\mathbf v_1 = \begin{pmatrix} 0.86645 \\ 0.37907 \\ -0.30902 \end{pmatrix},\,$
+										$\mathbf v_2 = \begin{pmatrix} 0.80902 \\ -0.5 \\ -.05 \end{pmatrix},\,$
+										$\mathbf v_3 = \begin{pmatrix} 0.86645 \\ 0.30902 \\ 0.80902\end{pmatrix}$
+									</p>
+								</div>
+							</div>
 						</div>
 
-						<div style="margin-top: 15px;  line-height: 1.5;">
-							<p class="fragment" data-fragment-index="1">Decomposing the initial state vector using our
+						<div style="margin-top: -40px; ">
+							<p class="fragment" data-fragment-index="2">
+								Decomposing the initial state vector using our
 								eigenvector basis elements:</p>
 							<div class="cc">
-								<p class="fragment" data-fragment-index="1">$ \mathbf{x}_0 = c_1\mathbf{v}_1 +
-									c_2\mathbf{v}_2 + c_3\mathbf{v}_3 $</p>
+								<p class="fragment" data-fragment-index="2">
+									$ \mathbf{x}_0
+									= c_1\mathbf{v}_1 +
+									c_2\mathbf{v}_2 + c_3\mathbf{v}_3
+									$
+								</p>
 							</div>
 							<p class="fragment">Applying $n$ operational iterations projects the long-term steady state:
 							</p>
 							<div class="cc">
 								<p class="fragment">
 									$\mathbf{x}_n = c_1(1)^n\mathbf{v}_1 + c_2(0.5618)^n\mathbf{v}_2 +
-									c_3(0.3382)^n\mathbf{v}_3 $
+									c_3(0.3382)^n\mathbf{v}_3 .$
 
 								</p>
 								<p style="font-size: 1.2em;">
@@ -5213,7 +5238,7 @@ D = 1.00000          0          0
 					<div class="size-75">
 						<p>
 							The dominant eigenvalue ($\lambda_1 = 1$) isolates the steady-state vector distribution.
-							<span class="fragment">
+							<span class="fragment" data-fragment-index="0">
 								For
 								a fleet of 100 vehicles, we establish the total scale relation:
 								$$ x_1 + x_2 + x_3 = 100 $$
@@ -5222,10 +5247,11 @@ D = 1.00000          0          0
 
 
 						<div style="margin-top: 15px; ">
-							<p>Scaling our unnormalized dominant eigenvector $\mathbf{v}_1$ to match our total fleet
+							<p class="fragment" data-fragment-index="1">Scaling our unnormalized dominant eigenvector
+								$\mathbf{v}_1$ to match our total fleet
 								size:</p>
 							<div class="cc">
-								<p class="fragment">
+								<p class="fragment" data-fragment-index="1">
 									$ \ds \mathbf{x}_{\infty} = \frac{100}{0.86645 + 0.37907 + 0.32492}\mathbf{v}_1$
 									<span class="fragment">
 										$ \approx
@@ -5245,15 +5271,15 @@ D = 1.00000          0          0
 						<p class="fragment" style="margin-top: 15px;">
 							This model helps businesses adapt to disruptions.
 							<span class="fragment">
-								 For example, if the international hub
-							closes, we can modify the system matrix to project the new fleet distribution.
+								For example, if the international hub
+								closes, we can modify the system matrix to project the new fleet distribution.
 							</span>
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
-				<!-- Slide 65/69 -->
+
 				<section data-auto-animate>
 					<h4>Diagonalising a Matrix</h4>
 					<div class="size-80">
