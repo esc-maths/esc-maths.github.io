@@ -4319,12 +4319,14 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							</p>
 							<div class="cc">
 								<p class="fragment">
-									$ p_B\left(\lambda\right) = \det\left(B - \lambda I\right) = \det\left(S^{-1}AS - \lambda S^{-1}IS\right)\qquad \qquad\qquad \qquad \qquad \qquad $
+									$ p_B\left(\lambda\right) = \det\left(B - \lambda I\right) = \det\left(S^{-1}AS -
+									\lambda S^{-1}IS\right)\qquad \qquad\qquad \qquad \qquad \qquad $
 								</p>
 								<p class="fragment">
-									$ = \det\left(S^{-1}\left(A - \lambda I\right)S\right)  $
+									$ = \det\left(S^{-1}\left(A - \lambda I\right)S\right) $
 									<span class="fragment">
-										$= \det\left(S^{-1}\right)\det(A - \lambda I)\det\left(S\right) \qquad \qquad\qquad $
+										$= \det\left(S^{-1}\right)\det(A - \lambda I)\det\left(S\right) \qquad
+										\qquad\qquad $
 									</span>
 								</p>
 								<p class="fragment">
@@ -4334,7 +4336,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 									</span>
 									<span class="fragment">
 										$=
-									p_A(\lambda) \quad \blacksquare $
+										p_A(\lambda) \quad \blacksquare $
 									</span>
 								</p>
 							</div>
@@ -4351,152 +4353,244 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 
 				<section data-auto-animate>
 					<h4>Diagonalising a Matrix</h4>
-					<div class="size-85">
-						<h5>Transformations Relative to an Eigenvector Basis</h5>
-						<p>Let's evaluate the marital population matrix $A$ relative to its own coordinate eigenvectors:
+					<div class="size-65">
+						<h5 class="fragment" data-fragment-index="0">
+							Transformations Relative to an Eigenvector Basis
+						</h5>
+						<p class="fragment" data-fragment-index="1" style="margin-top: -10px;">
+							Let's evaluate the marital population matrix $A$
+							relative to its own coordinate eigenvectors:
 						</p>
-						$$ A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}, \quad \mathbf{v}_1 =
-						\begin{pmatrix} 2 \\ 3 \end{pmatrix}, \; \mathbf{v}_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix} $$
-
-						<div class="fragment" style="font-size: 0.85em; margin-top: 15px;">
-							<h6>Map the eigenvector basis through transformation $A$:</h6>
-							$$ T(\mathbf{v}_1) = A\mathbf{v}_1 = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
-							\end{pmatrix}\begin{pmatrix} 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \end{pmatrix} =
-							1\mathbf{v}_1 + 0\mathbf{v}_2 $$
-							$$ T(\mathbf{v}_2) = A\mathbf{v}_2 = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
-							\end{pmatrix}\begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 0.5 \\ -0.5
-							\end{pmatrix} = 0\mathbf{v}_1 + \frac{1}{2}\mathbf{v}_2 $$
-						</div>
-
-						<div class="fragment" style="margin-top: 20px;">
-							<p>Assembling these coordinate columns yields the transformed matrix representation $B$:</p>
-							$$ B = \begin{pmatrix} 1 & 0 \\ 0 & \frac{1}{2} \end{pmatrix} $$
-						</div>
-
-						<div class="fragment style-section-card"
-							style="margin-top: 15px; text-align: center; border-left-color: #4df3a9;">
-							<strong style="color: #4df3a9;">Key Insight:</strong> Because the coordinate system is built
-							entirely from the matrix's eigenvectors, the resulting matrix $B$ simplifies into a clean
-							<strong>diagonal matrix</strong>, which simplifies long-term analysis.
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide 53/69 -->
-				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
-					<div class="size-80">
-						<h5>The Matrix Diagonalisation Theorem</h5>
-						<div
-							style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; border-left: 4px solid #4df3a9;">
-							<h6>Theorem</h6>
-							<p style="font-size: 0.9em;">An $n \times n$ matrix $A$ containing $n$ linearly independent
-								eigenvectors can be factored into:
-								$$ A = VDV^{-1} $$
-								where $D$ is the diagonal matrix of eigenvalues, and $V$ is the matrix whose columns are
-								the corresponding eigenvectors. In this scenario, we say that $V$
-								<strong>diagonalises</strong> $A$.
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}, \quad \mathbf{v}_1 =
+								\begin{pmatrix} 2 \\ 3 \end{pmatrix}, \; \mathbf{v}_2 = \begin{pmatrix} 1 \\ -1
+								\end{pmatrix} $
 							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<h6>Interactive MATLAB Verification</h6>
-							<pre><code class="language-matlab">&gt;&gt; A = [1 0 0; 0 2 1; 0 1 2];
-&gt;&gt; [V, D] = eig(A)
 
-V = 
+						<div class="cc" style="font-size: 0.85em; margin-top: 15px;">
+							<h5 class="fragment" data-fragment-index="2">Map the eigenvector basis through
+								transformation $A$:</h5>
+							<p class="fragment" data-fragment-index="3">
+								$ T(\mathbf{v}_1) = A\mathbf{v}_1 $
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+									\end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\begin{pmatrix} 2 \\ 3 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$=
+									1\mathbf{v}_1 + 0\mathbf{v}_2 \qquad \qquad \quad $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$ T(\mathbf{v}_2) = A\mathbf{v}_2 $
+								<span class="fragment">
+									$ = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+									\end{pmatrix}\begin{pmatrix} 1 \\ -1 \end{pmatrix} $
+								</span>
+								<span class="fragment">
+									$= \begin{pmatrix} 0.5 \\ -0.5
+									\end{pmatrix}$
+								</span>
+								<span class="fragment">
+									$ = 0\mathbf{v}_1 + \dfrac{1}{2}\mathbf{v}_2$
+								</span>
+							</p>
+
+
+						</div>
+
+						<div class="fragment" style="margin-top: 20px;">
+							<p>From these coordinate columns yields the transformed matrix representation $B=
+								\begin{pmatrix} 1 & 0 \\ 0 & \frac{1}{2} \end{pmatrix}$</p>
+
+						</div>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment">
+								<strong>Key Insight:</strong> Because the coordinate system is built
+								entirely from the matrix's eigenvectors, the resulting matrix $B$ simplifies into a
+								clean
+								<strong>diagonal matrix</strong>.
+								<span class="fragment">
+									Diagonal matrices are <b>much easier</b> to work with! 😃
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>The Matrix Diagonalisation Theorem</h4>
+					<div class="size-85">
+						<div>
+
+							<p style="font-size: 0.85em;" class="fragment" data-fragment-index="0">
+								<b>Theorem:</b> An $n \times n$ matrix $A$ containing $n$ linearly independent
+								eigenvectors can be factored into
+								$ A = VDV^{-1} $
+								<span class="fragment" data-fragment-index="1">
+									where $D$ <em>is the diagonal matrix of eigenvalues</em>,
+									and $V$ is the <em>matrix whose columns are
+										the corresponding eigenvectors</em>.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									In this scenario, we say that $V$
+									<strong>diagonalises</strong> $A$.
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: -15px;">
+							<h6 class="fragment" data-fragment-index="3"><tt>MATLAB/Octave</tt> verification</h6>
+							<pre class="fragment" data-fragment-index="3"
+								style="width: 40%;height: 60px; font-size: 61%;margin-top: -10px;">
+						    <code data-trim data-noescape  class="language-python">&gt;&gt; A = [1 0 0; 0 2 1; 0 1 2];
+&gt;&gt; [V, D] = eig(A)
+</code></pre>
+
+							<pre class="fragment" data-fragment-index="4"
+								style="width: 40%;height: 210px; font-size: 61%;margin-top: -10px;">
+						    <code data-trim data-noescape  class="language-python">V = 
     1.0000         0         0
          0   -0.7071    0.7071
          0    0.7071    0.7071
 D = 
     1    0    0
     0    1    0
-    0    0    3
-
-&gt;&gt; V * D * inv(V)
+    0    0    3</code></pre>
+							<pre class="fragment" data-fragment-index="5"
+								style="width: 40%;height: 60px; font-size: 61%;margin-top: -10px;">
+						    <code data-trim data-noescape  class="language-python">&gt;&gt; V * D * inv(V)
 ans = 
     1    0    0
     0    2    1
     0    1    2</code></pre>
 						</div>
 					</div>
+					<br />
+					<br />
 				</section>
 
-				<!-- Slide 54/69 -->
+
 				<section data-auto-animate>
 					<h4>Diagonalising a Matrix</h4>
-					<div class="size-80">
+					<div class="size-90">
 						<h5>Fundamental Properties of Diagonal Matrices</h5>
-						<p>Let $D = \text{diag}(a_1, a_2, \dots, a_n)$ represent a standard square diagonal matrix:</p>
+						<p class="fragment" data-fragment-index="0">Let $D = \text{diag}(a_1, a_2, \dots, a_n)$
+							represent a standard square diagonal matrix:</p>
 
-						<table style="width: 100%; font-size: 0.72em; margin-top: 15px; border-collapse: collapse;">
-							<thead>
-								<tr style="border-bottom: 2px solid #555;">
-									<th style="padding: 8px; text-align: left; width: 15%;">Property</th>
-									<th style="padding: 8px; text-align: left;">Mathematical Expression</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">1. Matrix Sum</td>
-									<td style="padding: 8px;">$\text{diag}(a_1, \dots, a_n) + \text{diag}(b_1, \dots,
-										b_n) = \text{diag}(a_1+b_1, \dots, a_n+b_n)$</td>
-								</tr>
-								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">2. Product</td>
-									<td style="padding: 8px;">$\text{diag}(a_1, \dots, a_n) \cdot \text{diag}(b_1,
-										\dots, b_n) = \text{diag}(a_1b_1, \dots, a_nb_n)$</td>
-								</tr>
-								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">3. Determinant</td>
-									<td style="padding: 8px;">$\det(\text{diag}(a_1, a_2, \dots, a_n)) = a_1 \cdot a_2
-										\cdots a_n \quad (\text{Invertible} \iff a_i \neq 0 \, \forall i)$</td>
-								</tr>
-								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">4. Inversion</td>
-									<td style="padding: 8px;">$\text{diag}(a_1, a_2, \dots, a_n)^{-1} =
-										\text{diag}(a_1^{-1}, a_2^{-1}, \dots, a_n^{-1})$</td>
-								</tr>
-								<tr>
-									<td style="padding: 8px; font-weight: bold; color: #4df3a9;">5. Spectrum</td>
-									<td style="padding: 8px;">The eigenvalues of $D$ are exactly its main diagonal
-										elements: $\lambda_i = a_i$</td>
-								</tr>
-							</tbody>
-						</table>
+						<div class="fragment" data-fragment-index="1">
+
+							<table style="width: 100%; font-size: 0.82em; margin-top: 15px; border-collapse: collapse;">
+								<thead>
+									<tr style="border-bottom: 2px solid #555;">
+										<th style="padding: 8px; text-align: left; width: 20%;" class="fragment"
+											data-fragment-index="1">Property</th>
+										<th style="padding: 8px; text-align: left;" class="fragment"
+											data-fragment-index="1">Mathematical Expression</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr style="border-bottom: 1px solid #333;" class="fragment" data-fragment-index="1">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">1. Matrix Sum</td>
+										<td style="padding: 8px;">$\text{diag}(a_1, \dots, a_n) + \text{diag}(b_1,
+											\dots,
+											b_n)$
+											<span class="fragment">
+												$= \text{diag}(a_1+b_1, \dots, a_n+b_n)$
+											</span>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #333;" class="fragment">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">2. Product</td>
+										<td style="padding: 8px;">$\text{diag}(a_1, \dots, a_n) \cdot \text{diag}(b_1,
+											\dots, b_n) $
+											<span class="fragment">
+												$= \text{diag}(a_1b_1, \dots, a_nb_n)$
+											</span>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #333;" class="fragment">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">3. Determinant</td>
+										<td style="padding: 8px;">$\det(\text{diag}(a_1, a_2, \dots, a_n))$
+											<span class="fragment">
+												$ = a_1 \cdot a_2
+												\cdots a_n \quad (\text{Invertible} \iff a_i \neq 0 \, \forall i)$
+											</span>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #333;" class="fragment">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">4. Inversion</td>
+										<td style="padding: 8px;">$\text{diag}(a_1, a_2, \dots, a_n)^{-1} =
+											\text{diag}(a_1^{-1}, a_2^{-1}, \dots, a_n^{-1})$</td>
+									</tr>
+									<tr class="fragment">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">5. Spectrum</td>
+										<td style="padding: 8px;">The eigenvalues of $D$ are exactly its main diagonal
+											elements: $\lambda_i = a_i$</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+
 					</div>
+					<br />
+					<br />
 				</section>
 
-				<!-- Slide 55/69 -->
+
 				<section data-auto-animate>
 					<h4>Diagonalising a Matrix</h4>
 					<div class="size-85">
 						<h5>Proof Outlines for Diagonal Matrix Properties</h5>
-						<hr>
-						<p style="font-size: 0.9em; line-height: 1.5;">Properties <strong>(1)</strong> and
-							<strong>(2)</strong> stem directly from the definitions of element-wise array operations. We
-							have previously observed properties <strong>(3)</strong> and <strong>(5)</strong> in our
-							matrix algebra fundamentals.
+
+						<p style="font-size: 0.9em; line-height: 1.5;" class="fragment" data-fragment-index="0">
+							Properties <strong>(1)</strong> and
+							<strong>(2)</strong> follow directly from the definition;
+							<span class="fragment" data-fragment-index="1">
+								and we have seen properties <strong>(3)</strong>
+								and <strong>(5)</strong> before.
+							</span>
 						</p>
 
-						<div class="fragment" style="margin-top: 25px;">
-							<h6>Verification Proof for Property 4 (Matrix Inverse):</h6>
-							<p style="font-size: 0.85em;">To verify the inverse identity matrix property, we establish
-								the matrix relation $D B = I \implies B = D^{-1}$:</p>
+						<div class="cc" style="margin-top: -15px;">
+							<h6 class="fragment" data-fragment-index="2">Verification Proof for Property 4 (Matrix
+								Inverse):</h6>
+							<p class="fragment" data-fragment-index="3" style="font-size: 0.8em;">
+								To verify the inverse identity matrix property, we establish
+								the matrix relation $D B = I \Ra B = D^{-1}$:</p>
 
-							<div style="font-size: 0.85em; margin-top: 15px;">
-								$$ \begin{pmatrix} a_1 & 0 & \dots & 0 \\ 0 & a_2 & \dots & 0 \\ \vdots & \vdots &
-								\ddots & \vdots \\ 0 & 0 & \dots & a_n \end{pmatrix}
-								\begin{pmatrix} a_1^{-1} & 0 & \dots & 0 \\ 0 & a_2^{-1} & \dots & 0 \\ \vdots & \vdots
-								& \ddots & \vdots \\ 0 & 0 & \dots & a_n^{-1} \end{pmatrix} =
-								\begin{pmatrix} 1 & 0 & \dots & 0 \\ 0 & 1 & \dots & 0 \\ \vdots & \vdots & \ddots &
-								\vdots \\ 0 & 0 & \dots & 1 \end{pmatrix} $$
-							</div>
+							<p style="font-size: 0.85em; margin-top: 15px;">
+								<span class="fragment" data-fragment-index="4">
+									$ \begin{pmatrix} a_1 & 0 & \dots & 0 \\ 0 & a_2 & \dots & 0 \\ \vdots & \vdots &
+									\ddots & \vdots \\ 0 & 0 & \dots & a_n \end{pmatrix}
+									\begin{pmatrix} a_1^{-1} & 0 & \dots & 0 \\ 0 & a_2^{-1} & \dots & 0 \\ \vdots &
+									\vdots
+									& \ddots & \vdots \\ 0 & 0 & \dots & a_n^{-1} \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ =
+									\begin{pmatrix} 1 & 0 & \dots & 0 \\ 0 & 1 & \dots & 0 \\ \vdots & \vdots & \ddots &
+									\vdots \\ 0 & 0 & \dots & 1 \end{pmatrix} $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								Therefore $\;  \text{diag}\left(a_1, a_2, \dots, a_n\right)^{-1} = 
+								\text{diag}\left(a_1^{-1}, a_2^{-1}, \dots, a_n^{-1}\right) \quad \blacksquare $
+							</p>
 
-							$$ \therefore \text{diag}(a_1, a_2, \dots, a_n)^{-1} = \text{diag}(a_1^{-1}, a_2^{-1},
-							\dots, a_n^{-1}) \quad \blacksquare $$
+							
 						</div>
 					</div>
+					<br />
 				</section>
 
 				<!-- Slide 56/69 -->
