@@ -4651,7 +4651,8 @@ ans =
 
 						<div class="fragment style-section-card" style="margin-top: 15px; border-left-color: #4df3a9;">
 							<h5>Generalization for All Positive Integers ($n$)</h5>
-							<p style="margin-top: -10px;">Using mathematical induction, we can establish that for any positive integer exponent:
+							<p style="margin-top: -10px;">Using mathematical induction, we can establish that for any
+								positive integer exponent:
 							</p>
 							$$ \large A^n = VD^nV^{-1} $$
 						</div>
@@ -4659,60 +4660,185 @@ ans =
 						<div class="fragment" style="margin-top: -15px;">
 							<p>This relation naturally extends to negative integers as well by evaluating the matrix
 								inverse: </p>
-							$$ A^{-1} = \left(VDV^{-1}\right)^{-1} = \left(V^{-1}\right)^{-1}D^{-1}V^{-1} = VD^{-1}V^{-1} $$
-							$$ A^{-2} = \left(A^{-1}\right)^2 = \left(VD^{-1}V^{-1}\right)\left(VD^{-1}V^{-1}\right) = V\left(D^{-1}\right)^2V^{-1} $$
+							$$ A^{-1} = \left(VDV^{-1}\right)^{-1} = \left(V^{-1}\right)^{-1}D^{-1}V^{-1} =
+							VD^{-1}V^{-1} $$
+							$$ A^{-2} = \left(A^{-1}\right)^2 = \left(VD^{-1}V^{-1}\right)\left(VD^{-1}V^{-1}\right) =
+							V\left(D^{-1}\right)^2V^{-1} $$
 						</div>
 					</div>
 				</section>
 
-				
+
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
-					<div class="size-70">
-						<h5>Worked Example — Matrix Diagonalisation</h5>
+					<h4>Worked Example - Matrix Diagonalisation</h4>
+					<div class="size-80">
+						<h5></h5>
 						<p>Let's find the diagonal decomposition factors for the matrix: $ A = \begin{pmatrix} -1 & -2
 							\\ -2 & 2 \end{pmatrix} $</p>
 
-						<div class="cc" style="font-size: 0.82em;">
-							<h5>Step 1: Compute Eigenvalues using Trace &amp; Determinant</h5>
-							<p>
-$ \text{tr}(A) = -1 + 2 = 1 \implies \lambda_1 + \lambda_2 = 1 \;$  and $\; \det(A) = (-1)(2) - (-2)(-2) = -6 \implies \lambda_1\lambda_2 = -6 $
+						<div class="cc" style="font-size: 0.95em;">
+							<h5 class="fragment">Step 1: Compute Eigenvalues using Trace &amp; Determinant</h5>
+							<p class="fragment">
+								$ \text{tr}(A) = -1 + 2 = 1 $
+								<span class="fragment">
+									$\implies \lambda_1 + \lambda_2 = 1 $
+								</span>
 							</p>
-							
-							
-							<p>Solving these equations simultaneously yields our eigenvalues: $\lambda_1 = -2$ and
-								$\lambda_2 = 3$.</p>
+							<p class="fragment">
+								$ \det(A) $
+								<span class="fragment">
+									$ =
+									(-1)(2) - (-2)(-2) = -6 $
+								</span>
+								<span class="fragment">
+									$ \implies \lambda_1\lambda_2 = -6$
+								</span>
+							</p>
+
+
+							<p class="fragment">
+								Solving these equations simultaneously yields
+								our eigenvalues: $\lambda_1 = -2$ and
+								$\lambda_2 = 3$.
+							</p>
 						</div>
 
-						<div class="fragment" style="font-size: 0.82em; margin-top: 5px;">
-							<h6>Step 2: Calculate Corresponding Eigenvectors</h6>
+						<div class="fragment" style="font-size: 0.95em; margin-top: 5px;">
+							<h5>Step 2: Calculate Corresponding Eigenvectors</h5>
 							$$ \mathbf{v}_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \quad \mathbf{v}_2 = \begin{pmatrix}
 							1 \\ -2 \end{pmatrix} $$
 						</div>
 
-						<div class="fragment" style="font-size: 0.82em; margin-top: 5px;">
-							<h6>Step 3: Construct the Component Decompositions ($D$, $V$, and $V^{-1}$)</h6>
-							$$ D = \begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix}, \quad V = \begin{pmatrix} 2 & 1 \\ 1 &
-							-2 \end{pmatrix} \implies V^{-1} = \frac{1}{-5}\begin{pmatrix} -2 & -1 \\ -1 & 2
-							\end{pmatrix} = \frac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} $$
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Worked Example - Matrix Diagonalisation</h4>
+					<div class="size-80">
+						<h5></h5>
+						<p>Let's find the diagonal decomposition factors for the matrix: $ A = \begin{pmatrix} -1 & -2
+							\\ -2 & 2 \end{pmatrix} $</p>
+
+						<div class="cc" style="font-size: 0.82em;">
+							<p><b>Eigenvalues:</b> $\,\lambda_1 = -2$ and
+								$\lambda_2 = 3$.</p>
 						</div>
 
-						<div class="fragment style-code-note" style="margin-top: 8px; font-size: 0.78em; color: #aaa;">
-							Recall the standard analytical $2 \times 2$ matrix inverse identity: $\begin{pmatrix} a & b
-							\\ c & d \end{pmatrix}^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a
+						<div class="cc" style="font-size: 0.82em; margin-top: 5px;">
+
+							<p>
+								<b>Eigenvectors:</b> $\, \mathbf{v}_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \;\;
+								\mathbf{v}_2 = \begin{pmatrix}
+								1 \\ -2 \end{pmatrix} $
+							</p>
+						</div>
+
+						<div class="cc" style=" margin-top: 5px;">
+							<h5>Step 3: Construct the Component Decompositions ($D$, $V$, and $V^{-1}$)</h5>
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$D = \begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix},$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\; V = \begin{pmatrix} 2 & 1 \\ 1 &
+									-2 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\Ra V^{-1} = \dfrac{1}{-5}\begin{pmatrix} -2 & -1 \\ -1 & 2
+									\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ = \dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}$
+								</span>
+							</p>
+
+						</div>
+
+						<div class="fragment" style="margin-top: 8px; font-size: 0.75em;" id="bb">
+							Recall the standard analytical $2 \times 2$ matrix inverse 
+							identity: $\begin{pmatrix} a & b
+							\\ c & d \end{pmatrix}^{-1} = \dfrac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a
 							\end{pmatrix}$.
 						</div>
 					</div>
+					<br/>
+				</section>
+				<section data-auto-animate>
+					<h4>Worked Example - Matrix Diagonalisation</h4>
+					<div class="size-80">
+						<h5></h5>
+						<p>Let's find the diagonal decomposition factors for the matrix: $ A = \begin{pmatrix} -1 & -2
+							\\ -2 & 2 \end{pmatrix} $</p>
+
+						<div class="cc" style=" margin-top: 5px;">
+							
+							<p>
+								<span>
+									$D = \begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix},$
+								</span>
+								<span>
+									$\; V = \begin{pmatrix} 2 & 1 \\ 1 &
+									-2 \end{pmatrix}$
+								</span>
+								<span>
+									$\Ra V^{-1} = \dfrac{1}{-5}\begin{pmatrix} -2 & -1 \\ -1 & 2
+									\end{pmatrix} $
+								</span>
+								<span>
+									$ = \dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}$
+								</span>
+							</p>
+							<p style="margin-top: 50px;" class="fragment">
+								
+								$
+								 VDV^{-1}
+								$
+								<span class="fragment">
+									$
+									=
+									\dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+									\begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix}
+									\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+									\qquad\qquad \quad 
+									$
+								</span>
+							</p>
+							<p>
+								<span class="fragment">
+									$
+									=
+									\dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+									\begin{pmatrix} -4 & -2 \\ 3 & 6 \end{pmatrix}
+									$
+								</span>
+								<span class="fragment">
+									$
+									=
+									\begin{pmatrix} -1 & -2 \\ -2 & 2 \end{pmatrix}
+									$
+								</span>
+							</p>
+							<p class="fragment" style="font-size: 1.3em;">
+								Therefore $\; A = V D V^{-1}\;$ 😃
+							</p>
+
+						</div>
+
+						
+					</div>
+					<br/>
 				</section>
 
 				<!-- Slide 58/69 -->
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
-					<div class="size-80">
-						<h5>Worked Example — Matrix Powers &amp; Inverses</h5>
+					<h4>Worked Example - Matrix Diagonalisation</h4>
+					<div class="size-75">
+						<h5>Matrix Powers &amp; Inverses</h5>
 
 						<div style="font-size: 0.85em;">
-							<h6>Application 1: Calculate $A^4$ Efficiently</h6>
+							<h5>Application 1: Calculate $A^4$ Efficiently</h5>
 							$$ A^4 = VD^4V^{-1} = \frac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2
 							\end{pmatrix}\begin{pmatrix} (-2)^4 & 0 \\ 0 & 3^4 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 1 &
 							-2 \end{pmatrix} $$
