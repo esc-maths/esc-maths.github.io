@@ -5001,7 +5001,7 @@ ans =
 							<div class="cc">
 								<p class="fragment" data-fragment-index="1">
 									Thus we have $\, A^n = VD^nV^{-1} $
-									<span class="fragment" data-fragment-index="1">
+									<span class="fragment" data-fragment-index="2">
 										$
 										= \begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix}\begin{pmatrix}
 										1^n & 0
@@ -5017,11 +5017,11 @@ ans =
 
 						<div class="fragment" data-fragment-index="3" style="font-size: 0.9em; margin-top: 10px;">
 							<p>Taking the mathematical limit as $n \to \infty$, the transient eigenvalue vanishes
-								($0.5^n \to 0$):</p>
+								($0.5^n \to 0$).</p>
 
 							<div class="cc">
 								<p class="fragment" data-fragment-index="3">
-									$ A^n \;\longrightarrow\; \begin{pmatrix} 2 & 1 \\ 3 & -1
+									That is $\, A^n \;\rightarrow\; \begin{pmatrix} 2 & 1 \\ 3 & -1
 									\end{pmatrix}\begin{pmatrix} 1 &
 									0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{pmatrix} $
 									<span class="fragment" data-fragment-index="4">
@@ -5042,11 +5042,11 @@ ans =
 						<div style="margin-top: 15px; font-size: 0.85em;">
 							<p class="fragment" data-fragment-index="6">
 								For any initial configuration vector representing population percentages ($p + (100-p) =
-								100$), 
+								100$),
 								<span class="fragment" data-fragment-index="7">
 									the long-term system always converges to a single stable ratio:
 								</span>
-								
+
 							</p>
 							<div class="cc">
 								<p class="fragment" data-fragment-index="7">
@@ -5068,14 +5068,14 @@ ans =
 
 
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
+					<h4>Application Example: Fleet Optimization</h4>
 					<div class="size-85">
-						<h5>Real-World Application: Fleet Optimization (1)</h5>
+
 						<p>A vehicle leasing company operates across three separate geographic hubs. Historical logs
 							reveal the transition probabilities for customer drop-offs between locations:</p>
 
 						<table
-							style="width: 100%; font-size: 0.75em; margin-top: 20px; text-align: center; border-collapse: collapse;">
+							style="width: 100%; font-size: 0.85em; margin-top: 20px; text-align: center; border-collapse: collapse;">
 							<thead>
 								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
 									<th style="padding: 10px; text-align: left;">Pick-up Location</th>
@@ -5088,43 +5088,48 @@ ans =
 								<tr style="border-bottom: 1px solid #333;">
 									<td style="padding: 10px; text-align: left; font-weight: bold;">Domestic Airport
 									</td>
-									<td>0.8</td>
-									<td>0.1</td>
-									<td>0.1</td>
+									<td style="text-align: center; font-size: 1.3em;">0.8</td>
+									<td style="text-align: center; font-size: 1.3em;">0.1</td>
+									<td style="text-align: center; font-size: 1.3em;">0.1</td>
 								</tr>
 								<tr style="border-bottom: 1px solid #333;">
 									<td style="padding: 10px; text-align: left; font-weight: bold;">International
 										Airport</td>
-									<td>0.2</td>
-									<td>0.6</td>
-									<td>0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.6</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
 								</tr>
 								<tr>
 									<td style="padding: 10px; text-align: left; font-weight: bold;">CBD Office</td>
-									<td>0.3</td>
-									<td>0.2</td>
-									<td>0.5</td>
+									<td style="text-align: center; font-size: 1.3em;">0.3</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.5</td>
 								</tr>
 							</tbody>
 						</table>
 
-						<div class="fragment font-weight-bold"
-							style="margin-top: 25px; text-align: center;">
-							<p><b>Objective:</b> Determine the optimal fleet distribution strategy across these hubs.</p>
+						<div class="fragment font-weight-bold" style="margin-top: 25px; text-align: center;">
+							<p><b>Objective:</b> Determine the optimal fleet distribution strategy across these hubs.
+							</p>
 						</div>
 					</div>
-					<br/>
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
+					<h4>Application Example: Fleet Optimization</h4>
 					<div class="size-70">
-						<h5>Real-World Application: Fleet Optimization (2)</h5>
-						<p>Let $x_1, x_2, x_3$ represent the initial counts of vehicles dispatched from the Domestic,
-							International, and CBD hubs, respectively. Let $y_1, y_2, y_3$ track the end-of-day
-							balances:</p>
+						<p class="fragment" data-fragment-index="0">
+							Let $x_1, x_2, x_3$ represent the initial counts of vehicles dispatched from the Domestic,
+							International, and CBD hubs, respectively.
+							<span class="fragment" data-fragment-index="1">
+								Let $y_1, y_2, y_3$ track the end-of-day
+								balances:
+							</span>
+						</p>
 
-						<div style="font-size: 0.9em; margin-top: 15px;">
+						<div style="font-size: 0.9em; margin-top: 15px;" class="fragment" data-fragment-index="1">
 							$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
 							$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
 							$$ y_3 = 0.1x_1 + 0.2x_2 + 0.5x_3 $$
@@ -5137,74 +5142,115 @@ ans =
 							$$
 						</div>
 
-						<div class="fragment style-section-card" style="margin-top: 20px; font-size: 0.9em;">
-							The vehicle distribution after two operational days is $\mathbf{x}_2 = A(A\mathbf{x}_0) =
-							A^2\mathbf{x}_0$. <br>
-							Extrapolating this out, distribution patterns after $n$ operational cycles follow:
-							$\mathbf{x}_n = A^n\mathbf{x}_0$.
+						<div style="margin-top: 20px; font-size: 0.9em;">
+							<p class="fragment">
+								The vehicle distribution after two operational days is
+								$\mathbf{x}_2 = A\left(A\mathbf{x}_0\right)
+								=
+								A^2\mathbf{x}_0$.
+							</p>
+							<p class="fragment">
+
+								Extrapolating this out, distribution patterns after $n$ operational cycles follow:
+								$\mathbf{x}_n = A^n\mathbf{x}_0$.
+							</p>
 						</div>
 					</div>
+					<br />
 				</section>
 
-		
+
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
-					<div class="size-80">
-						<h5>Real-World Application: Fleet Optimization (3)</h5>
-						<p>Let's find the long-term state distribution $\mathbf{x}_n = A^n\mathbf{x}_0$ using its
-							spectral components:</p>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-75">
+						<p>
+							Let's find the long-term state distribution $\mathbf{x}_n = A^n\mathbf{x}_0$ using its
+							spectral components:
+						</p>
 
-						<div style="margin-top: 10px;">
-							<pre><code class="language-matlab">&gt;&gt; [V, D] = eig([0.8, 0.2, 0.3; 0.1, 0.6, 0.2; 0.1, 0.2, 0.5])
+						<div class="cc fragment" data-fragment-index="0" style="margin-top: -10px;">
+							<p style="font-size: 0.8em; margin-bottom: -18px;"><b>💻 <tt>MATLAB/Octave</tt></b></p>
+							<pre style="width: 60%;"><code class="language-python">&gt;&gt; [V, D] = eig([0.8, 0.2, 0.3; 0.1, 0.6, 0.2; 0.1, 0.2, 0.5])
 
-V = 
-    0.86645    0.80902   -0.30902
+V = 0.86645    0.80902   -0.30902
     0.37907   -0.50000   -0.50000
     0.32492   -0.30902    0.80902
-D = 
-    1.00000          0          0
+
+D = 1.00000          0          0
           0    0.56180          0
           0          0    0.33820</code></pre>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.85em; line-height: 1.5;">
-							<p>Decomposing the initial state vector using our eigenvector basis elements:</p>
-							$$ \mathbf{x}_0 = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3 $$
-							<p>Applying $n$ operational iterations projects the long-term steady state:</p>
-							$$ \mathbf{x}_n = c_1(1)^n\mathbf{v}_1 + c_2(0.5618)^n\mathbf{v}_2 +
-							c_3(0.3382)^n\mathbf{v}_3 \;\implies\; \lim_{n \to \infty}\mathbf{x}_n = c_1\mathbf{v}_1 $$
+						<div style="margin-top: 15px;  line-height: 1.5;">
+							<p class="fragment" data-fragment-index="1">Decomposing the initial state vector using our
+								eigenvector basis elements:</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="1">$ \mathbf{x}_0 = c_1\mathbf{v}_1 +
+									c_2\mathbf{v}_2 + c_3\mathbf{v}_3 $</p>
+							</div>
+							<p class="fragment">Applying $n$ operational iterations projects the long-term steady state:
+							</p>
+							<div class="cc">
+								<p class="fragment">
+									$\mathbf{x}_n = c_1(1)^n\mathbf{v}_1 + c_2(0.5618)^n\mathbf{v}_2 +
+									c_3(0.3382)^n\mathbf{v}_3 $
+
+								</p>
+								<p style="font-size: 1.2em;">
+									<span class="fragment">
+										$\,\implies\,\ds \lim_{n \to \infty}\mathbf{x}_n = c_1\mathbf{v}_1 $
+									</span>
+								</p>
+							</div>
+
 						</div>
 					</div>
 				</section>
 
-			
-				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
-					<div class="size-75">
-						<h5>Real-World Application: Fleet Optimization (4)</h5>
-						<p>The dominant eigenvalue ($\lambda_1 = 1$) isolates the steady-state vector distribution. For
-							a fleet of 100 vehicles, we establish the total scale relation:</p>
-						$$ x_1 + x_2 + x_3 = 100 $$
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.9em;">
+				<section data-auto-animate>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-75">
+						<p>
+							The dominant eigenvalue ($\lambda_1 = 1$) isolates the steady-state vector distribution.
+							<span class="fragment">
+								For
+								a fleet of 100 vehicles, we establish the total scale relation:
+								$$ x_1 + x_2 + x_3 = 100 $$
+							</span>
+						</p>
+
+
+						<div style="margin-top: 15px; ">
 							<p>Scaling our unnormalized dominant eigenvector $\mathbf{v}_1$ to match our total fleet
 								size:</p>
-							$$ \mathbf{x}_{\infty} = \frac{100}{0.86645 + 0.37907 + 0.32492}\mathbf{v}_1 \approx
-							\begin{pmatrix} 55.174 \\ 24.139 \\ 20.690 \end{pmatrix} $$
+							<div class="cc">
+								<p class="fragment">
+									$ \ds \mathbf{x}_{\infty} = \frac{100}{0.86645 + 0.37907 + 0.32492}\mathbf{v}_1$
+									<span class="fragment">
+										$ \approx
+										\begin{pmatrix} 55.174 \\ 24.139 \\ 20.690 \end{pmatrix} $
+									</span>
+								</p>
+							</div>
 						</div>
 
 						<div class="fragment style-section-card"
 							style="margin-top: 15px; text-align: center; font-size: 0.9em; border-left-color: #4df3a9;">
-							<strong style="color: #4df3a9;">Steady-State Fleet Allocation Target:</strong><br>
+							<strong id="gg">Steady-State Fleet Allocation Target:</strong><br>
 							<strong>55%</strong> at Domestic Airport &bull; <strong>24%</strong> at International
 							Airport &bull; <strong>21%</strong> at the CBD Office
 						</div>
 
-						<p class="fragment" style="margin-top: 15px; font-size: 0.85em; color: #aaa;">
-							This model helps businesses adapt to disruptions. For example, if the international hub
+						<p class="fragment" style="margin-top: 15px;">
+							This model helps businesses adapt to disruptions.
+							<span class="fragment">
+								 For example, if the international hub
 							closes, we can modify the system matrix to project the new fleet distribution.
+							</span>
 						</p>
 					</div>
+					<br/>
 				</section>
 
 				<!-- Slide 65/69 -->
