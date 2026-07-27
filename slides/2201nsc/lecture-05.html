@@ -4583,60 +4583,103 @@ ans =
 								</span>
 							</p>
 							<p class="fragment" data-fragment-index="6">
-								Therefore $\;  \text{diag}\left(a_1, a_2, \dots, a_n\right)^{-1} = 
+								Therefore $\; \text{diag}\left(a_1, a_2, \dots, a_n\right)^{-1} =
 								\text{diag}\left(a_1^{-1}, a_2^{-1}, \dots, a_n^{-1}\right) \quad \blacksquare $
 							</p>
 
-							
+
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 56/69 -->
+
 				<section data-auto-animate>
 					<h4>Diagonalising a Matrix</h4>
-					<div class="size-85">
+					<div class="size-75" style="margin-top: -15px;">
 						<h5>Computing Large Matrix Powers Efficiently</h5>
-						<p>Factoring a matrix into the form $A = VDV^{-1}$ simplifies computing integer powers of $A$:
+						<p class="fragment" data-fragment-index="0">
+							Factoring a matrix into the form $A = VDV^{-1}$
+							simplifies computing integer powers of $A$:
 						</p>
 
-						<div style="font-size: 0.9em; line-height: 1.4;">
-							$$ A^2 = AA = (VDV^{-1})(VDV^{-1}) = VD(V^{-1}V)DV^{-1} = V(D \cdot D)V^{-1} = VD^2V^{-1} $$
-							<div class="fragment" style="margin-top: 10px;">
-								$$ A^3 = A^2A = (VD^2V^{-1})(VDV^{-1}) = VD^2(V^{-1}V)DV^{-1} = V(D^2 \cdot D)V^{-1} =
-								VD^3V^{-1} $$
+						<div class="cc" style="font-size: 0.87em;">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$A^2$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ = AA$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ = \left(VDV^{-1}\right)\left(VDV^{-1}\right)$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= VD\left(V^{-1}V\right)DV^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ = V\left(D \cdot D\right)V^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= VD^2V^{-1} $
+								</span>
+							</p>
+							<div style="margin-top: 10px;">
+								<span class="fragment" data-fragment-index="7">
+									$ A^3 $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ = A^2A $
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$ = \left(VD^2V^{-1}\right)\left(VDV^{-1}\right) $
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$=
+									VD^2\left(V^{-1}V\right)DV^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									$ = V\left(D^2 \cdot D\right)V^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$ =
+									VD^3V^{-1} $
+								</span>
+
 							</div>
 						</div>
 
 						<div class="fragment style-section-card" style="margin-top: 15px; border-left-color: #4df3a9;">
-							<h6>Generalization for All Positive Integers ($n$)</h6>
-							<p>Using mathematical induction, we can establish that for any positive integer exponent:
+							<h5>Generalization for All Positive Integers ($n$)</h5>
+							<p style="margin-top: -10px;">Using mathematical induction, we can establish that for any positive integer exponent:
 							</p>
-							$$ A^n = VD^nV^{-1} $$
+							$$ \large A^n = VD^nV^{-1} $$
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
+						<div class="fragment" style="margin-top: -15px;">
 							<p>This relation naturally extends to negative integers as well by evaluating the matrix
 								inverse: </p>
-							$$ A^{-1} = (VDV^{-1})^{-1} = (V^{-1})^{-1}D^{-1}V^{-1} = VD^{-1}V^{-1} $$
-							$$ A^{-2} = (A^{-1})^2 = (VD^{-1}V^{-1})(VD^{-1}V^{-1}) = V(D^{-1})^2V^{-1} $$
+							$$ A^{-1} = \left(VDV^{-1}\right)^{-1} = \left(V^{-1}\right)^{-1}D^{-1}V^{-1} = VD^{-1}V^{-1} $$
+							$$ A^{-2} = \left(A^{-1}\right)^2 = \left(VD^{-1}V^{-1}\right)\left(VD^{-1}V^{-1}\right) = V\left(D^{-1}\right)^2V^{-1} $$
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 57/69 -->
+				
 				<section data-auto-animate>
 					<h4>Diagonalising a Matrix</h4>
-					<div class="size-80">
+					<div class="size-70">
 						<h5>Worked Example — Matrix Diagonalisation</h5>
-						<p>Let's find the diagonal decomposition factors for the matrix: $$ A = \begin{pmatrix} -1 & -2
-							\\ -2 & 2 \end{pmatrix} $$</p>
+						<p>Let's find the diagonal decomposition factors for the matrix: $ A = \begin{pmatrix} -1 & -2
+							\\ -2 & 2 \end{pmatrix} $</p>
 
-						<div class="fragment" style="font-size: 0.82em;">
-							<h6>Step 1: Compute Eigenvalues using Trace &amp; Determinant</h6>
-							$$ \text{tr}(A) = -1 + 2 = 1 \implies \lambda_1 + \lambda_2 = 1 $$
-							$$ \det(A) = (-1)(2) - (-2)(-2) = -6 \implies \lambda_1\lambda_2 = -6 $$
+						<div class="cc" style="font-size: 0.82em;">
+							<h5>Step 1: Compute Eigenvalues using Trace &amp; Determinant</h5>
+							<p>
+$ \text{tr}(A) = -1 + 2 = 1 \implies \lambda_1 + \lambda_2 = 1 \;$  and $\; \det(A) = (-1)(2) - (-2)(-2) = -6 \implies \lambda_1\lambda_2 = -6 $
+							</p>
+							
+							
 							<p>Solving these equations simultaneously yields our eigenvalues: $\lambda_1 = -2$ and
 								$\lambda_2 = 3$.</p>
 						</div>
