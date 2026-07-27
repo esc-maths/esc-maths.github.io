@@ -5214,7 +5214,7 @@ ans =
 							<p class="fragment">
 								The vehicle distribution after two operational days is
 								$\mathbf{x}_2 = A\left(A\mathbf{x}_0\right)
-								$.
+								$
 								<span class="fragment">
 									$=
 									A^2\mathbf{x}_0$
@@ -5399,7 +5399,8 @@ D = 1.00000          0          0
 												<td style="text-align: center; font-size: 1.3em;">5</td>
 											</tr>
 											<tr>
-												<td style="padding: 10px; text-align: left; font-weight: bold;">CBD (21%)
+												<td style="padding: 10px; text-align: left; font-weight: bold;">CBD
+													(21%)
 												</td>
 												<td style="text-align: center; font-size: 1.3em;">6</td>
 												<td style="text-align: center; font-size: 1.3em;">4</td>
@@ -5413,7 +5414,7 @@ D = 1.00000          0          0
 								<td class="fragment" data-fragment-index="0">
 									$\rightarrow$
 								</td>
-								<td style="background-color: #068e5148;" class="fragment" data-fragment-index="0">
+								<td style="background-color: #4df3a82f;" class="fragment" data-fragment-index="0">
 
 									<table style="width: 100%; text-align: center; border-collapse: collapse;">
 										<thead>
@@ -5488,7 +5489,7 @@ D = 1.00000          0          0
 							</p>
 
 							<p class="fragment" data-fragment-index="6">
-								<strong>New Allocation:</strong> Station <strong>79%</strong> 
+								<strong>New Allocation:</strong> Station <strong>79%</strong>
 								of the fleet at Domestic
 								and <strong>21%</strong> within the CBD.
 							</p>
@@ -5496,100 +5497,324 @@ D = 1.00000          0          0
 					</div>
 				</section>
 
-				
+
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
+					<h4>Application: Dominance Ranking Systems</h4>
 					<div class="size-80">
-						<h5>Application: Dominance Ranking Systems (1)</h5>
-						<p>Consider a round-robin tournament where 5 players compete. Every player matches up once
-							against all others, yielding the following results matrix:</p>
+						<p>
+							Consider a round-robin tournament where 5 players compete. Every player matches up once
+							against all others, yielding the following results matrix:
+						</p>
+
 
 						<table
-							style="width: 100%; font-size: 0.72em; margin-top: 15px; text-align: center; border-collapse: collapse;">
+							style="width:65%; font-size:0.72em; margin-top:15px; text-align:center; border-collapse:collapse;">
 							<thead>
-								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
-									<th style="padding: 6px; text-align: left;">Player</th>
-									<th style="padding: 6px;">Beats P1</th>
-									<th style="padding: 6px;">Beats P2</th>
-									<th style="padding: 6px;">Beats P3</th>
-									<th style="padding: 6px;">Beats P4</th>
-									<th style="padding: 6px;">Beats P5</th>
+								<tr style="border-bottom:2px solid #666;">
+									<th style="padding:6px; text-align:center;">Player</th>
+									<th style="padding:6px;text-align:center;">Beats P2</th>
+									<th style="padding:6px;text-align:center;">Beats P3</th>
+									<th style="padding:6px;text-align:center;">Beats P4</th>
+									<th style="padding:6px;text-align:center;">Beats P5</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 6px; text-align: left; font-weight: bold;">P1</td>
-									<td style="color:#555;">-</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P1</td>
+
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;text-align:center;">No</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
 								</tr>
-								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 6px; text-align: left; font-weight: bold;">P2</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#555;">-</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P2</td>
+
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
 								</tr>
-								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 6px; text-align: left; font-weight: bold;">P3</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#555;">-</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
-									<td style="color:#ff5555;">No</td>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P3</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;text-align:center;">No</span></td>
 								</tr>
-								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 6px; text-align: left; font-weight: bold;">P4</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#555;">-</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P4</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
 								</tr>
+
 								<tr>
-									<td style="padding: 6px; text-align: left; font-weight: bold;">P5</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#4df3a9; font-weight:bold;">Yes</td>
-									<td style="color:#ff5555;">No</td>
-									<td style="color:#555;">-</td>
+									<td style="padding:6px; text-align:center; font-weight:bold;">P5</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
 								</tr>
 							</tbody>
 						</table>
 
-						<div class="fragment style-section-card" style="margin-top: 15px; font-size: 0.85em;">
-							<strong>The Ranking Paradox:</strong> P1 beat P2, P2 beat P3, yet P3 beat P1. How can we
-							build a rigorous ranking system? Let's use a standard rule: a player's score $r_i$ should be
-							proportional to the sum of the ranks of the opponents they defeated.
+
+						<div style="margin-top: 15px; font-size: 0.9em;">
+							<p style="text-align: center;"><strong>The Ranking Paradox:</strong> P1 beat P2, P2 beat P3,
+								yet P3 beat P1.</p>
+							<p style="text-align: center;">How can we build a rigorous ranking system? 🤔</p>
+							<p>Let's use a standard rule: a player's score $r_i$ should be
+								proportional to the sum of the ranks of the opponents they defeated.</p>
 						</div>
 					</div>
 				</section>
 
-				<!-- Slide 67/69 -->
+
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
-					<div class="size-85">
-						<h5>Application: Dominance Ranking Systems (2)</h5>
+					<h4>Application: Dominance Ranking Systems</h4>
+					<div class="size-70">
+
+						<table
+							style="width:50%; font-size:0.72em; margin-top:15px; text-align:center; border-collapse:collapse;">
+							<thead>
+								<tr style="border-bottom:2px solid #666;">
+									<th style="padding:6px; text-align:center;">Player</th>
+									<th style="padding:6px;text-align:center;">Beats P2</th>
+									<th style="padding:6px;text-align:center;">Beats P3</th>
+									<th style="padding:6px;text-align:center;">Beats P4</th>
+									<th style="padding:6px;text-align:center;">Beats P5</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P1</td>
+
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;text-align:center;">No</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P2</td>
+
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P3</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;text-align:center;">No</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P4</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr>
+									<td style="padding:6px; text-align:center; font-weight:bold;">P5</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+								</tr>
+							</tbody>
+						</table>
+
 						<p>Translating our ranking rule into a system of equations:</p>
 
-						<div style="font-size: 0.85em; margin-top: 15px; line-height: 1.4;">
-							$$ r_1 = \alpha(r_2 + r_4 + r_5) $$
-							$$ r_2 = \alpha(r_3 + r_4 + r_5) $$
-							$$ r_3 = \alpha(r_1 + r_4) $$
-							$$ r_4 = \alpha(r_5) $$
-							$$ r_5 = \alpha(r_3) $$
-						</div>
+						<div class="cc" style="font-size: 0.95em;">
+							<p>
 
-						<div class="fragment style-section-card" style="margin-top: 25px; border-left-color: #4df3a9;">
-							<h6>Conversion to an Eigenvalue Framework</h6>
-							<p>Introducing the scaling factor $\alpha$ transforms this network relation into a standard
-								eigenvalue problem:
-								$$ A\mathbf{r} = \lambda\mathbf{r} \quad \text{where } \lambda = \frac{1}{\alpha} $$</p>
+								$
+								\begin{eqnarray*}
+								r_1 &=& \alpha(r_2 + r_4 + r_5),\\
+								r_2 &=& \alpha(r_3 + r_4 + r_5),\\
+								r_3 &=& \alpha(r_1 + r_4),\\
+								r_4 &=& \alpha(r_5),\\
+								r_5 &=& \alpha(r_3).
+								\end{eqnarray*}
+								$
+
+								<span>
+									$\;\Ra\; \mathbf r=
+									\begin{pmatrix}
+									r_1\\
+									r_2\\
+									r_3\\
+									r_4\\
+									r_5
+									\end{pmatrix}
+									=
+									\alpha
+									\begin{pmatrix}
+									0 & 1 & 0 & 1 & 1\\
+									0 & 0 & 1 & 1 & 1\\
+									1 & 0 & 0 & 1 & 0\\
+									0 & 0 & 0 & 0 & 1\\
+									0 & 0 & 1 & 0 & 0
+									\end{pmatrix}
+									\mathbf r.$
+								</span>
+							</p>
 						</div>
 					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Dominance Ranking Systems</h4>
+					<div class="size-70">
+
+						<table
+							style="width:50%; font-size:0.72em; margin-top:-15px; text-align:center; border-collapse:collapse;">
+							<thead>
+								<tr style="border-bottom:2px solid #666;">
+									<th style="padding:6px; text-align:center;">Player</th>
+									<th style="padding:6px;text-align:center;">Beats P2</th>
+									<th style="padding:6px;text-align:center;">Beats P3</th>
+									<th style="padding:6px;text-align:center;">Beats P4</th>
+									<th style="padding:6px;text-align:center;">Beats P5</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P1</td>
+
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;text-align:center;">No</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P2</td>
+
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P3</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;text-align:center;">No</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P4</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr>
+									<td style="padding:6px; text-align:center; font-weight:bold;">P5</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="color:#555;text-align:center;">-</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="cc" style="font-size: 0.6em;margin-top: -10px;">
+							<p>
+
+								$
+								\begin{eqnarray*}
+								r_1 &=& \alpha(r_2 + r_4 + r_5),\\
+								r_2 &=& \alpha(r_3 + r_4 + r_5),\\
+								r_3 &=& \alpha(r_1 + r_4),\\
+								r_4 &=& \alpha(r_5),\\
+								r_5 &=& \alpha(r_3).
+								\end{eqnarray*}
+								$
+
+								<span>
+									$\;\Ra\; \mathbf r=
+									\begin{pmatrix}
+									r_1\\
+									r_2\\
+									r_3\\
+									r_4\\
+									r_5
+									\end{pmatrix}
+									=
+									\alpha
+									\begin{pmatrix}
+									0 & 1 & 0 & 1 & 1\\
+									0 & 0 & 1 & 1 & 1\\
+									1 & 0 & 0 & 1 & 0\\
+									0 & 0 & 0 & 0 & 1\\
+									0 & 0 & 1 & 0 & 0
+									\end{pmatrix}
+									\mathbf r.$
+								</span>
+							</p>
+						</div>
+
+
+						<div style="margin-top: 5px;">
+							<h5>Conversion to an Eigenvalue Framework</h5>
+							<p style="margin-top: -15px;">
+								Introducing the scaling factor $\alpha$ transforms this network relation into a standard
+								eigenvalue problem:
+							</p>
+							<div class="cc" style="margin-top: -25px;font-size: 1.2em;">
+								<p>$ A\mathbf{r} = \lambda\mathbf{r} \quad \text{where } \lambda = \frac{1}{\alpha} $
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
 				</section>
 
 
@@ -5597,58 +5822,66 @@ D = 1.00000          0          0
 					<h4>Diagonalising a Matrix</h4>
 					<div class="size-80">
 						<h5>Application: Dominance Ranking Systems (3)</h5>
-						<p style="font-size: 0.88em; line-height: 1.4;">Tournament outcome matrices where each
+						<p>Tournament outcome matrices where each
 							participant secures at least one win belong to the class of <strong>primitive
 								matrices</strong>. By the Perron-Frobenius theorem, these matrices possess exactly one
 							dominant eigenvector with strictly positive components.</p>
 
 						<div class="fragment" style="margin-top: 15px;">
 							<p>Constructing our adjacency matrix $A$ and computing its dominant components:</p>
-							$$ A = \left(\begin{array}{cccc|c} 0 & 1 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 & 1 \\ 1 & 0 & 0 & 1 &
-							0 \\ 0 & 0
-							& 0 & 0 & 1 \\ 0 & 0 & 1 & 0 & 0 \end{array}\right) $$
+
+						</div>
+						<div class="cc" style="font-size: 0.9em;">
+							<p>
+								$ A = \left(\begin{array}{cccc|c} 0 & 1 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 & 1 \\ 1 & 0 & 0 &
+								1 &
+								0 \\ 0 & 0
+								& 0 & 0 & 1 \\ 0 & 0 & 1 & 0 & 0 \end{array}\right) $
+								<span>
+									$\;\Ra \; \lambda_1 = 1.6593,\; \mathbf{v}_1 = \begin{pmatrix} 0.60572 \\ 0.54474 \\
+									0.46734 \\ 0.16972 \\ 0.28165
+									\end{pmatrix}$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.85em;">
-							Evaluating this system yields the dominant eigenvalue $\lambda_1 = 1.6593$ and eigenvector:
-							$$ \mathbf{u}_1 = \begin{pmatrix} 0.60572 \\ 0.54474 \\ 0.46734 \\ 0.16972 \\ 0.28165
-							\end{pmatrix} $$
-						</div>
 
-						<div class="fragment style-section-card"
-							style="margin-top: 15px; text-align: center; font-weight: bold; border-left-color: #4df3a9; color: #4df3a9;">
-							Final Tournament Rankings: P1 &gt; P2 &gt; P3 &gt; P5 &gt; P4
+
+						<div class="cc" style="margin-top: 25px; text-align: center;" id="gg">
+							<p>Final Tournament Rankings: P1 &gt; P2 &gt; P3 &gt; P5 &gt; P4</p>
 						</div>
 					</div>
+					<br/>
 				</section>
 
-				<!-- Slide 69/69 -->
+				
 				<section data-auto-animate>
 					<h4>Diagonalising a Matrix</h4>
-					<div class="size-85">
+					<div class="size-75">
 						<h5>Why Use the Dominant Eigenvector?</h5>
-						<hr>
+						
 						<p>To understand why the dominant eigenvector yields a robust ranking, let's examine the squared
 							matrix $A^2$:</p>
 
-						<div style="font-size: 0.85em;">
-							$$ A^2 = \begin{pmatrix} 0 & 0 & 2 & 1 & 2 \\ 1 & 0 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 2 \\ 0 &
+						<div style="font-size: 0.85em;margin-top: -30px;">
+							<p>$$ A^2 = \begin{pmatrix} 0 & 0 & 2 & 1 & 2 \\ 1 & 0 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 2 \\ 0 &
 							0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 1 & 0 \end{pmatrix} $$
-						</div>
+						</div></p>
 
 						<div class="fragment style-section-card" style="margin-top: 20px; font-size: 0.9em;">
-							<h6>Physical Meaning of Matrix Powers</h6>
+							<h5>Physical Meaning of Matrix Powers</h5>
 							<ul>
 								<li>$A^2$ tracks indirect dominance: it counts how many times opponents beaten by Player
 									$i$ went on to defeat other competitors.</li>
 								<li style="margin-top: 5px;">Higher powers $A^n$ trace these direct and indirect paths
 									across $n$ tiers of connection.</li>
-								<li style="margin-top: 5px; color: #4df3a9;">As $n \rightarrow \infty$, the normalized
+								<li style="margin-top: 5px;">As $n \rightarrow \infty$, the normalized
 									column structures converge directly to the components of the dominant positive
 									eigenvector.</li>
 							</ul>
 						</div>
 					</div>
+					<br/>
 				</section>
 			</section>
 
