@@ -5100,7 +5100,7 @@ ans =
 									<td style="text-align: center; font-size: 1.3em;">0.2</td>
 								</tr>
 								<tr>
-									<td style="padding: 10px; text-align: left; font-weight: bold;">CBD Office</td>
+									<td style="padding: 10px; text-align: left; font-weight: bold;">CBD</td>
 									<td style="text-align: center; font-size: 1.3em;">0.3</td>
 									<td style="text-align: center; font-size: 1.3em;">0.2</td>
 									<td style="text-align: center; font-size: 1.3em;">0.5</td>
@@ -5116,12 +5116,48 @@ ans =
 					<br />
 					<br />
 				</section>
-
 				<section data-auto-animate>
 					<h4>Application Example: Fleet Optimization</h4>
 					<div class="size-70">
-						<p class="fragment" data-fragment-index="0">
-							Let $x_1, x_2, x_3$ represent the initial counts of vehicles dispatched from the Domestic,
+
+						<table
+							style="width: 100%; font-size: 0.85em; margin-top: 20px; text-align: center; border-collapse: collapse;">
+							<thead>
+								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+									<th style="padding: 10px; text-align: left;">Pick-up Location</th>
+									<th style="padding: 10px;">Drop-off: Domestic</th>
+									<th style="padding: 10px;">Drop-off: International</th>
+									<th style="padding: 10px;">Drop-off: CBD</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 10px; text-align: left; font-weight: bold;">Domestic Airport
+									</td>
+									<td style="text-align: center; font-size: 1.3em;">0.8</td>
+									<td style="text-align: center; font-size: 1.3em;">0.1</td>
+									<td style="text-align: center; font-size: 1.3em;">0.1</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 10px; text-align: left; font-weight: bold;">International
+										Airport</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.6</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+								</tr>
+								<tr>
+									<td style="padding: 10px; text-align: left; font-weight: bold;">CBD</td>
+									<td style="text-align: center; font-size: 1.3em;">0.3</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.5</td>
+								</tr>
+							</tbody>
+						</table>
+
+
+						<p>
+							Let $x_1, x_2, x_3$ represent the initial counts of vehicles dispatched from the
+							Domestic,
 							International, and CBD hubs, respectively.
 							<span class="fragment" data-fragment-index="1">
 								Let $y_1, y_2, y_3$ track the end-of-day
@@ -5129,25 +5165,60 @@ ans =
 							</span>
 						</p>
 
-						<div style="font-size: 0.9em; margin-top: 15px;" class="fragment" data-fragment-index="1">
-							$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
-							$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
-							$$ y_3 = 0.1x_1 + 0.2x_2 + 0.5x_3 $$
+						<div class="fragment" data-fragment-index="1">
+							<p>
+								$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
+								$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
+								$$ y_3 = 0.1x_1 + 0.2x_2 + 0.5x_3 $$
+							</p>
 						</div>
 
-						<div class="fragment" style="margin-top: 15px;">
-							<p>Expressing this system as a linear matrix transformation $\mathbf{y} = A\mathbf{x}$:</p>
-							$$ \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} = \begin{pmatrix} 0.8 & 0.2 & 0.3 \\ 0.1
-							& 0.6 & 0.2 \\ 0.1 & 0.2 & 0.5 \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
-							$$
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-70">
+						<p>
+							Let $x_1, x_2, x_3$ represent the initial counts of vehicles dispatched from the
+							Domestic,
+							International, and CBD hubs, respectively.
+							<span>
+								Let $y_1, y_2, y_3$ track the end-of-day
+								balances:
+							</span>
+						</p>
+
+						<div>
+							<p>
+								$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
+								$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
+								$$ y_3 = 0.1x_1 + 0.2x_2 + 0.5x_3 $$
+							</p>
 						</div>
 
-						<div style="margin-top: 20px; font-size: 0.9em;">
+						<div style="margin-top: -15px;">
+							<p>Expressing this system as a linear matrix transformation $\mathbf{y} = A\mathbf{x}$:
+								$$ \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} = \begin{pmatrix} 0.8 & 0.2 & 0.3 \\
+								0.1
+								& 0.6 & 0.2 \\ 0.1 & 0.2 & 0.5 \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3
+								\end{pmatrix}
+								$$
+							</p>
+
+						</div>
+
+						<div style="margin-top: -20px;">
 							<p class="fragment">
 								The vehicle distribution after two operational days is
 								$\mathbf{x}_2 = A\left(A\mathbf{x}_0\right)
-								=
-								A^2\mathbf{x}_0$.
+								$.
+								<span class="fragment">
+									$=
+									A^2\mathbf{x}_0$
+								</span>
 							</p>
 							<p class="fragment">
 
@@ -5168,11 +5239,11 @@ ans =
 							spectral components:
 						</p>
 
-						<div class="r-stack" style="margin-top: -20px;">
+						<div class="r-stack" style="margin-top: -30px;">
 							<div class="fragment fade-in-then-out" data-fragment-index="0">
 								<p style="font-size: 0.8em; margin-bottom: -18px; text-align: center;"><b>💻
 										<tt>MATLAB/Octave</tt></b></p>
-								<pre style="width: 100%;"><code class="language-python">&gt;&gt; [V, D] = eig([0.8, 0.2, 0.3; 0.1, 0.6, 0.2; 0.1, 0.2, 0.5])
+								<pre style="width: 105%;font-size: 0.65em;"><code class="language-python">&gt;&gt; [V, D] = eig([0.8, 0.2, 0.3; 0.1, 0.6, 0.2; 0.1, 0.2, 0.5])
 
 V = 0.86645    0.80902   -0.30902
     0.37907   -0.50000   -0.50000
@@ -5185,15 +5256,16 @@ D = 1.00000          0          0
 							<div class="fragment fade-in" data-fragment-index="1">
 								<div class="cc">
 									<p>
-										<b>Eigenvalues:</b> 
+										<b>Eigenvalues:</b>
 										$\,\lambda_1 = 1,\,$
 										$\lambda_2 = 0.5618,\,$
 										$\lambda_3 = 0.3382\quad\qquad \qquad \qquad $
-										
+
 									</p>
 									<p>
 										<b>Eigenvectors:</b>
-										$\,\mathbf v_1 = \begin{pmatrix} 0.86645 \\ 0.37907 \\ -0.30902 \end{pmatrix},\,$
+										$\,\mathbf v_1 = \begin{pmatrix} 0.86645 \\ 0.37907 \\ -0.30902
+										\end{pmatrix},\,$
 										$\mathbf v_2 = \begin{pmatrix} 0.80902 \\ -0.5 \\ -.05 \end{pmatrix},\,$
 										$\mathbf v_3 = \begin{pmatrix} 0.86645 \\ 0.30902 \\ 0.80902\end{pmatrix}$
 									</p>
@@ -5247,9 +5319,11 @@ D = 1.00000          0          0
 
 
 						<div style="margin-top: 15px; ">
-							<p class="fragment" data-fragment-index="1">Scaling our unnormalized dominant eigenvector
+							<p class="fragment" data-fragment-index="1">
+								Scaling our unnormalized dominant eigenvector
 								$\mathbf{v}_1$ to match our total fleet
-								size:</p>
+								size:
+							</p>
 							<div class="cc">
 								<p class="fragment" data-fragment-index="1">
 									$ \ds \mathbf{x}_{\infty} = \frac{100}{0.86645 + 0.37907 + 0.32492}\mathbf{v}_1$
@@ -5265,7 +5339,7 @@ D = 1.00000          0          0
 							style="margin-top: 10px; text-align: center; background: #4df3a82f; border-radius: 10px;">
 							<strong id="gg">Steady-State Fleet Allocation Target:</strong><br>
 							<strong>55%</strong> at Domestic Airport &bull; <strong>24%</strong> at International
-							Airport &bull; <strong>21%</strong> at the CBD Office
+							Airport &bull; <strong>21%</strong> at the CBD
 						</div>
 
 						<p class="fragment" style="margin-top: 25px;">
@@ -5281,43 +5355,143 @@ D = 1.00000          0          0
 
 
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
-					<div class="size-80">
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-70" style="margin-top: -15px;">
 						<h5>Handling Operational Closures &amp; Disruptions</h5>
-						<p>If the international hub closes, we assume its typical traffic diverts directly to the
-							domestic airport. This updates our operational network flow mapping:</p>
+						<p style="margin-top: -15px;">
+							If the international hub closes, we assume its typical traffic diverts directly to the
+							domestic airport.
+							<span class="fragment" data-fragment-index="0">
+								This updates our operational network flow mapping:
+							</span>
 
-						<div
-							style="display: flex; justify-content: space-between; font-size: 0.52em; margin-top: 10px;">
-							<div
-								style="width: 48%; background: rgba(255,255,255,0.02); padding: 8px; border-radius: 4px;">
-								<center><strong>Prior 3-Hub Grid Flows (Weighted)</strong></center>
-								Dom (55) $\to$ 44 Dom / 5.5 Int / 5.5 CBD <br>
-								Int (24) $\to$ 4.8 Dom / 14.4 Int / 4.8 CBD <br>
-								CBD (21) $\to$ 6.3 Dom / 4.2 Int / 10.5 CBD
-							</div>
-							<div
-								style="width: 48%; background: rgba(77,243,169,0.05); padding: 8px; border-radius: 4px;">
-								<center><strong>Diverted 2-Hub Network Scheme</strong></center>
-								Dom (79) $\to$ 68.5 Dom / 10.5 CBD <br>
-								CBD (21) $\to$ 10.0 Dom / 11.0 CBD
-							</div>
+						</p>
+
+						<table style="margin-top: -20px; width: 100%;font-size: 0.65em;">
+							<tr>
+								<td>
+									<table style="width: 100%; text-align: center; border-collapse: collapse;">
+										<thead>
+											<tr
+												style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+												<th style="padding: 10px; text-align: left;">Pick-up Location</th>
+												<th style="padding: 10px;">Drop-off: Domestic</th>
+												<th style="padding: 10px;">Drop-off: International</th>
+												<th style="padding: 10px;">Drop-off: CBD</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="border-bottom: 1px solid #333;">
+												<td style="padding: 10px; text-align: left; font-weight: bold;">Domestic
+													Airport (55%)
+												</td>
+												<td style="text-align: center; font-size: 1.3em;">44</td>
+												<td style="text-align: center; font-size: 1.3em;">5.5</td>
+												<td style="text-align: center; font-size: 1.3em;">5.5</td>
+											</tr>
+											<tr style="border-bottom: 1px solid #333;">
+												<td
+													style="padding: 10px; text-align: left; font-weight: bold; width: 38%;">
+													International
+													Airport (44%)</td>
+												<td style="text-align: center; font-size: 1.3em;">5</td>
+												<td style="text-align: center; font-size: 1.3em;">14</td>
+												<td style="text-align: center; font-size: 1.3em;">5</td>
+											</tr>
+											<tr>
+												<td style="padding: 10px; text-align: left; font-weight: bold;">CBD (21%)
+												</td>
+												<td style="text-align: center; font-size: 1.3em;">6</td>
+												<td style="text-align: center; font-size: 1.3em;">4</td>
+												<td style="text-align: center; font-size: 1.3em;">11</td>
+											</tr>
+										</tbody>
+									</table>
+
+
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									$\rightarrow$
+								</td>
+								<td style="background-color: #068e5148;" class="fragment" data-fragment-index="0">
+
+									<table style="width: 100%; text-align: center; border-collapse: collapse;">
+										<thead>
+											<tr
+												style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+												<th style="padding: 10px; text-align: left;">Pick-up Location</th>
+												<th style="padding: 10px;">Drop-off: Domestic</th>
+												<th style="padding: 10px;">Drop-off: CBD</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="border-bottom: 1px solid #333;">
+												<td
+													style="padding: 10px; text-align: left; font-weight: bold; width: 48%;">
+													Domestic
+													Airport
+													<span class="fragment" data-fragment-index="6">(79%)</span>
+												</td>
+												<td style="text-align: center; font-size: 1.3em;">68.5</td>
+												<td style="text-align: center; font-size: 1.3em;">10.5</td>
+											</tr>
+
+											<tr>
+												<td style="padding: 10px; text-align: left; font-weight: bold;">
+													CBD
+													<span class="fragment" data-fragment-index="6">(21%)</span>
+												</td>
+												<td style="text-align: center; font-size: 1.3em;">10</td>
+												<td style="text-align: center; font-size: 1.3em;">11</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<br />
+									<br />
+
+								</td>
+
+							</tr>
+						</table>
+
+						<div class="cc" style="font-size: 0.85em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								New reduced transition model system:
+								$ \ds y_1 = \frac{68.5}{79}x_1 + \frac{10}{21}x_2, \; y_2 = \frac{10.5}{79}x_1 +
+								\frac{11}{21}x_2 $
+								<span class="fragment" data-fragment-index="2">
+									$\Ra A_{\text{new}} = \begin{pmatrix} 0.87 & 0.48 \\ 0.13 & 0.52
+									\end{pmatrix} $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
-							<p>This generates a new reduced transition model system: </p>
-							$$ y_1 = \frac{68.5}{79}x_1 + \frac{10}{21}x_2, \quad y_2 = \frac{10.5}{79}x_1 +
-							\frac{11}{21}x_2 \implies A_{\text{new}} = \begin{pmatrix} 0.87 & 0.48 \\ 0.13 & 0.52
-							\end{pmatrix} $$
-						</div>
+						<div class="cc" style="font-size: 0.95em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								The eigenvalues of Evaluating $A_{\text{new}}$ are
+								$\lambda_1 = 1, \lambda_2 = 0.39$,
+								<span class="fragment" data-fragment-index="4">
+									with the
+									dominant eigenvector:
+								</span>
 
-						<div class="fragment style-code-note" style="font-size: 0.8em; margin-top: 10px;">
-							Evaluating $A_{\text{new}}$ yields eigenvalues $\lambda_1 = 1, \lambda_2 = 0.39$, with the
-							dominant eigenvector:
-							$$ \mathbf{v}_1 \approx \begin{pmatrix} 0.97 \\ 0.26 \end{pmatrix} \implies \frac{97}{97+26}
-							\approx 79\% $$
-							<strong>New Allocation:</strong> Station <strong>79%</strong> of the fleet at Domestic and
-							<strong>21%</strong> within the CBD.
+							</p>
+							<p class="fragment" data-fragment-index="4">
+								$ \mathbf{v}_1 \approx \begin{pmatrix} 0.97 \\ 0.26 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="5">
+									$
+									\implies \frac{97}{97+26}
+									\approx 79\%
+									$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="6">
+								<strong>New Allocation:</strong> Station <strong>79%</strong> 
+								of the fleet at Domestic
+								and <strong>21%</strong> within the CBD.
+							</p>
 						</div>
 					</div>
 				</section>
