@@ -2995,10 +2995,10 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							</p>
 							<p class="fragment" data-fragment-index="1">
 								<span>
-									$ \mathbf{x}_{26,\text{ init}_1}  \approx 202\,991\mathbf{v}_4, $
+									$ \mathbf{x}_{26,\text{ init}_1} \approx 202\,991\mathbf{v}_4, $
 								</span>
 								<span class="fragment" data-fragment-index="2">
-									$\qquad 
+									$\qquad
 									\mathbf{x}_{26,\text{
 									init}_2} \approx 158\,394\mathbf{v}_4 $
 								</span>
@@ -3898,7 +3898,8 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							style="background: rgba(12, 184, 107, 0.076); padding: 8px; border-radius: 5px; font-size: 0.82em; margin-top: 10px;line-height: 2.5;">
 							<span>
 								<strong>Verification Check:</strong>
-								$ \;0\begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} - \frac{1}{3}\begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix} +
+								$ \;0\begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} - \frac{1}{3}\begin{pmatrix} -2 \\ 1 \\
+								1 \end{pmatrix} +
 								\frac{1}{3}\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $
 							</span>
 							<span class="fragment">
@@ -4764,7 +4765,7 @@ ans =
 							</p>
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 
@@ -5192,7 +5193,8 @@ ans =
 									<td style="text-align: center; font-size: 1.3em;">0.1</td>
 								</tr>
 								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 10px; text-align: left; font-weight: bold; width: 35%;">International
+									<td style="padding: 10px; text-align: left; font-weight: bold; width: 35%;">
+										International
 										Airport</td>
 									<td style="text-align: center; font-size: 1.3em;">0.2</td>
 									<td style="text-align: center; font-size: 1.3em;">0.6</td>
@@ -5238,7 +5240,8 @@ ans =
 									<td style="text-align: center; font-size: 1.3em;">0.1</td>
 								</tr>
 								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 10px; text-align: left; font-weight: bold; width: 30%;">International
+									<td style="padding: 10px; text-align: left; font-weight: bold; width: 30%;">
+										International
 										Airport</td>
 									<td style="text-align: center; font-size: 1.3em;">0.2</td>
 									<td style="text-align: center; font-size: 1.3em;">0.6</td>
@@ -5300,7 +5303,7 @@ ans =
 
 						<div style="margin-top: -15px;">
 							<p>Expressing this system as a linear matrix transformation $\mathbf{y} = A\mathbf{x}$:
-								
+
 							</p>
 							<p style="margin-top: -20px;">
 								$$ \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} = \begin{pmatrix} 0.8 & 0.2 & 0.3 \\
@@ -5327,7 +5330,7 @@ ans =
 								<span style="font-size: 1.2em;">
 									$\,\mathbf{x}_n = A^n\mathbf{x}_0$.
 								</span>
-								
+
 							</p>
 						</div>
 					</div>
@@ -5339,8 +5342,8 @@ ans =
 					<h4>Application Example: Fleet Optimization</h4>
 					<div class="size-75">
 						<p>
-							Let's find the long-term state distribution 
-							$\mathbf{x}_n = A^n\mathbf{x}_0$  with the 
+							Let's find the long-term state distribution
+							$\mathbf{x}_n = A^n\mathbf{x}_0$ with the
 							help of the computer 💻:
 						</p>
 
@@ -5668,13 +5671,6 @@ D = 1.00000          0          0
 											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
 								</tr>
 
-								<tr>
-									<td style="padding:6px; text-align:center; font-weight:bold;">P5</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-								</tr>
 							</tbody>
 						</table>
 
@@ -5682,11 +5678,13 @@ D = 1.00000          0          0
 						<div style="margin-top: 15px; font-size: 0.9em;">
 							<p style="text-align: center;" class="fragment">
 								<strong>The Ranking Paradox:</strong> P1 beat P2, P2 beat P3,
-								yet P3 beat P1.</p>
+								yet P3 beat P1.
+							</p>
 							<p style="text-align: center; margin-top: -10px;" class="fragment" id="rr">
 								How can we build a rigorous ranking system? 🤔
 							</p>
-							<p class="fragment" style="margin-top: -15px;">Let's use a standard rule: a player's score $r_i$ should be
+							<p class="fragment" style="margin-top: -15px;"><b>Let's use a standard rule:</b> a player's
+								score $r_i$ should be
 								proportional to the sum of the ranks of the opponents they defeated.</p>
 						</div>
 					</div>
@@ -5753,20 +5751,23 @@ D = 1.00000          0          0
 											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
 								</tr>
 
-								<tr>
-									<td style="padding:6px; text-align:center; font-weight:bold;">P5</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-								</tr>
+
 							</tbody>
 						</table>
 
-						<p>Translating our ranking rule into a system of equations:</p>
+						<div style="margin-top: 15px; font-size: 0.9em;">
+
+							<p>
+								<b>Rule:</b> a player's score $r_i$ should be
+								proportional to the sum of the ranks of the opponents they defeated.
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="0">Translating our ranking rule into a system of
+							equations:</p>
 
 						<div class="cc" style="font-size: 0.95em;">
-							<p>
+							<p class="fragment" data-fragment-index="0">
 
 								$
 								\begin{eqnarray*}
@@ -5863,17 +5864,10 @@ D = 1.00000          0          0
 											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
 								</tr>
 
-								<tr>
-									<td style="padding:6px; text-align:center; font-weight:bold;">P5</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-									<td style="color:#555;text-align:center;">-</td>
-								</tr>
 							</tbody>
 						</table>
 
-						<div class="cc" style="font-size: 0.6em;margin-top: -10px;">
+						<div class="cc" style="font-size: 0.6em;margin-top: 10px;">
 							<p>
 
 								$
@@ -5916,8 +5910,8 @@ D = 1.00000          0          0
 								Introducing the scaling factor $\alpha$ transforms this network relation into a standard
 								eigenvalue problem:
 							</p>
-							<div class="cc" style="margin-top: -25px;font-size: 1.2em;">
-								<p>$ A\mathbf{r} = \lambda\mathbf{r} \quad \text{where } \lambda = \frac{1}{\alpha} $
+							<div class="cc" style="margin-top: -35px;font-size: 1.2em;">
+								<p>$ A\mathbf{r} = \lambda\mathbf{r} \quad \text{where } \lambda = \dfrac{1}{\alpha} $
 								</p>
 							</div>
 						</div>
@@ -5927,25 +5921,26 @@ D = 1.00000          0          0
 
 
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
+					<h4>Application: Dominance Ranking Systems</h4>
 					<div class="size-80">
-						<h5>Application: Dominance Ranking Systems (3)</h5>
-						<p>Tournament outcome matrices where each
+						<p>
+							Tournament outcome matrices where each
 							participant secures at least one win belong to the class of <strong>primitive
 								matrices</strong>. By the Perron-Frobenius theorem, these matrices possess exactly one
-							dominant eigenvector with strictly positive components.</p>
+							dominant eigenvector with strictly positive components.
+						</p>
 
-						<div class="fragment" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
 							<p>Constructing our adjacency matrix $A$ and computing its dominant components:</p>
 
 						</div>
 						<div class="cc" style="font-size: 0.9em;">
-							<p>
+							<p class="fragment" data-fragment-index="0">
 								$ A = \left(\begin{array}{cccc|c} 0 & 1 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 & 1 \\ 1 & 0 & 0 &
 								1 &
 								0 \\ 0 & 0
 								& 0 & 0 & 1 \\ 0 & 0 & 1 & 0 & 0 \end{array}\right) $
-								<span>
+								<span class="fragment">
 									$\;\Ra \; \lambda_1 = 1.6593,\; \mathbf{v}_1 = \begin{pmatrix} 0.60572 \\ 0.54474 \\
 									0.46734 \\ 0.16972 \\ 0.28165
 									\end{pmatrix}$
@@ -5964,24 +5959,33 @@ D = 1.00000          0          0
 
 
 				<section data-auto-animate>
-					<h4>Diagonalising a Matrix</h4>
+					<h4>Application: Dominance Ranking Systems</h4>
 					<div class="size-75">
 						<h5>Why Use the Dominant Eigenvector?</h5>
 
-						<p>To understand why the dominant eigenvector yields a robust ranking, let's examine the squared
-							matrix $A^2$:</p>
+						<p class="fragment" data-fragment-index="0">
+							To understand why the dominant eigenvector yields a
+							robust ranking,
+							<span class="fragment" data-fragment-index="1">
+								let's examine the squared
+								matrix $A^2$:
+							</span>
+						</p>
 
 						<div style="font-size: 0.85em;margin-top: -30px;">
-							<p>$$ A^2 = \begin{pmatrix} 0 & 0 & 2 & 1 & 2 \\ 1 & 0 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 2 \\ 0
+							<p class="fragment" data-fragment-index="1">
+								$$ A^2 = \begin{pmatrix} 0 & 0 & 2 & 1 & 2 \\ 1 & 0 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 2 \\
+								0
 								&
 								0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 1 & 0 \end{pmatrix} $$
 						</div>
 						</p>
 
 						<div style="margin-top: 20px; font-size: 0.95em;">
-							<h5 class="fragment" data-fragment-index="0">Physical Meaning of Matrix Powers</h5>
+							<h5 class="fragment" data-fragment-index="2">Physical Meaning of Matrix Powers</h5>
 							<ul>
-								<li class="fragment" data-fragment-index="0">$A^2$ tracks indirect dominance: it counts
+								<li class="fragment" data-fragment-index="2">
+									$A^2$ <em>tracks indirect dominance:</em> it counts
 									how many times opponents beaten by Player
 									$i$ went on to defeat other competitors.</li>
 								<li class="fragment" style="margin-top: 5px;">Higher powers $A^n$ trace these direct and
