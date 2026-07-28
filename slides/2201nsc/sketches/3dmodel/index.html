@@ -158,7 +158,7 @@
         </label>
         <label style="margin-top:10px;">
             <input type="checkbox" id="rotateCheck" checked>
-            Rotate Object
+            Auto Rotate Knot
         </label>
 
         <button id="infoBtn">How is this 3D object rendered?</button>
@@ -353,10 +353,6 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        rotateCheck.addEventListener("change", () => {
-            controls.enabled = rotateCheck.checked;
         });
 
         renderer.setAnimationLoop(() => {
