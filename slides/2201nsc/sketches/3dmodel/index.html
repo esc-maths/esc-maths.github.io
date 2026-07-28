@@ -21,8 +21,8 @@
             background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             border-radius: 10px;
-            width: 280px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             z-index: 10;
         }
 
@@ -60,13 +60,73 @@
         button:hover {
             background-color: #004b99;
         }
-        
+
         .hint {
             font-size: 0.85em;
             color: #666;
             margin-top: 8px;
             font-weight: normal;
             font-style: italic;
+        }
+
+        /* ---------- Info Button ---------- */
+
+        #infoBtn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: #444;
+        }
+
+        #infoBtn:hover {
+            background: #222;
+        }
+
+        /* ---------- Modal ---------- */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .6);
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 650px;
+            margin: 6% auto;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+            line-height: 1.6;
+            color: #333;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+
+        .modal-content ul {
+            padding-left: 22px;
+        }
+
+        .close {
+            position: absolute;
+            right: 18px;
+            top: 12px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close:hover {
+            color: #000;
         }
     </style>
 
@@ -88,7 +148,7 @@
 
         <label>
             Geometry Resolution Slider
-            <input id="slider" type="range" min="3" max="150" value="60">
+            <input id="slider" type="range" min="9" max="500" value="60">
         </label>
         <label>
             Total Vertices: <span id="vertexCount" class="count-display">0</span>
@@ -96,7 +156,70 @@
         <label>
             Total Triangles: <span id="faceCount" class="count-display">0</span>
         </label>
+        <label style="margin-top:10px;">
+            <input type="checkbox" id="rotateCheck" checked>
+            Rotate Object
+        </label>
+
+        <button id="infoBtn">How is this 3D object rendered?</button>
         <div class="hint">Toggle transparent mode to see how the geometric triangles fit together internally!</div>
+
+    </div>
+
+    <div id="infoModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+
+            <h2>How does this 3D rendering work?</h2>
+
+            <p>
+                Although this torus knot (in high resolution)
+                looks like one smooth object,
+                it is actually built from thousands of tiny triangles.
+                Modern graphics cards render almost every 3D model using
+                this same idea.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Vertices</strong> are points in 3D space.
+                    Every triangle is defined by three vertices.
+                </li>
+
+                <li>
+                    <strong>Triangles</strong> are the basic building blocks
+                    of computer graphics. Complex surfaces are approximated
+                    by many small triangles.
+                </li>
+
+                <li>
+                    <strong>Geometry</strong> stores all of the vertices,
+                    triangles, normals and other information that describes
+                    the object's shape.
+                </li>
+
+                <li>
+                    <strong>Material</strong> determines how light interacts
+                    with the surface (colour, shininess, transparency, etc.).
+                </li>
+
+                <li>
+                    <strong>Mesh</strong> combines a geometry with a material.
+                    It is the object that Three.js sends to the GPU to render.
+                </li>
+            </ul>
+
+            <p>
+                Use the <strong>Geometry Resolution Slider</strong> to increase
+                or decrease the number of triangles. Switching to
+                <strong>Transparent Mesh</strong> lets you see the triangle
+                structure hidden beneath the smooth surface.
+            </p>
+
+        </div>
+
     </div>
 
     <script type="module">
@@ -141,7 +264,7 @@
             color: 0x00b4d8,
             roughness: 0.3,
             metalness: 0.2,
-            flatShading: true, 
+            flatShading: true,
             side: THREE.DoubleSide,
             transparent: true,
             opacity: 1.0 // Fully solid by default
@@ -159,12 +282,32 @@
         const vertexCountLabel = document.getElementById("vertexCount");
         const faceCountLabel = document.getElementById("faceCount");
 
+        const infoBtn = document.getElementById("infoBtn");
+        const modal = document.getElementById("infoModal");
+        const closeBtn = document.querySelector(".close");
+
+        const rotateCheck = document.getElementById("rotateCheck");
+
+        infoBtn.onclick = () => {
+            modal.style.display = "block";
+        };
+
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
+        };
+
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+
         // --- 5. Dynamic Geometry Generation Function ---
         function rebuildKnot(resolution) {
             knotMesh.geometry.dispose();
 
             const tubularSegments = resolution;
-            const radialSegments = Math.max(3, Math.floor(resolution / 4)); 
+            const radialSegments = Math.max(3, Math.floor(resolution / 4));
 
             const newGeometry = new THREE.TorusKnotGeometry(3, 0.8, tubularSegments, radialSegments);
             knotMesh.geometry = newGeometry;
@@ -189,9 +332,9 @@
                 // Drop material opacity down and display structural lines
                 solidMaterial.opacity = 0.4;
                 solidMaterial.wireframe = true;
-                
+
                 toggleBtn.textContent = "Switch to Solid Shape";
-                toggleBtn.style.backgroundColor = "#2a9d8f"; 
+                toggleBtn.style.backgroundColor = "#2a9d8f";
             } else {
                 // Return to opaque, solid shading
                 solidMaterial.opacity = 1.0;
@@ -212,11 +355,17 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
+        rotateCheck.addEventListener("change", () => {
+            controls.enabled = rotateCheck.checked;
+        });
+
         renderer.setAnimationLoop(() => {
             controls.update();
-            
-            knotMesh.rotation.y += 0.0015;
-            knotMesh.rotation.x += 0.0015;
+
+            if (rotateCheck.checked) {
+                knotMesh.rotation.y += 0.0015;
+                knotMesh.rotation.x += 0.0015;
+            }
 
             renderer.render(scene, camera);
         });
