@@ -45,512 +45,804 @@
 		<div class="slides">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
-			
+
 			<section>
 
-    <!-- Slide 1 (PDF p.2): Outline -->
-    <section data-auto-animate>
-        <h4>Outline of Inner Product Section</h4>
-        <div class="size-85">
-            <ul>
-                <li class="fragment" data-fragment-index="0">Inner product and norm on $\mathbb{R}^n$</li>
-                <li class="fragment" data-fragment-index="1">Inner product on general function spaces (examples)</li>
-                <li class="fragment" data-fragment-index="2">Orthogonal and orthonormal basis sets</li>
-                <li class="fragment" data-fragment-index="3">Orthogonal matrices and their properties</li>
-                <li class="fragment" data-fragment-index="4">Symmetric matrices and their properties</li>
-                <li class="fragment" data-fragment-index="5">Positive-Definite Matrices and Quadratic Forms</li>
-            </ul>
-        </div>
-        <br />
-    </section>
+				<!-- Slide 1 (PDF p.2): Outline -->
+				<section data-auto-animate>
+					<h4>Summary of Inner Product Section</h4>
+					<div class="size-85">
+						<ul>
+							<li class="fragment" data-fragment-index="0">Inner product and norm on $\mathbb{R}^n$</li>
+							<li class="fragment" data-fragment-index="1">Inner product on general function spaces
+								(examples)</li>
+							<li class="fragment" data-fragment-index="2">Orthogonal and orthonormal basis sets</li>
+							<li class="fragment" data-fragment-index="3">Orthogonal matrices and their properties</li>
+							<li class="fragment" data-fragment-index="4">Symmetric matrices and their properties</li>
+							<li class="fragment" data-fragment-index="5">Positive-Definite Matrices and Quadratic Forms
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 2 (PDF p.3): Motivation - Dot Product -->
-    <section data-auto-animate>
-        <h4>Motivation: Dot Product</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>Definition:</b> The dot product of two vectors $\mathbf{x} = \begin{pmatrix}x_1 \\ x_2 \\ x_3\end{pmatrix}, \mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ y_3\end{pmatrix} \in \mathbb{R}^3$ is a scalar given by:</p>
-                $$ \mathbf{x} \cdot \mathbf{y} = \mathbf{x}^T \mathbf{y} = x_1 y_1 + x_2 y_2 + x_3 y_3 $$
-            </div>
+				<!-- Slide 2 (PDF p.3): Motivation - Dot Product -->
+				<section data-auto-animate>
+					<h4>Motivation: Dot Product</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Definition:</b> The dot product of two vectors $\mathbf{x} = \begin{pmatrix}x_1 \\ x_2
+								\\ x_3\end{pmatrix}, \mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ y_3\end{pmatrix} \in
+								\mathbb{R}^3$ is a scalar given by:</p>
+							$$ \mathbf{x} \cdot \mathbf{y} = \mathbf{x}^T \mathbf{y} = x_1 y_1 + x_2 y_2 + x_3 y_3 $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-                <p><b>Alternative Definition:</b> $\mathbf{x} \cdot \mathbf{y} = \|\mathbf{x}\| \|\mathbf{y}\| \cos \theta$, where $\theta$ is the angle between $\mathbf{x}$ and $\mathbf{y}$.</p>
-            </div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>Alternative Definition:</b> $\mathbf{x} \cdot \mathbf{y} = \|\mathbf{x}\|
+								\|\mathbf{y}\| \cos \theta$, where $\theta$ is the angle between $\mathbf{x}$ and
+								$\mathbf{y}$.</p>
+						</div>
 
-            <div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-                <p>For a vector $\mathbf{v}$:</p>
-                $$ \mathbf{v} \cdot \mathbf{v} = \|\mathbf{v}\| \|\mathbf{v}\| \cos(0) = \|\mathbf{v}\|^2 \implies \|\mathbf{v}\| = \sqrt{\mathbf{v} \cdot \mathbf{v}} = \sqrt{v_1^2 + v_2^2 + v_3^2} $$
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p>For a vector $\mathbf{v}$:</p>
+							$$ \mathbf{v} \cdot \mathbf{v} = \|\mathbf{v}\| \|\mathbf{v}\| \cos(0) = \|\mathbf{v}\|^2
+							\implies \|\mathbf{v}\| = \sqrt{\mathbf{v} \cdot \mathbf{v}} = \sqrt{v_1^2 + v_2^2 + v_3^2}
+							$$
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 3 (PDF p.4): Dot Product Example -->
-    <section data-auto-animate>
-        <h4>Dot Product Example</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p>If $\mathbf{x} = \begin{pmatrix} 3 \\ -2 \\ 1 \end{pmatrix}$ and $\mathbf{y} = \begin{pmatrix} 4 \\ 3 \\ 2 \end{pmatrix}$:</p>
-                $$ \mathbf{x}^T \mathbf{y} = 3(4) + (-2)(3) + 1(2) = 8 $$
-            </div>
+				<!-- Slide 3 (PDF p.4): Dot Product Example -->
+				<section data-auto-animate>
+					<h4>Dot Product Example</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>If $\mathbf{x} = \begin{pmatrix} 3 \\ -2 \\ 1 \end{pmatrix}$ and $\mathbf{y} =
+								\begin{pmatrix} 4 \\ 3 \\ 2 \end{pmatrix}$:</p>
+							$$ \mathbf{x}^T \mathbf{y} = 3(4) + (-2)(3) + 1(2) = 8 $$
+						</div>
 
-            <div class="cc" style="margin-top: 10px; font-size: 0.9em;">
-                <p class="fragment" data-fragment-index="1">
-                    $\|\mathbf{x}\| = \sqrt{3^2 + (-2)^2 + 1^2} = \sqrt{14}, \qquad \|\mathbf{y}\| = \sqrt{4^2 + 3^2 + 2^2} = \sqrt{29}$
-                </p>
-                <p class="fragment" data-fragment-index="2">
-                    $\cos \theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|} = \frac{8}{\sqrt{14}\sqrt{29}} \implies \theta \approx 66.6^\circ$
-                </p>
-            </div>
+						<div class="cc" style="margin-top: 10px; font-size: 0.9em;">
+							<p class="fragment" data-fragment-index="1">
+								$\|\mathbf{x}\| = \sqrt{3^2 + (-2)^2 + 1^2} = \sqrt{14}, \qquad \|\mathbf{y}\| =
+								\sqrt{4^2 + 3^2 + 2^2} = \sqrt{29}$
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								$\cos \theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|} =
+								\frac{8}{\sqrt{14}\sqrt{29}} \implies \theta \approx 66.6^\circ$
+							</p>
+						</div>
 
-            <p class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 0.85em;">
-                <b>Note:</b> $\mathbf{x}$ and $\mathbf{y}$ are perpendicular (orthogonal) $\iff \mathbf{x} \cdot \mathbf{y} = 0$.
-            </p>
-        </div>
-        <br />
-    </section>
+						<p class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 0.85em;">
+							<b>Note:</b> $\mathbf{x}$ and $\mathbf{y}$ are perpendicular (orthogonal) $\iff \mathbf{x}
+							\cdot \mathbf{y} = 0$.
+						</p>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 4 (PDF p.5): Matlab Commands -->
-    <section data-auto-animate>
-        <h4>Matlab Commands</h4>
-        <div class="size-85">
-            <ul>
-                <li class="fragment" data-fragment-index="0"><b>Dot product of vectors u, v:</b> <code>dot(u,v)</code></li>
-                <li class="fragment" data-fragment-index="1"><b>Norm of a vector v:</b> <code>norm(v)</code></li>
-                <li class="fragment" data-fragment-index="2"><b>To normalise a vector v:</b> <code>w = v / norm(v)</code></li>
-                <li class="fragment" data-fragment-index="3"><b>To find the angle between u and v:</b><br /><code>theta = acos(dot(u,v) / (norm(u)*norm(v)))</code></li>
-            </ul>
+				<!-- Slide 4 (PDF p.5): Matlab Commands -->
+				<section data-auto-animate>
+					<h4>Matlab Commands</h4>
+					<div class="size-85">
+						<ul>
+							<li class="fragment" data-fragment-index="0"><b>Dot product of vectors u, v:</b>
+								<code>dot(u,v)</code></li>
+							<li class="fragment" data-fragment-index="1"><b>Norm of a vector v:</b> <code>norm(v)</code>
+							</li>
+							<li class="fragment" data-fragment-index="2"><b>To normalise a vector v:</b>
+								<code>w = v / norm(v)</code></li>
+							<li class="fragment" data-fragment-index="3"><b>To find the angle between u and
+									v:</b><br /><code>theta = acos(dot(u,v) / (norm(u)*norm(v)))</code></li>
+						</ul>
 
-            <div class="fragment" data-fragment-index="4" style="margin-top: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
-                <p style="font-size: 0.85em;"><b>NOTE!</b> The Matlab command <code>length(v)</code> finds the number of entries in a 1D vector and is quite different from <code>norm(v)</code>.</p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="4"
+							style="margin-top: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
+							<p style="font-size: 0.85em;"><b>NOTE!</b> The Matlab command <code>length(v)</code> finds
+								the number of entries in a 1D vector and is quite different from <code>norm(v)</code>.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 5 (PDF p.6): Definition of an Inner Product -->
-    <section data-auto-animate>
-        <h4>Definition of an Inner Product</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>Definition:</b> An <i>inner product</i> assigns to each pair $\mathbf{x}, \mathbf{y} \in V$ a scalar $\langle \mathbf{x}, \mathbf{y} \rangle \in \mathbb{R}$ satisfying:</p>
-            </div>
+				<!-- Slide 5 (PDF p.6): Definition of an Inner Product -->
+				<section data-auto-animate>
+					<h4>Definition of an Inner Product</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Definition:</b> An <i>inner product</i> assigns to each pair $\mathbf{x}, \mathbf{y}
+								\in V$ a scalar $\langle \mathbf{x}, \mathbf{y} \rangle \in \mathbb{R}$ satisfying:</p>
+						</div>
 
-            <div class="cc" style="margin-top: 10px;">
-                <p class="fragment" data-fragment-index="1">
-                    <b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge 0 \quad\text{with}\quad \langle \mathbf{x}, \mathbf{x} \rangle = 0 \iff \mathbf{x} = \mathbf{0}$
-                </p>
-                <p class="fragment" data-fragment-index="2">
-                    <b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{y}, \mathbf{x} \rangle \quad \forall \; \mathbf{x}, \mathbf{y} \in V$
-                </p>
-                <p class="fragment" data-fragment-index="3">
-                    <b>3. Linearity:</b> $\langle \alpha \mathbf{x} + \beta \mathbf{y}, \mathbf{z} \rangle = \alpha \langle \mathbf{x}, \mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z} \rangle \quad \forall \; \alpha, \beta \in \mathbb{R}$
-                </p>
-            </div>
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								<b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge 0
+								\quad\text{with}\quad \langle \mathbf{x}, \mathbf{x} \rangle = 0 \iff \mathbf{x} =
+								\mathbf{0}$
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								<b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{y},
+								\mathbf{x} \rangle \quad \forall \; \mathbf{x}, \mathbf{y} \in V$
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								<b>3. Linearity:</b> $\langle \alpha \mathbf{x} + \beta \mathbf{y}, \mathbf{z} \rangle =
+								\alpha \langle \mathbf{x}, \mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z}
+								\rangle \quad \forall \; \alpha, \beta \in \mathbb{R}$
+							</p>
+						</div>
 
-            <div class="fragment" data-fragment-index="4" style="margin-top: 15px;">
-                <ul>
-                    <li class="fragment" data-fragment-index="5"><b>Norm:</b> $\|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$</li>
-                    <li class="fragment" data-fragment-index="6"><b>Unit Vector:</b> $\hat{\mathbf{x}} = \frac{\mathbf{x}}{\|\mathbf{x}\|}$</li>
-                    <li class="fragment" data-fragment-index="7"><b>Orthogonality:</b> $\mathbf{x} \perp \mathbf{y} \iff \langle \mathbf{x}, \mathbf{y} \rangle = 0$</li>
-                </ul>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="4" style="margin-top: 15px;">
+							<ul>
+								<li class="fragment" data-fragment-index="5"><b>Norm:</b> $\|\mathbf{x}\| =
+									\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$</li>
+								<li class="fragment" data-fragment-index="6"><b>Unit Vector:</b> $\hat{\mathbf{x}} =
+									\frac{\mathbf{x}}{\|\mathbf{x}\|}$</li>
+								<li class="fragment" data-fragment-index="7"><b>Orthogonality:</b> $\mathbf{x} \perp
+									\mathbf{y} \iff \langle \mathbf{x}, \mathbf{y} \rangle = 0$</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 6 (PDF p.7): Why this definition? -->
-    <section data-auto-animate>
-        <h4>Why this Definition for an Inner Product?</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>1. Positivity:</b> Allows taking the square root of $\langle \mathbf{x}, \mathbf{x} \rangle$ to measure "size" (norm). Ensures $\|\mathbf{x}\| = 0 \iff \mathbf{x} = \mathbf{0}$.</p>
-            </div>
-            <div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-                <p><b>2. Symmetry:</b> Order in which vectors occur in $\langle \mathbf{x}, \mathbf{y} \rangle$ does not matter.</p>
-            </div>
-            <div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-                <p><b>3. Linearity:</b> Essential algebraic property of the dot product needed for algebraic manipulations and proofs.</p>
-            </div>
-        </div>
-        <br />
-    </section>
+				<!-- Slide 6 (PDF p.7): Why this definition? -->
+				<section data-auto-animate>
+					<h4>Why this Definition for an Inner Product?</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>1. Positivity:</b> Allows taking the square root of $\langle \mathbf{x}, \mathbf{x}
+								\rangle$ to measure "size" (norm). Ensures $\|\mathbf{x}\| = 0 \iff \mathbf{x} =
+								\mathbf{0}$.</p>
+						</div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>2. Symmetry:</b> Order in which vectors occur in $\langle \mathbf{x}, \mathbf{y}
+								\rangle$ does not matter.</p>
+						</div>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p><b>3. Linearity:</b> Essential algebraic property of the dot product needed for algebraic
+								manipulations and proofs.</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 7 (PDF p.8): Dot product is an inner product -->
-    <section data-auto-animate>
-        <h4>The Dot Product is an Inner Product</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p>For vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$, the standard inner product is:</p>
-                $$ \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y} = \sum_{i=1}^n x_i y_i = x_1 y_1 + x_2 y_2 + \dots + x_n y_n $$
-            </div>
+				<!-- Slide 7 (PDF p.8): Dot product is an inner product -->
+				<section data-auto-animate>
+					<h4>The Dot Product is an Inner Product</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>For vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$, the standard inner product is:</p>
+							$$ \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y} = \sum_{i=1}^n x_i y_i =
+							x_1 y_1 + x_2 y_2 + \dots + x_n y_n $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-                <p><b>Euclidean Norm:</b></p>
-                $$ \|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} = \sqrt{x_1^2 + x_2^2 + \dots + x_n^2} $$
-            </div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Euclidean Norm:</b></p>
+							$$ \|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} = \sqrt{x_1^2 + x_2^2 +
+							\dots + x_n^2} $$
+						</div>
 
-            <div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-                <p><b>Orthogonality:</b> $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ are orthogonal $\iff \langle \mathbf{x}, \mathbf{y} \rangle = 0$.</p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p><b>Orthogonality:</b> $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ are orthogonal $\iff
+								\langle \mathbf{x}, \mathbf{y} \rangle = 0$.</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 8 (PDF p.9): Examples of Standard Inner Product -->
-    <section data-auto-animate>
-        <h4>Standard Inner Product Examples</h4>
-        <div class="size-85">
-            <ul>
-                <li class="fragment" data-fragment-index="0">The vector $\mathbf{0}$ is orthogonal to every vector in $\mathbb{R}^n$.</li>
-                <li class="fragment" data-fragment-index="1">$\begin{pmatrix}3 \\ 2\end{pmatrix} \perp \begin{pmatrix}-4 \\ 6\end{pmatrix}$ in $\mathbb{R}^2$ since $3(-4) + 2(6) = 0$.</li>
-                <li class="fragment" data-fragment-index="2">$\begin{pmatrix}2 \\ -3 \\ 1\end{pmatrix} \perp \begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}$ in $\mathbb{R}^3$ since $2(1) - 3(1) + 1(1) = 0$.</li>
-                <li class="fragment" data-fragment-index="3">If $\mathbf{x} = \begin{pmatrix}3 \\ 4\end{pmatrix}$, then $\|\mathbf{x}\| = \sqrt{3^2 + 4^2} = 5$, and $\hat{\mathbf{x}} = \begin{pmatrix}3/5 \\ 4/5\end{pmatrix}$.</li>
-            </ul>
-        </div>
-        <br />
-    </section>
+				<!-- Slide 8 (PDF p.9): Examples of Standard Inner Product -->
+				<section data-auto-animate>
+					<h4>Standard Inner Product Examples</h4>
+					<div class="size-85">
+						<ul>
+							<li class="fragment" data-fragment-index="0">The vector $\mathbf{0}$ is orthogonal to every
+								vector in $\mathbb{R}^n$.</li>
+							<li class="fragment" data-fragment-index="1">$\begin{pmatrix}3 \\ 2\end{pmatrix} \perp
+								\begin{pmatrix}-4 \\ 6\end{pmatrix}$ in $\mathbb{R}^2$ since $3(-4) + 2(6) = 0$.</li>
+							<li class="fragment" data-fragment-index="2">$\begin{pmatrix}2 \\ -3 \\ 1\end{pmatrix} \perp
+								\begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}$ in $\mathbb{R}^3$ since $2(1) - 3(1) + 1(1) =
+								0$.</li>
+							<li class="fragment" data-fragment-index="3">If $\mathbf{x} = \begin{pmatrix}3 \\
+								4\end{pmatrix}$, then $\|\mathbf{x}\| = \sqrt{3^2 + 4^2} = 5$, and $\hat{\mathbf{x}} =
+								\begin{pmatrix}3/5 \\ 4/5\end{pmatrix}$.</li>
+						</ul>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 9 (PDF p.10): Proof for Standard Inner Product -->
-    <section data-auto-animate>
-        <h4>Verification: Standard Inner Product on $\mathbb{R}^n$</h4>
-        <div class="size-85" style="font-size: 0.85em;">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle = \sum x_i^2 \ge 0$. Sum of squares is 0 iff each $x_i = 0 \iff \mathbf{x} = \mathbf{0}$.</p>
-            </div>
-            <div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-                <p><b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \sum x_i y_i = \sum y_i x_i = \langle \mathbf{y}, \mathbf{x} \rangle$.</p>
-            </div>
-            <div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-                <p><b>3. Linearity:</b></p>
-                $$ \langle \alpha \mathbf{x} + \beta \mathbf{y}, \mathbf{z} \rangle = \sum (\alpha x_i + \beta y_i)z_i = \alpha \sum x_i z_i + \beta \sum y_i z_i = \alpha \langle \mathbf{x}, \mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z} \rangle $$
-            </div>
-        </div>
-        <br />
-    </section>
+				<!-- Slide 9 (PDF p.10): Proof for Standard Inner Product -->
+				<section data-auto-animate>
+					<h4>Verification: Standard Inner Product on $\mathbb{R}^n$</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle = \sum x_i^2 \ge 0$. Sum of
+								squares is 0 iff each $x_i = 0 \iff \mathbf{x} = \mathbf{0}$.</p>
+						</div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \sum x_i y_i = \sum y_i x_i
+								= \langle \mathbf{y}, \mathbf{x} \rangle$.</p>
+						</div>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p><b>3. Linearity:</b></p>
+							$$ \langle \alpha \mathbf{x} + \beta \mathbf{y}, \mathbf{z} \rangle = \sum (\alpha x_i +
+							\beta y_i)z_i = \alpha \sum x_i z_i + \beta \sum y_i z_i = \alpha \langle \mathbf{x},
+							\mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z} \rangle $$
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 10 (PDF p.11): Other Inner Products on R^n -->
-    <section data-auto-animate>
-        <h4>Weighted Inner Products on $\mathbb{R}^n$</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p>With weights $w_i > 0$: $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^n w_i x_i y_i$</p>
-            </div>
+				<!-- Slide 10 (PDF p.11): Other Inner Products on R^n -->
+				<section data-auto-animate>
+					<h4>Weighted Inner Products on $\mathbb{R}^n$</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>With weights $w_i > 0$: $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^n w_i x_i
+								y_i$</p>
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-                <p><b>Example in $\mathbb{R}^2$:</b> Define $\langle \mathbf{x}, \mathbf{y} \rangle = 2x_1 y_1 + x_2 y_2$.</p>
-            </div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>Example in $\mathbb{R}^2$:</b> Define $\langle \mathbf{x}, \mathbf{y} \rangle = 2x_1
+								y_1 + x_2 y_2$.</p>
+						</div>
 
-            <div class="cc" style="font-size: 0.85em; margin-top: 10px;">
-                <p class="fragment" data-fragment-index="2">
-                    $\begin{pmatrix}3 \\ 2\end{pmatrix}$ and $\begin{pmatrix}-4 \\ 6\end{pmatrix}$ are <b>not</b> orthogonal: $2(3)(-4) + 1(2)(6) = -12 \ne 0$.
-                </p>
-                <p class="fragment" data-fragment-index="3">
-                    For $\mathbf{x} = \begin{pmatrix}2 \\ 1\end{pmatrix} \implies \|\mathbf{x}\| = \sqrt{2(2^2) + 1(1^2)} = 3$.
-                </p>
-                <p class="fragment" data-fragment-index="4">
-                    For $\mathbf{y} = \begin{pmatrix}1 \\ 2\end{pmatrix} \implies \|\mathbf{y}\| = \sqrt{2(1^2) + 1(2^2)} = \sqrt{6} \ne \|\mathbf{x}\|$.
-                </p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="cc" style="font-size: 0.85em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="2">
+								$\begin{pmatrix}3 \\ 2\end{pmatrix}$ and $\begin{pmatrix}-4 \\ 6\end{pmatrix}$ are
+								<b>not</b> orthogonal: $2(3)(-4) + 1(2)(6) = -12 \ne 0$.
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								For $\mathbf{x} = \begin{pmatrix}2 \\ 1\end{pmatrix} \implies \|\mathbf{x}\| =
+								\sqrt{2(2^2) + 1(1^2)} = 3$.
+							</p>
+							<p class="fragment" data-fragment-index="4">
+								For $\mathbf{y} = \begin{pmatrix}1 \\ 2\end{pmatrix} \implies \|\mathbf{y}\| =
+								\sqrt{2(1^2) + 1(2^2)} = \sqrt{6} \ne \|\mathbf{x}\|$.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 11 (PDF p.12): Inner Product on C[a,b] -->
-    <section data-auto-animate>
-        <h4>Inner Product on Function Spaces $C[a,b]$</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p>On continuous functions $C[a,b]$, the standard inner product is:</p>
-                $$ \langle f, g \rangle = \int_a^b f(x)g(x) \, dx $$
-            </div>
+				<!-- Slide 11 (PDF p.12): Inner Product on C[a,b] -->
+				<section data-auto-animate>
+					<h4>Inner Product on Function Spaces $C[a,b]$</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>On continuous functions $C[a,b]$, the standard inner product is:</p>
+							$$ \langle f, g \rangle = \int_a^b f(x)g(x) \, dx $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-                <p><b>Example on $C[0,1]$:</b> Calculate $\langle x, \sin(\pi x) \rangle$:</p>
-            </div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>Example on $C[0,1]$:</b> Calculate $\langle x, \sin(\pi x) \rangle$:</p>
+						</div>
 
-            <div class="cc" style="font-size: 0.85em;">
-                <p class="fragment" data-fragment-index="2">
-                    $\langle x, \sin(\pi x) \rangle = \int_0^1 x \sin(\pi x) \, dx = \left[ \frac{-x \cos(\pi x)}{\pi} \right]_0^1 + \int_0^1 \frac{\cos(\pi x)}{\pi} \, dx$
-                </p>
-                <p class="fragment" data-fragment-index="3">
-                    $= \frac{1}{\pi} + \left[ \frac{\sin(\pi x)}{\pi^2} \right]_0^1 = \frac{1}{\pi}$
-                </p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="cc" style="font-size: 0.85em;">
+							<p class="fragment" data-fragment-index="2">
+								$\langle x, \sin(\pi x) \rangle = \int_0^1 x \sin(\pi x) \, dx = \left[ \frac{-x
+								\cos(\pi x)}{\pi} \right]_0^1 + \int_0^1 \frac{\cos(\pi x)}{\pi} \, dx$
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$= \frac{1}{\pi} + \left[ \frac{\sin(\pi x)}{\pi^2} \right]_0^1 = \frac{1}{\pi}$
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 12 (PDF p.13): Pythagorean Theorem -->
-    <section data-auto-animate>
-        <h4>Pythagorean Theorem</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>Theorem:</b> If $\mathbf{v}$ and $\mathbf{w}$ are orthogonal ($\langle \mathbf{v}, \mathbf{w} \rangle = 0$), then</p>
-                $$ \|\mathbf{v} + \mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 $$
-            </div>
+				<!-- Slide 12 (PDF p.13): Pythagorean Theorem -->
+				<section data-auto-animate>
+					<h4>Pythagorean Theorem</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Theorem:</b> If $\mathbf{v}$ and $\mathbf{w}$ are orthogonal ($\langle \mathbf{v},
+								\mathbf{w} \rangle = 0$), then</p>
+							$$ \|\mathbf{v} + \mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 10px; font-size: 0.85em;">
-                <p><b>Proof:</b></p>
-                $$ \begin{aligned}
-                \|\mathbf{v} + \mathbf{w}\|^2 &= \langle \mathbf{v} + \mathbf{w}, \mathbf{v} + \mathbf{w} \rangle \\
-                &= \langle \mathbf{v}, \mathbf{v} \rangle + 2\langle \mathbf{v}, \mathbf{w} \rangle + \langle \mathbf{w}, \mathbf{w} \rangle \\
-                &= \|\mathbf{v}\|^2 + 2(0) + \|\mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 \quad \blacksquare
-                \end{aligned} $$
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px; font-size: 0.85em;">
+							<p><b>Proof:</b></p>
+							$$ \begin{aligned}
+							\|\mathbf{v} + \mathbf{w}\|^2 &= \langle \mathbf{v} + \mathbf{w}, \mathbf{v} + \mathbf{w}
+							\rangle \\
+							&= \langle \mathbf{v}, \mathbf{v} \rangle + 2\langle \mathbf{v}, \mathbf{w} \rangle +
+							\langle \mathbf{w}, \mathbf{w} \rangle \\
+							&= \|\mathbf{v}\|^2 + 2(0) + \|\mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 \quad
+							\blacksquare
+							\end{aligned} $$
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 13 (PDF p.14): How 'close' are two vectors -->
-    <section data-auto-animate>
-        <h4>How "Close" Are Two Arbitrary Vectors?</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p>In $\mathbb{R}^2$ or $\mathbb{R}^3$, angle $\theta$ measures alignment:</p>
-                $$ \cos \theta = \frac{\mathbf{x}^T \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|}, \quad 0 \le \theta \le \pi $$
-            </div>
+				<!-- Slide 13 (PDF p.14): How 'close' are two vectors -->
+				<section data-auto-animate>
+					<h4>How "Close" Are Two Arbitrary Vectors?</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>In $\mathbb{R}^2$ or $\mathbb{R}^3$, angle $\theta$ measures alignment:</p>
+							$$ \cos \theta = \frac{\mathbf{x}^T \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|}, \quad 0 \le
+							\theta \le \pi $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-                <ul>
-                    <li>Smaller angle $\implies$ closer directional match.</li>
-                    <li>Dot product close to $\|\mathbf{x}\| \|\mathbf{y}\| \implies$ aligned.</li>
-                    <li>Dot product close to $-\|\mathbf{x}\| \|\mathbf{y}\| \implies$ opposite directions ($\theta = 180^\circ$).</li>
-                </ul>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<ul>
+								<li>Smaller angle $\implies$ closer directional match.</li>
+								<li>Dot product close to $\|\mathbf{x}\| \|\mathbf{y}\| \implies$ aligned.</li>
+								<li>Dot product close to $-\|\mathbf{x}\| \|\mathbf{y}\| \implies$ opposite directions
+									($\theta = 180^\circ$).</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 14 (PDF p.15): Cauchy-Schwarz Inequality & Angle -->
-    <section data-auto-animate>
-        <h4>Cauchy-Schwarz Inequality &amp; Angle</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>Cauchy-Schwarz Inequality:</b> For arbitrary vectors $\mathbf{x}, \mathbf{y}$,</p>
-                $$ |\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\| $$
-            </div>
+				<!-- Slide 14 (PDF p.15): Cauchy-Schwarz Inequality & Angle -->
+				<section data-auto-animate>
+					<h4>Cauchy-Schwarz Inequality &amp; Angle</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Cauchy-Schwarz Inequality:</b> For arbitrary vectors $\mathbf{x}, \mathbf{y}$,</p>
+							$$ |\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\| $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-                <p>Rewritten as: $-1 \le \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\| \|\mathbf{y}\|} \le 1$</p>
-            </div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p>Rewritten as: $-1 \le \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|
+								\|\mathbf{y}\|} \le 1$</p>
+						</div>
 
-            <div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-                <p><b>Angle Definition:</b> Defines unique angle $\theta \in [0, \pi]$ via:</p>
-                $$ \cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\| \|\mathbf{y}\|} $$
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p><b>Angle Definition:</b> Defines unique angle $\theta \in [0, \pi]$ via:</p>
+							$$ \cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|
+							\|\mathbf{y}\|} $$
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 15 (PDF p.16): Class Examples -->
-    <section data-auto-animate>
-        <h4>Class Examples</h4>
-        <div class="size-85" style="font-size: 0.85em;">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>Example 1:</b> $\mathbf{x} = (2,2,-1)^T, \mathbf{y} = (5,-3,2)^T \in \mathbb{R}^3$ with $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y}$.</p>
-                <ul>
-                    <li>Show $|\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\|$.</li>
-                    <li>Find the angle $\theta$ between them.</li>
-                </ul>
-            </div>
+				<!-- Slide 15 (PDF p.16): Class Examples -->
+				<section data-auto-animate>
+					<h4>Class Examples</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Example 1:</b> $\mathbf{x} = (2,2,-1)^T, \mathbf{y} = (5,-3,2)^T \in \mathbb{R}^3$
+								with $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y}$.</p>
+							<ul>
+								<li>Show $|\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\|$.
+								</li>
+								<li>Find the angle $\theta$ between them.</li>
+							</ul>
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-                <p><b>Example 2:</b> On $C[0,1]$ with $\langle f,g \rangle = \int_0^1 f(x)g(x) \, dx$:</p>
-                <ul>
-                    <li>Calculate $\langle e^x, e^{-x} \rangle$.</li>
-                    <li>Prove that $\langle f,g \rangle$ satisfies the inner product axioms.</li>
-                </ul>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Example 2:</b> On $C[0,1]$ with $\langle f,g \rangle = \int_0^1 f(x)g(x) \, dx$:</p>
+							<ul>
+								<li>Calculate $\langle e^x, e^{-x} \rangle$.</li>
+								<li>Prove that $\langle f,g \rangle$ satisfies the inner product axioms.</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 16 (PDF p.17): Application - Information Retrieval (1) -->
-    <section data-auto-animate>
-        <h4>Application: Information Retrieval (Part 1)</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>Cosine Similarity Search:</b> Instead of exact word matching, find database vectors that <i>best match</i> a query vector using the cosine of the angle between them.</p>
-            </div>
+				<!-- Slide 16 (PDF p.17): Application - Information Retrieval (1) -->
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval (Part 1)</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Cosine Similarity Search:</b> Instead of exact word matching, find database vectors
+								that <i>best match</i> a query vector using the cosine of the angle between them.</p>
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-                <p><b>Scenario:</b> A website has 8 modules ($M_1 \dots M_8$) for learning linear algebra, evaluated across key search terms.</p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Scenario:</b> A website has 8 modules ($M_1 \dots M_8$) for learning linear algebra,
+								evaluated across key search terms.</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 17 (PDF p.18): Information Retrieval (2) -->
-    <section data-auto-animate>
-        <h4>Application: Information Retrieval (Part 2)</h4>
-        <div class="size-85" style="font-size: 0.7em;">
-            <table style="width:100%; border-collapse: collapse; text-align: center;">
-                <thead>
-                    <tr style="border-bottom: 1px solid #fff;">
-                        <th>Keywords</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th><th>M7</th><th>M8</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>determinants</td><td>0</td><td>6</td><td>3</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
-                    <tr><td>eigenvalues</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>3</td><td>2</td></tr>
-                    <tr><td>linear</td><td>5</td><td>4</td><td>4</td><td>5</td><td>4</td><td>0</td><td>3</td><td>3</td></tr>
-                    <tr><td>matrices</td><td>6</td><td>5</td><td>3</td><td>4</td><td>3</td><td>4</td><td>3</td><td>2</td></tr>
-                    <tr><td>numerical</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>4</td><td>3</td></tr>
-                    <tr><td>orthogonality</td><td>0</td><td>0</td><td>0</td><td>4</td><td>0</td><td>6</td><td>0</td><td>2</td></tr>
-                    <tr><td>spaces</td><td>0</td><td>0</td><td>5</td><td>2</td><td>3</td><td>3</td><td>0</td><td>1</td></tr>
-                    <tr><td>systems</td><td>5</td><td>3</td><td>3</td><td>2</td><td>4</td><td>2</td><td>1</td><td>1</td></tr>
-                    <tr><td>transformations</td><td>0</td><td>0</td><td>0</td><td>5</td><td>1</td><td>3</td><td>1</td><td>0</td></tr>
-                    <tr><td>vector</td><td>0</td><td>4</td><td>4</td><td>4</td><td>3</td><td>1</td><td>0</td><td>3</td></tr>
-                </tbody>
-            </table>
-            <p class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-                Search for <i>"orthogonality, spaces, vector"</i> $\implies$ Normalized search vector $\mathbf{x} \approx (0,0,0,0,0, 0.577, 0.577, 0, 0, 0.577)^T$.
-            </p>
-        </div>
-        <br />
-    </section>
+				<!-- Slide 17 (PDF p.18): Information Retrieval (2) -->
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval (Part 2)</h4>
+					<div class="size-85" style="font-size: 0.7em;">
+						<table style="width:100%; border-collapse: collapse; text-align: center;">
+							<thead>
+								<tr style="border-bottom: 1px solid #fff;">
+									<th>Keywords</th>
+									<th>M1</th>
+									<th>M2</th>
+									<th>M3</th>
+									<th>M4</th>
+									<th>M5</th>
+									<th>M6</th>
+									<th>M7</th>
+									<th>M8</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>determinants</td>
+									<td>0</td>
+									<td>6</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+									<td>0</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>eigenvalues</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>linear</td>
+									<td>5</td>
+									<td>4</td>
+									<td>4</td>
+									<td>5</td>
+									<td>4</td>
+									<td>0</td>
+									<td>3</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td>matrices</td>
+									<td>6</td>
+									<td>5</td>
+									<td>3</td>
+									<td>4</td>
+									<td>3</td>
+									<td>4</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>numerical</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>3</td>
+									<td>0</td>
+									<td>4</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td>orthogonality</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>4</td>
+									<td>0</td>
+									<td>6</td>
+									<td>0</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>spaces</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>2</td>
+									<td>3</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>systems</td>
+									<td>5</td>
+									<td>3</td>
+									<td>3</td>
+									<td>2</td>
+									<td>4</td>
+									<td>2</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>transformations</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>1</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td>vector</td>
+									<td>0</td>
+									<td>4</td>
+									<td>4</td>
+									<td>4</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+									<td>3</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							Search for <i>"orthogonality, spaces, vector"</i> $\implies$ Normalized search vector
+							$\mathbf{x} \approx (0,0,0,0,0, 0.577, 0.577, 0, 0, 0.577)^T$.
+						</p>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 18 (PDF p.19): Information Retrieval (3) -->
-    <section data-auto-animate>
-        <h4>Application: Information Retrieval (Part 3)</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p>Normalizing matrix columns yields normalized matrix $Q$.</p>
-                <p>Computing $\mathbf{y} = Q^T \mathbf{x}$:</p>
-                $$ \mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \mathbf{0.635}, \; 0.577, \; 0, \; 0.535)^T $$
-            </div>
+				<!-- Slide 18 (PDF p.19): Information Retrieval (3) -->
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval (Part 3)</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>Normalizing matrix columns yields normalized matrix $Q$.</p>
+							<p>Computing $\mathbf{y} = Q^T \mathbf{x}$:</p>
+							$$ \mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \mathbf{0.635}, \; 0.577, \; 0, \;
+							0.535)^T $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-                <p><b>Result:</b> $y_5 = 0.635$ is the largest entry $\implies$ <b>Module 5</b> is the best match!</p>
-                <p style="font-size: 0.85em;">Next best matches: Module 6 ($y_6 = 0.577$) and Module 3 ($y_3 = 0.567$).</p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Result:</b> $y_5 = 0.635$ is the largest entry $\implies$ <b>Module 5</b> is the best
+								match!</p>
+							<p style="font-size: 0.85em;">Next best matches: Module 6 ($y_6 = 0.577$) and Module 3 ($y_3
+								= 0.567$).</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 19 (PDF p.20): Information Retrieval - Why it Works -->
-    <section data-auto-animate>
-        <h4>Why Does Information Retrieval Work?</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                $$ \mathbf{y} = Q^T \mathbf{x} \implies y_i = \mathbf{q}_i^T \mathbf{x} = \|\mathbf{q}_i\| \|\mathbf{x}\| \cos \theta_i $$
-            </div>
+				<!-- Slide 19 (PDF p.20): Information Retrieval - Why it Works -->
+				<section data-auto-animate>
+					<h4>Why Does Information Retrieval Work?</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							$$ \mathbf{y} = Q^T \mathbf{x} \implies y_i = \mathbf{q}_i^T \mathbf{x} = \|\mathbf{q}_i\|
+							\|\mathbf{x}\| \cos \theta_i $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-                <p>Because vectors are normalized ($\|\mathbf{x}\| = 1, \|\mathbf{q}_i\| = 1$):</p>
-                $$ y_i = \cos \theta_i $$
-            </div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p>Because vectors are normalized ($\|\mathbf{x}\| = 1, \|\mathbf{q}_i\| = 1$):</p>
+							$$ y_i = \cos \theta_i $$
+						</div>
 
-            <div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
-                <p><b>Conclusion:</b> Maximizing $y_i$ maximizes $\cos \theta_i$, finding the module vector closest in direction to query vector $\mathbf{x}$.</p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<p><b>Conclusion:</b> Maximizing $y_i$ maximizes $\cos \theta_i$, finding the module vector
+								closest in direction to query vector $\mathbf{x}$.</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 20 (PDF p.21): Collaborative Filtering (1) -->
-    <section data-auto-animate>
-        <h4>Application: Collaborative Filtering (Part 1)</h4>
-        <div class="size-85">
-            <p style="font-size: 0.85em;">Recommendation systems match user ratings matrix $R$ to predict preferences.</p>
-            <div class="fragment" data-fragment-index="0" style="font-size: 0.65em;">
-                <table style="width:100%; border-collapse: collapse; text-align: center;">
-                    <thead>
-                        <tr style="border-bottom: 1px solid #fff;">
-                            <th>Song</th><th>U1</th><th>U2</th><th>U3</th><th>U4</th><th>U5</th><th>U6</th><th>U7</th><th>U8</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Song 1</td><td>0</td><td>5</td><td>3</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
-                        <tr><td>Song 2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>3</td><td>2</td></tr>
-                        <tr><td>Song 3</td><td>5</td><td>4</td><td>4</td><td>5</td><td>4</td><td>0</td><td>3</td><td>3</td></tr>
-                        <tr><td>Song 4</td><td>5</td><td>5</td><td>3</td><td>3</td><td>4</td><td>4</td><td>3</td><td>2</td></tr>
-                        <tr><td>Song 5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>4</td><td>3</td></tr>
-                        <tr><td>Song 6</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>5</td><td>0</td><td>2</td></tr>
-                        <tr><td>Song 7</td><td>0</td><td>0</td><td>5</td><td>2</td><td>3</td><td>3</td><td>0</td><td>1</td></tr>
-                        <tr><td>Song 8</td><td>5</td><td>3</td><td>3</td><td>2</td><td>4</td><td>2</td><td>1</td><td>1</td></tr>
-                        <tr><td>Song 9</td><td>0</td><td>0</td><td>0</td><td>5</td><td>1</td><td>3</td><td>1</td><td>0</td></tr>
-                        <tr><td>Song 10</td><td>0</td><td>4</td><td>4</td><td>3</td><td>4</td><td>1</td><td>0</td><td>3</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="fragment" data-fragment-index="1" style="font-size: 0.8em; margin-top: 10px;">
-                New user ratings: $\mathbf{x} = (0, 0, 5, 0, 0, 0, 3, 3, 0, 0)^T$. Which song to recommend?
-            </p>
-        </div>
-        <br />
-    </section>
+				<!-- Slide 20 (PDF p.21): Collaborative Filtering (1) -->
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering (Part 1)</h4>
+					<div class="size-85">
+						<p style="font-size: 0.85em;">Recommendation systems match user ratings matrix $R$ to predict
+							preferences.</p>
+						<div class="fragment" data-fragment-index="0" style="font-size: 0.65em;">
+							<table style="width:100%; border-collapse: collapse; text-align: center;">
+								<thead>
+									<tr style="border-bottom: 1px solid #fff;">
+										<th>Song</th>
+										<th>U1</th>
+										<th>U2</th>
+										<th>U3</th>
+										<th>U4</th>
+										<th>U5</th>
+										<th>U6</th>
+										<th>U7</th>
+										<th>U8</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Song 1</td>
+										<td>0</td>
+										<td>5</td>
+										<td>3</td>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Song 2</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>5</td>
+										<td>3</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>Song 3</td>
+										<td>5</td>
+										<td>4</td>
+										<td>4</td>
+										<td>5</td>
+										<td>4</td>
+										<td>0</td>
+										<td>3</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>Song 4</td>
+										<td>5</td>
+										<td>5</td>
+										<td>3</td>
+										<td>3</td>
+										<td>4</td>
+										<td>4</td>
+										<td>3</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>Song 5</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>3</td>
+										<td>0</td>
+										<td>4</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>Song 6</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>4</td>
+										<td>5</td>
+										<td>0</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>Song 7</td>
+										<td>0</td>
+										<td>0</td>
+										<td>5</td>
+										<td>2</td>
+										<td>3</td>
+										<td>3</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Song 8</td>
+										<td>5</td>
+										<td>3</td>
+										<td>3</td>
+										<td>2</td>
+										<td>4</td>
+										<td>2</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Song 9</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>5</td>
+										<td>1</td>
+										<td>3</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>Song 10</td>
+										<td>0</td>
+										<td>4</td>
+										<td>4</td>
+										<td>3</td>
+										<td>4</td>
+										<td>1</td>
+										<td>0</td>
+										<td>3</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<p class="fragment" data-fragment-index="1" style="font-size: 0.8em; margin-top: 10px;">
+							New user ratings: $\mathbf{x} = (0, 0, 5, 0, 0, 0, 3, 3, 0, 0)^T$. Which song to recommend?
+						</p>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 21 (PDF p.22): Collaborative Filtering (2) -->
-    <section data-auto-animate>
-        <h4>Application: Collaborative Filtering (Part 2)</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p>1. Normalize columns of rating matrix $R \implies Q$.</p>
-                <p>2. Normalize new user rating vector $\mathbf{x} \implies \hat{\mathbf{x}} = (0, 0, 0.762, 0, 0, 0, 0.457, 0.457, 0, 0)^T$.</p>
-            </div>
+				<!-- Slide 21 (PDF p.22): Collaborative Filtering (2) -->
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering (Part 2)</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>1. Normalize columns of rating matrix $R \implies Q$.</p>
+							<p>2. Normalize new user rating vector $\mathbf{x} \implies \hat{\mathbf{x}} = (0, 0, 0.762,
+								0, 0, 0, 0.457, 0.457, 0, 0)^T$.</p>
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-                <p><b>Calculate user similarity vector:</b></p>
-                $$ \mathbf{y} = Q^T \hat{\mathbf{x}} = (0.704, \; 0.464, \; 0.732, \; 0.647, \; 0.625, \; 0.242, \; 0.405, \; 0.494)^T $$
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Calculate user similarity vector:</b></p>
+							$$ \mathbf{y} = Q^T \hat{\mathbf{x}} = (0.704, \; 0.464, \; 0.732, \; 0.647, \; 0.625, \;
+							0.242, \; 0.405, \; 0.494)^T $$
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 22 (PDF p.23): Collaborative Filtering (3) -->
-    <section data-auto-animate>
-        <h4>Application: Collaborative Filtering (Part 3)</h4>
-        <div class="size-85" style="font-size: 0.85em;">
-            <div class="fragment" data-fragment-index="0">
-                <p><b>1. Match Coefficients:</b> Use $\mathbf{y}$ as weights on unnormalized ratings $R$:</p>
-                $$ \mathbf{r} = R \mathbf{y} = (1.400, \; 0.792, \; 3.880, \; \mathbf{3.628}, \; 1.154, \; 1.090, \; 1.867, \; 2.849, \; 1.158, \; 2.538)^T $$
-            </div>
+				<!-- Slide 22 (PDF p.23): Collaborative Filtering (3) -->
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering (Part 3)</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>1. Match Coefficients:</b> Use $\mathbf{y}$ as weights on unnormalized ratings $R$:
+							</p>
+							$$ \mathbf{r} = R \mathbf{y} = (1.400, \; 0.792, \; 3.880, \; \mathbf{3.628}, \; 1.154, \;
+							1.090, \; 1.867, \; 2.849, \; 1.158, \; 2.538)^T $$
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-                <p><b>2. Selection Criterion:</b> Choose highest predicted rating for unrated songs.</p>
-            </div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>2. Selection Criterion:</b> Choose highest predicted rating for unrated songs.</p>
+						</div>
 
-            <div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-                <p><b>Result:</b> <b>Song 4</b> (score: 3.628) is the top recommendation!</p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p><b>Result:</b> <b>Song 4</b> (score: 3.628) is the top recommendation!</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-    <!-- Slide 23 (PDF p.24): Collaborative Filtering (4) -->
-    <section data-auto-animate>
-        <h4>Application: Collaborative Filtering (Part 4)</h4>
-        <div class="size-85">
-            <div class="fragment" data-fragment-index="0">
-                <p>For ratings matrix $R_{M \times N}$ and user weights $\mathbf{y} = [w_1, w_2, \dots, w_N]^T$:</p>
-            </div>
+				<!-- Slide 23 (PDF p.24): Collaborative Filtering (4) -->
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering (Part 4)</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>For ratings matrix $R_{M \times N}$ and user weights $\mathbf{y} = [w_1, w_2, \dots,
+								w_N]^T$:</p>
+						</div>
 
-            <div class="fragment" data-fragment-index="1" style="margin-top: 10px; font-size: 0.85em;">
-                $$ R \mathbf{y} = \begin{pmatrix} 
-                R_{11} & R_{12} & \cdots & R_{1N} \\
-                R_{21} & R_{22} & \cdots & R_{2N} \\
-                \vdots & \vdots & \ddots & \vdots \\
-                R_{M1} & R_{M2} & \cdots & R_{MN} 
-                \end{pmatrix} 
-                \begin{pmatrix} w_1 \\ w_2 \\ \vdots \\ w_N \end{pmatrix}
-                = \begin{pmatrix} 
-                w_1 R_{11} + w_2 R_{12} + \dots + w_N R_{1N} \\
-                w_1 R_{21} + w_2 R_{22} + \dots + w_N R_{2N} \\
-                \vdots \\
-                w_1 R_{M1} + w_2 R_{M2} + \dots + w_N R_{MN}
-                \end{pmatrix} $$
-            </div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px; font-size: 0.85em;">
+							$$ R \mathbf{y} = \begin{pmatrix}
+							R_{11} & R_{12} & \cdots & R_{1N} \\
+							R_{21} & R_{22} & \cdots & R_{2N} \\
+							\vdots & \vdots & \ddots & \vdots \\
+							R_{M1} & R_{M2} & \cdots & R_{MN}
+							\end{pmatrix}
+							\begin{pmatrix} w_1 \\ w_2 \\ \vdots \\ w_N \end{pmatrix}
+							= \begin{pmatrix}
+							w_1 R_{11} + w_2 R_{12} + \dots + w_N R_{1N} \\
+							w_1 R_{21} + w_2 R_{22} + \dots + w_N R_{2N} \\
+							\vdots \\
+							w_1 R_{M1} + w_2 R_{M2} + \dots + w_N R_{MN}
+							\end{pmatrix} $$
+						</div>
 
-            <div class="fragment" data-fragment-index="2" style="margin-top: 10px; font-size: 0.85em;">
-                <p>Output is the weighted sum of song ratings across all users, proportional to the weighted average.</p>
-            </div>
-        </div>
-        <br />
-    </section>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px; font-size: 0.85em;">
+							<p>Output is the weighted sum of song ratings across all users, proportional to the weighted
+								average.</p>
+						</div>
+					</div>
+					<br />
+				</section>
 
-</section>
+			</section>
 
 			<!-- Ends sections -->
 
