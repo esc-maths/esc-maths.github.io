@@ -116,6 +116,19 @@
             padding-left: 22px;
         }
 
+        .modal-content a {
+            text-decoration: none;
+        }
+
+        .modal-content a:link {
+           color: #014d9a;
+           font-weight: bold;
+        }
+
+        .modal-content a:hover {
+            color: #4894e0;
+        }
+
         .close {
             position: absolute;
             right: 18px;
@@ -227,6 +240,11 @@
                 or decrease the number of triangles. Switching to
                 <strong>Transparent Mesh</strong> lets you see the triangle
                 structure hidden beneath the smooth surface.
+            </p>
+
+            <p style="text-align: center;">Made by 
+                <a href="https://www.jcponce.com/" target="_blank">JCPC</a> with ❤️ &amp; 
+                <a href="https://threejs.org/" target="_blank">Three.js</a>
             </p>
 
         </div>
@@ -370,8 +388,8 @@
             controls.update();
 
             if (rotateCheck.checked) {
-                knotMesh.rotation.y += 0.0015;
-                knotMesh.rotation.x += 0.0015;
+                knotMesh.rotation.y += 0.0008;
+                knotMesh.rotation.x += 0.0008;
             }
 
             renderer.render(scene, camera);
