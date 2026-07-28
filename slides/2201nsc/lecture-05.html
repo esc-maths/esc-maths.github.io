@@ -2360,9 +2360,13 @@
 						<div class="fragment"
 							style="margin-top: 15px; border-left: 3px solid #aaa; padding-left: 15px; font-size: 0.85em; color: #2b51e8;">
 							<p><strong>Conjugate Pair Property:</strong> For any real matrix, complex eigenvalues must
-								appear as conjugate pairs $a \pm bi$. This ensures that when factoring the
-								characteristic equation $(x - \lambda_1)(x - \lambda_2) = 0$, all polynomial
-								coefficients remain completely real.</p>
+								appear as conjugate pairs $a \pm bi$.
+								<span class="fragment">
+									This ensures that when factoring the
+									characteristic equation $(x - \lambda_1)(x - \lambda_2) = 0$, all polynomial
+									coefficients remain completely real.
+								</span>
+							</p>
 						</div>
 					</div>
 
@@ -2422,7 +2426,7 @@
 						</div>
 
 						<p class="fragment" data-fragment-index="9" style="margin-top: 15px;">
-							In this case, there is only one linearly independent eigenvector.
+							<span id="rr">In this case, there is only one linearly independent eigenvector!</span>
 							<span class="fragment" data-fragment-index="10">
 								This occurs because $A$ is
 								a <strong>shear transformation</strong>
@@ -2456,16 +2460,16 @@
 								$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 0 & 2 \\ 0 & 2-\lambda & 1 \\ 3 & 0
 								&
 								2-\lambda \end{vmatrix}$
-								<span class="fragment" data-fragment-index="4">
+								<span class="fragment" data-fragment-index="3">
 									$ = (2-\lambda) \begin{vmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{vmatrix}
 									\qquad\qquad $
 								</span>
 							</p>
 							<p class="fragment" data-fragment-index="5">
 								$=
-								(2-\lambda)[(1-\lambda)(2-\lambda) - 6]$
+								(2-\lambda)\left[(1-\lambda)(2-\lambda) - 6\right]$
 								<span class="fragment" data-fragment-index="6">
-									$= (2-\lambda)[\lambda^2 - 3\lambda - 4]$
+									$= (2-\lambda)\left[\lambda^2 - 3\lambda - 4\right]$
 								</span>
 							</p>
 							<p class="fragment" data-fragment-index="7">
@@ -2495,10 +2499,10 @@
 									v_1 \\
 									v_2 \\ v_3 \end{pmatrix} = \mathbf{0} $
 									<span class="fragment" data-fragment-index="2">
-										$ \implies v_1=0,\, v_3=0, \,v_2=r$
+										$ \,\Ra\, v_1=0,\, v_3=0, \,v_2=r$
 									</span>
 									<span class="fragment" data-fragment-index="3">
-										$ \implies \mathbf{v}_1 =
+										$ \,\Ra\, \mathbf{v}_1 =
 										r\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $
 									</span>
 
@@ -2515,10 +2519,10 @@
 									\end{pmatrix}\begin{pmatrix} v_1
 									\\ v_2 \\ v_3 \end{pmatrix} = \mathbf{0} $
 									<span class="fragment" data-fragment-index="6">
-										$ \implies v_1 = \dfrac{2}{3}v_3,\, v_2 = \dfrac{1}{2}v_3$
+										$ \,\Ra\, v_1 = \dfrac{2}{3}v_3,\, v_2 = \dfrac{1}{2}v_3$
 									</span>
 									<span class="fragment" data-fragment-index="7">
-										$ \implies \mathbf{v}_2 = \dfrac{s}{6}\begin{pmatrix} 4 \\ 3 \\ 6 \end{pmatrix}$
+										$ \,\Ra\, \mathbf{v}_2 = \dfrac{s}{6}\begin{pmatrix} 4 \\ 3 \\ 6 \end{pmatrix}$
 									</span>
 
 								</p>
@@ -2535,10 +2539,10 @@
 									\end{pmatrix}\begin{pmatrix} v_1 \\
 									v_2 \\ v_3 \end{pmatrix} = \mathbf{0}$
 									<span class="fragment" data-fragment-index="9">
-										$ \implies v_1 = -v_3,\, v_2 = -\dfrac{1}{3}v_3 $
+										$\, \Ra\, v_1 = -v_3,\, v_2 = -\dfrac{1}{3}v_3 $
 									</span>
 									<span class="fragment" data-fragment-index="10">
-										$ \implies
+										$ \,\Ra\,
 										\mathbf{v}_3 = \dfrac{t}{3}\begin{pmatrix} -3 \\ -1 \\ 3\end{pmatrix} $
 									</span>
 
@@ -2611,15 +2615,17 @@
 								src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
 						</div>
 
+
+
+					</div>
+					<div class="cc size-70">
 						<p class="fragment" data-fragment-index="1">
 							There are also many free online calculators that can compute
 							them automatically <br>
-							(<span id="bb">just Google "eigenvalues/eigenvectors calculator"</span>).
+							👉 <span id="bb">just Google "eigenvalues/eigenvectors calculator"</span>.
 						</p>
-
 					</div>
 
-					<br />
 					<br />
 
 				</section>
@@ -2652,18 +2658,18 @@
 					</div>
 					<div class="size-75">
 						<p class="fragment" data-fragment-index="3"><b>Interpretation:</b></p>
-						<p class="fragment" data-fragment-index="3">
-							<tt>D</tt> = diagonal matrix containing the eigenvalues of $A$.
-						</p>
-						<p class="fragment" data-fragment-index="4">
-							<tt>V</tt> = matrix whose columns are the eigenvectors of $A$, where each column has been
-							normalised, and the order of the eigenvectors matches the order of the eigenvalues.
-						</p>
+						<ul style="list-style: none;  margin-left: 0;">
+							<li class="fragment" data-fragment-index="3"><tt>D</tt> = diagonal matrix containing the
+								eigenvalues of $A$.</li>
+							<li class="fragment" data-fragment-index="4"><tt>V</tt> = matrix whose columns are the
+								eigenvectors of $A$, where each column has been
+								normalised, and the order of the eigenvectors matches the order of the eigenvalues.</li>
+						</ul>
 
 						<p class="fragment" data-fragment-index="5">
-							<b>NOTE!!</b> The eigenvectors found by Matlab are
+							<b>NOTE!!</b> The eigenvectors found by <tt>Matlab/Octave</tt> are
 							normalised (i.e. length=1), which
-							is ok since eigenvectors are not unique.
+							is ok since <em>eigenvectors are not unique</em>.
 							<span class="fragment" data-fragment-index="6">
 								So the eigenvectors found by <tt>MATLAB/Octave</tt> may
 								not appear to agree with your hand-calculations
@@ -2690,7 +2696,7 @@
 								A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
 								$
 								<span class="fragment" data-fragment-index="1">
-									$\Ra\det(A - \lambda I) = (1-\lambda)[(2-\lambda)^{2}-1] $
+									$\Ra\det(A - \lambda I) = (1-\lambda)\left[(2-\lambda)^{2}-1\right] $
 								</span>
 								<span class="fragment" data-fragment-index="2">
 									$ =
@@ -2705,22 +2711,25 @@
 						<div style="font-size: 0.9em;">
 							<p class="fragment" data-fragment-index="4">This yields our eigenvalues: $\lambda_1 = 3$ and
 								a repeated root $\lambda_2 = 1$
-								(Algebraic Multiplicity = 2).</p>
+								<span class="fragment" data-fragment-index="5">
+									(Algebraic Multiplicity = 2).
+								</span>
+							</p>
 						</div>
 
 						<div class="cc" style="font-size: 0.9em; margin-top: 5px;">
-							<p class="fragment" data-fragment-index="5">
+							<p class="fragment" data-fragment-index="6">
 								For $\lambda_1 = 3$:
 
 								$ \begin{pmatrix} -2 & 0 & 0 \\ 0 & -1 & 1 \\ 0 & 1 & -1 \end{pmatrix}\begin{pmatrix}
 								v_1
 								\\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
-								<span class="fragment" data-fragment-index="6">
+								<span class="fragment" data-fragment-index="7">
 									$ \implies v_1 =
 									0, \;
 									v_2 = v_3 $
 								</span>
-								<span class="fragment" data-fragment-index="7">
+								<span class="fragment" data-fragment-index="8">
 									$\implies \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
 								</span>
 
@@ -2728,17 +2737,17 @@
 						</div>
 
 						<div class="cc" style="font-size: 0.9em; margin-top: 5px;">
-							<p class="fragment" data-fragment-index="8">
+							<p class="fragment" data-fragment-index="9">
 								For $\lambda_2 = 1$:
 								$ \begin{pmatrix} 0 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} v_1
 								\\
 								v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
 
-								<span class="fragment" data-fragment-index="9">
+								<span class="fragment" data-fragment-index="10">
 									$ \implies v_2 + v_3
 									= 0 $
 								</span>
-								<span class="fragment" data-fragment-index="10">
+								<span class="fragment" data-fragment-index="11">
 									$
 									\implies v_2 = -v_3 $
 								</span>
@@ -2746,9 +2755,9 @@
 							</p>
 
 							<p class="fragment" data-fragment-index="11">
-								Setting free parameters $v_1 = r$ and $v_3 = t$ we obtain
+								Setting free parameters $\,v_1 = r\,$ and $\,v_3 = t,\,$ implies
 
-								$ \mathbf{v}_2 = \begin{pmatrix} r \\ -t \\ t \end{pmatrix}$
+								$ \,\mathbf{v}_2 = \begin{pmatrix} r \\ -t \\ t \end{pmatrix}$
 								<span class="fragment" data-fragment-index="12">
 									$ = r\begin{pmatrix} 1 \\ 0 \\
 									0
@@ -2762,23 +2771,21 @@
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
 
-					<div class="cc" style="font-size: 0.65em;">
+					<div class="cc" style="font-size: 0.5em;">
 						<p>
 							$
-							A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}\;\rightarrow\;
+							A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}\;\Ra\;
 							$
-							
-								<span>$\lambda_1 =3,\,$</span> 
-								<span>$\lambda_2 =1\,$</span>  and  
-								<span>$\, \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, $</span>
-								<span>$\, \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\
-								0
-								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}$</span>
-								
+
+							<span>$\boxed{\lambda_1 =3,\, \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1
+								\end{pmatrix}}\,$</span>
+							and
+							<span>$\,\boxed{\lambda_2 =1,\, \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} +
+								t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}}$</span>
 						</p>
 					</div>
 
-					
+
 
 					<div class="cc size-80">
 						<p class="fragment"><tt>MATLAB/Octave</tt></p>
@@ -2809,19 +2816,18 @@ D = 1   0   0
 				<section data-auto-animate>
 					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
 
-					<div class="cc" style="font-size: 0.65em;">
+					<div class="cc" style="font-size: 0.5em;">
 						<p>
 							$
-							A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}\;\rightarrow\;
+							A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}\;\Ra\;
 							$
-							
-								<span class="fragment highlight-red" data-fragment-index="0">$\lambda_1 =3,\,$</span> 
-								<span class="fragment highlight-blue" data-fragment-index="2">$\lambda_2 =1\,$</span>  and  
-								<span class="fragment highlight-red" data-fragment-index="0">$\, \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, $</span>
-								<span class="fragment highlight-blue" data-fragment-index="2">$\, \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\
-								0
-								\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}$</span>
-								
+
+							<span class="fragment highlight-red" data-fragment-index="3">$\boxed{\lambda_1 =3,\,
+								\mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}}\,$</span>
+							and
+							<span class="fragment highlight-blue" data-fragment-index="6">$\,\boxed{\lambda_2 =1,\,
+								\mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\
+								1 \end{pmatrix}}$</span>
 						</p>
 					</div>
 
@@ -2847,25 +2853,33 @@ D = 1   0   0
 						<tr>
 
 							<td id="rr" style="width: 50%;text-align: center;" class="fragment" data-fragment-index="0">
-								<tt>λ₁ = 3</tt>, $\;\; \begin{pmatrix} 0 \\ 0.7071 \\ 0.7071 \end{pmatrix} $
+								\(\underbrace{\lambda_1=3}_{\text{3rd col. of D}}\):
 								<span class="fragment" data-fragment-index="1">
+									$\; \underbrace{\begin{pmatrix} 0 \\ 0.7071 \\ 0.7071 \end{pmatrix}}_{\text{3rd col.
+									of V}} $
+								</span>
+								<span class="fragment" data-fragment-index="2">
 									$=\dfrac{1}{\sqrt{0^2+1^2+1^2}}\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}$
 								</span>
 							</td>
-							<td id="bb" style="width: 50%;text-align: center;" class="fragment" data-fragment-index="2">
-								<tt>λ₂ = 1</tt>, $\;\; \begin{pmatrix} 1 \\ 0 \\
-								0
-								\end{pmatrix}\,$ and $\,\begin{pmatrix} 0 \\ -0.7071 \\ 0.7071 \end{pmatrix} $
+							<td id="bb" style="width: 50%;text-align: center;" class="fragment" data-fragment-index="4">
+								\(\underbrace{\lambda_2=1}_{\text{1st & 2nd}\newline \text{cols. of D}}\):
+								<span class="fragment" data-fragment-index="5">
+									$\; \underbrace{\begin{pmatrix} 1 \\ 0 \\ 0
+									\end{pmatrix}\,\text{and}\,\begin{pmatrix} 0 \\ -0.7071 \\ 0.7071
+									\end{pmatrix}}_{\text{1st & 2nd cols. of V}} $
+								</span>
+
 							</td>
 						</tr>
 					</table>
-					<div class="fragment cc" style="margin-top: 15px; font-size: 0.60em;">
+					<div class="fragment cc" style="margin-top: -20px; font-size: 0.6em;">
 						<p><strong>Note:</strong> Repeated eigenvalues appear frequently in physical scenarios that
 							feature structural symmetry.</p>
 					</div>
 				</section>
 				<section data-auto-animate>
-					<h4>Example 6 - Sea Turtle MATLAB Outputs</h4>
+					<h4>Example 6 - Sea Turtle <tt>MATLAB/Octave</tt> Outputs 💻</h4>
 					<div class="size-85">
 
 						<p class="fragment">Recall our <em>Leslie</em> matrix defined earlier as
@@ -2885,7 +2899,7 @@ D = 1   0   0
 					</div>
 				</section>
 				<section data-auto-animate>
-					<h4>Example 6 - Sea Turtle MATLAB Outputs</h4>
+					<h4>Example 6 - Sea Turtle <tt>MATLAB/Octave</tt> Outputs 💻</h4>
 					<div class="size-75">
 						<pre style="width: 90%;height: 42px; font-size: 78%;margin-top: -5px;">
 						<code data-trim data-noescape  class="language-python">
@@ -2916,15 +2930,16 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 									with corresponding
 									eigenvector:
 								</span>
-
 							</p>
 							<div class="cc">
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										$\mathbf v_4 = \begin{pmatrix}0.3223 \\ 0.9466 \\ 0.0006 \\ 0.0030
-										\end{pmatrix}$
+								<p class="fragment" data-fragment-index="1">
+									<span>
+										$\qquad \qquad \mathbf v_4 = \begin{pmatrix}0.3223 \\ 0.9466 \\ 0.0006 \\ 0.003
+										\end{pmatrix}\quad $
 									</span>
-
+									<span>
+										(4th col. of matrix <tt>V</tt>)
+									</span>
 								</p>
 							</div>
 						</div>
@@ -2934,8 +2949,8 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 					<br />
 				</section>
 				<section data-auto-animate>
-					<h4>Example 6 - Sea Turtle MATLAB Outputs</h4>
-					<div class="size-80">
+					<h4>Example 6 - Sea Turtle <tt>MATLAB/Octave</tt> Outputs 💻</h4>
+					<div class="size-75">
 
 						<pre style="width: 65%;height: 190px; font-size: 50%;margin-top: -10px;">
 						<code data-trim data-noescape  class="language-python">
@@ -2953,28 +2968,41 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 
 
 						<div style="margin-top: 10px;">
-							<p>The dominant long-term eigenvalue is $\lambda_4 = 0.9681$,
+							<p>The dominant long-term eigenvalue is $\lambda_4
+								= 0.9681$,
 								<span>
 									with corresponding
 									eigenvector:
 								</span>
-
 							</p>
 							<div class="cc">
 								<p>
 									<span>
-										$\mathbf v_4 = \begin{pmatrix}0.3223 \\ 0.9466 \\ 0.0006 \\ 0.0030
-										\end{pmatrix}$
+										$\qquad \qquad \mathbf v_4 = \begin{pmatrix}0.3223 \\ 0.9466 \\ 0.0006 \\ 0.003
+										\end{pmatrix}\quad $
 									</span>
-
+									<span>
+										(4th col. of matrix <tt>V</tt>)
+									</span>
 								</p>
 							</div>
 						</div>
 
-						<div style="font-size: 0.95em;">
-							Our historical iterations align perfectly as pure scalar multiples of this stable state:
-							$$ \mathbf{x}_{26,\text{ init}_1} \approx 202\,991\mathbf{v}_4, \quad \mathbf{x}_{26,\text{
-							init}_2} \approx 158\,394\mathbf{v}_4 $$
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								Our historical iterations align perfectly as pure scalar multiples of this stable state:
+
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								<span>
+									$ \mathbf{x}_{26,\text{ init}_1}  \approx 202\,991\mathbf{v}_4, $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\qquad 
+									\mathbf{x}_{26,\text{
+									init}_2} \approx 158\,394\mathbf{v}_4 $
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
@@ -3279,10 +3307,13 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							\end{array}\right) $$
 						</div>
 
-						<p class="fragment" style="margin-top: 15px; font-size: 0.9em;" id="rr">
-							<strong>Conclusion:</strong> No. Because there are fewer rows than columns, the system
-							contains free variables. This creates infinite solution sets rather than a single unique
-							vector transformation.
+						<p class="fragment" style="margin-top: 15px; font-size: 0.9em;">
+							<span>
+								The answer to this questions is <b>NO</b>. Because there are fewer rows than columns,
+								the system
+								contains free variables. This creates infinite solution sets rather than a single unique
+								vector transformation.
+							</span>
 						</p>
 						<p id="rr" class="fragment" style="text-align: center;">A basis cannot
 							contain more vectors than the dimension of the target space.</p>
@@ -3305,11 +3336,13 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							\end{array}\right) $$
 						</div>
 
-						<div class="fragment" style="margin-top: 15px; font-size: 0.95em; line-height: 1.5;">
+						<div style="margin-top: 15px; font-size: 0.99em; line-height: 1.5;">
 							<ul>
-								<li>Whenever there are fewer columns than rows, zeroed rows appear at the bottom of the
+								<li class="fragment">Whenever there are fewer columns than rows, zeroed rows appear at
+									the bottom of the
 									coefficient matrix.</li>
-								<li>For many target configurations (e.g., standard vector $\mathbf{e}_3$), no valid
+								<li class="fragment">For many target configurations (e.g., standard vector
+									$\mathbf{e}_3$), no valid
 									coordinate solutions exist.</li>
 							</ul>
 						</div>
@@ -3865,7 +3898,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							style="background: rgba(12, 184, 107, 0.076); padding: 8px; border-radius: 5px; font-size: 0.82em; margin-top: 10px;line-height: 2.5;">
 							<span>
 								<strong>Verification Check:</strong>
-								$ \;0\mathbf{v}_1 - \frac{1}{3}\begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix} +
+								$ \;0\begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} - \frac{1}{3}\begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix} +
 								\frac{1}{3}\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $
 							</span>
 							<span class="fragment">
@@ -4702,7 +4735,7 @@ ans =
 							<p style="margin-top: -10px;">Using mathematical induction, we can establish that for any
 								positive integer exponent:
 							</p>
-							$$ \large A^n = VD^nV^{-1} $$
+							$$ \Large A^n = VD^nV^{-1} $$
 						</div>
 
 						<div class="fragment" style="margin-top: -15px;">
@@ -4731,6 +4764,7 @@ ans =
 							</p>
 						</div>
 					</div>
+					<br/>
 				</section>
 
 
@@ -5140,7 +5174,7 @@ ans =
 							reveal the transition probabilities for customer drop-offs between locations:</p>
 
 						<table
-							style="width: 100%; font-size: 0.85em; margin-top: 20px; text-align: center; border-collapse: collapse;">
+							style="width: 80%; font-size: 0.85em; margin-top: 20px; text-align: center; border-collapse: collapse;">
 							<thead>
 								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
 									<th style="padding: 10px; text-align: left;">Pick-up Location</th>
@@ -5158,7 +5192,7 @@ ans =
 									<td style="text-align: center; font-size: 1.3em;">0.1</td>
 								</tr>
 								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 10px; text-align: left; font-weight: bold;">International
+									<td style="padding: 10px; text-align: left; font-weight: bold; width: 35%;">International
 										Airport</td>
 									<td style="text-align: center; font-size: 1.3em;">0.2</td>
 									<td style="text-align: center; font-size: 1.3em;">0.6</td>
@@ -5186,7 +5220,7 @@ ans =
 					<div class="size-70">
 
 						<table
-							style="width: 100%; font-size: 0.85em; margin-top: 20px; text-align: center; border-collapse: collapse;">
+							style="width: 80%; font-size: 0.85em; margin-top: 20px; text-align: center; border-collapse: collapse;">
 							<thead>
 								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
 									<th style="padding: 10px; text-align: left;">Pick-up Location</th>
@@ -5204,7 +5238,7 @@ ans =
 									<td style="text-align: center; font-size: 1.3em;">0.1</td>
 								</tr>
 								<tr style="border-bottom: 1px solid #333;">
-									<td style="padding: 10px; text-align: left; font-weight: bold;">International
+									<td style="padding: 10px; text-align: left; font-weight: bold; width: 30%;">International
 										Airport</td>
 									<td style="text-align: center; font-size: 1.3em;">0.2</td>
 									<td style="text-align: center; font-size: 1.3em;">0.6</td>
@@ -5230,7 +5264,7 @@ ans =
 							</span>
 						</p>
 
-						<div class="fragment" data-fragment-index="1">
+						<div class="fragment" data-fragment-index="2">
 							<p>
 								$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
 								$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
@@ -5256,7 +5290,7 @@ ans =
 							</span>
 						</p>
 
-						<div>
+						<div style="margin-top: -20px;">
 							<p>
 								$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
 								$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
@@ -5266,6 +5300,9 @@ ans =
 
 						<div style="margin-top: -15px;">
 							<p>Expressing this system as a linear matrix transformation $\mathbf{y} = A\mathbf{x}$:
+								
+							</p>
+							<p style="margin-top: -20px;">
 								$$ \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} = \begin{pmatrix} 0.8 & 0.2 & 0.3 \\
 								0.1
 								& 0.6 & 0.2 \\ 0.1 & 0.2 & 0.5 \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3
@@ -5275,20 +5312,22 @@ ans =
 
 						</div>
 
-						<div style="margin-top: -20px;">
+						<div style="margin-top: -10px; font-size: 1.1em;">
 							<p class="fragment">
-								The vehicle distribution after two operational days is
-								$\mathbf{x}_2 = A\left(A\mathbf{x}_0\right)
-								$
-								<span class="fragment">
-									$=
-									A^2\mathbf{x}_0$
+								The vehicle distribution after two operational days is:
+								<span style="font-size: 1.2em;">
+									$ \,\mathbf{x}_2 = A\left(A\mathbf{x}_0\right)$
+								</span>
+								<span class="fragment" style="font-size: 1.2em;">
+									$=A^2\mathbf{x}_0$
 								</span>
 							</p>
 							<p class="fragment">
-
-								Extrapolating this out, distribution patterns after $n$ operational cycles follow:
-								$\mathbf{x}_n = A^n\mathbf{x}_0$.
+								Thefore, the distribution after $n$ operational cycles is:
+								<span style="font-size: 1.2em;">
+									$\,\mathbf{x}_n = A^n\mathbf{x}_0$.
+								</span>
+								
 							</p>
 						</div>
 					</div>
@@ -5300,8 +5339,9 @@ ans =
 					<h4>Application Example: Fleet Optimization</h4>
 					<div class="size-75">
 						<p>
-							Let's find the long-term state distribution $\mathbf{x}_n = A^n\mathbf{x}_0$ using its
-							spectral components:
+							Let's find the long-term state distribution 
+							$\mathbf{x}_n = A^n\mathbf{x}_0$  with the 
+							help of the computer 💻:
 						</p>
 
 						<div class="r-stack" style="margin-top: -30px;">
