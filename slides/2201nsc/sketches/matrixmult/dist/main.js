@@ -689,7 +689,7 @@ var Styles;
         boxShadow: "0 1px 1px 0 " + styles_2.pallete.gray,
         color: styles_2.pallete.grayDark,
         border: 'none',
-        fontSize: '20px',
+        fontSize: '24px',
         textAlign: 'center',
         width: '30px',
         height: '30px',
