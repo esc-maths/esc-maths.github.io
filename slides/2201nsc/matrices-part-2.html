@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>2201NSC - Lecture 3</title>
+	<title>2201NSC - Matrices Part II</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -443,7 +443,7 @@
 								$
 								\rightarrow
 								\left(
-								\begin{array}{cc|cc} 1 & 0 & 1 & -1 \\ 0 & 1  & -1 & 2 \end{array}
+								\begin{array}{cc|cc} 1 & 0 & 1 & -1 \\ 0 & 1 & -1 & 2 \end{array}
 								\right)
 								\begin{array}{l}
 								R1-R2 \\
@@ -919,7 +919,7 @@ ans =
 				</section>
 
 
-				
+
 
 				<section data-auto-animate>
 					<h4>Determinants: Motivation</h4>
@@ -1167,7 +1167,7 @@ ans =
 					<h4>Patterns with the determinant formula</h4>
 					<div class="fragment size-90">
 						<p>The formula to compute the determinant of a $3 \times 3$ matrix
-							 is starting to get
+							is starting to get
 							complicated:
 						</p>
 
@@ -2024,7 +2024,8 @@ ans =
 				<section>
 					<h4>Why does Cramer's Rule work? (Cont'd)</h4>
 					<div class="size-75">
-						<p>If $\mathbf x$ is the unique solution to the linear system $A\mathbf x=\mathbf b$, we can isolate $\mathbf x$ using the
+						<p>If $\mathbf x$ is the unique solution to the linear system $A\mathbf x=\mathbf b$, we can
+							isolate $\mathbf x$ using the
 							adjoint matrix inverse:</p>
 						<p style="margin-top: -50px;">
 							$$\mathbf x = A^{-1}\mathbf b = \frac{1}{\det A}(\text{adj } A)\mathbf b$$
@@ -2098,37 +2099,39 @@ ans =
 					<br />
 				</section>
 
-				<section>
-					<h4>Summary</h4>
-					<div class="size-80">
-						<div class="left-txt">
-							<p class="fragment"><b>Main Points Covered</b></p>
-							<ul>
-								<li class="fragment">Matrix notation & terminology</li>
-								<li class="fragment">Matrix operations and algebra</li>
-								<li class="fragment">Block matrices</li>
-								<li class="fragment">Inversion via Gaussian elimination</li>
-								<li class="fragment">Determinants and their operational properties</li>
-								<li class="fragment">Cramer's Rule systems</li>
-							</ul>
-						</div>
-						<br />
-						<div class="left-txt">
 
-							<p class="fragment"><b>Where to Next?</b></p>
+			</section>
 
-							<ul>
-								<li class="fragment">Linear Transformations</li>
-								<ul>
-									<li class="fragment">What are they conceptually?</li>
-									<li class="fragment">Their core algebraic connection with matrices</li>
-								</ul>
-							</ul>
-
-						</div>
+			<section>
+				<h4>Summary</h4>
+				<div class="size-80">
+					<div class="left-txt">
+						<p class="fragment"><b>Main Points Covered</b></p>
+						<ul>
+							<li class="fragment">Matrix notation & terminology</li>
+							<li class="fragment">Matrix operations and algebra</li>
+							<li class="fragment">Block matrices</li>
+							<li class="fragment">Inversion via Gaussian elimination</li>
+							<li class="fragment">Determinants and their operational properties</li>
+							<li class="fragment">Cramer's Rule systems</li>
+						</ul>
 					</div>
 					<br />
-				</section>
+					<div class="left-txt">
+
+						<p class="fragment"><b>Where to Next?</b></p>
+
+						<ul>
+							<li class="fragment">Linear Transformations</li>
+							<ul>
+								<li class="fragment">What are they conceptually?</li>
+								<li class="fragment">Their core algebraic connection with matrices</li>
+							</ul>
+						</ul>
+
+					</div>
+				</div>
+				<br />
 			</section>
 
 			<!-- Ends sections -->
