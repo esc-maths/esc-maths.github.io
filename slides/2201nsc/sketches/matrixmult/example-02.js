@@ -307,12 +307,12 @@ var defaultState = {
         rowHeight: 0,
     },
     matrixA: {
-        values: MatrixValues_1.default.from([[3, -2], [2, 4], [1, -3]]),
+        values: MatrixValues_1.default.from([[-2, 1, 3], [4, 1, 6]]),
         editable: true,
         id: 'A',
     },
     matrixB: {
-        values: MatrixValues_1.default.from([[-2, 1, 3], [4, 1, 6]]),
+        values: MatrixValues_1.default.from([[3, -2], [2, 4], [1, -3]]),
         editable: true,
         id: 'B',
     },
@@ -689,7 +689,7 @@ var Styles;
         boxShadow: "0 1px 1px 0 " + styles_2.pallete.gray,
         color: styles_2.pallete.grayDark,
         border: 'none',
-        fontSize: '20px',
+        fontSize: '24px',
         textAlign: 'center',
         width: '30px',
         height: '30px',
@@ -1354,11 +1354,11 @@ var Styles;
     });
     // Change font size
     Styles.cellFontSize2 = 30;
-    Styles.cellFontSize3 = 20;
-    Styles.cellFontSize4 = 17;
-    Styles.cellFontSize5 = 15;
-    Styles.cellFontSize6 = 13;
-    Styles.cellFontSize7 = 11;
+    Styles.cellFontSize3 = 30;
+    Styles.cellFontSize4 = 27;
+    Styles.cellFontSize5 = 25;
+    Styles.cellFontSize6 = 23;
+    Styles.cellFontSize7 = 21;
     Styles.cell2 = typestyle_1.style({ fontSize: Styles.cellFontSize2 + 'px' });
     Styles.cell3 = typestyle_1.style({ fontSize: Styles.cellFontSize3 + 'px' });
     Styles.cell4 = typestyle_1.style({ fontSize: Styles.cellFontSize4 + 'px' });
