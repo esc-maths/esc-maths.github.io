@@ -10,7 +10,7 @@ function view(calculatorVDom) {
             dom_1.h1(".title." + styles_1.default.title, 'Matrix Multiplication'),
             calcVNode,
             dom_1.h2(".footnote." + styles_1.default.footnote, [
-                dom_1.a({ attrs: { href: 'https://github.com/staltz/matrixmultiplication.xyz' } }, 'Built by @andrestaltz with Cycle.js')
+                dom_1.a({ attrs: { href: 'https://x.com/andrestaltz', target: '_blank' } }, 'Built by @andrestaltz with Cycle.js')
             ])
         ]);
     });
