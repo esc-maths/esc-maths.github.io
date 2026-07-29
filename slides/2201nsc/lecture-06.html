@@ -128,11 +128,13 @@
 					<div class="size-85">
 						<ul>
 							<li class="fragment" data-fragment-index="0"><b>Dot product of vectors u, v:</b>
-								<code>dot(u,v)</code></li>
+								<code>dot(u,v)</code>
+							</li>
 							<li class="fragment" data-fragment-index="1"><b>Norm of a vector v:</b> <code>norm(v)</code>
 							</li>
 							<li class="fragment" data-fragment-index="2"><b>To normalise a vector v:</b>
-								<code>w = v / norm(v)</code></li>
+								<code>w = v / norm(v)</code>
+							</li>
 							<li class="fragment" data-fragment-index="3"><b>To find the angle between u and
 									v:</b><br /><code>theta = acos(dot(u,v) / (norm(u)*norm(v)))</code></li>
 						</ul>
@@ -838,6 +840,723 @@
 							<p>Output is the weighted sum of song ratings across all users, proportional to the weighted
 								average.</p>
 						</div>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+
+				<!-- Slide 1 (PDF p.25): Orthogonal and Orthonormal Sets & Bases -->
+				<section data-auto-animate>
+					<h4>Orthogonal and Orthonormal Sets &amp; Bases</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Definitions (Sets):</b></p>
+							<ul>
+								<li class="fragment" data-fragment-index="1"><b>Orthogonal Set:</b> A set $\{u_1, u_2,
+									\dots, u_p\}$ is orthogonal if pairwise orthogonal:
+									$$ \langle u_i, u_j \rangle = 0 \quad\text{if}\quad i \ne j $$
+								</li>
+								<li class="fragment" data-fragment-index="2"><b>Orthonormal Set:</b> An orthogonal set
+									of unit vectors ($\|v_i\| = 1$ for all $i$).</li>
+							</ul>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;">
+							<p><b>Definitions (Bases):</b> A basis $\{v_1, v_2, \dots, v_n\}$ for an inner product space
+								is:</p>
+							<ul>
+								<li class="fragment" data-fragment-index="4"><b>Orthogonal Basis:</b> if $\langle v_i,
+									v_j \rangle = 0$ whenever $i \ne j$.</li>
+								<li class="fragment" data-fragment-index="5"><b>Orthonormal Basis:</b> if $\langle v_i,
+									v_j \rangle = \delta_{ij}$ (Kronecker delta: $1$ if $i=j$, $0$ if $i \ne j$).</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 2 (PDF p.26): Example of Orthogonal & Orthonormal Sets -->
+				<section data-auto-animate>
+					<h4>Example of Orthogonal &amp; Orthonormal Sets</h4>
+					<div class="size-65">
+						<div class="fragment" data-fragment-index="0">
+							<p>Consider vectors in $\mathbb{R}^3$:</p>
+							$$ v_1 = \begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}, \quad v_2 = \begin{pmatrix}2 \\ 1 \\
+							-3\end{pmatrix}, \quad v_3 = \begin{pmatrix}4 \\ -5 \\ 1\end{pmatrix} $$
+						</div>
+
+						<div class="cc" style="font-size: 0.85em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								$\langle v_1, v_2 \rangle = 1(2) + 1(1) + 1(-3) = 0$
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								$\langle v_1, v_3 \rangle = 1(4) + 1(-5) + 1(1) = 0$
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$\langle v_2, v_3 \rangle = 2(4) + 1(-5) + (-3)(1) = 0 \implies \{v_1, v_2, v_3\} \text{
+								is orthogonal.}$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 15px; font-size: 0.85em;">
+							<p><b>Normalizing to form an orthonormal set:</b></p>
+							$$ w_1 = \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}, \quad
+							w_2 = \frac{v_2}{\|v_2\|} = \frac{1}{\sqrt{14}}\begin{pmatrix}2\\1\\-3\end{pmatrix}, \quad
+							w_3 = \frac{1}{\sqrt{42}}\begin{pmatrix}4\\-5\\1\end{pmatrix} $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 3 (PDF p.27): Orthonormal Basis Sets in R^2 and R^3 -->
+				<section data-auto-animate>
+					<h4>Orthonormal Basis Sets in $\mathbb{R}^2$ and $\mathbb{R}^3$</h4>
+					<div class="size-85">
+						<ol style="line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="0">$\{e_1, e_2\} = \left\{
+								\begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix} \right\}$</li>
+							<li class="fragment" data-fragment-index="1">$\left\{ \frac{1}{\sqrt{2}}(e_1+e_2),
+								\frac{1}{\sqrt{2}}(e_1-e_2) \right\} = \left\{
+								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},
+								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix} \right\}$</li>
+							<li class="fragment" data-fragment-index="2">$\{e_1, e_2, e_3\} = \left\{
+								\begin{pmatrix}1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\1\\0\end{pmatrix},
+								\begin{pmatrix}0\\0\\1\end{pmatrix} \right\}$</li>
+							<li class="fragment" data-fragment-index="3">$\left\{
+								\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix},
+								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\\0\end{pmatrix},
+								\frac{1}{\sqrt{6}}\begin{pmatrix}1\\1\\-2\end{pmatrix} \right\}$</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 4 (PDF p.28): Orthogonal => Linearly Independent -->
+				<section data-auto-animate>
+					<h4>Orthogonality Implies Linear Independence</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Theorem:</b> If $\{v_1, v_2, \dots, v_n\}$ is an orthogonal set of non-zero vectors,
+								then $v_1, v_2, \dots, v_n$ are linearly independent.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px; font-size: 0.85em;">
+							<p><b>Proof Outline:</b> Test linear independence using $c_1 v_1 + c_2 v_2 + \dots + c_n v_n
+								= \mathbf{0}$.</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.85em;">
+							<p class="fragment" data-fragment-index="2">
+								Take inner product with $v_j$: $\langle c_1 v_1 + c_2 v_2 + \dots + c_n v_n, v_j \rangle
+								= \langle \mathbf{0}, v_j \rangle$
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$c_1 \langle v_1, v_j \rangle + \dots + c_j \langle v_j, v_j \rangle + \dots + c_n
+								\langle v_n, v_j \rangle = 0$
+							</p>
+							<p class="fragment" data-fragment-index="4">
+								Since $\langle v_i, v_j \rangle = 0$ for $i \ne j \implies c_j \|v_j\|^2 = 0 \implies
+								c_j = 0 \quad (\forall j)$.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 5 (PDF p.29): Why use orthonormal basis sets? -->
+				<section data-auto-animate>
+					<h4>Why Use Orthonormal Basis Sets?</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>For any vector $\mathbf{x} = c_1 v_1 + c_2 v_2 + \dots + c_n v_n$, determining
+								coordinates $c_i$ is simple with an orthogonal basis:</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							$$ \langle \mathbf{x}, v_i \rangle = \langle c_1 v_1 + \dots + c_n v_n, v_i \rangle = c_i
+							\langle v_i, v_i \rangle $$
+							$$ \implies c_i = \frac{\langle \mathbf{x}, v_i \rangle}{\langle v_i, v_i \rangle}, \quad i
+							= 1, 2, \dots, n $$
+						</div>
+
+						<p class="fragment" data-fragment-index="2" style="margin-top: 15px; font-size: 0.9em;" id="rr">
+							For an <b>orthonormal basis</b>, $\langle v_i, v_i \rangle = 1$, making $c_i = \langle
+							\mathbf{x}, v_i \rangle$ trivial to compute!
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 6 (PDF p.30): Vector Expansion Theorem -->
+				<section data-auto-animate>
+					<h4>Vector Expansion Theorem</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Orthogonal Basis Expansion:</b> If $\{v_1, v_2, \dots, v_n\}$ is an orthogonal basis,
+								then any vector $\mathbf{x}$ can be expanded as:</p>
+							$$ \mathbf{x} = \frac{\langle \mathbf{x}, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 +
+							\frac{\langle \mathbf{x}, v_2 \rangle}{\langle v_2, v_2 \rangle} v_2 + \dots + \frac{\langle
+							\mathbf{x}, v_n \rangle}{\langle v_n, v_n \rangle} v_n $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Orthonormal Basis Expansion:</b> For an orthonormal basis, this reduces to:</p>
+							$$ \mathbf{x} = \langle \mathbf{x}, v_1 \rangle v_1 + \langle \mathbf{x}, v_2 \rangle v_2 +
+							\dots + \langle \mathbf{x}, v_n \rangle v_n $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 7 (PDF p.31): Finding Coefficients Example -->
+				<section data-auto-animate>
+					<h4>Finding Coefficients Example</h4>
+					<div class="size-85" style="font-size: 0.9em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>Find coefficients of $\mathbf{v} = (-1,7)^T$ relative to orthogonal basis $\left\{
+								\begin{pmatrix}1\\1\end{pmatrix}, \begin{pmatrix}1\\-1\end{pmatrix} \right\}$ in
+								$\mathbb{R}^2$:</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								$c_1 = \frac{\langle \mathbf{v}, v_1 \rangle}{\|v_1\|^2} =
+								\frac{(-1,7)\begin{pmatrix}1\\1\end{pmatrix}}{\left\|\begin{pmatrix}1\\1\end{pmatrix}\right\|^2}
+								= \frac{6}{2} = 3$
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								$c_2 = \frac{\langle \mathbf{v}, v_2 \rangle}{\|v_2\|^2} =
+								\frac{(-1,7)\begin{pmatrix}1\\-1\end{pmatrix}}{\left\|\begin{pmatrix}1\\-1\end{pmatrix}\right\|^2}
+								= \frac{-8}{2} = -4$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 0.85em;">
+							<i>Note:</i> Gram-Schmidt Orthogonalisation can construct an orthonormal basis from any
+							arbitrary basis using projections.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 8 (PDF p.32): Orthogonal Matrix Definition -->
+				<section data-auto-animate>
+					<h4>Orthogonal Matrices</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Definition:</b> An $n \times n$ matrix $Q$ is an <i>orthogonal matrix</i> if its
+								column vectors form an orthonormal set in $\mathbb{R}^n$.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Theorem:</b> An $n \times n$ matrix $Q$ is orthogonal $\iff Q^T Q = I$.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px; font-size: 0.85em;">
+							<p><b>Proof Outline:</b> $Q$ is orthogonal $\iff \mathbf{q}_i^T \mathbf{q}_j = \delta_{ij}$.
+								Since $\mathbf{q}_i^T \mathbf{q}_j$ is the $(i,j)$ entry of $Q^T Q$, $Q$ is orthogonal
+								$\iff Q^T Q = I$.</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 9 (PDF p.33): Corollary & Rotation Matrix -->
+				<section data-auto-animate>
+					<h4>Properties &amp; Rotation Matrix Example</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Corollary:</b> If $Q$ is orthogonal, then $Q$ is invertible and $Q^{-1} = Q^T$.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Example (2D Rotation Matrix):</b> For a fixed angle $\theta$:</p>
+							$$ Q = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px; font-size: 0.85em;">
+							<p>Inverse rotation by $-\theta$ is given directly by the transpose:</p>
+							$$ Q^{-1} = Q^T = \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta
+							\end{pmatrix} $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 10 (PDF p.34): Rotation Matrix Concepts -->
+				<section data-auto-animate>
+					<h4>Rotation Matrices &amp; Length Preservation</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>$Q = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$
+								acts as a linear transformation rotating vectors in $\mathbb{R}^2$ through angle
+								$\theta$.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p>$Q^{-1} = Q^T$ rotates vectors through angle $-\theta$.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;" id="rr">
+							Multiplication by any orthogonal matrix preserves the length (norm) of vectors!
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 11 (PDF p.35): Properties of Orthogonal Matrices -->
+				<section data-auto-animate>
+					<h4>Properties of Orthogonal Matrices</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>If $Q$ is an $n \times n$ orthogonal matrix:</p>
+							<ul>
+								<li>1. Columns form an orthonormal basis for $\mathbb{R}^n$.</li>
+								<li>2. $Q^T Q = I$</li>
+								<li>3. $Q^T = Q^{-1}$</li>
+								<li>4. $\langle Q\mathbf{x}, Q\mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{y}
+									\rangle$</li>
+								<li>5. $\|Q\mathbf{x}\| = \|\mathbf{x}\|$</li>
+								<li>6. $\det(Q) = \pm 1$</li>
+							</ul>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>Proof Highlights:</b></p>
+							<ul>
+								<li><b>4:</b> $\langle Q\mathbf{x}, Q\mathbf{y} \rangle = (Q\mathbf{x})^T Q\mathbf{y} =
+									\mathbf{x}^T Q^T Q \mathbf{y} = \mathbf{x}^T \mathbf{y} = \langle \mathbf{x},
+									\mathbf{y} \rangle$</li>
+								<li><b>5:</b> $\|Q\mathbf{x}\|^2 = \langle Q\mathbf{x}, Q\mathbf{x} \rangle = \langle
+									\mathbf{x}, \mathbf{x} \rangle = \|\mathbf{x}\|^2 \implies \|Q\mathbf{x}\| =
+									\|\mathbf{x}\|$</li>
+								<li><b>6:</b> $Q^T Q = I \implies \det(Q^T)\det(Q) = 1 \implies (\det Q)^2 = 1 \implies
+									\det Q = \pm 1$</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 12 (PDF p.36): Real Symmetric Matrices -->
+				<section data-auto-animate>
+					<h4>Real Symmetric Matrices</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Theorem:</b> If $A$ is a real symmetric matrix ($A^T = A$), then:</p>
+							<ol>
+								<li>All eigenvalues of $A$ are real.</li>
+								<li>Eigenvectors corresponding to distinct eigenvalues are orthogonal.</li>
+							</ol>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px; font-size: 0.85em;">
+							<p><b>Example:</b> $A = \begin{pmatrix}-1 & 2 & 5 \\ 2 & 2 & 2 \\ 5 & 2 & -1\end{pmatrix}$
+								has eigenvalues/vectors:</p>
+							$$ \lambda_1 = 6, \, v_1 = \begin{pmatrix}1\\1\\1\end{pmatrix} ; \quad \lambda_2 = 0, \, v_2
+							= \begin{pmatrix}1\\-2\\1\end{pmatrix} ; \quad \lambda_3 = -6, \, v_3 =
+							\begin{pmatrix}-1\\0\\1\end{pmatrix} $$
+							<p>Notice $v_1 \cdot v_2 = 0$, $v_1 \cdot v_3 = 0$, $v_2 \cdot v_3 = 0$.</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 13 (PDF p.37): Spectral Theorem -->
+				<section data-auto-animate>
+					<h4>Spectral Theorem for Real Symmetric Matrices</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Spectral Theorem:</b> For every real symmetric matrix $A$, there exists an orthogonal
+								matrix $V$ and diagonal matrix $D$ such that:</p>
+							$$ A = VDV^T \quad (\text{or } D = V^T A V) $$
+							<p style="font-size: 0.85em;">Where $D$ contains eigenvalues of $A$ and $V$ has normalized
+								eigenvectors as columns.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px; font-size: 0.85em;">
+							<p><b>Proof Outline:</b></p>
+							<ul>
+								<li>Real symmetric matrix $A$ has $n$ orthogonal eigenvectors.</li>
+								<li>Normalizing eigenvectors constructs orthogonal matrix $V$.</li>
+								<li>Since $V^T V = I \implies V^{-1} = V^T \implies A = V D V^{-1} = V D V^T$.</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 14 (PDF p.38): Quadratic Forms & Positive Definite Matrices -->
+				<section data-auto-animate>
+					<h4>Quadratic Forms &amp; Positive Definite Matrices</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Definition (Quadratic Form):</b> If $A$ is an $n \times n$ real symmetric matrix, $x^T
+								A x$ is a <i>quadratic form</i>.</p>
+							<p style="font-size: 0.85em;">For $n=2$: $\begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}a
+								& b \\ b & c\end{pmatrix}\begin{pmatrix}x \\ y\end{pmatrix} = ax^2 + 2bxy + cy^2$</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Definition (Positive Definite):</b> A real symmetric matrix $A$ is <i>positive
+									definite</i> iff:</p>
+							$$ \mathbf{x}^T A \mathbf{x} > 0 \quad \forall \; \mathbf{x} \ne \mathbf{0} \in \mathbb{R}^n
+							$$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 15 (PDF p.39): Checking if a Matrix is Positive Definite -->
+				<section data-auto-animate>
+					<h4>Checking if a Matrix is Positive Definite</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Example:</b> $A = \begin{pmatrix} 5 & 2 \\ 2 & 3 \end{pmatrix} \implies \mathbf{x}^T A
+								\mathbf{x} = 5x_1^2 + 4x_1 x_2 + 3x_2^2 = (2x_1 + x_2)^2 + x_1^2 + 2x_2^2 > 0$ (for
+								$\mathbf{x} \ne \mathbf{0}$). So $A$ is positive definite.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Eigenvalue Criterion Theorem:</b></p>
+							<blockquote
+								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
+								A real symmetric matrix $A$ is positive definite <b>if and only if</b> all of its
+								eigenvalues are strictly positive ($\lambda_i > 0$).
+							</blockquote>
+						</div>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+
+				<!-- Slide 1 (PDF p.40): Optimization Example (1) -->
+				<section data-auto-animate>
+					<h4>Optimization Example: $f(x,y) = 2x^2 - 4xy + 5y^2$</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>Consider the function of two variables:</p>
+							$$ f(x,y) = 2x^2 - 4xy + 5y^2 $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Goal:</b> Determine whether the stationary point at $(0,0)$ is a <i>global minimum</i>
+								or a <i>saddle point</i>.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;" id="rr">
+							We can use information about positive definiteness of the associated matrix to decide!
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 2 (PDF p.41): Optimization Example (2) -->
+				<section data-auto-animate>
+					<h4>Optimization Example: Stationary Point Analysis</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>1. Find Stationary Point:</b></p>
+							$$ \frac{\partial f}{\partial x} = 4x - 4y = 0, \quad \frac{\partial f}{\partial y} = -4x +
+							10y = 0 \implies (x,y) = (0,0) $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>2. Matrix Representation:</b></p>
+							$$ f(x,y) = \begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}2 & -2\\ -2 &
+							5\end{pmatrix}\begin{pmatrix}x\\ y\end{pmatrix} = \mathbf{x}^T A \mathbf{x} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p><b>3. Eigenvalue Test:</b> For $A = \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}$:</p>
+							$$ \text{trace}(A) = 7 = \lambda_1 + \lambda_2, \quad \det(A) = 6 = \lambda_1 \lambda_2
+							\implies \lambda_1 = 6, \, \lambda_2 = 1 $$
+							<p>Since both $\lambda_1, \lambda_2 > 0$, $A$ is <b>positive definite</b> $\implies (0,0)$
+								is a <b>global minimum</b>.</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 3 (PDF p.42): Class Examples -->
+				<section data-auto-animate>
+					<h4>Class Examples</h4>
+					<div class="size-85">
+						<ol style="line-height: 2em;">
+							<li class="fragment" data-fragment-index="0">Show that the symmetric matrix $A =
+								\begin{pmatrix}2 & 2 \\ 2 & 5\end{pmatrix}$ is positive definite.</li>
+							<li class="fragment" data-fragment-index="1">Is the symmetric matrix $A = \begin{pmatrix}1 &
+								1 \\ 1 & 1\end{pmatrix}$ positive definite?</li>
+							<li class="fragment" data-fragment-index="2">Repeat Question 1 using a different method.
+							</li>
+							<li class="fragment" data-fragment-index="3">Repeat Question 2 using a different method.
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 4 (PDF p.43): Quadratic Form: General Case (1) -->
+				<section data-auto-animate>
+					<h4>General Quadratic Forms (Non-Origin Critical Points)</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>If the critical point is at $\mathbf{x}_0$ rather than the origin, the quadratic form
+								becomes:</p>
+							$$ (\mathbf{x} - \mathbf{x}_0)^T A (\mathbf{x} - \mathbf{x}_0) = \mathbf{x}^T A \mathbf{x} -
+							2\mathbf{x}_0^T A \mathbf{x} + \mathbf{x}_0^T A \mathbf{x}_0 $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px; font-size: 0.85em;">
+							<p><b>Procedure:</b></p>
+							<ol>
+								<li>Rewrite in matrix form:
+									$$ ax^2 + 2bxy + cy^2 - dx - ey + f = \mathbf{x}^T A \mathbf{x} - B\mathbf{x} + (f)
+									$$
+									where $A = \begin{pmatrix}a & b\\ b & c\end{pmatrix}$ and $B = \begin{pmatrix}d &
+									e\end{pmatrix}$.
+								</li>
+								<li>Check eigenvalues of $A$: positive eigenvalues $\implies$ positive definite
+									$\implies$ concave up.</li>
+							</ol>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 5 (PDF p.44): Quadratic Form: General Case (2) -->
+				<section data-auto-animate>
+					<h4>Locating the Critical Point</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>3. Match Coefficients:</b> Match terms between $-2\mathbf{x}_0^T A \mathbf{x}$ and
+								$-B\mathbf{x}$:</p>
+							$$ -2\mathbf{x}_0^T A = -B \implies 2\mathbf{x}_0^T A = B $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>4. Solve for Critical Point $\mathbf{x}_0$:</b></p>
+							$$ \mathbf{x}_0 = \frac{1}{2} A^{-1} B^T $$
+						</div>
+
+						<p class="fragment" data-fragment-index="2" style="margin-top: 15px; font-size: 0.85em;"
+							id="rr">
+							<i>Note:</i> The constant $f$ shifts the vertical position of the function but does not
+							alter the location of the critical point.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 6 (PDF p.45): General Case Example -->
+				<section data-auto-animate>
+					<h4>General Quadratic Form Example</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<p>Find the critical point of $g(x,y) = 2x^2 - 4xy + 5y^2 + 10x + 8y + 2$:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p><b>1. Rewrite:</b> $g(x,y) = \mathbf{x}^T \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}
+								\mathbf{x} - \begin{pmatrix}-10 & -8\end{pmatrix} \mathbf{x} + (2)$</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>2. Eigenvalues:</b> $A = \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}$ has $\lambda_1 =
+								6, \lambda_2 = 1 > 0 \implies$ positive definite.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p><b>3. Critical Point Location:</b></p>
+							$$ \mathbf{x}_0 = \frac{1}{2} A^{-1} B^T = \frac{1}{2} \begin{pmatrix}2 & -2\\ -2 &
+							5\end{pmatrix}^{-1} \begin{pmatrix}-10\\ -8\end{pmatrix} = \begin{pmatrix}-11/2 \\
+							-3\end{pmatrix} $$
+							<p>This point represents a <b>global minimum</b>.</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 7 (PDF p.46): Least-Squares Fits (1) -->
+				<section data-auto-animate>
+					<h4>Least-Squares Fits: Linear $y = mx + c$</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>If $n$ points $(x_i, y_i)$ were perfectly collinear:</p>
+							$$ \mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ \vdots \\ y_n\end{pmatrix} = \begin{pmatrix}x_1
+							& 1 \\ x_2 & 1 \\ \vdots & \vdots \\ x_n & 1\end{pmatrix}\begin{pmatrix}m \\ c\end{pmatrix}
+							= X\mathbf{k} \implies \mathbf{y} - X\mathbf{k} = \mathbf{0} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p>For real-world data, $\mathbf{y} - X\mathbf{k} \ne \mathbf{0}$ represents the error
+								vector.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p>To find best-fit parameters $\mathbf{k} = \begin{pmatrix}m \\ c\end{pmatrix}$, we
+								minimize the squared norm:</p>
+							$$ \|\mathbf{y} - X\mathbf{k}\|^2 = \mathbf{k}^T X^T X \mathbf{k} - 2\mathbf{y}^T X
+							\mathbf{k} + \mathbf{y}^T \mathbf{y} $$
+							<p>This is a <b>quadratic form</b> in $\mathbf{k}$!</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 8 (PDF p.47): Least-Squares Fits (2) -->
+				<section data-auto-animate>
+					<h4>Least-Squares as a Quadratic Form</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>We want to minimize the quadratic objective function:</p>
+							$$ E(\mathbf{k}) = \|\mathbf{y} - X\mathbf{k}\|^2 = \mathbf{k}^T (X^T X) \mathbf{k} -
+							2\mathbf{y}^T X \mathbf{k} + \mathbf{y}^T \mathbf{y} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<blockquote
+								style="text-align: left; background: rgba(255,255,255,0.05); padding: 12px; border-left: 4px solid #4285f4;">
+								It can be shown that the matrix $X^T X$ is <b>symmetric, real, and positive definite</b>
+								for non-collinear data.
+							</blockquote>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 9 (PDF p.48): Least-Squares Fits (3) -->
+				<section data-auto-animate>
+					<h4>Deriving the Normal Equations</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>Match objective function with general quadratic form $\mathbf{k}^T A \mathbf{k} -
+								2\mathbf{k}_0^T A \mathbf{k} + \mathbf{k}_0^T A \mathbf{k}_0$:</p>
+							$$ \mathbf{k}^T A \mathbf{k} = \mathbf{k}^T X^T X \mathbf{k} \implies A = X^T X $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							$$ -2\mathbf{k}_0^T A \mathbf{k} = -2\mathbf{y}^T X \mathbf{k} \implies 2\mathbf{k}_0^T A =
+							2\mathbf{y}^T X \implies B = 2\mathbf{y}^T X $$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<p>Solving for minimizing parameters $\mathbf{k}_0$:</p>
+							$$ \mathbf{k}_0 = \frac{1}{2} A^{-1} B^T = \frac{1}{2}(X^T X)^{-1} (2 X^T \mathbf{y}) = (X^T
+							X)^{-1} X^T \mathbf{y} $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 10 (PDF p.49): Least-Squares Linear Solution -->
+				<section data-auto-animate>
+					<h4>Linear Fit Solution Example</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>Given 10 data points $(x_i, y_i)$, compute $X^T X$ and its inverse:</p>
+							$$ X^T X = \begin{pmatrix}1 & 2 & \dots & 10 \\ 1 & 1 & \dots &
+							1\end{pmatrix}\begin{pmatrix}1 & 1 \\ 2 & 1 \\ \vdots & \vdots \\ 10 & 1\end{pmatrix} =
+							\begin{pmatrix}385 & 55 \\ 55 & 10\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							$$ (X^T X)^{-1} = \frac{1}{825}\begin{pmatrix}10 & -55 \\ -55 & 385\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p>Calculating parameter vector $\mathbf{k}_0 = \begin{pmatrix}m \\ c\end{pmatrix}$:</p>
+							$$ \begin{pmatrix}m \\ c\end{pmatrix} = (X^T X)^{-1} X^T \mathbf{y} \approx
+							\begin{pmatrix}0.48 \\ 1.42\end{pmatrix} \implies y = 0.48x + 1.42 $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 11 (PDF p.50): Quadratic Fit -->
+				<section data-auto-animate>
+					<h4>Quadratic Fit: $y = ax^2 + bx + c$</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>Construct design matrix $X$ with columns $[x_i^2, x_i, 1]$:</p>
+							$$ X^T X = \begin{pmatrix}1 & 4 & \dots & 100 \\ 1 & 2 & \dots & 10 \\ 1 & 1 & \dots &
+							1\end{pmatrix}\begin{pmatrix}1 & 1 & 1\\ 4 & 2 & 1\\ \vdots & \vdots & \vdots\\ 100 & 10 &
+							1\end{pmatrix} = \begin{pmatrix}25333 & 3025 & 385 \\ 3025 & 385 & 55 \\ 385 & 55 &
+							10\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							$$ (X^T X)^{-1} = \frac{1}{2640}\begin{pmatrix}5 & -55 & 110 \\ -55 & 637 & -1386 \\ 110 &
+							-1386 & 3652\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							$$ \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = (X^T X)^{-1} X^T \mathbf{y}
+							\approx \begin{pmatrix}-0.10 \\ 1.59 \\ -0.80\end{pmatrix} $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 12 (PDF p.51): Exponential Fit -->
+				<section data-auto-animate>
+					<h4>Exponential Fit: $y = a e^{-x} + b e^{-x/2} + c$</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>Design matrix $X$ has columns $[e^{-x_i}, e^{-x_i/2}, 1]$:</p>
+							$$ X^T X \approx \begin{pmatrix}0.15652 & 0.28722 & 0.58195 \\ 0.28722 & 0.58195 & 1.53111
+							\\ 0.58195 & 1.53111 & 10\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							$$ (X^T X)^{-1} \approx \begin{pmatrix}102.97874 & -58.70585 & 2.99565 \\ -58.70585 &
+							36.34439 & -2.14833 \\ 2.99565 & -2.14833 & 0.25460\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							$$ \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = (X^T X)^{-1} X^T \mathbf{y}
+							\approx \begin{pmatrix}5.95 \\ -11.64 \\ 5.50\end{pmatrix} $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 13 (PDF p.52): Comparison of Lines of Best Fit -->
+				<section data-auto-animate>
+					<h4>Comparison of Lines of Best Fit</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Summary of Fitted Models:</b></p>
+							<ul style="line-height: 2em;">
+								<li class="fragment" data-fragment-index="1"><b>Linear Fit:</b> $y = 0.48x + 1.42$</li>
+								<li class="fragment" data-fragment-index="2"><b>Quadratic Fit:</b> $y = -0.10x^2 + 1.59x
+									- 0.80$</li>
+								<li class="fragment" data-fragment-index="3"><b>Exponential Fit:</b> $y = 5.95e^{-x} -
+									11.64e^{-x/2} + 5.50$</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 14 (PDF p.53): Summary of Inner Product Section -->
+				<section data-auto-animate>
+					<h4>Summary: Inner Product Spaces</h4>
+					<div class="size-85">
+						<ul style="line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="0">Inner product and norm on $\mathbb{R}^n$.</li>
+							<li class="fragment" data-fragment-index="1">Inner products on general function spaces.</li>
+							<li class="fragment" data-fragment-index="2">Orthogonal and orthonormal basis sets.</li>
+							<li class="fragment" data-fragment-index="3">Orthogonal matrices and their properties.</li>
+							<li class="fragment" data-fragment-index="4">Real symmetric matrices &amp; the Spectral
+								Theorem.</li>
+							<li class="fragment" data-fragment-index="5">Positive-definite matrices &amp; quadratic
+								forms (optimization &amp; least-squares applications).</li>
+						</ul>
 					</div>
 					<br />
 				</section>
