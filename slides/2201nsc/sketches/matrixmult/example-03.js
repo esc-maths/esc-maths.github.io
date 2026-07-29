@@ -7,10 +7,10 @@ var styles_1 = require("./styles");
 function view(calculatorVDom) {
     return calculatorVDom.map(function (calcVNode) {
         return dom_1.div('.app', [
-            dom_1.h1(".title." + styles_1.default.title, 'Matrix Multiplication'),
+            dom_1.h1(".title." + styles_1.default.title, ''),
             calcVNode,
             dom_1.h2(".footnote." + styles_1.default.footnote, [
-                dom_1.a({ attrs: { href: 'https://github.com/staltz/matrixmultiplication.xyz' } }, 'Built by @andrestaltz with Cycle.js')
+                dom_1.a({ attrs: { href: 'https://github.com/staltz/matrixmultiplication.xyz' } }, '')
             ])
         ]);
     });
@@ -307,12 +307,12 @@ var defaultState = {
         rowHeight: 0,
     },
     matrixA: {
-        values: MatrixValues_1.default.from([[1, 2, 1], [0, 1, 0], [2, 3, 4]]),
+        values: MatrixValues_1.default.from([[1, 2], [4, 5], [3, 6]]),
         editable: true,
         id: 'A',
     },
     matrixB: {
-        values: MatrixValues_1.default.from([[2, 5], [6, 7], [1, 8]]),
+        values: MatrixValues_1.default.from([[3, 4], [1, 2]]),
         editable: true,
         id: 'B',
     },
@@ -689,7 +689,7 @@ var Styles;
         boxShadow: "0 1px 1px 0 " + styles_2.pallete.gray,
         color: styles_2.pallete.grayDark,
         border: 'none',
-        fontSize: '20px',
+        fontSize: '24px',
         textAlign: 'center',
         width: '30px',
         height: '30px',
@@ -1352,6 +1352,7 @@ var Styles;
             }
         }
     });
+    // Change font size
     Styles.cellFontSize2 = 30;
     Styles.cellFontSize3 = 30;
     Styles.cellFontSize4 = 27;
@@ -11348,25 +11349,25 @@ exports['default'] = result;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
 exports['default'] = symbolObservablePonyfill;
 function symbolObservablePonyfill(root) {
-	var result;
-	var _Symbol = root.Symbol;
+    var result;
+    var _Symbol = root.Symbol;
 
-	if (typeof _Symbol === 'function') {
-		if (_Symbol.observable) {
-			result = _Symbol.observable;
-		} else {
-			result = _Symbol('observable');
-			_Symbol.observable = result;
-		}
-	} else {
-		result = '@@observable';
-	}
+    if (typeof _Symbol === 'function') {
+        if (_Symbol.observable) {
+            result = _Symbol.observable;
+        } else {
+            result = _Symbol('observable');
+            _Symbol.observable = result;
+        }
+    } else {
+        result = '@@observable';
+    }
 
-	return result;
+    return result;
 };
 },{}],92:[function(require,module,exports){
 (function (setImmediate,clearImmediate){
