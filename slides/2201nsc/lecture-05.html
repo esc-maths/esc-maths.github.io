@@ -3714,18 +3714,28 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 						<div style="font-size: 0.75em; line-height: 0.5;">
 							<p>Assume the first $r$ eigenvectors are independent, but the addition of $\mathbf{v}_{r+1}$
 								makes the set dependent:
-								<span class="fragment" data-fragment-index="0">
-									$$ \mathbf{v}_{r+1} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_r\mathbf{v}_r
-									\quad
-									\textbf{--- (Eq. 1)} $$
-								</span>
+
 							</p>
+							<div class="cc">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$$ \mathbf{v}_{r+1} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots +
+										c_r\mathbf{v}_r
+										\quad
+										\textbf{--- (Eq. 1)} $$
+									</span>
+								</p>
+							</div>
 
 							<div style="margin-top: 5px;">
 								<p class="fragment" data-fragment-index="1">Multiplying <b>Eq. 1</b> by the matrix $A$
-									yields: $\; A\mathbf{v}_{r+1} =
-									c_1(A\mathbf{v}_1) + \dots + c_r(A\mathbf{v}_r) $
+									yields: $\; A\mathbf{v}_{r+1} = A\left(_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots +
+									c_r\mathbf{v}_r\right)$
 									<span class="fragment" data-fragment-index="2">
+										$ =
+										c_1(A\mathbf{v}_1) + \dots + c_r(A\mathbf{v}_r) $
+									</span>
+									<span class="fragment" data-fragment-index="3">
 										$$ \lambda_{r+1}\mathbf{v}_{r+1} = c_1\lambda_1\mathbf{v}_1 +
 										c_2\lambda_2\mathbf{v}_2 +
 										\dots + c_r\lambda_r\mathbf{v}_r \quad \textbf{--- (Eq. 2)} $$
@@ -3735,7 +3745,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 
 							</div>
 
-							<div class="fragment" data-fragment-index="3" style="margin-top: 5px;">
+							<div class="fragment" data-fragment-index="4" style="margin-top: 5px;">
 								<p>Multiplying <b>Eq. 1</b> by the scalar value $\lambda_{r+1}$ yields:
 									$$ \lambda_{r+1}\mathbf{v}_{r+1} = c_1\lambda_{r+1}\mathbf{v}_1 +
 									c_2\lambda_{r+1}\mathbf{v}_2 + \dots + c_r\lambda_{r+1}\mathbf{v}_r \quad
@@ -3745,12 +3755,12 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							</div>
 
 							<div style="margin-top: 5px; ">
-								<p class="fragment" data-fragment-index="4">Subtracting <b>Eq. 3</b> from <b>Eq. 2</b>
+								<p class="fragment" data-fragment-index="5">Subtracting <b>Eq. 3</b> from <b>Eq. 2</b>
 									we obtain:
 								</p>
 
 							</div>
-							<div style="margin-top: 5px;" class="fragment" data-fragment-index="4">
+							<div style="margin-top: -5px;" class="fragment" data-fragment-index="5">
 								$$ \mathbf{0} = c_1(\lambda_1 - \lambda_{r+1})\mathbf{v}_1 + c_2(\lambda_2 -
 								\lambda_{r+1})\mathbf{v}_2 + \dots + c_r(\lambda_r - \lambda_{r+1})\mathbf{v}_r $$
 							</div>
@@ -3763,7 +3773,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 				<section data-auto-animate>
 					<h4>Eigenvectors as a Basis</h4>
 					<div class="size-85">
-						<div style="font-size: 1em;">
+						<div style="font-size: 0.8em;">
 							<p>
 								<b>Theorem:</b> If the eigenvalues of an $n \times n$ matrix $A$ are all
 								distinct, their corresponding eigenvectors are guaranteed to form a basis for
@@ -3771,37 +3781,79 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 							</p>
 						</div>
 
-						<div style="margin-top: 15px; font-size: 1em;">
+						<div style="margin-top: 15px; font-size: 0.8em;">
 							<h5>Proof Outline (By Contradiction):</h5>
 
 						</div>
 
 
-						<div style="font-size: 1em; line-height: 1.0;">
-							<div style="margin-top: 5px;">
+						<div style="font-size: 0.76em; line-height: 1.0;">
+
+							<div class="cc" style="margin-top: -15px;">
+								<p>
+									<span>
+										$$ \mathbf{v}_{r+1} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots +
+										c_r\mathbf{v}_r
+										\quad
+										\textbf{--- (Eq. 1)} $$
+									</span>
+								</p>
+							</div>
+							<div style="margin-top: -5px;">
 								$$ \mathbf{0} = c_1(\lambda_1 - \lambda_{r+1})\mathbf{v}_1 + c_2(\lambda_2 -
 								\lambda_{r+1})\mathbf{v}_2 + \dots + c_r(\lambda_r - \lambda_{r+1})\mathbf{v}_r $$
 							</div>
 
 							<div style="margin-top: 10px;">
-								<p>
-									<span class="fragment" data-fragment-index="1">
-										Because all eigenvalues are distinct, $(\lambda_i - \lambda_{r+1}) \neq 0$.
-									</span>
+								<p class="fragment" data-fragment-index="1">
+									The vectors
+									$\mathbf v_1,\ldots,\mathbf v_r$
+									are linearly independent by assumption.
 									<span class="fragment" data-fragment-index="2">
-										This requires at least some non-zero coefficients to sum to $\mathbf{0}$,
+										Therefore every coefficient in this linear combination
+										must be zero:
+										$
+										c_i(\lambda_i-\lambda_{r+1})=0,
+										\; i=1,\ldots,r.
+										$
 									</span>
-									<span class="fragment" data-fragment-index="3">
-										which directly, contradicts our initial assumption
-										that the first $r$ eigenvectors were <em>not</em> linearly independent.
-									</span>
+								</p>
+
+
+
+								<p class="fragment" data-fragment-index="3">
+									Since all eigenvalues are distinct,
+									$\lambda_i-\lambda_{r+1}\neq0$ for every $i$.
 									<span class="fragment" data-fragment-index="4">
-										Thus, the full set must be independent. $\quad\blacksquare$
+										Hence
+										$
+										c_1=c_2=\cdots=c_r=0.
+										$
 									</span>
+								</p>
 
+								<p class="fragment" data-fragment-index="5">
+									<b>Eq. 1</b> now becomes
+									$
+									\mathbf v_{r+1}=\mathbf0,
+									$
+									<span class="fragment" data-fragment-index="6">
+										which is impossible because an eigenvector is, by definition,
+									non-zero.
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="7">
+									This contradiction shows that
+									$\mathbf v_{r+1}$ cannot depend on
+									$\mathbf v_1,\ldots,\mathbf v_r$.
+									Thus every new eigenvector increases the size of an
+									linearly independent set.
+								</p>
 
-
-
+								<p class="fragment" data-fragment-index="8">
+									Therefore the $n$ eigenvectors are linearly independent.
+									Any $n$ linearly independent vectors in $\mathbb R^n$
+									form a basis. $\;\blacksquare$
 								</p>
 							</div>
 						</div>
@@ -3810,85 +3862,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 					<br />
 				</section>
 
-				<section data-auto-animate>
-					<h4>Eigenvectors as a Basis</h4>
 
-					<div class="size-65">
-
-						<div style="font-size:0.9em;">
-							<p>
-								<b>Theorem:</b> If the eigenvalues of an
-								$n\times n$ matrix $A$ are all distinct,
-								then their corresponding eigenvectors form
-								a basis for $\mathbb R^n$.
-							</p>
-						</div>
-
-						<div style="margin-top:10px;font-size:0.9em;">
-							<h5>Proof Outline (By Contradiction):</h5>
-						</div>
-
-						<div style="font-size:0.9em;line-height:1.15;">
-
-							<div>
-								$$
-								\mathbf0=
-								c_1(\lambda_1-\lambda_{r+1})\mathbf v_1+
-								\cdots+
-								c_r(\lambda_r-\lambda_{r+1})\mathbf v_r
-								$$
-							</div>
-
-							<p class="fragment" data-fragment-index="1">
-								The vectors
-								$\mathbf v_1,\ldots,\mathbf v_r$
-								are linearly independent by assumption.
-							</p>
-
-							<p class="fragment" data-fragment-index="2">
-								Therefore every coefficient in this linear combination
-								must be zero:
-								$$
-								c_i(\lambda_i-\lambda_{r+1})=0,
-								\qquad i=1,\ldots,r.
-								$$
-							</p>
-
-							<p class="fragment" data-fragment-index="3">
-								Since all eigenvalues are distinct,
-								$\lambda_i-\lambda_{r+1}\neq0$ for every $i$.
-								Hence
-								$$
-								c_1=c_2=\cdots=c_r=0.
-								$$
-							</p>
-
-							<p class="fragment" data-fragment-index="4">
-								Equation (1) now becomes
-								$$
-								\mathbf v_{r+1}=\mathbf0,
-								$$
-								which is impossible because an eigenvector is, by definition,
-								non-zero.
-							</p>
-
-							<p class="fragment" data-fragment-index="5">
-								This contradiction shows that
-								$\mathbf v_{r+1}$ cannot depend on
-								$\mathbf v_1,\ldots,\mathbf v_r$.
-								Thus every new eigenvector increases the size of an
-								linearly independent set.
-							</p>
-
-							<p class="fragment" data-fragment-index="6">
-								Therefore the $n$ eigenvectors are linearly independent.
-								Any $n$ linearly independent vectors in $\mathbb R^n$
-								form a basis. $\qquad\blacksquare$
-							</p>
-
-						</div>
-					</div>
-				</section>
 
 				<section data-auto-animate>
 					<h4>Changing Bases - 2D Example</h4>
