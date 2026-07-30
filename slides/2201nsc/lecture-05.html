@@ -2564,10 +2564,13 @@
 					</h4>
 
 					<div class="cc size-85">
-						<p class="fragment" data-fragment-index="0">$2\times 2$ matrices imply $\det(A-\lambda I )=0$ is a quadratic equation</p>
-						<p class="fragment" data-fragment-index="1">$3\times 3$ matrices imply $\det(A-\lambda I )=0$ is a cubic equation</p>
+						<p class="fragment" data-fragment-index="0">$2\times 2$ matrices imply $\det(A-\lambda I )=0$ is
+							a quadratic equation</p>
+						<p class="fragment" data-fragment-index="1">$3\times 3$ matrices imply $\det(A-\lambda I )=0$ is
+							a cubic equation</p>
 						<p class="fragment" data-fragment-index="2">$\vdots$</p>
-						<p class="fragment" data-fragment-index="2">$n\times n$ matrices imply $\det(A-\lambda I )=0$ is an equation of degree $n$</p>
+						<p class="fragment" data-fragment-index="2">$n\times n$ matrices imply $\det(A-\lambda I )=0$ is
+							an equation of degree $n$</p>
 					</div>
 
 					<div class="fragment" data-fragment-index="3">
@@ -3335,7 +3338,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 
 						<p class="fragment" style="margin-top: 15px; font-size: 0.9em;">
 							<span>
-								The answer to this questions is <b>NO</b>. Because there are fewer rows than columns,
+								The answer to this question is <b>NO</b>. Because there are fewer rows than columns,
 								the system
 								contains free variables. This creates infinite solution sets rather than a single unique
 								vector transformation.
@@ -3514,7 +3517,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 								Techniques</p>
 							<p>Perform Gaussian elimination on the augmented system matrix:
 								$$ \left(\begin{array}{ccc|c} | & & | & 0 \\ \mathbf{v}_1 & \dots & \mathbf{v}_n &
-								0 \\ | & & | & 0 \end{array}\right) $$</p>
+								\vdots \\ | & & | & 0 \end{array}\right) $$</p>
 							<ul style="font-size: 0.85em; margin-top: 5px;">
 								<li class="fragment">If the matrix yields fewer than $n$ non-zero rows, the system is
 									<strong>linearly
@@ -3790,7 +3793,7 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 									</span>
 									<span class="fragment" data-fragment-index="3">
 										which directly, contradicts our initial assumption
-										that the first $r$ eigenvectors were independent.
+										that the first $r$ eigenvectors were <em>not</em> linearly independent.
 									</span>
 									<span class="fragment" data-fragment-index="4">
 										Thus, the full set must be independent. $\quad\blacksquare$
@@ -3805,6 +3808,86 @@ D = 0.0067 + 0.1684i                  0                  0                  0
 					</div>
 					<br />
 					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Eigenvectors as a Basis</h4>
+
+					<div class="size-65">
+
+						<div style="font-size:0.9em;">
+							<p>
+								<b>Theorem:</b> If the eigenvalues of an
+								$n\times n$ matrix $A$ are all distinct,
+								then their corresponding eigenvectors form
+								a basis for $\mathbb R^n$.
+							</p>
+						</div>
+
+						<div style="margin-top:10px;font-size:0.9em;">
+							<h5>Proof Outline (By Contradiction):</h5>
+						</div>
+
+						<div style="font-size:0.9em;line-height:1.15;">
+
+							<div>
+								$$
+								\mathbf0=
+								c_1(\lambda_1-\lambda_{r+1})\mathbf v_1+
+								\cdots+
+								c_r(\lambda_r-\lambda_{r+1})\mathbf v_r
+								$$
+							</div>
+
+							<p class="fragment" data-fragment-index="1">
+								The vectors
+								$\mathbf v_1,\ldots,\mathbf v_r$
+								are linearly independent by assumption.
+							</p>
+
+							<p class="fragment" data-fragment-index="2">
+								Therefore every coefficient in this linear combination
+								must be zero:
+								$$
+								c_i(\lambda_i-\lambda_{r+1})=0,
+								\qquad i=1,\ldots,r.
+								$$
+							</p>
+
+							<p class="fragment" data-fragment-index="3">
+								Since all eigenvalues are distinct,
+								$\lambda_i-\lambda_{r+1}\neq0$ for every $i$.
+								Hence
+								$$
+								c_1=c_2=\cdots=c_r=0.
+								$$
+							</p>
+
+							<p class="fragment" data-fragment-index="4">
+								Equation (1) now becomes
+								$$
+								\mathbf v_{r+1}=\mathbf0,
+								$$
+								which is impossible because an eigenvector is, by definition,
+								non-zero.
+							</p>
+
+							<p class="fragment" data-fragment-index="5">
+								This contradiction shows that
+								$\mathbf v_{r+1}$ cannot depend on
+								$\mathbf v_1,\ldots,\mathbf v_r$.
+								Thus every new eigenvector increases the size of an
+								linearly independent set.
+							</p>
+
+							<p class="fragment" data-fragment-index="6">
+								Therefore the $n$ eigenvectors are linearly independent.
+								Any $n$ linearly independent vectors in $\mathbb R^n$
+								form a basis. $\qquad\blacksquare$
+							</p>
+
+						</div>
+					</div>
 				</section>
 
 				<section data-auto-animate>
