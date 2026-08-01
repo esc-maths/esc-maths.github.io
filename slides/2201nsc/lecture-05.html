@@ -5060,7 +5060,6 @@ ans =
 					<br />
 				</section>
 
-				<!-- Slide 58/69 -->
 				<section data-auto-animate>
 					<h4>Worked Example - Matrix Diagonalisation</h4>
 					<div class="size-80" style="margin-top: -15px;">
@@ -5218,19 +5217,19 @@ ans =
 					<h4>Application Resolution: Marital Population Limits</h4>
 					<div class="size-75">
 
-						<p>We can now determine the long-term stable state behavior of the system $\mathbf{x}_n =
+						<p class="fragment" data-fragment-index="0">We can now determine the long-term stable state behavior of the system $\mathbf{x}_n =
 							A^n\mathbf{x}_0$:</p>
 
 						<div style="font-size: 0.9em; margin-top: 10px;">
-							<p class="fragment" data-fragment-index="0">
+							<p class="fragment" data-fragment-index="1">
 								Because $A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 &
 								0.8 \end{pmatrix}$ has distinct
 								eigenvalues, its eigenvectors form a valid basis.</p>
 
 							<div class="cc">
-								<p class="fragment" data-fragment-index="1">
+								<p class="fragment" data-fragment-index="2">
 									Thus we have $\, A^n = VD^nV^{-1} $
-									<span class="fragment" data-fragment-index="2">
+									<span class="fragment" data-fragment-index="3">
 										$
 										= \begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix}\begin{pmatrix}
 										1^n & 0
@@ -5244,22 +5243,22 @@ ans =
 						</div>
 
 
-						<div class="fragment" data-fragment-index="3" style="font-size: 0.9em; margin-top: 10px;">
+						<div class="fragment" data-fragment-index="4" style="font-size: 0.9em; margin-top: 10px;">
 							<p>Taking the mathematical limit as $n \to \infty$, the transient eigenvalue vanishes
 								($0.5^n \to 0$).</p>
 
 							<div class="cc">
-								<p class="fragment" data-fragment-index="3">
+								<p class="fragment" data-fragment-index="4">
 									That is $\, A^n \;\rightarrow\; \begin{pmatrix} 2 & 1 \\ 3 & -1
 									\end{pmatrix}\begin{pmatrix} 1 &
 									0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{pmatrix} $
-									<span class="fragment" data-fragment-index="4">
+									<span class="fragment" data-fragment-index="5">
 										$
 										=
 										\begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0 & 0
 										\end{pmatrix} $
 									</span>
-									<span class="fragment" data-fragment-index="5">
+									<span class="fragment" data-fragment-index="6">
 										$ = \begin{pmatrix} 0.4 & 0.4 \\ 0.6 & 0.6 \end{pmatrix} $
 									</span>
 
@@ -5269,24 +5268,24 @@ ans =
 						</div>
 
 						<div style="margin-top: 15px; font-size: 0.85em;">
-							<p class="fragment" data-fragment-index="6">
+							<p class="fragment">
 								For any initial configuration vector representing population percentages ($p + (100-p) =
 								100$),
-								<span class="fragment" data-fragment-index="7">
+								<span class="fragment">
 									the long-term system always converges to a single stable ratio:
 								</span>
 
 							</p>
 							<div class="cc">
-								<p class="fragment" data-fragment-index="7">
+								<p class="fragment">
 									$ \mathbf{x}_{\infty} = \begin{pmatrix} 0.4 & 0.4 \\ 0.6 & 0.6
 									\end{pmatrix}\begin{pmatrix}
 									p \\ 100-p \end{pmatrix} $
-									<span class="fragment" data-fragment-index="8">
+									<span class="fragment">
 										$ = \begin{pmatrix} 0.4p + 40 - 0.4p \\ 0.6p + 60 - 0.6p
 										\end{pmatrix} $
 									</span>
-									<span class="fragment" data-fragment-index="9">
+									<span class="fragment">
 										$ = \begin{pmatrix} 40 \\ 60 \end{pmatrix}.$
 									</span>
 								</p>
@@ -6151,7 +6150,7 @@ D = 1.00000          0          0
 							eigenvalues and eigenvectors.
 						</li>
 						<li class="fragment">
-							Propoerties of diagonal matrices to easily compute powers of matrices
+							Properties of diagonal matrices to easily compute powers of matrices
 							and some applications.
 						</li>
 					</ul>
