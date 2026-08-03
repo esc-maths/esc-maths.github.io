@@ -48,100 +48,215 @@
 
 			<section>
 
-				<!-- Slide 1 (PDF p.2): Outline -->
-				<section data-auto-animate>
-					<h4>Summary of Inner Product Section</h4>
-					<div class="size-85">
-						<ul>
-							<li class="fragment" data-fragment-index="0">Inner product and norm on $\mathbb{R}^n$</li>
-							<li class="fragment" data-fragment-index="1">Inner product on general function spaces
-								(examples)</li>
-							<li class="fragment" data-fragment-index="2">Orthogonal and orthonormal basis sets</li>
-							<li class="fragment" data-fragment-index="3">Orthogonal matrices and their properties</li>
-							<li class="fragment" data-fragment-index="4">Symmetric matrices and their properties</li>
-							<li class="fragment" data-fragment-index="5">Positive-Definite Matrices and Quadratic Forms
-							</li>
-						</ul>
-					</div>
-					<br />
-				</section>
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
 
-				<!-- Slide 2 (PDF p.3): Motivation - Dot Product -->
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">
+					Inner Product
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f006.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+
 				<section data-auto-animate>
 					<h4>Motivation: Dot Product</h4>
-					<div class="size-85">
+					<div class="size-75">
 						<div class="fragment" data-fragment-index="0">
 							<p><b>Definition:</b> The dot product of two vectors $\mathbf{x} = \begin{pmatrix}x_1 \\ x_2
 								\\ x_3\end{pmatrix}, \mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ y_3\end{pmatrix} \in
 								\mathbb{R}^3$ is a scalar given by:</p>
-							$$ \mathbf{x} \cdot \mathbf{y} = \mathbf{x}^T \mathbf{y} = x_1 y_1 + x_2 y_2 + x_3 y_3 $$
+
+						</div>
+						<div class="cc" style="font-size: 1.3em;">
+							<p class="fragment" data-fragment-index="0">
+								$ \mathbf{x} \pd \mathbf{y} = x_1 y_1 + x_2 y_2 + x_3 y_3 $
+								<span class="fragment" data-fragment-index="1">
+									$ = \mathbf{x}^T \mathbf{y} $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>Alternative Definition:</b> $\mathbf{x} \cdot \mathbf{y} = \|\mathbf{x}\|
-								\|\mathbf{y}\| \cos \theta$, where $\theta$ is the angle between $\mathbf{x}$ and
-								$\mathbf{y}$.</p>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 20px;">
+							<p><b>Alternative Definition:</b> $\mathbf{x} \pd \mathbf{y} = \|\mathbf{x}\|
+								\|\mathbf{y}\| \cos \theta$,
+								<span class="fragment" data-fragment-index="3">
+									where $\theta$ is the angle between $\mathbf{x}$ and
+									$\mathbf{y}$.
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
 							<p>For a vector $\mathbf{v}$:</p>
-							$$ \mathbf{v} \cdot \mathbf{v} = \|\mathbf{v}\| \|\mathbf{v}\| \cos(0) = \|\mathbf{v}\|^2
-							\implies \|\mathbf{v}\| = \sqrt{\mathbf{v} \cdot \mathbf{v}} = \sqrt{v_1^2 + v_2^2 + v_3^2}
-							$$
+
+						</div>
+						<div class="cc" style="font-size: 1.2em;">
+							<p class="fragment" data-fragment-index="4">
+								$ \mathbf{v} \pd \mathbf{v}$
+								<span class="fragment">
+									$ = \|\mathbf{v}\| \|\mathbf{v}\| \cos(0) $
+								</span>
+								<span class="fragment">
+									$ =\|\mathbf{v}\|^2 $
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment">
+									$
+									\implies \|\mathbf{v}\| = \sqrt{\mathbf{v} \pd \mathbf{v}} $
+								</span>
+								<span class="fragment">
+									$ = \sqrt{v_1^2 + v_2^2 + v_3^2}$
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 3 (PDF p.4): Dot Product Example -->
+
 				<section data-auto-animate>
 					<h4>Dot Product Example</h4>
 					<div class="size-85">
 						<div class="fragment" data-fragment-index="0">
 							<p>If $\mathbf{x} = \begin{pmatrix} 3 \\ -2 \\ 1 \end{pmatrix}$ and $\mathbf{y} =
 								\begin{pmatrix} 4 \\ 3 \\ 2 \end{pmatrix}$:</p>
-							$$ \mathbf{x}^T \mathbf{y} = 3(4) + (-2)(3) + 1(2) = 8 $$
+
 						</div>
 
-						<div class="cc" style="margin-top: 10px; font-size: 0.9em;">
+						<div class="cc" style="font-size: 1.2em;">
 							<p class="fragment" data-fragment-index="1">
-								$\|\mathbf{x}\| = \sqrt{3^2 + (-2)^2 + 1^2} = \sqrt{14}, \qquad \|\mathbf{y}\| =
-								\sqrt{4^2 + 3^2 + 2^2} = \sqrt{29}$
+								$ \mathbf{x}^T \mathbf{y} $
+								<span class="fragment" data-fragment-index="2">
+									$ = 3(4) + (-2)(3) + 1(2) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ =8 $
+								</span>
+
 							</p>
-							<p class="fragment" data-fragment-index="2">
-								$\cos \theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|} =
-								\frac{8}{\sqrt{14}\sqrt{29}} \implies \theta \approx 66.6^\circ$
+
+						</div>
+
+						<div class="cc" style="margin-top: 10px; font-size: 1em;">
+							<p class="fragment" data-fragment-index="4">
+								$\|\mathbf{x}\| $
+								<span class="fragment" data-fragment-index="4">
+									$= \sqrt{3^2 + (-2)^2 + 1^2} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= \sqrt{14},$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\quad \|\mathbf{y}\| = \sqrt{4^2 + 3^2 + 2^2} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= \sqrt{29}$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$\cos \theta $
+								<span class="fragment" data-fragment-index="7">
+									\( = \dfrac{\mathbf{x} \pd \mathbf{y}}{\;\;\;\norm{\mathbf{x}}\norm{\mathbf{y}}}\)
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$= \dfrac{8}{\sqrt{14}\sqrt{29}} $
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$\implies \theta \approx 66.6^\circ$
+								</span>
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 0.85em;">
-							<b>Note:</b> $\mathbf{x}$ and $\mathbf{y}$ are perpendicular (orthogonal) $\iff \mathbf{x}
-							\cdot \mathbf{y} = 0$.
+						<p class="fragment" data-fragment-index="10" style="margin-top: 15px; font-size: 1em;">
+							<b>Note:</b>
+							$\mathbf{x}$ and $\mathbf{y}$ are perpendicular (orthogonal) $\iff \mathbf{x}
+							\pd \mathbf{y} = 0$.
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 4 (PDF p.5): Matlab Commands -->
+
 				<section data-auto-animate>
-					<h4>Matlab Commands</h4>
+					<h4><tt>MATLAB/OCTAVE</tt> Commands</h4>
 					<div class="size-85">
-						<ul>
-							<li class="fragment" data-fragment-index="0"><b>Dot product of vectors u, v:</b>
-								<code>dot(u,v)</code>
-							</li>
-							<li class="fragment" data-fragment-index="1"><b>Norm of a vector v:</b> <code>norm(v)</code>
-							</li>
-							<li class="fragment" data-fragment-index="2"><b>To normalise a vector v:</b>
-								<code>w = v / norm(v)</code>
-							</li>
-							<li class="fragment" data-fragment-index="3"><b>To find the angle between u and
-									v:</b><br /><code>theta = acos(dot(u,v) / (norm(u)*norm(v)))</code></li>
-						</ul>
+
+						<table style="width:100%; border-collapse:collapse; line-height:1.8; font-size: 0.89em;"
+							class="fragment" data-fragment-index="0">
+							<tbody>
+								<tr>
+									<td style="padding:8px; text-align:right;">
+										Dot product of vectors \( \mathbf{u}, \mathbf{v} \):
+									</td>
+									<td style="padding:8px; text-align:left;">
+										<span
+											style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;">
+											<tt>dot(u, v)</tt>
+										</span>
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="1">
+									<td style="padding:8px; text-align:right;">
+										Norm of vector \( \mathbf{v} \):
+									</td>
+									<td style="padding:8px; text-align:left;">
+										<span
+											style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;">
+											<tt>norm(v)</tt>
+										</span>
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="2">
+									<td style="padding:8px; text-align:right;">
+										Normalise vector \( \mathbf{v} \):
+									</td>
+									<td style="padding:8px; text-align:left;">
+										<span
+											style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;">
+											<tt>w = v / norm(v)</tt>
+										</span>
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="3">
+									<td style="padding:8px; text-align:right;">
+										Angle between \( \mathbf{u} \) and \( \mathbf{v} \):
+									</td>
+									<td style="padding:8px; text-align:left;">
+										<span
+											style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;">
+											<tt>theta = acos(dot(u,v) / (norm(u)*norm(v)))</tt>
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+
 
 						<div class="fragment" data-fragment-index="4"
 							style="margin-top: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
-							<p style="font-size: 0.85em;"><b>NOTE!</b> The Matlab command <code>length(v)</code> finds
+							<p style="font-size: 0.85em;"><b>NOTE!</b> The <tt>MATLAB/Octave</tt> command
+								<code>length(v)</code> finds
 								the number of entries in a 1D vector and is quite different from <code>norm(v)</code>.
 							</p>
 						</div>
@@ -149,43 +264,59 @@
 					<br />
 				</section>
 
-				<!-- Slide 5 (PDF p.6): Definition of an Inner Product -->
+
 				<section data-auto-animate>
 					<h4>Definition of an Inner Product</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0" style="font-size: 0.7em;">
+							<span>
+								We wish to generalise these definitions, particularly for situations where we might not
+								have a geometrical picture to guide us (more on that later).
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								From now on, we will
+								replace the terms <em>dot product</em> by <b>inner product</b>, and <em>length</em> 
+								by <b>norm</b>.
+							</span>
+						</p>
+						<div class="fragment" data-fragment-index="2">
 							<p><b>Definition:</b> An <i>inner product</i> assigns to each pair $\mathbf{x}, \mathbf{y}
 								\in V$ a scalar $\langle \mathbf{x}, \mathbf{y} \rangle \in \mathbb{R}$ satisfying:</p>
 						</div>
 
-						<div class="cc" style="margin-top: 10px;">
-							<p class="fragment" data-fragment-index="1">
-								<b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge 0
-								\quad\text{with}\quad \langle \mathbf{x}, \mathbf{x} \rangle = 0 \iff \mathbf{x} =
-								\mathbf{0}$
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								&nbsp;&nbsp;&nbsp;<b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge 0,\,$
+								<span class="fragment" data-fragment-index="4">
+									with $\,\langle \mathbf{x}, \mathbf{x} \rangle = 0 \iff \mathbf{x} =
+									\mathbf{0}$
+								</span>
 							</p>
-							<p class="fragment" data-fragment-index="2">
-								<b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{y},
+							<p class="fragment" data-fragment-index="5">
+								&nbsp;&nbsp;&nbsp;<b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \langle
+								\mathbf{y},
 								\mathbf{x} \rangle \quad \forall \; \mathbf{x}, \mathbf{y} \in V$
 							</p>
-							<p class="fragment" data-fragment-index="3">
-								<b>3. Linearity:</b> $\langle \alpha \mathbf{x} + \beta \mathbf{y}, \mathbf{z} \rangle =
+							<p class="fragment" data-fragment-index="6">
+								&nbsp;&nbsp;&nbsp;<b>3. Linearity:</b> $\langle \alpha \mathbf{x} + \beta \mathbf{y},
+								\mathbf{z} \rangle =
 								\alpha \langle \mathbf{x}, \mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z}
 								\rangle \quad \forall \; \alpha, \beta \in \mathbb{R}$
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="4" style="margin-top: 15px;">
-							<ul>
-								<li class="fragment" data-fragment-index="5"><b>Norm:</b> $\|\mathbf{x}\| =
+						<div class="left-txt" style="margin-top: 15px;">
+							<ul style="line-height: 1.8;">
+								<li class="fragment" data-fragment-index="7"><b>Norm:</b> $\|\mathbf{x}\| =
 									\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$</li>
-								<li class="fragment" data-fragment-index="6"><b>Unit Vector:</b> $\hat{\mathbf{x}} =
+								<li class="fragment" data-fragment-index="8"><b>Unit Vector:</b> $\ds\hat{\mathbf{x}} =
 									\frac{\mathbf{x}}{\|\mathbf{x}\|}$</li>
-								<li class="fragment" data-fragment-index="7"><b>Orthogonality:</b> $\mathbf{x} \perp
+								<li class="fragment" data-fragment-index="9"><b>Orthogonality:</b> $\mathbf{x} \perp
 									\mathbf{y} \iff \langle \mathbf{x}, \mathbf{y} \rangle = 0$</li>
 							</ul>
 						</div>
 					</div>
+					<br />
 					<br />
 				</section>
 
@@ -822,10 +953,10 @@
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 10px; font-size: 0.85em;">
 							$$ R \mathbf{y} = \begin{pmatrix}
-							R_{11} & R_{12} & \cdots & R_{1N} \\
-							R_{21} & R_{22} & \cdots & R_{2N} \\
+							R_{11} & R_{12} & \pds & R_{1N} \\
+							R_{21} & R_{22} & \pds & R_{2N} \\
 							\vdots & \vdots & \ddots & \vdots \\
-							R_{M1} & R_{M2} & \cdots & R_{MN}
+							R_{M1} & R_{M2} & \pds & R_{MN}
 							\end{pmatrix}
 							\begin{pmatrix} w_1 \\ w_2 \\ \vdots \\ w_N \end{pmatrix}
 							= \begin{pmatrix}
@@ -1159,7 +1290,7 @@
 							$$ \lambda_1 = 6, \, v_1 = \begin{pmatrix}1\\1\\1\end{pmatrix} ; \quad \lambda_2 = 0, \, v_2
 							= \begin{pmatrix}1\\-2\\1\end{pmatrix} ; \quad \lambda_3 = -6, \, v_3 =
 							\begin{pmatrix}-1\\0\\1\end{pmatrix} $$
-							<p>Notice $v_1 \cdot v_2 = 0$, $v_1 \cdot v_3 = 0$, $v_2 \cdot v_3 = 0$.</p>
+							<p>Notice $v_1 \pd v_2 = 0$, $v_1 \pd v_3 = 0$, $v_2 \pd v_3 = 0$.</p>
 						</div>
 					</div>
 					<br />
@@ -1543,24 +1674,26 @@
 					<br />
 				</section>
 
-				<!-- Slide 14 (PDF p.53): Summary of Inner Product Section -->
-				<section data-auto-animate>
-					<h4>Summary: Inner Product Spaces</h4>
-					<div class="size-85">
-						<ul style="line-height: 1.8em;">
-							<li class="fragment" data-fragment-index="0">Inner product and norm on $\mathbb{R}^n$.</li>
-							<li class="fragment" data-fragment-index="1">Inner products on general function spaces.</li>
-							<li class="fragment" data-fragment-index="2">Orthogonal and orthonormal basis sets.</li>
-							<li class="fragment" data-fragment-index="3">Orthogonal matrices and their properties.</li>
-							<li class="fragment" data-fragment-index="4">Real symmetric matrices &amp; the Spectral
-								Theorem.</li>
-							<li class="fragment" data-fragment-index="5">Positive-definite matrices &amp; quadratic
-								forms (optimization &amp; least-squares applications).</li>
-						</ul>
-					</div>
-					<br />
-				</section>
 
+
+			</section>
+
+
+			<section data-auto-animate>
+				<h4>Summary of Inner Product Section</h4>
+				<div class="size-85">
+					<ul>
+						<li class="fragment" data-fragment-index="0">Inner product and norm on $\mathbb{R}^n$</li>
+						<li class="fragment" data-fragment-index="1">Inner product on general function spaces
+							(examples)</li>
+						<li class="fragment" data-fragment-index="2">Orthogonal and orthonormal basis sets</li>
+						<li class="fragment" data-fragment-index="3">Orthogonal matrices and their properties</li>
+						<li class="fragment" data-fragment-index="4">Symmetric matrices and their properties</li>
+						<li class="fragment" data-fragment-index="5">Positive-Definite Matrices and Quadratic Forms
+						</li>
+					</ul>
+				</div>
+				<br />
 			</section>
 
 			<!-- Ends sections -->
