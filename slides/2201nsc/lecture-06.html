@@ -275,7 +275,7 @@
 							</span>
 							<span class="fragment" data-fragment-index="1">
 								From now on, we will
-								replace the terms <em>dot product</em> by <b>inner product</b>, and <em>length</em> 
+								replace the terms <em>dot product</em> by <b>inner product</b>, and <em>length</em>
 								by <b>norm</b>.
 							</span>
 						</p>
@@ -286,7 +286,8 @@
 
 						<div style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="3">
-								&nbsp;&nbsp;&nbsp;<b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge 0,\,$
+								&nbsp;&nbsp;&nbsp;<b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge
+								0,\,$
 								<span class="fragment" data-fragment-index="4">
 									with $\,\langle \mathbf{x}, \mathbf{x} \rangle = 0 \iff \mathbf{x} =
 									\mathbf{0}$
@@ -320,48 +321,127 @@
 					<br />
 				</section>
 
-				<!-- Slide 6 (PDF p.7): Why this definition? -->
+
 				<section data-auto-animate>
-					<h4>Why this Definition for an Inner Product?</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>1. Positivity:</b> Allows taking the square root of $\langle \mathbf{x}, \mathbf{x}
-								\rangle$ to measure "size" (norm). Ensures $\|\mathbf{x}\| = 0 \iff \mathbf{x} =
-								\mathbf{0}$.</p>
+					<h4>Why this Definition for an Inner Product? 🤔</h4>
+					<div class="size-80">
+
+						<div>
+							<p><b>Definition:</b> An <i>inner product</i> assigns to each pair $\mathbf{x}, \mathbf{y}
+								\in V$ a scalar $\langle \mathbf{x}, \mathbf{y} \rangle \in \mathbb{R}$ satisfying:</p>
 						</div>
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>2. Symmetry:</b> Order in which vectors occur in $\langle \mathbf{x}, \mathbf{y}
-								\rangle$ does not matter.</p>
+
+						<div style="margin-top: 10px;">
+							<p>
+								&nbsp;&nbsp;&nbsp;<b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge
+								0,\,$
+								<span>
+									with $\,\langle \mathbf{x}, \mathbf{x} \rangle = 0 \iff \mathbf{x} =
+									\mathbf{0}$
+								</span>
+							</p>
+							<p>
+								&nbsp;&nbsp;&nbsp;<b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \langle
+								\mathbf{y},
+								\mathbf{x} \rangle \quad \forall \; \mathbf{x}, \mathbf{y} \in V$
+							</p>
+							<p>
+								&nbsp;&nbsp;&nbsp;<b>3. Linearity:</b> $\langle \alpha \mathbf{x} + \beta \mathbf{y},
+								\mathbf{z} \rangle =
+								\alpha \langle \mathbf{x}, \mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z}
+								\rangle \quad \forall \; \alpha, \beta \in \mathbb{R}$
+							</p>
 						</div>
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							<p><b>3. Linearity:</b> Essential algebraic property of the dot product needed for algebraic
-								manipulations and proofs.</p>
-						</div>
+
+						<ul style="line-height:1.8;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Positivity:</b> Allows taking the square root of
+								$\langle \mathbf{x}, \mathbf{x} \rangle$
+								to measure "size" (norm).
+								<span class="fragment" data-fragment-index="1">
+									Ensures $\|\mathbf{x}\| = 0 \iff \mathbf{x} = \mathbf{0}$.
+								</span>
+
+							</li>
+
+							<li class="fragment" data-fragment-index="2">
+								<b>Symmetry:</b> Order in which vectors occur in
+								$\langle \mathbf{x}, \mathbf{y} \rangle$
+								does not matter.
+							</li>
+
+							<li class="fragment" data-fragment-index="3">
+								<b>Linearity:</b> Essential algebraic property
+								of the dot product needed for
+								algebraic manipulations and proofs.
+							</li>
+						</ul>
+
+
+
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 7 (PDF p.8): Dot product is an inner product -->
 				<section data-auto-animate>
 					<h4>The Dot Product is an Inner Product</h4>
 					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p>For vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$, the standard inner product is:</p>
-							$$ \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y} = \sum_{i=1}^n x_i y_i =
-							x_1 y_1 + x_2 y_2 + \dots + x_n y_n $$
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								For vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$,
+								<span>
+									the standard inner product is:
+								</span>
+
+							</p>
+
+						</div>
+						<div class="cc" style="font-size: 1.1em;">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\langle \mathbf{x}, \mathbf{y} \rangle
+								$
+								<span class="fragment" data-fragment-index="1">
+									$
+									=\mathbf{x}^T \mathbf{y}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ ds= \sum_{i=1}^n x_i y_i =
+									x_1 y_1 + x_2 y_2 + \dots + x_n y_n
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 45px;">
 							<p><b>Euclidean Norm:</b></p>
-							$$ \|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} = \sqrt{x_1^2 + x_2^2 +
-							\dots + x_n^2} $$
+
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+						<div class="cc" style="font-size: 1.1em;">
+							<p class="fragment" data-fragment-index="3">
+								$
+								\|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}
+								$
+								<span class="fragment" data-fragment-index="4">
+									$
+									= \sqrt{x_1^2 + x_2^2 +
+									\dots + x_n^2}
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="5" style="margin-top: 40px;">
 							<p><b>Orthogonality:</b> $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ are orthogonal $\iff
 								\langle \mathbf{x}, \mathbf{y} \rangle = 0$.</p>
 						</div>
 					</div>
+					<br />
 					<br />
 				</section>
 
