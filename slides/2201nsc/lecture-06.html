@@ -1642,6 +1642,7 @@
 					</div>
 					<br />
 				</section>
+
 				<section data-auto-animate>
 					<h4>Application: Information Retrieval</h4>
 					<div class="size-85">
@@ -1705,7 +1706,7 @@
 						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
 							<p>Then $\,\color{green}{\mathbf{y_5 = 0.635}}$ is the largest entry
 								<span class="fragment" data-fragment-index="2">
-									$\implies$ <b>Module 5</b> has the highest cosine 
+									$\implies$ <b>Module 5</b> has the highest cosine
 									similarity with the query,
 									so it is the best match.
 								</span>
@@ -1781,14 +1782,162 @@
 					<br />
 				</section>
 
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+
+					<div class="size-70">
+						<p class="fragment" data-fragment-index="0">
+							<b>Collaborative filtering</b> is a method used by social media platforms and
+							streaming services to recommend content that users are likely to enjoy by
+							identifying similar users or items.
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							Consider a dataset similar to the previous example, but now the entries
+							represent ratings (for example, stars out of 5) that 8 users have given to
+							10 songs. A value of 0 indicates that a user has not rated a song.
+						</p>
+
+
+					</div>
+					<div class="fragment" data-fragment-index="1" style="font-size: 0.5em; margin-top: -20px;">
+						<table style="width:55%; border-collapse: collapse; text-align: center;">
+							<thead>
+								<tr style="border-bottom: 1px solid #fff;">
+									<th>Song</th>
+									<th>U1</th>
+									<th>U2</th>
+									<th>U3</th>
+									<th>U4</th>
+									<th>U5</th>
+									<th>U6</th>
+									<th>U7</th>
+									<th>U8</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Song 1</td>
+									<td>0</td>
+									<td>5</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+									<td>0</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>Song 2</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>Song 3</td>
+									<td>5</td>
+									<td>4</td>
+									<td>4</td>
+									<td>5</td>
+									<td>4</td>
+									<td>0</td>
+									<td>3</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td>Song 4</td>
+									<td>5</td>
+									<td>5</td>
+									<td>3</td>
+									<td>3</td>
+									<td>4</td>
+									<td>4</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>Song 5</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>3</td>
+									<td>0</td>
+									<td>4</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td>Song 6</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>4</td>
+									<td>5</td>
+									<td>0</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>Song 7</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>2</td>
+									<td>3</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>Song 8</td>
+									<td>5</td>
+									<td>3</td>
+									<td>3</td>
+									<td>2</td>
+									<td>4</td>
+									<td>2</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>Song 9</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>1</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td>Song 10</td>
+									<td>0</td>
+									<td>4</td>
+									<td>4</td>
+									<td>3</td>
+									<td>4</td>
+									<td>1</td>
+									<td>0</td>
+									<td>3</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+
 
 				<section data-auto-animate>
-					<h4>Application: Collaborative Filtering (Part 1)</h4>
+					<h4>Application: Collaborative Filtering</h4>
 					<div class="size-85">
-						<p style="font-size: 0.85em;">Recommendation systems match user ratings matrix $R$ to predict
-							preferences.</p>
-						<div class="fragment" data-fragment-index="0" style="font-size: 0.65em;">
-							<table style="width:100%; border-collapse: collapse; text-align: center;">
+
+						<div style="font-size: 0.65em;">
+							<table style="width:60%; border-collapse: collapse; text-align: center;">
 								<thead>
 									<tr style="border-bottom: 1px solid #fff;">
 										<th>Song</th>
@@ -1916,84 +2065,262 @@
 								</tbody>
 							</table>
 						</div>
-						<p class="fragment" data-fragment-index="1" style="font-size: 0.8em; margin-top: 10px;">
-							New user ratings: $\mathbf{x} = (0, 0, 5, 0, 0, 0, 3, 3, 0, 0)^T$. Which song to recommend?
-						</p>
-					</div>
-					<br />
-				</section>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1" style=" margin-top: 10px;">
+								👉 New user ratings: $\mathbf{x} = (0, 0, 5, 0, 0, 0, 3, 3, 0, 0)^T$.
 
-				<!-- Slide 21 (PDF p.22): Collaborative Filtering (2) -->
-				<section data-auto-animate>
-					<h4>Application: Collaborative Filtering (Part 2)</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p>1. Normalize columns of rating matrix $R \implies Q$.</p>
-							<p>2. Normalize new user rating vector $\mathbf{x} \implies \hat{\mathbf{x}} = (0, 0, 0.762,
-								0, 0, 0, 0.457, 0.457, 0, 0)^T$.</p>
-						</div>
-
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>Calculate user similarity vector:</b></p>
-							$$ \mathbf{y} = Q^T \hat{\mathbf{x}} = (0.704, \; 0.464, \; 0.732, \; 0.647, \; 0.625, \;
-							0.242, \; 0.405, \; 0.494)^T $$
-						</div>
-					</div>
-					<br />
-				</section>
-
-				<!-- Slide 22 (PDF p.23): Collaborative Filtering (3) -->
-				<section data-auto-animate>
-					<h4>Application: Collaborative Filtering (Part 3)</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>1. Match Coefficients:</b> Use $\mathbf{y}$ as weights on unnormalized ratings $R$:
 							</p>
-							$$ \mathbf{r} = R \mathbf{y} = (1.400, \; 0.792, \; 3.880, \; \mathbf{3.628}, \; 1.154, \;
-							1.090, \; 1.867, \; 2.849, \; 1.158, \; 2.538)^T $$
-						</div>
-
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>2. Selection Criterion:</b> Choose highest predicted rating for unrated songs.</p>
-						</div>
-
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							<p><b>Result:</b> <b>Song 4</b> (score: 3.628) is the top recommendation!</p>
+							<p class="fragment" data-fragment-index="2">
+								What recommendation could the platform make? 🤔
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 23 (PDF p.24): Collaborative Filtering (4) -->
 				<section data-auto-animate>
-					<h4>Application: Collaborative Filtering (Part 4)</h4>
+					<h4>Application: Collaborative Filtering</h4>
+					<div class="size-75">
+						<div>
+							<p>
+								Define the keyword-document matrix whose columns are the document vectors:
+							</p>
+						</div>
+
+						<div class="cc">
+							<p>
+								\(
+								R=\begin{pmatrix}
+								| & | & & | \\
+								\mathbf{U}_1 & \mathbf{U}_2 & \cdots & \mathbf{U}_8 \\
+								| & | & & | \\
+								\end{pmatrix}
+								=
+								\begin{pmatrix}
+								0&5&3&0&1&0&1&1\\
+								0&0&0&0&0&5&3&2\\
+								5&4&4&5&4&0&3&3\\
+								5&5&3&3&4&4&3&2\\
+								0&0&0&0&3&0&4&3\\
+								0&0&0&0&4&5&0&2\\
+								0&0&5&2&3&3&0&1\\
+								5&3&3&2&4&2&1&1\\
+								0&0&0&5&1&3&1&0\\
+								0&4&4&3&4&1&0&3\\
+
+								\end{pmatrix}
+
+								\)
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div class="size-75">
+						<div>
+							<p>
+								Normalize each column of $R$ to obtain the matrix $Q$, whose columns have unit length.
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+								\(
+								Q=\begin{pmatrix}
+								0&0.524&0.327&0&0.100&0&0.147&0.154\\
+								0&0&0&0&0&0.530&0.442&0.309\\
+								0.577&0.419&0.436&0.574&0.400&0&0.442&0.463\\
+								0.577&0.524&0.327&0.344&0.400&0.424&0.442&0.309\\
+								0&0&0&0&0.300&0&0.590&0.463\\
+								0&0&0&0&0.400&0.530&0&0.309\\
+								0&0&0.546&0.229&0.300&0.318&0&0.154\\
+								0.577&0.314&0.327&0.229&0.400&0.212&0.147&0.154\\
+								0&0&0&0.574&0.100&0.318&0.147&0\\
+								0&0.419&0.436&0.344&0.400&0.106&0&0.463
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div class="size-80">
+						<div class="cc" style="font-size: 0.45em;">
+							<p>
+								\(
+								Q=\begin{pmatrix}
+								0&0.524&0.327&0&0.100&0&0.147&0.154\\
+								0&0&0&0&0&0.530&0.442&0.309\\
+								0.577&0.419&0.436&0.574&0.400&0&0.442&0.463\\
+								0.577&0.524&0.327&0.344&0.400&0.424&0.442&0.309\\
+								0&0&0&0&0.300&0&0.590&0.463\\
+								0&0&0&0&0.400&0.530&0&0.309\\
+								0&0&0.546&0.229&0.300&0.318&0&0.154\\
+								0.577&0.314&0.327&0.229&0.400&0.212&0.147&0.154\\
+								0&0&0&0.574&0.100&0.318&0.147&0\\
+								0&0.419&0.436&0.344&0.400&0.106&0&0.463
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+						<div>
+							<p>1. Normalize columns of rating matrix $R \Ra Q$.</p>
+							<p class="fragment" data-fragment-index="1">2. Normalize new user rating vector $\mathbf{x}
+								$:
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$\hat{\mathbf{x}} = (0, 0, 0.762, 0, 0, 0, 0.457, 0.457, 0, 0)^T$.
+
+							</p>
+						</div>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="3"><b>Calculate user similarity vector:</b></p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$ \mathbf{y} = Q^T \hat{\mathbf{x}} $
+								<span class="fragment" data-fragment-index="4">
+									$= (0.704, \; 0.464, \; 0.732, \; 0.647, \; 0.625, \;
+									0.242, \; 0.405, \; 0.494)^T$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div style="font-size: 0.8em;">
+						<div class="cc" style="font-size: 0.45em;">
+							<p>
+								\(
+								R
+								=
+								\begin{pmatrix}
+								0&5&3&0&1&0&1&1\\
+								0&0&0&0&0&5&3&2\\
+								5&4&4&5&4&0&3&3\\
+								5&5&3&3&4&4&3&2\\
+								0&0&0&0&3&0&4&3\\
+								0&0&0&0&4&5&0&2\\
+								0&0&5&2&3&3&0&1\\
+								5&3&3&2&4&2&1&1\\
+								0&0&0&5&1&3&1&0\\
+								0&4&4&3&4&1&0&3\\
+
+								\end{pmatrix}
+
+								\)
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								<b>1. Match Coefficients:</b>
+								Use $\mathbf{y}$ as weights on unnormalized ratings $R$.
+								<span class="fragment" data-fragment-index="1">
+									That is
+								</span>
+							</p>
+
+						</div>
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$ R \mathbf{y}
+								= (1.400, \; 0.792, \; 3.880, \; 3.628, \;
+								1.154, \;1.090, \; 1.867, \; 2.849, \; 1.158, \; 2.538)^T $
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$ R \mathbf{y}
+								= (1.400, \; 0.792, \; 3.880, \; 3.628, \;
+								1.154, \;1.090, \; 1.867, \; 2.849, \; 1.158, \; 2.538)^T $
+							</p>
+
+							<p class="fragment fade-in" data-fragment-index="3">
+								$ R \mathbf{y}
+								= (1.400, \; 0.792, \; \require{cancel}\cancel{3.880}, \; \color{red}{\mathbf{3.628}},
+								\;
+								1.154, \; 1.090, \; \require{cancel}\cancel{1.867}, \; \require{cancel}\cancel{2.849},
+								\; 1.158, \; 2.538)^T $
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<p>
+								<b>2. Selection Criterion:</b>
+								Choose highest predicted rating for unrated songs
+								(excluding songs already rated).
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="4">
+								In this case, <b>Song 4</b> (score: 3.628) is the top recommendation! ⭐️
+
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
 					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
+						<div>
 							<p>For ratings matrix $R_{M \times N}$ and user weights $\mathbf{y} = [w_1, w_2, \dots,
 								w_N]^T$:</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px; font-size: 0.85em;">
-							$$ R \mathbf{y} = \begin{pmatrix}
-							R_{11} & R_{12} & \pds & R_{1N} \\
-							R_{21} & R_{22} & \pds & R_{2N} \\
-							\vdots & \vdots & \ddots & \vdots \\
-							R_{M1} & R_{M2} & \pds & R_{MN}
-							\end{pmatrix}
-							\begin{pmatrix} w_1 \\ w_2 \\ \vdots \\ w_N \end{pmatrix}
-							= \begin{pmatrix}
-							w_1 R_{11} + w_2 R_{12} + \dots + w_N R_{1N} \\
-							w_1 R_{21} + w_2 R_{22} + \dots + w_N R_{2N} \\
-							\vdots \\
-							w_1 R_{M1} + w_2 R_{M2} + \dots + w_N R_{MN}
-							\end{pmatrix} $$
+						<div class="cc" style="margin-top: 0px; font-size: 0.87em;">
+							<p class="fragment" data-fragment-index="1">
+								$ R \mathbf{y} = \begin{pmatrix}
+								R_{11} & R_{12} & \cdots & R_{1N} \\
+								R_{21} & R_{22} & \cdots & R_{2N} \\
+								\vdots & \vdots & \ddots & \vdots \\
+								R_{M1} & R_{M2} & \cdots & R_{MN}
+								\end{pmatrix}
+								\begin{pmatrix} w_1 \\ w_2 \\ \vdots \\ w_N \end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									= \begin{pmatrix}
+									w_1 R_{11} + w_2 R_{12} + \dots + w_N R_{1N} \\
+									w_1 R_{21} + w_2 R_{22} + \dots + w_N R_{2N} \\
+									\vdots \\
+									w_1 R_{M1} + w_2 R_{M2} + \dots + w_N R_{MN}
+									\end{pmatrix}
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px; font-size: 0.85em;">
-							<p>Output is the weighted sum of song ratings across all users, proportional to the weighted
-								average.</p>
+						<div style="margin-top: 60px;">
+							<p class="fragment" data-fragment-index="3">
+								The output is the <b>weighted sum</b> 
+								of song ratings across all users, 
+								<span class="fragment" data-fragment-index="4">
+									which proportional to the weighted
+								average.
+								</span>
+							</p>
 						</div>
 					</div>
+					<br />
 					<br />
 				</section>
 
