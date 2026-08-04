@@ -1202,22 +1202,209 @@
 
 				<section data-auto-animate>
 					<h4>Application: Information Retrieval</h4>
-					<div class="size-85">
+					<div class="size-70">
 						<p>
 							Consider searching a database for documents that contains the frequency of certain key
 							words. If we want to find documents on a single topic, then I can search for documents
-							that contain that word. What is the best match? Is it the one that contains that word the
-							most? Or is it the one more focussed on that topic? How could I find the best match?
+							that contain that word.
+							<span class="fragment" data-fragment-index="0">
+								What is the best match?
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								Is it the one that contains that word the
+								most?
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Or is it the one more focussed on that topic? How could I find the best match?
+							</span>
+
+
+
 						</p>
-						<div class="fragment" data-fragment-index="0">
+
+						<div style="margin-top: -30px;">
+							<img style="width: 800px;" src="images/lecture-06/search-key-words.gif">
+						</div>
+						
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-70">
+						<p>
+							Consider searching a database for documents that contains the frequency of certain key
+							words. If we want to find documents on a single topic, then I can search for documents
+							that contain that word.
+							<span>
+								What is the best match?
+							</span>
+							<span>
+								Is it the one that contains that word the
+								most?
+							</span>
+							<span>
+								Or is it the one more focussed on that topic? How could I find the best match?
+							</span>
+
+
+						</p>
+					</div>
+					<div class="size-80">
+
+						<div style="margin-top: 10px;">
 							<p><b>Cosine Similarity Search:</b> Instead of exact word matching, find database vectors
 								that <i>best match</i> a query vector using the cosine of the angle between them.</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
 							<p><b>Scenario:</b> A website has 8 modules ($M_1 \dots M_8$) for learning linear algebra,
 								evaluated across key search terms.</p>
 						</div>
+					</div>
+
+					<div style="font-size: 0.35em; margin-top: -20px;" class="fragment" data-fragment-index="4">
+						<table style="width:50%; border-collapse: collapse; text-align: center;">
+							<thead>
+								<tr style="border-bottom: 1px solid #fff;">
+									<th style="text-align: center;">Keywords</th>
+									<th>M1</th>
+									<th>M2</th>
+									<th>M3</th>
+									<th>M4</th>
+									<th>M5</th>
+									<th>M6</th>
+									<th>M7</th>
+									<th>M8</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align: center;">determinants</td>
+									<td>0</td>
+									<td>6</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+									<td>0</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">eigenvalues</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">linear</td>
+									<td>5</td>
+									<td>4</td>
+									<td>4</td>
+									<td>5</td>
+									<td>4</td>
+									<td>0</td>
+									<td>3</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">matrices</td>
+									<td>6</td>
+									<td>5</td>
+									<td>3</td>
+									<td>4</td>
+									<td>3</td>
+									<td>4</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">numerical</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>3</td>
+									<td>0</td>
+									<td>4</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span>
+											orthogonality
+										</span>
+									</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>4</td>
+									<td>0</td>
+									<td>6</td>
+									<td>0</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span>
+											spaces
+										</span>
+
+									</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>2</td>
+									<td>3</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">systems</td>
+									<td>5</td>
+									<td>3</td>
+									<td>3</td>
+									<td>2</td>
+									<td>4</td>
+									<td>2</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">transformations</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>1</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span>
+											vector
+										</span>
+									</td>
+									<td>0</td>
+									<td>4</td>
+									<td>4</td>
+									<td>4</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+									<td>3</td>
+								</tr>
+							</tbody>
+						</table>
+
 					</div>
 					<br />
 				</section>
@@ -1315,7 +1502,7 @@
 										<span class="fragment highlight-red" data-fragment-index="1">
 											spaces
 										</span>
-										
+
 									</td>
 									<td>0</td>
 									<td>0</td>
@@ -1381,7 +1568,7 @@
 
 						</p>
 						<div class="r-stack" style="margin-top: -5px;font-size: 1.1em;">
-							<p class="fragment fade-in-then-out" data-fragment-index="1" >
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
 								$\mathbf{x} =(0,0,0,0,0, 1, 1, 0, 0, 1)^T$
 							</p>
 							<p class="fragment fade-in" data-fragment-index="2">
@@ -1467,7 +1654,8 @@
 								0.535)^T$
 							</p>
 							<p class="fragment fade-in" data-fragment-index="3">
-								$\mathbf{y} = (0, \; 0.229, \; \color{red}{\mathbf{0.567}}, \; 0.331, \; \color{green}{\mathbf{0.635}},
+								$\mathbf{y} = (0, \; 0.229, \; \color{red}{\mathbf{0.567}}, \; 0.331, \;
+								\color{green}{\mathbf{0.635}},
 								\;
 								\color{blue}{\mathbf{0.577}}, \; 0, \;
 								0.535)^T$
@@ -1518,7 +1706,8 @@
 						</div>
 
 						<div style="margin-top: 15px;">
-							<p class="fragment" data-fragment-index="5">Since vectors \(\mathbf x\) and \(\mathbf q_i\)
+							<p class="fragment" data-fragment-index="5">
+								If the vectors \(\mathbf x\) and \(\mathbf q_i\)
 								are normalized ($\|\mathbf{x}\| = 1, \|\mathbf{q}_i\| = 1$),
 								<span class="fragment" data-fragment-index="6">
 									then
@@ -1546,10 +1735,9 @@
 						</div>
 					</div>
 					<br />
-					<br />
 				</section>
 
-				
+
 				<section data-auto-animate>
 					<h4>Application: Collaborative Filtering (Part 1)</h4>
 					<div class="size-85">
