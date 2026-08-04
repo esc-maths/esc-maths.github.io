@@ -2311,11 +2311,11 @@
 
 						<div style="margin-top: 60px;">
 							<p class="fragment" data-fragment-index="3">
-								The output is the <b>weighted sum</b> 
-								of song ratings across all users, 
+								The output is the <b>weighted sum</b>
+								of song ratings across all users,
 								<span class="fragment" data-fragment-index="4">
 									which proportional to the weighted
-								average.
+									average.
 								</span>
 							</p>
 						</div>
@@ -2328,91 +2328,202 @@
 
 			<section>
 
-				<!-- Slide 1 (PDF p.25): Orthogonal and Orthonormal Sets & Bases -->
 				<section data-auto-animate>
 					<h4>Orthogonal and Orthonormal Sets &amp; Bases</h4>
-					<div class="size-85">
+					<div class="size-85 left-txt">
 						<div class="fragment" data-fragment-index="0">
 							<p><b>Definitions (Sets):</b></p>
 							<ul>
-								<li class="fragment" data-fragment-index="1"><b>Orthogonal Set:</b> A set $\{u_1, u_2,
-									\dots, u_p\}$ is orthogonal if pairwise orthogonal:
-									$$ \langle u_i, u_j \rangle = 0 \quad\text{if}\quad i \ne j $$
+								<li class="fragment" data-fragment-index="1">
+									A set $\{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_p\}$ is <b>orthogonal</b> if
+									pairwise orthogonal:
+									$$ \langle \mathbf{u}_i, \mathbf{u}_j \rangle = 0 \quad\text{if}\quad i \ne j $$
 								</li>
-								<li class="fragment" data-fragment-index="2"><b>Orthonormal Set:</b> An orthogonal set
-									of unit vectors ($\|v_i\| = 1$ for all $i$).</li>
+								<li class="fragment" data-fragment-index="2">An <b>orthonormal</b> set of vectors
+									is an orthogonal set of unit vectors (i.e. orthogonal vectors such that
+									$\|\mathbf{v}_i\| = 1$ for all $i$).</li>
 							</ul>
 						</div>
 
 						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;">
-							<p><b>Definitions (Bases):</b> A basis $\{v_1, v_2, \dots, v_n\}$ for an inner product space
+							<p><b>Definitions (Bases):</b> A basis $\{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_n\}$
+								for an inner product space
 								is:</p>
 							<ul>
-								<li class="fragment" data-fragment-index="4"><b>Orthogonal Basis:</b> if $\langle v_i,
-									v_j \rangle = 0$ whenever $i \ne j$.</li>
-								<li class="fragment" data-fragment-index="5"><b>Orthonormal Basis:</b> if $\langle v_i,
-									v_j \rangle = \delta_{ij}$ (Kronecker delta: $1$ if $i=j$, $0$ if $i \ne j$).</li>
+								<li class="fragment" data-fragment-index="4">an <b>orthogonal basis</b>
+									if $\langle \mathbf{v}_i, \mathbf{v}_j \rangle = 0$ whenever $i \ne j$.</li>
+								<li class="fragment" data-fragment-index="5">
+									and <b>orthonormal basis</b> if $\langle \mathbf{v}_i,
+									\mathbf{v}_j \rangle = \delta_{ij}$ (Kronecker delta: $1$ if $i=j$, $0$ if $i \ne
+									j$).</li>
 							</ul>
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 2 (PDF p.26): Example of Orthogonal & Orthonormal Sets -->
 				<section data-auto-animate>
-					<h4>Example of Orthogonal &amp; Orthonormal Sets</h4>
-					<div class="size-65">
+					<h4>Example of Orthogonal &amp; Orthonormal Set</h4>
+					<div class="size-75">
 						<div class="fragment" data-fragment-index="0">
-							<p>Consider vectors in $\mathbb{R}^3$:</p>
-							$$ v_1 = \begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}, \quad v_2 = \begin{pmatrix}2 \\ 1 \\
-							-3\end{pmatrix}, \quad v_3 = \begin{pmatrix}4 \\ -5 \\ 1\end{pmatrix} $$
+							<p>Consider vectors in $\mathbb{R}^3$:
+								$\; \mathbf{v}_1 = \begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}, \quad
+								\mathbf{v}_2 = \begin{pmatrix}2 \\ 1 \\ -3\end{pmatrix}, \quad
+								\mathbf{v}_3 = \begin{pmatrix}4 \\ -5 \\ 1\end{pmatrix}$
+							</p>
 						</div>
 
-						<div class="cc" style="font-size: 0.85em; margin-top: 10px;">
+						<div  style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="1">
-								$\langle v_1, v_2 \rangle = 1(2) + 1(1) + 1(-3) = 0$
+								$\qquad\qquad  \langle \mathbf{v}_1, \mathbf{v}_2 \rangle $
+								<span class="fragment" data-fragment-index="2">
+									$= 1(2) + 1(1) + 1(-3) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= 0$
+								</span>
 							</p>
-							<p class="fragment" data-fragment-index="2">
-								$\langle v_1, v_3 \rangle = 1(4) + 1(-5) + 1(1) = 0$
+							<p class="fragment" data-fragment-index="4">
+								$\qquad\qquad  \langle \mathbf{v}_1, \mathbf{v}_3 \rangle $
+								<span class="fragment" data-fragment-index="5">
+									$= 1(4) + 1(-5) + 1(1) $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= 0$
+								</span>
 							</p>
-							<p class="fragment" data-fragment-index="3">
-								$\langle v_2, v_3 \rangle = 2(4) + 1(-5) + (-3)(1) = 0 \implies \{v_1, v_2, v_3\} \text{
-								is orthogonal.}$
+							<p class="fragment" data-fragment-index="7">
+								$\qquad \qquad \langle \mathbf{v}_2, \mathbf{v}_3 \rangle  $
+								<span class="fragment" data-fragment-index="8">
+									$= 2(4) + 1(-5) + (-3)(1) = 0$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$\Ra \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is orthogonal.
+								</span>
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="4" style="margin-top: 15px; font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="10" style="margin-top: 15px; font-size: 0.85em;">
 							<p><b>Normalizing to form an orthonormal set:</b></p>
-							$$ w_1 = \frac{v_1}{\|v_1\|} = \frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}, \quad
-							w_2 = \frac{v_2}{\|v_2\|} = \frac{1}{\sqrt{14}}\begin{pmatrix}2\\1\\-3\end{pmatrix}, \quad
-							w_3 = \frac{1}{\sqrt{42}}\begin{pmatrix}4\\-5\\1\end{pmatrix} $$
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="10">
+								$\mathbf{w}_1 = \dfrac{\mathbf{v}_1}{\|\mathbf{v}_1\|}$
+								<span class="fragment" data-fragment-index="11">
+									$= \dfrac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}, \quad$
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$\mathbf{w}_2 = \dfrac{\mathbf{v}_2}{\|\mathbf{v}_2\|}$
+								</span>
+								<span class="fragment" data-fragment-index="13">
+									$= \dfrac{1}{\sqrt{14}}\begin{pmatrix}2\\1\\-3\end{pmatrix}, \quad$
+								</span>
+								<span class="fragment" data-fragment-index="14">
+									$\mathbf{w}_3 = \dfrac{\mathbf{v}_3}{\|\mathbf{v}_3\|}$
+								</span>
+								<span class="fragment" data-fragment-index="15">
+									$= \dfrac{1}{\sqrt{42}}\begin{pmatrix}4\\-5\\1\end{pmatrix}$
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 3 (PDF p.27): Orthonormal Basis Sets in R^2 and R^3 -->
 				<section data-auto-animate>
-					<h4>Orthonormal Basis Sets in $\mathbb{R}^2$ and $\mathbb{R}^3$</h4>
-					<div class="size-85">
-						<ol style="line-height: 1.8em;">
-							<li class="fragment" data-fragment-index="0">$\{e_1, e_2\} = \left\{
-								\begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix} \right\}$</li>
-							<li class="fragment" data-fragment-index="1">$\left\{ \frac{1}{\sqrt{2}}(e_1+e_2),
-								\frac{1}{\sqrt{2}}(e_1-e_2) \right\} = \left\{
+					<h4>Example of Orthogonal &amp; Orthonormal Set</h4>
+
+					<div class="size-40" style="margin-top: -15px;">
+						<div class="cc">
+							<p>
+								$\mathbf{w}_1 = \dfrac{\mathbf{v}_1}{\|\mathbf{v}_1\|}$
+								<span>
+									$= \dfrac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}, \quad$
+								</span>
+								<span>
+									$\mathbf{w}_2 = \dfrac{\mathbf{v}_2}{\|\mathbf{v}_2\|}$
+								</span>
+								<span>
+									$= \dfrac{1}{\sqrt{14}}\begin{pmatrix}2\\1\\-3\end{pmatrix}, \quad$
+								</span>
+								<span>
+									$\mathbf{w}_3 = \dfrac{\mathbf{v}_3}{\|\mathbf{v}_3\|}$
+								</span>
+								<span>
+									$= \dfrac{1}{\sqrt{42}}\begin{pmatrix}4\\-5\\1\end{pmatrix}$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div style="margin-top: -10px;">
+						<iframe scrolling="no" title="Orthonormal set in 3D" src="https://www.geogebra.org/material/iframe/id/rvd89p89/width/752/height/510/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="752px" height="510px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Orthonormal Basis Sets in $\mathbb{R}^2$ </h4>
+					<div class="size-75 left-txt">
+						<p>
+							<b>Example 1:</b> $\{\mathbf{e}_1, \mathbf{e}_2\} = \left\{
+								\begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix} \right\}$
+						</p>
+						<p>
+							<b>Example 2:</b> $\ds \left\{ \frac{1}{\sqrt{2}}(\mathbf{e}_1+\mathbf{e}_2),
+								\frac{1}{\sqrt{2}}(\mathbf{e}_1-\mathbf{e}_2) \right\} = \left\{
 								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},
-								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix} \right\}$</li>
-							<li class="fragment" data-fragment-index="2">$\{e_1, e_2, e_3\} = \left\{
-								\begin{pmatrix}1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\1\\0\end{pmatrix},
-								\begin{pmatrix}0\\0\\1\end{pmatrix} \right\}$</li>
-							<li class="fragment" data-fragment-index="3">$\left\{
-								\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix},
-								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\\0\end{pmatrix},
-								\frac{1}{\sqrt{6}}\begin{pmatrix}1\\1\\-2\end{pmatrix} \right\}$</li>
-						</ol>
+								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix} \right\}$
+						</p>
+						
 					</div>
 					<br />
 				</section>
+
+				<section data-auto-animate>
+					<h4>Orthonormal Basis Sets in $\mathbb{R}^3$</h4>
+					<div class="size-75" style="margin-top: 60px;">
+						<div class="left-txt">
+							
+							<p class="fragment" data-fragment-index="0">
+								<strong>Example 1:</strong> 
+								$\left\{ (1,0,0)^T, (0,1,0)^T, (0,0,1)^T\right\}$ orthonormal set.
+							</p>
+							<br/>
+							<p class="fragment" data-fragment-index="1">
+								<strong>Example 2:</strong> 
+								$S = \ds \left\{ 
+								\left( \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right)^T, 
+								\left(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)^T
+								\right\}$ orthonormal set in 
+								$\R^3$.
+							</p>
+							<br/>
+							<p class="fragment" data-fragment-index="2">
+								<strong>Example 3:</strong> 
+								$\ds S \cup  \left\{ 
+									\left( \frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}},-\frac{2}{\sqrt{6}} \right)^T
+									\right\}$ orthonormal set in 
+									$\R^3$.
+							</p>
+						</div>
+					</div>
+					<br/><br/>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Orthonormal Basis Sets in $\mathbb{R}^3$</h4>
+					
+					<div>
+						<iframe scrolling="no" title="Chapter-11: Examples orthonormal basis" 
+						src="https://www.geogebra.org/material/iframe/id/temf7ugd/width/798/height/473/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
+						width="798px" height="473px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br/>
+				</section>
+
+				
+				
 
 				<!-- Slide 4 (PDF p.28): Orthogonal => Linearly Independent -->
 				<section data-auto-animate>
