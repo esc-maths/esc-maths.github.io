@@ -1225,45 +1225,36 @@
 						<div style="margin-top: -30px;">
 							<img style="width: 800px;" src="images/lecture-06/search-key-words.gif">
 						</div>
-						
+
 					</div>
 				</section>
 
 				<section data-auto-animate>
 					<h4>Application: Information Retrieval</h4>
-					<div class="size-70">
-						<p>
-							Consider searching a database for documents that contains the frequency of certain key
-							words. If we want to find documents on a single topic, then I can search for documents
-							that contain that word.
-							<span>
-								What is the best match?
-							</span>
-							<span>
-								Is it the one that contains that word the
-								most?
-							</span>
-							<span>
-								Or is it the one more focussed on that topic? How could I find the best match?
-							</span>
 
-
-						</p>
-					</div>
 					<div class="size-80">
 
 						<div style="margin-top: 10px;">
-							<p><b>Cosine Similarity Search:</b> Instead of exact word matching, find database vectors
-								that <i>best match</i> a query vector using the cosine of the angle between them.</p>
+							<p><b>Vector Search:</b>
+								Represent each document as a keyword-frequency vector.
+								<span class="fragment" data-fragment-index="0">
+									Find the document whose vector is most closely
+									aligned with the search vector using the inner product.
+								</span>
+
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
-							<p><b>Scenario:</b> A website has 8 modules ($M_1 \dots M_8$) for learning linear algebra,
-								evaluated across key search terms.</p>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p>
+								<b>Scenario:</b> A website has 8 modules ($M_1 \dots M_8$) for learning linear algebra,
+								evaluated across key search terms.
+								Suppose each learning module is treated as a document in our database.
+							</p>
 						</div>
 					</div>
 
-					<div style="font-size: 0.35em; margin-top: -20px;" class="fragment" data-fragment-index="4">
+					<div style="font-size: 0.45em; margin-top: -40px;" class="fragment" data-fragment-index="1">
 						<table style="width:50%; border-collapse: collapse; text-align: center;">
 							<thead>
 								<tr style="border-bottom: 1px solid #fff;">
@@ -1411,8 +1402,8 @@
 
 				<section data-auto-animate>
 					<h4>Application: Information Retrieval</h4>
-					<div style="font-size: 0.58em;">
-						<table style="width:90%; border-collapse: collapse; text-align: center;">
+					<div style="font-size: 0.58em; margin-top: -10px;">
+						<table style="width:80%; border-collapse: collapse; text-align: center;">
 							<thead>
 								<tr style="border-bottom: 1px solid #fff;">
 									<th style="text-align: center;">Keywords</th>
@@ -1583,7 +1574,48 @@
 					<h4>Application: Information Retrieval</h4>
 					<div class="size-75">
 						<div>
-							<p>Normalizing matrix columns yields normalized matrix $Q$:</p>
+							<p>
+								Define the keyword-document matrix whose columns are the document vectors:
+							</p>
+						</div>
+
+						<div class="cc">
+							<p>
+								\(
+								A=\begin{pmatrix}
+								| & | & & | \\
+								\mathbf{M}_1 & \mathbf{M}_2 & \cdots & \mathbf{M}_8 \\
+								| & | & & | \\
+								\end{pmatrix}
+								=
+								\begin{pmatrix}
+								0&6&3&0&1&0&1&1\\
+								0&0&0&0&0&5&3&2\\
+								5&4&4&5&4&0&3&3\\
+								6&5&3&4&3&4&3&2\\
+								0&0&0&0&3&0&4&3\\
+								0&0&0&4&0&6&0&2\\
+								0&0&5&2&3&3&0&1\\
+								5&3&3&2&4&2&1&1\\
+								0&0&0&5&1&3&1&0\\
+								0&4&4&4&3&1&0&3
+								\end{pmatrix}
+
+								\)
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-75">
+						<div>
+							<p>
+								Normalize each column of $A$ to obtain the matrix $Q$, whose columns have unit length.
+							</p>
 
 						</div>
 
@@ -1653,7 +1685,14 @@
 								0.577, \; 0, \;
 								0.535)^T$
 							</p>
-							<p class="fragment fade-in" data-fragment-index="3">
+							<p class="fragment fade-in-then-out" data-fragment-index="3">
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \;
+								\color{green}{\mathbf{0.635}},
+								\;
+								\color{blue}{\mathbf{0.577}}, \; 0, \;
+								0.535)^T$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="4">
 								$\mathbf{y} = (0, \; 0.229, \; \color{red}{\mathbf{0.567}}, \; 0.331, \;
 								\color{green}{\mathbf{0.635}},
 								\;
@@ -1664,16 +1703,21 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p>Then $\,\color{green}{y_5 = 0.635}$ is the largest entry
+							<p>Then $\,\color{green}{\mathbf{y_5 = 0.635}}$ is the largest entry
 								<span class="fragment" data-fragment-index="2">
-									$\implies$ <b>Module 5</b> is the best
-									match!
+									$\implies$ <b>Module 5</b> has the highest cosine 
+									similarity with the query,
+									so it is the best match.
 								</span>
 							</p>
 							<p class="fragment" data-fragment-index="3">
 								Next best matches are <b>Module 6</b>
-								($\color{blue}{y_6 = 0.577}$) and <b>Module 3</b>
-								($\color{red}{y_3= 0.567}$).</p>
+								($\color{blue}{\mathbf{y_6 = 0.577}}$)
+								<span class="fragment" data-fragment-index="4">
+									and <b>Module 3</b>
+									($\color{red}{\mathbf{y_3= 0.567}}$).
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
