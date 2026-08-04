@@ -1224,7 +1224,7 @@
 
 				<section data-auto-animate>
 					<h4>Application: Information Retrieval</h4>
-					<div style="font-size: 0.60em;">
+					<div style="font-size: 0.58em;">
 						<table style="width:90%; border-collapse: collapse; text-align: center;">
 							<thead>
 								<tr style="border-bottom: 1px solid #fff;">
@@ -1296,7 +1296,11 @@
 									<td>3</td>
 								</tr>
 								<tr>
-									<td style="text-align: center;">orthogonality</td>
+									<td style="text-align: center;">
+										<span class="fragment highlight-red" data-fragment-index="1">
+											orthogonality
+										</span>
+									</td>
 									<td>0</td>
 									<td>0</td>
 									<td>0</td>
@@ -1307,7 +1311,12 @@
 									<td>2</td>
 								</tr>
 								<tr>
-									<td style="text-align: center;">spaces</td>
+									<td style="text-align: center;">
+										<span class="fragment highlight-red" data-fragment-index="1">
+											spaces
+										</span>
+										
+									</td>
 									<td>0</td>
 									<td>0</td>
 									<td>5</td>
@@ -1340,7 +1349,11 @@
 									<td>0</td>
 								</tr>
 								<tr>
-									<td style="text-align: center;">vector</td>
+									<td style="text-align: center;">
+										<span class="fragment highlight-red" data-fragment-index="1">
+											vector
+										</span>
+									</td>
 									<td>0</td>
 									<td>4</td>
 									<td>4</td>
@@ -1355,21 +1368,26 @@
 
 					</div>
 
-					<div style="margin-top: 10px; font-size: 0.7em;">
+					<div style="margin-top: 10px; font-size: 0.72em;">
 						<p class="fragment" data-fragment-index="0">
 							To search for the words
 							<tt style="font-size: 0.85em; font-weight: bold;">orthogonality</tt>,
 							<tt style="font-size: 0.85em; font-weight: bold">spaces</tt>,
 							<tt style="font-size: 0.85em; font-weight: bold">vector</tt>,
-							<span class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="2">
 								we use the normalized search
 								vector
 							</span>
 
 						</p>
-						<p class="fragment" data-fragment-index="1" style="margin-top: -20px;">
-							$$\mathbf{x} \approx (0,0,0,0,0, 0.577, 0.577, 0, 0, 0.577)^T$$
-						</p>
+						<div class="r-stack" style="margin-top: -5px;font-size: 1.1em;">
+							<p class="fragment fade-in-then-out" data-fragment-index="1" >
+								$\mathbf{x} =(0,0,0,0,0, 1, 1, 0, 0, 1)^T$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="2">
+								$\mathbf{x} \approx (0,0,0,0,0, 0.577, 0.577, 0, 0, 0.577)^T$
+							</p>
+						</div>
 					</div>
 					<br />
 				</section>
@@ -1439,17 +1457,18 @@
 								0.535)^T$
 							</p>
 							<p class="fragment fade-in-then-out" data-fragment-index="1">
-								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \mathbf{0.635}, \;
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \color{green}{\mathbf{0.635}}, \;
 								0.577, \; 0, \;
 								0.535)^T$
 							</p>
 							<p class="fragment fade-in-then-out" data-fragment-index="2">
-								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \mathbf{0.635}, \;
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \color{green}{\mathbf{0.635}}, \;
 								0.577, \; 0, \;
 								0.535)^T$
 							</p>
 							<p class="fragment fade-in" data-fragment-index="3">
-								$\mathbf{y} = (0, \; 0.229, \; \color{red}{\mathbf{0.567}}, \; 0.331, \; \mathbf{0.635}, \;
+								$\mathbf{y} = (0, \; 0.229, \; \color{red}{\mathbf{0.567}}, \; 0.331, \; \color{green}{\mathbf{0.635}},
+								\;
 								\color{blue}{\mathbf{0.577}}, \; 0, \;
 								0.535)^T$
 							</p>
@@ -1457,7 +1476,7 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p>Then $\,\mathbf {y_5 = 0.635}$ is the largest entry
+							<p>Then $\,\color{green}{y_5 = 0.635}$ is the largest entry
 								<span class="fragment" data-fragment-index="2">
 									$\implies$ <b>Module 5</b> is the best
 									match!
@@ -1472,21 +1491,56 @@
 					<br />
 				</section>
 
-				
+
 				<section data-auto-animate>
-					<h4>Why Does Information Retrieval Work?</h4>
-					<div class="size-90">
-						<div class="fragment" data-fragment-index="0">
-							$$ \mathbf{y} = Q^T \mathbf{x} \implies y_i = \mathbf{q}_i^T \mathbf{x} = \|\mathbf{q}_i\|
-							\|\mathbf{x}\| \cos \theta_i $$
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-85">
+						<p>🤔 Why does this work?
+							<span class="fragment" data-fragment-index="0">What does it have to do with inner
+								products?</span>
+							<span class="fragment" data-fragment-index="1">
+								And why did we normalise all the vectors?
+							</span>
+
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								Notice that $\, \mathbf{y} = Q^T \mathbf{x}$
+								<span class="fragment" data-fragment-index="3">
+									$ \implies y_i = \mathbf{q}_i^T \mathbf{x} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ =
+									\|\mathbf{q}_i\|
+									\|\mathbf{x}\| \cos \theta_i $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p>Because vectors are normalized ($\|\mathbf{x}\| = 1, \|\mathbf{q}_i\| = 1$):</p>
-							$$ y_i = \cos \theta_i $$
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="5">Since vectors \(\mathbf x\) and \(\mathbf q_i\)
+								are normalized ($\|\mathbf{x}\| = 1, \|\mathbf{q}_i\| = 1$),
+								<span class="fragment" data-fragment-index="6">
+									then
+									$$ y_i = \cos \theta_i $$
+								</span>
+							</p>
+
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+						<p class="fragment" data-fragment-index="7">
+							This means that the largest entry of \(\mathbf y\) (that is, $y_5$) has the largest
+							value of $\cos \theta_i$
+							<span class="fragment" data-fragment-index="8">
+								and hence the direction of the search vector $\mathbf x$ is closest
+								to the direction of $\mathbf q_5$,
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								and is therefore its <b>best match</b>.
+							</span>
+						</p>
+
+						<div class="fragment" data-fragment-index="10" style="margin-top: 15px;">
 							<p><b>Conclusion:</b> Maximizing $y_i$ maximizes $\cos \theta_i$, finding the module vector
 								closest in direction to query vector $\mathbf{x}$.</p>
 						</div>
@@ -1495,7 +1549,7 @@
 					<br />
 				</section>
 
-				<!-- Slide 20 (PDF p.21): Collaborative Filtering (1) -->
+				
 				<section data-auto-animate>
 					<h4>Application: Collaborative Filtering (Part 1)</h4>
 					<div class="size-85">
