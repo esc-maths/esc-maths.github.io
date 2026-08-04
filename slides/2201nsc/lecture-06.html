@@ -173,7 +173,7 @@
 							<p class="fragment" data-fragment-index="7">
 								$\cos \theta $
 								<span class="fragment" data-fragment-index="7">
-									\( = \dfrac{\mathbf{x} \pd \mathbf{y}}{\;\;\;\norm{\mathbf{x}}\norm{\mathbf{y}}}\)
+									\( = \dfrac{\mathbf{x} \pd \mathbf{y}}{\norm{\mathbf{x}}\norm{\mathbf{y}}}\)
 								</span>
 								<span class="fragment" data-fragment-index="8">
 									$= \dfrac{8}{\sqrt{14}\sqrt{29}} $
@@ -490,46 +490,57 @@
 							y_2,\ldots,y_n\right)^T\), \(\mathbf z = \left(z_1, z_2,\ldots,z_n\right)^T\in\mathbb R^n\)
 						</p>
 						<div>
-							<p class="fragment" data-fragment-index="1"><b>1. Positivity:</b>
+							<p class="fragment" data-fragment-index="1">
+								<b>1. Positivity:</b>
 								<span class="fragment" data-fragment-index="2">
-									$\langle \mathbf{x}, \mathbf{x} \rangle = \ds \sum x_i^2 \ge 0$.
-								</span>
-								<span class="fragment" data-fragment-index="3">
-									Sum of
-									squares is 0 iff each $x_i = 0 \iff \mathbf{x} = \mathbf{0}$.
+									$\;\langle \mathbf{x}, \mathbf{x} \rangle = \ds \sum x_i^2 \ge 0$.
 								</span>
 
 							</p>
 						</div>
-						<div class="fragment" data-fragment-index="4" style="margin-top: 60px;">
+						<div class="cc">
 							<p>
-								<b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle =\ds \sum x_i y_i $
-								<span class="fragment" data-fragment-index="5">
+								<span class="fragment" data-fragment-index="3">
+									Sum of
+									squares is 0 iff each $x_i = 0$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \iff \mathbf{x} = \mathbf{0}$.
+								</span>
+
+							</p>
+						</div>
+						<div class="fragment" data-fragment-index="5" style="margin-top: 40px;">
+							<p>
+								<b>2. Symmetry:</b> $\;\langle \mathbf{x}, \mathbf{y} \rangle =\ds \sum x_i y_i $
+								<span class="fragment" data-fragment-index="6">
 									$=\ds \sum y_i x_i$
 								</span>
-								<span class="fragment" data-fragment-index="6">
+								<span class="fragment" data-fragment-index="7">
 									$\ds = \langle \mathbf{y}, \mathbf{x} \rangle$
 								</span>
 							</p>
 						</div>
-						<div class="fragment" data-fragment-index="7" style="margin-top: 60px;">
+						<div class="fragment" data-fragment-index="8" style="margin-top: 60px;">
 							<p><b>3. Linearity:</b></p>
-							
+
 						</div>
 						<div class="cc">
 							<p>
-								<span class="fragment" data-fragment-index="8" >
+								<span class="fragment" data-fragment-index="8">
 									$ \langle \alpha \mathbf{x} + \beta \mathbf{y}, \mathbf{z} \rangle $
 								</span>
-								<span class="fragment" data-fragment-index="9" >
-									$\ds = \sum (\alpha x_i +
-							\beta y_i)z_i = \alpha \sum x_i z_i + \beta \sum y_i z_i $
+								<span class="fragment">
+									$\ds = \sum \big(\alpha x_i + \beta y_i\big)z_i$
 								</span>
-								<span class="fragment" data-fragment-index="10" >
+								<span class="fragment">
+									$\ds = \alpha \sum x_i z_i + \beta \sum y_i z_i $
+								</span>
+								<span class="fragment">
 									$ \ds = \alpha \langle \mathbf{x},
-							\mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z} \rangle  $
+									\mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z} \rangle $
 								</span>
-								
+
 							</p>
 						</div>
 					</div>
@@ -537,90 +548,235 @@
 					<br />
 				</section>
 
-				<!-- Slide 10 (PDF p.11): Other Inner Products on R^n -->
+
 				<section data-auto-animate>
-					<h4>Weighted Inner Products on $\mathbb{R}^n$</h4>
+					<h4>Weighted inner products on $\mathbb{R}^n$</h4>
 					<div class="size-85">
 						<div class="fragment" data-fragment-index="0">
-							<p>With weights $w_i > 0$: $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^n w_i x_i
-								y_i$</p>
+							<p>With weights $\;w_i > 0,$
+								$w_i\in \mathbb R$: $\;\ds \langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^n w_i x_i
+								y_i$
+							</p>
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>Example in $\mathbb{R}^2$:</b> Define $\langle \mathbf{x}, \mathbf{y} \rangle = 2x_1
-								y_1 + x_2 y_2$.</p>
+							<p>
+								<b>Example in $\mathbb{R}^2$:</b> Define $\langle \mathbf{x}, \mathbf{y} \rangle = 2x_1
+								y_1 + x_2 y_2$.
+							</p>
 						</div>
 
 						<div class="cc" style="font-size: 0.85em; margin-top: 10px;">
 							<p class="fragment" data-fragment-index="2">
 								$\begin{pmatrix}3 \\ 2\end{pmatrix}$ and $\begin{pmatrix}-4 \\ 6\end{pmatrix}$ are
-								<b>not</b> orthogonal: $2(3)(-4) + 1(2)(6) = -12 \ne 0$.
+								<b>not</b> orthogonal:
+								<span class="fragment" data-fragment-index="3">
+									$2(3)(-4) + 1(2)(6) $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= -12 \ne 0$.
+								</span>
+
+
 							</p>
-							<p class="fragment" data-fragment-index="3">
-								For $\mathbf{x} = \begin{pmatrix}2 \\ 1\end{pmatrix} \implies \|\mathbf{x}\| =
-								\sqrt{2(2^2) + 1(1^2)} = 3$.
+							<p class="fragment" data-fragment-index="5">
+								For $\mathbf{x} = \begin{pmatrix}2 \\ 1\end{pmatrix} $
+								<span class="fragment" data-fragment-index="6">
+									$\implies \|\mathbf{x}\| = \sqrt{2(2^2) + 1(1^2)} $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$= 3$.
+								</span>
+
 							</p>
-							<p class="fragment" data-fragment-index="4">
-								For $\mathbf{y} = \begin{pmatrix}1 \\ 2\end{pmatrix} \implies \|\mathbf{y}\| =
-								\sqrt{2(1^2) + 1(2^2)} = \sqrt{6} \ne \|\mathbf{x}\|$.
+							<p class="fragment" data-fragment-index="8">
+								For $\mathbf{y} = \begin{pmatrix}1 \\ 2\end{pmatrix} $
+								<span class="fragment" data-fragment-index="9">
+									$\implies \|\mathbf{y}\| =
+									\sqrt{2(1^2) + 1(2^2)} $
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$= \sqrt{6} \ne \|\mathbf{x}\|$.
+								</span>
 							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 11 (PDF p.12): Inner Product on C[a,b] -->
 				<section data-auto-animate>
 					<h4>Inner Product on Function Spaces $C[a,b]$</h4>
 					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p>On continuous functions $C[a,b]$, the standard inner product is:</p>
-							$$ \langle f, g \rangle = \int_a^b f(x)g(x) \, dx $$
+						<div>
+							<p class="fragment" data-fragment-index="0">Consider $C[a,b]$, the set of continuous
+								functions on the
+								interval $[a,b]$.
+								<span class="fragment" data-fragment-index="1">
+									The standard inner product if $C[a,b]$ is:
+								</span>
+
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ \ds\langle f, g \rangle = \int_a^b f(x)g(x) \, dx $
+							</p>
+
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>Example on $C[0,1]$:</b> Calculate $\langle x, \sin(\pi x) \rangle$:</p>
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="2"><b>Example on $C[0,1]$:</b>
+
+								<span class="fragment" data-fragment-index="3">
+									Calculate $\langle x, \sin(\pi x) \rangle$:
+								</span>
+							</p>
 						</div>
 
-						<div class="cc" style="font-size: 0.85em;">
+						<div class="cc" style="font-size: 0.95em;">
+							<p class="fragment" data-fragment-index="4">
+								$\langle x, \sin(\pi x) \rangle $
+								<span class="fragment" data-fragment-index="5">
+									$\ds = \int_0^1 x \sin(\pi x) \, dx $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\ds = \left[ \frac{-x \cos(\pi x)}{\pi} \right]_0^1 + \int_0^1 \frac{\cos(\pi
+									x)}{\pi} \, dx$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$\ds = \frac{1}{\pi} + \left[ \frac{\sin(\pi x)}{\pi^2} \right]_0^1 $
+								<span class="fragment" data-fragment-index="8">
+									$\ds = \frac{1}{\pi}\qquad \qquad \qquad \quad\;$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div style="font-size: 0.5em; margin-top: 50px; color: rgb(91, 91, 91);" class="cc">
+						<p class="fragment" data-fragment-index="6">
+							<b>Note:</b> Here we used integration by parts $\ds\int u\,dv = uv - \int v\,du$
+						</p>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Orthogonality</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								As in $\R^n$ with inner product
+								given by the usual dot product,
+								<span class="fragment" data-fragment-index="0">
+									we say that two vectors $\bfu,\bfv\in V$ are
+									<strong>orthogonal</strong> if
+									$$
+									\langle\bfu,\bfv\rangle=0.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									We need a bit of preparation before we
+									can talk more generally about the <em>angle</em>
+									between two vectors.
+								</span>
+
+							</p>
+
 							<p class="fragment" data-fragment-index="2">
-								$\langle x, \sin(\pi x) \rangle = \int_0^1 x \sin(\pi x) \, dx = \left[ \frac{-x
-								\cos(\pi x)}{\pi} \right]_0^1 + \int_0^1 \frac{\cos(\pi x)}{\pi} \, dx$
+								<strong>Remark:</strong>
+								Notion of orthogonality is also relative to the
+								<em>inner product used</em>.
 							</p>
-							<p class="fragment" data-fragment-index="3">
-								$= \frac{1}{\pi} + \left[ \frac{\sin(\pi x)}{\pi^2} \right]_0^1 = \frac{1}{\pi}$
-							</p>
+
 						</div>
+						<div class="fragment" data-fragment-index="2">
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+									width="130" height="130">
+							</picture>
+						</div>
+
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 12 (PDF p.13): Pythagorean Theorem -->
 				<section data-auto-animate>
 					<h4>Pythagorean Theorem</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>Theorem:</b> If $\mathbf{v}$ and $\mathbf{w}$ are orthogonal ($\langle \mathbf{v},
-								\mathbf{w} \rangle = 0$), then</p>
-							$$ \|\mathbf{v} + \mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 $$
-						</div>
+					<div class="size-75">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $V$ be a real inner product space, and let $\bfu,\bfv\in V$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then,
+									$$
+									||\bfu+\bfv||^2=||\bfu||^2+||\bfv||^2
+									\quad\Longleftrightarrow\quad
+									\langle\bfu,\bfv\rangle=0.
+									$$
+								</span>
+							</p>
+							<table>
+								<tr>
+									<td style="width:30%" class="fragment" data-fragment-index="2">
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px; font-size: 0.85em;">
-							<p><b>Proof:</b></p>
-							$$ \begin{aligned}
-							\|\mathbf{v} + \mathbf{w}\|^2 &= \langle \mathbf{v} + \mathbf{w}, \mathbf{v} + \mathbf{w}
-							\rangle \\
-							&= \langle \mathbf{v}, \mathbf{v} \rangle + 2\langle \mathbf{v}, \mathbf{w} \rangle +
-							\langle \mathbf{w}, \mathbf{w} \rangle \\
-							&= \|\mathbf{v}\|^2 + 2(0) + \|\mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 \quad
-							\blacksquare
-							\end{aligned} $$
+										<p>Geometrically:</p>
+										<img style="width:100%"
+											src="https://www.dynamicmath.xyz/math2001/images/chapter-10/chapter-10-2-pythagoras.png">
+										<br /><br /><br /><br />
+									</td>
+									<td style="width:70%">
+										<p class="fragment" data-fragment-index="3">
+											On the other hand:
+										</p>
+										<table id="eqarray">
+											<tr class="fragment" data-fragment-index="3">
+												<td>
+													$\norm{\u + \v}^2$
+												</td>
+												<td>
+													$ = \langle \u+ \v, \u+ \v \rangle$
+												</td>
+											</tr>
+											<tr class="fragment" data-fragment-index="4">
+												<td>
+
+												</td>
+												<td>
+													$ = \langle \u, \u\rangle + \langle \u, \v \rangle + \langle \v, \u
+													\rangle +\langle \v, \v \rangle$
+												</td>
+											</tr>
+											<tr class="fragment" data-fragment-index="5">
+												<td>
+
+												</td>
+												<td>
+													$ = \norm{\u}^2 + 2 \langle \u, \v \rangle + \norm{\v}^2 .$
+												</td>
+											</tr>
+										</table>
+										<p class="fragment" data-fragment-index="6">
+											Hence
+											$$||\bfu+\bfv||^2=||\bfu||^2+||\bfv||^2 \iff \langle\bfu,\bfv\rangle=0.
+											\,\blacksquare$$
+										</p>
+										<br />
+										<br />
+										<br />
+									</td>
+
+								</tr>
+							</table>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 13 (PDF p.14): How 'close' are two vectors -->
 				<section data-auto-animate>
 					<h4>How "Close" Are Two Arbitrary Vectors?</h4>
 					<div class="size-85">
@@ -630,36 +786,152 @@
 							\theta \le \pi $$
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div  style="margin-top: 15px;">
 							<ul>
-								<li>Smaller angle $\implies$ closer directional match.</li>
-								<li>Dot product close to $\|\mathbf{x}\| \|\mathbf{y}\| \implies$ aligned.</li>
-								<li>Dot product close to $-\|\mathbf{x}\| \|\mathbf{y}\| \implies$ opposite directions
+								<li class="fragment" data-fragment-index="1">Smaller angle $\implies$ closer directional match.</li>
+								<li class="fragment" data-fragment-index="2">Dot product close to $\|\mathbf{x}\| \|\mathbf{y}\| \implies$ aligned.</li>
+								<li class="fragment" data-fragment-index="3">Dot product close to $-\|\mathbf{x}\| \|\mathbf{y}\| \implies$ opposite directions
 									($\theta = 180^\circ$).</li>
 							</ul>
 						</div>
+
+						<div id="rr" class="fragment" data-fragment-index="4">
+							<p>
+								Question: If we are using a different inner product, can we find an analogous
+								definition for the angle between them? 
+							</p>
+							<div style="margin-top: -25px;">
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+									width="90" height="90">
+							</picture>
+						</div>
+						</div>
 					</div>
-					<br />
 				</section>
 
-				<!-- Slide 14 (PDF p.15): Cauchy-Schwarz Inequality & Angle -->
+				<section data-auto-animate>
+					<h4>Cauchy-Schwarz Inequality</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $V$ be a real inner product space, and let $\bfu,\bfv\in V$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then,
+									$$
+									|\langle\bfu,\bfv\rangle|\leq||\bfu||\,||\bfv||.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Moreover, this inequality is an equality if and only if
+									$\bfu$ or $\bfv$ is a scalar multiple of the other vector.
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								For $\u = \mathbf 0\;$ ✅ 😃.
+								<span class="fragment" data-fragment-index="4">
+									For $\u \neq \mathbf 0$, let $t\in \R$ and
+								</span>
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="5">
+								$a = \langle \u, \u\rangle $,&nbsp;&nbsp;&nbsp; $b = 2 \langle \u, \v\rangle $,
+								&nbsp;&nbsp;&nbsp;$c = \langle \v, \v\rangle .$
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								Then &nbsp;&nbsp; $0 \leq \langle t\,\u + \v, t\,\u + \v \rangle$
+								<span class="fragment" data-fragment-index="7">
+									$ = \langle \u, \u\rangle t^2 + 2\langle \u, \v \rangle t + \langle \v, \v\rangle$
+								</span><br />
+								<span class="fragment" data-fragment-index="8">
+									$ \qquad \qquad\quad \ds = at^2 + b t + c$
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Cauchy-Schwarz Inequality</h4>
+					<div class="size-85">
+
+						<div style="font-size:83%" class="cc">
+							<p>
+								👉 &nbsp; $0 \leq \langle t\,\u + \v, t\,\u + \v \rangle$
+								<span>
+									$ = \langle \u, \u\rangle t^2 + 2\langle \u, \v \rangle t + \langle \v, \v\rangle$
+								</span>
+								<span>
+									$ \ds = at^2 + b t + c$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								In this case we must have that $b^2 -4ac \leq 0$.
+								<span class="fragment" data-fragment-index="0">
+									So
+									\[
+									4 \langle \u, \v\rangle^2 - 4 \langle \u, \u\rangle\langle \v, \v\rangle \leq 0.
+									\]
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Or equivalently
+									\[
+									\langle \u, \v\rangle^2 \leq \langle \u, \u\rangle \langle \v, \v\rangle .
+									\]
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Taking square roots of both sides and using the fact that $\langle \u, \u\rangle$ and
+								$\langle \v, \v\rangle $
+								nonnegative yields
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$\ds \abs{\langle \u, \v\rangle}\leq \langle \u, \u\rangle^{1/2} \langle \v, \v\rangle
+								^{1/2}\; $
+								<span class="fragment" data-fragment-index="3">
+									or
+									$\; |\langle\bfu,\bfv\rangle|\leq||\bfu||\,||\bfv||.\;\blacksquare$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
 				<section data-auto-animate>
 					<h4>Cauchy-Schwarz Inequality &amp; Angle</h4>
 					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
+						<div>
 							<p><b>Cauchy-Schwarz Inequality:</b> For arbitrary vectors $\mathbf{x}, \mathbf{y}$,</p>
 							$$ |\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\| $$
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p>Rewritten as: $-1 \le \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|
-								\|\mathbf{y}\|} \le 1$</p>
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								Rewritten as: 
+								$\;\ds -1 \le \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|
+								\|\mathbf{y}\|} \le 1, \quad (\|\mathbf{x}\|\|\mathbf{y}\|\neq 0)$
+							</p>
 						</div>
 
 						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
 							<p><b>Angle Definition:</b> Defines unique angle $\theta \in [0, \pi]$ via:</p>
 							$$ \cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|
-							\|\mathbf{y}\|} $$
+							\|\mathbf{y}\|}, \quad 0\leq \theta \leq \pi $$
 						</div>
 					</div>
 					<br />
