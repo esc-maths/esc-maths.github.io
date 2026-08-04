@@ -725,8 +725,7 @@
 									<td style="width:30%" class="fragment" data-fragment-index="2">
 
 										<p>Geometrically:</p>
-										<img style="width:100%"
-											src="images/lecture-06/chapter-10-2-pythagoras.png">
+										<img style="width:100%" src="images/lecture-06/chapter-10-2-pythagoras.png">
 										<br /><br /><br /><br />
 									</td>
 									<td style="width:70%">
@@ -786,11 +785,14 @@
 							\theta \le \pi $$
 						</div>
 
-						<div  style="margin-top: 15px;">
+						<div style="margin-top: 15px;">
 							<ul>
-								<li class="fragment" data-fragment-index="1">Smaller angle $\implies$ closer directional match.</li>
-								<li class="fragment" data-fragment-index="2">Dot product close to $\|\mathbf{x}\| \|\mathbf{y}\| \implies$ aligned.</li>
-								<li class="fragment" data-fragment-index="3">Dot product close to $-\|\mathbf{x}\| \|\mathbf{y}\| \implies$ opposite directions
+								<li class="fragment" data-fragment-index="1">Smaller angle $\implies$ closer directional
+									match.</li>
+								<li class="fragment" data-fragment-index="2">Dot product close to $\|\mathbf{x}\|
+									\|\mathbf{y}\| \implies$ aligned.</li>
+								<li class="fragment" data-fragment-index="3">Dot product close to $-\|\mathbf{x}\|
+									\|\mathbf{y}\| \implies$ opposite directions
 									($\theta = 180^\circ$).</li>
 							</ul>
 						</div>
@@ -798,16 +800,16 @@
 						<div id="rr" class="fragment" data-fragment-index="4">
 							<p>
 								Question: If we are using a different inner product, can we find an analogous
-								definition for the angle between them? 
+								definition for the angle between them?
 							</p>
 							<div style="margin-top: -25px;">
-							<picture>
-								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
-									type="image/webp">
-								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
-									width="90" height="90">
-							</picture>
-						</div>
+								<picture>
+									<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+										type="image/webp">
+									<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+										width="90" height="90">
+								</picture>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -922,7 +924,7 @@
 
 						<div class="cc" style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="1">
-								Rewritten as: 
+								Rewritten as:
 								$\;\ds -1 \le \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|
 								\|\mathbf{y}\|} \le 1, \quad (\|\mathbf{x}\|\|\mathbf{y}\|\neq 0)$
 							</p>
@@ -937,12 +939,12 @@
 					<br />
 				</section>
 
-				
+
 				<section data-auto-animate>
 					<h4>📝 Practice problems</h4>
 					<div class="size-85" style="font-size: 0.85em;">
 						<div class="fragment" data-fragment-index="0">
-							<p><b>Problem 1:</b> $\mathbf{x} = (2,2,-1)^T, \mathbf{y} = (5,-3,2)^T \in \mathbb{R}^3$
+							<p><b>Problem 1:</b> $\mathbf{x} = (2,2,-1)^T, \,\mathbf{y} = (5,-3,2)^T \in \mathbb{R}^3$
 								with $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y}$.</p>
 							<ul>
 								<li>Show $|\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\|$.
@@ -952,7 +954,8 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 45px;">
-							<p><b>Problem 2:</b> On $C[0,1]$ with $\ds\langle f,g \rangle = \int_0^1 f(x)g(x) \, dx$:</p>
+							<p><b>Problem 2:</b> On $C[0,1]$ with $\ds\langle f,g \rangle = \int_0^1 f(x)g(x) \, dx$:
+							</p>
 							<ul>
 								<li>Calculate $\langle e^x, e^{-x} \rangle$.</li>
 								<li>Prove that $\langle f,g \rangle$ satisfies the inner product axioms.</li>
@@ -963,7 +966,225 @@
 					<br />
 				</section>
 
-				<!-- Slide 16 (PDF p.17): Application - Information Retrieval (1) -->
+				<section data-auto-animate>
+					<h4>📝 Solution – Problem 1</h4>
+
+					<div style="font-size:0.7em;">
+
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								<b>Step 1:</b> Compute the inner product.
+
+							</p>
+
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$\langle \mathbf{x},\mathbf{y}\rangle $
+								<span class="fragment" data-fragment-index="1">
+									$=(2)(5)+(2)(-3)+(-1)(2) $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$=10-6-2=2.$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top:25px;">
+							<p><b>Step 2:</b> Compute the norms.</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$\|\mathbf{x}\|
+								$
+								<span class="fragment" data-fragment-index="4">
+									$=\sqrt{2^2+2^2+(-1)^2}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=\sqrt9=3, $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								$\|\mathbf{y}\|
+								$
+								<span class="fragment" data-fragment-index="7">
+									$=\sqrt{5^2+(-3)^2+2^2}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$=\sqrt{38}.$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="9" style="margin-top:25px;">
+							<p>
+								<b>Step 3:</b> Verify the Cauchy-Schwarz inequality.
+								<span class="fragment" data-fragment-index="10">
+									$|\langle\mathbf{x},\mathbf{y}\rangle|=|2|=2,$
+								</span>
+
+							</p>
+
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="11">
+								$\|\mathbf{x}\|\,\|\mathbf{y}\|$
+								<span class="fragment" data-fragment-index="12">
+									$=3\sqrt{38}\approx18.49,$
+								</span><span class="fragment" data-fragment-index="13">
+									and $2\le 3\sqrt{38},\,$
+
+								</span>
+								<span class="fragment" data-fragment-index="14">
+									so the inequality holds.
+								</span>
+
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="15" style="margin-top:25px;">
+							<p><b>Step 4:</b> Find the angle.</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="16">
+								$\ds \cos\theta
+								=
+								\frac{\langle\mathbf{x},\mathbf{y}\rangle}
+								{\|\mathbf{x}\|\,\|\mathbf{y}\|}
+								$
+								<span class="fragment" data-fragment-index="17">
+									$\ds =\frac{2}{3\sqrt{38}}
+									\approx0.1082.\;$
+								</span>
+								<span class="fragment" data-fragment-index="18">
+									Then
+									$
+									\;\boxed{
+									\theta
+									=\cos^{-1}\!\left(\frac{2}{3\sqrt{38}}\right)
+									\approx83.8^\circ
+									}$
+								</span>
+							</p>
+
+						</div>
+
+					</div>
+
+					<br><br>
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Solution – Problem 2</h4>
+
+					<div style="font-size:0.75em; margin-top: -15px;">
+
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								<b>1.</b> Compute the inner product:
+								<span class="fragment" data-fragment-index="0">
+									$\;\displaystyle \langle e^x,e^{-x}\rangle$
+									<span class="fragment" data-fragment-index="1">
+										$\displaystyle=\int_0^1 e^xe^{-x}\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\displaystyle=\int_0^1 1\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\displaystyle=1.$
+									</span>
+								</span>
+							</p>
+						</div>
+
+
+
+						<div class="fragment" data-fragment-index="4" style="margin-top:15px;">
+							<p>
+								<b>2.</b> Verify symmetry:
+								<span class="fragment" data-fragment-index="4">
+									$\;\displaystyle \langle f,g\rangle$
+									<span class="fragment" data-fragment-index="5">
+										$\displaystyle=\int_0^1 f(x)g(x)\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$\displaystyle=\int_0^1 g(x)f(x)\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\displaystyle=\langle g,f\rangle.$
+									</span>
+								</span>
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="8" style="margin-top:10px;">
+							<p>
+								<b>2.</b> Verify linearity.
+								<span class="fragment" data-fragment-index="8">
+									$\displaystyle \langle af+bh,g\rangle$
+									<span class="fragment" data-fragment-index="9">
+										$\displaystyle=\int_0^1 (af+bh)g\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$\displaystyle=a\langle f,g\rangle+b\langle h,g\rangle.$
+									</span>
+								</span>
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="11" style="margin-top:10px;">
+							<p>
+								<b>3.</b> Verify positive definiteness.
+								<span class="fragment" data-fragment-index="11">
+									$\displaystyle \langle f,f\rangle$
+									<span class="fragment" data-fragment-index="12">
+										$\displaystyle=\int_0^1 f(x)^2\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="13">
+										$\displaystyle\ge0.$
+									</span>
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+							
+
+							<p class="fragment" data-fragment-index="14">
+								If
+								$\displaystyle \langle f,f\rangle=0,$
+								<span class="fragment" data-fragment-index="15">
+									then
+									$\displaystyle f(x)\equiv0.$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="16">
+								Therefore,
+								<span class="fragment" data-fragment-index="17">
+									$\boxed{\displaystyle
+									\langle f,g\rangle
+									=
+									\int_0^1 f(x)g(x)\,dx
+									\text{ is an inner product on }C[0,1].}$
+								</span>
+							</p>
+						</div>
+
+					</div>
+
+					<br><br>
+				</section>
+
+
 				<section data-auto-animate>
 					<h4>Application: Information Retrieval (Part 1)</h4>
 					<div class="size-85">
