@@ -77,36 +77,42 @@
 					<h4>Motivation: Dot Product</h4>
 					<div class="size-75">
 						<div class="fragment" data-fragment-index="0">
-							<p><b>Definition:</b> The dot product of two vectors $\mathbf{x} = \begin{pmatrix}x_1 \\ x_2
+							<p>
+								<b>Definition:</b> The dot product of two vectors $\mathbf{x} = \begin{pmatrix}x_1 \\
+								x_2
 								\\ x_3\end{pmatrix}, \mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ y_3\end{pmatrix} \in
-								\mathbb{R}^3$ is a scalar given by:</p>
+								\mathbb{R}^3$
+								<span class="fragment" data-fragment-index="1">
+									is a scalar given by:
+								</span>
+							</p>
 
 						</div>
 						<div class="cc" style="font-size: 1.3em;">
-							<p class="fragment" data-fragment-index="0">
+							<p class="fragment" data-fragment-index="1">
 								$ \mathbf{x} \pd \mathbf{y} = x_1 y_1 + x_2 y_2 + x_3 y_3 $
-								<span class="fragment" data-fragment-index="1">
+								<span class="fragment" data-fragment-index="2">
 									$ = \mathbf{x}^T \mathbf{y} $
 								</span>
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 20px;">
+						<div class="fragment" data-fragment-index="3" style="margin-top: 20px;">
 							<p><b>Alternative Definition:</b> $\mathbf{x} \pd \mathbf{y} = \|\mathbf{x}\|
 								\|\mathbf{y}\| \cos \theta$,
-								<span class="fragment" data-fragment-index="3">
+								<span class="fragment" data-fragment-index="4">
 									where $\theta$ is the angle between $\mathbf{x}$ and
 									$\mathbf{y}$.
 								</span>
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
+						<div class="fragment" data-fragment-index="5" style="margin-top: 10px;">
 							<p>For a vector $\mathbf{v}$:</p>
 
 						</div>
 						<div class="cc" style="font-size: 1.2em;">
-							<p class="fragment" data-fragment-index="4">
+							<p class="fragment" data-fragment-index="5">
 								$ \mathbf{v} \pd \mathbf{v}$
 								<span class="fragment">
 									$ = \|\mathbf{v}\| \|\mathbf{v}\| \cos(0) $
@@ -166,29 +172,29 @@
 								<span class="fragment" data-fragment-index="6">
 									$\quad \|\mathbf{y}\| = \sqrt{4^2 + 3^2 + 2^2} $
 								</span>
-								<span class="fragment" data-fragment-index="6">
+								<span class="fragment" data-fragment-index="7">
 									$= \sqrt{29}$
 								</span>
 							</p>
-							<p class="fragment" data-fragment-index="7">
-								$\cos \theta $
-								<span class="fragment" data-fragment-index="7">
-									\( = \dfrac{\mathbf{x} \pd \mathbf{y}}{\norm{\mathbf{x}}\norm{\mathbf{y}}}\)
-								</span>
-								<span class="fragment" data-fragment-index="8">
+							<p class="fragment">
+								$\cos \theta = \dfrac{\mathbf{x} \pd \mathbf{y}}{\norm{\mathbf{x}}\norm{\mathbf{y}}}$
+
+								<span class="fragment">
 									$= \dfrac{8}{\sqrt{14}\sqrt{29}} $
 								</span>
-								<span class="fragment" data-fragment-index="9">
+								<span class="fragment">
 									$\implies \theta \approx 66.6^\circ$
 								</span>
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="10" style="margin-top: 15px; font-size: 1em;">
-							<b>Note:</b>
-							$\mathbf{x}$ and $\mathbf{y}$ are perpendicular (orthogonal) $\iff \mathbf{x}
-							\pd \mathbf{y} = 0$.
-						</p>
+						<div class="cc">
+							<p class="fragment" style="margin-top: 15px; font-size: 1em;">
+								👉 &nbsp;
+								$\mathbf{x}$ and $\mathbf{y}$ are perpendicular (orthogonal) $\iff \mathbf{x}
+								\pd \mathbf{y} = 0$.
+							</p>
+						</div>
 					</div>
 					<br />
 				</section>
@@ -389,7 +395,7 @@
 						<div>
 							<p class="fragment" data-fragment-index="0">
 								For vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$,
-								<span>
+								<span class="fragment" data-fragment-index="1">
 									the standard inner product is:
 								</span>
 
@@ -397,17 +403,21 @@
 
 						</div>
 						<div class="cc" style="font-size: 1.1em;">
-							<p class="fragment" data-fragment-index="0">
+							<p class="fragment" data-fragment-index="1">
 								$
 								\langle \mathbf{x}, \mathbf{y} \rangle
 								$
 								<span class="fragment" data-fragment-index="1">
 									$
-									=\mathbf{x}^T \mathbf{y}
+									=\mathbf x\pd \mathbf y = \mathbf{x}^T \mathbf{y}
 									$
 								</span>
 								<span class="fragment" data-fragment-index="2">
-									$\ ds= \sum_{i=1}^n x_i y_i =
+									$\ds= \sum_{i=1}^n x_i y_i
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$=
 									x_1 y_1 + x_2 y_2 + \dots + x_n y_n
 									$
 								</span>
@@ -415,17 +425,17 @@
 						</div>
 
 
-						<div class="fragment" data-fragment-index="3" style="margin-top: 45px;">
+						<div class="fragment" data-fragment-index="4" style="margin-top: 45px;">
 							<p><b>Euclidean Norm:</b></p>
 
 						</div>
 
 						<div class="cc" style="font-size: 1.1em;">
-							<p class="fragment" data-fragment-index="3">
+							<p class="fragment" data-fragment-index="4">
 								$
 								\|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}
 								$
-								<span class="fragment" data-fragment-index="4">
+								<span class="fragment" data-fragment-index="5">
 									$
 									= \sqrt{x_1^2 + x_2^2 +
 									\dots + x_n^2}
@@ -436,8 +446,8 @@
 						</div>
 
 
-						<div class="fragment" data-fragment-index="5" style="margin-top: 40px;">
-							<p><b>Orthogonality:</b> $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ are orthogonal $\iff
+						<div class="fragment" data-fragment-index="6" style="margin-top: 40px;">
+							<p><b>Orthogonality:</b> $\;\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ are orthogonal $\iff
 								\langle \mathbf{x}, \mathbf{y} \rangle = 0$.</p>
 						</div>
 					</div>
@@ -596,7 +606,10 @@
 									\sqrt{2(1^2) + 1(2^2)} $
 								</span>
 								<span class="fragment" data-fragment-index="10">
-									$= \sqrt{6} \ne \|\mathbf{x}\|$.
+									$= \sqrt{6}$
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									$\ne \|\mathbf{x}\|$.
 								</span>
 							</p>
 						</div>
@@ -1048,7 +1061,7 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="15" style="margin-top:25px;">
-							<p><b>Step 4:</b> Find the angle.</p>
+							<p><b>Find the angle:</b></p>
 
 						</div>
 						<div class="cc">
@@ -1059,10 +1072,12 @@
 								{\|\mathbf{x}\|\,\|\mathbf{y}\|}
 								$
 								<span class="fragment" data-fragment-index="17">
-									$\ds =\frac{2}{3\sqrt{38}}
-									\approx0.1082.\;$
+									$\ds =\frac{2}{3\sqrt{38}}$
 								</span>
 								<span class="fragment" data-fragment-index="18">
+									$\approx0.1082.\;$
+								</span>
+								<span class="fragment" data-fragment-index="19">
 									Then
 									$
 									\;\boxed{
@@ -1156,7 +1171,7 @@
 						</div>
 
 						<div class="cc">
-							
+
 
 							<p class="fragment" data-fragment-index="14">
 								If
@@ -1168,9 +1183,9 @@
 							</p>
 
 							<p class="fragment" data-fragment-index="16">
-								Therefore,
-								<span class="fragment" data-fragment-index="17">
-									$\boxed{\displaystyle
+								Therefore
+								<span>
+									$\,\boxed{\displaystyle
 									\langle f,g\rangle
 									=
 									\int_0^1 f(x)g(x)\,dx
@@ -1186,8 +1201,14 @@
 
 
 				<section data-auto-animate>
-					<h4>Application: Information Retrieval (Part 1)</h4>
+					<h4>Application: Information Retrieval</h4>
 					<div class="size-85">
+						<p>
+							Consider searching a database for documents that contains the frequency of certain key
+							words. If we want to find documents on a single topic, then I can search for documents
+							that contain that word. What is the best match? Is it the one that contains that word the
+							most? Or is it the one more focussed on that topic? How could I find the best match?
+						</p>
 						<div class="fragment" data-fragment-index="0">
 							<p><b>Cosine Similarity Search:</b> Instead of exact word matching, find database vectors
 								that <i>best match</i> a query vector using the cosine of the angle between them.</p>
@@ -1201,14 +1222,13 @@
 					<br />
 				</section>
 
-				<!-- Slide 17 (PDF p.18): Information Retrieval (2) -->
 				<section data-auto-animate>
-					<h4>Application: Information Retrieval (Part 2)</h4>
-					<div class="size-85" style="font-size: 0.7em;">
-						<table style="width:100%; border-collapse: collapse; text-align: center;">
+					<h4>Application: Information Retrieval</h4>
+					<div style="font-size: 0.60em;">
+						<table style="width:90%; border-collapse: collapse; text-align: center;">
 							<thead>
 								<tr style="border-bottom: 1px solid #fff;">
-									<th>Keywords</th>
+									<th style="text-align: center;">Keywords</th>
 									<th>M1</th>
 									<th>M2</th>
 									<th>M3</th>
@@ -1221,7 +1241,7 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>determinants</td>
+									<td style="text-align: center;">determinants</td>
 									<td>0</td>
 									<td>6</td>
 									<td>3</td>
@@ -1232,7 +1252,7 @@
 									<td>1</td>
 								</tr>
 								<tr>
-									<td>eigenvalues</td>
+									<td style="text-align: center;">eigenvalues</td>
 									<td>0</td>
 									<td>0</td>
 									<td>0</td>
@@ -1243,7 +1263,7 @@
 									<td>2</td>
 								</tr>
 								<tr>
-									<td>linear</td>
+									<td style="text-align: center;">linear</td>
 									<td>5</td>
 									<td>4</td>
 									<td>4</td>
@@ -1254,7 +1274,7 @@
 									<td>3</td>
 								</tr>
 								<tr>
-									<td>matrices</td>
+									<td style="text-align: center;">matrices</td>
 									<td>6</td>
 									<td>5</td>
 									<td>3</td>
@@ -1265,7 +1285,7 @@
 									<td>2</td>
 								</tr>
 								<tr>
-									<td>numerical</td>
+									<td style="text-align: center;">numerical</td>
 									<td>0</td>
 									<td>0</td>
 									<td>0</td>
@@ -1276,7 +1296,7 @@
 									<td>3</td>
 								</tr>
 								<tr>
-									<td>orthogonality</td>
+									<td style="text-align: center;">orthogonality</td>
 									<td>0</td>
 									<td>0</td>
 									<td>0</td>
@@ -1287,7 +1307,7 @@
 									<td>2</td>
 								</tr>
 								<tr>
-									<td>spaces</td>
+									<td style="text-align: center;">spaces</td>
 									<td>0</td>
 									<td>0</td>
 									<td>5</td>
@@ -1298,7 +1318,7 @@
 									<td>1</td>
 								</tr>
 								<tr>
-									<td>systems</td>
+									<td style="text-align: center;">systems</td>
 									<td>5</td>
 									<td>3</td>
 									<td>3</td>
@@ -1309,7 +1329,7 @@
 									<td>1</td>
 								</tr>
 								<tr>
-									<td>transformations</td>
+									<td style="text-align: center;">transformations</td>
 									<td>0</td>
 									<td>0</td>
 									<td>0</td>
@@ -1320,7 +1340,7 @@
 									<td>0</td>
 								</tr>
 								<tr>
-									<td>vector</td>
+									<td style="text-align: center;">vector</td>
 									<td>0</td>
 									<td>4</td>
 									<td>4</td>
@@ -1332,39 +1352,130 @@
 								</tr>
 							</tbody>
 						</table>
-						<p class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							Search for <i>"orthogonality, spaces, vector"</i> $\implies$ Normalized search vector
-							$\mathbf{x} \approx (0,0,0,0,0, 0.577, 0.577, 0, 0, 0.577)^T$.
+
+					</div>
+
+					<div style="margin-top: 10px; font-size: 0.7em;">
+						<p class="fragment" data-fragment-index="0">
+							To search for the words
+							<tt style="font-size: 0.85em; font-weight: bold;">orthogonality</tt>,
+							<tt style="font-size: 0.85em; font-weight: bold">spaces</tt>,
+							<tt style="font-size: 0.85em; font-weight: bold">vector</tt>,
+							<span class="fragment" data-fragment-index="1">
+								we use the normalized search
+								vector
+							</span>
+
+						</p>
+						<p class="fragment" data-fragment-index="1" style="margin-top: -20px;">
+							$$\mathbf{x} \approx (0,0,0,0,0, 0.577, 0.577, 0, 0, 0.577)^T$$
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 18 (PDF p.19): Information Retrieval (3) -->
 				<section data-auto-animate>
-					<h4>Application: Information Retrieval (Part 3)</h4>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-75">
+						<div>
+							<p>Normalizing matrix columns yields normalized matrix $Q$:</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+								\(
+								Q=\begin{pmatrix}
+								0&0.594&0.327&0&0.1&0&0.147&0.154\\
+								0&0&0&0&0&0.5&0.442&0.309\\
+								0.539&0.396&0.436&0.574&0.4&0&0.442&0.463\\
+								0.647&0.495&0.327&0.344&0.4&0.4&0.442&0.309\\
+								0&0&0&0&0.3&0&0.59&0.463\\
+								0&0&0&0&0.4&0.6&0&0.309\\
+								0&0&0.546&0.229&0.3&0.3&0&0.154\\
+								0.539&0.297&0.327&0.229&0.4&0.2&0.147&0.154\\
+								0&0&0&0.574&0.1&0.3&0.147&0\\
+								0&0.396&0.436&0.344&0.4&0.1&0&0.463
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
 					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p>Normalizing matrix columns yields normalized matrix $Q$.</p>
+						<div class="cc" style="font-size: 0.5em;">
+							<p>
+								\(
+								Q=\begin{pmatrix}
+								0&0.594&0.327&0&0.1&0&0.147&0.154\\
+								0&0&0&0&0&0.5&0.442&0.309\\
+								0.539&0.396&0.436&0.574&0.4&0&0.442&0.463\\
+								0.647&0.495&0.327&0.344&0.4&0.4&0.442&0.309\\
+								0&0&0&0&0.3&0&0.59&0.463\\
+								0&0&0&0&0.4&0.6&0&0.309\\
+								0&0&0.546&0.229&0.3&0.3&0&0.154\\
+								0.539&0.297&0.327&0.229&0.4&0.2&0.147&0.154\\
+								0&0&0&0.574&0.1&0.3&0.147&0\\
+								0&0.396&0.436&0.344&0.4&0.1&0&0.463
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+						<div>
+
 							<p>Computing $\mathbf{y} = Q^T \mathbf{x}$:</p>
-							$$ \mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \mathbf{0.635}, \; 0.577, \; 0, \;
-							0.535)^T $$
+
+						</div>
+						<div class="r-stack">
+
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; 0.635, \;
+								0.577, \; 0, \;
+								0.535)^T$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \mathbf{0.635}, \;
+								0.577, \; 0, \;
+								0.535)^T$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \mathbf{0.635}, \;
+								0.577, \; 0, \;
+								0.535)^T$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="3">
+								$\mathbf{y} = (0, \; 0.229, \; \color{red}{\mathbf{0.567}}, \; 0.331, \; \mathbf{0.635}, \;
+								\color{blue}{\mathbf{0.577}}, \; 0, \;
+								0.535)^T$
+							</p>
+
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>Result:</b> $y_5 = 0.635$ is the largest entry $\implies$ <b>Module 5</b> is the best
-								match!</p>
-							<p style="font-size: 0.85em;">Next best matches: Module 6 ($y_6 = 0.577$) and Module 3 ($y_3
-								= 0.567$).</p>
+							<p>Then $\,\mathbf {y_5 = 0.635}$ is the largest entry
+								<span class="fragment" data-fragment-index="2">
+									$\implies$ <b>Module 5</b> is the best
+									match!
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								Next best matches are <b>Module 6</b>
+								($\color{blue}{y_6 = 0.577}$) and <b>Module 3</b>
+								($\color{red}{y_3= 0.567}$).</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 19 (PDF p.20): Information Retrieval - Why it Works -->
+				
 				<section data-auto-animate>
 					<h4>Why Does Information Retrieval Work?</h4>
-					<div class="size-85">
+					<div class="size-90">
 						<div class="fragment" data-fragment-index="0">
 							$$ \mathbf{y} = Q^T \mathbf{x} \implies y_i = \mathbf{q}_i^T \mathbf{x} = \|\mathbf{q}_i\|
 							\|\mathbf{x}\| \cos \theta_i $$
@@ -1380,6 +1491,7 @@
 								closest in direction to query vector $\mathbf{x}$.</p>
 						</div>
 					</div>
+					<br />
 					<br />
 				</section>
 
