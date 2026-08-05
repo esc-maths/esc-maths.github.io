@@ -38,6 +38,9 @@
 		gtag('config', 'G-8GQQBCYTB5');
 	</script>
 
+	<script src="mathcell/math.js"></script>
+	<script src="mathcell/mathcell.js"></script>
+
 </head>
 
 <body>
@@ -3191,7 +3194,8 @@
 							So $A$ is positive definite.
 						</p>
 
-						<p class="fragment" data-fragment-index="4">Checking whether a real symmetric matrix is positive definite using the above
+						<p class="fragment" data-fragment-index="4">Checking whether a real symmetric matrix is positive
+							definite using the above
 							method can be difficult depending on the numbers in A.</p>
 						<p class="fragment" data-fragment-index="5">
 							The following theorem provides an easier method.
@@ -3210,14 +3214,9 @@
 					<br />
 				</section>
 
-			</section>
-
-			<section>
-
-				<!-- Slide 1 (PDF p.40): Optimization Example (1) -->
 				<section data-auto-animate>
 					<h4>Optimization Example: $f(x,y) = 2x^2 - 4xy + 5y^2$</h4>
-					<div class="size-85">
+					<div class="size-95">
 						<div class="fragment" data-fragment-index="0">
 							<p>Consider the function of two variables:</p>
 							$$ f(x,y) = 2x^2 - 4xy + 5y^2 $$
@@ -3229,38 +3228,140 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;" id="rr">
-							We can use information about positive definiteness of the associated matrix to decide!
+							We can use information about positive definiteness <br />
+							of the associated matrix to decide!
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 2 (PDF p.41): Optimization Example (2) -->
 				<section data-auto-animate>
-					<h4>Optimization Example: Stationary Point Analysis</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<div class="fragment" data-fragment-index="0">
+					<h4>Optimization Example: $f(x,y) = 2x^2 - 4xy + 5y^2$</h4>
+					<div style="font-size: 0.8em;">
+						<div>
 							<p><b>1. Find Stationary Point:</b></p>
-							$$ \frac{\partial f}{\partial x} = 4x - 4y = 0, \quad \frac{\partial f}{\partial y} = -4x +
-							10y = 0 \implies (x,y) = (0,0) $$
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ \dfrac{\partial f}{\partial x} $
+								<span class="fragment" data-fragment-index="1">
+									$= 4x - 4y $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$= 0 ,$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\quad \dfrac{\partial f}{\partial y} = -4x +
+									10y $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ = 0 $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\implies (x,y) = (0,0) $
+								</span>
+
+
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>2. Matrix Representation:</b></p>
-							$$ f(x,y) = \begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}2 & -2\\ -2 &
-							5\end{pmatrix}\begin{pmatrix}x\\ y\end{pmatrix} = \mathbf{x}^T A \mathbf{x} $$
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="6"><b>2. Matrix Representation:</b></p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$ f(x,y) $
+								<span class="fragment" data-fragment-index="7">
+									$ = \begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}2 & -2\\ -2 &
+									5\end{pmatrix}\begin{pmatrix}x\\ y\end{pmatrix} = \mathbf{x}^T A \mathbf{x} $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+						<div class="fragment" data-fragment-index="8" style="margin-top: 10px;">
 							<p><b>3. Eigenvalue Test:</b> For $A = \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}$:</p>
-							$$ \text{trace}(A) = 7 = \lambda_1 + \lambda_2, \quad \det(A) = 6 = \lambda_1 \lambda_2
-							\implies \lambda_1 = 6, \, \lambda_2 = 1 $$
-							<p>Since both $\lambda_1, \lambda_2 > 0$, $A$ is <b>positive definite</b> $\implies (0,0)$
-								is a <b>global minimum</b>.</p>
+
+
 						</div>
+						<div class="cc">
+							<p class="fragment">
+								$ \text{trace}(A) = 7 $
+								<span class="fragment">
+									$ = \lambda_1 + \lambda_2,$
+								</span>
+								<span class="fragment">
+									$\quad \det(A) = 6 $
+								</span>
+								<span class="fragment">
+									$= \lambda_1 \lambda_2
+									$
+								</span>
+								<span class="fragment">
+									$
+									\implies \lambda_1 = 6, \, \lambda_2 = 1 $
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment">
+							Since both $\lambda_1, \lambda_2 > 0$, $A$ is <b>positive definite</b>,
+							<span class="fragment">
+								then $ (0,0)$
+								is a <b>global minimum</b>.
+							</span>
+						</p>
 					</div>
 					<br />
 				</section>
+
+				<section data-auto-animate>
+					<h4>Optimization Example: $f(x,y) = 2x^2 - 4xy + 5y^2$</h4>
+					<div class="mathcell" style="width:600px;height:550px;">
+						<script>
+
+							var parent = document.currentScript.parentNode;
+
+							var id = generateId();
+							parent.id = id;
+
+							MathCell(id, []);
+
+							parent.update = function (id) {
+
+								function z(x, y) { return [x, y, 2 * x * x - 4 * x * y + 5 * y * y]; }
+
+								
+								var size = 1;
+								var s = parametric(z, [-size, size, 150], [-size, size, 150],
+									{ colormap: (x,y) => colorFromHue( ( 1 - Math.sin(x*x + y*y) ) / 1 )  });
+
+								var data = [s];
+
+								var config = {
+									type: 'threejs',
+									viewpoint: [1, 1, 0.7],
+									axesLabels: true,
+									aspectRatio: [2, 2, 1]
+								};
+
+								evaluate(id, data, config);
+							}
+
+							parent.update(id);
+
+
+						</script>
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+
+
+
 
 				<!-- Slide 3 (PDF p.42): Class Examples -->
 				<section data-auto-animate>
