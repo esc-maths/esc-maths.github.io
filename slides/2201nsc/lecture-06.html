@@ -2858,7 +2858,7 @@
 							</p>
 						</div>
 
-						
+
 					</div>
 					<div class="size-90">
 						<p class="fragment" data-fragment-index="9" style="margin-top: 15px; font-size: 0.85em;">
@@ -2870,7 +2870,7 @@
 
 				<section data-auto-animate>
 					<h4>Orthogonal Matrices</h4>
-					<div class="size-90">
+					<div class="size-90" style="margin-top: 50px;">
 						<div class="fragment" data-fragment-index="0">
 							<p><b>Definition:</b> An $n \times n$ matrix $Q$ is an <i>orthogonal matrix</i> if its
 								column vectors form an orthonormal set in $\mathbb{R}^n$.</p>
@@ -2880,32 +2880,51 @@
 							<p><b>Theorem:</b> An $n \times n$ matrix $Q$ is orthogonal $\iff Q^T Q = I$.</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 15px; ">
-							<p><b>Proof Outline:</b> $Q$ is orthogonal $\iff \mathbf{q}_i^T \mathbf{q}_j = \delta_{ij}$.
-								Since $\mathbf{q}_i^T \mathbf{q}_j$ is the $(i,j)$ entry of $Q^T Q$, $Q$ is orthogonal
-								$\iff Q^T Q = I$.</p>
+						<div style="margin-top: 15px; ">
+							<p class="fragment" data-fragment-index="2">
+								<b>Proof Outline:</b> $Q$ is orthogonal
+								<span class="fragment" data-fragment-index="3">
+									$\iff \mathbf{q}_i^T \mathbf{q}_j = \delta_{ij}$.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Since $\mathbf{q}_i^T \mathbf{q}_j$ is the $(i,j)$ entry of $Q^T Q$,
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$Q$ is
+									orthogonal
+									$\iff Q^T Q = I$.
+								</span>
+							</p>
 						</div>
 
 						<div style="margin-top: 50px;">
-							<p><b>Corollary:</b> If $Q$ is orthogonal, then $Q$ is invertible and $Q^{-1} = Q^T$.</p>
+							<p class="fragment" data-fragment-index="6"><b>Corollary:</b> If $Q$ is orthogonal, then $Q$
+								is invertible and $Q^{-1} = Q^T$.</p>
 						</div>
 					</div>
 					<br />
 					<br />
 				</section>
 
-				<!-- Slide 9 (PDF p.33): Corollary & Rotation Matrix -->
 				<section data-auto-animate>
 					<h4>Properties &amp; Rotation Matrix Example</h4>
 					<div class="size-85">
-						
+
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>Example (2D Rotation Matrix):</b> For a fixed angle $\theta$:</p>
-							$$ Q = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} $$
+							<p><b>2D Rotation Matrix:</b> For a fixed angle $\theta$:</p>
+							$$ Q = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
+							\;\; \text{is orthognal.}$$
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px; font-size: 0.85em;">
+						<p class="fragment" data-fragment-index="2">That is $QQ^T = Q^TQ = I$.
+							<span class="fragment" data-fragment-index="3">
+								We can also check this by showing that the inner product
+								of the columns is 0, as well as the norm of each column is 1.
+							</span>
+						</p>
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px; ">
 							<p>Inverse rotation by $-\theta$ is given directly by the transpose:</p>
 							$$ Q^{-1} = Q^T = \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta
 							\end{pmatrix} $$
@@ -2914,22 +2933,30 @@
 					<br />
 				</section>
 
-				<!-- Slide 10 (PDF p.34): Rotation Matrix Concepts -->
+
 				<section data-auto-animate>
 					<h4>Rotation Matrices &amp; Length Preservation</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p>$Q = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$
-								acts as a linear transformation rotating vectors in $\mathbb{R}^2$ through angle
-								$\theta$.</p>
+					<div class="size-90">
+						<div class="cc">
+							<p  class="fragment" data-fragment-index="0">
+								Consider $Q = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta &
+								\cos\theta\end{pmatrix}$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								Recall that $Q$ acts as a linear transformation <br/>
+								 rotating vectors in $\mathbb{R}^2$
+								through angle
+								$\theta$.
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p>$Q^{-1} = Q^T$ rotates vectors through angle $-\theta$.</p>
+						<div class="cc" style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="2">$Q^{-1} = Q^T$ rotates vectors through angle $-\theta$.</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;" id="rr">
-							Multiplication by any orthogonal matrix preserves the length (norm) of vectors!
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;" id="rr">
+							Multiplication by any orthogonal matrix preserves <br/>
+							the length (norm) of vectors!
 						</div>
 					</div>
 					<br />
@@ -2938,18 +2965,18 @@
 				<!-- Slide 11 (PDF p.35): Properties of Orthogonal Matrices -->
 				<section data-auto-animate>
 					<h4>Properties of Orthogonal Matrices</h4>
-					<div class="size-85" style="font-size: 0.85em;">
+					<div class="left-txt" style="font-size: 0.85em;">
 						<div class="fragment" data-fragment-index="0">
 							<p>If $Q$ is an $n \times n$ orthogonal matrix:</p>
-							<ul>
-								<li>1. Columns form an orthonormal basis for $\mathbb{R}^n$.</li>
-								<li>2. $Q^T Q = I$</li>
-								<li>3. $Q^T = Q^{-1}$</li>
-								<li>4. $\langle Q\mathbf{x}, Q\mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{y}
+							<ol>
+								<li> Columns form an orthonormal basis for $\mathbb{R}^n$.</li>
+								<li> $Q^T Q = I$</li>
+								<li> $Q^T = Q^{-1}$</li>
+								<li> $\langle Q\mathbf{x}, Q\mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{y}
 									\rangle$</li>
-								<li>5. $\|Q\mathbf{x}\| = \|\mathbf{x}\|$</li>
-								<li>6. $\det(Q) = \pm 1$</li>
-							</ul>
+								<li> $\|Q\mathbf{x}\| = \|\mathbf{x}\|$</li>
+								<li> $\det(Q) = \pm 1$</li>
+							</ol>
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
