@@ -2364,7 +2364,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example of Orthogonal &amp; Orthonormal Set</h4>
+					<h4>Examples of Orthogonal &amp; Orthonormal Set</h4>
 					<div class="size-75">
 						<div class="fragment" data-fragment-index="0">
 							<p>Consider vectors in $\mathbb{R}^3$:
@@ -2374,9 +2374,9 @@
 							</p>
 						</div>
 
-						<div  style="margin-top: 10px;">
+						<div style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="1">
-								$\qquad\qquad  \langle \mathbf{v}_1, \mathbf{v}_2 \rangle $
+								$\qquad\qquad \langle \mathbf{v}_1, \mathbf{v}_2 \rangle $
 								<span class="fragment" data-fragment-index="2">
 									$= 1(2) + 1(1) + 1(-3) $
 								</span>
@@ -2385,7 +2385,7 @@
 								</span>
 							</p>
 							<p class="fragment" data-fragment-index="4">
-								$\qquad\qquad  \langle \mathbf{v}_1, \mathbf{v}_3 \rangle $
+								$\qquad\qquad \langle \mathbf{v}_1, \mathbf{v}_3 \rangle $
 								<span class="fragment" data-fragment-index="5">
 									$= 1(4) + 1(-5) + 1(1) $
 								</span>
@@ -2394,7 +2394,7 @@
 								</span>
 							</p>
 							<p class="fragment" data-fragment-index="7">
-								$\qquad \qquad \langle \mathbf{v}_2, \mathbf{v}_3 \rangle  $
+								$\qquad \qquad \langle \mathbf{v}_2, \mathbf{v}_3 \rangle $
 								<span class="fragment" data-fragment-index="8">
 									$= 2(4) + 1(-5) + (-3)(1) = 0$
 								</span>
@@ -2432,7 +2432,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example of Orthogonal &amp; Orthonormal Set</h4>
+					<h4>Examples of Orthogonal &amp; Orthonormal Set</h4>
 
 					<div class="size-40" style="margin-top: -15px;">
 						<div class="cc">
@@ -2458,200 +2458,439 @@
 					</div>
 
 					<div style="margin-top: -10px;">
-						<iframe scrolling="no" title="Orthonormal set in 3D" src="https://www.geogebra.org/material/iframe/id/rvd89p89/width/752/height/510/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" width="752px" height="510px" style="border:0px;" allowfullscreen> </iframe>
+						<iframe scrolling="no" title="Orthonormal set in 3D"
+							src="https://www.geogebra.org/material/iframe/id/rvd89p89/width/752/height/510/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="752px" height="510px" style="border:0px;" allowfullscreen> </iframe>
 					</div>
 				</section>
 
 				<section data-auto-animate>
 					<h4>Orthonormal Basis Sets in $\mathbb{R}^2$ </h4>
-					<div class="size-75 left-txt">
-						<p>
+					<div class="size-70 left-txt">
+						<p class="fragment" data-fragment-index="0">
 							<b>Example 1:</b> $\{\mathbf{e}_1, \mathbf{e}_2\} = \left\{
-								\begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix} \right\}$
+							\begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix} \right\}$
 						</p>
-						<p>
+						<p class="fragment" data-fragment-index="2">
 							<b>Example 2:</b> $\ds \left\{ \frac{1}{\sqrt{2}}(\mathbf{e}_1+\mathbf{e}_2),
-								\frac{1}{\sqrt{2}}(\mathbf{e}_1-\mathbf{e}_2) \right\} = \left\{
+							\frac{1}{\sqrt{2}}(\mathbf{e}_1-\mathbf{e}_2) \right\} $
+							<span class="fragment" data-fragment-index="3">
+								$\ds = \left\{
 								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},
 								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix} \right\}$
+							</span>
 						</p>
-						
+
+					</div>
+					<div style="margin-top: -20px;">
+						<table style="width: 75%;">
+							<tr>
+								<td style="width: 50%;" class="fragment" data-fragment-index="1">
+									<img src="images/lecture-06/005-basis-r2.png">
+								</td>
+								<td style="width: 50%;" class="fragment" data-fragment-index="4">
+									<img src="images/lecture-06/005-basis-r2-2.png">
+								</td>
+							</tr>
+						</table>
 					</div>
 					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Orthonormal Basis Sets in $\mathbb{R}^3$</h4>
+					<h4>More Orthonormal Sets and Bases in $\mathbb{R}^3$</h4>
 					<div class="size-75" style="margin-top: 60px;">
 						<div class="left-txt">
-							
+
 							<p class="fragment" data-fragment-index="0">
-								<strong>Example 1:</strong> 
+								<strong>Example 1:</strong>
 								$\left\{ (1,0,0)^T, (0,1,0)^T, (0,0,1)^T\right\}$ orthonormal set.
 							</p>
-							<br/>
+							<br />
 							<p class="fragment" data-fragment-index="1">
-								<strong>Example 2:</strong> 
-								$S = \ds \left\{ 
-								\left( \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right)^T, 
+								<strong>Example 2:</strong>
+								$S = \ds \left\{
+								\left( \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right)^T,
 								\left(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)^T
-								\right\}$ orthonormal set in 
+								\right\}$ orthonormal set in
 								$\R^3$.
 							</p>
-							<br/>
+							<br />
 							<p class="fragment" data-fragment-index="2">
-								<strong>Example 3:</strong> 
-								$\ds S \cup  \left\{ 
-									\left( \frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}},-\frac{2}{\sqrt{6}} \right)^T
-									\right\}$ orthonormal set in 
-									$\R^3$.
+								<strong>Example 3:</strong>
+								$\ds S \cup \left\{
+								\left( \frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}},-\frac{2}{\sqrt{6}} \right)^T
+								\right\}$ orthonormal set in
+								$\R^3$.
 							</p>
 						</div>
 					</div>
-					<br/><br/>
+
+
+
+					<br />
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Orthonormal Basis Sets in $\mathbb{R}^3$</h4>
-					
+					<h4>More Orthonormal Sets and Bases in $\mathbb{R}^3$</h4>
+
 					<div>
-						<iframe scrolling="no" title="Chapter-11: Examples orthonormal basis" 
-						src="https://www.geogebra.org/material/iframe/id/temf7ugd/width/798/height/473/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
-						width="798px" height="473px" style="border:0px;" allowfullscreen> </iframe>
+						<iframe scrolling="no" title="Examples orthonormal basis"
+							src="https://www.geogebra.org/material/iframe/id/mftrngkb/width/795/height/418/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="795px" height="418px" style="border:0px;" allowfullscreen> </iframe>
 					</div>
-					<br/>
+					<br />
 				</section>
 
-				
-				
+				<section data-auto-animate>
+					<h4>More Orthonormal Sets and Bases in $\mathbb{R}^3$</h4>
+					<div class="size-65">
+						<div class="left-txt">
 
-				<!-- Slide 4 (PDF p.28): Orthogonal => Linearly Independent -->
+							<p>
+								<strong>Example 1:</strong>
+								$\left\{ (1,0,0)^T, (0,1,0)^T, (0,0,1)^T\right\}$ orthonormal set.
+								<span id="gg" class="fragment" data-fragment-index="0">
+									👈 Orthonormal basis
+								</span>
+							</p>
+
+							<p>
+								<strong>Example 2:</strong>
+								$S = \ds \left\{
+								\left( \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right)^T,
+								\left(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)^T
+								\right\}$ orthonormal set in
+								$\R^3$.
+								<span id="rr" class="fragment" data-fragment-index="1">
+									👈 NOT a basis!
+								</span>
+							</p>
+
+							<p>
+								<strong>Example 3:</strong>
+								$\ds S \cup \left\{
+								\left( \frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}},-\frac{2}{\sqrt{6}} \right)^T
+								\right\}$ orthonormal set in
+								$\R^3$.
+								<span id="gg" class="fragment" data-fragment-index="0">
+									👈 Orthonormal basis
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									An <strong>orthonormal basis</strong> for $V$ is a basis
+									for $V$ that is also an orthonormal set.
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								The sets in Examples 1 and 3 are also orthonormal bases for $\R^3$,
+								<span class="fragment" data-fragment-index="1">
+									but the set in Example 2 <strong>is NOT</strong> a basis for $\R^3$.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
 				<section data-auto-animate>
 					<h4>Orthogonality Implies Linear Independence</h4>
 					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>Theorem:</b> If $\{v_1, v_2, \dots, v_n\}$ is an orthogonal set of non-zero vectors,
-								then $v_1, v_2, \dots, v_n$ are linearly independent.</p>
-						</div>
-
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px; font-size: 0.85em;">
-							<p><b>Proof Outline:</b> Test linear independence using $c_1 v_1 + c_2 v_2 + \dots + c_n v_n
-								= \mathbf{0}$.</p>
-						</div>
-
-						<div class="cc" style="font-size: 0.85em;">
-							<p class="fragment" data-fragment-index="2">
-								Take inner product with $v_j$: $\langle c_1 v_1 + c_2 v_2 + \dots + c_n v_n, v_j \rangle
-								= \langle \mathbf{0}, v_j \rangle$
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $V$ be vector space with a real inner product.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									A nonempty set of vectors in $V$ is <strong>orthogonal</strong> if each vector in
+									the set is
+									orthogonal to all the other vectors in the set.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									That is, the set $\{\bfv_1,\ldots,\bfv_n\}\subseteq V$ is orthogonal if
+									$$
+									\langle\bfv_i,\bfv_j\rangle=0,\qquad i\neq j.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Let $S$ be a finite set of vectors in $V$ such that ${\bf 0}\notin S$.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Then,
+								</span>
 							</p>
-							<p class="fragment" data-fragment-index="3">
-								$c_1 \langle v_1, v_j \rangle + \dots + c_j \langle v_j, v_j \rangle + \dots + c_n
-								\langle v_n, v_j \rangle = 0$
-							</p>
+						</div>
+						<div class="cc">
 							<p class="fragment" data-fragment-index="4">
-								Since $\langle v_i, v_j \rangle = 0$ for $i \ne j \implies c_j \|v_j\|^2 = 0 \implies
-								c_j = 0 \quad (\forall j)$.
+								$S$ orthogonal $\Longrightarrow$ $S$ linearly
+								independent.
 							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:70%;margin-top:-20px">Orthogonality Implies Linear Independence</h4>
+					<div style="margin-top:-15px;font-size:80%">
+
+						<div class="cc" style="font-size:50%;font-weight:bold">
+							<p>
+								$S$ orthogonal $\Longrightarrow$ $S$ linearly
+								independent.
+							</p>
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p class="fragment" data-fragment-index="0">
+								Let $S = \left\{\v_1, \v_2, \ldots, \v_n\right\}$ be orthogonal
+								and consider
+								\[
+								k_1 \v_1 + k_2\v_2 + \cdots + k_n\v_n = \mathbf 0.
+								\]
+								<span class="fragment" data-fragment-index="1">
+									Then for any $\v_i\in S$
+								</span>
+							</p>
+							<table id="eqarray">
+								<tr>
+									<td class="fragment" data-fragment-index="1">
+										$0 $
+
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$=$
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$ \langle \mathbf 0, \v_i \rangle$
+										<span class="fragment" data-fragment-index="2">
+											$= \langle k_1 \v_1 + \cdots + k_n\v_n, \v_i \rangle$
+										</span>
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="3">
+									<td>
+
+									</td>
+									<td>
+										$=$
+									</td>
+									<td>
+										$ k_1 \langle \v_1 , \v_i \rangle + \cdots + k_n \langle \v_n , \v_i \rangle$
+									</td>
+								</tr>
+								<tr>
+									<td>
+
+									</td>
+									<td class="fragment" data-fragment-index="4">
+										$=$
+									</td>
+									<td class="fragment" data-fragment-index="4">
+										$ k_i \langle \v_i , \v_i \rangle$
+										<span class="fragment" data-fragment-index="5">
+											&nbsp; by orthogonality.
+										</span>
+									</td>
+								</tr>
+							</table>
+							<p class="fragment" data-fragment-index="6">
+								Since $\mathbf 0 \notin S$,
+								<span class="fragment" data-fragment-index="7">
+									we have that $\v_i\neq \mathbf 0$ and
+									so $\langle \v_i, \v_i \rangle \neq 0$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\,\Ra \, k_i =0\; \forall i.$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									Therefore $\ds \left\{\v_1, \v_2, \ldots, \v_n\right\}$ is
+									linearly independent. $\; \blacksquare$
+								</span>
+							</p>
+
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 5 (PDF p.29): Why use orthonormal basis sets? -->
+				<section data-auto-animate>
+					<h4>Orthogonality Implies Linear Independence</h4>
+
+					<div>
+						<iframe scrolling="no" title="Chapter-11: Orthogonal basis"
+							data-src="https://www.geogebra.org/material/iframe/id/vajn9uvj/width/806/height/511/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="806px" height="511px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+					<br />
+				</section>
+
+
 				<section data-auto-animate>
 					<h4>Why Use Orthonormal Basis Sets?</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p>For any vector $\mathbf{x} = c_1 v_1 + c_2 v_2 + \dots + c_n v_n$, determining
-								coordinates $c_i$ is simple with an orthogonal basis:</p>
+					<div class="size-90">
+						<div>
+							<p class="fragment" data-fragment-index="0">For any vector $\mathbf{x} = c_1 \mathbf{v}_1 +
+								c_2 \mathbf{v}_2 + \dots + c_n \mathbf{v}_n$,
+								<span class="fragment" data-fragment-index="1">
+									determining
+									coordinates $c_i$ is simple with an orthogonal basis:
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							$$ \langle \mathbf{x}, v_i \rangle = \langle c_1 v_1 + \dots + c_n v_n, v_i \rangle = c_i
-							\langle v_i, v_i \rangle $$
-							$$ \implies c_i = \frac{\langle \mathbf{x}, v_i \rangle}{\langle v_i, v_i \rangle}, \quad i
-							= 1, 2, \dots, n $$
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								$ \langle \mathbf{x}, v_i \rangle = \langle c_1 \mathbf{v}_1 + \dots + c_n \mathbf{v}_n,
+								\mathbf{v}_i \rangle $
+								<span class="fragment" data-fragment-index="2">
+									$= c_i
+									\langle \mathbf{v}_i, \mathbf{v}_i \rangle $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$ \implies c_i =
+								\dfrac{\langle \mathbf{x}, \mathbf{v}_i \rangle}{\langle \mathbf{v}_i, \mathbf{v}_i
+								\rangle}, \quad
+								i = 1, 2, \dots, n $
+							</p>
+
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px; font-size: 0.9em;" id="rr">
-							For an <b>orthonormal basis</b>, $\langle v_i, v_i \rangle = 1$, making $c_i = \langle
-							\mathbf{x}, v_i \rangle$ trivial to compute!
+						<p class="fragment" data-fragment-index="4" style="margin-top: 15px; font-size: 0.9em;" id="bb">
+							For an <b>orthonormal basis</b>,
+							$\langle \mathbf{v}_i, \mathbf{v}_i \rangle = 1$,
+							<span class="fragment" data-fragment-index="5">
+								making $c_i = \langle
+								\mathbf{x}, \mathbf{v}_i \rangle$ trivial to compute!
+							</span>
 						</p>
 					</div>
-					<br />
+
+					<div class="fragment" data-fragment-index="5">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃" width="120"
+								height="120">
+						</picture>
+					</div>
 				</section>
 
-				<!-- Slide 6 (PDF p.30): Vector Expansion Theorem -->
 				<section data-auto-animate>
 					<h4>Vector Expansion Theorem</h4>
-					<div class="size-85">
+					<div class="size-85" style="margin-top: 50px;">
 						<div class="fragment" data-fragment-index="0">
-							<p><b>Orthogonal Basis Expansion:</b> If $\{v_1, v_2, \dots, v_n\}$ is an orthogonal basis,
+							<p><b>Orthogonal Basis Expansion:</b> If $\{\mathbf{v}_1, \mathbf{v}_2, \dots,
+								\mathbf{v}_n\}$ is an orthogonal basis,
 								then any vector $\mathbf{x}$ can be expanded as:</p>
-							$$ \mathbf{x} = \frac{\langle \mathbf{x}, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 +
-							\frac{\langle \mathbf{x}, v_2 \rangle}{\langle v_2, v_2 \rangle} v_2 + \dots + \frac{\langle
-							\mathbf{x}, v_n \rangle}{\langle v_n, v_n \rangle} v_n $$
+							$$ \mathbf{x} = \frac{\langle \mathbf{x}, \mathbf{v}_1 \rangle}{\langle \mathbf{v}_1,
+							\mathbf{v}_1 \rangle} \mathbf{v}_1 +
+							\frac{\langle \mathbf{x}, \mathbf{v}_2 \rangle}{\langle \mathbf{v}_2, \mathbf{v}_2 \rangle}
+							\mathbf{v}_2 + \dots + \frac{\langle
+							\mathbf{x}, \mathbf{v}_n \rangle}{\langle \mathbf{v}_n, \mathbf{v}_n \rangle} \mathbf{v}_n
+							$$
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
 							<p><b>Orthonormal Basis Expansion:</b> For an orthonormal basis, this reduces to:</p>
-							$$ \mathbf{x} = \langle \mathbf{x}, v_1 \rangle v_1 + \langle \mathbf{x}, v_2 \rangle v_2 +
-							\dots + \langle \mathbf{x}, v_n \rangle v_n $$
+							$$ \mathbf{x} = \langle \mathbf{x}, \mathbf{v}_1 \rangle \mathbf{v}_1 + \langle \mathbf{x},
+							\mathbf{v}_2 \rangle \mathbf{v}_2 +
+							\dots + \langle \mathbf{x}, \mathbf{v}_n \rangle \mathbf{v}_n $$
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 7 (PDF p.31): Finding Coefficients Example -->
 				<section data-auto-animate>
 					<h4>Finding Coefficients Example</h4>
-					<div class="size-85" style="font-size: 0.9em;">
+					<div style="font-size: 0.7em;">
 						<div class="fragment" data-fragment-index="0">
 							<p>Find coefficients of $\mathbf{v} = (-1,7)^T$ relative to orthogonal basis $\left\{
 								\begin{pmatrix}1\\1\end{pmatrix}, \begin{pmatrix}1\\-1\end{pmatrix} \right\}$ in
 								$\mathbb{R}^2$:</p>
 						</div>
 
+
+					</div>
+
+					<div class="size-75">
 						<div class="cc" style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="1">
-								$c_1 = \frac{\langle \mathbf{v}, v_1 \rangle}{\|v_1\|^2} =
-								\frac{(-1,7)\begin{pmatrix}1\\1\end{pmatrix}}{\left\|\begin{pmatrix}1\\1\end{pmatrix}\right\|^2}
-								= \frac{6}{2} = 3$
+								$c_1 = \dfrac{\langle \mathbf{v}, v_1 \rangle}{\|v_1\|^2} $
+								<span class="fragment" data-fragment-index="2">
+									$=
+									\dfrac{(-1,7)\begin{pmatrix}1\\1\end{pmatrix}}{\left\|\begin{pmatrix}1\\1\end{pmatrix}\right\|^2}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= \dfrac{6}{2} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=3$
+								</span>
+
 							</p>
-							<p class="fragment" data-fragment-index="2">
-								$c_2 = \frac{\langle \mathbf{v}, v_2 \rangle}{\|v_2\|^2} =
-								\frac{(-1,7)\begin{pmatrix}1\\-1\end{pmatrix}}{\left\|\begin{pmatrix}1\\-1\end{pmatrix}\right\|^2}
-								= \frac{-8}{2} = -4$
+							<p class="fragment" data-fragment-index="5">
+								$c_2 = \dfrac{\langle \mathbf{v}, v_2 \rangle}{\|v_2\|^2}$
+								<span class="fragment" data-fragment-index="6">
+									$=
+									\dfrac{(-1,7)\begin{pmatrix}1\\-1\end{pmatrix}}{\left\|\begin{pmatrix}1\\-1\end{pmatrix}\right\|^2}
+
+									$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$= \dfrac{-8}{2}$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$=-4$
+								</span>
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 0.85em;">
-							<i>Note:</i> Gram-Schmidt Orthogonalisation can construct an orthonormal basis from any
+						
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="9" style="margin-top: 15px; font-size: 0.85em;">
+							<b>Note:</b> Gram-Schmidt Orthogonalisation can construct an orthonormal basis from any
 							arbitrary basis using projections.
 						</p>
 					</div>
-					<br />
 				</section>
 
-				<!-- Slide 8 (PDF p.32): Orthogonal Matrix Definition -->
 				<section data-auto-animate>
 					<h4>Orthogonal Matrices</h4>
-					<div class="size-85">
+					<div class="size-90">
 						<div class="fragment" data-fragment-index="0">
 							<p><b>Definition:</b> An $n \times n$ matrix $Q$ is an <i>orthogonal matrix</i> if its
 								column vectors form an orthonormal set in $\mathbb{R}^n$.</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
 							<p><b>Theorem:</b> An $n \times n$ matrix $Q$ is orthogonal $\iff Q^T Q = I$.</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 15px; font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px; ">
 							<p><b>Proof Outline:</b> $Q$ is orthogonal $\iff \mathbf{q}_i^T \mathbf{q}_j = \delta_{ij}$.
 								Since $\mathbf{q}_i^T \mathbf{q}_j$ is the $(i,j)$ entry of $Q^T Q$, $Q$ is orthogonal
 								$\iff Q^T Q = I$.</p>
 						</div>
+
+						<div style="margin-top: 50px;">
+							<p><b>Corollary:</b> If $Q$ is orthogonal, then $Q$ is invertible and $Q^{-1} = Q^T$.</p>
+						</div>
 					</div>
+					<br />
 					<br />
 				</section>
 
@@ -2659,9 +2898,7 @@
 				<section data-auto-animate>
 					<h4>Properties &amp; Rotation Matrix Example</h4>
 					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>Corollary:</b> If $Q$ is orthogonal, then $Q$ is invertible and $Q^{-1} = Q^T$.</p>
-						</div>
+						
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
 							<p><b>Example (2D Rotation Matrix):</b> For a fixed angle $\theta$:</p>
