@@ -3070,21 +3070,23 @@
 								<b>Example:</b> $A = \begin{pmatrix}-1 & 2 & 5 \\ 2 & 2 & 2 \\ 5 & 2 & -1\end{pmatrix}$
 								has eigenvalues/vectors:
 							</p>
-							
+
 						</div>
 						<div class="cc">
 							<p class="fragment" data-fragment-index="3">
 								$
-								\lambda_1 = 6, \, \mathbf{v}_1 = \begin{pmatrix}1\\1\\1\end{pmatrix} ; \quad \lambda_2 = 0, \,
+								\lambda_1 = 6, \, \mathbf{v}_1 = \begin{pmatrix}1\\1\\1\end{pmatrix} ; \quad \lambda_2 =
+								0, \,
 								\mathbf{v}_2
 								= \begin{pmatrix}1\\-2\\1\end{pmatrix} ; \quad \lambda_3 = -6, \, \mathbf{v}_3 =
 								\begin{pmatrix}-1\\0\\1\end{pmatrix}
 								$
 							</p>
-							<p class="fragment" data-fragment-index="3"> 👉 &nbsp; Notice 
-								$v\mathbf{v}_1 \pd \mathbf{v}_2 = 0$, $\mathbf{v}_1 \pd \mathbf{v}_3 = 0$, $\mathbf{v}_2 \pd \mathbf{v}_3 = 0$.</p>
+							<p class="fragment" data-fragment-index="3"> 👉 &nbsp; Notice
+								$v\mathbf{v}_1 \pd \mathbf{v}_2 = 0$, $\mathbf{v}_1 \pd \mathbf{v}_3 = 0$, $\mathbf{v}_2
+								\pd \mathbf{v}_3 = 0$.</p>
 						</div>
-						
+
 					</div>
 					<br />
 				</section>
@@ -3096,15 +3098,18 @@
 							<p><b>Spectral Theorem:</b> For every real symmetric matrix $A$, there exists an orthogonal
 								matrix $V$ and diagonal matrix $D$ such that:</p>
 							$$ A = VDV^T \quad (\text{or } D = V^T A V) $$
-							<p class="fragment" data-fragment-index="1" style="font-size: 0.95em;">Where $D$ contains eigenvalues of $A$ and $V$ has normalized
+							<p class="fragment" data-fragment-index="1" style="font-size: 0.95em;">Where $D$ contains
+								eigenvalues of $A$ and $V$ has normalized
 								eigenvectors as columns.</p>
 						</div>
 
 						<div class="left-txt">
 							<p class="fragment" data-fragment-index="2"><b>Proof Outline:</b></p>
 							<ul>
-								<li class="fragment" data-fragment-index="3">Real symmetric matrix $A$ has $n$ orthogonal eigenvectors.</li>
-								<li class="fragment" data-fragment-index="4">Normalizing eigenvectors constructs orthogonal matrix $V$.</li>
+								<li class="fragment" data-fragment-index="3">Real symmetric matrix $A$ has $n$
+									orthogonal eigenvectors.</li>
+								<li class="fragment" data-fragment-index="4">Normalizing eigenvectors constructs
+									orthogonal matrix $V$.</li>
 								<li class="fragment" data-fragment-index="5">
 									Since $V^T V = I $
 									<span class="fragment" data-fragment-index="6">
@@ -3124,46 +3129,84 @@
 					<br />
 				</section>
 
-				<!-- Slide 14 (PDF p.38): Quadratic Forms & Positive Definite Matrices -->
 				<section data-auto-animate>
 					<h4>Quadratic Forms &amp; Positive Definite Matrices</h4>
 					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>Definition (Quadratic Form):</b> If $A$ is an $n \times n$ real symmetric matrix, $x^T
-								A x$ is a <i>quadratic form</i>.</p>
-							<p style="font-size: 0.85em;">For $n=2$: $\begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}a
-								& b \\ b & c\end{pmatrix}\begin{pmatrix}x \\ y\end{pmatrix} = ax^2 + 2bxy + cy^2$</p>
-						</div>
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								<b>Definition:</b> If $A$ is an $n \times n$ real symmetric matrix,
+								$x^T
+								A x$ is a <b>quadratic form</b>.
+							</p>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>Definition (Positive Definite):</b> A real symmetric matrix $A$ is <i>positive
-									definite</i> iff:</p>
-							$$ \mathbf{x}^T A \mathbf{x} > 0 \quad \forall \; \mathbf{x} \ne \mathbf{0} \in \mathbb{R}^n
-							$$
+						</div>
+						<p class="fragment" data-fragment-index="1">
+							For example, for $\,n=2$: $\begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}a
+							& b \\ b & c\end{pmatrix}\begin{pmatrix}x \\ y\end{pmatrix} $
+							<span class="fragment" data-fragment-index="2">
+								$= ax^2 + 2bxy + cy^2$
+							</span>
+						</p>
+
+						<p style="font-size: 0.7em; color: #4a4a4a;">
+							Quadratic forms appear in a number of mathematical and physical applications (eg.
+							mechanical vibration, multi-particle systems, quantum mechanics as expectation values
+							of physical quantities such as the energy of complex molecules, and in statistics for
+							random quantities that have a Gaussian distribution).
+						</p>
+
+						<div style="margin-top: 55px;">
+							<p class="fragment" data-fragment-index="3">
+								<b>Definition:</b>
+								A real symmetric matrix $A$ is <b>positive definite</b> iff
+								$$
+								\mathbf{x}^T A \mathbf{x} > 0 \; \text{for all}\; \mathbf{x} \ne \mathbf{0} \in
+								\mathbb{R}^n
+								$$
+							</p>
+
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 15 (PDF p.39): Checking if a Matrix is Positive Definite -->
 				<section data-auto-animate>
 					<h4>Checking if a Matrix is Positive Definite</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>Example:</b> $A = \begin{pmatrix} 5 & 2 \\ 2 & 3 \end{pmatrix} \implies \mathbf{x}^T A
-								\mathbf{x} = 5x_1^2 + 4x_1 x_2 + 3x_2^2 = (2x_1 + x_2)^2 + x_1^2 + 2x_2^2 > 0$ (for
-								$\mathbf{x} \ne \mathbf{0}$). So $A$ is positive definite.</p>
+					<div class="size-80">
+						<div>
+							<p class="fragment" data-fragment-index="0"><b>Example:</b> Consider $A = \begin{pmatrix} 5
+								& 2 \\ 2 & 3 \end{pmatrix}$</p>
 						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								Then $ \,\mathbf{x}^T A \mathbf{x} = 5x_1^2 + 4x_1 x_2 + 3x_2^2$
+								<span class="fragment" data-fragment-index="2">
+									$= (2x_1 + x_2)^2 + x_1^2 + 2x_2^2 > 0$ (for
+									$\mathbf{x} \ne \mathbf{0}$).
+								</span>
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="3">
+							So $A$ is positive definite.
+						</p>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>Eigenvalue Criterion Theorem:</b></p>
-							<blockquote
-								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
-								A real symmetric matrix $A$ is positive definite <b>if and only if</b> all of its
+						<p class="fragment" data-fragment-index="4">Checking whether a real symmetric matrix is positive definite using the above
+							method can be difficult depending on the numbers in A.</p>
+						<p class="fragment" data-fragment-index="5">
+							The following theorem provides an easier method.
+						</p>
+
+						<div class="fragment" data-fragment-index="6" style="margin-top: 15px;">
+							<p><b>Eigenvalue Criterion Theorem:</b>
+								A real symmetric matrix $A$ is positive definite if and only if all of its
 								eigenvalues are strictly positive ($\lambda_i > 0$).
-							</blockquote>
+							</p>
+
+
 						</div>
 					</div>
+					<br />
 					<br />
 				</section>
 
