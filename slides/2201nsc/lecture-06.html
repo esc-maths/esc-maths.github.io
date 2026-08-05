@@ -3652,21 +3652,21 @@
 									<span>
 										$X^T X$
 									</span>
-									$\, \mathbf{k} - 2\mathbf{y}^T X\,
+									$ \mathbf{k} - 2\mathbf{y}^T X\,
 									\mathbf{k} + \mathbf{y}^T \mathbf{y} $
 								</span>
 							</p>
-							
+
 						</div>
 						<div class="cc" style="font-size: 1.2em;">
-							
+
 							<p class="fragment" data-fragment-index="7" id="bb">
 								👉 &nbsp; This is a <b>quadratic form</b> in $\mathbf{k}$! 😃
 							</p>
 						</div>
 
 					</div>
-					
+
 				</section>
 
 				<section data-auto-animate>
@@ -3674,21 +3674,21 @@
 					<div class="size-95" style="margin-top: 60px;">
 						<div>
 							<p>We want to minimize the quadratic objective function:</p>
-							
+
 						</div>
 						<div class="cc" style="font-size: 1.2em;">
 							<p>
 								$ \|\mathbf{y} - X\mathbf{k}\|^2 $
 								<span>
 									$ =\mathbf{k}^T$
-									<span class="fragment highlight-red" data-fragment-index="1" >
+									<span class="fragment highlight-red" data-fragment-index="1">
 										$X^T X$
 									</span>
-									$\, \mathbf{k} - 2\mathbf{y}^T X\,
+									$ \mathbf{k} - 2\mathbf{y}^T X\,
 									\mathbf{k} + \mathbf{y}^T \mathbf{y} $
 								</span>
 							</p>
-							
+
 						</div>
 						<div class="fragment" data-fragment-index="1" style="margin-top: 35px;">
 							<blockquote
@@ -3704,22 +3704,64 @@
 
 				<section data-auto-animate>
 					<h4>Deriving the Normal Equations</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<div class="fragment" data-fragment-index="0">
+					<div style="font-size: 0.85em;">
+						<div class="cc" style="font-size: 1.2em;">
+							<p>
+								$ \|\mathbf{y} - X\mathbf{k}\|^2 $
+								<span>
+									$ =\mathbf{k}^T$
+									<span>
+										$X^T X$
+									</span>
+									$ \mathbf{k} - 2\mathbf{y}^T X\,
+									\mathbf{k} + \mathbf{y}^T \mathbf{y} $
+								</span>
+							</p>
+
+						</div>
+						<div>
 							<p>Match objective function with general quadratic form $\mathbf{k}^T A \mathbf{k} -
 								2\mathbf{k}_0^T A \mathbf{k} + \mathbf{k}_0^T A \mathbf{k}_0$:</p>
-							$$ \mathbf{k}^T A \mathbf{k} = \mathbf{k}^T X^T X \mathbf{k} \implies A = X^T X $$
+
+						</div>
+						<div class="cc" style="font-size: 1.1em;">
+							<p class="fragment" data-fragment-index="1">
+								That is
+								$\, \mathbf{k}^T A \mathbf{k} = \mathbf{k}^T X^T X \mathbf{k} $
+								<span class="fragment" data-fragment-index="2">
+									$\implies A = X^T X $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$ -2\mathbf{k}_0^T A \mathbf{k} = -2\mathbf{y}^T X \mathbf{k} $
+								<span class="fragment" data-fragment-index="4">
+									$\implies 2\mathbf{k}_0^T A =
+									2\mathbf{y}^T X $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\implies B = 2\mathbf{y}^T X $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							$$ -2\mathbf{k}_0^T A \mathbf{k} = -2\mathbf{y}^T X \mathbf{k} \implies 2\mathbf{k}_0^T A =
-							2\mathbf{y}^T X \implies B = 2\mathbf{y}^T X $$
-						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
-							<p>Solving for minimizing parameters $\mathbf{k}_0$:</p>
-							$$ \mathbf{k}_0 = \frac{1}{2} A^{-1} B^T = \frac{1}{2}(X^T X)^{-1} (2 X^T \mathbf{y}) = (X^T
-							X)^{-1} X^T \mathbf{y} $$
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="6">Solving for minimizing parameters
+								$\mathbf{k}_0$:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$ \mathbf{k}_0 = \dfrac{1}{2} A^{-1} B^T $
+								<span class="fragment" data-fragment-index="7">
+									$= \dfrac{1}{2}\left(X^T X\right)^{-1} \left(2 X^T \mathbf{y}\right) $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$= \left(X^T X\right)^{-1} X^T \mathbf{y} $
+								</span>
+							</p>
+
 						</div>
 					</div>
 					<br />
