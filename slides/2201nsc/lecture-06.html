@@ -3768,6 +3768,114 @@
 				</section>
 
 				<section data-auto-animate>
+					<h4>General approach</h4>
+
+					<div class="size-90">
+
+						<div class="cc" style="margin-top: 50px;">
+							<p>
+								$ \mathbf{k}_0 = \dfrac{1}{2} A^{-1} B^T $
+								<span>
+									$= \dfrac{1}{2}\left(X^T X\right)^{-1} \left(2 X^T \mathbf{y}\right) $
+								</span>
+								<span>
+									$= \left(X^T X\right)^{-1} X^T \mathbf{y} $
+								</span>
+							</p>
+
+						</div>
+
+						<p style="margin-top: 50px;">
+							<span id="bb">
+								The beauty of this approach is its generality!
+							</span>
+							<span class="fragment">
+								It can also be extended to fitting any function of the form
+								$$ y = a\, f(x) + b\, g(x) + c\, h(x) + \cdots,$$
+							</span>
+							<span class="fragment">
+								that is, when $y$ is a <em>linear combination</em> of given functions of $x$, and we
+								just need to
+								determine their coefficients $a, b, c, \ldots$.
+							</span>
+
+						</p>
+					</div>
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Least-Squares Fitting Examples</h4>
+
+					<div>
+
+						<table style="font-size: 0.75em;">
+							<tr>
+								<th><em>x</em><sub>i</sub></th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<th><em>y</em><sub>i</sub></th>
+								<td>0.6</td>
+								<td>2.1837</td>
+								<td>2.8844</td>
+								<td>4.3985</td>
+								<td>4.2369</td>
+								<td>4.7755</td>
+								<td>5.5160</td>
+								<td>5.6721</td>
+								<td>5.6654</td>
+								<td>4.7268</td>
+							</tr>
+						</table>
+
+					</div>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 50%;">
+								<div>
+									<img style="width: 100%" src="images/lecture-06/data-set-fitting.svg">
+								</div>
+							</td>
+							<td style="width: 50%; font-size: 0.8em;">
+								<p class="fragment" data-fragment-index="0">
+									<b>1.</b> Linear: $y = ax+b$
+								</p>
+								<p class="fragment" data-fragment-index="1">
+									<b>2.</b> Quadratic: $y = ax^2+bx + c$
+								</p>
+								<p class="fragment" data-fragment-index="2">
+									<b>3.</b> Exponential: $y = a e^{-x}+ b e^{-x^2/2}+c$
+								</p>
+								<p class="fragment" data-fragment-index="3" style="font-size: 1.2em;">
+									<span class="fragment fade-in-then-out" data-fragment-index="3">
+										&nbsp;&nbsp;&nbsp;👉 &nbsp;
+									</span> $\mathbf{k}_0 = \left(X^T X\right)^{-1} X^T \mathbf{y}$
+								</p>
+								<p class="fragment" data-fragment-index="4" style="font-size: 1.2em;">
+									&nbsp;&nbsp;&nbsp;👉 &nbsp; $X=?\;$ and $\;\mathbf y=?$
+								</p>
+
+
+								<br/>
+
+							</td>
+						</tr>
+					</table>
+					<br/>
+				</section>
+
+				<section data-auto-animate>
 					<h4>Linear Fit Solution Example</h4>
 					<div class="size-85" style="font-size: 0.8em;">
 						<div class="fragment" data-fragment-index="0">
