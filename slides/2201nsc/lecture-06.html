@@ -3554,53 +3554,154 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Least-Squares Fits: Linear $y = mx + c$</h4>
+					<h4>Least-Square Fitting</h4>
+					<div style="margin-top: -20px;">
+						<div class="left-txt">
+							<div class="r-stack">
+								<div class="fragment fade-out" data-fragment-index="4">
+									<p class="size-70">
+										<span class="fragment" data-fragment-index="0">
+											In applications, one is often faced with over-determined
+											linear systems.
+										</span>
+										<span class="fragment" data-fragment-index="1">
+											For example, we may have a bunch of data
+											points that we have reasons to believe should fit on a
+											straight line.
+										</span>
+										<span class="fragment" data-fragment-index="2">
+											But real-life data points rarely match
+											predictions exactly.
+										</span>
+									</p>
+
+								</div>
+								<div class="fragment fade-in" data-fragment-index="4">
+									<p class="size-75">
+										The challenge here is to develop a method for obtaining
+										the best fit or approximation of a specified kind to a given
+										set of data points.
+									</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="fragment" data-fragment-index="1">
+						<iframe scrolling="no" title="Chapter-12-2: Fitting line"
+							src="https://www.geogebra.org/material/iframe/id/tmyev6ke/width/790/height/368/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/true"
+							width="790px" height="368px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Least-Squares Fitting: Linear $y = mx + c$</h4>
 					<div style="font-size: 0.75em;">
 						<div class="fragment" data-fragment-index="0">
 							<p>If $n$ points $(x_i, y_i)$ were perfectly collinear:</p>
-							$$ \mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ \vdots \\ y_n\end{pmatrix} = \begin{pmatrix}x_1
-							& 1 \\ x_2 & 1 \\ \vdots & \vdots \\ x_n & 1\end{pmatrix}\begin{pmatrix}m \\ c\end{pmatrix}
-							= X\mathbf{k} \implies \mathbf{y} - X\mathbf{k} = \mathbf{0} $$
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$\left\{
+								\begin{array}{c}
+								y_1 = x_1 + c \\
+								y_2 = x_2 + c \\
+								\vdots \\
+								y_3 = x_n + c \\
+								\end{array}
+								\right.
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\Ra
+									\mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ \vdots \\ y_n\end{pmatrix} =
+									\begin{pmatrix}x_1
+									& 1 \\ x_2 & 1 \\ \vdots & \vdots \\ x_n & 1\end{pmatrix}\begin{pmatrix}m \\
+									c\end{pmatrix}
+									= X\mathbf{k}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$
+									\Ra\mathbf{y} - X\mathbf{k} = \mathbf{0}
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
 							<p>For real-world data, $\mathbf{y} - X\mathbf{k} \ne \mathbf{0}$ represents the error
 								vector.</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							<p>To find best-fit parameters $\mathbf{k} = \begin{pmatrix}m \\ c\end{pmatrix}$, we
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="5">To find best-fit parameters $\mathbf{k} =
+								\begin{pmatrix}m \\ c\end{pmatrix}$, we
 								minimize the squared norm:</p>
-							$$ \|\mathbf{y} - X\mathbf{k}\|^2 = \mathbf{k}^T X^T X \mathbf{k} - 2\mathbf{y}^T X
-							\mathbf{k} + \mathbf{y}^T \mathbf{y} $$
-							<p>This is a <b>quadratic form</b> in $\mathbf{k}$!</p>
+
+
 						</div>
+						<div class="cc" style="font-size: 1.2em;">
+							<p class="fragment" data-fragment-index="5">
+								$ \|\mathbf{y} - X\mathbf{k}\|^2 $
+								<span class="fragment" data-fragment-index="6">
+									$ =\mathbf{k}^T$
+									<span>
+										$X^T X$
+									</span>
+									$\, \mathbf{k} - 2\mathbf{y}^T X\,
+									\mathbf{k} + \mathbf{y}^T \mathbf{y} $
+								</span>
+							</p>
+							
+						</div>
+						<div class="cc" style="font-size: 1.2em;">
+							
+							<p class="fragment" data-fragment-index="7" id="bb">
+								👉 &nbsp; This is a <b>quadratic form</b> in $\mathbf{k}$! 😃
+							</p>
+						</div>
+
 					</div>
-					<br />
+					
 				</section>
 
-				<!-- Slide 8 (PDF p.47): Least-Squares Fits (2) -->
 				<section data-auto-animate>
 					<h4>Least-Squares as a Quadratic Form</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
+					<div class="size-95" style="margin-top: 60px;">
+						<div>
 							<p>We want to minimize the quadratic objective function:</p>
-							$$ E(\mathbf{k}) = \|\mathbf{y} - X\mathbf{k}\|^2 = \mathbf{k}^T (X^T X) \mathbf{k} -
-							2\mathbf{y}^T X \mathbf{k} + \mathbf{y}^T \mathbf{y} $$
+							
 						</div>
-
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div class="cc" style="font-size: 1.2em;">
+							<p>
+								$ \|\mathbf{y} - X\mathbf{k}\|^2 $
+								<span>
+									$ =\mathbf{k}^T$
+									<span class="fragment highlight-red" data-fragment-index="1" >
+										$X^T X$
+									</span>
+									$\, \mathbf{k} - 2\mathbf{y}^T X\,
+									\mathbf{k} + \mathbf{y}^T \mathbf{y} $
+								</span>
+							</p>
+							
+						</div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 35px;">
 							<blockquote
-								style="text-align: left; background: rgba(255,255,255,0.05); padding: 12px; border-left: 4px solid #4285f4;">
+								style="text-align: left; background: rgba(255,255,255,0.05); padding: 22px; border-left: 4px solid #4285f4;">
 								It can be shown that the matrix $X^T X$ is <b>symmetric, real, and positive definite</b>
 								for non-collinear data.
 							</blockquote>
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 9 (PDF p.48): Least-Squares Fits (3) -->
 				<section data-auto-animate>
 					<h4>Deriving the Normal Equations</h4>
 					<div class="size-85" style="font-size: 0.85em;">
@@ -3624,7 +3725,6 @@
 					<br />
 				</section>
 
-				<!-- Slide 10 (PDF p.49): Least-Squares Linear Solution -->
 				<section data-auto-animate>
 					<h4>Linear Fit Solution Example</h4>
 					<div class="size-85" style="font-size: 0.8em;">
