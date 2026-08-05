@@ -3214,25 +3214,77 @@
 					<br />
 				</section>
 
+
+
+			</section>
+
+			<section>
+
+
 				<section data-auto-animate>
-					<h4>Optimization Example: $f(x,y) = 2x^2 - 4xy + 5y^2$</h4>
-					<div class="size-95">
-						<div class="fragment" data-fragment-index="0">
-							<p>Consider the function of two variables:</p>
-							$$ f(x,y) = 2x^2 - 4xy + 5y^2 $$
-						</div>
+					<h4>Optimization Example</h4>
+					<div class="size-75">
+						<table style="width: 95%; margin-top: -10px;" class="fragment" data-fragment-index="0">
+							<tr>
+								<td style="width: 50%;">
+									<div class="fragment" data-fragment-index="0">
+										<p>Consider the function of two variables:
+											$$ f(x,y) = 2x^2 - 4xy + 5y^2 $$</p>
+									</div>
+									<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+										<p><b>Goal:</b> Determine whether the stationary point at $(0,0)$ is a <i>global
+												minimum</i>
+											or a <i>saddle point</i>.</p>
+									</div>
+								</td>
+								<td style="width: 50%;">
+									<div class="mathcell" style="width:100%;height:450px;">
+										<script>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>Goal:</b> Determine whether the stationary point at $(0,0)$ is a <i>global minimum</i>
-								or a <i>saddle point</i>.</p>
-						</div>
+											var parent = document.currentScript.parentNode;
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;" id="rr">
+											var id = generateId();
+											parent.id = id;
+
+											MathCell(id, []);
+
+											parent.update = function (id) {
+
+												function z(x, y) { return [x, y, 2 * x * x - 4 * x * y + 5 * y * y]; }
+
+
+												var size = 5;
+												var s = parametric(z, [-size, size, 150], [-size, size, 150],
+													{ colormap: (x, y) => colorFromHue(-0.004 * (2 * x * x - 4 * x * y + 5 * y * y)) });
+
+												var data = [s];
+
+												var config = {
+													type: 'threejs',
+													viewpoint: [-1, -1.5, 0.05],
+													axesLabels: true,
+													aspectRatio: [1, 1, 1],
+												};
+
+												evaluate(id, data, config);
+											}
+
+											parent.update(id);
+
+
+										</script>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;" id="bb">
 							We can use information about positive definiteness <br />
 							of the associated matrix to decide!
 						</div>
 					</div>
-					<br />
 					<br />
 				</section>
 
@@ -3309,61 +3361,17 @@
 							Since both $\lambda_1, \lambda_2 > 0$, $A$ is <b>positive definite</b>,
 							<span class="fragment">
 								then $ (0,0)$
-								is a <b>global minimum</b>.
+								is a <b>global minimum</b>. ✅
 							</span>
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<section data-auto-animate>
-					<h4>Optimization Example: $f(x,y) = 2x^2 - 4xy + 5y^2$</h4>
-					<div class="mathcell" style="width:600px;height:550px;">
-						<script>
-
-							var parent = document.currentScript.parentNode;
-
-							var id = generateId();
-							parent.id = id;
-
-							MathCell(id, []);
-
-							parent.update = function (id) {
-
-								function z(x, y) { return [x, y, 2 * x * x - 4 * x * y + 5 * y * y]; }
-
-								
-								var size = 1;
-								var s = parametric(z, [-size, size, 150], [-size, size, 150],
-									{ colormap: (x,y) => colorFromHue( ( 1 - Math.sin(x*x + y*y) ) / 1 )  });
-
-								var data = [s];
-
-								var config = {
-									type: 'threejs',
-									viewpoint: [1, 1, 0.7],
-									axesLabels: true,
-									aspectRatio: [2, 2, 1]
-								};
-
-								evaluate(id, data, config);
-							}
-
-							parent.update(id);
-
-
-						</script>
-					</div>
-				</section>
-
-			</section>
-
-			<section>
 
 
 
-
-				<!-- Slide 3 (PDF p.42): Class Examples -->
+				<!--
 				<section data-auto-animate>
 					<h4>Class Examples</h4>
 					<div class="size-85">
@@ -3379,52 +3387,116 @@
 						</ol>
 					</div>
 					<br />
-				</section>
+				</section>-->
 
-				<!-- Slide 4 (PDF p.43): Quadratic Form: General Case (1) -->
 				<section data-auto-animate>
 					<h4>General Quadratic Forms (Non-Origin Critical Points)</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p>If the critical point is at $\mathbf{x}_0$ rather than the origin, the quadratic form
-								becomes:</p>
-							$$ (\mathbf{x} - \mathbf{x}_0)^T A (\mathbf{x} - \mathbf{x}_0) = \mathbf{x}^T A \mathbf{x} -
-							2\mathbf{x}_0^T A \mathbf{x} + \mathbf{x}_0^T A \mathbf{x}_0 $$
+					<div class="size-85 left-txt">
+						<div>
+							<p class="fragment" data-fragment-index="0">If the critical point is at $\mathbf{x}_0$
+								rather than the origin,
+								<span class="fragment" data-fragment-index="1">
+									the quadratic form
+									becomes:
+
+								</span>
+							</p>
+							<p style="text-align: center;" class="fragment" data-fragment-index="1">
+								$ (\mathbf{x} - \mathbf{x}_0)^T A (\mathbf{x} - \mathbf{x}_0) $
+								<span class="fragment" data-fragment-index="3">
+									$
+									= \mathbf{x}^T A
+									\mathbf{x}
+									$
+									<span class="fragment highlight-red" data-fragment-index="11">
+										$-\,2\mathbf{x}_0^T A \mathbf{x} $
+									</span>
+									$
+									+ \mathbf{x}_0^T A \mathbf{x}_0
+									$
+								</span>
+							</p>
+
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px; font-size: 0.85em;">
-							<p><b>Procedure:</b></p>
-							<ol>
-								<li>Rewrite in matrix form:
-									$$ ax^2 + 2bxy + cy^2 - dx - ey + f = \mathbf{x}^T A \mathbf{x} - B\mathbf{x} + (f)
-									$$
-									where $A = \begin{pmatrix}a & b\\ b & c\end{pmatrix}$ and $B = \begin{pmatrix}d &
-									e\end{pmatrix}$.
+						<h4 style="text-align: center;" class="fragment" data-fragment-index="4">Locating the Critical
+							Point</h4>
+
+						<div style="margin-top: 15px; font-size: 0.9em;">
+							<p class="fragment" data-fragment-index="4">
+								To find the location and nature of the critical
+								point of the more general form:</p>
+							<ol style="margin-left: 0px;">
+								<li class="fragment" data-fragment-index="5">Rewrite in matrix form:
+									<p class="fragment" data-fragment-index="5" style="text-align: center;">
+										$ ax^2 + 2bxy + cy^2 - dx - ey + f
+										$
+										<span class="fragment" data-fragment-index="6">
+											$
+											= \mathbf{x}^T A \mathbf{x}$
+											<span class="fragment highlight-red" data-fragment-index="11">
+												$-\, B\mathbf{x} $
+											</span>
+											$+ (f)$
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="7">
+										where $A = \begin{pmatrix}a & b\\ b & c\end{pmatrix}$ and $B = \begin{pmatrix}d
+										&
+										e\end{pmatrix}$.
+									</p>
 								</li>
-								<li>Check eigenvalues of $A$: positive eigenvalues $\implies$ positive definite
-									$\implies$ concave up.</li>
+								<li class="fragment" data-fragment-index="8">
+									Check eigenvalues of $A$:
+									<span class="fragment" data-fragment-index="9">
+										positive
+										eigenvalues $\Ra$ positive definite
+
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$\Ra$ concave up $\ds\bigcup$
+									</span>
+								</li>
+								<li class="fragment" data-fragment-index="11">
+									Match terms between $-2\mathbf{x}_0^T A \mathbf{x}$ and
+									$-B\mathbf{x}$.
+								</li>
 							</ol>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 5 (PDF p.44): Quadratic Form: General Case (2) -->
 				<section data-auto-animate>
 					<h4>Locating the Critical Point</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>3. Match Coefficients:</b> Match terms between $-2\mathbf{x}_0^T A \mathbf{x}$ and
-								$-B\mathbf{x}$:</p>
-							$$ -2\mathbf{x}_0^T A = -B \implies 2\mathbf{x}_0^T A = B $$
+					<div class="size-85" style="margin-top: 50px;">
+						<div>
+							<p>3. Match terms between $-2\mathbf{x}_0^T A \mathbf{x}$ and
+								$-B\mathbf{x}$.
+								</span>
+								<span>
+									Thus
+								</span>
+
+
+							</p>
+							<p style="text-align: center;">
+								👉 &nbsp; $ -2\mathbf{x}_0^T A = -B $
+								<span class="fragment" data-fragment-index="1">
+									$\implies 2\mathbf{x}_0^T A = B$
+								</span>
+							</p>
+
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>4. Solve for Critical Point $\mathbf{x}_0$:</b></p>
-							$$ \mathbf{x}_0 = \frac{1}{2} A^{-1} B^T $$
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<p>4. Then by using the properties of symmetric matrices and matrix transposition, we
+								find the location of the critical point:
+								$$ \mathbf{x}_0 = \frac{1}{2} A^{-1} B^T $$</p>
+
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px; font-size: 0.85em;"
+						<p class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 0.85em;"
 							id="rr">
 							<i>Note:</i> The constant $f$ shifts the vertical position of the function but does not
 							alter the location of the critical point.
@@ -3433,37 +3505,55 @@
 					<br />
 				</section>
 
-				<!-- Slide 6 (PDF p.45): General Case Example -->
 				<section data-auto-animate>
 					<h4>General Quadratic Form Example</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<p>Find the critical point of $g(x,y) = 2x^2 - 4xy + 5y^2 + 10x + 8y + 2$:</p>
+					<div style="font-size: 0.75em;">
+						<p>Find the critical point of $g(x,y) = 2x^2 - 4xy + 5y^2 + 10x + 8y + 2$.</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
 							<p><b>1. Rewrite:</b> $g(x,y) = \mathbf{x}^T \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}
 								\mathbf{x} - \begin{pmatrix}-10 & -8\end{pmatrix} \mathbf{x} + (2)$</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>2. Eigenvalues:</b> $A = \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}$ has $\lambda_1 =
-								6, \lambda_2 = 1 > 0 \implies$ positive definite.</p>
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1"><b>2. Eigenvalues:</b> $A = \begin{pmatrix}2 &
+								-2\\ -2 & 5\end{pmatrix}$ has $\lambda_1 =
+								6, \lambda_2 = 1 $
+								<span class="fragment" data-fragment-index="2">
+									$> 0 \implies$ positive definite.
+								</span>
+
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							<p><b>3. Critical Point Location:</b></p>
-							$$ \mathbf{x}_0 = \frac{1}{2} A^{-1} B^T = \frac{1}{2} \begin{pmatrix}2 & -2\\ -2 &
-							5\end{pmatrix}^{-1} \begin{pmatrix}-10\\ -8\end{pmatrix} = \begin{pmatrix}-11/2 \\
-							-3\end{pmatrix} $$
-							<p>This point represents a <b>global minimum</b>.</p>
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								<b>3. Critical Point Location:</b>
+
+							</p>
+							<p class="fragment" data-fragment-index="3" style="text-align: center;">
+								$ \mathbf{x}_0 = \dfrac{1}{2} A^{-1} B^T $
+								<span class="fragment" data-fragment-index="4">
+									$= \dfrac{1}{2} \begin{pmatrix}2 & -2\\ -2 &
+									5\end{pmatrix}^{-1} \begin{pmatrix}-10\\ -8\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= \begin{pmatrix}-11/2 \\
+									-3\end{pmatrix} $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								This point represents a <b>global minimum</b>. 😃
+							</p>
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 7 (PDF p.46): Least-Squares Fits (1) -->
 				<section data-auto-animate>
 					<h4>Least-Squares Fits: Linear $y = mx + c$</h4>
-					<div class="size-85" style="font-size: 0.85em;">
+					<div style="font-size: 0.75em;">
 						<div class="fragment" data-fragment-index="0">
 							<p>If $n$ points $(x_i, y_i)$ were perfectly collinear:</p>
 							$$ \mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ \vdots \\ y_n\end{pmatrix} = \begin{pmatrix}x_1

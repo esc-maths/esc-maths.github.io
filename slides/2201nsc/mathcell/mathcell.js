@@ -742,14 +742,14 @@ mathcellStyle.innerHTML = `
 
 .mathcell {
 
-  width: 5in;
-  margin: .25in auto .25in auto;
+  width: 480px;
+  margin: 5px auto 5px auto;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: .25in .5in .5in .5in;
-  line-height: 2.5;
+  padding: 0px 20px 20px 20px;
+  line-height: 1.5;
 
 }
 
