@@ -2726,17 +2726,6 @@
 					<br />
 				</section>
 
-				<section data-auto-animate>
-					<h4>Orthogonality Implies Linear Independence</h4>
-
-					<div>
-						<iframe scrolling="no" title="Chapter-11: Orthogonal basis"
-							data-src="https://www.geogebra.org/material/iframe/id/vajn9uvj/width/806/height/511/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
-							width="806px" height="511px" style="border:0px;" allowfullscreen=""> </iframe>
-					</div>
-					<br />
-				</section>
-
 
 				<section data-auto-animate>
 					<h4>Why Use Orthonormal Basis Sets?</h4>
@@ -3867,99 +3856,373 @@
 								</p>
 
 
-								<br/>
+								<br />
 
 							</td>
 						</tr>
 					</table>
-					<br/>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Linear Fit Solution</h4>
+
+					<div class="cc size-80">
+						<p>👉 &nbsp; $y = a x + b$&nbsp; &nbsp; &nbsp; </p>
+					</div>
+
+					<div>
+
+						<table style="font-size: 0.75em;">
+							<tr>
+								<th><em>x</em><sub>i</sub></th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<th><em>y</em><sub>i</sub></th>
+								<td>0.6</td>
+								<td>2.1837</td>
+								<td>2.8844</td>
+								<td>4.3985</td>
+								<td>4.2369</td>
+								<td>4.7755</td>
+								<td>5.5160</td>
+								<td>5.6721</td>
+								<td>5.6654</td>
+								<td>4.7268</td>
+							</tr>
+						</table>
+
+					</div>
+
+					<div class="size-80 cc">
+						<p class="fragment" data-fragment-index="0">
+							$\mathbf y= \begin{pmatrix} 0.60007 \\ 2.18372 \\ \vdots \\ 4.72679 \end{pmatrix}$
+							<span class="fragment" data-fragment-index="1">
+								$=
+								\underbrace{\begin{pmatrix} 1 & 1 \\ 2 & 1 \\ \vdots &\vdots\\ 10 & 1 \end{pmatrix}}_{X}
+								\underbrace{\begin{pmatrix} a \\ b \end{pmatrix}}_{\mathbf k}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
+								$
+								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+								$
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="3">where the columns of $X$ are the values of $x_i$ and
+							1. </p>
+					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Linear Fit Solution Example</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<div class="fragment" data-fragment-index="0">
-							<p>Given 10 data points $(x_i, y_i)$, compute $X^T X$ and its inverse:</p>
-							$$ X^T X = \begin{pmatrix}1 & 2 & \dots & 10 \\ 1 & 1 & \dots &
-							1\end{pmatrix}\begin{pmatrix}1 & 1 \\ 2 & 1 \\ \vdots & \vdots \\ 10 & 1\end{pmatrix} =
-							\begin{pmatrix}385 & 55 \\ 55 & 10\end{pmatrix} $$
+					<h4>Linear Fit Solution</h4>
+					<div style="font-size: 0.76em;">
+						<div>
+							<p>Given 10 data points $(x_i, y_i)$,
+								<span class="fragment" data-fragment-index="0">
+									compute $X^T X$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									and its inverse:
+								</span>
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$ X^T X = \begin{pmatrix}1 & 2 & \dots & 10 \\ 1 & 1 & \dots &
+								1\end{pmatrix}\begin{pmatrix}1 & 1 \\ 2 & 1 \\ \vdots & \vdots \\ 10 & 1\end{pmatrix}$
+								<span class="fragment" data-fragment-index="1">
+									$
+									=
+									\begin{pmatrix}385 & 55 \\ 55 & 10\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$ \left(X^T X\right)^{-1} $
+								<span class="fragment" data-fragment-index="3">
+									$
+									= \dfrac{1}{825}\begin{pmatrix}10 & -55 \\ -55 & 385\end{pmatrix}
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							$$ (X^T X)^{-1} = \frac{1}{825}\begin{pmatrix}10 & -55 \\ -55 & 385\end{pmatrix} $$
-						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							<p>Calculating parameter vector $\mathbf{k}_0 = \begin{pmatrix}m \\ c\end{pmatrix}$:</p>
-							$$ \begin{pmatrix}m \\ c\end{pmatrix} = (X^T X)^{-1} X^T \mathbf{y} \approx
-							\begin{pmatrix}0.48 \\ 1.42\end{pmatrix} \implies y = 0.48x + 1.42 $$
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
+							<p>Calculating parameter vector $\mathbf{k}_0 = \begin{pmatrix}a \\ b\end{pmatrix}$:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$ \begin{pmatrix}a \\ b \end{pmatrix} = \left(X^T X\right)^{-1} X^T \mathbf{y} $
+								<span class="fragment" data-fragment-index="5">
+									$ \approx
+									\begin{pmatrix}0.48 \\ 1.42\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ \Ra y = 0.48x + 1.42 \,$ ✅
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 11 (PDF p.50): Quadratic Fit -->
 				<section data-auto-animate>
-					<h4>Quadratic Fit: $y = ax^2 + bx + c$</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<div class="fragment" data-fragment-index="0">
-							<p>Construct design matrix $X$ with columns $[x_i^2, x_i, 1]$:</p>
-							$$ X^T X = \begin{pmatrix}1 & 4 & \dots & 100 \\ 1 & 2 & \dots & 10 \\ 1 & 1 & \dots &
-							1\end{pmatrix}\begin{pmatrix}1 & 1 & 1\\ 4 & 2 & 1\\ \vdots & \vdots & \vdots\\ 100 & 10 &
-							1\end{pmatrix} = \begin{pmatrix}25333 & 3025 & 385 \\ 3025 & 385 & 55 \\ 385 & 55 &
-							10\end{pmatrix} $$
+					<h4>Quadratic Fit Solution</h4>
+
+					<div class="cc size-80">
+						<p>👉 &nbsp; $y = a x^2 + bx + c $ &nbsp; &nbsp; &nbsp; </p>
+					</div>
+
+					<div>
+
+						<table style="font-size: 0.75em;">
+							<tr>
+								<th><em>x</em><sub>i</sub></th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<th><em>y</em><sub>i</sub></th>
+								<td>0.6</td>
+								<td>2.1837</td>
+								<td>2.8844</td>
+								<td>4.3985</td>
+								<td>4.2369</td>
+								<td>4.7755</td>
+								<td>5.5160</td>
+								<td>5.6721</td>
+								<td>5.6654</td>
+								<td>4.7268</td>
+							</tr>
+						</table>
+
+					</div>
+
+					<div class="size-80 cc">
+						<p class="fragment" data-fragment-index="0">
+							$\mathbf y= \begin{pmatrix} 0.60007 \\ 2.18372 \\ \vdots \\ 4.72679 \end{pmatrix}$
+							<span class="fragment" data-fragment-index="1">
+								$=
+								\underbrace{\begin{pmatrix} 1 & 1 &1 \\ 4 & 2 & 1 \\ \vdots &\vdots &\vdots\\ 100 & 10 &
+								1 \end{pmatrix}}_{X}
+								\underbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}_{\mathbf k}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
+								$
+								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+								$
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="3">
+							where the columns of $X$ are the values of $x_i^2$, $x_i$ and 1.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Quadratic Fit Solution</h4>
+					<div style="font-size: 0.75em;">
+						<div>
+							<p>Now we compute $X^TX$
+								<span class="fragment" data-fragment-index="2">
+									and its inverse:
+								</span>
+							</p>
+
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							$$ (X^T X)^{-1} = \frac{1}{2640}\begin{pmatrix}5 & -55 & 110 \\ -55 & 637 & -1386 \\ 110 &
+						<div class="cc">
+							<p>
+								$ X^T X = \begin{pmatrix}1 & 4 & \dots & 100 \\ 1 & 2 & \dots & 10 \\ 1 & 1 & \dots &
+								1\end{pmatrix}\begin{pmatrix}1 & 1 & 1\\ 4 & 2 & 1\\ \vdots & \vdots & \vdots\\ 100 & 10
+								&
+								1\end{pmatrix} $
+								<span class="fragment" data-fragment-index="1">
+									$
+									= \begin{pmatrix}25333 & 3025 & 385 \\ 3025 & 385 & 55 \\ 385 & 55 &
+									10\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							$$ \left(X^T X\right)^{-1} = \frac{1}{2640}\begin{pmatrix}5 & -55 & 110 \\ -55 & 637 & -1386 \\ 110 &
 							-1386 & 3652\end{pmatrix} $$
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							$$ \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = (X^T X)^{-1} X^T \mathbf{y}
-							\approx \begin{pmatrix}-0.10 \\ 1.59 \\ -0.80\end{pmatrix} $$
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$  \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \left(X^T X\right)^{-1} X^T \mathbf{y}$
+								<span class="fragment" data-fragment-index="4">
+									$ 
+									\approx \begin{pmatrix}-0.10 \\ 1.59 \\ -0.80\end{pmatrix} 
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ 
+									\;\Ra \; y = -0.1 x^2 + 1.59 x - 0.8\,
+									$ ✅
+								</span>
+							</p>
 						</div>
+
+					
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 12 (PDF p.51): Exponential Fit -->
 				<section data-auto-animate>
-					<h4>Exponential Fit: $y = a e^{-x} + b e^{-x/2} + c$</h4>
+					<h4>Exponential Fit Solution</h4>
+
+					<div class="cc size-80">
+						<p>👉 &nbsp; $y = a e^{-x} + be^{-x/2} + c $ &nbsp; &nbsp;  </p>
+					</div>
+
+					<div>
+
+						<table style="font-size: 0.75em;">
+							<tr>
+								<th><em>x</em><sub>i</sub></th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<th><em>y</em><sub>i</sub></th>
+								<td>0.6</td>
+								<td>2.1837</td>
+								<td>2.8844</td>
+								<td>4.3985</td>
+								<td>4.2369</td>
+								<td>4.7755</td>
+								<td>5.5160</td>
+								<td>5.6721</td>
+								<td>5.6654</td>
+								<td>4.7268</td>
+							</tr>
+						</table>
+
+					</div>
+
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="0">
+							$\mathbf y= \begin{pmatrix} 0.60007 \\ 2.18372 \\ \vdots \\ 4.72679 \end{pmatrix}$
+							<span class="fragment" data-fragment-index="1">
+								$=
+								\underbrace{\begin{pmatrix} 0.367879 & 0.606531 &1 \\ 0.135335 & 0.367879 & 1 \\ \vdots &\vdots &\vdots\\ 0.000045 & 0.006738  & 1 \end{pmatrix}}_{X}
+								\underbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}_{\mathbf k}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
+								$
+								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+								$
+							</span>
+						</p>
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="3">
+							where the columns of $X$ are the values of $e^{-x_i}$, $e^{-x_i/2}$ and 1.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Exponential Fit Solution</h4>
 					<div class="size-85" style="font-size: 0.8em;">
-						<div class="fragment" data-fragment-index="0">
-							<p>Design matrix $X$ has columns $[e^{-x_i}, e^{-x_i/2}, 1]$:</p>
+						<div>
+							<p>Again, we compute $X^TX$
+								<span class="fragment" data-fragment-index="2">
+									and its inverse:
+								</span>
+							</p>
+						
 							$$ X^T X \approx \begin{pmatrix}0.15652 & 0.28722 & 0.58195 \\ 0.28722 & 0.58195 & 1.53111
 							\\ 0.58195 & 1.53111 & 10\end{pmatrix} $$
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							$$ (X^T X)^{-1} \approx \begin{pmatrix}102.97874 & -58.70585 & 2.99565 \\ -58.70585 &
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							$$ \left(X^T X\right)^{-1} \approx \begin{pmatrix}102.97874 & -58.70585 & 2.99565 \\ -58.70585 &
 							36.34439 & -2.14833 \\ 2.99565 & -2.14833 & 0.25460\end{pmatrix} $$
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							$$ \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = (X^T X)^{-1} X^T \mathbf{y}
-							\approx \begin{pmatrix}5.95 \\ -11.64 \\ 5.50\end{pmatrix} $$
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$  \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \left(X^T X\right)^{-1} X^T \mathbf{y}$
+								<span class="fragment" data-fragment-index="4">
+									$ 
+									\approx \begin{pmatrix}5.95 \\ -11.64 \\ 5.50\end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ 
+									\;\Ra \; y = 0.95 e^{-x} -11.64 e^{-x/2} + 5.5\,
+									$ ✅
+								</span>
+							</p>
 						</div>
+
+				
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 13 (PDF p.52): Comparison of Lines of Best Fit -->
 				<section data-auto-animate>
 					<h4>Comparison of Lines of Best Fit</h4>
-					<div class="size-85">
-						<div class="fragment" data-fragment-index="0">
-							<p><b>Summary of Fitted Models:</b></p>
-							<ul style="line-height: 2em;">
-								<li class="fragment" data-fragment-index="1"><b>Linear Fit:</b> $y = 0.48x + 1.42$</li>
-								<li class="fragment" data-fragment-index="2"><b>Quadratic Fit:</b> $y = -0.10x^2 + 1.59x
+					<div class="size-80">
+						<div class="cc">
+							
+							<ul style="line-height: 1.4em;">
+								<li class="fragment" data-fragment-index="1"><b>Linear Fit:</b> $\,y = 0.48x + 1.42$</li>
+								<li class="fragment" data-fragment-index="2"><b>Quadratic Fit:</b> $\,y = -0.10x^2 + 1.59x
 									- 0.80$</li>
-								<li class="fragment" data-fragment-index="3"><b>Exponential Fit:</b> $y = 5.95e^{-x} -
+								<li class="fragment" data-fragment-index="3"><b>Exponential Fit:</b> $\,y = 5.95e^{-x} -
 									11.64e^{-x/2} + 5.50$</li>
 							</ul>
 						</div>
+					</div>
+
+					<div style="margin-top: 20px;">
+						<iframe scrolling="no" title="Least-squares fitting summary" src="https://www.geogebra.org/material/iframe/id/bdfwbvbc/width/788/height/374/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="788px" height="374px" style="border:0px;" allowfullscreen> </iframe>
 					</div>
 					<br />
 				</section>
@@ -3971,8 +4234,8 @@
 
 			<section data-auto-animate>
 				<h4>Summary of Inner Product Section</h4>
-				<div class="size-85">
-					<ul>
+				<div class="size-90">
+					<ul style="line-height: 65px;">
 						<li class="fragment" data-fragment-index="0">Inner product and norm on $\mathbb{R}^n$</li>
 						<li class="fragment" data-fragment-index="1">Inner product on general function spaces
 							(examples)</li>
