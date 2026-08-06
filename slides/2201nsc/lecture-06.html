@@ -1766,17 +1766,22 @@
 								are normalized ($\|\mathbf{x}\| = 1, \|\mathbf{q}_i\| = 1$),
 								<span class="fragment" data-fragment-index="6">
 									then
-									$$ y_i = \cos \theta_i $$
 								</span>
+							</p>
+							<p class="fragment" data-fragment-index="6" style="margin-top: -5px; text-align: center;">
+								$ y_i = \cos \theta_i $
 							</p>
 
 						</div>
 
-						<p class="fragment" data-fragment-index="7">
+						<p class="fragment" data-fragment-index="7" style="margin-top: 10px;">
 							This means that the largest entry of \(\mathbf y\) (that is, $y_5$) has the largest
-							value of $\cos \theta_i$
+							value of $\cos \theta_i.$
+
+						</p>
+						<p style="margin-top: -20px;">
 							<span class="fragment" data-fragment-index="8">
-								and hence the direction of the search vector $\mathbf x$ is closest
+								Hence the direction of the search vector $\mathbf x$ is closest
 								to the direction of $\mathbf q_5$,
 							</span>
 							<span class="fragment" data-fragment-index="9">
@@ -1789,6 +1794,79 @@
 								closest in direction to query vector $\mathbf{x}$.</p>
 						</div>
 					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-85">
+						<div class="cc">
+							<p>
+								$\mathbf{x} \approx (0,0,0,0,0,0.577, 0.577, 0, 0, 0.577)^T$
+								<span class="fragment" data-fragment-index="2">
+									$\in \mathbb R^{10}$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								The fifth column vector the matrix $Q$ is $\mathbf q_5 $ 
+								<span class="fragment" data-fragment-index="2">
+									$\in \mathbb R^{10}$
+								</span> 
+							</p>
+
+						</div>
+						<p style="margin-top: -10px;">
+							<span>
+								Hence the direction of the search vector $\mathbf x$ is closest
+								to the direction of $\mathbf q_5$,
+							</span>
+							<span>
+								and is therefore its <b>best match</b>.
+							</span>
+						</p>
+						<div style="margin-top: 15px;">
+							<p><b>Conclusion:</b> Maximizing $y_i$ maximizes $\cos \theta_i$, finding the module vector
+								closest in direction to query vector $\mathbf{x}$.</p>
+						</div>
+
+						<div>
+							<picture  class="fragment" data-fragment-index="2">
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬"
+									width="150" height="150">
+							</picture>
+							
+						</div>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-85">
+						<div class="cc">
+							<p>
+								Assume for a moment that $\mathbf{x} $
+								<span>
+									$\in \mathbb R^{2}$
+								</span>
+								and  $\mathbf q_5 $ 
+								<span>
+									$\in \mathbb R^{2}$
+								</span> 
+							</p>
+
+						</div>
+					</div>
+					<div>
+						<iframe scrolling="no" title="Close vectors"
+							src="https://www.geogebra.org/material/iframe/id/nhemv3bz/width/786/height/385/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+							width="786px" height="385px" style="border:0px;" allowfullscreen> </iframe>
+						<p style="font-size: 0.7em;text-align: center; margin-top: -10px;color: #4a4a4a;"><b>Note:</b> $\theta$ is radians</p>
+					</div>
+					<br />
 					<br />
 				</section>
 
@@ -4248,7 +4326,8 @@
 								<li class="fragment" data-fragment-index="1"><span id="gg">- - -</span>$\,y = -0.10x^2 +
 									1.59x - 0.80$ &nbsp;<span style="color: #878787;">(quadratic)</span>
 								</li>
-								<li class="fragment" data-fragment-index="2"><span id="bb">- ∙ -</span>$\,y = 5.95e^{-x} -
+								<li class="fragment" data-fragment-index="2"><span id="bb">- ∙ -</span>$\,y = 5.95e^{-x}
+									-
 									11.64e^{-x/2} + 5.50$ &nbsp;<span style="color: #878787;">(exponential)</span>
 								</li>
 							</ul>
@@ -4256,11 +4335,16 @@
 					</div>
 
 					<div class="r-stack">
-						<img class="fragment fade-out" data-fragment-index="0" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-01.svg">
-						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-02.svg">
-						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-03.svg">
-						<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-04.svg">
-						<img class="fragment fade-in" data-fragment-index="3" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-05.svg">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-02.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-03.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-04.svg">
+						<img class="fragment fade-in" data-fragment-index="3" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-05.svg">
 					</div>
 					<br />
 				</section>
