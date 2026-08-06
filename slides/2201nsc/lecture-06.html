@@ -1808,10 +1808,10 @@
 								</span>
 							</p>
 							<p class="fragment" data-fragment-index="1">
-								The fifth column vector the matrix $Q$ is $\mathbf q_5 $ 
+								The fifth column vector the matrix $Q$ is $\mathbf q_5 $
 								<span class="fragment" data-fragment-index="2">
 									$\in \mathbb R^{10}$
-								</span> 
+								</span>
 							</p>
 
 						</div>
@@ -1830,13 +1830,13 @@
 						</div>
 
 						<div>
-							<picture  class="fragment" data-fragment-index="2">
+							<picture class="fragment" data-fragment-index="2">
 								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
 									type="image/webp">
 								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬"
 									width="150" height="150">
 							</picture>
-							
+
 						</div>
 					</div>
 
@@ -1852,10 +1852,10 @@
 								<span>
 									$\in \mathbb R^{2}$
 								</span>
-								and  $\mathbf q_5 $ 
+								and $\mathbf q_5 $
 								<span>
 									$\in \mathbb R^{2}$
-								</span> 
+								</span>
 							</p>
 
 						</div>
@@ -1864,7 +1864,8 @@
 						<iframe scrolling="no" title="Close vectors"
 							src="https://www.geogebra.org/material/iframe/id/nhemv3bz/width/786/height/385/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
 							width="786px" height="385px" style="border:0px;" allowfullscreen> </iframe>
-						<p style="font-size: 0.6em;text-align: center; margin-top: -10px;color: #4a4a4a;"><b>Note:</b> $\theta$ is radians</p>
+						<p style="font-size: 0.6em;text-align: center; margin-top: -10px;color: #4a4a4a;"><b>Note:</b>
+							$\theta$ is radians</p>
 					</div>
 					<br />
 				</section>
@@ -2379,11 +2380,15 @@
 					<h4>Application: Collaborative Filtering</h4>
 					<div class="size-85">
 						<div>
-							<p>For ratings matrix $R_{M \times N}$ and user weights $\mathbf{y} = [w_1, w_2, \dots,
-								w_N]^T$:</p>
+							<p>For ratings matrix $R$ (with $M$ rows and $N$ columns)
+								<span class="fragment" data-fragment-index="0">
+									and user-dependent weights $\mathbf{y} = [w_1, w_2, \dots,
+									w_N]^T$:
+								</span>
+							</p>
 						</div>
 
-						<div class="cc" style="margin-top: 0px; font-size: 0.87em;">
+						<div class="cc" style="margin-top: 10px; font-size: 0.85em;">
 							<p class="fragment" data-fragment-index="1">
 								$ R \mathbf{y} = \begin{pmatrix}
 								R_{11} & R_{12} & \cdots & R_{1N} \\
@@ -2407,11 +2412,11 @@
 						</div>
 
 						<div style="margin-top: 60px;">
-							<p class="fragment" data-fragment-index="3">
+							<p class="fragment" data-fragment-index="2">
 								The output is the <b>weighted sum</b>
 								of song ratings across all users,
-								<span class="fragment" data-fragment-index="4">
-									which proportional to the weighted
+								<span class="fragment" data-fragment-index="3">
+									which is proportional to the weighted
 									average.
 								</span>
 							</p>
