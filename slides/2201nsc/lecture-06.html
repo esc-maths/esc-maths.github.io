@@ -111,7 +111,7 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="5" style="margin-top: 10px;">
-							<p>For a vector $\mathbf{v}$:</p>
+							<p>For a vector $\mathbf{v}\in \mathbb R^3$:</p>
 
 						</div>
 						<div class="cc" style="font-size: 1.2em;">
@@ -579,7 +579,7 @@
 							</p>
 						</div>
 
-						<div class="cc" style="font-size: 0.85em; margin-top: 10px;">
+						<div class="cc" style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="2">
 								$\begin{pmatrix}3 \\ 2\end{pmatrix}$ and $\begin{pmatrix}-4 \\ 6\end{pmatrix}$ are
 								<b>not</b> orthogonal:
@@ -587,32 +587,35 @@
 									$2(3)(-4) + 1(2)(6) $
 								</span>
 								<span class="fragment" data-fragment-index="4">
-									$= -12 \ne 0$.
+									$= -12 $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ne 0$.
 								</span>
 
 
 							</p>
-							<p class="fragment" data-fragment-index="5">
+							<p class="fragment">
 								For $\mathbf{x} = \begin{pmatrix}2 \\ 1\end{pmatrix} $
-								<span class="fragment" data-fragment-index="6">
-									$\implies \|\mathbf{x}\| = \sqrt{2(2^2) + 1(1^2)} $
+								<span class="fragment">
+									$\implies \|\mathbf{x}\| = \sqrt{2\left(2^2\right) + 1\left(1^2\right)} $
 								</span>
-								<span class="fragment" data-fragment-index="7">
+								<span class="fragment">
 									$= 3$.
 								</span>
 
 							</p>
-							<p class="fragment" data-fragment-index="8">
+							<p class="fragment">
 								For $\mathbf{y} = \begin{pmatrix}1 \\ 2\end{pmatrix} $
-								<span class="fragment" data-fragment-index="9">
+								<span class="fragment">
 									$\implies \|\mathbf{y}\| =
-									\sqrt{2(1^2) + 1(2^2)} $
+									\sqrt{2\left(1^2\right) + 1\left(2^2\right)} $
 								</span>
-								<span class="fragment" data-fragment-index="10">
+								<span class="fragment">
 									$= \sqrt{6}$
 								</span>
-								<span class="fragment" data-fragment-index="11">
-									$\ne \|\mathbf{x}\|$.
+								<span class="fragment">
+									$\ne \|\mathbf{x}\|$ 👈
 								</span>
 							</p>
 						</div>
@@ -721,7 +724,7 @@
 
 				<section data-auto-animate>
 					<h4>Pythagorean Theorem</h4>
-					<div class="size-75">
+					<div class="size-80">
 						<div class="left-txt">
 							<p>
 								<span class="fragment" data-fragment-index="0">
@@ -958,7 +961,7 @@
 
 				<section data-auto-animate>
 					<h4>📝 Practice problems</h4>
-					<div class="size-85" style="font-size: 0.85em;">
+					<div class="size-85 left-txt" style="font-size: 0.85em;">
 						<div class="fragment" data-fragment-index="0">
 							<p><b>Problem 1:</b> $\mathbf{x} = (2,2,-1)^T, \,\mathbf{y} = (5,-3,2)^T \in \mathbb{R}^3$
 								with $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y}$.</p>
@@ -970,7 +973,8 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 45px;">
-							<p><b>Problem 2:</b> On $C[0,1]$ with $\ds\langle f,g \rangle = \int_0^1 f(x)g(x) \, dx$:
+							<p><b>Problem 2:</b> On $C\left[0,1\right]$ with $\ds\langle f,g \rangle = \int_0^1 f(x)g(x)
+								\, dx$:
 							</p>
 							<ul>
 								<li>Calculate $\langle e^x, e^{-x} \rangle$.</li>
@@ -1125,7 +1129,7 @@
 
 						<div class="fragment" data-fragment-index="4" style="margin-top:15px;">
 							<p>
-								<b>2.</b> Verify symmetry:
+								<b>2. Symmetry:</b>
 								<span class="fragment" data-fragment-index="4">
 									$\;\displaystyle \langle f,g\rangle$
 									<span class="fragment" data-fragment-index="5">
@@ -1144,7 +1148,7 @@
 
 						<div class="fragment" data-fragment-index="8" style="margin-top:10px;">
 							<p>
-								<b>2.</b> Verify linearity.
+								<b>2. Linearity:</b>
 								<span class="fragment" data-fragment-index="8">
 									$\displaystyle \langle af+bh,g\rangle$
 									<span class="fragment" data-fragment-index="9">
@@ -1160,7 +1164,7 @@
 
 						<div class="fragment" data-fragment-index="11" style="margin-top:10px;">
 							<p>
-								<b>3.</b> Verify positive definiteness.
+								<b>2. Positiveness:</b>
 								<span class="fragment" data-fragment-index="11">
 									$\displaystyle \langle f,f\rangle$
 									<span class="fragment" data-fragment-index="12">
@@ -1206,26 +1210,29 @@
 				<section data-auto-animate>
 					<h4>Application: Information Retrieval</h4>
 					<div class="size-70">
-						<p>
-							Consider searching a database for documents that contains the frequency of certain key
-							words. If we want to find documents on a single topic, then I can search for documents
+						<p class="fragment" data-fragment-index="0">
+							Consider searching a database for documents that
+							contains the frequency of certain key
+							words. If we want to find documents on a single topic,
+							then I can search for documents
 							that contain that word.
-							<span class="fragment" data-fragment-index="0">
+							<span class="fragment" data-fragment-index="1">
 								What is the best match?
 							</span>
-							<span class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="2">
 								Is it the one that contains that word the
 								most?
 							</span>
 							<span class="fragment" data-fragment-index="2">
-								Or is it the one more focussed on that topic? How could I find the best match?
+								Or is it the one more focussed on that topic?
+								How could I find the best match?
 							</span>
 
 
 
 						</p>
 
-						<div style="margin-top: -30px;">
+						<div style="margin-top: -30px;" class="fragment" data-fragment-index="0">
 							<img style="width: 800px;" src="images/lecture-06/search-key-words.gif">
 						</div>
 
@@ -1406,7 +1413,7 @@
 				<section data-auto-animate>
 					<h4>Application: Information Retrieval</h4>
 					<div style="font-size: 0.58em; margin-top: -10px;">
-						<table style="width:80%; border-collapse: collapse; text-align: center;">
+						<table style="width:70%; border-collapse: collapse; text-align: center;">
 							<thead>
 								<tr style="border-bottom: 1px solid #fff;">
 									<th style="text-align: center;">Keywords</th>
@@ -2210,7 +2217,7 @@
 				<section data-auto-animate>
 					<h4>Application: Collaborative Filtering</h4>
 					<div style="font-size: 0.8em;">
-						<div class="cc" style="font-size: 0.45em;">
+						<div class="cc" style="font-size: 0.4em;">
 							<p>
 								\(
 								R
@@ -2230,6 +2237,15 @@
 								\end{pmatrix}
 
 								\)
+							</p>
+						</div>
+						<div class="cc size-75">
+							<p>
+								$ \mathbf{y} = Q^T \hat{\mathbf{x}} $
+								<span>
+									$= (0.704, \; 0.464, \; 0.732, \; 0.647, \; 0.625, \;
+									0.242, \; 0.405, \; 0.494)^T$
+								</span>
 							</p>
 						</div>
 						<div>
@@ -2273,7 +2289,8 @@
 
 						<div class="cc" style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="4">
-								In this case, <b>Song 4</b> (score: 3.628) is the top recommendation! ⭐️
+								In this case, <b>Song 4</b> (score: <span id="rr">3.628</span>) is the top
+								recommendation! ⭐️
 
 							</p>
 						</div>
@@ -2356,7 +2373,7 @@
 								<li class="fragment" data-fragment-index="4">an <b>orthogonal basis</b>
 									if $\langle \mathbf{v}_i, \mathbf{v}_j \rangle = 0$ whenever $i \ne j$.</li>
 								<li class="fragment" data-fragment-index="5">
-									and <b>orthonormal basis</b> if $\langle \mathbf{v}_i,
+									an <b>orthonormal basis</b> if $\langle \mathbf{v}_i,
 									\mathbf{v}_j \rangle = \delta_{ij}$ (Kronecker delta: $1$ if $i=j$, $0$ if $i \ne
 									j$).</li>
 							</ul>
@@ -2371,8 +2388,8 @@
 					<div class="size-75">
 						<div class="fragment" data-fragment-index="0">
 							<p>Consider vectors in $\mathbb{R}^3$:
-								$\; \mathbf{v}_1 = \begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}, \quad
-								\mathbf{v}_2 = \begin{pmatrix}2 \\ 1 \\ -3\end{pmatrix}, \quad
+								$\; \mathbf{v}_1 = \begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}, \;\;
+								\mathbf{v}_2 = \begin{pmatrix}2 \\ 1 \\ -3\end{pmatrix}, \;\;
 								\mathbf{v}_3 = \begin{pmatrix}4 \\ -5 \\ 1\end{pmatrix}$
 							</p>
 						</div>
@@ -2469,7 +2486,7 @@
 
 				<section data-auto-animate>
 					<h4>Orthonormal Basis Sets in $\mathbb{R}^2$ </h4>
-					<div class="size-70 left-txt">
+					<div class="size-65 left-txt">
 						<p class="fragment" data-fragment-index="0">
 							<b>Example 1:</b> $\{\mathbf{e}_1, \mathbf{e}_2\} = \left\{
 							\begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix} \right\}$
@@ -2485,8 +2502,8 @@
 						</p>
 
 					</div>
-					<div style="margin-top: -20px;">
-						<table style="width: 75%;">
+					<div style="margin-top: -30px;">
+						<table style="width: 77%;">
 							<tr>
 								<td style="width: 50%;" class="fragment" data-fragment-index="1">
 									<img src="images/lecture-06/005-basis-r2.png">
@@ -2731,7 +2748,8 @@
 					<h4>Why Use Orthonormal Basis Sets?</h4>
 					<div class="size-90">
 						<div>
-							<p class="fragment" data-fragment-index="0">For any vector $\mathbf{x} = c_1 \mathbf{v}_1 +
+							<p class="fragment" data-fragment-index="0">
+								For any vector $\mathbf{x} = c_1 \mathbf{v}_1 +
 								c_2 \mathbf{v}_2 + \dots + c_n \mathbf{v}_n$,
 								<span class="fragment" data-fragment-index="1">
 									determining
@@ -2742,7 +2760,8 @@
 
 						<div class="cc" style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="1">
-								$ \langle \mathbf{x}, v_i \rangle = \langle c_1 \mathbf{v}_1 + \dots + c_n \mathbf{v}_n,
+								$ \langle \mathbf{x}, \mathbf{v}_i \rangle = \langle c_1 \mathbf{v}_1 + \dots + c_n
+								\mathbf{v}_n,
 								\mathbf{v}_i \rangle $
 								<span class="fragment" data-fragment-index="2">
 									$= c_i
@@ -2819,7 +2838,7 @@
 					<div class="size-75">
 						<div class="cc" style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="1">
-								$c_1 = \dfrac{\langle \mathbf{v}, v_1 \rangle}{\|v_1\|^2} $
+								$c_1 = \dfrac{\langle \mathbf{v}, \mathbf{v}_1 \rangle}{\|\mathbf{v}_1\|^2} $
 								<span class="fragment" data-fragment-index="2">
 									$=
 									\dfrac{(-1,7)\begin{pmatrix}1\\1\end{pmatrix}}{\left\|\begin{pmatrix}1\\1\end{pmatrix}\right\|^2}
@@ -2834,7 +2853,7 @@
 
 							</p>
 							<p class="fragment" data-fragment-index="5">
-								$c_2 = \dfrac{\langle \mathbf{v}, v_2 \rangle}{\|v_2\|^2}$
+								$c_2 = \dfrac{\langle \mathbf{v}, \mathbf{v}_2 \rangle}{\|\mathbf{v}_2\|^2}$
 								<span class="fragment" data-fragment-index="6">
 									$=
 									\dfrac{(-1,7)\begin{pmatrix}1\\-1\end{pmatrix}}{\left\|\begin{pmatrix}1\\-1\end{pmatrix}\right\|^2}
@@ -2947,9 +2966,10 @@
 								$-\theta$.</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;" id="rr">
-							Multiplication by any orthogonal matrix preserves <br />
-							the length (norm) of vectors!
+						<div class="fragment" data-fragment-index="3" style="margin-top: 55px;" id="rr">
+							Multiplication by any orthogonal matrix <br />
+							preserves
+							the length (norm) of vectors! 🤯
 						</div>
 					</div>
 					<br />
@@ -2958,11 +2978,11 @@
 
 				<section data-auto-animate>
 					<h4>Properties of Orthogonal Matrices</h4>
-					<div class="left-txt" style="font-size: 0.85em;">
+					<div class="left-txt" style="font-size: 0.9em;margin-top: -10px;">
 
 						<div class="fragment" data-fragment-index="0">
 							<p>If $Q$ is an $n \times n$ orthogonal matrix:</p>
-							<ol>
+							<ol style="margin-top: -20px;">
 								<li class="fragment" data-fragment-index="0">
 									The columns vectors of $Q$ form an orthonormal basis for $\mathbb{R}^n$.
 								</li>
@@ -2987,58 +3007,58 @@
 						<div style="margin-top:10px;">
 							<p class="fragment" data-fragment-index="6"><b>Proof Highlights:</b></p>
 
-							<ul>
-								<li class="fragment" data-fragment-index="6">
-									<b>4:</b>
-									<span class="fragment" data-fragment-index="6">
-										$\langle Q\mathbf{x},Q\mathbf{y}\rangle$
-									</span>
-									<span class="fragment" data-fragment-index="7">
-										$=(Q\mathbf{x})^TQ\mathbf{y}$
-									</span>
-									<span class="fragment" data-fragment-index="8">
-										$=\mathbf{x}^TQ^TQ\mathbf{y}$
-									</span>
-									<span class="fragment" data-fragment-index="9">
-										$=\mathbf{x}^T\mathbf{y}$
-									</span>
-									<span class="fragment" data-fragment-index="10">
-										$=\langle\mathbf{x},\mathbf{y}\rangle$
-									</span>
-								</li>
 
-								<li class="fragment" data-fragment-index="11">
-									<b>5:</b>
-									<span class="fragment" data-fragment-index="11">
-										$\|Q\mathbf{x}\|^2$
-									</span>
-									<span class="fragment" data-fragment-index="12">
-										$=\langle Q\mathbf{x},Q\mathbf{x}\rangle=\langle\mathbf{x},\mathbf{x}\rangle$
-									</span>
-									<span class="fragment" data-fragment-index="13">
-										$=\|\mathbf{x}\|^2$
-									</span>
-									<span class="fragment" data-fragment-index="14">
-										$\implies\|Q\mathbf{x}\|=\|\mathbf{x}\|$
-									</span>
-								</li>
+							<p class="fragment" data-fragment-index="6" style="margin-top:-15px;">
+								&nbsp;&nbsp; <b>4:</b>
+								<span class="fragment" data-fragment-index="6">
+									$\langle Q\mathbf{x},Q\mathbf{y}\rangle$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$=(Q\mathbf{x})^TQ\mathbf{y}$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$=\mathbf{x}^TQ^TQ\mathbf{y}$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$=\mathbf{x}^T\mathbf{y}$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$=\langle\mathbf{x},\mathbf{y}\rangle$
+								</span>
+							</p>
 
-								<li class="fragment" data-fragment-index="15">
-									<b>6:</b>
-									<span class="fragment" data-fragment-index="15">
-										$Q^TQ=I$
-									</span>
-									<span class="fragment" data-fragment-index="16">
-										$\Ra\det(Q^T)\det(Q)=1$
-									</span>
-									<span class="fragment" data-fragment-index="17">
-										$\Ra(\det Q)^2=1$
-									</span>
-									<span class="fragment" data-fragment-index="18">
-										$\Ra\det(Q)=\pm1$
-									</span>
-								</li>
-							</ul>
+							<p class="fragment" data-fragment-index="11">
+								&nbsp;&nbsp; <b>5:</b>
+								<span class="fragment" data-fragment-index="11">
+									$\|Q\mathbf{x}\|^2$
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$=\langle Q\mathbf{x},Q\mathbf{x}\rangle=\langle\mathbf{x},\mathbf{x}\rangle$
+								</span>
+								<span class="fragment" data-fragment-index="13">
+									$=\|\mathbf{x}\|^2$
+								</span>
+								<span class="fragment" data-fragment-index="14">
+									$\Ra\|Q\mathbf{x}\|=\|\mathbf{x}\|$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="15">
+								&nbsp;&nbsp; <b>6:</b>
+								<span class="fragment" data-fragment-index="15">
+									$Q^TQ=I$
+								</span>
+								<span class="fragment" data-fragment-index="16">
+									$\Ra\det\left(Q^T\right)\det\left(Q\right)=1$
+								</span>
+								<span class="fragment" data-fragment-index="17">
+									$\Ra\left(\det Q\right)^2=1$
+								</span>
+								<span class="fragment" data-fragment-index="18">
+									$\Ra\det\left(Q\right)=\pm1$
+								</span>
+							</p>
+
 						</div>
 
 					</div>
@@ -3067,15 +3087,17 @@
 						<div class="cc">
 							<p class="fragment" data-fragment-index="3">
 								$
-								\lambda_1 = 6, \, \mathbf{v}_1 = \begin{pmatrix}1\\1\\1\end{pmatrix} ; \quad \lambda_2 =
+								\lambda_1 = 6, \, \mathbf{v}_1 = \begin{pmatrix}1\\1\\1\end{pmatrix} ; \;\; \lambda_2 =
 								0, \,
 								\mathbf{v}_2
-								= \begin{pmatrix}1\\-2\\1\end{pmatrix} ; \quad \lambda_3 = -6, \, \mathbf{v}_3 =
+								= \begin{pmatrix}1\\-2\\1\end{pmatrix} ; \;\; \lambda_3 = -6, \, \mathbf{v}_3 =
 								\begin{pmatrix}-1\\0\\1\end{pmatrix}
 								$
 							</p>
-							<p class="fragment" data-fragment-index="3"> 👉 &nbsp; Notice
-								$v\mathbf{v}_1 \pd \mathbf{v}_2 = 0$, $\mathbf{v}_1 \pd \mathbf{v}_3 = 0$, $\mathbf{v}_2
+							<p class="fragment" data-fragment-index="4">
+								👉 &nbsp; Notice
+								$\;\mathbf{v}_1 \pd \mathbf{v}_2 = 0$, $\mathbf{v}_1 \pd \mathbf{v}_3 = 0$,
+								$\mathbf{v}_2
 								\pd \mathbf{v}_3 = 0$.</p>
 						</div>
 
@@ -3335,7 +3357,7 @@
 									$ = \lambda_1 + \lambda_2,$
 								</span>
 								<span class="fragment">
-									$\quad \det(A) = 6 $
+									$\;\; \det(A) = 6 $
 								</span>
 								<span class="fragment">
 									$= \lambda_1 \lambda_2
@@ -3428,7 +3450,7 @@
 											<span class="fragment highlight-red" data-fragment-index="11">
 												$-\, B\mathbf{x} $
 											</span>
-											$+ (f)$
+											$+ f$
 										</span>
 									</p>
 									<p class="fragment" data-fragment-index="7">
@@ -3489,7 +3511,7 @@
 
 						<p class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 0.85em;"
 							id="rr">
-							<i>Note:</i> The constant $f$ shifts the vertical position of the function but does not
+							Remark: The constant $f$ shifts the vertical position of the function but does not
 							alter the location of the critical point.
 						</p>
 					</div>
@@ -3503,7 +3525,7 @@
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
 							<p><b>1. Rewrite:</b> $g(x,y) = \mathbf{x}^T \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}
-								\mathbf{x} - \begin{pmatrix}-10 & -8\end{pmatrix} \mathbf{x} + (2)$</p>
+								\mathbf{x} - \begin{pmatrix}-10 & -8\end{pmatrix} \mathbf{x} + 2$</p>
 						</div>
 
 						<div style="margin-top: 10px;">
@@ -3761,7 +3783,7 @@
 
 					<div class="size-90">
 
-						<div class="cc" style="margin-top: 50px;">
+						<div class="cc" style="margin-top: 10px;">
 							<p>
 								$ \mathbf{k}_0 = \dfrac{1}{2} A^{-1} B^T $
 								<span>
@@ -3773,11 +3795,14 @@
 							</p>
 
 						</div>
-
-						<p style="margin-top: 50px;">
+						<p style="text-align: center;">
 							<span id="bb">
 								The beauty of this approach is its generality!
 							</span>
+						</p>
+
+						<p style="margin-top: 50px;">
+
 							<span class="fragment">
 								It can also be extended to fitting any function of the form
 								$$ y = a\, f(x) + b\, g(x) + c\, h(x) + \cdots,$$
@@ -3795,7 +3820,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Least-Squares Fitting Examples</h4>
+					<h4>Least-Squares Fitting Practice 📝</h4>
 
 					<div>
 
@@ -3905,7 +3930,7 @@
 
 					<div class="size-80 cc">
 						<p class="fragment" data-fragment-index="0">
-							$\mathbf y= \begin{pmatrix} 0.60007 \\ 2.18372 \\ \vdots \\ 4.72679 \end{pmatrix}$
+							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
 							<span class="fragment" data-fragment-index="1">
 								$=
 								\underbrace{\begin{pmatrix} 1 & 1 \\ 2 & 1 \\ \vdots &\vdots\\ 10 & 1 \end{pmatrix}}_{X}
@@ -4026,7 +4051,7 @@
 
 					<div class="size-80 cc">
 						<p class="fragment" data-fragment-index="0">
-							$\mathbf y= \begin{pmatrix} 0.60007 \\ 2.18372 \\ \vdots \\ 4.72679 \end{pmatrix}$
+							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
 							<span class="fragment" data-fragment-index="1">
 								$=
 								\underbrace{\begin{pmatrix} 1 & 1 &1 \\ 4 & 2 & 1 \\ \vdots &\vdots &\vdots\\ 100 & 10 &
@@ -4077,27 +4102,29 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							$$ \left(X^T X\right)^{-1} = \frac{1}{2640}\begin{pmatrix}5 & -55 & 110 \\ -55 & 637 & -1386 \\ 110 &
+							$$ \left(X^T X\right)^{-1} = \frac{1}{2640}\begin{pmatrix}5 & -55 & 110 \\ -55 & 637 & -1386
+							\\ 110 &
 							-1386 & 3652\end{pmatrix} $$
 						</div>
 
 						<div class="cc">
 							<p class="fragment" data-fragment-index="3">
-								$  \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \left(X^T X\right)^{-1} X^T \mathbf{y}$
+								$ \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \left(X^T X\right)^{-1} X^T
+								\mathbf{y}$
 								<span class="fragment" data-fragment-index="4">
-									$ 
-									\approx \begin{pmatrix}-0.10 \\ 1.59 \\ -0.80\end{pmatrix} 
+									$
+									\approx \begin{pmatrix}-0.10 \\ 1.59 \\ -0.80\end{pmatrix}
 									$
 								</span>
 								<span class="fragment" data-fragment-index="5">
-									$ 
+									$
 									\;\Ra \; y = -0.1 x^2 + 1.59 x - 0.8\,
 									$ ✅
 								</span>
 							</p>
 						</div>
 
-					
+
 					</div>
 					<br />
 				</section>
@@ -4106,7 +4133,7 @@
 					<h4>Exponential Fit Solution</h4>
 
 					<div class="cc size-80">
-						<p>👉 &nbsp; $y = a e^{-x} + be^{-x/2} + c $ &nbsp; &nbsp;  </p>
+						<p>👉 &nbsp; $y = a e^{-x} + be^{-x/2} + c $ &nbsp; &nbsp; </p>
 					</div>
 
 					<div>
@@ -4144,10 +4171,11 @@
 
 					<div class="size-75 cc">
 						<p class="fragment" data-fragment-index="0">
-							$\mathbf y= \begin{pmatrix} 0.60007 \\ 2.18372 \\ \vdots \\ 4.72679 \end{pmatrix}$
+							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
 							<span class="fragment" data-fragment-index="1">
 								$=
-								\underbrace{\begin{pmatrix} 0.367879 & 0.606531 &1 \\ 0.135335 & 0.367879 & 1 \\ \vdots &\vdots &\vdots\\ 0.000045 & 0.006738  & 1 \end{pmatrix}}_{X}
+								\underbrace{\begin{pmatrix} 0.367879 & 0.606531 &1 \\ 0.135335 & 0.367879 & 1 \\ \vdots
+								&\vdots &\vdots\\ 0.000045 & 0.006738 & 1 \end{pmatrix}}_{X}
 								\underbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}_{\mathbf k}
 								$
 							</span>
@@ -4175,33 +4203,35 @@
 									and its inverse:
 								</span>
 							</p>
-						
+
 							$$ X^T X \approx \begin{pmatrix}0.15652 & 0.28722 & 0.58195 \\ 0.28722 & 0.58195 & 1.53111
 							\\ 0.58195 & 1.53111 & 10\end{pmatrix} $$
 						</div>
 
 						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							$$ \left(X^T X\right)^{-1} \approx \begin{pmatrix}102.97874 & -58.70585 & 2.99565 \\ -58.70585 &
+							$$ \left(X^T X\right)^{-1} \approx \begin{pmatrix}102.97874 & -58.70585 & 2.99565 \\
+							-58.70585 &
 							36.34439 & -2.14833 \\ 2.99565 & -2.14833 & 0.25460\end{pmatrix} $$
 						</div>
 
 						<div class="cc">
 							<p class="fragment" data-fragment-index="3">
-								$  \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \left(X^T X\right)^{-1} X^T \mathbf{y}$
+								$ \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \left(X^T X\right)^{-1} X^T
+								\mathbf{y}$
 								<span class="fragment" data-fragment-index="4">
-									$ 
+									$
 									\approx \begin{pmatrix}5.95 \\ -11.64 \\ 5.50\end{pmatrix}
 									$
 								</span>
 								<span class="fragment" data-fragment-index="5">
-									$ 
+									$
 									\;\Ra \; y = 0.95 e^{-x} -11.64 e^{-x/2} + 5.5\,
 									$ ✅
 								</span>
 							</p>
 						</div>
 
-				
+
 					</div>
 					<br />
 				</section>
@@ -4210,19 +4240,27 @@
 					<h4>Comparison of Lines of Best Fit</h4>
 					<div class="size-80">
 						<div class="cc">
-							
-							<ul style="line-height: 1.4em;">
-								<li class="fragment" data-fragment-index="1"><b>Linear Fit:</b> $\,y = 0.48x + 1.42$</li>
-								<li class="fragment" data-fragment-index="2"><b>Quadratic Fit:</b> $\,y = -0.10x^2 + 1.59x
-									- 0.80$</li>
-								<li class="fragment" data-fragment-index="3"><b>Exponential Fit:</b> $\,y = 5.95e^{-x} -
-									11.64e^{-x/2} + 5.50$</li>
+
+							<ul style="line-height: 1.4em;list-style-type: none; ">
+								<li class="fragment" data-fragment-index="0">&nbsp;<b>—</b> $\,y = 0.48x + 1.42$ &nbsp;
+									<span style="color: #878787;">(linear)</span>
+								</li>
+								<li class="fragment" data-fragment-index="1"><span id="gg">- - -</span>$\,y = -0.10x^2 +
+									1.59x - 0.80$ &nbsp;<span style="color: #878787;">(quadratic)</span>
+								</li>
+								<li class="fragment" data-fragment-index="2"><span id="bb">- ∙ -</span>$\,y = 5.95e^{-x} -
+									11.64e^{-x/2} + 5.50$ &nbsp;<span style="color: #878787;">(exponential)</span>
+								</li>
 							</ul>
 						</div>
 					</div>
 
-					<div style="margin-top: 20px;">
-						<iframe scrolling="no" title="Least-squares fitting summary" src="https://www.geogebra.org/material/iframe/id/bdfwbvbc/width/788/height/374/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="788px" height="374px" style="border:0px;" allowfullscreen> </iframe>
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-02.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-03.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-04.svg">
+						<img class="fragment fade-in" data-fragment-index="3" style="width: 52%;" src="images/lecture-06/data-set-fitting-curves-05.svg">
 					</div>
 					<br />
 				</section>
