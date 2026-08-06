@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Lecture 8</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Vector Spaces
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f008.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+
+				<!-- Slide 1 (PDF p.2): Why Factorisation in the Reals -->
+				<section data-auto-animate>
+					<h4>Why Factorisation? (Real Numbers)</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<p>Prime factorisation is widely used in applications with real numbers:</p>
+						<ul style="line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="0"><b>LCM:</b> Lowest Common Multiple (e.g.,
+								adding fractions)</li>
+							<li class="fragment" data-fragment-index="1"><b>HCF:</b> Highest Common Factor (e.g.,
+								simplifying/cancelling fractions)</li>
+							<li class="fragment" data-fragment-index="2">Dividing complicated numbers efficiently</li>
+						</ul>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+							<p><b>Key Advantages:</b></p>
+							<ul>
+								<li>Simpler, more manageable computational steps</li>
+								<li>A well-defined algorithmic process for humans or computers</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 2 (PDF p.3): Factorisation and Matrices -->
+				<section data-auto-animate>
+					<h4>Factorisation and Matrices</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<p>Which matrix structures are particularly convenient to work with?</p>
+
+						<ul style="line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Diagonal Matrices:</b> e.g., $\begin{pmatrix}1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 &
+								2\end{pmatrix}$
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								<b>Upper-Triangular Matrices:</b> e.g., $\begin{pmatrix}1 & 3 & 2 \\ 0 & 0 & 4 \\ 0 & 0
+								& -2\end{pmatrix}$
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<b>Lower-Triangular Matrices:</b> e.g., $\begin{pmatrix}0 & 0 & 0 \\ -1 & 3 & 0 \\ 2 & 1
+								& -1 \\ 5 & 2 & 1\end{pmatrix}$
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<b>Orthogonal Matrices:</b> Columns satisfy $v_i \cdot v_j = \delta_{ij}$
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 3 (PDF p.4): Common Matrix Factorisations -->
+				<section data-auto-animate>
+					<h4>Matrix Factorisation Types</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<p>Matrix factorisations break $A$ into product forms of standard matrices:</p>
+
+						<p style="margin-top: 10px;"><b>Conventions:</b> $U$ (Upper triangular), $L$ (Lower triangular),
+							$D$ (Diagonal), $Q$ (Orthogonal)</p>
+
+						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
+							<div class="fragment" data-fragment-index="0"
+								style="width: 48%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
+								<p><b>LU Factorisation:</b></p>
+								$$ A = LU $$
+							</div>
+							<div class="fragment" data-fragment-index="1"
+								style="width: 48%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
+								<p><b>QR Factorisation:</b></p>
+								$$ A = QR $$
+							</div>
+						</div>
+
+						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
+							<div class="fragment" data-fragment-index="2"
+								style="width: 48%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
+								<p><b>Cholesky Factorisation:</b></p>
+								$$ A = U^T U $$
+							</div>
+							<div class="fragment" data-fragment-index="3"
+								style="width: 48%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
+								<p><b>SVD:</b></p>
+								$$ A = Q_n \Sigma Q_m^T $$
+							</div>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 4 (PDF p.5): LU Factorisation Concept -->
+				<section data-auto-animate>
+					<h4>LU Factorisation: Motivation</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<p>Row reduction provides a systematic approach to solving $A x = b$:</p>
+
+						<ol style="line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="0">Perform row operations on the augmented matrix
+								$[A \mid b]$.</li>
+							<li class="fragment" data-fragment-index="1">
+								After $k$ steps, the augmented system becomes:
+								$$ [E_k \dots E_1 A \mid E_k \dots E_1 b] $$
+							</li>
+							<li class="fragment" data-fragment-index="2"><b>Objective:</b> Convert $A$ into an upper
+								triangular matrix $U$.</li>
+							<li class="fragment" data-fragment-index="3">
+								The resulting system $[U \mid r]$ allows straightforward <b>back substitution</b>.
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 5 (PDF p.6): LU Back-substitution Example (Unique Solution) -->
+				<section data-auto-animate>
+					<h4>Back-Substitution: Unique Solution</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>System: $3x_1 + 2x_2 - x_3 = -2$, $3x_1 + x_2 - x_3 = -5$, $3x_1 + 2x_2 + x_3 = 2$</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p>Row reduction to $[U \mid r]$:</p>
+							$$ \begin{pmatrix}3 & 2 & -1 & -2 \\ 3 & 1 & -1 & -5 \\ 3 & 2 & 1 & 2\end{pmatrix}
+							\Rightarrow \begin{pmatrix}3 & 2 & -1 & -2 \\ 0 & -1 & 0 & -3 \\ 0 & 0 & 2 & 4\end{pmatrix}
+							$$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p>Back-substitution steps:</p>
+							<ul style="line-height: 1.6em;">
+								<li>$2x_3 = 4 \implies \mathbf{x_3 = 2}$</li>
+								<li>$-x_2 = -3 \implies \mathbf{x_2 = 3}$</li>
+								<li>$3x_1 + 2(3) - (2) = -2 \implies 3x_1 + 4 = -2 \implies \mathbf{x_1 = -2}$</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 6 (PDF p.7): LU Back-substitution Example (Family of Solutions) -->
+				<section data-auto-animate>
+					<h4>Back-Substitution: Family of Solutions</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>System: $3x_1 + 2x_2 - x_3 + 2x_4 = -2$, $3x_1 + x_2 - x_3 + x_4 = -5$, $3x_1 + 2x_2 + x_3 +
+							2x_4 = 2$</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
+							$$ \begin{pmatrix}3 & 2 & -1 & 2 & -2 \\ 3 & 1 & -1 & 1 & -5 \\ 3 & 2 & 1 & 2 &
+							2\end{pmatrix} \Rightarrow \begin{pmatrix}3 & 2 & -1 & 2 & -2 \\ 0 & -1 & 0 & -1 & -3 \\ 0 &
+							0 & 2 & 0 & 4\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
+							<p>Back-substitution yields:</p>
+							<ul style="line-height: 1.5em;">
+								<li>$2x_3 = 4 \implies \mathbf{x_3 = 2}$</li>
+								<li>$-x_2 - x_4 = -3 \implies \mathbf{x_2 = 3 - x_4}$</li>
+								<li>$3x_1 + 2(3 - x_4) - 2 + 2x_4 = -2 \implies 3x_1 + 4 = -2 \implies \mathbf{x_1 =
+									-2}$</li>
+							</ul>
+						</div>
+
+						<p class="fragment" data-fragment-index="2" style="margin-top: 10px; color: #4285f4;">
+							<i>Question:</i> What form does $E = E_m \dots E_1$ take where $U = E A$?
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 7 (PDF p.8): When A = LU Holds -->
+				<section data-auto-animate>
+					<h4>When Does $A = LU$ Hold?</h4>
+					<div class="size-85" style="font-size: 0.78em;">
+						<p>$A = LU$ holds directly if row reduction requires <b>no row swaps</b>.</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p>Writing $U = E A$ with lower triangular operations:</p>
+							$$ U = EA = \begin{pmatrix}E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 + E_{22}\vec{a}_2 \\ \vdots \\
+							E_{m1}\vec{a}_1 + \dots + E_{mm}\vec{a}_n\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p>If $A = E^{-1} U$, then $E^{-1}$ must be lower-triangular.</p>
+							<blockquote
+								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 8px;">
+								This occurs if and only if the row reduction process uses <b>no row swaps</b>. In that
+								case, $L = E^{-1}$ and $A = LU$.
+							</blockquote>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 8 (PDF p.9): Row Reduction without Row Swaps Example -->
+				<section data-auto-animate>
+					<h4>Row Reduction Without Swaps</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Augmenting identity $I \mid A$ during row reduction:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
+							$$ \begin{pmatrix}1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\ 0&1&0&0 &
+							a_{21}&a_{22}&a_{23}&a_{24}\\ 0&0&1&0 & a_{31}&a_{32}&a_{33}&a_{34}\\ 0&0&0&1 &
+							a_{41}&a_{42}&a_{43}&a_{44}\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
+							<p>Applying forward elimination (lower triangular multiplier steps):</p>
+							$$ \rightarrow \begin{pmatrix}1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\ E_{21}&1&0&0 &
+							0&b_{22}&b_{23}&b_{24}\\ E_{31}&E_{32}&1&0 & 0&0&c_{33}&c_{34}\\ E_{41}&E_{42}&E_{43}&1 &
+							0&0&0&d_{44}\end{pmatrix} = [E \mid U] $$
+						</div>
+
+						<p class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							Taking inverse of $E$ gives $A = E^{-1}U = LU$.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 9 (PDF p.10): Permutation Matrices & PLU Factorisation -->
+				<section data-auto-animate>
+					<h4>PLU Factorisation & Permutations</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>If zero pivots occur, row swaps are required. We represent row swaps via a <b>permutation
+								matrix $P$</b>.</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<blockquote
+								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
+								<b>Theorem:</b> Any matrix $A$ can be written as $A = PLU$, where $L$ is
+								lower-triangular, $U$ is upper-triangular, and $P$ is a permutation matrix.
+							</blockquote>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p><b>Properties of Permutation Matrices $P$:</b></p>
+							<ul style="line-height: 1.6em;">
+								<li>Square matrix with exactly one 1 per row and column (0s elsewhere)</li>
+								<li>Determinant is $\det(P) = \pm 1$</li>
+								<li>$P^m = I$ for some integer $m$, and $P^{-1} = P^T$ is also a permutation matrix</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 10 (PDF p.11): Uniqueness of PLU Factorisation -->
+				<section data-auto-animate>
+					<h4>Uniqueness of PLU & PDL'U</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<div class="fragment" data-fragment-index="0">
+							<blockquote
+								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
+								<b>Theorem:</b> Any matrix $A$ has a unique factorisation $A = PLU$ where $U$ is in
+								row-reduced echelon form.
+							</blockquote>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Extended Form ($A = PDL'U$):</b></p>
+							<ul style="line-height: 1.6em;">
+								<li>$P$ and $U$ are identical to the $PLU$ factorisation.</li>
+								<li>$L'$ is unit lower-triangular with 1s along the diagonal.</li>
+								<li>$D$ is a diagonal matrix containing row scaling factors.</li>
+								<li>Relation: $DL' = L$.</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 11 (PDF p.12-13): MATLAB/Octave Implementation -->
+				<section data-auto-animate>
+					<h4>LU Factorisation in Octave / MATLAB</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Command: <code>[L, U, P] = lu(A)</code></p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<pre><code class="language-matlab">> B = [4 5 0; 2 5 2; 0 5 4];
+> [L, U, P] = lu(B)
+
+L =
+    1.0000         0         0
+    0.5000    1.0000         0
+         0    1.0000    1.0000
+
+U =
+     4     5     0
+     0     5     4
+     0     0     0
+
+P =
+     1     0     0
+     0     0     1
+     0     1     0</code></pre>
+						</div>
+						<p class="fragment" data-fragment-index="1" style="color: #ff6b6b; margin-top: 5px;">
+							<i>Note:</i> Omitting <code>P</code> (e.g., <code>[L,U] = lu(B)</code>) merges $P$ into $L$,
+							which may result in $L$ not being strictly lower-triangular.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 12 (PDF p.14): QR Factorisation Context -->
+				<section data-auto-animate>
+					<h4>QR Factorisation: Column Space View</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<p>In $A x = b$, the system represents a linear combination of columns:</p>
+						$$ \sum_i x_i a_i = x_1 a_1 + x_2 a_2 + \dots + x_n a_n = b $$
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
+							<p><b>Solvability conditions:</b></p>
+							<ul style="line-height: 1.6em;">
+								<li>If $b \notin \text{Col}(A) \implies$ No solution</li>
+								<li>If $b \in \text{Col}(A) \implies$ At least one solution</li>
+								<li>If $\text{Null}(A) \neq \{0\} \implies$ Infinite family of solutions</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 13 (PDF p.15): Benefits of Orthogonal Column Bases -->
+				<section data-auto-animate>
+					<h4>Benefits of Orthogonal Bases</h4>
+					<div class="size-85" style="font-size: 0.78em;">
+						<p>If column vectors $a_i$ are <b>orthonormal</b> ($a_i \cdot a_j = \delta_{ij}$), finding
+							coefficients $x_j$ is trivial:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							$$ a_j \cdot b = a_j \cdot (x_1 a_1 + x_2 a_2 + \dots + x_n a_n) $$
+							$$ a_j \cdot b = x_1 (a_j \cdot a_1) + \dots + x_j (a_j \cdot a_j) + \dots = x_j $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p>Alternatively, if $A$ is orthogonal ($A^T A = I$):</p>
+							$$ A x = b \implies x = A^T A x = A^T b \implies x_j = a_j \cdot b $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 14 (PDF p.16): Gram-Schmidt Orthogonalisation Process -->
+				<section data-auto-animate>
+					<h4>Gram-Schmidt Orthogonalisation</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Constructing an orthonormal basis $\{\hat{v}_j\}$ from span $\{a_j\}$:</p>
+
+						<ol style="line-height: 1.6em;">
+							<li class="fragment" data-fragment-index="0">
+								$v_1 = a_1 \implies \mathbf{\hat{v}_1 = \frac{v_1}{\|v_1\|}}$
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Subtract projection onto $\hat{v}_1$: $v_2 = a_2 - (a_2 \cdot \hat{v}_1)\hat{v}_1
+								\implies \mathbf{\hat{v}_2 = \frac{v_2}{\|v_2\|}}$
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Subtract projections onto $\hat{v}_1, \hat{v}_2$: $v_3 = a_3 - (a_3 \cdot
+								\hat{v}_1)\hat{v}_1 - (a_3 \cdot \hat{v}_2)\hat{v}_2 \implies \mathbf{\hat{v}_3 =
+								\frac{v_3}{\|v_3\|}}$
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								General step:
+								$$ v_m = a_m - \sum_{i=1}^{m-1} (a_m \cdot \hat{v}_i) \hat{v}_i \implies
+								\mathbf{\hat{v}_m = \frac{v_m}{\|v_m\|}} $$
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+
+				<!-- Slide 1 (PDF p.17): Gram-Schmidt to Matrix Representation -->
+				<section data-auto-animate>
+					<h4>QR Factorisation: Basis Construction</h4>
+					<div class="size-85" style="font-size: 0.78em;">
+						<p>Gram-Schmidt vectors $\hat{v}_j$ expressed as linear combinations of $a_i$:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							$$ \begin{pmatrix} | & | & | \\ \hat{v}_1 & \hat{v}_2 & \hat{v}_3 & \dots \\ | & | & |
+							\end{pmatrix} = \begin{pmatrix} | & | & | \\ a_1 & a_2 & a_3 & \dots \\ | & | & |
+							\end{pmatrix} \begin{pmatrix} c_{11} & c_{12} & c_{13} & \dots \\ 0 & c_{22} & c_{23} &
+							\dots \\ 0 & 0 & c_{33} & \dots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p>In matrix notation:</p>
+							$$ Q = AC $$
+							<p>where $Q$ has orthonormal columns and $C$ is an upper-triangular matrix.</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 2 (PDF p.18): Deriving A = QU -->
+				<section data-auto-animate>
+					<h4>Deriving the QR Form</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<p>From the Gram-Schmidt relation, $Q = AC$ where $C$ is upper-triangular.</p>
+
+						<ul style="line-height: 1.8em; margin-top: 15px;">
+							<li class="fragment" data-fragment-index="0">
+								If $C$ is invertible, its inverse $C^{-1}$ is also <b>upper-triangular</b>.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Rearranging $Q = AC$ gives:
+								$$ A = Q C^{-1} = Q U $$
+								where $U = C^{-1}$ is an upper-triangular matrix.
+							</li>
+						</ul>
+
+						<blockquote class="fragment" data-fragment-index="2"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 20px;">
+							<b>Note:</b> In general proofs of QR factorisation, $C$ does not strictly need to be
+							invertible.
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 3 (PDF p.19): QR Factorisation Theorem -->
+				<section data-auto-animate>
+					<h4>The QR Factorisation Theorem</h4>
+					<div class="size-85" style="font-size: 0.78em;">
+						<blockquote
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 12px; border-left: 4px solid #4285f4;">
+							<b>Theorem (QR Factorisation):</b> Any matrix $A$ can be factorised as:
+							$$ A = QU \quad (\text{or } A = QR) $$
+							where $Q$ is an orthogonal matrix and $U$ (or $R$) is upper-triangular.
+						</blockquote>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
+							<p><b>Non-Uniqueness of QR Factorisation:</b></p>
+							<p>The QR factorisation is <b>not unique</b> because multiple orthonormal bases can span the
+								same space.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1"
+							style="margin-top: 10px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+							<p><i>Example in $\mathbb{R}^3$:</i> For any angle $\theta$,</p>
+							$$ \{\begin{pmatrix}\cos\theta \\ \sin\theta \\ 0\end{pmatrix}, \begin{pmatrix}-\sin\theta
+							\\ \cos\theta \\ 0\end{pmatrix}, \begin{pmatrix}0 \\ 0 \\ 1\end{pmatrix}\} $$
+							<p>forms a valid orthonormal basis.</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 4 (PDF p.20): QR Factorisation in MATLAB/Octave -->
+				<section data-auto-animate>
+					<h4>Calculating QR in MATLAB / Octave</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Command: <code>[Q, U] = qr(A)</code></p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<pre><code class="language-matlab">> A = [3 2 -1; 3 1 -1; 3 2 1];
+> [Q, U] = qr(A)
+
+Q =
+   -0.5774    0.4082   -0.7071
+   -0.5774   -0.8165    0.0000
+   -0.5774    0.4082    0.7071
+
+U =
+   -5.1962   -2.8868    0.5774
+         0    0.8165    0.8165
+         0         0    1.4142</code></pre>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<pre><code class="language-matlab">> B = [4 5 0; 2 5 2; 0 5 4];
+> [Q, U] = qr(B)
+
+Q =
+   -0.8944    0.1826    0.4082
+   -0.4472   -0.3651   -0.8165
+         0   -0.9129    0.4082
+
+U =
+   -4.4721   -6.7082   -0.8944
+         0   -5.4772   -4.3818
+         0         0   -0.0000</code></pre>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 5 (PDF p.21): Least-Squares Problem with QR -->
+				<section data-auto-animate>
+					<h4>Least-Squares via QR Factorisation</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Minimize $\|y - Xk\|^2$. Standard normal equation solution:</p>
+						$$ k_0 = (X^T X)^{-1} X^T y $$
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p>Substitute $X = QU$ and use $Q^T Q = I$:</p>
+							$$ \begin{aligned}
+							k_0 &= ((QU)^T (QU))^{-1} (QU)^T y \\
+							&= (U^T Q^T Q U)^{-1} U^T Q^T y \\
+							&= (U^T U)^{-1} U^T Q^T y \\
+							&= U^{-1} (U^T)^{-1} U^T Q^T y \\
+							\mathbf{k_0} &\mathbf{= U^{-1} Q^T y}
+							\end{aligned} $$
+						</div>
+
+						<p class="fragment" data-fragment-index="1" style="margin-top: 12px; color: #4285f4;">
+							Using QR factorisation simplifies least-squares into an elegant, computationally stable
+							form!
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 6 (PDF p.22): Linear Best Fit Setup -->
+				<section data-auto-animate>
+					<h4>Least-Squares Practice: Line of Best Fit</h4>
+					<div class="size-85" style="font-size: 0.72em;">
+						<p>Fit $y = mx + c$ for data points $x_i = 1, \dots, 10$:</p>
+
+						<div style="overflow-x: auto; margin-top: 5px;">
+							<table style="width: 100%; font-size: 0.85em; text-align: center;">
+								<tr>
+									<th>$x_i$</th>
+									<td>1</td>
+									<td>2</td>
+									<td>3</td>
+									<td>4</td>
+									<td>5</td>
+									<td>6</td>
+									<td>7</td>
+									<td>8</td>
+									<td>9</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<th>$y_i$</th>
+									<td>0.60</td>
+									<td>2.18</td>
+									<td>2.88</td>
+									<td>4.40</td>
+									<td>4.24</td>
+									<td>4.78</td>
+									<td>5.52</td>
+									<td>5.67</td>
+									<td>5.67</td>
+									<td>4.73</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 12px;">
+							<p>Constructing design matrix $X = QU$:</p>
+							$$ X = \begin{pmatrix}1 & 1 \\ 2 & 1 \\ \vdots & \vdots \\ 10 & 1\end{pmatrix} \implies U =
+							\begin{pmatrix}-19.6214 & -2.8031 \\ 0 & -1.4639\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							$$ U^{-1} Q^T = \frac{1}{165} \begin{pmatrix}-9 & -7 & -5 & -3 & -1 & 1 & 3 & 5 & 7 & 9 \\
+							66 & 55 & 44 & 33 & 22 & 11 & 0 & -11 & -22 & -33\end{pmatrix} $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 7 (PDF p.23): Linear Solution Computation -->
+				<section data-auto-animate>
+					<h4>Linear Fit: Solving for $m$ and $c$</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Computing coefficient vector $\begin{pmatrix}m \\ c\end{pmatrix} = U^{-1} Q^T y$:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							$$ \begin{pmatrix}m \\ c\end{pmatrix} = \frac{1}{165} \begin{pmatrix}-9 & -7 & -5 & -3 & -1
+							& 1 & 3 & 5 & 7 & 9 \\ 66 & 55 & 44 & 33 & 22 & 11 & 0 & -11 & -22 & -33\end{pmatrix}
+							\begin{pmatrix}0.6007 \\ 2.1837 \\ \vdots \\ 4.7268\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							$$ \begin{pmatrix}m \\ c\end{pmatrix} \approx \begin{pmatrix}0.48 \\ 1.42\end{pmatrix} $$
+						</div>
+
+						<blockquote class="fragment" data-fragment-index="2"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
+							Line of best fit: <b>$y = 0.48x + 1.42$</b>
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 8 (PDF p.24): Quadratic Best Fit Setup -->
+				<section data-auto-animate>
+					<h4>Least-Squares Practice: Quadratic Fit</h4>
+					<div class="size-85" style="font-size: 0.72em;">
+						<p>Fit $y = ax^2 + bx + c$ to the same dataset ($x_i = 1 \dots 10$):</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
+							$$ X = \begin{pmatrix}1 & 1 & 1 \\ 4 & 2 & 1 \\ \vdots & \vdots & \vdots \\ 100 & 10 &
+							1\end{pmatrix} \implies X = QU $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
+							$$ U = \begin{pmatrix}-159.1634 & -19.0056 & -2.4180 \\ 0 & -4.8771 & -1.8510 \\ 0 & 0 &
+							0.8502\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 8px;">
+							$$ U^{-1} Q^T = \frac{1}{1320} \begin{pmatrix}30 & 10 & -5 & -15 & -20 & -20 & -15 & -5 & 10
+							& 30 \\ -402 & -166 & 15 & 141 & 212 & 228 & 189 & 95 & -54 & -258 \\ 1188 & 660 & 242 & -66
+							& -264 & -352 & -330 & -198 & 44 & 396\end{pmatrix} $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+
+				<!-- Slide 1 (PDF p.25): Quadratic Best Fit Computation -->
+				<section data-auto-animate>
+					<h4>Quadratic Best Fit: Solution</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Solving for coefficients $\begin{pmatrix}a \\ b \\ c\end{pmatrix} = U^{-1} Q^T y$ in $y =
+							ax^2 + bx + c$:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							$$ \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \frac{1}{1320} \begin{pmatrix}30 & 10 & -5 &
+							-15 & -20 & -20 & -15 & -5 & 10 & 30 \\ -402 & -166 & 15 & 141 & 212 & 228 & 189 & 95 & -54
+							& -258 \\ 1188 & 660 & 242 & -66 & -264 & -352 & -330 & -198 & 44 & 396\end{pmatrix}
+							\begin{pmatrix}0.6007 \\ 2.1837 \\ \vdots \\ 4.7268\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							$$ \begin{pmatrix}a \\ b \\ c\end{pmatrix} \approx \begin{pmatrix}-0.10 \\ 1.59 \\
+							-0.80\end{pmatrix} $$
+						</div>
+
+						<blockquote class="fragment" data-fragment-index="2"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
+							Quadratic fit: <b>$y = -0.10x^2 + 1.59x - 0.80$</b>
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 2 (PDF p.26): Summary of QR Factorisation -->
+				<section data-auto-animate>
+					<h4>Summary of QR Factorisation</h4>
+					<div class="size-85" style="font-size: 0.78em;">
+						<blockquote
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
+							<b>Theorem:</b> Any matrix $A$ can be factorised as $A = QU$ (or $A = QR$), where $Q$ is
+							orthogonal and $U$ is upper-triangular.
+						</blockquote>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
+							<p><b>Key Properties & Advantages:</b></p>
+							<ul style="line-height: 1.7em;">
+								<li>Directly related to the column space of $A$.</li>
+								<li>Provides an explicit orthonormal basis for the column space.</li>
+								<li>Highly advantageous for regression and least-squares problems.</li>
+								<li>Offers superior numerical stability compared to standard LU decomposition.</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 3 (PDF p.27): Cholesky Factorisation -->
+				<section data-auto-animate>
+					<h4>Cholesky Factorisation</h4>
+					<div class="size-85" style="font-size: 0.73em;">
+						<blockquote
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
+							<b>Theorem:</b> Any real, symmetric, positive-definite matrix $A$ can be factorised as:
+							$$ A = U^T U \quad \text{or equivalently} \quad A = L L^T $$
+							where $U$ is upper-triangular and $L = U^T$ is lower-triangular.
+						</blockquote>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p><b>Proof Outline:</b></p>
+							<ol style="line-height: 1.5em;">
+								<li>Diagonalise $A = V D V^T$ with orthogonal $V$. Positive-definiteness implies
+									eigenvalues $D_i > 0$.</li>
+								<li>Define diagonal $S = D^{1/2}$, so $D = S^2 = S S^T \implies A = V S S^T V^T =
+									(VS)(VS)^T$.</li>
+								<li>Apply QR factorisation to $(VS)^T = QU \implies A = (QU)^T (QU) = U^T Q^T Q U = U^T
+									U$.</li>
+							</ol>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 4 (PDF p.28): Cholesky in MATLAB -->
+				<section data-auto-animate>
+					<h4>Calculating Cholesky Factorisation</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Command: <code>U = chol(A)</code></p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<pre><code class="language-matlab">> C = [4 3 2; 3 6 3; 2 3 4];
+> U = chol(C)
+
+U =
+    2.0000    1.5000    1.0000
+         0    1.9365    0.7746
+         0         0    1.5492
+
+> U' * U    % Reconstructs original matrix C
+
+ans =
+    4    3    2
+    3    6    3
+    2    3    4</code></pre>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 5 (PDF p.29): SVD Definition -->
+				<section data-auto-animate>
+					<h4>Singular Value Decomposition (SVD)</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<blockquote
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
+							<b>Theorem:</b> Any matrix $A \in \mathbb{R}^{n \times m}$ can be written as:
+							$$ A = Q_n \Sigma Q_m^T $$
+							where $Q_n$ ($n \times n$) and $Q_m$ ($m \times m$) are orthogonal matrices, and $\Sigma$ is
+							an $n \times m$ diagonal matrix with non-negative real entries.
+						</blockquote>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
+							<p style="color: #ff6b6b;"><b>Notation Warning:</b></p>
+							<p>SVD is often written as $A = U \Sigma V^T$. Note that $U$ and $V$ in this context refer
+								to <i>orthogonal matrices</i>, not upper-triangular matrices!</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 6 (PDF p.30): SVD MATLAB Example -->
+				<section data-auto-animate>
+					<h4>Calculating SVD in MATLAB / Octave</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Command: <code>[u, s, v] = svd(A)</code> for $A = \begin{pmatrix}4 & -2 \\ 1 &
+							1\end{pmatrix}$</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<pre><code class="language-matlab">> A = [4 -2; 1 1];
+> [u, s, v] = svd(A)
+
+u =
+   -0.9940   -0.1091
+   -0.1091    0.9940
+
+s =
+    4.4966         0
+         0    1.3343
+
+v =
+   -0.9085    0.4179
+    0.4179    0.9085</code></pre>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 7 (PDF p.31): SVD vs Spectrum of A -->
+				<section data-auto-animate>
+					<h4>SVD vs. Spectrum of $A$</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<div style="display: flex; justify-content: space-between;">
+							<div style="width: 48%;">
+								<p><b>SVD Singular Values:</b></p>
+								<pre><code class="language-matlab">s =
+   4.4966        0
+        0   1.3343</code></pre>
+							</div>
+							<div style="width: 48%;">
+								<p><b>Eigenvalues of $A$:</b></p>
+								<pre><code class="language-matlab">d =
+   3.0000        0
+        0   2.0000</code></pre>
+							</div>
+						</div>
+
+						<blockquote class="fragment" data-fragment-index="0"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #ff6b6b; margin-top: 20px;">
+							<b>Key Insight:</b> There is generally <b>no direct connection</b> between the eigenvalues
+							of $A$ and its singular values!
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 8 (PDF p.32-33): SVD vs Spectrum of A^T A and A A^T -->
+				<section data-auto-animate>
+					<h4>SVD vs. $A^T A$ and $A A^T$</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems:</p>
+
+						<ul style="line-height: 1.8em; margin-top: 10px;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Singular Values ($\Sigma$):</b> Square roots of the eigenvalues of $A^T A$ (and $A
+								A^T$).
+								$$ \sqrt{\lambda(A^T A)} = \sqrt{\begin{pmatrix}20.2195 & 0 \\ 0 & 1.7805\end{pmatrix}}
+								= \begin{pmatrix}4.4966 & 0 \\ 0 & 1.3343\end{pmatrix} = \Sigma $$
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								<b>Right Vectors ($V$):</b> Columns of $V$ are the eigenvectors of $A^T A$.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<b>Left Vectors ($U$):</b> Columns of $U$ are the eigenvectors of $A A^T$.
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 9 (PDF p.34): Non-Square Matrix SVD -->
+				<section data-auto-animate>
+					<h4>SVD for Non-Square Matrices</h4>
+					<div class="size-85" style="font-size: 0.72em;">
+						<p>Example for $2 \times 3$ matrix $A = \begin{pmatrix}1 & -3 & 2 \\ 2 & 0 & 3\end{pmatrix}$:
+						</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
+							<pre><code class="language-matlab">> A = [1 -3 2; 2 0 3];
+> [u, s, v] = svd(A)
+
+u =
+   -0.7288   -0.6847
+   -0.6847    0.7288
+
+s =
+    4.6385         0         0
+         0    2.3419         0
+
+v =
+   -0.4524    0.3301   -0.8285
+    0.4714    0.8771    0.0921
+   -0.7571    0.3489    0.5523</code></pre>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 10 (PDF p.35-36): Non-Square SVD Properties -->
+				<section data-auto-animate>
+					<h4>Non-Square SVD: Spectral Properties</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Eigenvalues of $A^T A$ for the $2 \times 3$ matrix:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							$$ \lambda(A^T A) = \{21.5156, \; 5.4844, \; 2.52 \times 10^{-15}\} $$
+							$$ \sqrt{\lambda(A^T A)} \approx \{4.6385, \; 2.3419, \; 0\} = \text{diag}(\Sigma) $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<blockquote
+								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
+								<b>Numerical Artifacts:</b> Values like $2.52 \times 10^{-15}$ are floating-point
+								limitations and represent exact zeroes.
+							</blockquote>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 11 (PDF p.37): SVD vs Canonical Form Summary -->
+				<section data-auto-animate>
+					<h4>SVD vs. Canonical (Diagonal) Form</h4>
+					<div class="size-85" style="font-size: 0.73em;">
+						<ul style="line-height: 1.6em;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Singular Values vs. Eigenvalues:</b> $\Sigma$ entries are non-negative square roots
+								of the non-zero eigenvalues of $A A^T$ and $A^T A$.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								<b>Rank & Ordering:</b> For rank $r$, exactly $r$ singular values are non-zero, placed
+								in descending order along the diagonal.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<b>Dimensions:</b> $Q_n$ ($n \times n$) and $Q_m$ ($m \times m$) differ in size for
+								non-square matrices.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<b>Orthonormality:</b> Columns of $Q_n$ and $Q_m$ form orthonormal sets because they are
+								eigenvectors of real symmetric matrices $A A^T$ and $A^T A$.
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
