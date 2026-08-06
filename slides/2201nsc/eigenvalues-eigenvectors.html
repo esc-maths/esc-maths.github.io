@@ -1,0 +1,6186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Lecture 5</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">
+					Eigenvalues &amp; Eigenvectors
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f005.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+
+					<div class="size-80 left-txt">
+						<p class="fragment" data-fragment-index="1" style="text-align: center; font-size: 0.85em;">
+							<b>Returning to the Marital Population Problem</b>
+						</p>
+						<p class="fragment" data-fragment-index="1">Recall the problem: if 80% of the population is
+							married, and in any given year:</p>
+						<ul>
+							<li class="fragment" data-fragment-index="2">The probability a married person divorces is
+								30%</li>
+							<li class="fragment" data-fragment-index="3">The probability an unmarried person marries is
+								20%</li>
+						</ul>
+						<p style="margin-top: 15px;" class="fragment" data-fragment-index="4">What percentage of the
+							population will be married in future years?
+						</p>
+
+
+					</div>
+					<div class="size-80 cc">
+						<div style="margin-top: 15px;">
+							<p class="fragment">
+								$ \begin{pmatrix} \% \text{ married next yr} \\ \% \text{ unmarried next yr}
+								\end{pmatrix}
+								= \begin{pmatrix} [\% \text{ married}] \times 0.7 + [\% \text{ unmarried}] \times 0.2 \\
+								[\%
+								\text{ married}] \times 0.3 + [\% \text{ unmarried}] \times 0.8 \end{pmatrix} $
+
+							</p>
+							<p class="fragment">
+								<span>
+									$\qquad \qquad = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}
+									\begin{pmatrix} \% \text{
+									married}
+									\\ \% \text{ unmarried} \end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 0px; font-size: 1.4em;">
+							<p>
+								$\mathbf{x}_{1} = A\mathbf{x}_{0}$
+
+								<span class="fragment">
+									$\;\Ra\; \mathbf{x}_{n} = A^{n}\mathbf{x}_{0}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-75">
+
+						<p>Initially, 80% of the population is married: $\mathbf{x}_{0} = \begin{pmatrix} 80 \\ 20
+							\end{pmatrix}$</p>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="0">After 1 year, we have:</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="0">
+									$ \mathbf{x}_{1} =
+									A\mathbf{x}_{0} $
+									<span class="fragment" data-fragment-index="1">
+										$=
+										\begin{pmatrix}
+										0.7 & 0.2 \\
+										0.3 & 0.8
+										\end{pmatrix}
+										\begin{pmatrix} 80 \\ 20 \end{pmatrix}$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$ =
+										\begin{pmatrix} 60 \\ 40 \end{pmatrix} $
+									</span>
+								</p>
+							</div>
+						</div>
+
+						<div style="margin-top: 10px;">
+
+							<p class="fragment" data-fragment-index="3">
+								After 2 years, we have:
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="3">
+									$ \mathbf{x}_{2} = A^{2}\mathbf{x}_{0} $
+									<span class="fragment" data-fragment-index="4">
+										$= \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+										\end{pmatrix}^{2} \begin{pmatrix} 80 \\ 20 \end{pmatrix}$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$ = \begin{pmatrix} 50 \\ 50
+										\end{pmatrix} $
+									</span>
+								</p>
+							</div>
+
+						</div>
+
+						<div style="margin-top: 10px;">
+
+							<p class="fragment" data-fragment-index="6">
+								After 10 years, we have:
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="6">
+									$ \mathbf{x}_{10} = A^{10}\mathbf{x}_{0} $
+									<span class="fragment" data-fragment-index="7">
+										$ = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+										\end{pmatrix}^{10} \begin{pmatrix} 80 \\ 20 \end{pmatrix}$
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										$ \approx \begin{pmatrix} 40 \\ 60
+										\end{pmatrix} $
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-80">
+
+						<p>After 20 and 30 years, the state converges:</p>
+						$$ \mathbf{x}_{20} = A^{20}\mathbf{x}_{0} \approx \color{red}{\begin{pmatrix} 40 \\ 60
+						\end{pmatrix}}, \quad
+						\mathbf{x}_{30} = A^{30}\mathbf{x}_{0} \approx \color{red}{\begin{pmatrix} 40 \\ 60
+						\end{pmatrix}} $$
+
+						<div class="fragment" style="margin-top: 5px;">
+							<p>If we start with a completely different initial population distribution, we head toward
+								the exact same endpoint:</p>
+							<div style="display: flex; justify-content: space-around; margin-top: -20px;">
+								<div>$$\qquad A^{20}\begin{pmatrix} 20 \\ 80 \end{pmatrix} \approx
+									\color{red}{\begin{pmatrix} 40 \\ 60
+									\end{pmatrix}} $$</div>
+								<div>$$ A^{20}\begin{pmatrix} 99 \\ 1 \end{pmatrix} \approx \color{red}{\begin{pmatrix}
+									40 \\ 60
+									\end{pmatrix}}\qquad $$</div>
+							</div>
+						</div>
+
+						<div class="fragment"
+							style="margin-top:-15px; text-align: center; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 5px;">
+							<p>Therefore, $\begin{pmatrix} 40 \\ 60 \end{pmatrix}$ is a <strong>steady-state
+									vector</strong> for this process — but why? 🤔</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-75">
+						<p style="text-align: center; font-size: 0.85em;">
+							<b>Returning to the Sea Turtle Problem</b>
+						</p>
+
+						<p class="fragment" data-fragment-index="2">
+							Is it the same for the Loggerhead Sea Turtle
+							stage-based population model?
+						</p>
+
+						<div class="cc size-70">
+							<p class="fragment" data-fragment-index="3">
+								<span style="font-size: 1.7em;">
+									$ \mathbf{x}_{25} = L^{25}\mathbf{x}_{0}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 0 & 0 & 127 & 79 \\ 0.67 & 0.74
+									& 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81 \end{pmatrix}^{25}
+									\begin{pmatrix}
+									200\,000 \\ 30\,000 \\ 5\,000 \\ 1\,500 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\approx$
+									<span class="fragment highlight-red" data-fragment-index="9">
+										$
+										\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123
+										\\ 630 \end{pmatrix}
+										$
+									</span>
+								</span>
+							</p>
+						</div>
+
+						<div class="cc size-70">
+							<p class="fragment" data-fragment-index="6">
+								<span style="font-size: 1.7em;">
+									$ \mathbf{x}_{26} = L^{26}\mathbf{x}_{0} $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									= \begin{pmatrix} 0 & 0 & 127 & 79 \\ 0.67 & 0.74
+									& 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81 \end{pmatrix}^{26}
+									\begin{pmatrix}
+									200\,000 \\ 30\,000 \\ 5\,000 \\ 1\,500 \end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\approx$
+									<span class="fragment highlight-green" data-fragment-index="9">
+										$
+										\begin{pmatrix} 65\,418 \\ 192\,159 \\ 119
+										\\ 610 \end{pmatrix}
+										$
+									</span>
+								</span>
+							</p>
+						</div>
+
+
+
+						<div class="cc size-75" style="margin-top: 0px; text-align: center;">
+							<p class="fragment" data-fragment-index="9">
+								<span style="font-size: 2.5em;">👉 &nbsp;&nbsp;</span>
+								<span id="gg">
+									$ \begin{pmatrix} 65\,418 \\ 192\,159 \\ 119 \\ 610 \end{pmatrix}$
+								</span>
+								<span>
+									$\approx 0.96809$
+								</span>
+								<span id="rr">
+									$
+									\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix} $
+								</span>
+
+							</p>
+						</div>
+						<p class="fragment" style="text-align: center; font-size: 0.9em;">Instead of a fixed endpoint,
+							the state vector is shrinking at a constant percentage rate!</p>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-80">
+
+						<div class="cc size-60" style="margin-top: 0px; text-align: center;">
+							<p>
+								<span style="font-size: 2.5em;">👉 &nbsp;&nbsp;</span>
+								<span id="gg">
+									$ \begin{pmatrix} 65\,418 \\ 192\,159 \\ 119 \\ 610 \end{pmatrix}$
+								</span>
+								<span>
+									$\approx 0.96809$
+								</span>
+								<span id="rr">
+									$
+									\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix} $
+								</span>
+
+							</p>
+						</div>
+
+
+						<p>
+							If we alter the initial population vector,
+							<span class="fragment" data-fragment-index="0">
+								we observe a structurally identical rate limit:
+							</span>
+						</p>
+
+						<div class="cc" style="font-size: 0.8em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								$ L^{25}\begin{pmatrix} 10\,000 \\ 10\,000 \\ 1\,000 \\ 1\,000 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="2">
+									$
+									\approx
+									$
+									<span class="fragment highlight-red" data-fragment-index="5">
+										$\begin{pmatrix} 52\,726 \\ 154\,883 \\ 96 \\ 492 \end{pmatrix},\qquad$
+									</span>
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$L^{26}\begin{pmatrix}
+									10\,000 \\ 10\,000 \\ 1\,000 \\ 1\,000 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$\approx$
+									<span class="fragment highlight-blue" data-fragment-index="5">
+										$\begin{pmatrix} 51\,046 \\ 149\,941
+										\\ 93
+										\\ 476 \end{pmatrix} $
+									</span>
+
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 15px; font-size: 0.8em;">
+							<p>
+								<span class="fragment" data-fragment-index="5" id="bb">
+									$ \begin{pmatrix} 51\,046 \\ 149\,941 \\ 93 \\ 476 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$
+									\approx 0.96809
+									$
+								</span>
+								<span id="rr" class="fragment" data-fragment-index="5">
+									$\begin{pmatrix} 52\,726 \\ 154\,883 \\ 96 \\ 492 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$
+									\;\; \approx\; 0.7803
+									$
+								</span>
+								<span class="fragment" data-fragment-index="6" id="gg">
+									$\begin{pmatrix} 65\,418 \\ 192\,159 \\ 119 \\ 610 \end{pmatrix} $
+								</span>
+							</p>
+
+						</div>
+
+						<p class="fragment" style="margin-top: 25px; text-align: center; font-weight: bold;">
+							How can we mathematically explain these asymptotic behaviors? 🤔
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-75">
+						<p>The state layout distributions $\mathbf{v}_1 = \begin{pmatrix} 40 \\ 60 \end{pmatrix}$ and
+							$\mathbf{v}_2 = \begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix}$ are highly
+							unique:</p>
+
+						<div class="cc" style="font-size: 1em;">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$A\begin{pmatrix} 40 \\ 60 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$= \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+									\end{pmatrix}\begin{pmatrix} 40 \\ 60 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$= 1 \cdot \begin{pmatrix} 40 \\ 60
+									\end{pmatrix}$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="font-size: 1em;margin-top: 30px;">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									$L\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 0 & 0 &
+									127 & 79 \\ 0.67 & 0.74 & 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81
+									\end{pmatrix}\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\approx 0.96809
+									\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix}$
+								</span>
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Eigenvalues &amp; Eigenvectors - Motivation</h4>
+					<div class="size-75">
+						<p>
+							The state layout distributions $\mathbf{v}_1 = \begin{pmatrix} 40 \\ 60 \end{pmatrix}$ and
+							$\mathbf{v}_2 = \begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix}$ are highly
+							unique:
+						</p>
+
+						<div class="cc" style="font-size: 0.8em;">
+							<p>
+								<span>
+									$A\begin{pmatrix} 40 \\ 60 \end{pmatrix}$
+								</span>
+								<span>
+									$= \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+									\end{pmatrix}\begin{pmatrix} 40 \\ 60 \end{pmatrix}$
+								</span>
+								<span>
+									$= 1 \cdot \begin{pmatrix} 40 \\ 60
+									\end{pmatrix}$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.7em;">
+							<p>
+								<span>
+									$L\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix} $
+								</span>
+								<span>
+									$= \begin{pmatrix} 0 & 0 &
+									127 & 79 \\ 0.67 & 0.74 & 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81
+									\end{pmatrix}\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix}$
+								</span>
+								<span>
+									$\approx 0.96809
+									\begin{pmatrix} 67\,574 \\ 196\,492 \\ 123 \\ 630 \end{pmatrix}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div style="margin-top: 20px; padding-left: 15px;">
+							<p>
+								These satisfy the fundamental characteristic equation structure: $ A\mathbf{v} =
+								\lambda\mathbf{v} $
+							</p>
+
+							<p class="fragment">
+								The non-zero directional vector $\mathbf{v}$ is an <strong>eigenvector</strong>, and the
+								scalar multiplier $\lambda$ is its corresponding <strong>eigenvalue</strong>.
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<!--
+				
+				<section data-auto-animate>
+					<h4>Eigenvalues and Eigenvectors Definition</h4>
+					<div class="size-85">
+						<h5>Matrix Transformations</h5>
+						<p>Consider the linear map $T : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ where $T(\mathbf{u}) =
+							A\mathbf{u}$ and $A = \begin{pmatrix} 1 & 2 \\ 2 & -2 \end{pmatrix}$.</p>
+						<p>Evaluating this mapping transformation against arbitrary test inputs reveals distinct
+							behaviors:</p>
+
+						<div class="fragment"
+							style="display: flex; justify-content: space-between; font-size: 0.85em; margin-top: 20px;">
+							<div>(a) $$ T\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 2 & -2
+								\end{pmatrix}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+								$$</div>
+							<div>(b) $$ T\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 \\ -2 \end{pmatrix} $$
+							</div>
+							<div>(c) $$ T\begin{pmatrix} -1 \\ -1 \end{pmatrix} = \begin{pmatrix} -3 \\ 0 \end{pmatrix}
+								$$</div>
+						</div>
+
+						<div class="fragment"
+							style="display: flex; justify-content: space-around; font-size: 0.85em; margin-top: 20px; background: rgba(77,243,169,0.05); padding: 10px; border-radius: 5px;">
+							<div>(d) $$ T\begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 2 \end{pmatrix} =
+								2\begin{pmatrix} 2 \\ 1 \end{pmatrix} $$</div>
+							<div>(e) $$ T\begin{pmatrix} 1 \\ -2 \end{pmatrix} = \begin{pmatrix} -3 \\ 6 \end{pmatrix} =
+								-3\begin{pmatrix} 1 \\ -2 \end{pmatrix} $$</div>
+						</div>
+					</div>
+				</section>
+
+				
+				<section data-auto-animate>
+					<h4>Eigenvalues and Eigenvectors Definition</h4>
+					<div class="size-85">
+						<h5>Geometrical Interpretation (1)</h5>
+						<p>Plotting the input vectors alongside their transformed outputs from options (d) and (e):</p>
+
+						<div style="display: flex; justify-content: space-around; margin-top: 20px;">
+							
+							<div
+								style="text-align: center; border: 1px solid #444; padding: 15px; border-radius: 5px; width: 45%;">
+								<h6>Stretched Matrix Action (d)</h6>
+								<svg width="200" height="200" viewBox="-1 -1 6 6" style="background: #111;">
+									<line x1="0" y1="0" x2="2" y2="1" stroke="#ff5555" stroke-width="0.1"
+										marker-end="url(#arrow)" />
+									<line x1="0" y1="0" x2="4" y2="2" stroke="#4df3a9" stroke-width="0.08"
+										stroke-dasharray="0.2" />
+									<text x="2.2" y="1" fill="#ff5555" font-size="0.5">(2,1)</text>
+									<text x="4.2" y="2" fill="#4df3a9" font-size="0.5">(4,2)</text>
+								</svg>
+							</div>
+
+							
+							<div
+								style="text-align: center; border: 1px solid #444; padding: 15px; border-radius: 5px; width: 45%;">
+								<h6>Reversed &amp; Scaled Action (e)</h6>
+								<svg width="200" height="200" viewBox="-4 -4 8 8" style="background: #111;">
+									<line x1="0" y1="0" x2="1" y2="-2" stroke="#ff5555" stroke-width="0.1" />
+									<line x1="0" y1="0" x2="-3" y2="6" stroke="#4df3a9" stroke-width="0.08"
+										stroke-dasharray="0.2" />
+									<text x="1.2" y="-2" fill="#ff5555" font-size="0.6">(1,-2)</text>
+									<text x="-3.8" y="5.5" fill="#4df3a9" font-size="0.6">(-3,6)</text>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Eigenvalues and Eigenvectors Definition</h4>
+					<div class="size-85">
+						<h5>Geometrical Interpretation (2)</h5>
+						<ul>
+							<li>The spatial domain vector in (d) is scaled identically along its span: <br>
+								$$T\begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 2 \end{pmatrix} =
+								2\begin{pmatrix} 2 \\ 1 \end{pmatrix}$$
+							</li>
+							<li class="fragment" style="margin-top: 10px;">The vector in (e) scales by a factor of 3 and
+								points directly backward: <br>
+								$$T\begin{pmatrix} 1 \\ -2 \end{pmatrix} = \begin{pmatrix} -3 \\ 6 \end{pmatrix} =
+								-3\begin{pmatrix} 1 \\ -2 \end{pmatrix}$$
+							</li>
+						</ul>
+
+						<div class="fragment"
+							style="margin-top: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px;">
+							<p>An $n \times n$ matrix $A$ can hold up to $n$ linearly distinct pairings $(\lambda_i,
+								\mathbf{v}_i)$ such that:</p>
+							$$ A\mathbf{v}_i = \lambda_i\mathbf{v}_i $$
+							<p style="font-size: 0.9em; color: #aaa;">We state that the specific eigenvector belongs
+								explicitly to its baseline eigenvalue partner.</p>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>How to Solve for Eigenvalues and Eigenvectors</h5>
+						<p>We solve the relation: $$ A\mathbf{v} = \lambda\mathbf{v} \iff A\mathbf{v} - \lambda
+							I\mathbf{v} = \mathbf{0} \iff (A - \lambda I)\mathbf{v} = \mathbf{0} $$</p>
+						<p class="fragment">This homogeneous matrix system yields a non-trivial vector solution
+							$\mathbf{v} \neq \mathbf{0}$ if and only if the matrix kernel is singular: $$ \det(A -
+							\lambda I) = 0 $$</p>
+						<p class="fragment style-code-note" style="font-size: 0.85em; color: #aaa;">The expression
+							$\det(A - \lambda I)$ forms the <strong>characteristic polynomial</strong> of matrix $A$.
+						</p>
+
+						<div class="fragment" style="margin-top: 15px; border-top: 1px solid #555; padding-top: 10px;">
+							<h6>Analytical Routine:</h6>
+							<ol style="font-size: 0.85em;">
+								<li>Construct the characteristic equation: $\det(A - \lambda I) = 0$</li>
+								<li>Solve the roots of the polynomial to discover all eigenvalues $\lambda_i$</li>
+								<li>For each unique $\lambda_i$, find the nullspace bases solving $(A - \lambda_i
+									I)\mathbf{v}_i = \mathbf{0}$</li>
+							</ol>
+						</div>
+					</div>
+				</section>
+
+				
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Example 2</h5>
+						<p>Let $A = \begin{pmatrix} 3 & 1 \\ 1 & 3 \end{pmatrix}$.</p>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<h6>1. Find the Characteristic Polynomial:</h6>
+							$$ \det(A - \lambda I) = \begin{vmatrix} 3-\lambda & 1 \\ 1 & 3-\lambda \end{vmatrix} =
+							(3-\lambda)^2 - 1 $$
+							$$ = \lambda^2 - 6\lambda + 8 = (\lambda - 2)(\lambda - 4) $$
+						</div>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<h6>2. Solve for Eigenvalues:</h6>
+							<p>Setting $\det(A - \lambda I) = 0$ yields our roots: $\lambda_1 = 2$ and $\lambda_2 = 4$.
+							</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<h6>3. Solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$ for $\lambda_1 = 2$:</h6>
+							$$ (A - 2I)\mathbf{v} = \begin{pmatrix} 3-2 & 1 \\ 1 & 3-2 \end{pmatrix}\begin{pmatrix} v_1
+							\\ v_2 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+
+				
+				<section data-auto-animate>
+					<h4>Finding Eigenvalues Analytically</h4>
+					<div class="size-85">
+						<h5>Example 2 — Continued</h5>
+						<p>Evaluating the linear row equations for $\lambda_1 = 2$:</p>
+						$$ v_1 + v_2 = 0 \implies v_2 = -v_1 $$
+						<p>Setting the free variable parameter $v_1 = r$ generates the eigenspace map:</p>
+						$$ \mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} r \\ -r \end{pmatrix}
+						= r\begin{pmatrix} 1 \\ -1 \end{pmatrix} $$
+						<p style="font-size: 0.85em; color: #aaa;">Any non-zero scaled variant of $\begin{pmatrix} 1 \\
+							-1 \end{pmatrix}$ forms an eigenvector for $\lambda_1 = 2$.</p>
+
+						<div class="fragment" style="margin-top: 15px; border-top: 1px dashed #444; padding-top: 10px;">
+							<h6>Evaluating the Second Root ($\lambda_2 = 4$):</h6>
+							$$ (A - 4I)\mathbf{v} = \begin{pmatrix} -1 & 1 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} v_1 \\
+							v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \implies -v_1 + v_2 = 0 \implies
+							v_1 = v_2 $$
+							<p>Setting free variable parameter $v_2 = s$ yields:</p>
+							$$ \mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} s \\ s
+							\end{pmatrix} = s\begin{pmatrix} 1 \\ 1 \end{pmatrix} $$
+						</div>
+					</div>
+				</section>
+			-->
+
+
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>What are Eigenvalues and Eigenvectors?</h4>
+					<div class="size-85 left-txt">
+
+						<p class="fragment">They are fundamental intrinsic properties of square matrices that reveal
+							stable structural
+							states across engineering and science systems:</p>
+						<ul style="margin-top: 10px; font-size: 0.85em; line-height: 1.6;" class="fragment">
+							<li>Systems of differential equations &amp; structural analysis</li>
+							<li>Natural frequencies, acoustics, and mechanical resonance</li>
+							<li>Quantum mechanics state space formulations</li>
+							<li>Computer Vision (e.g., Eigenfaces for recognition algorithms)</li>
+							<li>Google's PageRank web indexing systems</li>
+						</ul>
+						<p class="fragment" style="margin-top: 15px;">
+							Geometrically, eigenvectors represent directions that are <strong>not rotated</strong> by
+							the matrix transformation $A\mathbf{v}$. Instead, they are simply scaled,
+							stretched, shrunk, or flipped.
+						</p>
+						<p class="fragment">The eigenvalue $\lambda$ quantifies this exact scaling magnitude and
+							orientation shift.</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Recall: Linear transformation</h4>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									To begin, consider a linear transformation in two dimensions given by a matrix $A$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Linear Algebra: Example 1"
+							src="https://www.geogebra.org/material/iframe/id/qvszu8d8/width/854/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Recall: Linear transformation</h4>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									To begin, consider a linear transformation in two dimensions given by a matrix $A$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Linear Algebra: Example 2"
+							src="https://www.geogebra.org/material/iframe/id/b68ajukn/width/854/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Recall: Linear transformation</h4>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									To begin, consider a linear transformation in two dimensions given by a matrix $A$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Linear Algebra: Example 3"
+							src="https://www.geogebra.org/material/iframe/id/mg6d2738/width/854/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Recall: Linear transformation</h4>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									To begin, consider a linear transformation in two dimensions given by a matrix $A$.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Linear Algebra: Example 4"
+							src="https://www.geogebra.org/material/iframe/id/kznrr8ds/width/854/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Recall: Linear transformation</h4>
+
+					<div class="size-60">
+						<div class="cc">
+							<p>
+								<span>
+									Considering the matrix
+									$A
+
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="r-stack" style="margin-top:-20px">
+						<img class="fragment fade-out" data-fragment-index="0"
+							src="../1010eng/images/week-07/example-01e-text.svg" width="60%">
+						<img class="fragment fade-in-then-out" data-fragment-index="0"
+							src="../1010eng/images/week-07/example-01e2-text.svg" width="60%">
+						<img class="fragment fade-in-then-out" data-fragment-index="1"
+							src="../1010eng/images/week-07/example-01e3-text.svg" width="60%">
+						<img class="fragment fade-in-then-out" data-fragment-index="2"
+							src="../1010eng/images/week-07/example-01f-text.svg" width="60%">
+						<img class="fragment fade-in" data-fragment-index="3"
+							src="../1010eng/images/week-07/example-01g-text.svg" width="60%">
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="size-95">
+
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									If $A $ is an $n\times n$ matrix,
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									then $\v$ is an <strong>eigenvector</strong>
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									if
+								</span>
+							</p>
+
+						</div>
+
+
+
+						<div class="cc" style="font-size:130%">
+
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$A \v $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ = \lambda \v$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+
+								<span class="fragment" data-fragment-index="4">
+									The scalar $\lambda$ is an <strong>eigenvalue</strong> of $A$,
+								</span>
+
+								<span class="fragment" data-fragment-index="5">
+									and we say that $\v$ is an <strong>eigenvector corresponding to</strong>
+									$\lambda.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="cc">
+
+						<p>
+							<span class="fragment" data-fragment-index="0">
+								Matrix-vector multiplication $\qquad \qquad$
+							</span>
+						</p>
+					</div>
+
+					<div>
+						<table style="border:none;">
+							<tr style="border:none;">
+								<td style="border:none;text-align: center;" class="fragment" data-fragment-index="0">
+									$\uparrow$
+								</td>
+								<td style="border:none;text-align: center;">
+
+								</td>
+								<td style="border:none;text-align: center;">
+
+								</td>
+
+							</tr>
+							<tr style="border:none;font-size:130%">
+
+								<td style="border:none;">
+									$A\mathbf v $
+								</td>
+								<td style="border:none;">
+									$ = $
+								</td>
+								<td style="border:none;">
+									$\lambda \v$
+								</td>
+							</tr>
+							<tr style="border:none;">
+
+								<td style="text-align: center;">
+
+								</td>
+								<td style="text-align: center;">
+
+								</td>
+								<td style="text-align: center;" class="fragment" data-fragment-index="1">
+									$ \downarrow$
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+					<div class="cc">
+
+						<p>
+
+							<span class="fragment" data-fragment-index="1">
+								$\qquad \qquad$ Scalar multiplication
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="cc">
+
+						<div class="" style="font-size:130%">
+							<p>
+								<span>
+									$A \v = \lambda \v$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+								to make sense of this equation,
+								<span class="fragment" data-fragment-index="0">
+									consider the
+									$3\times 3$
+									identity matrix:
+								</span>
+							</p>
+
+						</div>
+
+						<div class="">
+							<p class="fragment" data-fragment-index="0">
+								<span>
+									$I =
+									\left(\begin{array}{ccc}
+									1 & 0 & 0 \\
+									0 & 1 & 0 \\
+									0 & 0 & 1 \\
+									\end{array}\right)
+									$
+								</span>
+							</p>
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="cc">
+
+						<div class="" style="font-size:130%">
+							<p>
+								<span>
+									$A \v = \lambda \v$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+							<p>
+								<span>
+									Multiply by $\lambda$ to obtain:
+								</span>
+							</p>
+
+						</div>
+
+						<div>
+
+							<p>
+								<span>
+									$\lambda I =
+									\left(\begin{array}{ccc}
+									\lambda & 0 & 0 \\
+									0 & \lambda & 0 \\
+									0 & 0 & \lambda \\
+									\end{array}\right)
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="cc">
+
+						<div class="" style="font-size:130%">
+							<p>
+								<span>
+									$A \v =\left( \lambda I\right)\v$
+								</span>
+							</p>
+						</div>
+
+
+
+						<br>
+						<div>
+
+							<p>
+								<span>
+									$\lambda I =
+									\left(\begin{array}{ccc}
+									\lambda & 0 & 0 \\
+									0 & \lambda & 0 \\
+									0 & 0 & \lambda \\
+									\end{array}\right)
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="cc">
+
+						<div class="" style="font-size:160%">
+							<p>
+								<span>
+									$A \v =\left( \lambda I\right)\v$
+								</span>
+							</p>
+						</div>
+
+						<div class="" style="font-size:160%">
+							<p>
+								<span>
+									$\Ra \,A \v -\left( \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								<span>
+									$\Ra \,\left(A - \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+
+						</div>
+
+
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="cc">
+
+						<div class="" style="font-size:160%">
+
+							<p>
+								<span>
+									$\underbrace{\left(A - \lambda I\right)}{} \v=\mathbf 0$
+								</span>
+							</p>
+						</div>
+
+						<div style="font-size:80%">
+
+							<p>
+								<span>
+									This matrix looks like $\qquad\qquad\qquad $
+								</span>
+							</p>
+							<p>
+								<span>
+									$
+									\left(\begin{array}{ccc}
+									3-\lambda & -1 & 2 \\
+									2 & 5-\lambda & 4 \\
+									1 & 3 & 5-\lambda \\
+									\end{array}\right)
+									$$\qquad\qquad \qquad$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="cc">
+
+						<div class="" style="font-size:160%">
+							<p>
+								<span>
+									$\left(A - \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+						</div>
+						<div style="font-size:80%">
+
+							<p>
+								<span>
+									We want a <em>nonzero</em> vector $\v$ satisfying this equation.
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									For this, recall that
+								</span>
+							</p>
+						</div>
+						<div style="font-size:160%">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="1">
+
+									$
+									\text{det}\left(A - \lambda I\right) =0
+									$
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br /><br /><br /><br />
+				</section>
+				<section data-auto-animate>
+					<h3>Eigenvalues and Eigenvectors</h3>
+
+					<div class="size-60 cc">
+
+						<div class="">
+							<p>
+								<span>
+									$\left(A - \lambda I\right) \v=\mathbf 0$
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top:-15px">
+
+
+							<p>
+								<span>
+
+									$
+									\text{det}\left(A - \lambda I\right) =0
+									$
+								</span>
+							</p>
+						</div>
+
+
+					</div>
+
+					<div>
+						<iframe scrolling="no" title="Explore det(A-λI)"
+							src="https://www.geogebra.org/material/iframe/id/rmpkecdp/width/854/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="854px" height="400px" style="border:0px;"> </iframe>
+					</div>
+					<br /><br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example 1</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									First, to compute the eigenvalues $\lambda,$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									we set the matrix
+
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$A - \lambda I
+
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$
+									=
+									\left(\begin{matrix}
+									3- \lambda & 1 \\
+									0 & 2 -\lambda
+									\end{matrix}\right).
+									$
+								</span>
+
+							</p>
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Then we compute the determinant
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+
+								<span class="fragment" data-fragment-index="3">
+									$
+									\text{det}
+									\left(\begin{matrix}
+									3- \lambda & 1 \\
+									0 & 2 -\lambda
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									=
+									\left(3- \lambda \right)\left(2- \lambda \right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$
+									=
+									0.
+									$
+								</span>
+
+							</p>
+						</div>
+
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									Thus the eigenvalues are $\lambda =2$ and $\lambda = 3.$
+								</span>
+
+
+							</p>
+
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example 1</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="left-txt">
+
+
+							<p>
+								<span>
+									Thus the eigenvalues are $\lambda =2$ and $\lambda = 3.$
+								</span>
+
+
+							</p>
+
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									To figure out an eigenvector corresponging to the eigenvalue $\lambda =2,$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									we plug in this value to the matrix
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									$
+									\left(\begin{matrix}
+									3- \lambda & 1 \\
+									0 & 2 -\lambda
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$=
+									\left(\begin{matrix}
+									3- 2 & 1 \\
+									0 & 2 -2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									Then we use our equation
+									$\,\left(A-\lambda I\right)\v = \mathbf 0\,$ to obtain
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+
+								<span class="fragment" data-fragment-index="4">
+									$
+
+									\left(\begin{matrix}
+									3- 2 & 1 \\
+									0 & 2 -2
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right).
+									$
+								</span>
+
+
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Example 1</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+							<p>
+
+								<span>
+									$
+									\left(A-\lambda I\right)\v = \mathbf 0 \,\Ra\,
+									\left(\begin{matrix}
+									3- 2 & 1 \\
+									0 & 2 -2
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right)
+									$
+								</span>
+
+
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
+
+								<span>
+									$
+									\; \; \Ra\,
+									\left(\begin{matrix}
+									1 & 1 \\
+									0 & 0
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right)
+									$
+								</span>
+
+
+							</p>
+						</div>
+						<div class="cc">
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									$\Ra
+									\left\{
+									\begin{array}{ccccc}
+									x & +& y & = & 0\\
+									0 x &+& 0 y & = & 0\\
+									\end{array}
+									\right.
+									$
+								</span>
+
+
+								<span class="fragment" data-fragment-index="3">
+									$\;\;\Ra\;\;
+									x = -y.
+									$
+								</span>
+
+
+							</p>
+						</div>
+
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example 1</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="cc">
+							<p>
+
+								<span>
+									$\Ra
+									\left\{
+									\begin{array}{ccccc}
+									x & +& y & = & 0\\
+									0 x &+& 0 y & = & 0\\
+									\end{array}
+									\right.
+									$
+								</span>
+
+
+								<span>
+									$\;\;\Ra\;\;
+									x = -y.
+									$
+								</span>
+
+
+							</p>
+						</div>
+
+						<div class="">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Thus
+								</span>
+
+								<span class="fragment" data-fragment-index="3">
+									$\,
+									\v
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$=
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=
+									\left(\begin{matrix}
+									-y \\
+									y
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=y
+									\left(\begin{matrix}
+									-1 \\
+									1
+									\end{matrix}\right),\;
+									$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$
+									(y \text{ is a scalar}).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									Hence an eigenvector corresponding to $\lambda =2\,$ is
+								</span>
+
+								<span class="fragment" data-fragment-index="7">
+									$\,
+									\left(\begin{matrix}
+									-1 \\
+									1
+									\end{matrix}\right).
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example 1</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="left-txt">
+
+
+							<p>
+								<span>
+									Now to compute an eigenvector corresponging to the eigenvalue $\lambda =3,$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									we plug in this value to the matrix
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									$
+									\left(\begin{matrix}
+									3- \lambda & 1 \\
+									0 & 2 -\lambda
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$=
+									\left(\begin{matrix}
+									3- 3 & 1 \\
+									0 & 2 -3
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+
+
+							<p>
+								<span class="fragment" data-fragment-index="4">
+									Again we use our equation
+									$\,\left(A-\lambda I\right)\v = \mathbf 0\,$ to obtain
+								</span>
+
+
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+
+								<span class="fragment" data-fragment-index="4">
+									$
+
+									\left(\begin{matrix}
+									3- 3 & 1 \\
+									0 & 2 -3
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right).
+									$
+								</span>
+
+
+							</p>
+						</div>
+
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example 1</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+
+						<div class="cc">
+							<p>
+
+								<span>
+									$
+									\left(A-\lambda I\right)\v = \mathbf 0 \,\Ra\,
+									\left(\begin{matrix}
+									3- 3 & 1 \\
+									0 & 2 -3
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right).
+									$
+								</span>
+
+
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
+
+								<span>
+									$
+									\,\Ra\,
+									\left(\begin{matrix}
+									0 & 1 \\
+									0 & -1
+									\end{matrix}\right)
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)=
+									\left(\begin{matrix}
+									0 \\
+									0
+									\end{matrix}\right)
+									$
+								</span>
+
+
+							</p>
+						</div>
+						<div class="cc">
+							<p>
+
+								<span class="fragment" data-fragment-index="2">
+									$\Ra
+									\left\{
+									\begin{array}{ccccc}
+									0x & +& y & = & 0\\
+									0x &-& y & = & 0\\
+									\end{array}
+									\right.
+									$
+								</span>
+
+
+								<span class="fragment" data-fragment-index="3">
+									$\;\Ra
+									y = 0\,
+									$ &amp; $\,x$ is a free variable.
+								</span>
+
+
+							</p>
+						</div>
+
+
+
+
+
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example 1</h3>
+
+					<div class="size-80">
+
+
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+
+
+
+
+						<div class="cc">
+							<p>
+
+								<span>
+									$\Ra
+									\left\{
+									\begin{array}{ccccc}
+									0x & +& y & = & 0\\
+									0x &-& y & = & 0\\
+									\end{array}
+									\right.
+									$
+								</span>
+
+
+								<span>
+									$\;\Ra
+									y = 0\,
+									$ &amp; $\,x$ is a free variable.
+								</span>
+
+
+							</p>
+						</div>
+
+						<div class="">
+
+
+							<p>
+								<span>
+									Thus
+								</span>
+
+								<span>
+									$\,
+									\v
+									$
+								</span>
+								<span>
+									$=
+									\left(\begin{matrix}
+									x \\
+									y
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=
+									\left(\begin{matrix}
+									x \\
+									0
+									\end{matrix}\right)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=x
+									\left(\begin{matrix}
+									1 \\
+									0
+									\end{matrix}\right),\;
+									$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$
+									(x \text{ is a scalar}).
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="7">
+									Hence an eigenvector corresponding to $\lambda =3\,$ is
+								</span>
+
+								<span class="fragment" data-fragment-index="7">
+									$\,
+									\left(\begin{matrix}
+									1 \\
+									0
+									\end{matrix}\right).
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Example 1 - Two eigenvalues</h3>
+					<div class="size-80">
+						<div style="margin-top:-15px;">
+
+
+							<p>
+								<span>
+									Consider the matrix
+
+									$A
+									= \left(\begin{matrix}
+									3 & 1 \\
+									0 & 2
+									\end{matrix}\right).
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div style="margin-top:px;font-size:90%">
+
+
+						<p>
+							<span>
+								In summary
+							</span>
+						</p>
+					</div>
+
+					<div class="size-75">
+						<div class="left-txt">
+
+
+
+						</div>
+						<div>
+							<table>
+
+								<tr>
+
+									<td>
+										<table style="border: 1px solid #ddd;">
+											<tr>
+												<th style="text-align:center;border: 1px solid #ddd;">Eigenvalue</th>
+												<th style="text-align:center;border: 1px solid #ddd;">Eigenvector</th>
+											</tr>
+											<tr>
+												<td style="text-align:center;border: 1px solid #ddd;">$\lambda_1=2$</td>
+												<td style="text-align:center;border: 1px solid #ddd;">
+													$\left(
+													\begin{array}{c}
+													-1 \\
+													1 \\
+													\end{array}
+													\right)$
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align:center;border: 1px solid #ddd;">$\lambda_2=3$</td>
+												<td style="text-align:center;border: 1px solid #ddd;">
+													$\left(
+													\begin{array}{r}
+													1 \\
+													0 \\
+													\end{array}
+													\right)$
+												</td>
+											</tr>
+
+										</table>
+									</td>
+
+								</tr>
+
+							</table>
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Key Structural Observations</h4>
+					<div class="size-80">
+						<ul style="line-height: 1.6;">
+							<li><strong>Row Reduction:</strong> While full Gaussian elimination works cleanly, $2 \times
+								2$ systems can typically be evaluated by inspection since the rows are linearly
+								dependent by construction.</li>
+							<li class="fragment"><strong>Non-Uniqueness:</strong> Eigenvectors identify an infinite line
+								or directional span. Any scaled non-zero scalar value along that vector trajectory
+								remains a valid structural eigenvector.</li>
+							<li class="fragment"><strong>Matrix Invariant Checks:</strong> For any square matrix $A$:
+								<ol style="margin-top: 5px; line-height: 65px;">
+									<li>$\ds \sum \lambda_i = \text{trace}(A) $ (Sum of principal diagonals)
+									</li>
+									<li>$\ds \prod \lambda_i = \det(A)$ (Matrix determinant calculation)</li>
+								</ol>
+								<div class="fragment" style="font-size: 0.8em; margin-top: 10px;">
+									<p>
+										From Example 1: $\sum \lambda = 3+2=5$ (Trace = $3+2=5$). $\prod \lambda =
+										3 \times 2 = 6$ ($\det = 6 - 0 = 6$).
+									</p>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+					<br />
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Eigenvalue Theorem for $2 \times 2$ Matrices</h4>
+					<div class="size-85">
+
+						<div class="fragment" data-fragment-index="0">
+
+							<p><b>Theorem:</b> The eigenvalues of any arbitrary $2 \times 2$ matrix are found explicitly
+								via: <br>
+								$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0. $$</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px; font-size: 0.9em;">
+
+							<p><b>Proof Outline:</b>
+								Let $A = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}$.
+								<span class="fragment" data-fragment-index="2">
+									Then
+								</span>
+							</p>
+
+						</div>
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$
+									\det(A - \lambda I) = \begin{vmatrix} a_{11}-\lambda & a_{12} \\ a_{21} &
+									a_{22}-\lambda
+									\end{vmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									= (a_{11}-\lambda)(a_{22}-\lambda) - a_{12}a_{21}
+									$
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="5">
+									$
+									= \lambda^2 - (a_{11} + a_{22})\lambda + (a_{11}a_{22} - a_{12}a_{21})
+									$
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									$
+									= \lambda^2 - \text{trace}(A)\lambda + \det(A)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									= 0 \;\qquad \blacksquare
+									$
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Factoring the Characteristic System</h4>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0"><b>Corollary:</b> If $\lambda_1, \lambda_2$
+							represent the true root solutions to matrix $A$,
+							<span class="fragment" data-fragment-index="1">
+								then their polynomial product equation yields:
+
+							</span>
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$(\lambda - \lambda_1)(\lambda - \lambda_2)=0$
+								<span class="fragment" data-fragment-index="2">
+									$\implies \lambda^2 - (\lambda_1 +
+									\lambda_2)\lambda + \lambda_1\lambda_2 = 0 $
+								</span>
+							</p>
+						</div>
+
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>Equating coefficients directly with the primary theorem equation:</p>
+							$$ \lambda^2 - \text{trace}(A)\lambda + \det(A) = 0 $$
+						</div>
+
+						<div class="fragment" style="text-align: center;">
+							$$ \lambda_1 + \lambda_2 = \text{trace}(A) \quad \text{and} \quad \lambda_1\lambda_2 =
+							\det(A) $$
+						</div>
+						<p class="fragment" style="margin-top: 10px; ">This
+							relationship
+							generalizes across all larger $n \times n$ polynomial expansions.</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 2 <span class="fragment" data-fragment-index="3">- Complex eigenvalues</span></h4>
+					<div class="size-80">
+						<p>Find the eigenvalues and corresponding eigenvectors for $A = \begin{pmatrix} 0 & -1 \\ 1 & 0
+							\end{pmatrix}$.</p>
+
+						<div class="cc">
+
+							<p class="fragment" data-fragment-index="0">
+								$\det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} $
+								<span class="fragment" data-fragment-index="1">
+									$
+									=
+									\lambda^2 + 1
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$
+									= 0 \implies \lambda = \pm i
+									$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="3"
+								style="font-weight: bold; margin-top: 5px; text-align: center;" id="rr">
+								A real matrix can yield
+								complex conjugate eigenvalues!
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px; font-size: 0.90em;">
+							<p class="fragment" data-fragment-index="4">
+								For $\lambda_1 = i$:
+								<span class="fragment" data-fragment-index="5">
+									$\;(A - iI)\mathbf{v} = \begin{pmatrix} -i & -1 \\ 1 & -i
+									\end{pmatrix}\begin{pmatrix}
+									v_1
+									\\ v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\Ra -iv_1 - v_2 = 0
+									$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									\Ra v_2 = -iv_1 $
+								</span>
+
+							</p>
+
+
+							<p class="fragment" data-fragment-index="8">
+								Setting free variable $v_1 = r$ gives:
+							</p>
+							<p class="fragment" data-fragment-index="8">
+								$
+								\mathbf{v} = \begin{pmatrix} v_1 \\ v_2
+								\end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="9">
+									$= \begin{pmatrix} r \\ -ri \end{pmatrix} $
+								</span>
+								<span class="fragment">
+									$ = r\begin{pmatrix} 1 \\ -i
+									\end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Example 2 - <span>Complex eigenvalues</span></h4>
+					<div class="size-80">
+						<p>Find the eigenvalues and corresponding eigenvectors for $A = \begin{pmatrix} 0 & -1 \\ 1 & 0
+							\end{pmatrix}$.</p>
+
+						<div class="cc">
+
+							<p>
+								$\det(A - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} $
+								<span>
+									$
+									=
+									\lambda^2 + 1
+									$
+								</span>
+								<span>
+									$
+									= 0 \implies \lambda = \pm i
+									$
+								</span>
+							</p>
+
+							<p style="font-weight: bold; margin-top: 5px; text-align: center;" id="rr">
+								A real matrix can yield
+								complex conjugate eigenvalues!
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p>
+								The eigenvectors associated to $\lambda_1 = i\,$
+								are
+								\(\,\mathbf{v}_1 = r\begin{pmatrix} 1 \\ -i
+								\end{pmatrix}.\)
+							</p>
+							<p class="fragment">
+								The eigenvectors associated to $\lambda_2 = -i\,$
+								are
+								\(\mathbf{v}_2 = s\begin{pmatrix} -i \\ 1
+								\end{pmatrix}.\)
+							</p>
+
+
+
+						</div>
+
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Example 2 - <span>Complex eigenvalues</span></h4>
+					<div class="size-80">
+						<h5>Question: Why does this real matrix have complex roots? 🤔</h5>
+						<p style="font-size: 0.70em;">
+							$$A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$$
+						</p>
+						<p class="fragment"><strong>Answer:</strong> This matrix matches the structure of a standard 2D
+							rotation matrix:</p>
+						<div class="fragment">
+							$$ \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \quad
+							\text{evaluated at } \theta = 90^{\circ} $$
+						</div>
+						<p class="fragment" style="margin-top: 15px;">Because a pure $90^{\circ}$ rotation changes the
+							direction of <em>every</em> non-zero vector in the real plane, no real steady-state
+							directional vector can exist!</p>
+
+						<div class="fragment"
+							style="margin-top: 15px; border-left: 3px solid #aaa; padding-left: 15px; font-size: 0.85em; color: #2b51e8;">
+							<p><strong>Conjugate Pair Property:</strong> For any real matrix, complex eigenvalues must
+								appear as conjugate pairs $a \pm bi$.
+								<span class="fragment">
+									This ensures that when factoring the
+									characteristic equation $(x - \lambda_1)(x - \lambda_2) = 0$, all polynomial
+									coefficients remain completely real.
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Example 3 <span class="fragment" data-fragment-index="9">- A single eigenvalue</span></h4>
+					<div class="size-75">
+						<h5></h5>
+						<p>
+							Find the eigenvalues and eigenvectors for
+							$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+						</p>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 1 \\ 0 & 1-\lambda \end{vmatrix} =
+								$
+								<span class="fragment" data-fragment-index="1">
+									$ (1-\lambda)^2 = 0$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ \Ra \lambda = 1 \;\;$
+								</span>
+								<span class="fragment" data-fragment-index="3" id="bb">
+									(Algebraic Multiplicity = 2)
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="4">
+								For $\lambda = 1$:
+								<span class="fragment" data-fragment-index="5">
+									$ \;(A - 1I)\mathbf{v} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix}
+									v_1 \\
+									v_2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ \Ra v_2 = 0 $
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								Setting the single free parameter $v_1 = r$ yields:
+								$\, \mathbf{v} = \begin{pmatrix} r \\
+								0 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="8">
+									$= r\begin{pmatrix} 1 \\ 0 \end{pmatrix} $
+								</span>
+
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="9" style="margin-top: 15px;">
+							<span id="rr">In this case, there is only one linearly independent eigenvector!</span>
+							<span class="fragment" data-fragment-index="10">
+								This occurs because $A$ is
+								a <strong>shear transformation</strong>
+								(it skews the coordinate grid horizontally), leaving
+								only a single stable invariant direction along the $x$-axis.
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Example 4 - $3 \times 3$ Matrix System</h4>
+					<div class="size-80">
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								Take the matrix $A = \begin{pmatrix} 1 & 0 & 2 \\ 0 & 2 & 1 \\ 3 & 0 & 2 \end{pmatrix} $
+							</p>
+						</div>
+
+						<div style="font-size: 0.9em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								Expand the determinant along the second column to exploit the zero entry:
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$ \det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 0 & 2 \\ 0 & 2-\lambda & 1 \\ 3 & 0
+								&
+								2-\lambda \end{vmatrix}$
+								<span class="fragment" data-fragment-index="3">
+									$ = (2-\lambda) \begin{vmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{vmatrix}
+									\qquad\qquad $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								$=
+								(2-\lambda)\left[(1-\lambda)(2-\lambda) - 6\right]$
+								<span class="fragment" data-fragment-index="6">
+									$= (2-\lambda)\left[\lambda^2 - 3\lambda - 4\right]$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$
+								= (2-\lambda)(\lambda + 1)(\lambda - 4) = 0 \qquad\qquad\qquad\qquad\;\,\, $
+							</p>
+						</div>
+
+						<p class="fragment"
+							style="color: #068e51; font-weight: bold; margin-top: 10px; text-align: center;">
+							Eigenvalue solutions: $\lambda_1 = 2,\;$ $\lambda_2 = -1,\;$ $\lambda_3 = 4$
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Example 4 - $3 \times 3$ Matrix System</h4>
+					<div class="size-80">
+
+						<div style="font-size: 0.9em; margin-top: 30px;">
+							<div class="cc">
+								<p>
+									For $\lambda_1 = 2$: $ \;\begin{pmatrix} -1 & 0 & 2 \\ 0 & 0 & 1 \\ 3 & 0 & 0
+									\end{pmatrix}\begin{pmatrix}
+									v_1 \\
+									v_2 \\ v_3 \end{pmatrix} = \mathbf{0} $
+									<span class="fragment" data-fragment-index="2">
+										$ \,\Ra\, v_1=0,\, v_3=0, \,v_2=r$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$ \,\Ra\, \mathbf{v}_1 =
+										r\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $
+									</span>
+
+								</p>
+							</div>
+						</div>
+						<hr class="fragment" data-fragment-index="5" />
+
+						<div style="font-size: 0.9em; margin-top: 30px;">
+
+							<div class="cc">
+								<p class="fragment" data-fragment-index="5">
+									For $\lambda_2 = -1$: $ \; \begin{pmatrix} 2 & 0 & 2 \\ 0 & 3 & 1 \\ 3 & 0 & 3
+									\end{pmatrix}\begin{pmatrix} v_1 \\
+									v_2 \\ v_3 \end{pmatrix} = \mathbf{0}$
+									<span class="fragment" data-fragment-index="6">
+										$\, \Ra\, v_1 = -v_3,\, v_2 = -\dfrac{1}{3}v_3 $
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$ \,\Ra\,
+										\mathbf{v}_2 = \dfrac{t}{3}\begin{pmatrix} -3 \\ -1 \\ 3\end{pmatrix} $
+									</span>
+
+								</p>
+							</div>
+						</div>
+
+						<hr class="fragment" data-fragment-index="8" />
+
+						<div style="font-size: 0.9em; margin-top: 50px; margin-bottom: 50px;">
+
+							<div class="cc">
+								<p class="fragment" data-fragment-index="8">
+									For $\lambda_3 = 4$: $ \; \begin{pmatrix} -3 & 0 & 2 \\ 0 & -2 & 1 \\ 3 & 0 & -2
+									\end{pmatrix}\begin{pmatrix} v_1
+									\\ v_2 \\ v_3 \end{pmatrix} = \mathbf{0} $
+									<span class="fragment" data-fragment-index="9">
+										$ \,\Ra\, v_1 = \dfrac{2}{3}v_3,\, v_2 = \dfrac{1}{2}v_3$
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$ \,\Ra\, \mathbf{v}_3 = \dfrac{s}{6}\begin{pmatrix} 4 \\ 3 \\ 6 \end{pmatrix}$
+									</span>
+
+								</p>
+							</div>
+						</div>
+
+
+
+
+					</div>
+					<br />
+				</section>
+
+				<section>
+
+					<h4>
+						The order of the characteristic equation
+					</h4>
+
+					<div class="cc size-85">
+						<p class="fragment" data-fragment-index="0">$2\times 2$ matrices imply $\det(A-\lambda I )=0$ is
+							a quadratic equation</p>
+						<p class="fragment" data-fragment-index="1">$3\times 3$ matrices imply $\det(A-\lambda I )=0$ is
+							a cubic equation</p>
+						<p class="fragment" data-fragment-index="2">$\vdots$</p>
+						<p class="fragment" data-fragment-index="2">$n\times n$ matrices imply $\det(A-\lambda I )=0$ is
+							an equation of degree $n$</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="3">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬" width="140"
+								height="140">
+						</picture>
+					</div>
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvalues of Triangular Matrices</h4>
+					<div class="size-75">
+
+						<div class="fragment" data-fragment-index="0">
+							<p>The eigenvalues of any triangular (upper or lower) or diagonal
+								matrix are precisely the entry values sitting directly on the main diagonal.</p>
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								Consider $ A = \begin{pmatrix} 4 & 4 & 6 \\ 0 & 2 & 7 \\ 0 & 0 & 1 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="2">
+									$\implies
+									\lambda_1 = 4, \;\; \lambda_2 = 2, \;\; \lambda_3 = 1$
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: 15px; font-size: 0.9em;">
+							<h5 class="fragment" data-fragment-index="3">Why does this hold? 🤔</h5>
+							<p class="fragment" data-fragment-index="4">
+								When computing the characteristic determinant of a triangular system:
+								$$ \det(A - \lambda I) = \begin{vmatrix} 4-\lambda & 4 & 6 \\ 0 & 2-\lambda & 7 \\ 0 & 0
+								&
+								1-\lambda \end{vmatrix} $$
+							</p>
+
+
+							<p class="fragment" data-fragment-index="5">
+								Cofactor expansion along the first column shows the determinant is just the product of
+								diagonal elements: $(4-\lambda)(2-\lambda)(1-\lambda) = 0$.</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
+
+					<div class="size-80">
+
+						<p class="fragment" data-fragment-index="0">
+							Eigenvalues and eigenvectors can be computed quickly using
+							many programming languages and mathematical software packages.
+						</p>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								<tt>Python, Mathematica, MATLAB/Octave, <br /> GeoGebra CAS, Maple, Julia, etc.</tt>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: -20px;margin-bottom: -20px;">
+							<img style="width: 20%;"
+								src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
+						</div>
+
+
+
+					</div>
+					<div class="cc size-70">
+						<p class="fragment" data-fragment-index="1">
+							There are also many free online calculators that can compute
+							them automatically <br>
+							👉 <span id="bb">just Google "eigenvalues/eigenvectors calculator"</span>.
+						</p>
+					</div>
+
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
+					<div class="size-80">
+
+
+						<div class="cc">
+							<p><tt>MATLAB/Octave</tt>
+
+								has efficient algorithms for finding eigenvalues and eigenvectors.
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="1">
+							1. Construct the matrix $A$, e.g. &nbsp; <span
+								style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;"><tt>A =
+									[1 0 0; 0 2 1; 0 1 2]</tt></span>
+						</p>
+
+						<p class="fragment" data-fragment-index="2">
+							2. Use the command <tt>eig</tt> as follows: &nbsp;<span
+								style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;"><tt>[V,
+									D] = eig(A)</tt></span>
+						</p>
+
+
+
+					</div>
+					<div class="size-75">
+						<p class="fragment" data-fragment-index="3"><b>Interpretation:</b></p>
+						<ul style="list-style: none;  margin-left: 0;">
+							<li class="fragment" data-fragment-index="3"><tt>D</tt> = diagonal matrix containing the
+								eigenvalues of $A$.</li>
+							<li class="fragment" data-fragment-index="4"><tt>V</tt> = matrix whose columns are the
+								eigenvectors of $A$, where each column has been
+								normalised, and the order of the eigenvectors matches the order of the eigenvalues.</li>
+						</ul>
+
+						<p class="fragment" data-fragment-index="5">
+							<b>NOTE!!</b> The eigenvectors found by <tt>Matlab/Octave</tt> are
+							normalised (i.e. length=1), which
+							is ok since <em>eigenvectors are not unique</em>.
+							<span class="fragment" data-fragment-index="6">
+								So the eigenvectors found by <tt>MATLAB/Octave</tt> may
+								not appear to agree with your hand-calculations
+								at first glance.
+							</span>
+
+						</p>
+
+					</div>
+
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
+
+
+					<div class="size-70">
+
+						<div class="cc">
+							<p>
+
+								$
+								A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="1">
+									$\Ra\det(A - \lambda I) = (1-\lambda)\left[(2-\lambda)^{2}-1\right] $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ =
+									(1-\lambda)(\lambda-3)(\lambda-1) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= 0 $
+								</span>
+							</p>
+						</div>
+
+						<div style="font-size: 0.9em;">
+							<p class="fragment" data-fragment-index="4">This yields our eigenvalues: $\lambda_1 = 3$ and
+								a repeated root $\lambda_2 = 1$
+								<span class="fragment" data-fragment-index="5">
+									(Algebraic Multiplicity = 2).
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.9em; margin-top: 5px;">
+							<p class="fragment" data-fragment-index="6">
+								For $\lambda_1 = 3$:
+
+								$ \begin{pmatrix} -2 & 0 & 0 \\ 0 & -1 & 1 \\ 0 & 1 & -1 \end{pmatrix}\begin{pmatrix}
+								v_1
+								\\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+								<span class="fragment" data-fragment-index="7">
+									$ \implies v_1 =
+									0, \;
+									v_2 = v_3 $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\implies \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} $
+								</span>
+
+							</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.9em; margin-top: 5px;">
+							<p class="fragment" data-fragment-index="9">
+								For $\lambda_2 = 1$:
+								$ \begin{pmatrix} 0 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} v_1
+								\\
+								v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+
+								<span class="fragment" data-fragment-index="10">
+									$ \implies v_2 + v_3
+									= 0 $
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									$
+									\implies v_2 = -v_3 $
+								</span>
+
+							</p>
+
+							<p class="fragment" data-fragment-index="11">
+								Setting free parameters $\,v_1 = r\,$ and $\,v_3 = t,\,$ implies
+
+								$ \,\mathbf{v}_2 = \begin{pmatrix} r \\ -t \\ t \end{pmatrix}$
+								<span class="fragment" data-fragment-index="12">
+									$ = r\begin{pmatrix} 1 \\ 0 \\
+									0
+									\end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} $
+								</span>
+							</p>
+
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
+
+					<div class="cc" style="font-size: 0.5em;">
+						<p>
+							$
+							A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}\;\Ra\;
+							$
+
+							<span>$\boxed{\lambda_1 =3,\, \mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1
+								\end{pmatrix}}\,$</span>
+							and
+							<span>$\,\boxed{\lambda_2 =1,\, \mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} +
+								t\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}}$</span>
+						</p>
+					</div>
+
+
+
+					<div class="cc size-80">
+						<p class="fragment"><tt>MATLAB/Octave</tt></p>
+					</div>
+
+					<pre style="width: 60%;height: 50px; font-size: 60%;margin-top: -15px;" class="fragment">
+						<code data-trim data-noescape  class="language-python">
+>> [V, D] = eig([1 0 0; 0 2 1; 0 1 2])
+  </code></pre>
+
+					<div class="cc fragment">
+						<p class="size-80"><tt>Output</tt></p>
+
+						<pre style="width: 60%;height: 220px; font-size: 60%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python">
+V = 1.0000        0        0
+    0         -0.7071   0.7071
+    0          0.7071   0.7071
+
+D = 1   0   0
+    0   1   0
+    0   0   3
+  </code></pre>
+
+						<br />
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 5: Finding eigenvalues & eigenvectors using the computer 💻</h4>
+
+					<div class="cc" style="font-size: 0.5em;">
+						<p>
+							$
+							A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 1 & 2 \end{pmatrix}\;\Ra\;
+							$
+
+							<span class="fragment highlight-red" data-fragment-index="3">$\boxed{\lambda_1 =3,\,
+								\mathbf{v}_1 = s\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}}\,$</span>
+							and
+							<span class="fragment highlight-blue" data-fragment-index="6">$\,\boxed{\lambda_2 =1,\,
+								\mathbf{v}_2 = r\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + t\begin{pmatrix} 0 \\ -1 \\
+								1 \end{pmatrix}}$</span>
+						</p>
+					</div>
+
+					<div class="cc" style="margin-top: -20px;">
+						<p class="size-80"><tt>Output</tt></p>
+
+						<pre style="width: 60%;height: 220px; font-size: 60%;margin-top: -15px;">
+						<code data-trim data-noescape  class="language-python">
+V = 1.0000        0        0
+    0         -0.7071   0.7071
+    0          0.7071   0.7071
+
+D = 1   0   0
+    0   1   0
+    0   0   3
+  </code></pre>
+
+						<br />
+					</div>
+
+					<table style="width: 100%; font-size: 0.65em; margin-top: -40px;">
+
+						<tr>
+
+							<td id="rr" style="width: 50%;text-align: center;" class="fragment" data-fragment-index="0">
+								\(\underbrace{\lambda_1=3}_{\text{3rd col. of D}}\):
+								<span class="fragment" data-fragment-index="1">
+									$\; \underbrace{\begin{pmatrix} 0 \\ 0.7071 \\ 0.7071 \end{pmatrix}}_{\text{3rd col.
+									of V}} $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$=\dfrac{1}{\sqrt{0^2+1^2+1^2}}\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}$
+								</span>
+							</td>
+							<td id="bb" style="width: 50%;text-align: center;" class="fragment" data-fragment-index="4">
+								\(\underbrace{\lambda_2=1}_{\text{1st & 2nd}\newline \text{cols. of D}}\):
+								<span class="fragment" data-fragment-index="5">
+									$\; \underbrace{\begin{pmatrix} 1 \\ 0 \\ 0
+									\end{pmatrix}\,\text{and}\,\begin{pmatrix} 0 \\ -0.7071 \\ 0.7071
+									\end{pmatrix}}_{\text{1st & 2nd cols. of V}} $
+								</span>
+
+							</td>
+						</tr>
+					</table>
+					<div class="fragment cc" style="margin-top: -20px; font-size: 0.6em;">
+						<p><strong>Note:</strong> Repeated eigenvalues appear frequently in physical scenarios that
+							feature structural symmetry.</p>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 6 - Sea Turtle <tt>MATLAB/Octave</tt> Outputs 💻</h4>
+					<div class="size-85">
+
+						<p class="fragment">Recall our <em>Leslie</em> matrix defined earlier as
+							$$L = \begin{pmatrix} 0 & 0 &
+							127 & 79 \\ 0.67 & 0.74 & 0 & 0 \\ 0 & 0.0006 & 0 & 0 \\ 0 & 0 & 0.81 & 0.81
+							\end{pmatrix}$$
+						</p>
+						<br />
+						<pre style="width: 100%;height: 42px; font-size: 78%;margin-top: 15px;" class="fragment">
+						<code data-trim data-noescape  class="language-python">
+>> [V, D] = eig([0 0 127 79; 0.67 0.74 0 0; 0 0.0006 0 0; 0 0 0.81 0.81])
+  </code></pre>
+
+						<br />
+						<br />
+
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Example 6 - Sea Turtle <tt>MATLAB/Octave</tt> Outputs 💻</h4>
+					<div class="size-75">
+						<pre style="width: 90%;height: 42px; font-size: 78%;margin-top: -5px;">
+						<code data-trim data-noescape  class="language-python">
+>> [V, D] = eig([0 0 127 79; 0.67 0.74 0 0; 0 0.0006 0 0; 0 0 0.81 0.81])
+  </code></pre>
+						<p>Evaluating the stage-based Loggerhead Sea Turtle population matrix $L$ yields:</p>
+
+
+						<pre style="width: 74%;height: 220px; font-size: 60%;margin-top: -10px;">
+						<code data-trim data-noescape  class="language-python">
+V =  -0.7468 +      0i  -0.7468 -      0i  -0.2481 +      0i   0.3223 +      0i
+      0.6482 + 0.1489i   0.6482 - 0.1489i   0.9687 +      0i   0.9466 +      0i
+      0.0006 - 0.0023i   0.0006 + 0.0023i   0.0010 +      0i   0.0006 +      0i
+     -0.0011 + 0.0021i  -0.0011 - 0.0021i  -0.0034 +      0i   0.0030 +      0i
+
+D = 0.0067 + 0.1684i                  0                  0                  0
+                   0   0.0067 - 0.1684i                  0                  0
+                   0                  0   0.5684 +      0i                  0
+                   0                  0                  0   0.9681 +      0i
+
+  </code></pre>
+
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="0">The dominant long-term eigenvalue is $\lambda_4
+								= 0.9681$,
+								<span class="fragment" data-fragment-index="1">
+									with corresponding
+									eigenvector:
+								</span>
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="1">
+									<span>
+										$\qquad \qquad \mathbf v_4 = \begin{pmatrix}0.3223 \\ 0.9466 \\ 0.0006 \\ 0.003
+										\end{pmatrix}\quad $
+									</span>
+									<span>
+										(4th col. of matrix <tt>V</tt>)
+									</span>
+								</p>
+							</div>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Example 6 - Sea Turtle <tt>MATLAB/Octave</tt> Outputs 💻</h4>
+					<div class="size-75">
+
+						<pre style="width: 65%;height: 190px; font-size: 50%;margin-top: -10px;">
+						<code data-trim data-noescape  class="language-python">
+V =  -0.7468 +      0i  -0.7468 -      0i  -0.2481 +      0i   0.3223 +      0i
+      0.6482 + 0.1489i   0.6482 - 0.1489i   0.9687 +      0i   0.9466 +      0i
+      0.0006 - 0.0023i   0.0006 + 0.0023i   0.0010 +      0i   0.0006 +      0i
+     -0.0011 + 0.0021i  -0.0011 - 0.0021i  -0.0034 +      0i   0.0030 +      0i
+
+D = 0.0067 + 0.1684i                  0                  0                  0
+                   0   0.0067 - 0.1684i                  0                  0
+                   0                  0   0.5684 +      0i                  0
+                   0                  0                  0   0.9681 +      0i
+
+  </code></pre>
+
+
+						<div style="margin-top: 10px;">
+							<p>The dominant long-term eigenvalue is $\lambda_4
+								= 0.9681$,
+								<span>
+									with corresponding
+									eigenvector:
+								</span>
+							</p>
+							<div class="cc">
+								<p>
+									<span>
+										$\qquad \qquad \mathbf v_4 = \begin{pmatrix}0.3223 \\ 0.9466 \\ 0.0006 \\ 0.003
+										\end{pmatrix}\quad $
+									</span>
+									<span>
+										(4th col. of matrix <tt>V</tt>)
+									</span>
+								</p>
+							</div>
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								Our historical iterations align perfectly as pure scalar multiples of this stable state:
+
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								<span>
+									$ \mathbf{x}_{26,\text{ init}_1} \approx 202\,991\mathbf{v}_4, $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\qquad
+									\mathbf{x}_{26,\text{
+									init}_2} \approx 158\,394\mathbf{v}_4 $
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Summary of Eigenvalue &amp; Eigenvector Calculations</h4>
+					<div class="size-85 left-txt">
+
+						<ul style="line-height: 1.6; font-size: 0.9em; margin-left: 0px;">
+							<li>For an $n \times n$ matrix $A$, we discover eigenvalues by solving the $n$-th degree
+								characteristic polynomial equation:
+								$ \det(A - \lambda I) = 0 .$
+							</li>
+							<li class="fragment" style="margin-top: 10px;">This polynomial yields exactly $n$ total
+								roots (accounting for repeated values and complex conjugate pairs $a \pm bi$).</li>
+							<li class="fragment" style="margin-top: 10px;">When repeated roots occur, the matrix may
+								produce fewer than $n$ linearly independent eigenvectors (Example 3), though it can
+								still yield a full set (Example 5).</li>
+							<li class="fragment" style="margin-top: 10px;">Securing $n$ completely
+								independent eigenvectors is a required property for several advanced engineering
+								applications (e.g., matrix diagonalization).</li>
+						</ul>
+
+						<div class="fragment"
+							style="margin-top: 15px; border-left: 5px solid #db1010; padding-left: 10px; font-size: 0.8em; ">
+							<strong>Advanced Note:</strong> When a matrix lacks $n$ independent eigenvectors, analyze
+							the system using Jordan canonical forms (which lies beyond the scope of this course).
+						</div>
+					</div>
+					<br />
+				</section>
+			</section>
+
+
+
+			<section>
+
+
+				<section data-auto-animate>
+					<h4>Bases and Linear Independence</h4>
+					<div class="size-75">
+						<h5>Return of the Marital Population Problem</h5>
+						<p class="fragment" data-fragment-index="0">
+							Let's re-examine our transition matrix
+							transformations using two specific vectors:
+						</p>
+
+						<table style="width: 100%; font-size: 0.85em; margin-top: -15px;">
+							<tr>
+								<td style="border: none; text-align: center;">
+
+									<span>
+										$\begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix} $
+									</span>
+									<span class="fragment" data-fragment-index="1">
+										$\begin{pmatrix} 2 \\ 3
+										\end{pmatrix} $
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$= \begin{pmatrix} 2 \\ 3 \end{pmatrix}$
+									</span>
+								</td>
+								<td style="border: none; text-align: center;">
+									<span class="fragment" data-fragment-index="1">
+										$\begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}\begin{pmatrix} -1 \\ 1
+										\end{pmatrix} $
+									</span>
+
+									<span class="fragment" data-fragment-index="3">
+										$= \begin{pmatrix} -0.5 \\ 0.5 \end{pmatrix}$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$= \dfrac{1}{2}\begin{pmatrix}
+										-1 \\ 1 \end{pmatrix}$
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="border: none; text-align: center;" class="fragment" data-fragment-index="5">
+									$\lambda_1 = 1, \; \mathbf{v}_1 = \begin{pmatrix} 2 \\ 3
+									\end{pmatrix}$
+								</td>
+								<td style="border: none; text-align: center;" class="fragment" data-fragment-index="6">
+									$\lambda_2 = \frac{1}{2}, \; \mathbf{v}_2 = \begin{pmatrix} -1 \\ 1
+									\end{pmatrix}$
+								</td>
+							</tr>
+						</table>
+
+
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="7">
+								If we express an arbitrary vector $\mathbf{x}$ as a linear combination $\mathbf{x} =
+								c_1\mathbf{v}_1 + c_2\mathbf{v}_2$,
+								<span class="fragment" data-fragment-index="8">
+									then applying the matrix transformation yields:
+								</span>
+
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="8">
+									$ A\mathbf{x} = A(c_1\mathbf{v}_1 + c_2\mathbf{v}_2) = c_1(A\mathbf{v}_1) +
+									c_2(A\mathbf{v}_2) $
+								</p>
+								<p class="fragment" data-fragment-index="9">
+									$ = c_1\lambda_1\mathbf{v}_1 + c_2\lambda_2\mathbf{v}_2$
+									<span class="fragment" data-fragment-index="10">
+										$= c_1\mathbf{v}_1 +
+										\dfrac{c_2}{2}\mathbf{v}_2 $
+									</span>
+								</p>
+							</div>
+						</div>
+
+						<p class="fragment" style="font-size: 0.85em;  margin-top: 10px;">
+							This mirrors the <strong>Matrix Representation Theorem</strong>
+							$\rightarrow T(\mathbf x) = x_1 T(\mathbf e_1)+x_2 T(\mathbf e_2)+\cdots + x_n T(\mathbf
+							e_n)$ <br />
+							but uses intrinsic structural eigenvectors $\mathbf{v}_i$
+							rather than the standard coordinate basis
+							$\mathbf{e}_i$.
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Bases and Linear Independence</h4>
+					<div class="size-65">
+						<h5>Power and Utility of Eigenvector Representations</h5>
+						<div>
+							<p>This formulation provides an exceptional advantage when computing high-power matrix
+								operations:</p>
+
+						</div>
+						<div class="cc" style="font-size: 1.4em;">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$ A^2\mathbf{v}_i $
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$ = A(A\mathbf{v}_i) $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ = A(\lambda_i\mathbf{v}_i)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ =
+									\lambda_i(A\mathbf{v}_i)
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									=
+									\lambda_i^2\mathbf{v}_i $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ \Ra A^n\mathbf{v}_i = \lambda_i^n\mathbf{v}_i $
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="6">
+								Applying this straight to the marital
+								population system over $n$ intervals:
+							</p>
+
+
+						</div>
+						<div class="cc" style="font-size: 1.4em;">
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									$\mathbf x_n =A^n\mathbf{x}_0 $
+								</span>
+								<span class="fragment">
+									$ = A^n(c_1\mathbf{v}_1 + c_2\mathbf{v}_2) $
+								</span>
+								<span class="fragment">
+									$ = c_1\lambda_1^n\mathbf{v}_1 +
+									c_2\lambda_2^n\mathbf{v}_2 \qquad
+									$
+								</span>
+
+
+							</p>
+							<p>
+								<span class="fragment">
+									$\qquad \;\;\; = c_1(1)^n\mathbf{v}_1 +
+									c_2\left(\dfrac{1}{2}\right)^n\mathbf{v}_2
+									$
+								</span>
+								<span class="fragment">
+									$= c_1\mathbf{v}_1 + \dfrac{c_2}{2^n}\mathbf{v}_2$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 15px;font-size: 1.1em;">
+							<p>
+								<span class="fragment">
+									As $n \rightarrow \infty$,
+								</span>
+								<span class="fragment">
+									the coefficient
+									$\dfrac{c_2}{2^n} \rightarrow 0$.
+								</span>
+								<span class="fragment">
+									Leaving the steady state:
+									$ \mathbf{x}_n \rightarrow c_1\mathbf{v}_1 = c_1\begin{pmatrix} 2 \\ 3 \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div
+							style="display: flex; justify-content: space-around; margin-top: 15px; font-size: 0.898em; color: #c51111;">
+							<div class="fragment">
+								Can we expand <em>any</em> vector $\mathbf{x}$ using eigenvectors?
+							</div>
+							<div class="fragment">
+								Why was $c_1$ always equal to 1 for the marital population problem?
+							</div>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Bases and Linear Independence</h4>
+					<div class="size-85">
+						<h5>Formal Definition of a Basis</h5>
+
+						<p class="fragment" data-fragment-index="0">
+							<strong>Definition:</strong> A set of vectors $\{\mathbf{v}_1, \mathbf{v}_2, \dots,
+							\mathbf{v}_n\}$ forms a <strong>basis</strong> for the vector space $\mathbb{R}^n$
+							<span class="fragment" data-fragment-index="1">
+								if
+								and only if every vector $\mathbf{x} \in \mathbb{R}^n$ can be uniquely expressed as a
+								linear combination of those vectors.
+							</span>
+
+						</p>
+
+
+						<div style="margin-top: 20px;">
+							<p class="fragment" data-fragment-index="2">This means that for any arbitrary vector
+								$\mathbf{x}$, a unique coefficient vector
+								$\mathbf{c}$ must exist such that:</p>
+
+						</div>
+						<div class="cc" style="margin-top: -30px;">
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									$ \mathbf{x} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_n\mathbf{v}_n$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ =
+									\begin{pmatrix} | & | & & | \\ \mathbf{v}_1 & \mathbf{v}_2 & \dots & \mathbf{v}_n \\
+									| & | &
+									& | \end{pmatrix}
+									\begin{pmatrix} c_1 \\ c_2 \\ \vdots \\ c_n \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ = V\mathbf{c} $
+								</span>
+							</p>
+						</div>
+
+						<div style="display: flex; justify-content: space-around; margin-top: 15px; font-size: 0.85em;"
+							id="bb">
+							<div class="fragment" data-fragment-index="5">1. The vectors must span the entire space.
+							</div>
+							<div class="fragment" data-fragment-index="6">2. The coordinates must be completely unique.
+							</div>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Evaluating Systems with Excess Vectors</h4>
+					<div class="size-70">
+
+						<p>Do the following 4 vectors form a valid basis for the 3D space $\mathbb{R}^3$?</p>
+						$$ \begin{pmatrix} 1 \\ 2 \\ 4 \end{pmatrix}, \; \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix}, \;
+						\begin{pmatrix} 3 \\ 1 \\ 2 \end{pmatrix}, \; \begin{pmatrix} 4 \\ 0 \\ 1 \end{pmatrix} $$
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>Constructing the augmented system matrix and calculating its row reduced echelon form
+								(RREF):</p>
+							$$ \left(\begin{array}{cccc|c} 1 & 2 & 3 & 4 & x \\ 2 & 1 & 1 & 0 & y \\ 4 & 3 & 2 & 1 & z
+							\end{array}\right) \;\longrightarrow\;
+							\left(\begin{array}{cccc|c} 1 & 0 & 0 & -1 & x' \\ 0 & 1 & 0 & 1 & y' \\ 0 & 0 & 1 & 1 & z'
+							\end{array}\right) $$
+						</div>
+
+						<p class="fragment" style="margin-top: 15px; font-size: 0.9em;">
+							<span>
+								The answer to this question is <b>NO</b>. Because there are fewer rows than columns,
+								the system
+								contains free variables. This creates infinite solution sets rather than a single unique
+								vector transformation.
+							</span>
+						</p>
+						<p id="rr" class="fragment" style="text-align: center;">A basis cannot
+							contain more vectors than the dimension of the target space.</p>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Evaluating Systems with Insufficient Vectors</h4>
+					<div class="size-65">
+
+						<p>Can the following 2 vectors form a valid basis for the 3D space $\mathbb{R}^3$?</p>
+						$$ \begin{pmatrix} 1 \\ 2 \\ 4 \end{pmatrix}, \;\; \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} $$
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p>Constructing the system layout and performing row operations:</p>
+							$$ \left(\begin{array}{cc|c} 1 & 2 & x \\ 2 & 1 & y \\ 4 & 3 & z \end{array}\right)
+							\;\longrightarrow\;
+							\left(\begin{array}{cc|c} 1 & 0 & x'' \\ 0 & 1 & y'' \\ 0 & 0 & z''
+							\end{array}\right) $$
+						</div>
+
+						<div style="margin-top: 15px; font-size: 0.99em; line-height: 1.5;">
+							<ul>
+								<li class="fragment">Whenever there are fewer columns than rows, zeroed rows appear at
+									the bottom of the
+									coefficient matrix.</li>
+								<li class="fragment">For many target configurations (e.g., standard vector
+									$\mathbf{e}_3$), no valid
+									coordinate solutions exist.</li>
+							</ul>
+						</div>
+
+						<p class="fragment font-weight-bold" style="margin-top: 15px; text-align: center;" id="rr">A
+							basis cannot contain fewer
+							vectors than the dimension of the target space.</p>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Dimensional Constraints for a Basis</h4>
+
+					<div class="size-85" style="margin-top: 60px;">
+
+
+						<p class="fragment">
+							To establish a valid basis within an $n$-dimensional
+							space $\mathbb{R}^n$,
+							<span class="fragment">
+								the set must
+								contain <strong>exactly $n$ vectors</strong>.
+							</span>
+						</p>
+
+						<div style="display: flex; justify-content: space-between; margin-top: 30px;">
+							<div class="fragment"
+								style="width: 48%; border: 1px dashed #ff5555; padding: 15px; border-radius: 5px;">
+								<h5>Fewer than $n$ Vectors</h5>
+								<p style="font-size: 0.8em; color: #313131;">You might successfully map specific
+									subspace
+									paths, but you are mathematically blocked from reaching the rest of the target
+									domain space.</p>
+							</div>
+
+							<div class="fragment"
+								style="width: 48%; border: 1px dashed #ff5555; padding: 15px; border-radius: 5px;">
+								<h5>More than $n$ Vectors</h5>
+								<p style="font-size: 0.8em; color: #313131;">You might cover the structural space, but
+									you
+									introduce linear dependencies, which destroys coordinate uniqueness.</p>
+							</div>
+						</div>
+
+						<div class="fragment"
+							style="margin-top: 35px; background: rgba(77,243,169,0.1); padding: 15px; border-radius: 5px; text-align: center; font-weight: bold;">
+							Core Takeaway: A basis for $\mathbb{R}^n$ requires exactly $n$ vectors.
+						</div>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>The Linear Independence Requirement</h4>
+					<div class="size-70">
+
+						<p>Does containing exactly $n$ vectors guarantee the formation of a valid basis for
+							$\mathbb{R}^n$?</p>
+
+						<div class="fragment">
+							<p>Consider these 3 vectors in $\mathbb{R}^3$:
+								$$ \mathbf{v}_1 = \begin{pmatrix} 1 \\ 2 \\ 4 \end{pmatrix}, \; \mathbf{v}_2 =
+								\begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix}, \; \mathbf{v}_3 = \begin{pmatrix} 1 \\ -1 \\
+								-1 \end{pmatrix} $$</p>
+						</div>
+
+						<div class="fragment" id="rr">
+							Notice that $\mathbf{v}_3$ is built directly from the other two vectors: $\mathbf{v}_3 =
+							\mathbf{v}_2 - \mathbf{v}_1$.
+						</div>
+
+						<div style="margin-top: -15px; ">
+							<p class="fragment">Grouping these into a matrix format results in a singular determinant:
+								$$ \det(V) = \begin{vmatrix} 1 & 2 & 1 \\ 2 & 1 & -1 \\ 4 & 3 & -1 \end{vmatrix} = 0 $$
+							</p>
+
+							<p class="fragment">Hence, $\mathbf v_k$ is a linear combination of the others.
+								<span class="fragment">
+									So, there is no unique $\mathbf c$ such that $V\mathbf c = \mathbf x$
+								</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Formalizing Linear Independence</h4>
+					<div class="size-85">
+
+
+						<div>
+
+							<p class="fragment" data-fragment-index="0">
+								<b>Definition:</b> A collection of vectors $\{\mathbf{v}_1, \mathbf{v}_2, \dots,
+								\mathbf{v}_n\}$ is <strong>linearly independent</strong>
+								<span class="fragment" data-fragment-index="1">
+									if and only if the vector
+									equation:
+									$$ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_n\mathbf{v}_n = \mathbf{0} $$
+
+									forces the trivial solution exclusively: $c_1 = c_2 = \dots =
+									c_n = 0$.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									This guarantees that no individual vector functions as a linear combination of
+									the others.
+								</span>
+							</p>
+
+						</div>
+
+						<div>
+
+							<p class="fragment" data-fragment-index="3">
+								<b>Definition:</b> If any non-zero coefficients exist that satisfy the homogeneous
+								combination equation:
+								$$ c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots + c_n\mathbf{v}_n = \mathbf{0} $$
+								<span class="fragment" data-fragment-index="4">
+									then the vector collection $\{\mathbf{v}_1, \mathbf{v}_2,
+									\dots, \mathbf{v}_n\}$ is <strong>linearly dependent</strong>.
+								</span>
+							</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Methods to Determine Linear Independence</h4>
+					<div class="size-85 left-txt">
+
+						<p>Testing for independence equates to verifying that $V\mathbf{c} = \mathbf{0}$ yields only the
+							unique solution $\mathbf{c} = \mathbf{0}$.</p>
+
+						<div class="fragment" style="margin-top: 15px;">
+							<p style="text-align: center; font-size: 0.8em;font-weight: bold;">Method 1: Row Reduction
+								Techniques</p>
+							<p>Perform Gaussian elimination on the augmented system matrix:
+								$$ \left(\begin{array}{ccc|c} | & & | & 0 \\ \mathbf{v}_1 & \dots & \mathbf{v}_n &
+								\vdots \\ | & & | & 0 \end{array}\right) $$</p>
+							<ul style="font-size: 0.85em; margin-top: 5px;">
+								<li class="fragment">If the matrix yields fewer than $n$ non-zero rows, the system is
+									<strong>linearly
+										dependent</strong>.
+								</li>
+								<li class="fragment">If the matrix yields exactly $n$ non-zero rows, the system is
+									<strong>linearly
+										independent</strong>.
+								</li>
+							</ul>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Methods to Determine Linear Independence</h4>
+					<div class="size-85 left-txt">
+
+						<p>Testing for independence equates to verifying that $V\mathbf{c} = \mathbf{0}$ yields only the
+							unique solution $\mathbf{c} = \mathbf{0}$.</p>
+
+
+
+						<div style="margin-top: 15px; ">
+							<p style="text-align: center; font-size: 0.8em;font-weight: bold;">Method 2: The Determinant
+								Test</p>
+							<p>For the specific case of checking exactly $n$ vectors within $\mathbb{R}^n$:</p>
+							<div class="cc">
+								<p class="fragment">
+									$ \det \begin{pmatrix} | & & | \\ \mathbf{v}_1 & \dots & \mathbf{v}_n \\ | & & |
+									\end{pmatrix} \neq 0 $
+									<span class="fragment">$\iff \{\mathbf{v}_1, \dots, \mathbf{v}_n\} $ are linearly
+										independent </span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>The Fundamental Basis Theorem</h4>
+					<div class="size-85">
+
+						<div>
+
+							<p class="fragment" data-fragment-index="0">
+								<b>Theorem:</b> A set of vectors forms a valid basis for $\mathbb{R}^n$
+								<span class="fragment" data-fragment-index="1">
+									if and only if it
+									consists of
+									exactly $n$ linearly independent vectors.
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: 15px; font-size: 0.9em; line-height: 1.5;">
+							<h6 class="fragment" data-fragment-index="2">Proof Outline:</h6>
+							<p class="fragment" data-fragment-index="3">Let $V$ be the matrix containing columns
+								$\mathbf{v}_1, \dots, \mathbf{v}_n$.</p>
+							<ol>
+								<li class="fragment" data-fragment-index="4">
+									<span>
+										<strong>Forward Direction ($\implies$):</strong>
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										If the vectors form a basis,
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										the
+										zero vector $\mathbf{0}$ must have a unique representation.
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										Thus, $V\mathbf{c} =
+										\mathbf{0}$ yields only $\mathbf{c} = \mathbf{0}$,
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										which proves the vectors are
+										linearly independent.
+									</span>
+								</li>
+								<li style="margin-top: 5px;" class="fragment" data-fragment-index="9">
+									<span>
+										<strong>Reverse Direction ($\impliedby$):</strong>
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										If the
+										$n$ vectors are independent,
+									</span>
+									<span class="fragment" data-fragment-index="11">
+										the square matrix has a non-zero determinant ($\det(V)
+										\neq 0$),
+									</span>
+									<span class="fragment" data-fragment-index="12">
+										confirming that the matrix inverse $V^{-1}$ exists.
+									</span>
+									<span class="fragment" data-fragment-index="13">
+										Every vector
+										$\mathbf{x} \in \mathbb{R}^n$ then has a unique coordinate representation given
+										by
+										$\mathbf{c} = V^{-1}\mathbf{x}$.
+									</span>
+									<span class="fragment" data-fragment-index="14">
+										Thus, the set forms a basis. $\quad\blacksquare$
+									</span>
+
+
+								</li>
+							</ol>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvectors as a Basis</h4>
+					<div class="size-85">
+						<h5>Constructing Bases from Eigenvectors</h5>
+						<div>
+
+							<p>
+								<b>Theorem:</b> If an $n \times n$ matrix $A$ possesses $n$ linearly
+								independent eigenvectors,
+								those eigenvectors form a valid coordinate basis for
+								$\mathbb{R}^n$.
+							</p>
+							<p class="fragment">
+								The proof of this theorem follows immediately from the previous result. ✅
+							</p>
+						</div>
+
+						<div class="fragment">
+							<p>
+								<b>Theorem:</b> If the eigenvalues of an $n \times n$ matrix $A$ are all
+								distinct, their corresponding eigenvectors are guaranteed to form a basis for
+								$\mathbb{R}^n$.
+							</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 15px; ">
+							<h5>Proof Outline (By Contradiction):</h5>
+
+						</div>
+						<div style="margin-top: 15px;">
+							<p>
+								<span class="fragment">
+									We will show that if the first $r$ eigenvectors
+									($r \lt n$) are linearly independent,
+								</span>
+								<span class="fragment">
+									adding the next distinct eigenvector
+									$\mathbf{v}_{r+1}$ cannot introduce linear
+									dependence.
+								</span>
+								<span class="fragment">
+									Since this holds true for $r=1$,
+									it extends inductively across all $n$
+									eigenvectors.
+								</span>
+
+
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Eigenvectors as a Basis</h4>
+					<div class="size-85">
+						<div style="font-size: 0.8em;">
+							<p>
+								<b>Theorem:</b> If the eigenvalues of an $n \times n$ matrix $A$ are all
+								distinct, their corresponding eigenvectors are guaranteed to form a basis for
+								$\mathbb{R}^n$.
+							</p>
+						</div>
+
+						<div style="margin-top: 15px; font-size: 0.8em;">
+							<h5>Proof Outline (By Contradiction):</h5>
+
+						</div>
+
+
+						<div style="font-size: 0.75em; line-height: 0.5;">
+							<p>Assume the first $r$ eigenvectors are independent, but the addition of $\mathbf{v}_{r+1}$
+								makes the set dependent:
+
+							</p>
+							<div class="cc">
+								<p>
+									<span class="fragment" data-fragment-index="0">
+										$$ \mathbf{v}_{r+1} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots +
+										c_r\mathbf{v}_r
+										\quad
+										\textbf{--- (Eq. 1)} $$
+									</span>
+								</p>
+							</div>
+
+							<div style="margin-top: 5px;">
+								<p class="fragment" data-fragment-index="1">Multiplying <b>Eq. 1</b> by the matrix $A$
+									yields: $\; A\mathbf{v}_{r+1} = A\left(_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots +
+									c_r\mathbf{v}_r\right)$
+									<span class="fragment" data-fragment-index="2">
+										$ =
+										c_1(A\mathbf{v}_1) + \dots + c_r(A\mathbf{v}_r) $
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$$ \lambda_{r+1}\mathbf{v}_{r+1} = c_1\lambda_1\mathbf{v}_1 +
+										c_2\lambda_2\mathbf{v}_2 +
+										\dots + c_r\lambda_r\mathbf{v}_r \quad \textbf{--- (Eq. 2)} $$
+									</span>
+								</p>
+
+
+							</div>
+
+							<div class="fragment" data-fragment-index="4" style="margin-top: 5px;">
+								<p>Multiplying <b>Eq. 1</b> by the scalar value $\lambda_{r+1}$ yields:
+									$$ \lambda_{r+1}\mathbf{v}_{r+1} = c_1\lambda_{r+1}\mathbf{v}_1 +
+									c_2\lambda_{r+1}\mathbf{v}_2 + \dots + c_r\lambda_{r+1}\mathbf{v}_r \quad
+									\textbf{--- (Eq.
+									3)} $$</p>
+
+							</div>
+
+							<div style="margin-top: 5px; ">
+								<p class="fragment" data-fragment-index="5">Subtracting <b>Eq. 3</b> from <b>Eq. 2</b>
+									we obtain:
+								</p>
+
+							</div>
+							<div style="margin-top: -5px;" class="fragment" data-fragment-index="5">
+								$$ \mathbf{0} = c_1(\lambda_1 - \lambda_{r+1})\mathbf{v}_1 + c_2(\lambda_2 -
+								\lambda_{r+1})\mathbf{v}_2 + \dots + c_r(\lambda_r - \lambda_{r+1})\mathbf{v}_r $$
+							</div>
+
+
+						</div>
+					</div>
+					<br>
+				</section>
+				<section data-auto-animate>
+					<h4>Eigenvectors as a Basis</h4>
+					<div class="size-85">
+						<div style="font-size: 0.8em;">
+							<p>
+								<b>Theorem:</b> If the eigenvalues of an $n \times n$ matrix $A$ are all
+								distinct, their corresponding eigenvectors are guaranteed to form a basis for
+								$\mathbb{R}^n$.
+							</p>
+						</div>
+
+						<div style="margin-top: -15px; font-size: 0.8em;">
+							<h5>Proof Outline (By Contradiction):</h5>
+
+						</div>
+
+
+						<div style="font-size: 0.8em; line-height: 1.0;">
+
+							<div class="cc" style="margin-top: -20px;">
+								<p>
+									<span>
+										$$ \mathbf{v}_{r+1} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \dots +
+										c_r\mathbf{v}_r
+										\quad
+										\textbf{--- (Eq. 1)} $$
+									</span>
+								</p>
+							</div>
+							<div style="margin-top: -15px;">
+								$$ \mathbf{0} = c_1(\lambda_1 - \lambda_{r+1})\mathbf{v}_1 + c_2(\lambda_2 -
+								\lambda_{r+1})\mathbf{v}_2 + \dots + c_r(\lambda_r - \lambda_{r+1})\mathbf{v}_r $$
+							</div>
+
+							<div style="margin-top: 10px;">
+								<p class="fragment" data-fragment-index="1">
+									The vectors
+									$\mathbf v_1,\ldots,\mathbf v_r$
+									are linearly independent by assumption.
+									<span class="fragment" data-fragment-index="2">
+										Therefore every coefficient in this linear combination
+										must be zero:
+										$
+										c_i(\lambda_i-\lambda_{r+1})=0,
+										\; i=1,\ldots,r.
+										$
+									</span>
+								</p>
+
+
+
+								<p class="fragment" data-fragment-index="3">
+									Since all eigenvalues are distinct,
+									$\lambda_i-\lambda_{r+1}\neq0$ for every $i$.
+									<span class="fragment" data-fragment-index="4">
+										Hence
+										$
+										c_1=c_2=\cdots=c_r=0.
+										$
+									</span>
+								</p>
+
+								<p class="fragment" data-fragment-index="5">
+									<b>Eq. 1</b> now becomes
+									$
+									\mathbf v_{r+1}=\mathbf0,
+									$
+									<span class="fragment" data-fragment-index="6">
+										which is impossible because an eigenvector is, by definition,
+										non-zero.
+									</span>
+								</p>
+								<p class="fragment" data-fragment-index="7">
+									This contradiction shows that
+									$\mathbf v_{r+1}$ cannot depend on
+									$\mathbf v_1,\ldots,\mathbf v_r$.
+									<span class="fragment" data-fragment-index="8">
+										Thus every new eigenvector increases the size of an
+										linearly independent set.
+									</span>
+								</p>
+
+								<p class="fragment" data-fragment-index="9">
+									Therefore the $n$ eigenvectors are linearly independent.
+									Any $n$ linearly independent vectors in $\mathbb R^n$
+									form a basis. $\;\blacksquare$
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Eigenvectors as a Basis</h4>
+
+					<div class="cc size-90" style="margin-top: 50px;">
+						<p>
+							Since <b>eigenvectors</b> form a basis for
+							$\mathbb{R}^n$,
+
+						</p>
+						<p style="color: #555; font-size: 0.6em;" >
+							(when we have disctinct eigenvalues of a square matrix $A$)
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							then we can rewrite vectors in $\mathbb R^n$ as linear combinations
+						</p>
+						<p class="fragment" data-fragment-index="0">
+							
+							of these <b>eigenvectors</b>.
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							👉 This is process is known, in general, as a <b>change of basis</b>.
+						</p>
+					</div>
+					<br/>
+					<br/>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Changing Bases - 2D Example</h4>
+					<div class="size-65">
+						<p class="fragment" data-fragment-index="0">Given the basis vectors $\mathbf{v}_1 =
+							\begin{pmatrix} 2 \\ 3 \end{pmatrix}$ and
+							$\mathbf{v}_2 = \begin{pmatrix} 1 \\ 4 \end{pmatrix}$, express $\mathbf{x} = \begin{pmatrix}
+							5 \\ 5 \end{pmatrix}$ in terms of this new basis.</p>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p>We must find the coefficients that satisfy $c_1\mathbf{v}_1 + c_2\mathbf{v}_2 =
+								\mathbf{x}$:
+
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								So we have $\; \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}\begin{pmatrix} c_1 \\ c_2
+								\end{pmatrix} =
+								\begin{pmatrix} 5 \\ 5 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="3">
+									$\implies \mathbf{c} = V^{-1}\mathbf{x} $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
+							<p>Computing the matrix inverse using the $2 \times 2$ determinant formula ($\det = 8 - 3 =
+								5$):</p>
+
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$ \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} = \dfrac{1}{5}\begin{pmatrix} 4 & -1 \\ -3 &
+								2
+								\end{pmatrix}\begin{pmatrix} 5 \\ 5 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="5">
+									$= \dfrac{1}{5}\begin{pmatrix} 15 \\ -5
+									\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= \begin{pmatrix} 3 \\ -1 \end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="7"
+							style="margin-top: 15px; background: rgba(12, 184, 107, 0.076); padding: 10px; border-radius: 5px; font-size: 0.98em;line-height: 2.5;">
+							<span>
+								<strong>Verification Check:</strong>
+								$ \,3\mathbf{v}_1 - 1\mathbf{v}_2 $
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$= 3\begin{pmatrix} 2 \\ 3 \end{pmatrix} - \begin{pmatrix} 1
+								\\ 4 \end{pmatrix}$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$= \begin{pmatrix} 6 \\ 9 \end{pmatrix} - \begin{pmatrix} 1 \\ 4
+								\end{pmatrix} $
+							</span>
+							<span class="fragment" data-fragment-index="10">
+								$= \begin{pmatrix} 5 \\ 5 \end{pmatrix} \quad $ ✅ 😃
+							</span>
+							<br />
+							<span class="fragment" data-fragment-index="11">
+								We state that $\mathbf{x}$ has the coordinate description $\begin{pmatrix} 3 \\ -1
+								\end{pmatrix}$ relative to the basis set $\{\mathbf{v}_1, \mathbf{v}_2\}$.
+							</span>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Changing Bases - 3D Example</h4>
+					<div class="size-70">
+
+						<p style="font-size: 0.9em;" class="fragment" data-fragment-index="1">Express the standard
+							vector $\mathbf{x} = (1, 0, 0)^T$ using the
+							alternative basis: <br>
+							$$ \mathbf{v}_1 = \begin{pmatrix} 1 & -1 & 0 \end{pmatrix}^T, \; \mathbf{v}_2 =
+							\begin{pmatrix} -2 & 1 & 1 \end{pmatrix}^T, \; \mathbf{v}_3 = \begin{pmatrix} 1 & 1 & 1
+							\end{pmatrix}^T $$
+						</p>
+
+						<div class="fragment" style="font-size: 0.85em;">
+							<p>Set up the system equation $V\mathbf{c} = \mathbf{x}$ and solve by matrix inversion:
+								$ \begin{pmatrix} 1 & -2 & 1 \\ -1 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} c_1
+								\\
+								c_2 \\ c_3 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} $</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.8em; margin-top: 10px;">
+							<p>
+								<span class="fragment">
+									$ \begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} = \begin{pmatrix} 1 & -2 & 1 \\ -1
+									& 1 &
+									1 \\ 0 & 1 & 1 \end{pmatrix}^{-1}\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} $
+								</span>
+								<span class="fragment">
+									$ = \begin{pmatrix}
+									0 & -\frac{1}{2} & \frac{1}{2} \\ -\frac{1}{3} & -\frac{1}{6} & \frac{1}{2} \\
+									\frac{1}{3} &
+									\frac{1}{6} & \frac{1}{2} \end{pmatrix}\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} $
+								</span>
+								<span class="fragment">
+									$=
+									\begin{pmatrix} 0 \\ -\frac{1}{3} \\ \frac{1}{3} \end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment"
+							style="background: rgba(12, 184, 107, 0.076); padding: 8px; border-radius: 5px; font-size: 0.82em; margin-top: 10px;line-height: 2.5;">
+							<span>
+								<strong>Verification Check:</strong>
+								$ \;0\begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} - \frac{1}{3}\begin{pmatrix} -2 \\ 1 \\
+								1 \end{pmatrix} +
+								\frac{1}{3}\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $
+							</span>
+							<span class="fragment">
+								$= \begin{pmatrix} \frac{2}{3} \\
+								-\frac{1}{3} \\ -\frac{1}{3} \end{pmatrix} + \begin{pmatrix} \frac{1}{3} \\ \frac{1}{3}
+								\\
+								\frac{1}{3} \end{pmatrix} $
+							</span>
+							<span class="fragment">
+								$= \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \quad $ ✅ 😃
+							</span>
+							<br />
+							<span class="fragment">
+								The target vector holds the coordinates $\begin{pmatrix} 0 & -\frac{1}{3} & \frac{1}{3}
+								\end{pmatrix}^T$ relative to the basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$.
+							</span>
+
+
+
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Similar Matrices</h4>
+					<div class="size-60 cc" style="margin-top: -20px;">
+						<p><b>Linear Transformations Using an Alternative Basis</b></p>
+					</div>
+					<div class="size-70">
+
+
+						<p class="fragment">
+							Up to this point, we have leveraged coordinate
+							changes to rewrite individual spatial
+							positions in terms of alternative coordinate systems (new basis).
+						</p>
+
+						<div class="fragment style-section-card" style="margin-top: 10px;">
+							<h5>Expanding the Scope: Transforming Operations</h5>
+							<p>
+								Can we also rewrite entire <strong>transformations</strong>
+								(geometric maps) to operate natively within an
+								alternative coordinate system?
+							</p>
+						</div>
+
+						<div style="margin-top: 25px; line-height: 1.6;">
+							<ul>
+								<li class="fragment">The <strong>Matrix Representation Theorem</strong> relies
+									implicitly on coordinates
+									referenced to the standard basis $\{\mathbf{e}_1, \mathbf{e}_2, \dots,
+									\mathbf{e}_n\}$.</li>
+								<li class="fragment" style="margin-top: 10px;">If we select a different structural
+									basis, the
+									transformation is represented by an entirely different operational matrix.</li>
+							</ul>
+						</div>
+
+						<div id="gg" class="fragment font-weight-bold"
+							style="margin-top: -5px; text-align: center;  font-size: 1.1em;">
+							<p>🤔 How do we algebraically map a standard-basis transformation matrix into an
+								alternative basis representation?</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Similar Matrices: Matrix Representations Across Different Bases</h4>
+					<div style="font-size: 0.75em;">
+
+						<p>
+							Consider the linear transformation $T: \mathbb{R}^2 \to \mathbb{R}^2$ represented by the
+							matrix $A = \begin{pmatrix} 7
+							& 2 \\ 3 & 8 \end{pmatrix}$ in
+							the standard basis $\{\mathbf{e}_1, \mathbf{e}_2\}$.
+						</p>
+
+
+						<p class="fragment" data-fragment-index="1">
+							Let's determine its matrix representation with
+							respect to the alternative basis:
+
+						</p>
+
+						<div class="cc" style="margin-top: -15px;">
+							<p class="fragment" data-fragment-index="1">
+								$\left\{\mathbf{v}_1 = \begin{pmatrix} 2 & 3 \end{pmatrix}^T, \mathbf{v}_2 =
+								\begin{pmatrix} 1 &
+								4 \end{pmatrix}^T\right\}.$
+							</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.9em; margin-top: 10px;">
+							<b class="fragment" data-fragment-index="2">Step 1. Map the basis vectors through
+								transformation $A$:</b>
+							<p class="fragment" data-fragment-index="2">
+								$ T(\mathbf{v}_1) = A\mathbf{v}_1 $
+								<span class="fragment" data-fragment-index="3">
+									$= \begin{pmatrix} 7 & 2 \\ 3 & 8
+									\end{pmatrix}\begin{pmatrix} 2 \\ 3 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 20 \\ 30
+									\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=
+									10\mathbf{v}_1 + 0\mathbf{v}_2 $
+								</span>
+
+							</p>
+
+							<p class="fragment" data-fragment-index="6">
+								$ T(\mathbf{v}_2) = A\mathbf{v}_2 $
+								<span class="fragment" data-fragment-index="7">
+									$= \begin{pmatrix} 7 & 2 \\ 3 & 8
+									\end{pmatrix}\begin{pmatrix} 1 \\ 4 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$= \begin{pmatrix} 15 \\ 35
+									\end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$ =
+									5\mathbf{v}_1 + 5\mathbf{v}_2 $
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 15px;font-size: 0.9em;">
+							<b class="fragment" data-fragment-index="10">Step 2: Assemble the coordinate columns into
+								the new matrix $B= \begin{pmatrix} 10 & 5 \\
+								0 & 5 \end{pmatrix}$</b>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Similar Matrices: Matrix Representations Across Different Bases</h4>
+
+					<table
+						style="width:75%; font-size:0.72em; margin-top:15px; text-align:center; border-collapse:collapse;">
+						<thead>
+							<tr style="border-bottom:2px solid #666;">
+								<th style="padding:6px; text-align:center;"></th>
+								<th style="padding:6px; text-align:center;">Standard</th>
+								<th style="padding:6px; text-align:center;">Alternate</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr style="border-bottom:1px solid #666;">
+								<td style="padding:6px; font-weight:bold; text-align:center;">
+									Transformation
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$A=\begin{pmatrix}7&2\\3&8\end{pmatrix}$
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$B=\begin{pmatrix}10&5\\0&5\end{pmatrix}$
+								</td>
+							</tr>
+
+							<tr>
+								<td style="padding:6px; font-weight:bold; text-align:center;">
+									Basis
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$\{\mathbf e_1,\mathbf e_2\}$
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$\left\{
+									\mathbf v_1=\begin{pmatrix}2&3\end{pmatrix}^{T},
+									\mathbf v_2=\begin{pmatrix}1&4\end{pmatrix}^{T}
+									\right\}$
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+
+					<div style="font-size: 0.85em;">
+
+
+						<div class="cc" style="margin-top: 55px;">
+
+
+							<p class="fragment" data-fragment-index="0">
+								That is, if $\mathbf{x} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$
+								<span class="fragment" data-fragment-index="1">
+									and
+									$T(\mathbf{x}) = d_1\mathbf{v}_1 + d_2\mathbf{v}_2$,
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									then these coefficients are related via the matrix $B$ as $\mathbf d = B\mathbf c.$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								That is $\, \begin{pmatrix} d_1 \\ d_2 \end{pmatrix} = \begin{pmatrix} 10 & 5 \\ 0 & 5
+								\end{pmatrix}\begin{pmatrix} c_1 \\ c_2 \end{pmatrix} $
+							</p>
+							<p id="bb" class="fragment">
+								Can we work out more directly how to calculate $B$ from $A$? 🤔
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Similar Matrices: Matrix Representations Across Different Bases</h4>
+
+					<table
+						style="width:75%; font-size:0.5em; margin-top:15px; text-align:center; border-collapse:collapse;">
+						<thead>
+							<tr style="border-bottom:2px solid #666;">
+								<th style="padding:6px; text-align:center;"></th>
+								<th style="padding:6px; text-align:center;">Standard</th>
+								<th style="padding:6px; text-align:center;">Alternate</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr style="border-bottom:1px solid #666;">
+								<td style="padding:6px; font-weight:bold; text-align:center;">
+									Transformation
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$A=\begin{pmatrix}7&2\\3&8\end{pmatrix}$
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$B=\begin{pmatrix}10&5\\0&5\end{pmatrix}$
+								</td>
+							</tr>
+
+							<tr>
+								<td style="padding:6px; font-weight:bold; text-align:center;">
+									Basis
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$\{\mathbf e_1,\mathbf e_2\}$
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$\left\{
+									\mathbf v_1=\begin{pmatrix}2&3\end{pmatrix}^{T},
+									\mathbf v_2=\begin{pmatrix}1&4\end{pmatrix}^{T}
+									\right\}$
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div style="font-size: 0.85em;">
+
+
+						<div class="cc" style="margin-top: 15px;">
+
+							<p>
+								We want to represent a vector $\mathbf x$ using the antertantive basis!
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									That is $\,\mathbf x = c_1 \mathbf v_1 + c_2 \mathbf v_2$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$= \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}
+									\begin{pmatrix} c_1 \\ c_2 \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$= V \mathbf c $
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Then $T\left(\mathbf x \right)= A \mathbf x$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ =d_1 \mathbf v_1 + d_2 \mathbf v_2$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= V \mathbf d \qquad \quad $
+								</span>
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="6">
+									Combining these results gives:
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\,V\mathbf d = A\mathbf x $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$=A\big(V \mathbf c\big)$
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="8">
+									$\large \Ra \mathbf d = V^{-1}AV \mathbf c$
+								</span>
+							</p>
+						</div>
+
+
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Similar Matrices: Matrix Representations Across Different Bases</h4>
+
+					<table
+						style="width:75%; font-size:0.5em; margin-top:15px; text-align:center; border-collapse:collapse;">
+						<thead>
+							<tr style="border-bottom:2px solid #666;">
+								<th style="padding:6px; text-align:center;"></th>
+								<th style="padding:6px; text-align:center;">Standard</th>
+								<th style="padding:6px; text-align:center;">Alternate</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr style="border-bottom:1px solid #666;">
+								<td style="padding:6px; font-weight:bold; text-align:center;">
+									Transformation
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$A=\begin{pmatrix}7&2\\3&8\end{pmatrix}$
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$B=\begin{pmatrix}10&5\\0&5\end{pmatrix}$
+								</td>
+							</tr>
+
+							<tr>
+								<td style="padding:6px; font-weight:bold; text-align:center;">
+									Basis
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$\{\mathbf e_1,\mathbf e_2\}$
+								</td>
+
+								<td style="padding:6px; text-align:center;">
+									$\left\{
+									\mathbf v_1=\begin{pmatrix}2&3\end{pmatrix}^{T},
+									\mathbf v_2=\begin{pmatrix}1&4\end{pmatrix}^{T}
+									\right\}$
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div style="font-size: 0.85em;">
+
+
+						<div class="cc" style="margin-top: 15px;">
+
+							<p>
+								<span>
+									$\large \Ra \mathbf d = V^{-1}AV \mathbf c$
+								</span>
+							</p>
+							<p id="gg" style="font-size: 0.75em;">
+								We know that ${V}^{-1}$ must exist, because the $\v_i$ vectors form a basis! 😃
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								Now recall that if $\mathbf{x} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$
+								<span class="fragment" data-fragment-index="0">
+									and
+									$T(\mathbf{x}) = d_1\mathbf{v}_1 + d_2\mathbf{v}_2$,
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="2">
+									the coefficients are related via the matrix $B$ as:
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								$\underbrace{\begin{pmatrix} d_1 \\ d_2 \end{pmatrix}}_{\mathbf d} =
+								\underbrace{\begin{pmatrix} 10 & 5 \\ 0 & 5 \end{pmatrix}}_{B}
+								\underbrace{\begin{pmatrix} c_1 \\ c_2 \end{pmatrix}}_{\mathbf c} $
+								<span class="fragment" data-fragment-index="3">
+									$=\large \underbrace{V^{-1}AV}_{B} \mathbf c $
+								</span>
+							</p>
+
+						</div>
+
+
+
+
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Similar Matrices - Formalizing Matrix Similarity</h4>
+					<div class="size-85">
+						<div>
+							<p>
+								<b> Definition:</b> Two square $n \times n$ matrices $A$ and $B$ are said to be
+								<strong>similar</strong> if there exists an invertible (non-singular) matrix $S$ such
+								that
+							</p>
+							<div class="cc" style="margin-top: -10px;">
+								<p>$ B = S^{-1}AS $</p>
+							</div>
+						</div>
+
+						<div style="margin-top: 15px; line-height: 1.4;">
+							<ul style="margin-left: 0px;">
+								<li class="fragment" data-fragment-index="0">
+									<strong>Equivalence Relation:</strong> Matrix similarity is completely symmetric.
+									<span class="fragment" data-fragment-index="1">
+										If $B$ is similar to $A$, then $A$ is inherently similar to $B$,
+										<span class="fragment" data-fragment-index="2">
+											since
+										</span>
+
+									</span>
+									<p style="text-align: center;" class="fragment" data-fragment-index="2">
+										$A = \left(SS^{-1}\right)A\left(SS^{-1}\right) $
+										<span class="fragment">
+											$ =
+											S\underbrace{\left(S^{-1}AS\right)}_{B}S^{-1}$
+										</span>
+										<span class="fragment">
+											$ =
+											\left(S^{-1}\right)^{-1}BS^{-1}$
+										</span>
+
+									</p>
+
+								</li>
+								<li class="fragment" style="margin-top: 5px;"><strong>Shared Invariant
+										Transformations:</strong> Similar
+									matrices represent the exact same geometric mapping,
+									viewed from different
+									coordinate systems.
+								</li>
+
+							</ul>
+						</div>
+
+
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Similar Matrices - Formalizing Matrix Similarity</h4>
+					<div class="size-80" style="margin-top: 40px;">
+						<div>
+							<p>
+								<b>Theorem (Spectral Invariance):</b>
+								Similar matrices share identical characteristic
+								polynomials, which means they
+								possess identical sets of eigenvalues.
+							</p>
+
+						</div>
+
+
+
+						<div style="margin-top: 15px;">
+							<h5 class="fragment" data-fragment-index="0">Proof Outline:</h5>
+							<p class="fragment" data-fragment-index="0">
+								Let $p_A\left(\lambda\right)$ and $p_B\left(\lambda\right)$
+								denote the characteristic polynomials of $A$ and $B$, respectively.
+								<span class="fragment">
+									Since $A$ and $B$ are similar,
+									a non-singular matrix $S$ exists such that $B= S^{-1}A S.$
+								</span>
+							</p>
+							<div class="cc">
+								<p class="fragment">
+									$ p_B\left(\lambda\right) = \det\left(B - \lambda I\right) $
+									<span class="fragment">
+										$= \det\left(S^{-1}AS -
+										\lambda S^{-1}IS\right)\qquad \qquad\qquad \qquad \qquad \qquad $
+									</span>
+								</p>
+								<p class="fragment">
+									$ = \det\left(S^{-1}\left(A - \lambda I\right)S\right) $
+									<span class="fragment">
+										$= \det\left(S^{-1}\right)\det(A - \lambda I)\det\left(S\right) \qquad
+										\qquad\qquad $
+									</span>
+								</p>
+								<p class="fragment">
+									$ = \det\left(S^{-1}\right)\det(S)\det\left(A - \lambda I\right) $
+									<span class="fragment">
+										$ = \det\left(S^{-1}S\right)\det\left(A - \lambda I\right) $
+									</span>
+									<span class="fragment">
+										$=
+										p_A(\lambda) \quad \blacksquare $
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section>
+
+
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-65">
+						<h5 class="fragment" data-fragment-index="0">
+							Transformations Relative to an Eigenvector Basis
+						</h5>
+						<p class="fragment" data-fragment-index="1" style="margin-top: -10px;">
+							Let's evaluate the marital population matrix $A$
+							relative to its own coordinate eigenvectors:
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8 \end{pmatrix}, \quad \mathbf{v}_1 =
+								\begin{pmatrix} 2 \\ 3 \end{pmatrix}, \; \mathbf{v}_2 = \begin{pmatrix} 1 \\ -1
+								\end{pmatrix} $
+							</p>
+						</div>
+
+
+						<div class="cc" style="font-size: 0.95em; margin-top: 15px;">
+							<h5 class="fragment" data-fragment-index="2">Map the eigenvector basis through
+								transformation $A$:</h5>
+							<p class="fragment" data-fragment-index="3">
+								$ T(\mathbf{v}_1) = A\mathbf{v}_1 $
+								<span class="fragment" data-fragment-index="4">
+									$= \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+									\end{pmatrix}\begin{pmatrix} 2 \\ 3 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ =\begin{pmatrix} 2 \\ 3 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$=
+									1\mathbf{v}_1 + 0\mathbf{v}_2 \qquad \qquad \quad $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$ T(\mathbf{v}_2) = A\mathbf{v}_2 $
+								<span class="fragment">
+									$ = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 & 0.8
+									\end{pmatrix}\begin{pmatrix} 1 \\ -1 \end{pmatrix} $
+								</span>
+								<span class="fragment">
+									$= \begin{pmatrix} 0.5 \\ -0.5
+									\end{pmatrix}$
+								</span>
+								<span class="fragment">
+									$ = 0\mathbf{v}_1 + \dfrac{1}{2}\mathbf{v}_2$
+								</span>
+							</p>
+
+
+						</div>
+
+						<div class="fragment" style="margin-top: 20px;">
+							<p>From these coordinate columns yields the transformed matrix representation $B=
+								\begin{pmatrix} 1 & 0 \\ 0 & \frac{1}{2} \end{pmatrix}$</p>
+
+						</div>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment">
+								<strong>Key Insight:</strong> Because the coordinate system is built
+								entirely from the matrix's eigenvectors, the resulting matrix $B$ simplifies into a
+								clean
+								<strong>diagonal matrix</strong>.
+								<span class="fragment">
+									Diagonal matrices are <b>much easier</b> to work with! 😃
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>The Matrix Diagonalisation Theorem</h4>
+					<div class="size-85">
+						<div>
+
+							<p style="font-size: 0.85em;" class="fragment" data-fragment-index="0">
+								<b>Theorem:</b> An $n \times n$ matrix $A$ containing $n$ linearly independent
+								eigenvectors can be factored into
+								$ A = VDV^{-1} $
+								<span class="fragment" data-fragment-index="1">
+									where $D$ <em>is the diagonal matrix of eigenvalues</em>,
+									and $V$ is the <em>matrix whose columns are
+										the corresponding eigenvectors</em>.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									In this scenario, we say that $V$
+									<strong>diagonalises</strong> $A$.
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: -15px;">
+							<h6 class="fragment" data-fragment-index="3"><tt>MATLAB/Octave</tt> verification</h6>
+							<pre class="fragment" data-fragment-index="3"
+								style="width: 40%;height: 60px; font-size: 61%;margin-top: -10px;">
+						    <code data-trim data-noescape  class="language-python">&gt;&gt; A = [1 0 0; 0 2 1; 0 1 2];
+&gt;&gt; [V, D] = eig(A)
+</code></pre>
+
+							<pre class="fragment" data-fragment-index="4"
+								style="width: 40%;height: 210px; font-size: 61%;margin-top: -10px;">
+						    <code data-trim data-noescape  class="language-python">V = 
+    1.0000         0         0
+         0   -0.7071    0.7071
+         0    0.7071    0.7071
+D = 
+    1    0    0
+    0    1    0
+    0    0    3</code></pre>
+							<pre class="fragment" data-fragment-index="5"
+								style="width: 40%;height: 60px; font-size: 61%;margin-top: -10px;">
+						    <code data-trim data-noescape  class="language-python">&gt;&gt; V * D * inv(V)
+ans = 
+    1    0    0
+    0    2    1
+    0    1    2</code></pre>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-90">
+						<h5>Fundamental Properties of Diagonal Matrices</h5>
+						
+						<div class="size-45 cc" style="margin-top: -5px;">
+							<p class="fragment"  data-fragment-index="0">👉 <b>Notation:</b>
+								$\;
+								D = 
+								\left(
+								\begin{array}{ccccc}
+								a_1 & 0  & \cdots & 0 \\ 
+								0 & a_2  & \cdots & 0 \\ 
+								\vdots &  \vdots &\ddots & \vdots  \\ 
+								0 & 0 &\cdots & a_n \\ 
+
+								\end{array}
+								\right)
+								
+								$
+								$\LARGE =\text{diag}(a_1, \dots, a_n)$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1">
+
+							<table style="width: 100%; font-size: 0.82em; margin-top: 15px; border-collapse: collapse;">
+								<thead>
+									<tr style="border-bottom: 2px solid #555;">
+										<th style="padding: 8px; text-align: left; width: 20%;" class="fragment"
+											data-fragment-index="1">Property</th>
+										<th style="padding: 8px; text-align: left;" class="fragment"
+											data-fragment-index="1">Mathematical Expression</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr style="border-bottom: 1px solid #333;" class="fragment" data-fragment-index="1">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">1. Matrix Sum</td>
+										<td style="padding: 8px;">$\text{diag}(a_1, \dots, a_n) + \text{diag}(b_1,
+											\dots,
+											b_n)$
+											<span class="fragment">
+												$= \text{diag}(a_1+b_1, \dots, a_n+b_n)$
+											</span>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #333;" class="fragment">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">2. Product</td>
+										<td style="padding: 8px;">$\text{diag}(a_1, \dots, a_n) \cdot \text{diag}(b_1,
+											\dots, b_n) $
+											<span class="fragment">
+												$= \text{diag}(a_1b_1, \dots, a_nb_n)$
+											</span>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #333;" class="fragment">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">3. Determinant</td>
+										<td style="padding: 8px;">$\det(\text{diag}(a_1, a_2, \dots, a_n))= a_1 \cdot a_2
+												\cdots a_n$
+											<span class="fragment">
+												$  \quad (\text{Invertible} \iff a_i \neq 0 \, \forall i)$
+											</span>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #333;" class="fragment">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">4. Inversion</td>
+										<td style="padding: 8px;">If $D$ is invertible, $\text{diag}(a_1, a_2, \dots, a_n)^{-1} =
+											\text{diag}(a_1^{-1}, a_2^{-1}, \dots, a_n^{-1})$</td>
+									</tr>
+									<tr class="fragment">
+										<td style="padding: 8px; font-weight: bold; color: #3545ef;">5. Spectrum</td>
+										<td style="padding: 8px;">The eigenvalues of $D$ are exactly its main diagonal
+											elements: $\lambda_i = a_i$</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-85">
+						<h5>Proof Outlines for Diagonal Matrix Properties</h5>
+
+						<p style="font-size: 0.9em; line-height: 1.5;" class="fragment" data-fragment-index="0">
+							Properties <strong>(1)</strong> and
+							<strong>(2)</strong> follow directly from the definition;
+							<span class="fragment" data-fragment-index="1">
+								and we have seen properties <strong>(3)</strong>
+								and <strong>(5)</strong> before.
+							</span>
+						</p>
+
+						<div class="cc" style="margin-top: -15px;">
+							<h6 class="fragment" data-fragment-index="2">Verification Proof for Property 4 (Matrix
+								Inverse):</h6>
+							<p class="fragment" data-fragment-index="3" style="font-size: 0.8em;">
+								To verify the inverse identity matrix property, we establish
+								the matrix relation $D B = I \Ra B = D^{-1}$:</p>
+
+							<p style="font-size: 0.85em; margin-top: 15px;">
+								<span class="fragment" data-fragment-index="4">
+									$ \begin{pmatrix} a_1 & 0 & \dots & 0 \\ 0 & a_2 & \dots & 0 \\ \vdots & \vdots &
+									\ddots & \vdots \\ 0 & 0 & \dots & a_n \end{pmatrix}
+									\begin{pmatrix} a_1^{-1} & 0 & \dots & 0 \\ 0 & a_2^{-1} & \dots & 0 \\ \vdots &
+									\vdots
+									& \ddots & \vdots \\ 0 & 0 & \dots & a_n^{-1} \end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ =
+									\begin{pmatrix} 1 & 0 & \dots & 0 \\ 0 & 1 & \dots & 0 \\ \vdots & \vdots & \ddots &
+									\vdots \\ 0 & 0 & \dots & 1 \end{pmatrix} $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								Therefore $\; \text{diag}\left(a_1, a_2, \dots, a_n\right)^{-1} =
+								\text{diag}\left(a_1^{-1}, a_2^{-1}, \dots, a_n^{-1}\right) \quad \blacksquare $
+							</p>
+
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-75" style="margin-top: -15px;">
+						<h5>Computing Large Matrix Powers Efficiently</h5>
+						<p class="fragment" data-fragment-index="0">
+							Factoring a matrix into the form $A = VDV^{-1}$
+							simplifies computing integer powers of $A$:
+						</p>
+
+						<div class="cc" style="font-size: 0.87em;">
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									$A^2$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$ = AA$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ = \left(VDV^{-1}\right)\left(VDV^{-1}\right)$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= VD\left(V^{-1}V\right)DV^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$ = V\left(D \cdot D\right)V^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= VD^2V^{-1} $
+								</span>
+							</p>
+							<div style="margin-top: 10px;">
+								<span class="fragment" data-fragment-index="7">
+									$ A^3 $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$ = A^2A $
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$ = \left(VD^2V^{-1}\right)\left(VDV^{-1}\right) $
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$=
+									VD^2\left(V^{-1}V\right)DV^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="11">
+									$ = V\left(D^2 \cdot D\right)V^{-1} $
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$ =
+									VD^3V^{-1} $
+								</span>
+
+							</div>
+						</div>
+
+						<div class="fragment style-section-card" style="margin-top: 15px; border-left-color: #4df3a9;">
+							<h5>Generalization for All Positive Integers ($n$)</h5>
+							<p style="margin-top: -10px;">Using mathematical induction, we can establish that for any
+								positive integer exponent:
+							</p>
+							$$ \Large A^n = VD^nV^{-1} $$
+						</div>
+
+						<div class="fragment" style="margin-top: -15px;">
+							<p>This relation naturally extends to negative integers as well by evaluating the matrix
+								inverse: </p>
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$A^{-1} = \left(VDV^{-1}\right)^{-1}$
+								<span class="fragment">
+									$= \left(V^{-1}\right)^{-1}D^{-1}V^{-1}$
+								</span>
+								<span class="fragment">
+									$=VD^{-1}V^{-1}$
+								</span>
+							</p>
+							<p class="fragment">
+								$ A^{-2} = \left(A^{-1}\right)^2 $
+								<span class="fragment">
+									$= \left(VD^{-1}V^{-1}\right)\left(VD^{-1}V^{-1}\right)$
+								</span>
+
+								<span class="fragment">
+									$=V\left(D^{-2}\right)V^{-1} $
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Worked Example - Matrix Diagonalisation</h4>
+					<div class="size-80">
+						<h5></h5>
+						<p>Let's find the diagonal decomposition factors for the matrix: $ A = \begin{pmatrix} -1 & -2
+							\\ -2 & 2 \end{pmatrix} $</p>
+
+						<div class="cc" style="font-size: 0.95em;">
+							<h5 class="fragment">Step 1: Compute Eigenvalues using Trace &amp; Determinant</h5>
+							<p class="fragment">
+								$ \text{tr}(A) = -1 + 2 = 1 $
+								<span class="fragment">
+									$\implies \lambda_1 + \lambda_2 = 1 $
+								</span>
+							</p>
+							<p class="fragment">
+								$ \det(A) $
+								<span class="fragment">
+									$ =
+									(-1)(2) - (-2)(-2) = -6 $
+								</span>
+								<span class="fragment">
+									$ \implies \lambda_1\lambda_2 = -6$
+								</span>
+							</p>
+
+
+							<p class="fragment">
+								Solving these equations simultaneously yields
+								our eigenvalues: $\lambda_1 = -2$ and
+								$\lambda_2 = 3$.
+							</p>
+						</div>
+
+						<div class="fragment" style="font-size: 0.95em; margin-top: 5px;">
+							<h5>Step 2: Calculate Corresponding Eigenvectors</h5>
+							$$ \mathbf{v}_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \quad \mathbf{v}_2 = \begin{pmatrix}
+							1 \\ -2 \end{pmatrix} $$
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Worked Example - Matrix Diagonalisation</h4>
+					<div class="size-80">
+						<h5></h5>
+						<p>Let's find the diagonal decomposition factors for the matrix: $ A = \begin{pmatrix} -1 & -2
+							\\ -2 & 2 \end{pmatrix} $</p>
+
+						<div class="cc" style="font-size: 0.82em;">
+							<p><b>Eigenvalues:</b> $\,\lambda_1 = -2$ and
+								$\lambda_2 = 3$.</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.82em; margin-top: 5px;">
+
+							<p>
+								<b>Eigenvectors:</b> $\, \mathbf{v}_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \;\;
+								\mathbf{v}_2 = \begin{pmatrix}
+								1 \\ -2 \end{pmatrix} $
+							</p>
+						</div>
+
+						<div class="cc" style=" margin-top: 5px;">
+							<h5>Step 3: Construct the Component Decompositions ($D$, $V$, and $V^{-1}$)</h5>
+
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									$D = \begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix},$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									$\; V = \begin{pmatrix} 2 & 1 \\ 1 &
+									-2 \end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\Ra V^{-1} = \dfrac{1}{-5}\begin{pmatrix} -2 & -1 \\ -1 & 2
+									\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ = \dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}$
+								</span>
+							</p>
+
+						</div>
+
+						<div class="fragment" style="margin-top: 8px; font-size: 0.75em;" id="bb">
+							Recall the standard analytical $2 \times 2$ matrix inverse
+							identity: $\begin{pmatrix} a & b
+							\\ c & d \end{pmatrix}^{-1} = \dfrac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a
+							\end{pmatrix}$.
+						</div>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Worked Example - Matrix Diagonalisation</h4>
+					<div class="size-80">
+						<h5></h5>
+						<p>Let's find the diagonal decomposition factors for the matrix: $ A = \begin{pmatrix} -1 & -2
+							\\ -2 & 2 \end{pmatrix} $</p>
+
+						<div class="cc" style=" margin-top: 5px;">
+
+							<p>
+								<span>
+									$D = \begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix},$
+								</span>
+								<span>
+									$\; V = \begin{pmatrix} 2 & 1 \\ 1 &
+									-2 \end{pmatrix}$
+								</span>
+								<span>
+									$\Ra V^{-1} = \dfrac{1}{-5}\begin{pmatrix} -2 & -1 \\ -1 & 2
+									\end{pmatrix} $
+								</span>
+								<span>
+									$ = \dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}$
+								</span>
+							</p>
+							<p style="margin-top: 50px;" class="fragment">
+
+								$
+								VDV^{-1}
+								$
+								<span class="fragment">
+									$
+									=
+									\dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+									\begin{pmatrix} -2 & 0 \\ 0 & 3 \end{pmatrix}
+									\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+									\qquad\qquad \quad
+									$
+								</span>
+							</p>
+							<p>
+								<span class="fragment">
+									$
+									=
+									\dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}
+									\begin{pmatrix} -4 & -2 \\ 3 & 6 \end{pmatrix}
+									$
+								</span>
+								<span class="fragment">
+									$
+									=
+									\begin{pmatrix} -1 & -2 \\ -2 & 2 \end{pmatrix}
+									$
+								</span>
+							</p>
+							<p class="fragment" style="font-size: 1.3em;">
+								Therefore $\; A = V D V^{-1}\;$ 😃
+							</p>
+
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Worked Example - Matrix Diagonalisation</h4>
+					<div class="size-80" style="margin-top: -15px;">
+						<h5>Matrix Powers &amp; Inverses</h5>
+
+						<div style="font-size: 0.9em;">
+							<h5>Application 1: Calculate $A^4$ Efficiently</h5>
+
+							<div class="cc">
+								<p>
+									<span class="fragment">
+										$A^4$
+									</span>
+									<span class="fragment">
+										$ =VD^4V^{-1}$
+									</span>
+									<span class="fragment">
+										$ =\, \dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2
+										\end{pmatrix}\begin{pmatrix} (-2)^4 & 0 \\ 0 & 3^4 \end{pmatrix}\begin{pmatrix}
+										2 & 1 \\ 1 &
+										-2 \end{pmatrix}
+										\qquad
+										\qquad
+										\qquad
+										\qquad
+										\qquad
+										$
+									</span>
+								</p>
+								<p>
+									<span class="fragment">
+										$= \dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} 16 &
+										0 \\ 0 &
+										81 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}$
+									</span>
+									<span class="fragment">
+										$ = \dfrac{1}{5}\begin{pmatrix}
+										145 & -130 \\ -130 & 340 \end{pmatrix}$
+									</span>
+									<span class="fragment">
+										$ = \begin{pmatrix} 29 & -26 \\ -26 & 68 \end{pmatrix}\;$ ✅
+									</span>
+
+								</p>
+							</div>
+
+
+						</div>
+
+						<div class="fragment"
+							style="font-size: 0.9em; margin-top: 15px; border-top: 1px dashed #555; padding-top: 15px;">
+							<h5>Application 2: Calculate the Inverse $A^{-1}$</h5>
+
+							<div class="cc">
+								<p>
+									<span class="fragment">
+										$ A^{-1} $
+									</span>
+									<span class="fragment">
+										$= VD^{-1}V^{-1}$
+									</span>
+									<span class="fragment">
+										$= \frac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2
+										\end{pmatrix}\begin{pmatrix} -\frac{1}{2} & 0 \\ 0 & \frac{1}{3}
+										\end{pmatrix}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} $
+									</span>
+								</p>
+								<p>
+									<span class="fragment">
+										$= \dfrac{1}{5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} -1 &
+										-\frac{1}{2} \\ \frac{1}{3} & -\frac{2}{3} \end{pmatrix}$
+									</span>
+									<span class="fragment">
+										$= \begin{pmatrix} -\frac{1}{3} &
+										-\frac{1}{3} \\ -\frac{1}{3} & \frac{1}{6} \end{pmatrix}\;$ ✅
+									</span>
+
+								</p>
+
+							</div>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>📝 Practice</h5>
+						<p>Consider the symmetric $2 \times 2$ matrix: $$ A = \begin{pmatrix} \frac{1}{2} & \frac{1}{2}
+							\\ \frac{1}{2} & \frac{1}{2} \end{pmatrix} $$</p>
+
+						<div style="margin-top: 30px;">
+							<ol style="line-height: 1.7;">
+								<li class="fragment">Find an invertible matrix $V$ and a diagonal matrix $D$ such that
+									$A = VDV^{-1}$.</li>
+								<li class="fragment">Use your computed $VDV^{-1}$ factorization to evaluate $A^2$. What
+									does this reveal about the transformation?</li>
+								<li class="fragment">Can you use this $VDV^{-1}$ factorization to compute the matrix
+									inverse $A^{-1}$? Explain why or why not based on the properties of $D$.</li>
+							</ol>
+						</div>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Diagonalising a Matrix</h4>
+					<div class="size-80">
+						<h5>📝 Practice - Solution</h5>
+						<p>Consider the symmetric $2 \times 2$ matrix: $$ A = \begin{pmatrix} \frac{1}{2} & \frac{1}{2}
+							\\ \frac{1}{2} & \frac{1}{2} \end{pmatrix} $$</p>
+
+						<div style="text-align: left;">
+							<ol style="line-height:1.8; font-size: 0.95em;">
+
+								<li>
+									\(
+									\lambda_1=1,\,
+									\lambda_2=0:\,
+									V=\begin{pmatrix}1&1\\1&-1\end{pmatrix},\;
+									D=\begin{pmatrix}1&0\\0&0\end{pmatrix},\;
+									V^{-1}=\frac12\begin{pmatrix}1&1\\1&-1\end{pmatrix}.
+									\)
+									<p class="fragment">
+										👉 Check that
+										\(
+										\,A=VDV^{-1}.
+										\)
+									</p>
+								</li>
+
+								<li class="fragment">
+									\(
+									A^2=\left(VDV^{-1}\right)\left(VDV^{-1}\right)=VD^2V^{-1}=VDV^{-1}=A.
+									\)
+								</li>
+
+								<li class="fragment">
+									\(
+									A^{-1}=VD^{-1}V^{-1}\ \text{does not exist since}\
+									D=\begin{pmatrix}1&0\\0&0\end{pmatrix}
+									\ \text{is singular}.
+									\)
+								</li>
+
+							</ol>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application Resolution: Marital Population Limits</h4>
+					<div class="size-75">
+
+						<p class="fragment" data-fragment-index="0">We can now determine the long-term stable state behavior of the system $\mathbf{x}_n =
+							A^n\mathbf{x}_0$:</p>
+
+						<div style="font-size: 0.9em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								Because $A = \begin{pmatrix} 0.7 & 0.2 \\ 0.3 &
+								0.8 \end{pmatrix}$ has distinct
+								eigenvalues, its eigenvectors form a valid basis.</p>
+
+							<div class="cc">
+								<p class="fragment" data-fragment-index="2">
+									Thus we have $\, A^n = VD^nV^{-1} $
+									<span class="fragment" data-fragment-index="3">
+										$
+										= \begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix}\begin{pmatrix}
+										1^n & 0
+										\\ 0 & (0.5)^n \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0.6 & -0.4
+										\end{pmatrix}$
+									</span>
+
+								</p>
+							</div>
+
+						</div>
+
+
+						<div class="fragment" data-fragment-index="4" style="font-size: 0.9em; margin-top: 10px;">
+							<p>Taking the mathematical limit as $n \to \infty$, the transient eigenvalue vanishes
+								($0.5^n \to 0$).</p>
+
+							<div class="cc">
+								<p class="fragment" data-fragment-index="4">
+									That is $\, A^n \;\rightarrow\; \begin{pmatrix} 2 & 1 \\ 3 & -1
+									\end{pmatrix}\begin{pmatrix} 1 &
+									0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0.6 & -0.4 \end{pmatrix} $
+									<span class="fragment" data-fragment-index="5">
+										$
+										=
+										\begin{pmatrix} 2 & 1 \\ 3 & -1 \end{pmatrix}\begin{pmatrix} 0.2 & 0.2 \\ 0 & 0
+										\end{pmatrix} $
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$ = \begin{pmatrix} 0.4 & 0.4 \\ 0.6 & 0.6 \end{pmatrix} $
+									</span>
+
+								</p>
+							</div>
+
+						</div>
+
+						<div style="margin-top: 15px; font-size: 0.85em;">
+							<p class="fragment">
+								For any initial configuration vector representing population percentages ($p + (100-p) =
+								100$),
+								<span class="fragment">
+									the long-term system always converges to a single stable ratio:
+								</span>
+
+							</p>
+							<div class="cc">
+								<p class="fragment">
+									$ \mathbf{x}_{\infty} = \begin{pmatrix} 0.4 & 0.4 \\ 0.6 & 0.6
+									\end{pmatrix}\begin{pmatrix}
+									p \\ 100-p \end{pmatrix} $
+									<span class="fragment">
+										$ = \begin{pmatrix} 0.4p + 40 - 0.4p \\ 0.6p + 60 - 0.6p
+										\end{pmatrix} $
+									</span>
+									<span class="fragment">
+										$ = \begin{pmatrix} 40 \\ 60 \end{pmatrix}.$
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-85">
+
+						<p>A vehicle leasing company operates across three separate geographic hubs. Historical logs
+							reveal the transition probabilities for customer drop-offs between locations:</p>
+
+						<table
+							style="width: 80%; font-size: 0.85em; margin-top: 20px; text-align: center; border-collapse: collapse;">
+							<thead>
+								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+									<th style="padding: 10px; text-align: left;">Pick-up Location</th>
+									<th style="padding: 10px;">Drop-off: Domestic</th>
+									<th style="padding: 10px;">Drop-off: International</th>
+									<th style="padding: 10px;">Drop-off: CBD</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 10px; text-align: left; font-weight: bold;">Domestic Airport
+									</td>
+									<td style="text-align: center; font-size: 1.3em;">0.8</td>
+									<td style="text-align: center; font-size: 1.3em;">0.1</td>
+									<td style="text-align: center; font-size: 1.3em;">0.1</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 10px; text-align: left; font-weight: bold; width: 35%;">
+										International
+										Airport</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.6</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+								</tr>
+								<tr>
+									<td style="padding: 10px; text-align: left; font-weight: bold;">CBD</td>
+									<td style="text-align: center; font-size: 1.3em;">0.3</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.5</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="fragment font-weight-bold" style="margin-top: 25px; text-align: center;">
+							<p><b>Objective:</b> Determine the optimal fleet distribution strategy across these hubs.
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-70">
+
+						<table
+							style="width: 80%; font-size: 0.85em; margin-top: 20px; text-align: center; border-collapse: collapse;">
+							<thead>
+								<tr style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+									<th style="padding: 10px; text-align: left;">Pick-up Location</th>
+									<th style="padding: 10px;">Drop-off: Domestic</th>
+									<th style="padding: 10px;">Drop-off: International</th>
+									<th style="padding: 10px;">Drop-off: CBD</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 10px; text-align: left; font-weight: bold;">Domestic Airport
+									</td>
+									<td style="text-align: center; font-size: 1.3em;">0.8</td>
+									<td style="text-align: center; font-size: 1.3em;">0.1</td>
+									<td style="text-align: center; font-size: 1.3em;">0.1</td>
+								</tr>
+								<tr style="border-bottom: 1px solid #333;">
+									<td style="padding: 10px; text-align: left; font-weight: bold; width: 30%;">
+										International
+										Airport</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.6</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+								</tr>
+								<tr>
+									<td style="padding: 10px; text-align: left; font-weight: bold;">CBD</td>
+									<td style="text-align: center; font-size: 1.3em;">0.3</td>
+									<td style="text-align: center; font-size: 1.3em;">0.2</td>
+									<td style="text-align: center; font-size: 1.3em;">0.5</td>
+								</tr>
+							</tbody>
+						</table>
+
+
+						<p>
+							Let $x_1, x_2, x_3$ represent the initial counts of vehicles dispatched from the
+							Domestic,
+							International, and CBD hubs, respectively.
+							<span class="fragment" data-fragment-index="1">
+								Let $y_1, y_2, y_3$ track the end-of-day
+								balances:
+							</span>
+						</p>
+
+						<div class="fragment" data-fragment-index="2">
+							<p>
+								$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
+								$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
+								$$ y_3 = 0.1x_1 + 0.2x_2 + 0.5x_3 $$
+							</p>
+						</div>
+
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-70">
+						<p>
+							Let $x_1, x_2, x_3$ represent the initial counts of vehicles dispatched from the
+							Domestic,
+							International, and CBD hubs, respectively.
+							<span>
+								Let $y_1, y_2, y_3$ track the end-of-day
+								balances:
+							</span>
+						</p>
+
+						<div style="margin-top: -20px;">
+							<p>
+								$$ y_1 = 0.8x_1 + 0.2x_2 + 0.3x_3 $$
+								$$ y_2 = 0.1x_1 + 0.6x_2 + 0.2x_3 $$
+								$$ y_3 = 0.1x_1 + 0.2x_2 + 0.5x_3 $$
+							</p>
+						</div>
+
+						<div style="margin-top: -15px;">
+							<p>Expressing this system as a linear matrix transformation $\mathbf{y} = A\mathbf{x}$:
+
+							</p>
+							<p style="margin-top: -20px;">
+								$$ \begin{pmatrix} y_1 \\ y_2 \\ y_3 \end{pmatrix} = \begin{pmatrix} 0.8 & 0.2 & 0.3 \\
+								0.1
+								& 0.6 & 0.2 \\ 0.1 & 0.2 & 0.5 \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3
+								\end{pmatrix}
+								$$
+							</p>
+
+						</div>
+
+						<div style="margin-top: -10px; font-size: 1.1em;">
+							<p class="fragment">
+								The vehicle distribution after two operational days is:
+								<span style="font-size: 1.2em;">
+									$ \,\mathbf{x}_2 = A\left(A\mathbf{x}_0\right)$
+								</span>
+								<span class="fragment" style="font-size: 1.2em;">
+									$=A^2\mathbf{x}_0$
+								</span>
+							</p>
+							<p class="fragment">
+								Thefore, the distribution after $n$ operational cycles is:
+								<span style="font-size: 1.2em;">
+									$\,\mathbf{x}_n = A^n\mathbf{x}_0$.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-75">
+						<p>
+							Let's find the long-term state distribution
+							$\mathbf{x}_n = A^n\mathbf{x}_0$ with the
+							help of the computer 💻:
+						</p>
+
+						<div class="r-stack" style="margin-top: -30px;">
+							<div class="fragment fade-in-then-out" data-fragment-index="0">
+								<p style="font-size: 0.8em; margin-bottom: -18px; text-align: center;"><b>💻
+										<tt>MATLAB/Octave</tt></b></p>
+								<pre style="width: 105%;font-size: 0.65em;"><code class="language-python">&gt;&gt; [V, D] = eig([0.8, 0.2, 0.3; 0.1, 0.6, 0.2; 0.1, 0.2, 0.5])
+
+V = 0.86645    0.80902   -0.30902
+    0.37907   -0.50000   -0.50000
+    0.32492   -0.30902    0.80902
+
+D = 1.00000          0          0
+          0    0.56180          0
+          0          0    0.33820</code></pre>
+							</div>
+							<div class="fragment fade-in" data-fragment-index="1">
+								<div class="cc">
+									<p>
+										<b>Eigenvalues:</b>
+										$\,\lambda_1 = 1,\,$
+										$\lambda_2 = 0.5618,\,$
+										$\lambda_3 = 0.3382\quad\qquad \qquad \qquad $
+
+									</p>
+									<p>
+										<b>Eigenvectors:</b>
+										$\,\mathbf v_1 = \begin{pmatrix} 0.86645 \\ 0.37907 \\ -0.30902
+										\end{pmatrix},\,$
+										$\mathbf v_2 = \begin{pmatrix} 0.80902 \\ -0.5 \\ -.05 \end{pmatrix},\,$
+										$\mathbf v_3 = \begin{pmatrix} 0.86645 \\ 0.30902 \\ 0.80902\end{pmatrix}$
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div style="margin-top: -40px; ">
+							<p class="fragment" data-fragment-index="2">
+								Decomposing the initial state vector using our
+								eigenvector basis elements:</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="2">
+									$ \mathbf{x}_0
+									= c_1\mathbf{v}_1 +
+									c_2\mathbf{v}_2 + c_3\mathbf{v}_3
+									$
+								</p>
+							</div>
+							<p class="fragment">Applying $n$ operational iterations projects the long-term steady state:
+							</p>
+							<div class="cc">
+								<p class="fragment">
+									$\mathbf{x}_n = c_1(1)^n\mathbf{v}_1 + c_2(0.5618)^n\mathbf{v}_2 +
+									c_3(0.3382)^n\mathbf{v}_3 .$
+
+								</p>
+								<p style="font-size: 1.2em;">
+									<span class="fragment">
+										$\,\implies\,\ds \lim_{n \to \infty}\mathbf{x}_n = c_1\mathbf{v}_1 $
+									</span>
+								</p>
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-75">
+						<p>
+							The dominant eigenvalue ($\lambda_1 = 1$) isolates the steady-state vector distribution.
+							<span class="fragment" data-fragment-index="0">
+								For
+								a fleet of 100 vehicles, we establish the total scale relation:
+								$$ x_1 + x_2 + x_3 = 100 $$
+							</span>
+						</p>
+
+
+						<div style="margin-top: 15px; ">
+							<p class="fragment" data-fragment-index="1">
+								Scaling our unnormalized dominant eigenvector
+								$\mathbf{v}_1$ to match our total fleet
+								size:
+							</p>
+							<div class="cc">
+								<p class="fragment" data-fragment-index="1">
+									$ \ds \mathbf{x}_{\infty} = \frac{100}{0.86645 + 0.37907 + 0.32492}\mathbf{v}_1$
+									<span class="fragment">
+										$ \approx
+										\begin{pmatrix} 55.174 \\ 24.139 \\ 20.690 \end{pmatrix} $
+									</span>
+								</p>
+							</div>
+						</div>
+
+						<div class="fragment style-section-card"
+							style="margin-top: 10px; text-align: center; background: #4df3a82f; border-radius: 10px;">
+							<strong id="gg">Steady-State Fleet Allocation Target:</strong><br>
+							<strong>55%</strong> at Domestic Airport &bull; <strong>24%</strong> at International
+							Airport &bull; <strong>21%</strong> at the CBD
+						</div>
+
+						<p class="fragment" style="margin-top: 25px;">
+							This model helps businesses adapt to disruptions.
+							<span class="fragment">
+								For example, if the international hub
+								closes, we can modify the system matrix to project the new fleet distribution.
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application Example: Fleet Optimization</h4>
+					<div class="size-70" style="margin-top: -15px;">
+						<h5>Handling Operational Closures &amp; Disruptions</h5>
+						<p style="margin-top: -15px;">
+							If the international hub closes, we assume its typical traffic diverts directly to the
+							domestic airport.
+							<span class="fragment" data-fragment-index="0">
+								This updates our operational network flow mapping:
+							</span>
+
+						</p>
+
+						<table style="margin-top: -20px; width: 100%;font-size: 0.65em;">
+							<tr>
+								<td>
+									<table style="width: 100%; text-align: center; border-collapse: collapse;">
+										<thead>
+											<tr
+												style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+												<th style="padding: 10px; text-align: left;">Pick-up Location</th>
+												<th style="padding: 10px;">Drop-off: Domestic</th>
+												<th style="padding: 10px;">Drop-off: International</th>
+												<th style="padding: 10px;">Drop-off: CBD</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="border-bottom: 1px solid #333;">
+												<td style="padding: 10px; text-align: left; font-weight: bold;">Domestic
+													Airport (55%)
+												</td>
+												<td style="text-align: center; font-size: 1.3em;">44</td>
+												<td style="text-align: center; font-size: 1.3em;">5.5</td>
+												<td style="text-align: center; font-size: 1.3em;">5.5</td>
+											</tr>
+											<tr style="border-bottom: 1px solid #333;">
+												<td
+													style="padding: 10px; text-align: left; font-weight: bold; width: 38%;">
+													International
+													Airport (44%)</td>
+												<td style="text-align: center; font-size: 1.3em;">5</td>
+												<td style="text-align: center; font-size: 1.3em;">14</td>
+												<td style="text-align: center; font-size: 1.3em;">5</td>
+											</tr>
+											<tr>
+												<td style="padding: 10px; text-align: left; font-weight: bold;">CBD
+													(21%)
+												</td>
+												<td style="text-align: center; font-size: 1.3em;">6</td>
+												<td style="text-align: center; font-size: 1.3em;">4</td>
+												<td style="text-align: center; font-size: 1.3em;">11</td>
+											</tr>
+										</tbody>
+									</table>
+
+
+								</td>
+								<td class="fragment" data-fragment-index="0">
+									$\rightarrow$
+								</td>
+								<td style="background-color: #4df3a82f;" class="fragment" data-fragment-index="0">
+
+									<table style="width: 100%; text-align: center; border-collapse: collapse;">
+										<thead>
+											<tr
+												style="border-bottom: 2px solid #555; background: rgba(255,255,255,0.05);">
+												<th style="padding: 10px; text-align: left;">Pick-up Location</th>
+												<th style="padding: 10px;">Drop-off: Domestic</th>
+												<th style="padding: 10px;">Drop-off: CBD</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr style="border-bottom: 1px solid #333;">
+												<td
+													style="padding: 10px; text-align: left; font-weight: bold; width: 48%;">
+													Domestic
+													Airport
+													<span class="fragment" data-fragment-index="6">(79%)</span>
+												</td>
+												<td style="text-align: center; font-size: 1.3em;">68.5</td>
+												<td style="text-align: center; font-size: 1.3em;">10.5</td>
+											</tr>
+
+											<tr>
+												<td style="padding: 10px; text-align: left; font-weight: bold;">
+													CBD
+													<span class="fragment" data-fragment-index="6">(21%)</span>
+												</td>
+												<td style="text-align: center; font-size: 1.3em;">10</td>
+												<td style="text-align: center; font-size: 1.3em;">11</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<br />
+									<br />
+
+								</td>
+
+							</tr>
+						</table>
+
+						<div class="cc" style="font-size: 0.85em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								New reduced transition model system:
+								$ \ds y_1 = \frac{68.5}{79}x_1 + \frac{10}{21}x_2, \; y_2 = \frac{10.5}{79}x_1 +
+								\frac{11}{21}x_2 $
+								<span class="fragment" data-fragment-index="2">
+									$\Ra A_{\text{new}} = \begin{pmatrix} 0.87 & 0.48 \\ 0.13 & 0.52
+									\end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.95em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								The eigenvalues of Evaluating $A_{\text{new}}$ are
+								$\lambda_1 = 1, \lambda_2 = 0.39$,
+								<span class="fragment" data-fragment-index="4">
+									with the
+									dominant eigenvector:
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="4">
+								$ \mathbf{v}_1 \approx \begin{pmatrix} 0.97 \\ 0.26 \end{pmatrix} $
+								<span class="fragment" data-fragment-index="5">
+									$
+									\implies \dfrac{97}{97+26}
+									\approx 79\%
+									$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="6">
+								<strong>New Allocation:</strong> Station <strong>79%</strong>
+								of the fleet at Domestic
+								and <strong>21%</strong> within the CBD.
+							</p>
+						</div>
+					</div>
+				</section>
+
+
+
+
+				<section data-auto-animate>
+					<h4>Application: Dominance Ranking Systems</h4>
+					<div class="size-75">
+						<p class="fragment" data-fragment-index="0">
+							Consider a round-robin tournament where 5 players compete.
+							<span class="fragment" data-fragment-index="1">
+								Every player matches up once
+								against all others, yielding the following results matrix:
+							</span>
+						</p>
+
+
+						<table class="fragment" data-fragment-index="1"
+							style="width:65%; font-size:0.8em; margin-top:15px; text-align:center; border-collapse:collapse;">
+							<thead>
+								<tr style="border-bottom:2px solid #666;">
+									<th style="padding:6px; text-align:center;">Player</th>
+									<th style="padding:6px;text-align:center;">Beats P1</th>
+									<th style="padding:6px;text-align:center;">Beats P2</th>
+									<th style="padding:6px;text-align:center;">Beats P3</th>
+									<th style="padding:6px;text-align:center;">Beats P4</th>
+									<th style="padding:6px;text-align:center;">Beats P5</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P1</td>
+									<td style="text-align:center;"><span
+											style="color:#555;font-weight:bold;text-align:center;">-</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P2</td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P3</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P4</td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P5</td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;">-</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+
+						<div style="margin-top: 15px; font-size: 0.99em;">
+							<p style="text-align: center;" class="fragment">
+								<strong>Notice that:</strong> P1 beat P2, P2 beat P3,
+								yet P3 beat P1.
+							</p>
+							<p style="text-align: center; margin-top: -10px;" class="fragment" id="rr">
+								How can we build a rigorous ranking system? 🤔
+							</p>
+							<p class="fragment" style="margin-top: -15px;">
+								<b>Standard rule:</b> a player's
+								score $r_i$ should be
+								proportional to the sum of the ranks of the opponents they defeated.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Dominance Ranking Systems</h4>
+					<div class="size-70">
+
+						<table
+							style="width:55%; font-size:0.8em; margin-top:-15px; text-align:center; border-collapse:collapse;">
+							<thead>
+								<tr style="border-bottom:2px solid #666;">
+									<th style="padding:6px; text-align:center;">Player</th>
+									<th style="padding:6px;text-align:center;">Beats P1</th>
+									<th style="padding:6px;text-align:center;">Beats P2</th>
+									<th style="padding:6px;text-align:center;">Beats P3</th>
+									<th style="padding:6px;text-align:center;">Beats P4</th>
+									<th style="padding:6px;text-align:center;">Beats P5</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P1</td>
+									<td style="text-align:center;"><span
+											style="color:#555;font-weight:bold;text-align:center;">-</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; font-weight:bold; text-align:center;">P2</td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P3</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+								</tr>
+
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P4</td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;">-</td>
+									<td style="text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+								</tr>
+								<tr style="border-bottom:1px solid #666;">
+									<td style="padding:6px; text-align:center; font-weight:bold;">P5</td>
+									<td style="text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#078d51;font-weight:bold;text-align:center;">Yes</span></td>
+									<td style="color:#555;text-align:center;"><span
+											style="color:#da0909;font-weight:bold;text-align:center;">No</span></td>
+									<td style="color:#555;text-align:center;">-</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+						<div style="margin-top: 15px; font-size: 0.85em;">
+							<p>
+								<b>Standard rule:</b> a player's score $r_i$ should be
+								proportional to the sum of the ranks of the opponents they defeated.
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="0">Translating our ranking rule into a system of
+							equations:</p>
+
+						<div class="cc" style="font-size: 0.95em;">
+							<p class="fragment" data-fragment-index="0">
+
+								$
+								\begin{eqnarray*}
+								r_1 &=& \alpha(r_2 + r_4 + r_5),\\
+								r_2 &=& \alpha(r_3 + r_4 + r_5),\\
+								r_3 &=& \alpha(r_1 + r_4),\\
+								r_4 &=& \alpha(r_5),\\
+								r_5 &=& \alpha(r_3).
+								\end{eqnarray*}
+								$
+
+								<span class="fragment">
+									$\;\Ra\; \mathbf r=
+									\begin{pmatrix}
+									r_1\\
+									r_2\\
+									r_3\\
+									r_4\\
+									r_5
+									\end{pmatrix}
+									=
+									\alpha
+									\begin{pmatrix}
+									0 & 1 & 0 & 1 & 1\\
+									0 & 0 & 1 & 1 & 1\\
+									1 & 0 & 0 & 1 & 0\\
+									0 & 0 & 0 & 0 & 1\\
+									0 & 0 & 1 & 0 & 0
+									\end{pmatrix}
+									\mathbf r.$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Dominance Ranking Systems</h4>
+					<div class="size-85">
+
+						<div class="cc" style="font-size: 0.8em;margin-top: 50px;">
+							<p>
+								$
+								\begin{eqnarray*}
+								r_1 &=& \alpha(r_2 + r_4 + r_5),\\
+								r_2 &=& \alpha(r_3 + r_4 + r_5),\\
+								r_3 &=& \alpha(r_1 + r_4),\\
+								r_4 &=& \alpha(r_5),\\
+								r_5 &=& \alpha(r_3).
+								\end{eqnarray*}
+								$
+
+								<span>
+									$\;\Ra\; \mathbf r=
+									\begin{pmatrix}
+									r_1\\
+									r_2\\
+									r_3\\
+									r_4\\
+									r_5
+									\end{pmatrix}
+									=
+									\alpha
+									\begin{pmatrix}
+									0 & 1 & 0 & 1 & 1\\
+									0 & 0 & 1 & 1 & 1\\
+									1 & 0 & 0 & 1 & 0\\
+									0 & 0 & 0 & 0 & 1\\
+									0 & 0 & 1 & 0 & 0
+									\end{pmatrix}
+									\mathbf r.$
+								</span>
+							</p>
+						</div>
+
+
+						<div style="margin-top: 50px;">
+							<h5>Conversion to an Eigenvalue Framework</h5>
+							<p style="margin-top: -15px;">
+								Introducing the scaling factor $\alpha$ transforms this network relation into a standard
+								eigenvalue problem:
+							</p>
+							<div class="cc" style="margin-top: -35px;font-size: 1.2em;">
+								<p>$ A\mathbf{r} = \lambda\mathbf{r} \quad \text{where } \lambda = \dfrac{1}{\alpha} $
+								</p>
+							</div>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Dominance Ranking Systems</h4>
+					<div class="size-80">
+						<p>
+							Tournament outcome matrices where each
+							participant secures at least one win belong to the class of <strong>primitive
+								matrices</strong>.
+							<span class="fragment" data-fragment-index="0">
+								By the Perron-Frobenius theorem, these matrices possess exactly one
+								dominant eigenvector with strictly positive components.
+							</span>
+						</p>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p>Constructing our adjacency matrix $A$ and computing its dominant components:</p>
+
+						</div>
+						<div class="cc" style="font-size: 0.9em;">
+							<p class="fragment" data-fragment-index="1">
+								$ A = \left(\begin{array}{ccccc} 0 & 1 & 0 & 1 & 1 \\ 0 & 0 & 1 & 1 & 1 \\ 1 & 0 & 0 &
+								1 &
+								0 \\ 0 & 0
+								& 0 & 0 & 1 \\ 0 & 0 & 1 & 0 & 0 \end{array}\right) $
+								<span class="fragment" data-fragment-index="2">
+									$\;\Ra \; \lambda_1 = 1.6593,\; \mathbf{v}_1 = \begin{pmatrix} 0.60572 \\ 0.54474 \\
+									0.46734 \\ 0.16972 \\ 0.28165
+									\end{pmatrix}$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ \color{green}{\begin{array}{c} \textbf{P1} \\ \textbf{P2} \\
+									\textbf{P3} \\ \textbf{P4} \\ \textbf{P5}
+									\end{array}}$
+								</span>
+							</p>
+						</div>
+
+
+
+						<div class="cc" style="margin-top: 25px; text-align: center;">
+							<p class="fragment" data-fragment-index="4">
+								Thus the final rankings are:
+								<span id="gg">P1 &gt; P2 &gt; P3 &gt; P5 &gt; P4</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Dominance Ranking Systems</h4>
+					<div class="size-75">
+						<h5>Why Use the Dominant Eigenvector?</h5>
+
+						<p class="fragment" data-fragment-index="0">
+							To understand why the dominant eigenvector yields a
+							robust ranking,
+							<span class="fragment" data-fragment-index="1">
+								let's examine the squared
+								matrix $A^2$:
+							</span>
+						</p>
+
+						<div style="font-size: 0.85em;margin-top: -30px;">
+							<p class="fragment" data-fragment-index="1">
+								$$ A^2 = \begin{pmatrix} 0 & 0 & 2 & 1 & 2 \\ 1 & 0 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 2 \\
+								0
+								&
+								0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 1 & 0 \end{pmatrix} $$
+						</div>
+						</p>
+
+						<div style="margin-top: 20px; font-size: 0.95em;">
+							<h5 class="fragment" data-fragment-index="2">Physical Meaning of Matrix Powers</h5>
+							<ul>
+								<li class="fragment" data-fragment-index="2">
+									$A^2$ <em>tracks indirect dominance:</em> it counts
+									how many times opponents beaten by Player
+									$i$ went on to defeat other competitors.</li>
+								<li class="fragment" style="margin-top: 5px;">Higher powers $A^n$ trace these direct and
+									indirect paths
+									across $n$ tiers of connection.</li>
+								<li class="fragment" style="margin-top: 5px;">As $n \rightarrow \infty$, the normalized
+									column structures converge directly to the components of the dominant positive
+									eigenvector.</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+			</section>
+
+			<section>
+				<h4>Summary of Eigenvalues & Eigenvectors</h4>
+
+				<div class="left-txt size-95">
+					<ul style="line-height: 1.5;">
+						<li class="fragment">
+							The meaning of eigenvalues and eigenvectors and how to
+							compute them.
+						</li>
+						<li class="fragment">
+							The geometric interpretation of eigenvalues and eigenvectors.
+						</li>
+						<li class="fragment">
+							Definition of bases, linear independence and similar matrices
+						</li>
+						<li class="fragment">
+							Definition of diagonal matrices and how they are related to
+							eigenvalues and eigenvectors.
+						</li>
+						<li class="fragment">
+							Properties of diagonal matrices to easily compute powers of matrices
+							and some applications.
+						</li>
+					</ul>
+				</div>
+				<br />
+				<br />
+			</section>
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
