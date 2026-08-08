@@ -4111,20 +4111,25 @@
 							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
 							<span class="fragment" data-fragment-index="1">
 								$=
+								\begin{pmatrix} a(1) + b \\ a(2)+b \\ \vdots \\ a(10)+b \end{pmatrix}
+								
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$=
 								\underbrace{\begin{pmatrix} 1 & 1 \\ 2 & 1 \\ \vdots &\vdots\\ 10 & 1 \end{pmatrix}}_{X}
 								\underbrace{\begin{pmatrix} a \\ b \end{pmatrix}}_{\mathbf k}
 								$
 							</span>
-							<span class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
+							
+						</p>
+					</div>
+					<div class="size-90">
+						<span class="fragment" data-fragment-index="3" style="font-size: 1.2em;">
 								$
 								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
 								$
 							</span>
-						</p>
-					</div>
-					<div class="size-90">
-						<p class="fragment" data-fragment-index="3">where the columns of $X$ are the values of $x_i$ and
-							1. </p>
 					</div>
 					<br />
 				</section>
@@ -4232,22 +4237,26 @@
 							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
 							<span class="fragment" data-fragment-index="1">
 								$=
+								\begin{pmatrix} a(1)^2 + b(1)+c \\ a(2)^2+b(2)+c \\ \vdots \\ a(10)^2+b(10)+c \end{pmatrix}
+								
+								$
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								$=
 								\underbrace{\begin{pmatrix} 1 & 1 &1 \\ 4 & 2 & 1 \\ \vdots &\vdots &\vdots\\ 100 & 10 &
 								1 \end{pmatrix}}_{X}
 								\underbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}_{\mathbf k}
 								$
 							</span>
-							<span class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
+							
+						</p>
+					</div>
+					<div class="size-90">
+						<span class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
 								$
 								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
 								$
 							</span>
-						</p>
-					</div>
-					<div class="size-90">
-						<p class="fragment" data-fragment-index="3">
-							where the columns of $X$ are the values of $x_i^2$, $x_i$ and 1.
-						</p>
 					</div>
 					<br />
 				</section>
