@@ -381,7 +381,7 @@
 
 							<li class="fragment" data-fragment-index="3">
 								<b>Linearity:</b> Essential algebraic property
-								 needed for
+								needed for
 								algebraic manipulations and proofs.
 							</li>
 						</ul>
@@ -535,17 +535,24 @@
 							</p>
 						</div>
 						<div class="fragment" data-fragment-index="8" style="margin-top: 60px;">
-							<p><b>3. Linearity:</b></p>
+							<p><b>3. Linearity:</b>
 
-						</div>
-						<div class="cc">
-							<p>
 								<span class="fragment" data-fragment-index="8">
 									$ \langle \alpha \mathbf{x} + \beta \mathbf{y}, \mathbf{z} \rangle $
 								</span>
 								<span class="fragment">
 									$\ds = \sum \big(\alpha x_i + \beta y_i\big)z_i$
 								</span>
+								<span class="fragment">
+									$\ds = \sum \big(\alpha x_iz_i + \beta y_iz_i\big)$
+								</span>
+							</p>
+
+						</div>
+						<div class="cc">
+							<p>
+
+
 								<span class="fragment">
 									$\ds = \alpha \sum x_i z_i + \beta \sum y_i z_i $
 								</span>
@@ -584,7 +591,7 @@
 								$\begin{pmatrix}3 \\ 2\end{pmatrix}$ and $\begin{pmatrix}-4 \\ 6\end{pmatrix}$ are
 								<b>not</b> orthogonal:
 								<span class="fragment" data-fragment-index="3">
-									$2(3)(-4) + 1(2)(6) $
+									$\color{red}{2}(3)(-4) + \color{red}{1}(2)(6) $
 								</span>
 								<span class="fragment" data-fragment-index="4">
 									$= -12 $
@@ -1238,9 +1245,9 @@
 							<p>
 								<b>Linearity:</b>
 								<span class="fragment" data-fragment-index="8">
-									$\displaystyle \langle af+bh,g\rangle$
+									$\displaystyle \langle \alpha f(x)+\beta h(x),g(x)\rangle$
 									<span class="fragment" data-fragment-index="9">
-										$\displaystyle=\int_0^1 (af+bh)g\,dx$
+										$\displaystyle=\int_0^1 \big(\alpha f(x)+\beta h(x)\big)g(x)\,dx$
 									</span>
 									<span class="fragment" data-fragment-index="10">
 										$\displaystyle=a\langle f,g\rangle+b\langle h,g\rangle.$
@@ -2436,21 +2443,21 @@
 						<div class="r-stack">
 							<p class="fragment fade-in-then-out" data-fragment-index="1">
 								$ R \mathbf{y}
-								= (1.400, \; 0.792, \; 3.880, \; 3.628, \;
-								1.154, \;1.090, \; 1.867, \; 2.849, \; 1.158, \; 2.538)^T $
+								= ( $ 1.400, 0.792, 3.880, 3.628,
+								1.154, 1.090, 1.867, 2.849, 1.158, 2.538$ \,)^T $
 							</p>
 							<p class="fragment fade-in-then-out" data-fragment-index="2">
 								$ R \mathbf{y}
-								= (1.400, \; 0.792, \; 3.880, \; 3.628, \;
-								1.154, \;1.090, \; 1.867, \; 2.849, \; 1.158, \; 2.538)^T $
+								= ( $ 1.400, 0.792, 3.880, 3.628,
+								1.154, 1.090, 1.867, 2.849, 1.158, 2.538$ \,)^T $
 							</p>
 
 							<p class="fragment fade-in" data-fragment-index="3">
 								$ R \mathbf{y}
-								= (1.400, \; 0.792, \; \color{grey}{3.880}, \; \color{red}{\mathbf{3.628}},
-								\;
-								1.154, \; 1.090, \; \color{grey}{1.867}, \; \color{grey}{2.849},
-								\; 1.158, \; 2.538)^T $
+								= ( $ 1.400, 0.792, <span style="text-decoration:line-through;">3.880</span>, <span
+									id="rr">3.628</span>,
+								1.154, 1.090, <span style="text-decoration:line-through;">1.867</span>1.867, <span
+									style="text-decoration:line-through;">2.849</span> 2.849, 1.158, 2.538$ \,)^T $
 							</p>
 						</div>
 
@@ -2463,7 +2470,7 @@
 						</div>
 
 						<div class="cc" style="margin-top: 10px;">
-							<p class="fragment" data-fragment-index="4">
+							<p class="fragment" data-fragment-index="3">
 								In this case, <b>Song 4</b> (score: <span id="rr">3.628</span>) is the top
 								recommendation! ⭐️
 
@@ -3273,7 +3280,7 @@
 								$
 							</p>
 							<p class="fragment" data-fragment-index="4">
-								👉 &nbsp; Notice
+								👉 &nbsp; Notice $\lambda_1,\lambda_2,\lambda_3\in \mathbb R$ and
 								$\;\mathbf{v}_1 \pd \mathbf{v}_2 = 0$, $\mathbf{v}_1 \pd \mathbf{v}_3 = 0$,
 								$\mathbf{v}_2
 								\pd \mathbf{v}_3 = 0$.</p>
@@ -3358,7 +3365,7 @@
 						<div style="margin-top: 55px;">
 							<p class="fragment" data-fragment-index="4">
 								<b>Definition:</b>
-								A real symmetric matrix $A$ is <b>positive definite</b> iff
+								A real symmetric matrix $A$ is <b>positive definite</b> if and only if
 								$$
 								\mathbf{x}^T A \mathbf{x} > 0 \; \text{for all}\; \mathbf{x} \ne \mathbf{0} \in
 								\mathbb{R}^n
@@ -3524,7 +3531,8 @@
 						</div>
 
 						<div class="fragment" data-fragment-index="8" style="margin-top: 10px;">
-							<p><b>3. Eigenvalue Test:</b> For $A = \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}$:</p>
+							<p><b>3. Eigenvalue Test:</b> For the symmetric matrix $A = \begin{pmatrix}2 & -2\\ -2 &
+								5\end{pmatrix}$:</p>
 
 
 						</div>
@@ -3649,8 +3657,8 @@
 									</span>
 								</li>
 								<li class="fragment" data-fragment-index="11">
-									Match terms between $-2\mathbf{x}_0^T A \mathbf{x}$ and
-									$-B\mathbf{x}$.
+									Match terms between $\color{red}{-2\mathbf{x}_0^T A \mathbf{x}}$ and
+									$\color{red}{-B\mathbf{x}}$.
 								</li>
 							</ol>
 						</div>
@@ -3896,39 +3904,50 @@
 					<div style="font-size: 0.85em;">
 						<div class="cc" style="font-size: 1.2em;">
 							<p>
-								$ \|\mathbf{y} - X\mathbf{k}\|^2 $
-								<span>
-									$ =\mathbf{k}^T$
-									<span>
-										$X^T X$
-									</span>
-									$ \mathbf{k} - 2\mathbf{y}^T X\,
-									\mathbf{k} + \mathbf{y}^T \mathbf{y} $
+								$ \|\mathbf{y} - X\mathbf{k}\|^2 =$
+								<span class="fragment highlight-red" data-fragment-index="1">
+									$ \mathbf{k}^TX^T X \,\mathbf{k}$
 								</span>
+								<span class="fragment highlight-blue" data-fragment-index="3">
+									$-\, 2\mathbf{y}^T X\,
+									\mathbf{k} $
+								</span>
+								$ + \,\mathbf{y}^T \mathbf{y} $
+
 							</p>
 
 						</div>
 						<div>
-							<p>Match objective function with general quadratic form $\mathbf{k}^T A \mathbf{k} -
-								2\mathbf{k}_0^T A \mathbf{k} + \mathbf{k}_0^T A \mathbf{k}_0$:</p>
+							<p>
+								Match objective function with general quadratic form
+							</p>
+							<p style="text-align: center;">
+								<span class="fragment highlight-red" data-fragment-index="1">
+									$\mathbf{k}^T A \mathbf{k} $
+								</span>
+								<span class="fragment highlight-blue" data-fragment-index="3">
+									$-\,
+									2\mathbf{k}_0^T A \mathbf{k}$
+								</span> $+\, \mathbf{k}_0^T A \mathbf{k}_0$
+							</p>
 
 						</div>
 						<div class="cc" style="font-size: 1.1em;">
 							<p class="fragment" data-fragment-index="1">
 								That is
-								$\, \mathbf{k}^T A \mathbf{k} = \mathbf{k}^T X^T X \mathbf{k} $
+								$\, \color{red}{\mathbf{k}^T A \mathbf{k} = \mathbf{k}^T X^T X\, \mathbf{k}} $
 								<span class="fragment" data-fragment-index="2">
-									$\implies A = X^T X $
+									$\Ra A = X^T X $
 								</span>
 							</p>
 							<p class="fragment" data-fragment-index="3">
-								$ -2\mathbf{k}_0^T A \mathbf{k} = -2\mathbf{y}^T X \mathbf{k} $
+								$ \color{blue}{-2\mathbf{k}_0^T A \mathbf{k} = -2\mathbf{y}^T X \mathbf{k} }$
 								<span class="fragment" data-fragment-index="4">
-									$\implies 2\mathbf{k}_0^T A =
+									$\Ra 2\mathbf{k}_0^T A =
 									2\mathbf{y}^T X $
 								</span>
 								<span class="fragment" data-fragment-index="5">
-									$\implies B = 2\mathbf{y}^T X $
+									$\Ra B = 2\mathbf{y}^T X $
 								</span>
 							</p>
 						</div>
@@ -3961,21 +3980,16 @@
 
 					<div class="size-90">
 
-						<div class="cc" style="margin-top: 10px;">
+						<div class="cc" style="margin-top: 10px; font-size: 1.2em;">
 							<p>
-								$ \mathbf{k}_0 = \dfrac{1}{2} A^{-1} B^T $
-								<span>
-									$= \dfrac{1}{2}\left(X^T X\right)^{-1} \left(2 X^T \mathbf{y}\right) $
-								</span>
-								<span>
-									$= \left(X^T X\right)^{-1} X^T \mathbf{y} $
-								</span>
+								$ \mathbf{k}_0 = \left(X^T X\right)^{-1} X^T \mathbf{y} $
+								
 							</p>
 
 						</div>
 						<p style="text-align: center;">
 							<span id="bb">
-								The beauty of this approach is its generality!
+								The beauty of this approach is its generality! 😀
 							</span>
 						</p>
 
@@ -4112,7 +4126,7 @@
 							<span class="fragment" data-fragment-index="1">
 								$=
 								\begin{pmatrix} a(1) + b \\ a(2)+b \\ \vdots \\ a(10)+b \end{pmatrix}
-								
+
 								$
 							</span>
 							<span class="fragment" data-fragment-index="2">
@@ -4121,15 +4135,15 @@
 								\underbrace{\begin{pmatrix} a \\ b \end{pmatrix}}_{\mathbf k}
 								$
 							</span>
-							
+
 						</p>
 					</div>
 					<div class="size-90">
 						<span class="fragment" data-fragment-index="3" style="font-size: 1.2em;">
-								$
-								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
-								$
-							</span>
+							$
+							\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+							$
+						</span>
 					</div>
 					<br />
 				</section>
@@ -4237,26 +4251,27 @@
 							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
 							<span class="fragment" data-fragment-index="1">
 								$=
-								\begin{pmatrix} a(1)^2 + b(1)+c \\ a(2)^2+b(2)+c \\ \vdots \\ a(10)^2+b(10)+c \end{pmatrix}
-								
+								\begin{pmatrix} a(1)^2 + b(1)+c \\ a(2)^2+b(2)+c \\ \vdots \\ a(10)^2+b(10)+c
+								\end{pmatrix}
+
 								$
 							</span>
-							<span class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="2">
 								$=
 								\underbrace{\begin{pmatrix} 1 & 1 &1 \\ 4 & 2 & 1 \\ \vdots &\vdots &\vdots\\ 100 & 10 &
 								1 \end{pmatrix}}_{X}
 								\underbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}_{\mathbf k}
 								$
 							</span>
-							
+
 						</p>
 					</div>
 					<div class="size-90">
-						<span class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
-								$
-								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
-								$
-							</span>
+						<span class="fragment" data-fragment-index="3" style="font-size: 1.2em;">
+							$
+							\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+							$
+						</span>
 					</div>
 					<br />
 				</section>
@@ -4366,17 +4381,19 @@
 								\underbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}_{\mathbf k}
 								$
 							</span>
-							<span class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
-								$
-								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
-								$
-							</span>
+							
+						</p>
+						<p class="fragment" data-fragment-index="2" style="margin-top: -10px;">
+							where the columns of $X$ are the values of $e^{-x_i}$, $e^{-x_i/2}$ and 1.
 						</p>
 					</div>
 					<div class="size-90">
-						<p class="fragment" data-fragment-index="3">
-							where the columns of $X$ are the values of $e^{-x_i}$, $e^{-x_i/2}$ and 1.
-						</p>
+						
+						<span class="fragment" data-fragment-index="3" style="font-size: 0.9em;">
+								$
+								\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+								$
+						</span>
 					</div>
 					<br />
 				</section>
