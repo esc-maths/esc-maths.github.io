@@ -72,7 +72,7 @@
 
 			<section>
 
-				
+
 				<section data-auto-animate>
 					<h4>Applying Our Ideas More Broadly</h4>
 					<div class="size-85 left-txt">
@@ -85,14 +85,16 @@
 							<p class="fragment" data-fragment-index="1"><b>Examples of Linear Maps:</b></p>
 							<ul style="line-height: 2.7;">
 								<li class="fragment" data-fragment-index="1">
-									<b>Matrix Multiplication:</b> $A\left(\alpha \mathbf x + \beta \mathbf y\right) = \alpha A\mathbf x + \beta A\mathbf y$
+									<b>Matrix Multiplication:</b> $A\left(\alpha \mathbf x + \beta \mathbf y\right) =
+									\alpha A\mathbf x + \beta A\mathbf y$
 								</li>
 								<li class="fragment" data-fragment-index="2">
 									<b>Differentiation:</b> $\dfrac{d}{dx}\big(\alpha f(x) + \beta g(x)\big) = \alpha
 									\dfrac{df}{dx} + \beta \dfrac{dg}{dx}$
 								</li>
 								<li class="fragment" data-fragment-index="3">
-									<b>Integration:</b> $\ds \int\big(\alpha f(x) + \beta g(x)\big)dx = \alpha \int f(x)\,dx + \beta
+									<b>Integration:</b> $\ds \int\big(\alpha f(x) + \beta g(x)\big)dx = \alpha \int
+									f(x)\,dx + \beta
 									\int g(x)\,dx$
 								</li>
 							</ul>
@@ -113,14 +115,16 @@
 							<p><b>Examples of Linear Maps:</b></p>
 							<ul style="line-height: 2.4;">
 								<li>
-									<b>Matrix Multiplication:</b> $A\left(\alpha \mathbf x + \beta \mathbf y\right) = \alpha A\mathbf x + \beta A\mathbf y$
+									<b>Matrix Multiplication:</b> $A\left(\alpha \mathbf x + \beta \mathbf y\right) =
+									\alpha A\mathbf x + \beta A\mathbf y$
 								</li>
 								<li>
 									<b>Differentiation:</b> $\dfrac{d}{dx}\big(\alpha f(x) + \beta g(x)\big) = \alpha
 									\dfrac{df}{dx} + \beta \dfrac{dg}{dx}$
 								</li>
 								<li>
-									<b>Integration:</b> $\ds \int\big(\alpha f(x) + \beta g(x)\big)dx = \alpha \int f(x)\,dx + \beta
+									<b>Integration:</b> $\ds \int\big(\alpha f(x) + \beta g(x)\big)dx = \alpha \int
+									f(x)\,dx + \beta
 									\int g(x)\,dx$
 								</li>
 							</ul>
@@ -140,7 +144,7 @@
 					<br />
 				</section>
 
-				
+
 				<section data-auto-animate>
 					<h4>Linearity &amp; Vector Spaces</h4>
 					<div class="size-85 left-txt">
@@ -156,9 +160,9 @@
 								<li class="fragment" data-fragment-index="2">The usual algebraic rules (commutativity,
 									associativity, etc.) must apply.</li>
 							</ul>
-							
+
 						</div>
-						<div  style="font-size: 1.15em;">
+						<div style="font-size: 1.15em;">
 							<p class="fragment" data-fragment-index="3" style="margin-top: 20px;">
 								👉 Any set of objects obeying these rules is called a <span id="bb">vector space</span>.
 							</p>
@@ -196,62 +200,84 @@
 				<!-- Slide 4 (PDF p.5): What is a vector space? -->
 				<section data-auto-animate>
 					<h4>What is a Vector Space?</h4>
-					<div class="size-85">
+					<div class="size-85 left-txt">
 						<p>A <b>vector space</b> is a collection of objects (vectors) equipped with:</p>
-						<ul style="line-height: 1.8em;">
+						<ul style="line-height: 1.7em;">
 							<li class="fragment" data-fragment-index="0">A notion of <b>vector addition</b></li>
 							<li class="fragment" data-fragment-index="1">A notion of <b>scalar multiplication</b></li>
 						</ul>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 20px; font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="2" style="margin-top: 20px; ">
 							<p><b>Closure Properties:</b></p>
-							<ul>
-								<li>Adding two vectors produces another vector in the space.</li>
-								<li>Rescaling a vector produces another vector in the space.</li>
+							<ul style="line-height: 1.5em;">
+								<li class="fragment" data-fragment-index="3">Adding two vectors produces another vector
+									in the space.</li>
+								<li class="fragment" data-fragment-index="4">Rescaling a vector produces another vector
+									in the space.</li>
+							</ul>
+						</div>
+						<div class="fragment" data-fragment-index="5" style="margin-top: 20px; ">
+							<p><b>Addition and scalar multiplication obey the 'usual' rules:</b></p>
+							<ul style="line-height: 1.5em;">
+								<li class="fragment" data-fragment-index="6">Associativity, commutativity,
+									distributivity, identity, inverse.</li>
+								<li class="fragment" data-fragment-index="7">Rules obeyed by vectors, matrices, and
+									functions.</li>
 							</ul>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 5 (PDF p.6): Formal Definition -->
+
 				<section data-auto-animate>
 					<h4>Formal Definition of a Vector Space</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>A real vector space $V$ is a set whose elements satisfy the following axioms $\forall x,y,z
+					<div class="size-85 left-txt">
+						<p>A real vector space $V$ is a set whose elements satisfy the following axioms
+							for any $\mathbf x,\mathbf y,\mathbf z
 							\in V$ and $\alpha,\beta \in \mathbb{R}$:</p>
-						<table style="width: 100%; border-collapse: collapse;">
-							<tr class="fragment" data-fragment-index="0">
-								<td><b>1.</b> $x + y \in V$ (Closure under addition)</td>
-								<td><b>6.</b> $x + (-x) = 0$ (Additive inverse)</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="1">
-								<td><b>2.</b> $\alpha x \in V$ (Closure under scalar mult.)</td>
-								<td><b>7.</b> $\alpha(x+y) = \alpha x + \alpha y$ (Distributivity I)</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="2">
-								<td><b>3.</b> $x + y = y + x$ (Commutativity)</td>
-								<td><b>8.</b> $(\alpha+\beta)x = \alpha x + \beta x$ (Distributivity II)</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="3">
-								<td><b>4.</b> $(x+y)+z = x+(y+z)$ (Associativity)</td>
-								<td><b>9.</b> $(\alpha\beta)x = \alpha(\beta x)$ (Scalar associativity)</td>
-							</tr>
-							<tr class="fragment" data-fragment-index="4">
-								<td><b>5.</b> $x + 0 = x$ (Additive identity)</td>
-								<td><b>10.</b> $1x = x$ (Multiplicative identity)</td>
-							</tr>
-						</table>
+						<ol style="line-height: 1.5em; margin-top: -15px;">
+							<li class="fragment" data-fragment-index="0">
+								$\mathbf{x} + \mathbf{y} \in V$ (Closure under addition)
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								$\alpha\mathbf{x} \in V$ (Closure under scalar mult.)
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$\mathbf{x} + \mathbf{y} = \mathbf{y} + \mathbf{x}$ (Commutativity)
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								$(\mathbf{x}+\mathbf{y})+\mathbf{z} = \mathbf{x}+(\mathbf{y}+\mathbf{z})$
+								(Associativity)
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								$\mathbf{x} + \mathbf{0} = \mathbf{x}$ (Additive identity)
+							</li>
+							<li class="fragment" data-fragment-index="5">
+								Each $\mathbf{x}$ has an element $-\mathbf{x}$ such that $\mathbf{x} + (-\mathbf{x}) = \mathbf{0}$ (Additive inverse)
+							</li>
+							<li class="fragment" data-fragment-index="6">
+								$\alpha(\mathbf{x}+\mathbf{y}) = \alpha\mathbf{x} + \alpha\mathbf{y}$ (Distributivity over vector addition)
+							</li>
+							<li class="fragment" data-fragment-index="7">
+								$(\alpha+\beta)\mathbf{x} = \alpha\mathbf{x} + \beta\mathbf{x}$ (Distributivity over scalar addition)
+							</li>
+							<li class="fragment" data-fragment-index="8">
+								$(\alpha\beta)\mathbf{x} = \alpha(\beta\mathbf{x})$ (Scalar associativity)
+							</li>
+							<li class="fragment" data-fragment-index="9">
+								$1\mathbf{x} = \mathbf{x}$ (Multiplicative identity)
+							</li>
+						</ol>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 6 (PDF p.7): Examples of vector spaces -->
 				<section data-auto-animate>
 					<h4>Examples of Vector Spaces</h4>
 					<div class="size-85">
 						<p>The following sets form vector spaces under standard addition and scalar multiplication:</p>
-						<ul style="line-height: 2em; font-size: 0.85em;">
+						<ul style="line-height: 2em;">
 							<li class="fragment" data-fragment-index="0">
 								<b>Euclidean Spaces:</b> $\mathbb{R}^2, \mathbb{R}^3, \dots, \mathbb{R}^n$
 							</li>
