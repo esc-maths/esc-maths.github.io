@@ -72,28 +72,28 @@
 
 			<section>
 
-				<!-- Slide 1 (PDF p.2): Applying our ideas more broadly -->
+				
 				<section data-auto-animate>
 					<h4>Applying Our Ideas More Broadly</h4>
-					<div class="size-85">
+					<div class="size-85 left-txt">
 						<p>We've seen that there is a broad range of linear maps $\mathcal{L}(x)$ satisfying:</p>
 						<div class="cc" style="font-size: 1.1em; margin-top: 10px;">
 							<p>$$ \mathcal{L}(\alpha x + \beta y) = \alpha \mathcal{L}(x) + \beta \mathcal{L}(y) $$</p>
 						</div>
 
-						<div style="margin-top: 20px; font-size: 0.85em;">
-							<p><b>Examples of Linear Maps:</b></p>
-							<ul>
+						<div style="margin-top: 20px;">
+							<p class="fragment" data-fragment-index="1"><b>Examples of Linear Maps:</b></p>
+							<ul style="line-height: 2.7;">
 								<li class="fragment" data-fragment-index="1">
-									<b>Matrix Multiplication:</b> $A(\alpha x + \beta y) = \alpha Ax + \beta Ay$
+									<b>Matrix Multiplication:</b> $A\left(\alpha \mathbf x + \beta \mathbf y\right) = \alpha A\mathbf x + \beta A\mathbf y$
 								</li>
 								<li class="fragment" data-fragment-index="2">
-									<b>Differentiation:</b> $\frac{d}{dx}(\alpha f(x) + \beta g(x)) = \alpha
-									\frac{df}{dx} + \beta \frac{dg}{dx}$
+									<b>Differentiation:</b> $\dfrac{d}{dx}\big(\alpha f(x) + \beta g(x)\big) = \alpha
+									\dfrac{df}{dx} + \beta \dfrac{dg}{dx}$
 								</li>
 								<li class="fragment" data-fragment-index="3">
-									<b>Integration:</b> $\int(\alpha f(x) + \beta g(x))dx = \alpha \int f(x)dx + \beta
-									\int g(x)dx$
+									<b>Integration:</b> $\ds \int\big(\alpha f(x) + \beta g(x)\big)dx = \alpha \int f(x)\,dx + \beta
+									\int g(x)\,dx$
 								</li>
 							</ul>
 						</div>
@@ -101,31 +101,73 @@
 					<br />
 				</section>
 
-				<!-- Slide 2 (PDF p.3): Linearity -->
+				<section data-auto-animate>
+					<h4>Applying Our Ideas More Broadly</h4>
+					<div class="size-85 left-txt">
+						<p>We've seen that there is a broad range of linear maps $\mathcal{L}(x)$ satisfying:</p>
+						<div class="cc" style="font-size: 1.1em; margin-top: 10px;">
+							<p>$$ \mathcal{L}(\alpha x + \beta y) = \alpha \mathcal{L}(x) + \beta \mathcal{L}(y) $$</p>
+						</div>
+
+						<div style="margin-top: -20px; font-size: 0.75em;">
+							<p><b>Examples of Linear Maps:</b></p>
+							<ul style="line-height: 2.4;">
+								<li>
+									<b>Matrix Multiplication:</b> $A\left(\alpha \mathbf x + \beta \mathbf y\right) = \alpha A\mathbf x + \beta A\mathbf y$
+								</li>
+								<li>
+									<b>Differentiation:</b> $\dfrac{d}{dx}\big(\alpha f(x) + \beta g(x)\big) = \alpha
+									\dfrac{df}{dx} + \beta \dfrac{dg}{dx}$
+								</li>
+								<li>
+									<b>Integration:</b> $\ds \int\big(\alpha f(x) + \beta g(x)\big)dx = \alpha \int f(x)\,dx + \beta
+									\int g(x)\,dx$
+								</li>
+							</ul>
+						</div>
+						<ul style="line-height: 1.8; margin-top: 20px;">
+							<li>
+								We have developed a lot of theory for matrix problems $A\mathbf x = \mathbf b$
+							</li>
+							<li>
+								Can we apply our ideas to problems involving other linear maps?
+							</li>
+							<li>
+								What conditions do we require for our ideas to work more broadly?
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				
 				<section data-auto-animate>
 					<h4>Linearity &amp; Vector Spaces</h4>
-					<div class="size-85">
+					<div class="size-85 left-txt">
 						<p>We can apply our general linear framework as long as the linearity condition makes sense:</p>
 						<div class="cc" style="font-size: 1.1em; margin-top: 10px;">
 							<p>$$ \mathcal{L}(\alpha x + \beta y) = \alpha \mathcal{L}(x) + \beta \mathcal{L}(y) $$</p>
 						</div>
 
-						<div style="margin-top: 20px; font-size: 0.85em;">
-							<ul>
+						<div style="margin-top: 20px;">
+							<ul style="line-height: 1.8; margin-left: 0px;">
 								<li class="fragment" data-fragment-index="1">$\alpha x + \beta y$ must always exist for
 									any scalars $\alpha, \beta$ and elements $x, y$.</li>
 								<li class="fragment" data-fragment-index="2">The usual algebraic rules (commutativity,
 									associativity, etc.) must apply.</li>
 							</ul>
-							<p class="fragment" data-fragment-index="3" style="margin-top: 20px;" id="bb">
-								Any set of objects obeying these rules is called a <b>vector space</b>.
+							
+						</div>
+						<div  style="font-size: 1.15em;">
+							<p class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+								👉 Any set of objects obeying these rules is called a <span id="bb">vector space</span>.
 							</p>
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 3 (PDF p.4): Why 'vector space'? -->
 				<section data-auto-animate>
 					<h4>Why "Vector Space"?</h4>
 					<div class="size-85" style="font-size: 0.85em;">
@@ -136,7 +178,7 @@
 
 						<p class="fragment" data-fragment-index="1" style="margin-top: 15px;">
 							We can maintain this coefficient representation for completely different mathematical
-							objects using another basis $\{v_1, v_2, v_3\}$:
+							objects using another basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$:
 						</p>
 
 						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
