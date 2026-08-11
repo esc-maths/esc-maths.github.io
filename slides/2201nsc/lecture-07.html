@@ -778,22 +778,53 @@
 				<!-- Slide 13 (PDF p.14): Null Space -->
 				<section data-auto-animate>
 					<h4>The Null Space of a Matrix</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p><b>Definition:</b> The null space $N(A)$ of $A \in \mathbb{R}^{m\times n}$ is $N(A) = \{x \in
-							\mathbb{R}^n \mid Ax = 0\}$.</p>
+					<div class="size-85 left-txt" style="font-size: 0.8em;">
+						<p class="fragment">
+							<b>Definition:</b>
+							The null space $N(A)$ of $A \in \mathbb{R}^{m\times n}$
+							is the set of all solutions to the homogeneous system $A\mathbf x = \mathbf 0.$
+							<span class="fragment">
+								That is,
+								$$N(A) = \left\{\mathbf x \in \mathbb{R}^n \mid A\mathbf x = 0\right\}.$$
+							</span>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
 							<p><b>Proof that $N(A)$ is a subspace of $\mathbb{R}^n$:</b></p>
-							<ol style="line-height: 1.8em;">
-								<li class="fragment" data-fragment-index="1">Non-empty: $A\mathbf{0} = \mathbf{0}
-									\implies \mathbf{0} \in N(A)$.</li>
-								<li class="fragment" data-fragment-index="2">
-									If $x, y \in N(A)$, then $x+y \in N(A)$:
-									$$ A(x+y) = Ax + Ay = 0 + 0 = 0 $$
+							<ol style="line-height: 1.7em;">
+								<li class="fragment">The zero solution always exists, so $N(A)$ is not empty:
+									<span class="fragment">
+										$ \mathbf{0} \in N(A)$.
+									</span>
+
 								</li>
-								<li class="fragment" data-fragment-index="3">
-									If $x \in N(A)$, then $\alpha x \in N(A)$:
-									$$ A(\alpha x) = \alpha (Ax) = \alpha \cdot 0 = 0 $$
+								<li class="fragment">
+									If $\mathbf x,\mathbf y \in N(A)$, then $\mathbf x+\mathbf y \in N(A)$:
+
+									<p style="text-align: center;" class="fragment">
+										$ A(\mathbf x+\mathbf y) $
+										<span class="fragment">
+											$ = A\mathbf x + A\mathbf y $
+										</span>
+										<span class="fragment">
+											$ = 0 + 0 = 0 $
+										</span>
+									</p>
+								</li>
+								<li class="fragment">
+									If $x \in N(A)$, then $\alpha \mathbf x \in N(A)$:
+									<p style="text-align: center;" class="fragment">
+										$ A(\alpha \mathbf x) $
+										<span class="fragment">
+											$ = \alpha (A\mathbf x) $
+										</span>
+										<span class="fragment">
+											$ = \alpha \cdot 0 = 0 $
+										</span>
+									</p>
+
 								</li>
 							</ol>
 						</div>
@@ -801,42 +832,116 @@
 					<br />
 				</section>
 
-				<!-- Slide 14 (PDF p.15): Finding Null Space Example -->
+
 				<section data-auto-animate>
 					<h4>Finding the Null Space</h4>
 					<div class="size-85" style="font-size: 0.8em;">
-						<p>Find $N(A)$ for $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}$:</p>
+						<p style="text-align: center;" class="fragment">Find $N(A)$ for $A = \begin{pmatrix}1 & 1 & 1 &
+							0 \\ 2 & 1 & 0 & 1\end{pmatrix}$</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							$$ \begin{pmatrix}1 & 1 & 1 & 0 & 0\\ 2 & 1 & 0 & 1 & 0\end{pmatrix} \rightarrow
-							\begin{pmatrix}1 & 0 & -1 & 1 & 0\\ 0 & 1 & 2 & -1 & 0\end{pmatrix} $$
+						<div style="margin-top: 10px;">
+							<p class="fragment">
+								Augmented matrix:
+								$\; \left(\begin{array}{cccc|c}1 & 1 & 1 & 0 & 0\\ 2 & 1 & 0 & 1 & 0\end{array}\right)$
+								<span class="fragment">
+									$ \rightarrow
+									\left(\begin{array}{cccc|c}1 & 0 & -1 & 1 & 0\\ 0 & 1 & 2 & -1 & 0\end{array}\right)
+									$
+								</span>
+							</p>
+							<p class="fragment">
+								From which we obtain:
+								$
+								\;\;\left\{
+								\begin{array}{l}
+								x_1 -x_3 +x_4 = 0 \\
+								x_2 + 2x_3 - x_4 = 0
+								\end{array}\right.\;\;
+								$
+								<span class="fragment">
+									$
+									\Ra\;\;\left\{
+									\begin{array}{l}
+									x_1 = x_3 -x_4 \\
+									x_2 =- 2x_3 + x_4
+									\end{array}\right.
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p>Free variables $x_3 = \alpha$, $x_4 = \beta \implies x_1 = \alpha - \beta, \; x_2 =
-								-2\alpha + \beta$:</p>
-							$$ x = \begin{pmatrix}x_1 \\ x_2 \\ x_3 \\ x_4\end{pmatrix} = \alpha \begin{pmatrix}1 \\ -2
-							\\ 1 \\ 0\end{pmatrix} + \beta \begin{pmatrix}-1 \\ 1 \\ 0 \\ 1\end{pmatrix} $$
+						<div style="margin-top: 10px;">
+							<p class="fragment">
+								Set as free variables $x_3 = \alpha$, $x_4 = \beta ,\,$
+								<span class="fragment">
+									then $\, x_1 = \alpha - \beta, \; x_2 =
+									-2\alpha + \beta$:
+								</span>
+
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$ \mathbf x = \begin{pmatrix}x_1 \\ x_2 \\ x_3 \\ x_4\end{pmatrix} $
+								<span class="fragment">
+									$
+									= \begin{pmatrix}\alpha -\beta \\ -2\alpha + \beta
+									\\ \alpha \\ \beta\end{pmatrix}
+									$
+								</span>
+								<span class="fragment">
+									$
+									= \alpha \begin{pmatrix}1 \\ -2
+									\\ 1 \\ 0\end{pmatrix} + \beta \begin{pmatrix}-1 \\ 1 \\ 0 \\ 1\end{pmatrix}
+									$
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 15 (PDF p.16): Null Space Verification -->
 				<section data-auto-animate>
 					<h4>Null Space Subspace Structure</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>Denoting $v_1 = (1, -2, 1, 0)^T$ and $v_2 = (-1, 1, 0, 1)^T$:</p>
-						$$ N(A) = \{\alpha v_1 + \beta v_2 \mid \alpha, \beta \in \mathbb{R}\} $$
+					<div class="size-85" >
+						<p>Denoting $\mathbf v_1 = (1, -2, 1, 0)^T$ and $\mathbf v_2 = (-1, 1, 0, 1)^T$:</p>
+						<p style="text-align: center;">
+							$ N(A) = \{\alpha \mathbf v_1 + \beta \mathbf v_2 \mid \alpha, \beta \in \mathbb{R}\} $
+						</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p>For $x, y \in N(A)$:</p>
-							$$ x+y = (x_1+y_1)v_1 + (x_2+y_2)v_2 \in N(A) $$
+							<p>
+								For $\mathbf x, \mathbf y \in N(A)$,
+								<span>
+									then $\mathbf x = \alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2$ and $\mathbf y =
+									\alpha_2 \mathbf v_1 + \beta_2 \mathbf v_2$:
+								</span>
+							</p>
+							<p style="text-align: center;">
+								$ \mathbf x+\mathbf y =\alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2 + \alpha_2 \mathbf v_1 + \beta_2 \mathbf v_2$
+								<span>
+									$  = \left(\alpha_1+\alpha_2\right)\mathbf v_1 + \left(\beta_1+\beta_2\right)\mathbf v_2  $
+								</span>
+								<span>
+									$  \in N(A) $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							$$ \alpha x = (\alpha x_1)v_1 + (\alpha x_2)v_2 \in N(A) $$
-						</div>
+						
+							<p style="text-align: center;">
+								$ k\, \mathbf x   $
+								<span>
+									$= k \left(\alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2\right)$
+								</span>
+								<span>
+									$= \left(k \alpha_1\right) \mathbf v_1 +\left(k \beta_1\right) \mathbf v_2$
+								</span>
+								<span>
+									$\in N(A)$
+								</span>
+							</p>
+						
 
 						<p class="fragment" data-fragment-index="2" style="margin-top: 15px;">
 							Confirms $N(A)$ is a subspace of $\mathbb{R}^4$.
