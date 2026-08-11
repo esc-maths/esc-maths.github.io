@@ -197,7 +197,6 @@
 					<br />
 				</section>
 
-				<!-- Slide 4 (PDF p.5): What is a vector space? -->
 				<section data-auto-animate>
 					<h4>What is a Vector Space?</h4>
 					<div class="size-85 left-txt">
@@ -232,40 +231,50 @@
 
 				<section data-auto-animate>
 					<h4>Formal Definition of a Vector Space</h4>
-					<div class="size-85 left-txt">
-						<p>A real vector space $V$ is a set whose elements satisfy the following axioms
-							for any $\mathbf x,\mathbf y,\mathbf z
-							\in V$ and $\alpha,\beta \in \mathbb{R}$:</p>
+					<div class="size-80 left-txt">
+						<p>
+							A real vector space $V$ is a nonempty set,
+							with a notion of <b>addition</b> and a notion of
+							<b>scalar multiplication</b>,
+							<span class="fragment">
+								whose elements satisfy the following axioms
+								for any $\mathbf x,\mathbf y,\mathbf z
+								\in V$ and $\alpha,\beta \in \mathbb{R}$:
+							</span>
+						</p>
 						<ol style="line-height: 1.5em; margin-top: -15px;">
-							<li class="fragment" data-fragment-index="0">
+							<li class="fragment">
 								$\mathbf{x} + \mathbf{y} \in V$ (Closure under addition)
 							</li>
-							<li class="fragment" data-fragment-index="1">
+							<li class="fragment">
 								$\alpha\mathbf{x} \in V$ (Closure under scalar mult.)
 							</li>
-							<li class="fragment" data-fragment-index="2">
+							<li class="fragment">
 								$\mathbf{x} + \mathbf{y} = \mathbf{y} + \mathbf{x}$ (Commutativity)
 							</li>
-							<li class="fragment" data-fragment-index="3">
+							<li class="fragment">
 								$(\mathbf{x}+\mathbf{y})+\mathbf{z} = \mathbf{x}+(\mathbf{y}+\mathbf{z})$
 								(Associativity)
 							</li>
-							<li class="fragment" data-fragment-index="4">
+							<li class="fragment">
 								$\mathbf{x} + \mathbf{0} = \mathbf{x}$ (Additive identity)
 							</li>
-							<li class="fragment" data-fragment-index="5">
-								Each $\mathbf{x}$ has an element $-\mathbf{x}$ such that $\mathbf{x} + (-\mathbf{x}) = \mathbf{0}$ (Additive inverse)
+							<li class="fragment">
+								Each $\mathbf{x}$ has an element $-\mathbf{x}$ such that $\mathbf{x} + (-\mathbf{x}) =
+								\mathbf{0}$ (Additive inverse)
 							</li>
-							<li class="fragment" data-fragment-index="6">
-								$\alpha(\mathbf{x}+\mathbf{y}) = \alpha\mathbf{x} + \alpha\mathbf{y}$ (Distributivity over vector addition)
+							<li class="fragment">
+								$\alpha(\mathbf{x}+\mathbf{y}) = \alpha\mathbf{x} + \alpha\mathbf{y}$ (Distributivity
+								over vector addition)
 							</li>
-							<li class="fragment" data-fragment-index="7">
-								$(\alpha+\beta)\mathbf{x} = \alpha\mathbf{x} + \beta\mathbf{x}$ (Distributivity over scalar addition)
+							<li class="fragment">
+								$(\alpha+\beta)\mathbf{x} = \alpha\mathbf{x} + \beta\mathbf{x}$ (Distributivity over
+								scalar addition)
 							</li>
-							<li class="fragment" data-fragment-index="8">
+							<li class="fragment">
 								$(\alpha\beta)\mathbf{x} = \alpha(\beta\mathbf{x})$ (Scalar associativity)
 							</li>
-							<li class="fragment" data-fragment-index="9">
+							<li class="fragment">
 								$1\mathbf{x} = \mathbf{x}$ (Multiplicative identity)
 							</li>
 						</ol>
@@ -279,7 +288,8 @@
 						<p>The following sets form vector spaces under standard addition and scalar multiplication:</p>
 						<ul style="line-height: 2em;">
 							<li class="fragment" data-fragment-index="0">
-								<b>Euclidean Spaces:</b> $\mathbb{R}^2, \mathbb{R}^3, \dots, \mathbb{R}^n$
+								<b>Euclidean Spaces:</b> $\mathbb R,$ $\mathbb{R}^2,$ $\mathbb{R}^3, \dots,
+								\mathbb{R}^n$
 							</li>
 							<li class="fragment" data-fragment-index="1">
 								<b>Matrix Spaces:</b> $m \times n$ real matrices ($\mathbb{R}^{m \times n}$)
@@ -294,6 +304,289 @@
 				</section>
 
 				<section data-auto-animate>
+					<h4>Example 1: $\mathbb R^n$ - Euclidian spaces</h4>
+					<div class="size-80">
+						<div class="left-txt">
+
+							<p class="fragment" data-fragment-index="0"><strong>Identify elements of the
+									set:</strong>
+								<span>$$\mathbb R^n = \big\{ \mathbf x = \left( x_1, x_2, \ldots , x_n\right)~|~
+									x_1, x_2, \ldots , x_n \in \mathbb R \big\}$$</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">Properties 1 & 2. <strong>Check for closure of
+									addition
+									and scalar multiplication:</strong>
+								<span>$$\mathbf x+ \mathbf y = \left( x_1+y_1, x_2+y_2, \ldots , x_n+y_n\right)$$
+								</span>
+								<span>
+									$$\;\,k \, \mathbf x = \left( kx_1, kx_2, \ldots , kx_n\right)$$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">Property 5. <strong>Identify the vector
+									zero:</strong>
+								<span>$\mathbf 0 = \left( 0, 0, \ldots , 0\right)$
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="3">Property 6. <strong>Identify the inverse
+									additive:</strong>
+								<span>$ - \mathbf x = \left( -x_1, -x_2, \ldots , -x_n\right)$
+								</span>
+
+							</p>
+
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Example 1: $\mathbb R^n$ - Euclidian spaces</h4>
+					<div class="size-50">
+						<div class="left-txt">
+
+							<p><strong>Identify elements of the
+									set:</strong>
+								<span>$$\mathbb R^n = \big\{ \mathbf x = \left( x_1, x_2, \ldots , x_n\right)~|~
+									x_1, x_2, \ldots , x_n \in \mathbb R \big\}$$</span>
+							</p>
+							<p>Properties 1 & 2. <strong>Check for closure of addition
+									and scalar multiplication:</strong>
+								<span>$$\mathbf x+ \mathbf y = \left( x_1+y_1, x_2+y_2, \ldots , x_n+y_n\right)$$
+								</span>
+								<span>
+									$$\;\,k \, \mathbf x = \left( kx_1, kx_2, \ldots , kx_n\right)$$
+								</span>
+							</p>
+							<p>Property 5. <strong>Identify the vector zero:</strong>
+								<span>$\mathbf 0 = \left( 0, 0, \ldots , 0\right)$
+								</span>
+
+							</p>
+							<p>Property 6. <strong>Identify the inverse
+									additive:</strong>
+								<span>$ - \mathbf x = \left( -x_1, -x_2, \ldots , -x_n\right)$
+								</span>
+
+							</p>
+
+
+						</div>
+					</div>
+					<div class="size-75">
+						<div class="left-txt">
+
+
+
+							<p>Now you can continue checking that the other properties hold. 📝</p>
+
+							<p class="fragment" data-fragment-index="0"><strong>Remark:</strong> This is just an
+								strategy you can use. But if you prefer,
+								you can verify each property one by one in the given order, that is, from 1 to 10.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 2: $\R^{m\times n}$ - set of $m\times n$ matrices</h4>
+					<div class="size-75">
+						<div class="left-txt">
+							<p style="text-align: center;" class="fragment" data-fragment-index="0">
+								$\R^{m\times n} = \left\{
+								\left(
+								\begin{array}{ccc}
+								a_{11} & \cdots & a_{1n} \\
+								\vdots & \ddots & \vdots \\
+								a_{m1} & \cdots & a_{mn} \\
+								\end{array}
+								\right)
+								~\Bigg|~
+								a_{ij}\in \R,
+								1\leq i\leq m,
+								1\leq j\leq n
+								\right\}$
+								<span class="fragment">
+									$=M_{m\times n}\big(\mathbb R\big)$
+								</span>
+							</p>
+							<p class="fragment">
+								Prop. 1. & 2. <b>Closure of addition and scalar multiplication: </b>
+								Usual addition and scalar multiplication for matrices.
+							</p>
+							<p class="fragment">
+								Prop. 5. <b> Identify the vector zero:</b>
+								$\;\mathbf 0 = \left(
+								\begin{array}{ccc}
+								0 & \cdots & 0 \\
+								\vdots & \ddots & \vdots \\
+								0 & \cdots & 0 \\
+								\end{array}
+								\right)$
+							</p>
+
+							<p class="fragment">
+								Prop. 6. <b>Identify the inverse additive:</b>
+								$\;- \mathbf x = \left(
+								\begin{array}{ccc}
+								-a_{11} & \cdots & -a_{1n} \\
+								\vdots & \ddots & \vdots \\
+								-a_{m1} & \cdots & -a_{mn} \\
+								\end{array}
+								\right)$
+							</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section id="example-3">
+					<h4 style="font-size:72%">Example 3: $C[a,b]$ - set of continuous real-valued functions on $[a,b]$
+					</h4>
+
+					<div class="size-90" style="margin-top:30px">
+						<div class="left-txt">
+							<p style="text-align: center; margin-bottom: 40px;" class="fragment"
+								data-fragment-index="0">
+								$\mathbf f, \mathbf g\in C[a,b],$ often represented as $f(x), g(x).$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								Prop. 1 & 2. <b>Closure of addition and scalar multiplication: </b>
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								$\quad \left(\,f+g\right)(x) = f(x) + g(x)$
+
+								<span class="fragment" data-fragment-index="3">
+									$\quad \text{and} \quad (k \cdot f)(x) = kf(x)$
+								</span>
+							</p>
+
+
+							<p class="fragment fade-in" data-fragment-index="4">
+								Prop. 5. <b>Identify the vector zero:</b>
+
+							</p>
+							<div class="r-stack">
+								<p class="fragment fade-in-then-out" data-fragment-index="4">
+									$\mathbf 0 = \,?\;$ 🤔
+								</p>
+								<p class="fragment fade-in" data-fragment-index="5">
+									$\mathbf 0 = f(x) \equiv 0$ for every $x\in[a,b].$ 😃
+								</p>
+							</div>
+
+
+							<p class="fragment" data-fragment-index="6">
+								Prop. 6. <b>Identify the inverse additive:</b> $ - \mathbf f = -f(x) $
+							</p>
+
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section>
+					<h4 style="font-size:72%">Example 4: $P_n\big(\R\big)$ - set of polynomials of degree at most $n$
+					</h4>
+
+					<div class="size-90" style="margin-top:30px">
+						<div class="left-txt">
+							<p style="text-align: center; margin-bottom: 40px;" class="fragment"
+								data-fragment-index="0">
+								$\mathbf p \in P_n(\R)$, with $\mathbf p = a_0 + a_1x + \cdots + a_n x^n$
+								and $a_k\in \R,$ $\forall k.$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								Prop. 1 & 2. <b>Closure of addition and scalar multiplication: </b>
+								Operations similar to <a href="#/example-3">Example 3</a>.
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								$\quad \left(\,p+q\right)(x) = p(x) + q(x)$
+
+								<span class="fragment" data-fragment-index="3">
+									$\quad \text{and} \quad (k \cdot p)(x) = kp(x)$
+								</span>
+							</p>
+
+
+							<p class="fragment fade-in" data-fragment-index="4">
+								Prop. 5. <b>Identify the vector zero:</b>
+
+							</p>
+							<div class="r-stack">
+								<p class="fragment fade-in-then-out" data-fragment-index="4">
+									$\mathbf 0 = \,?\;$ 🤔
+								</p>
+								<p class="fragment fade-in" data-fragment-index="5">
+									$\mathbf 0 = p(x) \equiv 0$ for every $x\in[a,b].$ 😃
+								</p>
+							</div>
+
+
+							<p class="fragment" data-fragment-index="6">
+								Prop. 6. <b>Identify the inverse additive:</b> $ - \mathbf p = -p(x) $
+							</p>
+
+						</div>
+					</div>
+					<br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h3>Question!</h3>
+
+					<div class="size-95 cc" style="margin-top:35px">
+						<div class="left-txt">
+
+							<p style="margin-bottom:5px;">
+								Consider the set of solutions of the homogeneous linear ODE
+							</p>
+
+							<p>
+								$y'' + p(x)y' + q(x)y = 0,\, $ where $\,y=y(x)$.
+							</p>
+
+							<div style="text-align: center;">
+								<p class="fragment" data-fragment-index="0">
+									Is this set a <b>vector space</b>?
+								</p>
+
+								<picture class="fragment" data-fragment-index="0">
+									<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+										type="image/webp">
+									<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+										width="150" height="150">
+								</picture>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="1" style="margin-top:5px;">
+							💡 <b>Hint:</b> Think back to Examples 3 and 4.
+						</p>
+
+						<p class="fragment" data-fragment-index="2" style="margin-top:-15px;">
+							What happens when we add two solutions or multiply a
+							solution by a scalar?
+						</p>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top:-15px;">
+							<b>Superposition principle:</b>
+							If $y_1$ and $y_2$ are solutions, then
+							$c_1y_1+c_2y_2$ is also a solution.
+						</p>
+					</div>
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
 					<h4>Subspaces</h4>
 					<div class="size-85 left-txt" style="font-size: 0.85em;">
 						<p>To show a subset $S \subseteq V$ is itself a vector space, we only need to verify
@@ -303,10 +596,10 @@
 						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
 							<p>
 								<b>Definition:</b> A non-empty subset $S \subseteq V$ is a <b>subspace</b> of $V$ if:
-								<ol style="line-height: 1.7em;">
-									<li>$\alpha x \in S$ whenever $x \in S$ and $\alpha \in \mathbb{R}$</li>
-									<li>$x + y \in S$ whenever $x \in S$ and $y \in S$</li>
-								</ol>
+							<ol style="line-height: 1.7em;">
+								<li>$\alpha x \in S$ whenever $x \in S$ and $\alpha \in \mathbb{R}$</li>
+								<li>$x + y \in S$ whenever $x \in S$ and $y \in S$</li>
+							</ol>
 							</p>
 						</div>
 
