@@ -1073,18 +1073,21 @@
 				<section data-auto-animate>
 					<h4>Linear Homogeneous ODEs</h4>
 					<div class="size-85 left-txt">
-						<p style="text-align: center;" class="fragment">A <i>linear homogeneous</i> ODE can be written as $L\left[f\right] = 0.$</p>
+						<p style="text-align: center;" class="fragment">A <i>linear homogeneous</i> ODE can be written
+							as $L\left[f\right] = 0.$</p>
 						<p class="fragment">
 							Here $L$ is a map of $f$ that returns a linear combination of $f$ and its derivatives.
 						</p>
-						<p style="text-align: center;" class="fragment">💡 <b>Example:</b> $\;L\left[f\right] = f'' + 3f' + 2f = 0$</p>
+						<p style="text-align: center;" class="fragment">💡 <b>Example:</b> $\;L\left[f\right] = f'' +
+							3f' + 2f = 0$</p>
 						<p class="fragment">
-							Differentiation is a linear transformation, so $L\left[f\right]$ is a <b>linear map</b> of $f.$
+							Differentiation is a linear transformation, so $L\left[f\right]$ is a <b>linear map</b> of
+							$f.$
 						</p>
 
 						<div class="fragment">
 							<p style="text-align: center;" id="bb">
-								⭐️ Solutions form the <i>null space</i> $N(L)$ of the linear operator $L$ ⭐️ 
+								⭐️ Solutions form the <i>null space</i> $N(L)$ of the linear operator $L$ ⭐️
 							</p>
 						</div>
 
@@ -1096,7 +1099,8 @@
 							<p><b>General ODE Solution Strategy:</b></p>
 							<ol style="line-height: 1.7em; margin-top: -20px;" class="fragment">
 								<li>Find a particular solution $f_p$ to $L[f] = g$.</li>
-								<li class="fragment">Find homogeneous solutions $f_h \in N(L)$ (solutions for $L[f]=0$).</li>
+								<li class="fragment">Find homogeneous solutions $f_h \in N(L)$ (solutions for $L[f]=0$).
+								</li>
 								<li class="fragment">General solution is $f = f_p + f_h$.</li>
 							</ol>
 						</div>
@@ -1108,16 +1112,18 @@
 
 			<section>
 
-				<!-- Slide 1 (PDF p.20): Bases Revisited -->
+
 				<section data-auto-animate>
 					<h4>Bases Revisited</h4>
-					<div class="size-85">
-						<p>A basis allows us to express any vector in our space as a linear combination:</p>
-						<div class="cc" style="font-size: 1.1em; margin-top: 10px;">
-							<p>$$ v = c_1 v_1 + c_2 v_2 + \dots + c_n v_n $$</p>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">A basis allows us to express any vector in our space
+							as a linear combination:</p>
+						<div class="cc" style="font-size: 1.2em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="0">
+								$ \mathbf v = c_1 \mathbf v_1 + c_2 \mathbf v_2 + \dots + c_n \mathbf v_n $</p>
 						</div>
 
-						<div style="margin-top: 20px; font-size: 0.85em;">
+						<div style="margin-top: 20px;">
 							<p class="fragment" data-fragment-index="1">
 								This provides a general representation for vectors in $\mathbb{R}^n$.
 							</p>
@@ -1134,23 +1140,23 @@
 					<br />
 				</section>
 
-				<!-- Slide 2 (PDF p.21): The Span of a Set of Vectors -->
+
 				<section data-auto-animate>
 					<h4>The Span of a Set of Vectors</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<blockquote
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 12px; border-left: 4px solid #4285f4;">
-							<b>Definition (Span):</b> Let $v_1, v_2, \dots, v_n$ be vectors in a vector space $V$. The
-							set of all linear combinations
-							$$ \alpha_1 v_1 + \alpha_2 v_2 + \dots + \alpha_n v_n $$
-							is called the <b>span</b> of $v_1, v_2, \dots, v_n$, denoted $\text{Span}(v_1, v_2, \dots,
-							v_n)$.
-						</blockquote>
+					<div class="size-95" style="margin-top: 50px;">
+						<p>
+							<b>Definition:</b> Let $\mathbf v_1, \mathbf v_2, \dots, \mathbf v_n$ be vectors in a vector space $V$. The
+							set of all <i>linear combinations</i>
+							$$ \alpha_1 \mathbf v_1 + \alpha_2 \mathbf v_2 + \dots + \alpha_n \mathbf v_n $$
+							is called the <b>span</b> of $\mathbf v_1, \mathbf v_2, \dots, \mathbf v_n$, denoted $\text{Span}(\mathbf v_1, \mathbf v_2, \dots,
+							\mathbf v_n)$.
+						</p>
 					</div>
+					<br />
 					<br />
 				</section>
 
-				<!-- Slide 3 (PDF p.22): A Spanning Set of Vectors -->
+				
 				<section data-auto-animate>
 					<h4>Spanning Sets</h4>
 					<div class="size-85" style="font-size: 0.85em;">
@@ -1711,30 +1717,31 @@
 					<br />
 				</section>
 
-				<!-- Slide 10 (PDF p.44): Summary of Vector Spaces -->
-				<section data-auto-animate>
-					<h4>Summary of Vector Spaces</h4>
-					<div class="size-85" style="font-size: 0.82em;">
-						<p>Key topics covered in this module:</p>
 
-						<div style="display: flex; justify-content: space-between; margin-top: 20px;">
-							<ul style="width: 48%; line-height: 2em;">
-								<li class="fragment" data-fragment-index="0">Vector Spaces & Subspaces</li>
-								<li class="fragment" data-fragment-index="1">Null Space</li>
-								<li class="fragment" data-fragment-index="2">Span and Spanning Sets</li>
-								<li class="fragment" data-fragment-index="3">Bases as Minimal Spanning Sets</li>
-							</ul>
-							<ul style="width: 48%; line-height: 2em;">
-								<li class="fragment" data-fragment-index="4">Dimension</li>
-								<li class="fragment" data-fragment-index="5">Column Space & Row Space</li>
-								<li class="fragment" data-fragment-index="6">Nullity</li>
-								<li class="fragment" data-fragment-index="7"><b>Rank-Nullity Theorem</b></li>
-							</ul>
-						</div>
+
+			</section>
+
+			<section data-auto-animate>
+				<h4>Summary of Vector Spaces</h4>
+				<div class="size-85" style="font-size: 0.82em;">
+					<p>Key topics covered in this module:</p>
+
+					<div style="display: flex; justify-content: space-between; margin-top: 20px;">
+						<ul style="width: 48%; line-height: 2em;">
+							<li class="fragment" data-fragment-index="0">Vector Spaces & Subspaces</li>
+							<li class="fragment" data-fragment-index="1">Null Space</li>
+							<li class="fragment" data-fragment-index="2">Span and Spanning Sets</li>
+							<li class="fragment" data-fragment-index="3">Bases as Minimal Spanning Sets</li>
+						</ul>
+						<ul style="width: 48%; line-height: 2em;">
+							<li class="fragment" data-fragment-index="4">Dimension</li>
+							<li class="fragment" data-fragment-index="5">Column Space & Row Space</li>
+							<li class="fragment" data-fragment-index="6">Nullity</li>
+							<li class="fragment" data-fragment-index="7"><b>Rank-Nullity Theorem</b></li>
+						</ul>
 					</div>
-					<br />
-				</section>
-
+				</div>
+				<br />
 			</section>
 
 			<!-- Ends sections -->
