@@ -588,149 +588,192 @@
 
 				<section data-auto-animate>
 					<h4>Subspaces</h4>
-					<div class="size-85 left-txt" style="font-size: 0.85em;">
+					<div class="size-95 left-txt" style="margin-top: 30px;">
 						<p>To show a subset $S \subseteq V$ is itself a vector space, we only need to verify
 							<b>closure</b>:
 						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
-							<p>
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="0">
 								<b>Definition:</b> A non-empty subset $S \subseteq V$ is a <b>subspace</b> of $V$ if:
 							<ol style="line-height: 1.7em;">
-								<li>$\alpha x \in S$ whenever $x \in S$ and $\alpha \in \mathbb{R}$</li>
-								<li>$x + y \in S$ whenever $x \in S$ and $y \in S$</li>
+								<li class="fragment" data-fragment-index="1">$\alpha \,\mathbf x \in S$ whenever
+									$\mathbf x \in S$ and $\alpha \in \mathbb{R}$</li>
+								<li class="fragment" data-fragment-index="2">$\mathbf x + \mathbf y \in S$ whenever
+									$\mathbf x \in S$ and $\mathbf y \in S$</li>
 							</ol>
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<i>Note:</i> A subspace is a complete vector space in its own right.
+						<p class="fragment" data-fragment-index="3" style="margin-top: 15px;">
+							<b>Note:</b> A subspace is a complete vector space in its own right.
 						</p>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 8 (PDF p.9): Subspace Example 1 -->
-				<section data-auto-animate>
-					<h4>Subspace Example: Plane $x_3 = 0$</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<p>Let $S = \{x \in \mathbb{R}^3 \mid x_3 = 0\}$:</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+				<section data-auto-animate>
+					<h4>Subspace Example</h4>
+					<div class="size-90">
+						<p class="fragment">Let $S = \left\{\mathbf x \in \mathbb{R}^3 \mid x_3 = 0\right\}$
+							be a subset of $\R^3$ $(S\subset \R)$.
+
+						</p>
+						<p>
+							<span class="fragment">
+								For any $\mathbf x, \mathbf y\in S$ and $\alpha\in \R$:
+							</span>
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
 							<p><b>1. Closure under addition:</b></p>
-							$$ x+y = (x_1, x_2, 0) + (y_1, y_2, 0) = (x_1+y_1, x_2+y_2, 0) \in S $$
+							<p style="text-align: center;" class="fragment">
+								$\mathbf x+\mathbf y $
+								<span class="fragment">
+									$= (x_1, x_2, 0) + (y_1, y_2, 0) $
+								</span>
+								<span class="fragment">
+									$= (x_1+y_1, x_2+y_2, 0)$
+								</span>
+								<span class="fragment">
+									$ \in S$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+						<div class="fragment" style="margin-top: 10px;">
 							<p><b>2. Closure under scalar multiplication:</b></p>
-							$$ \alpha x = \alpha (x_1, x_2, 0) = (\alpha x_1, \alpha x_2, 0) \in S $$
+							<p style="text-align: center;" class="fragment">
+								$\alpha \,\mathbf x $
+								<span class="fragment">
+									$= \alpha (x_1, x_2, 0) $
+								</span>
+								<span class="fragment">
+									$= (\alpha x_1, \alpha x_2, 0) $
+								</span>
+								<span class="fragment">
+									$ \in S$
+								</span>
+							</p>
+
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px;" id="bb">
-							$\therefore S$ is a valid subspace of $\mathbb{R}^3$.
+						<p class="fragment" style="margin-top: 45px; text-align: center;" id="bb">
+							Hence $S$ is a subspace of $\mathbb{R}^3$ ✅
 						</p>
 					</div>
 					<br />
 				</section>
-
-				<!-- Slide 9 (PDF p.10): Subspace Example 2 -->
 				<section data-auto-animate>
-					<h4>Non-Subspace Example: Plane $x_3 = 1$</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<p>Let $S = \{x \in \mathbb{R}^3 \mid x_3 = 1\}$:</p>
+					<h4>Non-Subspace Example</h4>
+					<div class="size-90">
+						<p class="fragment">Let $S = \left\{\mathbf x \in \mathbb{R}^3 \mid x_3 = 1\right\}$
+							be a subset of $\R^3$ $(S\subset \R)$.
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p><b>1. Vector Addition Test:</b></p>
-							$$ x+y = (x_1, x_2, 1) + (y_1, y_2, 1) = (x_1+y_1, x_2+y_2, 2) \notin S $$
+						</p>
+						<p>
+							<span class="fragment">
+								For any $\mathbf x, \mathbf y\in S$ and $\alpha\in \R$:
+							</span>
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>1. Closure under addition:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\mathbf x+\mathbf y $
+								<span class="fragment">
+									$= (x_1, x_2, 1) + (y_1, y_2, 1) $
+								</span>
+								<span class="fragment">
+									$= (x_1+y_1, x_2+y_2, 2)$
+								</span>
+								<span class="fragment">
+									$ \notin S$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>2. Scalar Multiplication Test:</b></p>
-							$$ \alpha x = \alpha (x_1, x_2, 1) = (\alpha x_1, \alpha x_2, \alpha) \notin S \quad
-							(\text{for } \alpha \ne 1) $$
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>2. Closure under scalar multiplication:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\alpha \,\mathbf x $
+								<span class="fragment">
+									$= \alpha (x_1, x_2, 1) $
+								</span>
+								<span class="fragment">
+									$= (\alpha x_1, \alpha x_2, \alpha) $
+								</span>
+								<span class="fragment">
+									$ \notin S$
+								</span>
+							</p>
+
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px; color: #ff6b6b;">
-							$\therefore S$ is <b>not</b> a subspace of $\mathbb{R}^3$.
+						<p class="fragment" style="margin-top: 45px;text-align: center;">
+							Hence $S$ is <span id="rr">not</span> a subspace of $\mathbb{R}^3$
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 10 (PDF p.11): Subspace Example: Skew-Symmetric Matrices -->
 				<section data-auto-animate>
 					<h4>Subspace Example: $2\times 2$ Matrices</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>Let $S$ be the set of $2\times 2$ matrices where $a_{21} = -a_{12}$:</p>
+					<div class="size-85">
+						<p class="fragment">
+							Let $S$ be the set of $2\times 2$ matrices where $x_{21} = -x_{12}$.
+						</p>
+						<p>
+							<span class="fragment">
+								For any $A, B\in S$ and $\alpha\in \R$:
+							</span>
+						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p><b>1. Addition:</b></p>
-							$$ \begin{pmatrix}x_{11} & x_{12}\\ -x_{12} & x_{22}\end{pmatrix} + \begin{pmatrix}y_{11} &
-							y_{12}\\ -y_{12} & y_{22}\end{pmatrix} = \begin{pmatrix}x_{11}+y_{11} & x_{12}+y_{12}\\
-							-(x_{12}+y_{12}) & x_{22}+y_{22}\end{pmatrix} \in S $$
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>1. Closure under addition:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\begin{pmatrix}x_{11} & x_{12}\\ -x_{12} & x_{22}\end{pmatrix} + \begin{pmatrix}y_{11}
+								&
+								y_{12}\\ -y_{12} & y_{22}\end{pmatrix} $
+								<span class="fragment">
+									$= \begin{pmatrix}x_{11}+y_{11} & x_{12}+y_{12}\\
+									-(x_{12}+y_{12}) & x_{22}+y_{22}\end{pmatrix} $
+								</span>
+
+								<span class="fragment">
+									$ \in S $
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>2. Scalar Multiplication:</b></p>
-							$$ \alpha \begin{pmatrix}x_{11} & x_{12}\\ -x_{12} & x_{22}\end{pmatrix} =
-							\begin{pmatrix}\alpha x_{11} & \alpha x_{12}\\ -(\alpha x_{12}) & \alpha x_{22}\end{pmatrix}
-							\in S $$
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>2. Closure under scalar multiplication:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\alpha \begin{pmatrix}x_{11} & x_{12}\\ -x_{12} & x_{22}\end{pmatrix} $
+								<span class="fragment">
+									$=
+									\begin{pmatrix}\alpha x_{11} & \alpha x_{12}\\ -(\alpha x_{12}) & \alpha
+									x_{22}\end{pmatrix}
+									$
+								</span>
+
+								<span class="fragment">
+									$ \in S $
+								</span>
+							</p>
+
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px;" id="bb">
-							$\therefore S$ is a subspace of $\mathbb{R}^{2\times 2}$.
+						<p class="fragment" style="margin-top: 55px;text-align: center;" id="bb">
+							Hence $S$ is a subspace of $\,\mathbb{R}^{2\times 2}$
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 11 (PDF p.12): Subspace Example: Polynomials -->
-				<section data-auto-animate>
-					<h4>Subspace Example: Polynomials $\le n$</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>The set of all polynomials of degree up to $n$:</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p><b>Sum of polynomials:</b></p>
-							$$ f+g = \sum_{k=0}^{n} f_k x^k + \sum_{k=0}^{n} g_k x^k = \sum_{k=0}^{n} (f_k + g_k)x^k \in
-							P_n $$
-						</div>
-
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>Scalar multiplication:</b></p>
-							$$ \alpha f = \alpha \sum_{k=0}^{n} f_k x^k = \sum_{k=0}^{n} (\alpha f_k) x^k \in P_n $$
-						</div>
-
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px;">
-							$\therefore$ The set of polynomials up to degree $n$ forms a vector space.
-						</p>
-					</div>
-					<br />
-				</section>
-
-				<!-- Slide 12 (PDF p.13): Continuous Functions -->
-				<section data-auto-animate>
-					<h4>Continuous Functions $\mathcal{C}[a,b]$</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<p>Let $\mathcal{C}[a,b]$ be the set of continuous functions on $[a,b]$:</p>
-
-						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
-							<p><b>1. Addition:</b> $f+g = f(x)+g(x) = [f+g](x) \in \mathcal{C}[a,b]$</p>
-							<p><i>(Sum of continuous functions is continuous)</i></p>
-						</div>
-
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>2. Scalar Multiplication:</b> $\alpha f = \alpha f(x) = [\alpha f](x) \in
-								\mathcal{C}[a,b]$</p>
-							<p><i>(Rescaling a continuous function maintains continuity)</i></p>
-						</div>
-
-						<p class="fragment" data-fragment-index="2" style="margin-top: 20px;" id="bb">
-							$\therefore \mathcal{C}[a,b]$ is a vector space.
-						</p>
-					</div>
-					<br />
-				</section>
 
 				<!-- Slide 13 (PDF p.14): Null Space -->
 				<section data-auto-animate>
