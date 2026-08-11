@@ -903,101 +903,184 @@
 
 				<section data-auto-animate>
 					<h4>Null Space Subspace Structure</h4>
-					<div class="size-85" >
-						<p>Denoting $\mathbf v_1 = (1, -2, 1, 0)^T$ and $\mathbf v_2 = (-1, 1, 0, 1)^T$:</p>
-						<p style="text-align: center;">
-							$ N(A) = \{\alpha \mathbf v_1 + \beta \mathbf v_2 \mid \alpha, \beta \in \mathbb{R}\} $
+					<div class="size-85">
+						<p>
+							Denote $\mathbf v_1 = \begin{pmatrix}1 \\ -2 \\ 1 \\ 0\end{pmatrix}$
+							and
+							$\mathbf v_2 = \begin{pmatrix}-1 \\ 1 \\ 0 \\ 1\end{pmatrix}$
+							<span style="text-align: center;" class="fragment">
+								$\Ra N(A) = \big\{\alpha \mathbf v_1 + \beta \mathbf v_2 \mid \alpha, \beta \in
+								\mathbb{R}\big\} $
+							</span>
 						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment">
 								For $\mathbf x, \mathbf y \in N(A)$,
-								<span>
+								<span class="fragment">
 									then $\mathbf x = \alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2$ and $\mathbf y =
 									\alpha_2 \mathbf v_1 + \beta_2 \mathbf v_2$:
 								</span>
 							</p>
-							<p style="text-align: center;">
-								$ \mathbf x+\mathbf y =\alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2 + \alpha_2 \mathbf v_1 + \beta_2 \mathbf v_2$
-								<span>
-									$  = \left(\alpha_1+\alpha_2\right)\mathbf v_1 + \left(\beta_1+\beta_2\right)\mathbf v_2  $
+							<p style="text-align: center;" class="fragment">
+								$ \mathbf x+\mathbf y =\alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2 + \alpha_2 \mathbf v_1
+								+ \beta_2 \mathbf v_2$
+								<span class="fragment">
+									$ = \left(\alpha_1+\alpha_2\right)\mathbf v_1 + \left(\beta_1+\beta_2\right)\mathbf
+									v_2 $
 								</span>
-								<span>
-									$  \in N(A) $
+								<span class="fragment">
+									$ \in N(A) $
 								</span>
 							</p>
 						</div>
 
-						
-							<p style="text-align: center;">
-								$ k\, \mathbf x   $
-								<span>
-									$= k \left(\alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2\right)$
-								</span>
-								<span>
-									$= \left(k \alpha_1\right) \mathbf v_1 +\left(k \beta_1\right) \mathbf v_2$
-								</span>
-								<span>
-									$\in N(A)$
-								</span>
-							</p>
-						
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px;">
-							Confirms $N(A)$ is a subspace of $\mathbb{R}^4$.
+						<p style="text-align: center;" class="fragment">
+							For $k\in \R,\;$ $k\, \mathbf x = k \left(\alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2\right)$
+
+							<span class="fragment">
+								$= \left(k \alpha_1\right) \mathbf v_1 +\left(k \beta_1\right) \mathbf v_2$
+							</span>
+							<span class="fragment">
+								$\in N(A)$
+							</span>
+						</p>
+
+
+						<p class="fragment" style="margin-top: 15px; text-align: center;font-size: 1.2em;" id="bb">
+							Therefore $N(A)$ is a subspace of $\mathbb{R}^4$!
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 16 (PDF p.17): Linear Systems & Null Space -->
+
 				<section data-auto-animate>
 					<h4>Solutions via Null Space</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p><b>Theorem:</b> If $y$ is a solution to $Ax = b$, the full solution set is $\{y + x \mid x
-							\in N(A)\}$.</p>
+					<div class="size-90">
+						<p>
+							<b>Theorem:</b> If $\mathbf{x}_p$ is a solution to $A\mathbf x = \mathbf b$,
+							<span class="fragment">
+								then the set of all solutions is
+								$$\big\{\mathbf{x}_p + \mathbf{v} \mid \mathbf{v} \in N(A)\big\}.$$
+							</span>
+						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p><b>Proof:</b></p>
-							<p>1. If $Ay = b$ and $Ax = 0$, then $A(y+x) = Ay + Ax = b + 0 = b$.</p>
+						<div style="margin-top: 10px;">
+
+							<p class="fragment">
+								<b>Proof:</b>
+								Let $\mathbf{x}_p$ be a solution of $A\mathbf{x} = \mathbf{b}$
+								and let $\mathbf{v} \in N(A)$.
+							</p>
+
+							<p style="text-align: center;">
+								<span class="fragment">
+									$\Ra\,A(\mathbf{x}_p+\mathbf{v})
+									= A\mathbf{x}_p + A\mathbf{v}$
+								</span>
+								<span class="fragment">
+									$= \mathbf{b} + \mathbf{0}$
+								</span>
+								<span class="fragment">
+									$= \mathbf{b}$.
+								</span>
+							</p>
+
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p>2. For any other solution $z$ where $Az = b$:</p>
-							$$ A(z - y) = Az - Ay = b - b = 0 \implies (z - y) \in N(A) $$
-							<p>Thus $z = y + x$ for some $x \in N(A)$.</p>
+
+						<div style="margin-top: 10px;">
+
+							<p class="fragment">
+								For any other solution $\mathbf{z}$ where $A\mathbf{z} = \mathbf{b}$:
+							</p>
+
+							<p style="text-align: center;" class="fragment">
+								$A(\mathbf{z}-\mathbf{x}_p)$
+								<span class="fragment">
+									$= A\mathbf{z} - A\mathbf{x}_p$
+								</span>
+								<span class="fragment">
+									$= \mathbf{b} - \mathbf{b}$
+								</span>
+								<span class="fragment">
+									$= \mathbf{0}$
+								</span>
+								<span class="fragment">
+									$\implies (\mathbf{z}-\mathbf{x}_p) \in N(A)$.
+								</span>
+							</p>
+
+							<p class="fragment">
+								In other words, $\,\mathbf{z}-\mathbf{x}_p = \mathbf{v}$ for some $\mathbf{v}\in N(A)$.
+
+							</p>
+							<p class="fragment">
+								Therefore $\mathbf{z} = \mathbf{x}_p + \mathbf{v}$ for some $\mathbf{v}\in N(A)$.
+								$\blacksquare$
+							</p>
+
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 17 (PDF p.18): Solving Ax=b using Null Space -->
 				<section data-auto-animate>
-					<h4>Solving $Ax = b$ with Null Space</h4>
+					<h4>Solving $A\mathbf x =\mathbf b$ with Null Space</h4>
 					<div class="size-85" style="font-size: 0.8em;">
-						<p>To solve $\begin{pmatrix}1 & 1 & 1 & 0\\ 2 & 1 & 0 & 0\end{pmatrix}x = \begin{pmatrix}2\\
-							3\end{pmatrix}$:</p>
+						<p class="fragment" data-fragment-index="0">
+							Consider the system $\begin{pmatrix}1 & 1 & 1 & 0\\ 2 & 1 & 0 & 0\end{pmatrix}\mathbf x =
+							\begin{pmatrix}2\\
+							3\end{pmatrix}.$
+						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p><b>Particular solution:</b> $y = (1, 1, 0, 0)^T$</p>
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								<b>First find a particular solution:</b> $\mathbf x_p = (1, 1, 0, 0)^T$
+							</p>
+							<p class="fragment" data-fragment-index="2" style="text-align: center;">
+								$\begin{pmatrix}1 & 1 & 1 & 0\\ 2 & 1 & 0 & 0\end{pmatrix}\mathbf x_p =
+								\begin{pmatrix}2\\
+								3\end{pmatrix}$
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>Full solution:</b> Particular solution + Null space elements:</p>
-							$$ x = \begin{pmatrix}1\\ 1\\ 0\\ 0\end{pmatrix} + \alpha \begin{pmatrix}1\\ -2\\ 1\\
-							0\end{pmatrix} + \beta \begin{pmatrix}-1\\ 1\\ 0\\ 1\end{pmatrix}, \quad \alpha,\beta \in
-							\mathbb{R} $$
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								<b>Full solution:</b> Particular solution
+								<span class="fragment" data-fragment-index="4">
+									+ Null space elements
+								</span>
+							</p>
+							<p style="text-align: center;" class="fragment" data-fragment-index="3">
+								$ x = \begin{pmatrix}1\\ 1\\ 0\\ 0\end{pmatrix} $
+								<span class="fragment" data-fragment-index="4">
+									$+\, \alpha \begin{pmatrix}1\\ -2\\ 1\\
+									0\end{pmatrix} + \beta \begin{pmatrix}-1\\ 1\\ 0\\ 1\end{pmatrix}, \quad
+									\alpha,\beta \in
+									\mathbb{R} $
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 18 (PDF p.19): Linear Homogeneous ODEs -->
+
 				<section data-auto-animate>
 					<h4>Linear Homogeneous ODEs</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>A linear homogeneous ODE can be written as $L[f] = 0$:</p>
-						<p><i>Example:</i> $L[f] = f'' + 3f' + 2f = 0$</p>
+					<div class="size-85 left-txt">
+						<p style="text-align: center;">👉 A linear homogeneous ODE can be written as $L[f] = 0.$</p>
+						<p>
+							Here $L$ is a map of $f$ that returns a linear combination of $f$ and its derivatives.
+						</p>
+						<p style="text-align: center;">💡 <b>Example:</b> $\;L[f] = f'' + 3f' + 2f = 0$</p>
+						<p>
+							Differentiation is a linear transformation, so $L[f ]$ is a <b>linear map</b> of $f.$
+						</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
 							<p>Solutions form the <b>null space</b> $N(L)$ of the linear operator $L$.</p>
