@@ -1073,25 +1073,31 @@
 				<section data-auto-animate>
 					<h4>Linear Homogeneous ODEs</h4>
 					<div class="size-85 left-txt">
-						<p style="text-align: center;">👉 A linear homogeneous ODE can be written as $L[f] = 0.$</p>
-						<p>
+						<p style="text-align: center;" class="fragment">A <i>linear homogeneous</i> ODE can be written as $L\left[f\right] = 0.$</p>
+						<p class="fragment">
 							Here $L$ is a map of $f$ that returns a linear combination of $f$ and its derivatives.
 						</p>
-						<p style="text-align: center;">💡 <b>Example:</b> $\;L[f] = f'' + 3f' + 2f = 0$</p>
-						<p>
-							Differentiation is a linear transformation, so $L[f ]$ is a <b>linear map</b> of $f.$
+						<p style="text-align: center;" class="fragment">💡 <b>Example:</b> $\;L\left[f\right] = f'' + 3f' + 2f = 0$</p>
+						<p class="fragment">
+							Differentiation is a linear transformation, so $L\left[f\right]$ is a <b>linear map</b> of $f.$
 						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p>Solutions form the <b>null space</b> $N(L)$ of the linear operator $L$.</p>
+						<div class="fragment">
+							<p style="text-align: center;" id="bb">
+								⭐️ Solutions form the <i>null space</i> $N(L)$ of the linear operator $L$ ⭐️ 
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+						<p class="fragment">
+							🤔 How do we use this result in practice? (e.g. to solve $f'' + 3f' + 2f= g$)
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
 							<p><b>General ODE Solution Strategy:</b></p>
-							<ol style="line-height: 1.8em;">
+							<ol style="line-height: 1.7em;" class="fragment">
 								<li>Find a particular solution $f_p$ to $L[f] = g$.</li>
-								<li>Find homogeneous solutions $f_h \in N(L)$.</li>
-								<li>General solution is $f = f_p + f_h$.</li>
+								<li class="fragment">Find homogeneous solutions $f_h \in N(L)$.</li>
+								<li class="fragment">General solution is $f = f_p + f_h$.</li>
 							</ol>
 						</div>
 					</div>
