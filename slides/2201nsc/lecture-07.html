@@ -1737,43 +1737,47 @@
 				<section data-auto-animate>
 					<h4>Changing Bases Outside Point Spaces</h4>
 					<div class="size-85">
-						<p class="fragment" data-fragment-index="0" >
+						<p class="fragment" data-fragment-index="0">
 							Write $x^2 + 2$ in terms of the basis $\left\{1-x^2, \; x+2, \; x^2\right\}$:
 						</p>
 
 						<div class="cc" style="margin-top: 8px;">
-							<p class="fragment" data-fragment-index="1" >
+							<p class="fragment" data-fragment-index="1">
 								$ c_1(1-x^2) + c_2(x+2) + c_3(x^2) = x^2 + 2 $
 							</p>
-							<p class="fragment" data-fragment-index="2" >
+							<p class="fragment" data-fragment-index="2">
 								Re-arranging: $\; (c_3 - c_1)x^2 + c_2 x + (c_1 + 2c_2) = x^2 + 2 \qquad \qquad \quad$
 							</p>
 						</div>
 
 						<div class="cc" style="margin-top: 8px;">
-							<p class="fragment" data-fragment-index="3" >
+							<p class="fragment" data-fragment-index="3">
 								$ \begin{pmatrix}-1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix} \begin{pmatrix}c_1 \\
-							c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix} $
-							<span class="fragment" data-fragment-index="4" >
-								$\;\Ra \;\begin{pmatrix}c_1 \\ c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}-1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix}^{-1} \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix}$
-							</span>
+								c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix} $
+								<span class="fragment" data-fragment-index="4">
+									$\;\Ra \;\begin{pmatrix}c_1 \\ c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}-1 & 0 & 1
+									\\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix}^{-1} \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix}$
+								</span>
 							</p>
 						</div>
 
 						<div class="cc" style="margin-top: 8px;">
-							<p class="fragment" data-fragment-index="5" >
-								Thus $\; \begin{pmatrix}c_1 \\ c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}0 & -2 & 1 \\ 0 & 1 & 0 \\
-							1 & -2 & 1\end{pmatrix} \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix} = \begin{pmatrix}2 \\ 0 \\
-							3\end{pmatrix} $
-						</p>
+							<p class="fragment" data-fragment-index="5">
+								Thus $\; \begin{pmatrix}c_1 \\ c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}0 & -2 & 1 \\ 0
+								& 1 & 0 \\
+								1 & -2 & 1\end{pmatrix} \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix} = \begin{pmatrix}2 \\ 0
+								\\
+								3\end{pmatrix} $
+							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="6" style="margin-top: 30px; text-align: center;" id="gg">
+						<p class="fragment" data-fragment-index="6" style="margin-top: 30px; text-align: center;"
+							id="gg">
 							<b>Check:</b> $2\left(1-x^2\right) + 3\left(x^2\right) $
-							<span class="fragment" data-fragment-index="7" >
+							<span class="fragment" data-fragment-index="7">
 								$= 2 - 2x^2 + 3x^2 $
 							</span>
-							<span class="fragment" data-fragment-index="8" >
+							<span class="fragment" data-fragment-index="8">
 								$= x^2 + 2 \; $ ✅
 							</span>
 						</p>
@@ -1785,79 +1789,134 @@
 
 			<section>
 
-				
+
 				<section data-auto-animate>
 					<h4>Column and Row Spaces</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<p>Returning to the matrix system $A \mathbf x = \mathbf b$:</p>
+					<div class="size-95">
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
-							<p>
-								<b>Definition (Column Space):</b> The <b>column space</b> of a matrix $A \in
-								\mathbb{R}^{m \times n}$ is the subspace of $\mathbb{R}^m$ spanned by the columns of
-								$A$.
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0" style="font-size: 1.1em;">
+								Returning to the matrix system
+							</p>
+							<p  class="fragment" data-fragment-index="0" style="font-size: 1.5em;margin-top: -10px;">
+								$A \mathbf x = \mathbf b$
+							</p>
+							<p  class="fragment" data-fragment-index="1"style="text-align: center;margin-top: 10px;">
+								where $\;A\in \R^{m\times n}, \,\mathbf x\in \R^n,\,$ and $\,\mathbf b\in \R^m $
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="2" style="margin-top: 35px;">
 							<p>
-								<b>Definition (Row Space):</b> The <b>row space</b> of a matrix $A \in \mathbb{R}^{m
+								<b>Definition:</b> The <b>column space</b> of a matrix $A \in
+								\mathbb{R}^{m \times n}$ is the subspace of $\mathbb{R}^m$ spanned by the columns of
+								$A.$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 45px;">
+							<p>
+								<b>Definition:</b> The <b>row space</b> of a matrix $A \in \mathbb{R}^{m
 								\times n}$ is the subspace of $\mathbb{R}^n$ spanned by the rows of $A$.
-								</p>
+							</p>
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 3 (PDF p.37): Examples of Column and Row Spaces -->
 				<section data-auto-animate>
 					<h4>Column & Row Spaces: Examples</h4>
-					<div class="size-85" style="font-size: 0.8em;">
+					<div class="size-85">
 						<p>Consider matrix $A = \begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1\end{pmatrix}$:</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
 							<p><b>Column Space:</b> Set of all linear combinations of columns:</p>
-							$$ \alpha_1 \begin{pmatrix}1\\0\end{pmatrix} + \alpha_2 \begin{pmatrix}0\\1\end{pmatrix} +
-							\alpha_3 \begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}\alpha_1 + \alpha_3 \\ \alpha_2 +
-							\alpha_3\end{pmatrix} $$
-							<p style="font-size: 0.9em; color: #888;">$\text{Column Space of } A = \{y : y = Ax \text{
-								for any } x\}$</p>
+
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$ \alpha_1 \begin{pmatrix}1\\0\end{pmatrix} + \alpha_2 \begin{pmatrix}0\\1\end{pmatrix}
+								+
+								\alpha_3 \begin{pmatrix}1\\1\end{pmatrix} $
+								<span class="fragment" data-fragment-index="3">
+									$
+									= \begin{pmatrix}\alpha_1 + \alpha_3 \\
+									\alpha_2 +
+									\alpha_3\end{pmatrix}
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<p class="fragment" data-fragment-index="4" id="bb"
+							style="font-size: 1.1em;  text-align: center;">
+							👉 $\text{Column Space of } A = \{\mathbf y : \mathbf y = A\mathbf x \,\text{ for any }\,
+							\mathbf x\}$
+						</p>
+
+						<div class="fragment" data-fragment-index="5" style="margin-top: 15px;">
 							<p><b>Row Space:</b> Set of all linear combinations of rows:</p>
-							$$ \alpha_1 \begin{pmatrix}1 & 0 & 1\end{pmatrix} + \alpha_2 \begin{pmatrix}0 & 1 &
-							1\end{pmatrix} = \begin{pmatrix}\alpha_1 & \alpha_2 & \alpha_1 + \alpha_2\end{pmatrix} $$
-							<p style="font-size: 0.9em; color: #888;">$\text{Row Space of } A = \{y : y = xA \text{ for
-								any } x\}$</p>
+
+
 						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$ \alpha_1 \begin{pmatrix}1 & 0 & 1\end{pmatrix} + \alpha_2 \begin{pmatrix}0 & 1 &
+								1\end{pmatrix} $
+								<span class="fragment" data-fragment-index="7">
+									$
+									= \begin{pmatrix}\alpha_1 & \alpha_2 & \alpha_1 + \alpha_2\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="8" id="gg"
+							style="font-size:1.1em; text-align: center;">
+							👉 $\text{Row Space of } A = \{\mathbf y :\mathbf y = \mathbf x\,A \,\text{ for any }\,
+							\mathbf x\}$
+						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 4 (PDF p.38): Important Results (Consistency & Invertibility) -->
+
+
 				<section data-auto-animate>
 					<h4>Consistency & Invertibility Results</h4>
-					<div class="size-85" style="font-size: 0.8em;">
+					<div class="size-95">
 						<ul style="line-height: 1.8em;">
-							<li class="fragment" data-fragment-index="0">
-								A linear system $A x = b$ is <b>consistent</b> iff $b$ lies in the <b>column space</b>
-								of $A$:
-								$$ A x = x_1 a_1 + x_2 a_2 + \dots + x_n a_n = b $$
+							<li class="fragment" data-fragment-index="3">
+								A linear system $A \mathbf x = \mathbf b$ is consistent for
+								<i>all</i> $\mathbf b \in \mathbb{R}^m$
+								<span class="fragment" data-fragment-index="4">
+									if and only if the column space of $A$ is
+									$\mathbb{R}^m$.
+								</span>
 							</li>
-							<li class="fragment" data-fragment-index="1">
-								$A x = b$ is consistent for <i>all</i> $b$ iff the column space of $A$ is
-								$\mathbb{R}^m$.
-							</li>
-							<li class="fragment" data-fragment-index="2">
-								An $n \times n$ matrix $A$ is <b>invertible</b> iff its column vectors form a
-								<b>basis</b> for $\mathbb{R}^n$.
-								<br />
-								<span style="font-size: 0.9em; color: #aaa;">(Invertible $\iff$ unique solution to $A x
-									= b \iff$ columns span and are independent in $\mathbb{R}^n$)</span>
+
+							<li class="fragment" data-fragment-index="5">
+								An $n \times n$ matrix $A$ is <b>invertible</b>
+								<span class="fragment" data-fragment-index="6">
+									if and only if its column vectors form a
+									<b>basis</b> for $\mathbb{R}^n$.
+									<br />
+								</span>
+								<span class="fragment" data-fragment-index="7" style="font-size: 0.9em;" id="bb">
+									Invertible $\iff$ $A\mathbf x=\mathbf b$ has a unique solution
+									for every $\mathbf b\in\mathbb{R}^n$.
+									<br />
+								</span>
+								<span class="fragment" data-fragment-index="8" style="font-size: 0.9em;" id="bb">
+									$\iff$ columns of $A$ span $\mathbb{R}^n$ and are linearly independent.
+								</span>
 							</li>
 						</ul>
 					</div>
+					<br />
 					<br />
 				</section>
 
