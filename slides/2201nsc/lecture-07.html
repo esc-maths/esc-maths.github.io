@@ -2017,7 +2017,7 @@
 				</section>
 
 				<section data-auto-animate>
-						<h4>📝 Finding Spaces in Practice Examples</h4>
+						<h4>📝 Finding Spaces in Practice Problems</h4>
 						<div style="margin-top: 50px;">
 							<p>
 								<b>1.</b>
@@ -2039,9 +2039,9 @@
 					</section>
 
 					<section data-auto-animate>
-						<h4>📝 Finding Spaces in Practice: Example 1</h4>
+						<h4>📝 Finding Spaces in Practice: Solution to Problem 1</h4>
 						<div class="size-70 left-txt">
-							<p>
+							<p style="text-align: center; font-size: 0.9em;">
 								For matrix $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}$,
 								find the row space, column space, and null space.
 							</p>
@@ -2099,24 +2099,29 @@
 					</section>
 
 					<section data-auto-animate>
-						<h4>📝 Finding Spaces in Practice: Example 2</h4>
-						<div class="size-60 left-txt">
-							<p>
+						<h4>📝 Finding Spaces in Practice: Solution to Problem 2</h4>
+						
+						<div >
+							<p style="text-align: center; font-size: 0.4em;margin-top: -20px;">
 								For matrix $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$,
 								find the row space, column space, and null space.
 							</p>
-
+						</div>
+						<div class="size-75 left-txt">
+							
 							<ol style="line-height: 1.9em; margin-left: 0px;">
 								<li class="fragment" data-fragment-index="0">
 									<b>Row Reduce:</b>
-									$\begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}
+									<span style="font-size: 0.9em;">
+										$\begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}
 									\rightarrow \dots \rightarrow
 									\begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 0\end{pmatrix}$
+									</span>
 								</li>
 
 								<li class="fragment" data-fragment-index="1">
 									<b>Column Space Basis:</b> Lead columns from original matrix $A$:
-									<p style="text-align: center;" class="fragment" data-fragment-index="2">
+									<p style="text-align: center; font-size: 0.9em;margin-top: -5px;" class="fragment" data-fragment-index="2">
 										$
 										\left\{
 										\begin{pmatrix}1\\2\\0\end{pmatrix},
@@ -2133,7 +2138,7 @@
 
 								<li class="fragment" data-fragment-index="4">
 									<b>Row Space Basis:</b> Non-zero rows from RREF:
-									<p style="text-align: center;" class="fragment" data-fragment-index="5">
+									<p style="text-align: center;margin-top: -5px;" class="fragment" data-fragment-index="5">
 										$
 										\left\{
 										\begin{pmatrix}1 & 0 & 1\end{pmatrix},
@@ -2165,72 +2170,43 @@
 						<br />
 					</section>
 
-					<!-- Slide 7 (PDF p.41): In Practice Example 2 (3x3 Matrix) -->
-					<section data-auto-animate>
-						<h4>Finding Spaces in Practice: Example 2</h4>
-						<div class="size-85" style="font-size: 0.75em;">
-							<p>For matrix $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$:</p>
+					
 
-							<ol style="line-height: 1.7em;">
-								<li class="fragment" data-fragment-index="0">
-									<b>Row Reduce:</b> $\begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}
-									\rightarrow \dots \rightarrow \begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 &
-									0\end{pmatrix}$
-								</li>
-								<li class="fragment" data-fragment-index="1">
-									<b>Column Space Basis:</b> $\left\{ \begin{pmatrix}1\\2\\0\end{pmatrix},
-									\begin{pmatrix}2\\-1\\1\end{pmatrix} \right\} \implies \dim = 2 \quad (\text{rank} =
-									2)$
-								</li>
-								<li class="fragment" data-fragment-index="2">
-									<b>Row Space Basis:</b> $\left\{ \begin{pmatrix}1 & 0 & 1\end{pmatrix},
-									\begin{pmatrix}0
-									& 1 & 1\end{pmatrix} \right\} \implies \dim = 2$
-								</li>
-								<li class="fragment" data-fragment-index="3">
-									<b>Null Space Basis:</b> $\left\{ \begin{pmatrix}1\\1\\-1\end{pmatrix} \right\}
-									\implies
-									\text{nullity} = 1$
-								</li>
-							</ol>
-						</div>
-						<br />
-					</section>
-
-					<!-- Slide 8 (PDF p.42): Solvability Analysis - Example 1 -->
 					<section data-auto-animate>
-						<h4>Solvability of $Ax = b$: Example 1</h4>
-						<div class="size-85" style="font-size: 0.8em;">
-							<p>Does $A x = b$ always have a solution for $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0
+						<h4>Solvability of $A\mathbf x =\mathbf  b$: Example 1</h4>
+						<div class="size-85 left-txt">
+							<p>Does $A\mathbf x = \mathbf b$ always have a solution for $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0
 								&
 								1\end{pmatrix}$?</p>
 
 							<ol style="line-height: 1.7em;">
 								<li class="fragment" data-fragment-index="0">Rank $= 2$ and Nullity $= 2$.</li>
-								<li class="fragment" data-fragment-index="1">$\text{Rank } 2 \implies \dim(\text{Column
+								<li class="fragment" data-fragment-index="1">
+									$\text{Rank } 2 \implies \dim(\text{Column
 									Space}) = 2$.</li>
 								<li class="fragment" data-fragment-index="2">
 									Column space is in $\mathbb{R}^2$. Since its dimension is 2, it spans all of
 									$\mathbb{R}^2$.
 								</li>
 								<li class="fragment" data-fragment-index="3">
-									<b>Conclusion:</b> Any $b \in \mathbb{R}^2$ can be reached, so $A x = b$
+									<b>Conclusion:</b> Any $b \in \mathbb{R}^2$ can be reached, so $A \mathbf x = \mathbf b$
 									<b>always</b>
 									has a solution.
 								</li>
-								<li class="fragment" data-fragment-index="4">
-									Since nullity $= 2$, there is a 2-dimensional family of solutions for each $b$.
-								</li>
+								
 							</ol>
+							<p style="text-align: center;" class="fragment" data-fragment-index="4" >
+								👉 Since nullity $= 2$, there is a 2-dimensional family of solutions for each $\mathbf b$.
+							</p>
 						</div>
 						<br />
 					</section>
 
-					<!-- Slide 9 (PDF p.43): Solvability Analysis - Example 2 -->
+					
 					<section data-auto-animate>
-						<h4>Solvability of $Ax = b$: Example 2</h4>
+						<h4>Solvability of $A\mathbf x =\mathbf b$: Example 2</h4>
 						<div class="size-85" style="font-size: 0.8em;">
-							<p>Does $A x = b$ always have a solution for $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\
+							<p>Does $A\mathbf x = \mathbf b$ always have a solution for $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\
 								0 &
 								1 & 1\end{pmatrix}$?</p>
 
@@ -2244,14 +2220,19 @@
 									and does <b>not</b> fill $\mathbb{R}^3$.
 								</li>
 								<li class="fragment" data-fragment-index="3">
-									<b>Conclusion:</b> Not every $b \in \mathbb{R}^3$ can be reached $\implies A x = b$
+									<b>Conclusion:</b> Not every $\mathbf b \in \mathbb{R}^3$ can be reached 
+									<span class="fragment" data-fragment-index="4">
+										$\implies A \mathbf x = \mathbf b$
 									does
 									<b>not</b> always have a solution.
+									</span>
 								</li>
-								<li class="fragment" data-fragment-index="4">
-									When a solution exists, nullity $= 1$ yields a 1-dimensional family of solutions.
-								</li>
+								
 							</ol>
+
+							<p class="fragment" data-fragment-index="5">
+								👉 When a solution exists, nullity $= 1$ yields a 1-dimensional family of solutions.
+							</p>
 						</div>
 						<br />
 					</section>
@@ -2262,21 +2243,20 @@
 
 				<section data-auto-animate>
 					<h4>Summary of Vector Spaces</h4>
-					<div class="size-85" style="font-size: 0.82em;">
-						<p>Key topics covered in this module:</p>
+					<div class="size-95">
+						
 
-						<div style="display: flex; justify-content: space-between; margin-top: 20px;">
-							<ul style="width: 48%; line-height: 2em;">
+						<div >
+							<ul style="width: 48%; line-height: 1.5em;">
 								<li class="fragment" data-fragment-index="0">Vector Spaces & Subspaces</li>
 								<li class="fragment" data-fragment-index="1">Null Space</li>
 								<li class="fragment" data-fragment-index="2">Span and Spanning Sets</li>
 								<li class="fragment" data-fragment-index="3">Bases as Minimal Spanning Sets</li>
-							</ul>
-							<ul style="width: 48%; line-height: 2em;">
+							
 								<li class="fragment" data-fragment-index="4">Dimension</li>
 								<li class="fragment" data-fragment-index="5">Column Space & Row Space</li>
 								<li class="fragment" data-fragment-index="6">Nullity</li>
-								<li class="fragment" data-fragment-index="7"><b>Rank-Nullity Theorem</b></li>
+								<li class="fragment" data-fragment-index="7">Rank-Nullity Theorem</li>
 							</ul>
 						</div>
 					</div>
