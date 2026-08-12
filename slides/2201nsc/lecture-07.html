@@ -408,7 +408,7 @@
 								1\leq j\leq n
 								\right\}$
 								<span class="fragment">
-									$=M_{m\times n}\big(\mathbb R\big)$
+									$=M_{mn}\big(\mathbb R\big)$
 								</span>
 							</p>
 							<p class="fragment">
@@ -489,14 +489,15 @@
 				</section>
 
 				<section>
-					<h4 style="font-size:72%">Example 4: $P_n\big(\R\big)$ - set of polynomials of degree at most $n$
+					<h4 style="font-size:72%">Example 4: $P_n\big(\R\big)$ - set of polynomials of degree $\lt n$
 					</h4>
 
 					<div class="size-90" style="margin-top:30px">
 						<div class="left-txt">
 							<p style="text-align: center; margin-bottom: 40px;" class="fragment"
 								data-fragment-index="0">
-								$\mathbf p \in P_n(\R)$, with $\mathbf p = a_0 + a_1x + \cdots + a_n x^n$
+								$\mathbf p \in P_n\big(\R\big)$, with $\mathbf p = a_0 + a_1x + \cdots + a_{n-1}
+								x^{n-1}$
 								and $a_k\in \R,$ $\forall k.$
 							</p>
 							<p class="fragment" data-fragment-index="1">
@@ -505,10 +506,10 @@
 
 							</p>
 							<p class="fragment" data-fragment-index="2">
-								$\quad \left(\,p+q\right)(x) = p(x) + q(x)$
+								$\quad \left(p+q\right)(x) = p(x) + q(x)$
 
 								<span class="fragment" data-fragment-index="3">
-									$\quad \text{and} \quad (k \cdot p)(x) = kp(x)$
+									$\quad \text{and} \quad (k p)(x) = kp(x)$
 								</span>
 							</p>
 
@@ -774,8 +775,6 @@
 				</section>
 
 
-
-				<!-- Slide 13 (PDF p.14): Null Space -->
 				<section data-auto-animate>
 					<h4>The Null Space of a Matrix</h4>
 					<div class="size-85 left-txt" style="font-size: 0.8em;">
@@ -1177,7 +1176,7 @@
 					<h4>A spanning set of vectors</h4>
 					<div class="cc" style="font-size: 0.7em; margin-top: -10px;margin-bottom: -10px;">
 						<p>
-							$\left\{(-3,1)^{T}, (1,3)^{T}\right\}\rightarrow$ 
+							$\left\{(-3,1)^{T}, (1,3)^{T}\right\}\rightarrow$
 							<span style="color: rgb(150, 0, 0);">
 								$ \,\mathbf v= \alpha_1\mathbf v_1 +\alpha_2\mathbf v_2$
 							</span>
@@ -1194,51 +1193,92 @@
 
 
 				<section data-auto-animate>
-					<h4>Proving Vectors Span a Space</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>Do $v_1 = \begin{pmatrix}1\\2\\4\end{pmatrix}$, $v_2 = \begin{pmatrix}2\\1\\3\end{pmatrix}$,
-							and $v_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}$ span $\mathbb{R}^3$?</p>
+					<h4>Proving Vectors Span a Space - Example 1</h4>
+					<div class="size-80">
+						<p>Do the vectors $\mathbf v_1 = \begin{pmatrix}1\\2\\4\end{pmatrix},$ $\mathbf v_2 =
+							\begin{pmatrix}2\\1\\3\end{pmatrix},$
+							and $\mathbf v_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}$ span $\mathbb{R}^3$?</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p>We check if scalars $\alpha_1, \alpha_2, \alpha_3$ exist for any $(x, y, z)^T \in
-								\mathbb{R}^3$ such that:</p>
-							$$ \alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 = \begin{pmatrix}x \\ y \\ z\end{pmatrix} $$
+							<p>
+								We check if scalars $\alpha_1, \alpha_2, \alpha_3$ exist such that:
+								$$
+								\alpha_1 \mathbf v_1 + \alpha_2 \mathbf v_2 + \alpha_3 \mathbf v_3 = \mathbf x,
+								\;\, \text{for any} \;\, \mathbf x = \begin{pmatrix}x \\ y \\ z\end{pmatrix} \in
+								\mathbb{R}^3
+								$$
+							</p>
+
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p>Expressing as a matrix system:</p>
-							$$ \begin{pmatrix}1 & 2 & 0 \\ 2 & 1 & 0 \\ 4 & 3 & 1\end{pmatrix} \begin{pmatrix}\alpha_1
-							\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}x \\ y \\ z\end{pmatrix} $$
+						<div class="fragment" data-fragment-index="1" style="margin-top: -20px;">
+							<p>Express this as a matrix system:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ \begin{pmatrix}1 & 2 & 0 \\ 2 & 1 & 0 \\ 4 & 3 & 1\end{pmatrix}
+								\begin{pmatrix}\alpha_1
+								\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}x \\ y \\ z\end{pmatrix} $
+								<span style="font-size: 1.5em;">
+									$\,\rightarrow \,A \mathbf{\alpha} = \mathbf{x}$
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 5 (PDF p.24): Proving Vectors Span a Space (Part 2) -->
 				<section data-auto-animate>
-					<h4>Proving Vectors Span a Space (Cont.)</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>Let $A \mathbf{\alpha} = \mathbf{x}$ where $A = \begin{pmatrix}1 & 2 & 0 \\ 2 & 1 & 0 \\ 4 &
-							3 & 1\end{pmatrix}$:</p>
-
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p>$\det(A) = 1(1 - 0) - 2(2 - 0) = -3 \neq 0 \implies A^{-1} \text{ exists.}$</p>
+					<h4>Proving Vectors Span a Space - Example 1</h4>
+					<div class="size-85">
+						<div class="cc">
+							<p>
+								$ \begin{pmatrix}1 & 2 & 0 \\ 2 & 1 & 0 \\ 4 & 3 & 1\end{pmatrix}
+								\begin{pmatrix}\alpha_1
+								\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}x \\ y \\ z\end{pmatrix} $
+								<span style="font-size: 1.5em;">
+									$\,\rightarrow \,A \mathbf{\alpha} = \mathbf{x}$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							$$ \begin{pmatrix}\alpha_1 \\ \alpha_2 \\ \alpha_3\end{pmatrix} = A^{-1}\begin{pmatrix}x \\
-							y \\ z\end{pmatrix} = \frac{1}{3}\begin{pmatrix}-1 & 2 & 0 \\ 2 & -1 & 0 \\ -2 & -5 &
-							3\end{pmatrix}\begin{pmatrix}x \\ y \\ z\end{pmatrix} $$
+						<div class="cc" style="margin-top: 30px;">
+							<p>
+								$\det(A) $
+								<span class="fragment" data-fragment-index="2">
+									$= 1(1 - 0) - 2(2 - 0) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= -3 \neq 0$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \implies A^{-1}$ exists!
+								</span>
+							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px;" id="bb">
+						<div class="cc" style="margin-top: 20px;">
+							<p class="fragment" data-fragment-index="5">
+								$ \begin{pmatrix}\alpha_1 \\ \alpha_2 \\ \alpha_3\end{pmatrix} = A^{-1}\begin{pmatrix}x
+								\\
+								y \\ z\end{pmatrix} $
+								<span class="fragment" data-fragment-index="6">
+									$= \dfrac{1}{3}\begin{pmatrix}-1 & 2 & 0 \\ 2 & -1 & 0 \\ -2 & -5 &
+									3\end{pmatrix}\begin{pmatrix}x \\ y \\ z\end{pmatrix}$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="7" style="margin-top: 15px;text-align: center;"
+							id="bb">
 							Since unique coefficients $\alpha_i$ exist for any $x, y, z$, the vectors span
 							$\mathbb{R}^3$.
 						</p>
 					</div>
 					<br />
 				</section>
-				
+
 
 				<section data-background-iframe="sketches/spanning-3d">
 					<div style="margin-top: -400px; font-size: 0.9em;">
@@ -1247,218 +1287,453 @@
 
 				</section>
 
-				<!-- Slide 6 (PDF p.25): Proving Functions Span a Space (Part 1) -->
 				<section data-auto-animate>
-					<h4>Proving Functions Span a Space</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>Do $v_1 = 1 - x^2$, $v_2 = x + 2$, and $v_3 = x^2$ span $\mathcal{P}_3$?</p>
+					<h4>Proving Functions Span a Space - Example 2</h4>
+					<div class="size-80">
+						<p>Do the polynomials $\mathbf v_1 = 1 - x^2$, $\mathbf v_2 = x + 2$, and $\mathbf v_3 = x^2$
+							span $P_3$?</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
 							<p>We check if $\alpha_1, \alpha_2, \alpha_3$ exist for any $ax^2 + bx + c$:</p>
-							$$ \alpha_1(1-x^2) + \alpha_2(x+2) + \alpha_3 x^2 = ax^2 + bx + c $$
-							$$ (\alpha_3 - \alpha_1)x^2 + \alpha_2 x + (\alpha_1 + 2\alpha_2) = ax^2 + bx + c $$
+
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p>Matrix formulation:</p>
-							$$ \begin{pmatrix}-1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix} \begin{pmatrix}\alpha_1
-							\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} $$
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ \alpha_1\left(1-x^2\right) + \alpha_2\left(x+2\right) + \alpha_3 x^2 = ax^2 + bx + c $
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Re-arranging $ \rightarrow \,\left(\alpha_3 - \alpha_1\right)\color{red}{x^2} + \alpha_2
+								\color{red}{x} + \left(\alpha_1 + 2\alpha_2\right)(\color{red}{1}) = ax^2 + bx + c
+								\qquad\qquad\qquad$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+							<p>
+								Matrix representation:
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$ \begin{pmatrix}-1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix}
+								\begin{pmatrix}\alpha_1
+								\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} $
+								<span style="font-size: 1.5em;">
+									$\,\rightarrow \,A \mathbf{\alpha} = \mathbf{k}$
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 7 (PDF p.26): Proving Functions Span a Space (Part 2) -->
 				<section data-auto-animate>
-					<h4>Proving Functions Span a Space (Cont.)</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>For system $A \mathbf{\alpha} = \begin{pmatrix}a \\ b \\ c\end{pmatrix}$:</p>
-
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p>$\det(A) = 1(0 - 1) = -1 \neq 0 \implies A^{-1} \text{ exists.}$</p>
+					<h4>Proving Functions Span a Space - Example 2</h4>
+					<div class="size-85">
+						<div class="cc">
+							<p>
+								$ \begin{pmatrix}-1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix}
+								\begin{pmatrix}\alpha_1
+								\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} $
+								<span style="font-size: 1.5em;">
+									$\,\rightarrow \,A \mathbf{\alpha} = \mathbf{k}$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							$$ \begin{pmatrix}\alpha_1 \\ \alpha_2 \\ \alpha_3\end{pmatrix} = A^{-1}\begin{pmatrix}a \\
-							b \\ c\end{pmatrix} = \begin{pmatrix}0 & -2 & 1 \\ 0 & 1 & 0 \\ 1 & -2 &
-							1\end{pmatrix}\begin{pmatrix}a \\ b \\ c\end{pmatrix} $$
+						<div class="cc" style="margin-top: 30px;">
+							<p>
+								$\det(A) $
+								<span class="fragment" data-fragment-index="2">
+									$=1(0 - 1) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= -1 \neq 0$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \implies A^{-1}$ exists!
+								</span>
+							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 15px;">
-							Since coefficients $\alpha_i$ exist for any $a, b, c$, these functions span $\mathcal{P}_3$.
+
+
+						<div class="fragment" data-fragment-index="5" style="margin-top: 10px;">
+							<p>
+								$$ \begin{pmatrix}\alpha_1 \\ \alpha_2 \\ \alpha_3\end{pmatrix} = A^{-1}\begin{pmatrix}a
+								\\
+								b \\ c\end{pmatrix} = \begin{pmatrix}0 & -2 & 1 \\ 0 & 1 & 0 \\ 1 & -2 &
+								1\end{pmatrix}\begin{pmatrix}a \\ b \\ c\end{pmatrix} $$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="6" style="margin-top: 15px; text-align: center;"
+							id="bb">
+							Since coefficients $\alpha_i$ exist for any $a, b, c$, these polynomials span $P_3$.
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 8 (PDF p.27): Minimal Spanning Sets (Basis) -->
+
 				<section data-auto-animate>
 					<h4>Bases: Minimal Spanning Sets</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<blockquote
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 12px; border-left: 4px solid #4285f4;">
-							<b>Definition (Basis):</b> The vectors $v_1, v_2, \dots, v_n$ in a vector space $V$ form a
-							<b>basis</b> for $V$ if and only if:
-							<ol style="margin-top: 10px; line-height: 1.8em;">
-								<li>$v_1, v_2, \dots, v_n$ are <b>linearly independent</b></li>
-								<li>$v_1, v_2, \dots, v_n$ <b>span</b> $V$</li>
-							</ol>
-						</blockquote>
-					</div>
-					<br />
-				</section>
 
-				<!-- Slide 9 (PDF p.28): Basis Examples 1 -->
-				<section data-auto-animate>
-					<h4>Basis Examples</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<p><b>Standard Basis for $\mathbb{R}^3$:</b></p>
-						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
-							$$ \left\{ e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \; e_2 =
-							\begin{pmatrix}0\\1\\0\end{pmatrix}, \; e_3 = \begin{pmatrix}0\\0\\1\end{pmatrix} \right\}
-							$$
-						</div>
-						<p class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							These vectors are linearly independent and span all of $\mathbb{R}^3$.
+					<div class="size-95 left-txt" style="margin-top: 50px;">
+						<p class="fragment" data-fragment-index="0">
+							<b>Definition (Basis):</b> The vectors $\mathbf v_1, \mathbf v_2, \dots, \mathbf v_n$ in a
+							vector space $V$ form a
+							<b>basis</b> for $V$
+							<span class="fragment" data-fragment-index="1">
+								if and only if:
+							</span>
+						<ol style="margin-top: 10px; line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="1">$\mathbf v_1, \mathbf v_2, \dots, \mathbf
+								v_n\,$ are <b>linearly independent</b>.
+							</li>
+							<li class="fragment" data-fragment-index="2">$\mathbf v_1, \mathbf v_2, \dots, \mathbf
+								v_n\,$ <b>span</b> $\,V$.</li>
+						</ol>
 						</p>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 10 (PDF p.29): Basis Examples 2 -->
+				<section data-auto-animate>
+					<h4>Basis Example</h4>
+					<div class="size-65 cc">
+						<p>
+							<span style="font-size: 1.3em;">
+								<b>Standard Basis for $\mathbb{R}^3$:</b>
+							</span>
+							$\; \left\{ e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \; e_2 =
+							\begin{pmatrix}0\\1\\0\end{pmatrix}, \; e_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}
+							\right\}
+							$
+						</p>
+
+						<p class="fragment" data-fragment-index="1" style="margin-top: -10px; font-size: 1.2em;"
+							id="bb">
+							👉 These vectors are linearly independent and span all of $\mathbb{R}^3$.
+						</p>
+					</div>
+					<div class="r-stack" style="margin-top: -30px;">
+						<img style="width:780px;" class="fragment fade-out" data-fragment-index="1"
+							src="images/lecture-07/std-basis.png">
+						<img style="width:780px;" class="fragment fade" data-fragment-index="1"
+							src="images/lecture-07/span-std-basis.png">
+					</div>
+					<!--
+					https://www.math3d.org/G7WdNtmqPQ
+					-->
+					<br />
+				</section>
+
 				<section data-auto-animate>
 					<h4>Alternative Bases for $\mathbb{R}^3$</h4>
-					<div class="size-85" style="font-size: 0.8em;">
+					<div class="size-75">
 						<p>Other valid bases for $\mathbb{R}^3$ include:</p>
-						<ul style="line-height: 2em;">
-							<li class="fragment" data-fragment-index="0">
-								$\left\{ \begin{pmatrix}1\\0\\0\end{pmatrix}, \begin{pmatrix}1\\1\\0\end{pmatrix},
-								\begin{pmatrix}1\\1\\1\end{pmatrix} \right\}$
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								$\left\{ \begin{pmatrix}1\\1\\1\end{pmatrix}, \begin{pmatrix}1\\0\\1\end{pmatrix},
-								\begin{pmatrix}2\\0\\1\end{pmatrix} \right\}$
-							</li>
-						</ul>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 15px; color: #ff6b6b;">
-							<p><i>Note:</i> Only two vectors, e.g., $\left\{ \begin{pmatrix}1\\1\\1\end{pmatrix},
+						<table style="width: 75%; margin-top: -10px;">
+							<tr>
+								<td style="border: none; text-align: center; font-size: 0.8em; padding: 0px;">
+									$\left\{ \begin{pmatrix}1\\0\\0\end{pmatrix},
+									\begin{pmatrix}1\\1\\0\end{pmatrix},
+									\begin{pmatrix}1\\1\\1\end{pmatrix} \right\}$
+								</td>
+								<td style="border: none; text-align: center; font-size: 1.2em; padding: 0px;"
+									class="fragment" data-fragment-index="0">
+									or
+								</td>
+								<td style="border: none; text-align: center; font-size: 0.8em; padding: 0px;"
+									class="fragment" data-fragment-index="0">
+									$ \left\{ \begin{pmatrix}1\\1\\1\end{pmatrix},
+									\begin{pmatrix}1\\0\\1\end{pmatrix},
+									\begin{pmatrix}2\\0\\1\end{pmatrix} \right\}$
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 50%; padding: 0px;">
+									<img style="
+                width: 100%;
+                border: 1px solid #d0d0d0;
+                border-radius: 8px;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            " src="images/lecture-07/basis-01.png">
+								</td>
+								<td class="fragment" data-fragment-index="0"></td>
+								<td style="width: 50%; padding: 10px;" class="fragment" data-fragment-index="0">
+									<img style="
+                width: 100%;
+                border: 1px solid #d0d0d0;
+                border-radius: 8px;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            " src="images/lecture-07/basis-02.png">
+								</td>
+							</tr>
+						</table>
+
+
+					</div>
+					<!--
+					https://www.math3d.org/tURs6r5IDD
+					-->
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Alternative Bases for $\mathbb{R}^3$</h4>
+					<div class="size-75">
+
+						<p>Other valid bases for $\mathbb{R}^3$ include:</p>
+
+						<table style="width: 60%; margin-top: -10px;">
+							<tr>
+								<td style="border: none; text-align: center; font-size: 0.8em; padding: 0px;">
+									$\left\{ \begin{pmatrix}1\\0\\0\end{pmatrix},
+									\begin{pmatrix}1\\1\\0\end{pmatrix},
+									\begin{pmatrix}1\\1\\1\end{pmatrix} \right\}$
+								</td>
+								<td style="border: none; text-align: center; font-size: 1.1em; padding: 0px;">
+									or
+								</td>
+								<td style="border: none; text-align: center; font-size: 0.8em; padding: 0px;">
+									$ \left\{ \begin{pmatrix}1\\1\\1\end{pmatrix},
+									\begin{pmatrix}1\\0\\1\end{pmatrix},
+									\begin{pmatrix}2\\0\\1\end{pmatrix} \right\}$
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					<div class="size-80">
+
+
+						<div class="cc" id="bb" style="font-size: 1.2em;">
+							<p>👉 Both sets span $\R^3 $</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1">
+							<p><b>Remark 1:</b> Only two vectors, e.g., $\left\{ \begin{pmatrix}1\\1\\1\end{pmatrix},
 								\begin{pmatrix}1\\0\\1\end{pmatrix} \right\}$, will <b>not</b> be enough to span
 								$\mathbb{R}^3$.</p>
 						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							<b>Remark 2:</b> Four vectors in $\mathbb{R}^3$ <b>cannot</b> be linearly independent:
+						</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="2">
+							$ \left\{ \begin{pmatrix}1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\1\\0\end{pmatrix},
+							\begin{pmatrix}0\\0\\1\end{pmatrix}, \begin{pmatrix}1\\0\\1\end{pmatrix} \right\} $
+						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 11 (PDF p.30): Basis Examples 3 -->
+
+
+
 				<section data-auto-animate>
-					<h4>Basis Size Limits & Null Space Basis</h4>
+					<h4>Null Space Basis</h4>
 					<div class="size-85" style="font-size: 0.8em;">
-						<p class="fragment" data-fragment-index="0">
-							Four vectors in $\mathbb{R}^3$ cannot be linearly independent:
-							$$ \left\{ \begin{pmatrix}1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\1\\0\end{pmatrix},
-							\begin{pmatrix}0\\0\\1\end{pmatrix}, \begin{pmatrix}1\\0\\1\end{pmatrix} \right\} $$
+
+						<p class="fragment" data-fragment-index="1">
+							Recall that the null space $N(A)$ of $A \in \mathbb{R}^{m\times n}$
+							is the set of all solutions to the homogeneous system $A\mathbf x = \mathbf 0.$
+							<span class="fragment" data-fragment-index="2">
+								That is,
+								$$N(A) = \left\{\mathbf x \in \mathbb{R}^n \mid A\mathbf x = 0\right\}.$$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">Now consider the matrix
+							$\,A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}.$
 						</p>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 20px;">
-							<p><b>Null Space Basis Example:</b></p>
-							<p>The set $\left\{ \begin{pmatrix}1\\-2\\1\\0\end{pmatrix},
-								\begin{pmatrix}-1\\1\\0\\1\end{pmatrix} \right\}$ forms a basis for $N\begin{pmatrix}1 &
-								1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}$.</p>
+						<div style="margin-top: 20px;">
+							<p class="fragment" data-fragment-index="4"><b>Null Space Basis for $A$:</b></p>
+							<p style="text-align: center;" class="fragment" data-fragment-index="5">
+								The set $\,\left\{ \begin{pmatrix}1\\-2\\1\\0\end{pmatrix},
+								\begin{pmatrix}-1\\1\\0\\1\end{pmatrix} \right\}\,$
+								<span class="fragment" data-fragment-index="6">
+									forms a basis for $N(A)$.
+								</span>
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 12 (PDF p.31): Matrix & Polynomial Bases -->
 				<section data-auto-animate>
 					<h4>Standard Bases for Matrices & Polynomials</h4>
-					<div class="size-85" style="font-size: 0.8em;">
+					<div class="size-80" style="margin-top: 50px;">
 						<p class="fragment" data-fragment-index="0"><b>Standard Basis for $2\times 2$ Matrices
-								($\mathbb{R}^{2\times 2}$):</b></p>
+								(i.e. $\mathbb{R}^{2\times 2}$):</b></p>
 						<div class="fragment" data-fragment-index="1" style="margin-top: 5px;">
-							$$ \left\{ E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix}, \;
-							E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix}, \; E_{21}=\begin{pmatrix}0&0\\1&0\end{pmatrix},
-							\; E_{22}=\begin{pmatrix}0&0\\0&1\end{pmatrix} \right\} $$
+							<p>
+								$$ \left\{ E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix}, \;
+								E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix}, \;
+								E_{21}=\begin{pmatrix}0&0\\1&0\end{pmatrix},
+								\; E_{22}=\begin{pmatrix}0&0\\0&1\end{pmatrix} \right\} $$
+							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 20px;"><b>Standard Basis for
-								Polynomial Space $\mathcal{P}_n$:</b></p>
-						<div class="fragment" data-fragment-index="3" style="margin-top: 5px;">
-							$$ \{1, x, x^2, \dots, x^{n-1}\} $$
+						<p class="fragment" data-fragment-index="2" style="margin-top: 80px;"><b>Standard Basis for
+								Polynomial Space $P_n$ is the set</b></p>
+						<div class="fragment" data-fragment-index="3">
+							<p style="margin-top: 5px;font-size: 1.3em; text-align: center;">
+								$ \left\{1, x, x^2, \dots, x^{n-1}\right\} $
+							</p>
 						</div>
 					</div>
 					<br />
+					<br />
 				</section>
 
-				<!-- Slide 13 (PDF p.32): Important Results -->
+
 				<section data-auto-animate>
 					<h4>Important Results on Bases</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<ul style="line-height: 1.8em;">
+					<div class="size-95">
+						<ul style="line-height: 1.8em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
-								If $\{v_1, \dots, v_n\}$ spans $V$, then any subset of $V$ with more than $n$ vectors is
-								<b>linearly dependent</b>.
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								If both $\{v_1, \dots, v_n\}$ and $\{u_1, \dots, u_m\}$ are bases for $V$, then <b>$n =
-									m$</b>.
+								If $\{\mathbf v_1, \dots, \mathbf v_n\}$ spans $V,\,$
+								<span class="fragment" data-fragment-index="1">
+									then any subset
+									of $V$ with more than $n$ vectors is
+									<b>linearly dependent</b>.
+								</span>
 							</li>
 							<li class="fragment" data-fragment-index="2">
-								If $\{v_1, \dots, v_n\}$ is a basis for $V$, each vector $v \in V$ is a <b>unique</b>
-								linear combination of $v_j$:
-								$$ v = \sum_{j=1}^n c_j v_j $$
+								If both $\{\mathbf v_1, \dots, \mathbf v_n\}$ and
+								$\{\mathbf u_1, \dots, \mathbf u_m\}$ are bases for $V,\,$
+								<span class="fragment" data-fragment-index="3">
+									then $n = m.$
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								If $\{\mathbf v_1, \dots, \mathbf v_n\}$ is a basis for $V,\,$
+								<span class="fragment" data-fragment-index="5">
+									each vector $\mathbf v \in V$ is a <b>unique</b>
+									linear combination of $\mathbf v_j$:
+
+								</span>
+								<p class="fragment" data-fragment-index="5"
+									style="text-align: center;margin-top: -20px;">
+									$\ds \mathbf v = \sum_{j=1}^n c_j \mathbf v_j $
+								</p>
 							</li>
 						</ul>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 14 (PDF p.33): Dimension -->
-				<section data-auto-animate>
-					<h4>Dimension of a Vector Space</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<p>All bases for a vector space contain the exact same number of vectors.</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
-							<blockquote
-								style="text-align: left; background: rgba(255,255,255,0.05); padding: 12px; border-left: 4px solid #4285f4;">
-								<b>Definition (Dimension):</b> The <b>dimension</b> of a vector space $V$ is the number
+				<section data-auto-animate>
+					<h4>Dimension</h4>
+					<div class="size-90 left-txt" style="margin-top: 10px;">
+						<p class="fragment" data-fragment-index="0">All bases for a vector space contain the exact same
+							number of vectors.</p>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="1">
+								<b>Definition (Dimension of a vector space):</b> The <b>dimension</b> of a vector space
+								$V$ is the number
 								of non-zero vectors in any of its bases.
-							</blockquote>
+							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<b>Example:</b> $\dim(\mathbb{R}^3) = 3$, since its standard basis has 3 elements.
+						<p class="fragment" data-fragment-index="2" style="margin-top: 15px; text-align: center;">
+							<b>Examples</b>
 						</p>
+
+						<ul style="line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="3">
+								<b>Euclidian space $\R^3$:</b> <br />
+								<span class="fragment" data-fragment-index="4">
+									$\dim\left(\mathbb{R}^3\right) = 3$, since its standard basis has 3 elements.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="5" style="margin-bottom: 15px;">
+								<b>Matrix Space $\mathbb{R}^{2\times 2}$:</b>
+								<span class="fragment" data-fragment-index="6">
+									<br />Basis has 4 elements $\implies \dim\left(\mathbb{R}^{2\times 2}\right) = 4$.
+								</span>
+							</li>
+						</ul>
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="3"
+								style="font-size: 0.6em; margin-top: -10px; text-align: center;">
+								<span style="font-size: 1.8em;">👉
+									$\,
+									\left\{ \mathbf e_1=(1,0,0)^T, \mathbf e_2=(0,1,0)^T,\mathbf e_3=(0,0,1)^T \right\}
+									$</span>
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="4"
+								style="font-size: 0.6em; margin-top: -10px; text-align: center;">
+								<span style="font-size: 1.8em;">👉
+									$\,
+									\left\{ \mathbf e_1=(1,0,0)^T, \mathbf e_2=(0,1,0)^T,\mathbf e_3=(0,0,1)^T \right\}
+									$
+								</span>
+							</p>
+							<p class="fragment fade-in" data-fragment-index="5"
+								style="font-size: 0.7em; margin-top: -10px; text-align: center;">
+								<span style="font-size: 1.8em;">👉</span> $\,\; \left\{
+								E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix}, \;
+								E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix}, \;
+								E_{21}=\begin{pmatrix}0&0\\1&0\end{pmatrix},
+								\; E_{22}=\begin{pmatrix}0&0\\0&1\end{pmatrix} \right\} $
+							</p>
+						</div>
 					</div>
+					<br />
 					<br />
 				</section>
 
-				<!-- Slide 15 (PDF p.34): Dimension Examples -->
+
 				<section data-auto-animate>
-					<h4>Dimension Examples</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<ul>
-							<li class="fragment" data-fragment-index="0" style="margin-bottom: 15px;">
-								<b>Matrix Space $\mathbb{R}^{2\times 2}$:</b>
-								<br />Basis has 4 elements $\implies \dim(\mathbb{R}^{2\times 2}) = 4$.
+					<h4>More Examples</h4>
+					<div class="size-90 left-txt">
+						<ul style="line-height: 1.8em;">
+							<li>
+								<b>Euclidian space $\R^3$:</b> <br />
+								<span>
+									$\dim\left(\mathbb{R}^3\right) = 3$, since its standard basis has 3 elements.
+								</span>
 							</li>
-							<li class="fragment" data-fragment-index="1" style="margin-bottom: 15px;">
-								<b>Polynomial Space $\mathcal{P}_4$ (degree $< 4$):</b>
-										<br />Basis is $\{1, x, x^2, x^3\} \implies \dim(\mathcal{P}_4) = 4$.
+							<li style="margin-bottom: 15px;">
+								<b>Matrix Space $\mathbb{R}^{2\times 2}$:</b>
+								<span>
+									<br />Basis has 4 elements $\implies \dim\left(\mathbb{R}^{2\times 2}\right) = 4$.
+								</span>
+							</li>
+							<li style="margin-bottom: 15px;">
+								<b>Polynomial Space $P_4$ (degree $\lt 4$):</b>
+
+								<span class="fragment" data-fragment-index="1">
+									<br />Basis is $\{1, x, x^2, x^3\} \implies \dim\left(P_4\right) = 4$.
+								</span>
 							</li>
 							<li class="fragment" data-fragment-index="2">
-								<b>Continuous Function Space $\mathcal{C}[0,1]$:</b>
-								<br />Basis contains infinitely many polynomial terms $\{1, x, x^2, \dots\} \implies
-								\dim(\mathcal{C}[0,1]) = \infty$.
+								<b>Continuous Function Space $C[0,1]$:</b>
+								<span class="fragment" data-fragment-index="3">
+									<br />Basis contains infinitely many polynomial terms $\{1, x, x^2, \dots\}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \Ra \dim\left(C[0,1]\right)=\infty$
+								</span>
+
 							</li>
 						</ul>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 16 (PDF p.35): Changing Bases Outside Point Spaces -->
 				<section data-auto-animate>
 					<h4>Changing Bases Outside Point Spaces</h4>
 					<div class="size-85" style="font-size: 0.75em;">
