@@ -1798,10 +1798,10 @@
 							<p class="fragment" data-fragment-index="0" style="font-size: 1.1em;">
 								Returning to the matrix system
 							</p>
-							<p  class="fragment" data-fragment-index="0" style="font-size: 1.5em;margin-top: -10px;">
+							<p class="fragment" data-fragment-index="0" style="font-size: 1.5em;margin-top: -10px;">
 								$A \mathbf x = \mathbf b$
 							</p>
-							<p  class="fragment" data-fragment-index="1"style="text-align: center;margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1" style="text-align: center;margin-top: 10px;">
 								where $\;A\in \R^{m\times n}, \,\mathbf x\in \R^n,\,$ and $\,\mathbf b\in \R^m $
 							</p>
 						</div>
@@ -1884,11 +1884,10 @@
 				</section>
 
 
-
 				<section data-auto-animate>
 					<h4>Consistency & Invertibility Results</h4>
 					<div class="size-95">
-						<ul style="line-height: 1.8em;">
+						<ul style="line-height: 1.8em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="3">
 								A linear system $A \mathbf x = \mathbf b$ is consistent for
 								<i>all</i> $\mathbf b \in \mathbb{R}^m$
@@ -1920,31 +1919,71 @@
 					<br />
 				</section>
 
-				<!-- Slide 5 (PDF p.39): Rank, Nullity, and Rank-Nullity Theorem -->
+				<section data-auto-animate>
+					<h4>Rank and Nullity</h4>
+					<div class="size-90 left-txt">
+
+						<p style="text-align: center;">Let $A\in \R^{m\times n}.$</p>
+
+						<p class="fragment" data-fragment-index="0">
+							<b>Rank of $A$:</b>
+						</p>
+						<ul style="margin-left: 0px; line-height: 1.6em;">
+							<li class="fragment" data-fragment-index="1">
+								Is the dimension of its row space.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Is, equivalently, the dimension of its column space.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Equals the number of non-zero rows in its reduced row echelon form.
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								Equals the number of lead variables in its reduced row echelon form.
+							</li>
+						</ul>
+
+						<p class="fragment" data-fragment-index="5">
+							<b>Nullity of $A$:</b>
+						</p>
+						<ul style="margin-left: 0px; line-height: 1.6em;">
+							<li class="fragment" data-fragment-index="6">
+								Is the dimension of its null space.
+							</li>
+							<li class="fragment" data-fragment-index="7">
+								Equals the number of free variables in its reduced row echelon form.
+							</li>
+						</ul>
+
+					</div>
+					<br />
+				</section>
+
+
 				<section data-auto-animate>
 					<h4>Rank, Nullity & The Rank-Nullity Theorem</h4>
-					<div class="size-85" style="font-size: 0.78em;">
-						<p class="fragment" data-fragment-index="0">
-							<b>Rank of $A$:</b> Dimension of row space $=$ dimension of column space $=$ number of lead
-							variables in RREF($A$).
-						</p>
-						<p class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<b>Nullity of $A$:</b> Dimension of null space $=$ number of free variables in RREF($A$).
-						</p>
+					<div class="size-95">
+
 
 						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
-							<blockquote
-								style="text-align: left; background: rgba(255,255,255,0.05); padding: 12px; border-left: 4px solid #4285f4;">
+							<p>
 								<b>Theorem (Rank-Nullity Theorem):</b> If $A$ is an $m \times n$ matrix, then:
-								$$ \text{rank}(A) + \text{nullity}(A) = n $$
-							</blockquote>
+								 \[
+							\underbrace{n}_{\text{total variables}}
+							=
+							\underbrace{\operatorname{rank}(A)}_{\text{lead variables}}
+							+
+							\underbrace{\operatorname{nullity}(A)}_{\text{free variables}}
+							\]
+							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="3"
-							style="margin-top: 10px; font-size: 0.9em; color: #aaa;">
-							<i>Proof idea:</i> The $n$ columns in RREF($A$) are partitioned into lead variables (rank)
-							and free variables (nullity).
+						<p class="fragment" data-fragment-index="3">
+							<b>Proof outline:</b> In RREF($A$), the $n$ variables are partitioned
+							into lead variables (rank) and free variables (nullity).
 						</p>
+
+						
 					</div>
 					<br />
 				</section>
