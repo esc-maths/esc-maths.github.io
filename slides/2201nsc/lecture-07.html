@@ -1876,7 +1876,8 @@
 
 						<p class="fragment" data-fragment-index="8" id="gg"
 							style="font-size:1.1em; text-align: center;">
-							👉 $\text{Row Space of } A = \{\mathbf y :\mathbf y = \mathbf x\,A \,\text{ for any }\,
+							👉 $\text{Row Space of } A = \{\overrightarrow{\mathbf y} :\overrightarrow{\mathbf y} =
+							\overrightarrow{\mathbf x}\,A \,\text{ for any }\,
 							\mathbf x\}$
 						</p>
 					</div>
@@ -1968,170 +1969,321 @@
 						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
 							<p>
 								<b>Theorem (Rank-Nullity Theorem):</b> If $A$ is an $m \times n$ matrix, then:
-								 \[
-							\underbrace{n}_{\text{total variables}}
-							=
-							\underbrace{\operatorname{rank}(A)}_{\text{lead variables}}
-							+
-							\underbrace{\operatorname{nullity}(A)}_{\text{free variables}}
-							\]
+								\[
+								\text{the rank of }A
+								+
+								\text{ the nullity of }A
+								= n
+								\]
 							</p>
 						</div>
 
 						<p class="fragment" data-fragment-index="3">
-							<b>Proof outline:</b> In RREF($A$), the $n$ variables are partitioned
-							into lead variables (rank) and free variables (nullity).
+							<b>Proof:</b>
+							The number of columns in the row-reduced matrix is $n.$ <br />
+							<span class="fragment" data-fragment-index="4">
+								They are either lead variables (<span id="rr">rank</span>)
+
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								or free variables (<span id="bb">nullity</span>).
+							</span>
 						</p>
 
-						
+						<p style="text-align: center;" class="fragment" data-fragment-index="3">
+							\(\underbrace{n}_{\text{total variables}}\)
+							<span class="fragment" data-fragment-index="5">
+								\(=\)
+							</span>
+							<span class="fragment" data-fragment-index="4" id="rr">
+								\(
+								\underbrace{\operatorname{rank}(A)}_{\text{lead variables}}
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="5" id="bb">
+								\(
+								+\,\,
+								\underbrace{\operatorname{nullity}(A)}_{\text{free variables}}
+								\)
+							</span>
+
+
+
+						</p>
+
+
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 6 (PDF p.40): In Practice Example 1 (2x4 Matrix) -->
 				<section data-auto-animate>
-					<h4>Finding Spaces in Practice: Example 1</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>For matrix $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}$:</p>
+						<h4>📝 Finding Spaces in Practice Examples</h4>
+						<div style="margin-top: 50px;">
+							<p>
+								<b>1.</b>
+								For matrix $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}$,
+								find the row space, column space, and null space.
 
-						<ol style="line-height: 1.7em;">
-							<li class="fragment" data-fragment-index="0">
-								<b>Row Reduce:</b> $\begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}
-								\rightarrow \dots \rightarrow \begin{pmatrix}1 & 0 & -1 & 1 \\ 0 & 1 & 2 &
-								-1\end{pmatrix}$
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								<b>Column Space Basis:</b> Lead columns from original matrix $A$:
-								<br />
-								$\left\{ \begin{pmatrix}1\\2\end{pmatrix}, \begin{pmatrix}1\\1\end{pmatrix} \right\}
-								\implies \dim = 2 \quad (\text{rank} = 2)$
-							</li>
-							<li class="fragment" data-fragment-index="2">
-								<b>Row Space Basis:</b> Non-zero rows from RREF:
-								<br />
-								$\left\{ \begin{pmatrix}1 & 0 & -1 & 1\end{pmatrix}, \begin{pmatrix}0 & 1 & 2 &
-								-1\end{pmatrix} \right\} \implies \dim = 2$
-							</li>
-							<li class="fragment" data-fragment-index="3">
-								<b>Null Space Basis:</b> $\left\{ \begin{pmatrix}1\\-2\\1\\0\end{pmatrix},
-								\begin{pmatrix}-1\\1\\0\\1\end{pmatrix} \right\} \implies \text{nullity} = 2$
-							</li>
-						</ol>
-					</div>
-					<br />
+							</p>
+							
+							<p style="margin-top: 50px;">
+								<b>2.</b>
+								For matrix $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$,
+								find the row space, column space, and null space.
+
+							</p>
+						</div>
+						<br/>
+						<br/>
+
+					</section>
+
+					<section data-auto-animate>
+						<h4>📝 Finding Spaces in Practice: Example 1</h4>
+						<div class="size-70 left-txt">
+							<p>
+								For matrix $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}$,
+								find the row space, column space, and null space.
+							</p>
+
+							<ol style="line-height: 1.9em; margin-left: 0px;">
+								<li class="fragment" data-fragment-index="0">
+									<b>Row Reduce:</b>
+									$\begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}
+									\rightarrow \dots \rightarrow \begin{pmatrix}1 & 0 & -1 & 1 \\ 0 & 1 & 2 &
+									-1\end{pmatrix}$
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									<b>Column Space Basis:</b> Lead columns from original matrix $A$:
+									<p style="text-align: center;" class="fragment" data-fragment-index="2">
+										$
+										\left\{ \begin{pmatrix}1\\2\end{pmatrix}, \begin{pmatrix}1\\1\end{pmatrix}
+										\right\}
+										$
+										<span class="fragment" data-fragment-index="3">
+											$
+											\Ra \dim = 2 \quad (\text{rank} = 2)
+											$
+										</span>
+									</p>
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									<b>Row Space Basis:</b> Non-zero rows from RREF:
+									<p style="text-align: center;" class="fragment" data-fragment-index="5">
+										$
+										\left\{ \begin{pmatrix}1 & 0 & -1 & 1\end{pmatrix}, \begin{pmatrix}0 & 1 & 2 &
+										-1\end{pmatrix} \right\}
+										$
+										<span class="fragment" data-fragment-index="6">
+											$\Ra \dim = 2$
+										</span>
+									</p>
+
+
+								</li>
+								<li class="fragment" data-fragment-index="7">
+									<b>Null Space Basis:</b> $\left\{ \begin{pmatrix}1\\-2\\1\\0\end{pmatrix},
+									\begin{pmatrix}-1\\1\\0\\1\end{pmatrix} \right\}$
+									<span class="fragment">
+										$
+										\Ra \text{nullity} = 2
+										$
+									</span>
+									<span class="fragment" style="font-size: 1.2em;">
+										$\quad\boxed{\operatorname{rank}(A)+ \operatorname{nullity}(A)=4} $
+									</span>
+								</li>
+							</ol>
+						</div>
+						<br />
+					</section>
+
+					<section data-auto-animate>
+						<h4>📝 Finding Spaces in Practice: Example 2</h4>
+						<div class="size-60 left-txt">
+							<p>
+								For matrix $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$,
+								find the row space, column space, and null space.
+							</p>
+
+							<ol style="line-height: 1.9em; margin-left: 0px;">
+								<li class="fragment" data-fragment-index="0">
+									<b>Row Reduce:</b>
+									$\begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}
+									\rightarrow \dots \rightarrow
+									\begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 0\end{pmatrix}$
+								</li>
+
+								<li class="fragment" data-fragment-index="1">
+									<b>Column Space Basis:</b> Lead columns from original matrix $A$:
+									<p style="text-align: center;" class="fragment" data-fragment-index="2">
+										$
+										\left\{
+										\begin{pmatrix}1\\2\\0\end{pmatrix},
+										\begin{pmatrix}2\\-1\\1\end{pmatrix}
+										\right\}
+										$
+										<span class="fragment" data-fragment-index="3">
+											$
+											\Ra \dim = 2 \quad (\text{rank} = 2)
+											$
+										</span>
+									</p>
+								</li>
+
+								<li class="fragment" data-fragment-index="4">
+									<b>Row Space Basis:</b> Non-zero rows from RREF:
+									<p style="text-align: center;" class="fragment" data-fragment-index="5">
+										$
+										\left\{
+										\begin{pmatrix}1 & 0 & 1\end{pmatrix},
+										\begin{pmatrix}0 & 1 & 1\end{pmatrix}
+										\right\}
+										$
+										<span class="fragment" data-fragment-index="6">
+											$\Ra \dim = 2$
+										</span>
+									</p>
+								</li>
+
+								<li class="fragment" data-fragment-index="7">
+									<b>Null Space Basis:</b>
+									$\left\{
+									\begin{pmatrix}1\\1\\-1\end{pmatrix}
+									\right\}$
+									<span class="fragment">
+										$
+										\Ra \text{nullity} = 1
+										$
+									</span>
+									<span class="fragment" style="font-size: 1.2em;">
+										$\quad\boxed{\operatorname{rank}(A)+\operatorname{nullity}(A)=3}$
+									</span>
+								</li>
+							</ol>
+						</div>
+						<br />
+					</section>
+
+					<!-- Slide 7 (PDF p.41): In Practice Example 2 (3x3 Matrix) -->
+					<section data-auto-animate>
+						<h4>Finding Spaces in Practice: Example 2</h4>
+						<div class="size-85" style="font-size: 0.75em;">
+							<p>For matrix $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$:</p>
+
+							<ol style="line-height: 1.7em;">
+								<li class="fragment" data-fragment-index="0">
+									<b>Row Reduce:</b> $\begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}
+									\rightarrow \dots \rightarrow \begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 &
+									0\end{pmatrix}$
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									<b>Column Space Basis:</b> $\left\{ \begin{pmatrix}1\\2\\0\end{pmatrix},
+									\begin{pmatrix}2\\-1\\1\end{pmatrix} \right\} \implies \dim = 2 \quad (\text{rank} =
+									2)$
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									<b>Row Space Basis:</b> $\left\{ \begin{pmatrix}1 & 0 & 1\end{pmatrix},
+									\begin{pmatrix}0
+									& 1 & 1\end{pmatrix} \right\} \implies \dim = 2$
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									<b>Null Space Basis:</b> $\left\{ \begin{pmatrix}1\\1\\-1\end{pmatrix} \right\}
+									\implies
+									\text{nullity} = 1$
+								</li>
+							</ol>
+						</div>
+						<br />
+					</section>
+
+					<!-- Slide 8 (PDF p.42): Solvability Analysis - Example 1 -->
+					<section data-auto-animate>
+						<h4>Solvability of $Ax = b$: Example 1</h4>
+						<div class="size-85" style="font-size: 0.8em;">
+							<p>Does $A x = b$ always have a solution for $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0
+								&
+								1\end{pmatrix}$?</p>
+
+							<ol style="line-height: 1.7em;">
+								<li class="fragment" data-fragment-index="0">Rank $= 2$ and Nullity $= 2$.</li>
+								<li class="fragment" data-fragment-index="1">$\text{Rank } 2 \implies \dim(\text{Column
+									Space}) = 2$.</li>
+								<li class="fragment" data-fragment-index="2">
+									Column space is in $\mathbb{R}^2$. Since its dimension is 2, it spans all of
+									$\mathbb{R}^2$.
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									<b>Conclusion:</b> Any $b \in \mathbb{R}^2$ can be reached, so $A x = b$
+									<b>always</b>
+									has a solution.
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									Since nullity $= 2$, there is a 2-dimensional family of solutions for each $b$.
+								</li>
+							</ol>
+						</div>
+						<br />
+					</section>
+
+					<!-- Slide 9 (PDF p.43): Solvability Analysis - Example 2 -->
+					<section data-auto-animate>
+						<h4>Solvability of $Ax = b$: Example 2</h4>
+						<div class="size-85" style="font-size: 0.8em;">
+							<p>Does $A x = b$ always have a solution for $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\
+								0 &
+								1 & 1\end{pmatrix}$?</p>
+
+							<ol style="line-height: 1.7em;">
+								<li class="fragment" data-fragment-index="0">Rank $= 2$ and Nullity $= 1$.</li>
+								<li class="fragment" data-fragment-index="1">$\text{Rank } 2 \implies \dim(\text{Column
+									Space}) = 2$.</li>
+								<li class="fragment" data-fragment-index="2">
+									Column space lives in $\mathbb{R}^3$. Because $\dim = 2$, it forms a 2D plane
+									subspace
+									and does <b>not</b> fill $\mathbb{R}^3$.
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									<b>Conclusion:</b> Not every $b \in \mathbb{R}^3$ can be reached $\implies A x = b$
+									does
+									<b>not</b> always have a solution.
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									When a solution exists, nullity $= 1$ yields a 1-dimensional family of solutions.
+								</li>
+							</ol>
+						</div>
+						<br />
+					</section>
+
+
+
 				</section>
 
-				<!-- Slide 7 (PDF p.41): In Practice Example 2 (3x3 Matrix) -->
 				<section data-auto-animate>
-					<h4>Finding Spaces in Practice: Example 2</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>For matrix $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$:</p>
+					<h4>Summary of Vector Spaces</h4>
+					<div class="size-85" style="font-size: 0.82em;">
+						<p>Key topics covered in this module:</p>
 
-						<ol style="line-height: 1.7em;">
-							<li class="fragment" data-fragment-index="0">
-								<b>Row Reduce:</b> $\begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}
-								\rightarrow \dots \rightarrow \begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 &
-								0\end{pmatrix}$
-							</li>
-							<li class="fragment" data-fragment-index="1">
-								<b>Column Space Basis:</b> $\left\{ \begin{pmatrix}1\\2\\0\end{pmatrix},
-								\begin{pmatrix}2\\-1\\1\end{pmatrix} \right\} \implies \dim = 2 \quad (\text{rank} = 2)$
-							</li>
-							<li class="fragment" data-fragment-index="2">
-								<b>Row Space Basis:</b> $\left\{ \begin{pmatrix}1 & 0 & 1\end{pmatrix}, \begin{pmatrix}0
-								& 1 & 1\end{pmatrix} \right\} \implies \dim = 2$
-							</li>
-							<li class="fragment" data-fragment-index="3">
-								<b>Null Space Basis:</b> $\left\{ \begin{pmatrix}1\\1\\-1\end{pmatrix} \right\} \implies
-								\text{nullity} = 1$
-							</li>
-						</ol>
+						<div style="display: flex; justify-content: space-between; margin-top: 20px;">
+							<ul style="width: 48%; line-height: 2em;">
+								<li class="fragment" data-fragment-index="0">Vector Spaces & Subspaces</li>
+								<li class="fragment" data-fragment-index="1">Null Space</li>
+								<li class="fragment" data-fragment-index="2">Span and Spanning Sets</li>
+								<li class="fragment" data-fragment-index="3">Bases as Minimal Spanning Sets</li>
+							</ul>
+							<ul style="width: 48%; line-height: 2em;">
+								<li class="fragment" data-fragment-index="4">Dimension</li>
+								<li class="fragment" data-fragment-index="5">Column Space & Row Space</li>
+								<li class="fragment" data-fragment-index="6">Nullity</li>
+								<li class="fragment" data-fragment-index="7"><b>Rank-Nullity Theorem</b></li>
+							</ul>
+						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 8 (PDF p.42): Solvability Analysis - Example 1 -->
-				<section data-auto-animate>
-					<h4>Solvability of $Ax = b$: Example 1</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>Does $A x = b$ always have a solution for $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 &
-							1\end{pmatrix}$?</p>
-
-						<ol style="line-height: 1.7em;">
-							<li class="fragment" data-fragment-index="0">Rank $= 2$ and Nullity $= 2$.</li>
-							<li class="fragment" data-fragment-index="1">$\text{Rank } 2 \implies \dim(\text{Column
-								Space}) = 2$.</li>
-							<li class="fragment" data-fragment-index="2">
-								Column space is in $\mathbb{R}^2$. Since its dimension is 2, it spans all of
-								$\mathbb{R}^2$.
-							</li>
-							<li class="fragment" data-fragment-index="3">
-								<b>Conclusion:</b> Any $b \in \mathbb{R}^2$ can be reached, so $A x = b$ <b>always</b>
-								has a solution.
-							</li>
-							<li class="fragment" data-fragment-index="4">
-								Since nullity $= 2$, there is a 2-dimensional family of solutions for each $b$.
-							</li>
-						</ol>
-					</div>
-					<br />
-				</section>
-
-				<!-- Slide 9 (PDF p.43): Solvability Analysis - Example 2 -->
-				<section data-auto-animate>
-					<h4>Solvability of $Ax = b$: Example 2</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>Does $A x = b$ always have a solution for $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 &
-							1 & 1\end{pmatrix}$?</p>
-
-						<ol style="line-height: 1.7em;">
-							<li class="fragment" data-fragment-index="0">Rank $= 2$ and Nullity $= 1$.</li>
-							<li class="fragment" data-fragment-index="1">$\text{Rank } 2 \implies \dim(\text{Column
-								Space}) = 2$.</li>
-							<li class="fragment" data-fragment-index="2">
-								Column space lives in $\mathbb{R}^3$. Because $\dim = 2$, it forms a 2D plane subspace
-								and does <b>not</b> fill $\mathbb{R}^3$.
-							</li>
-							<li class="fragment" data-fragment-index="3">
-								<b>Conclusion:</b> Not every $b \in \mathbb{R}^3$ can be reached $\implies A x = b$ does
-								<b>not</b> always have a solution.
-							</li>
-							<li class="fragment" data-fragment-index="4">
-								When a solution exists, nullity $= 1$ yields a 1-dimensional family of solutions.
-							</li>
-						</ol>
-					</div>
-					<br />
-				</section>
-
-
-
-			</section>
-
-			<section data-auto-animate>
-				<h4>Summary of Vector Spaces</h4>
-				<div class="size-85" style="font-size: 0.82em;">
-					<p>Key topics covered in this module:</p>
-
-					<div style="display: flex; justify-content: space-between; margin-top: 20px;">
-						<ul style="width: 48%; line-height: 2em;">
-							<li class="fragment" data-fragment-index="0">Vector Spaces & Subspaces</li>
-							<li class="fragment" data-fragment-index="1">Null Space</li>
-							<li class="fragment" data-fragment-index="2">Span and Spanning Sets</li>
-							<li class="fragment" data-fragment-index="3">Bases as Minimal Spanning Sets</li>
-						</ul>
-						<ul style="width: 48%; line-height: 2em;">
-							<li class="fragment" data-fragment-index="4">Dimension</li>
-							<li class="fragment" data-fragment-index="5">Column Space & Row Space</li>
-							<li class="fragment" data-fragment-index="6">Nullity</li>
-							<li class="fragment" data-fragment-index="7"><b>Rank-Nullity Theorem</b></li>
-						</ul>
-					</div>
-				</div>
-				<br />
-			</section>
-
-			<!-- Ends sections -->
+				<!-- Ends sections -->
 
 		</div>
 	</div>
