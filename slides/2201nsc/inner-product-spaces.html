@@ -1,0 +1,4529 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Lecture 6</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<script src="mathcell/math.js"></script>
+	<script src="mathcell/mathcell.js"></script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">
+					Inner Product Spaces
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f007.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Motivation: Dot Product</h4>
+					<div class="size-75">
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								<b>Definition:</b> The dot product of two vectors $\mathbf{x} = \begin{pmatrix}x_1 \\
+								x_2
+								\\ x_3\end{pmatrix}, \mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ y_3\end{pmatrix} \in
+								\mathbb{R}^3$
+								<span class="fragment" data-fragment-index="1">
+									is a scalar given by:
+								</span>
+							</p>
+
+						</div>
+						<div class="cc" style="font-size: 1.3em;">
+							<p class="fragment" data-fragment-index="1">
+								$ \mathbf{x} \pd \mathbf{y} = x_1 y_1 + x_2 y_2 + x_3 y_3 $
+								<span class="fragment" data-fragment-index="2">
+									$ = \mathbf{x}^T \mathbf{y} $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+							<p><b>Alternative Definition:</b> $\mathbf{x} \pd \mathbf{y} = \|\mathbf{x}\|
+								\|\mathbf{y}\| \cos \theta$,
+								<span class="fragment" data-fragment-index="4">
+									where $\theta$ is the angle between $\mathbf{x}$ and
+									$\mathbf{y}$.
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="5" style="margin-top: 10px;">
+							<p>For a vector $\mathbf{v}\in \mathbb R^3$:</p>
+
+						</div>
+						<div class="cc" style="font-size: 1.2em;">
+							<p class="fragment" data-fragment-index="5">
+								$ \mathbf{v} \pd \mathbf{v}$
+								<span class="fragment">
+									$ = \|\mathbf{v}\| \|\mathbf{v}\| \cos(0) $
+								</span>
+								<span class="fragment">
+									$ =\|\mathbf{v}\|^2 $
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment">
+									$
+									\implies \|\mathbf{v}\| = \sqrt{\mathbf{v} \pd \mathbf{v}} $
+								</span>
+								<span class="fragment">
+									$ = \sqrt{v_1^2 + v_2^2 + v_3^2}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Dot Product Example</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>If $\mathbf{x} = \begin{pmatrix} 3 \\ -2 \\ 1 \end{pmatrix}$ and $\mathbf{y} =
+								\begin{pmatrix} 4 \\ 3 \\ 2 \end{pmatrix}$:</p>
+
+						</div>
+
+						<div class="cc" style="font-size: 1.2em;">
+							<p class="fragment" data-fragment-index="1">
+								$ \mathbf{x}^T \mathbf{y} $
+								<span class="fragment" data-fragment-index="2">
+									$ = 3(4) + (-2)(3) + 1(2) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ =8 $
+								</span>
+
+							</p>
+
+						</div>
+
+						<div class="cc" style="margin-top: 10px; font-size: 1em;">
+							<p class="fragment" data-fragment-index="4">
+								$\|\mathbf{x}\| $
+								<span class="fragment" data-fragment-index="4">
+									$= \sqrt{3^2 + (-2)^2 + 1^2} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= \sqrt{14},$
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\quad \|\mathbf{y}\| = \sqrt{4^2 + 3^2 + 2^2} $
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$= \sqrt{29}$
+								</span>
+							</p>
+							<p class="fragment">
+								$\cos \theta = \dfrac{\mathbf{x} \pd \mathbf{y}}{\norm{\mathbf{x}}\norm{\mathbf{y}}}$
+
+								<span class="fragment">
+									$= \dfrac{8}{\sqrt{14}\sqrt{29}} $
+								</span>
+								<span class="fragment">
+									$\implies \theta \approx 66.6^\circ$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+							<p class="fragment" style="margin-top: 15px; font-size: 1em;">
+								👉 &nbsp;
+								$\mathbf{x}$ and $\mathbf{y}$ are perpendicular (orthogonal) $\iff \mathbf{x}
+								\pd \mathbf{y} = 0$.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4><tt>MATLAB/OCTAVE</tt> Commands</h4>
+					<div class="size-85">
+
+						<table style="width:100%; border-collapse:collapse; line-height:1.8; font-size: 0.89em;"
+							class="fragment" data-fragment-index="0">
+							<tbody>
+								<tr>
+									<td style="padding:8px; text-align:right;">
+										Dot product of vectors \( \mathbf{u}, \mathbf{v} \):
+									</td>
+									<td style="padding:8px; text-align:left;">
+										<span
+											style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;">
+											<tt>dot(u, v)</tt>
+										</span>
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="1">
+									<td style="padding:8px; text-align:right;">
+										Norm of vector \( \mathbf{v} \):
+									</td>
+									<td style="padding:8px; text-align:left;">
+										<span
+											style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;">
+											<tt>norm(v)</tt>
+										</span>
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="2">
+									<td style="padding:8px; text-align:right;">
+										Normalise vector \( \mathbf{v} \):
+									</td>
+									<td style="padding:8px; text-align:left;">
+										<span
+											style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;">
+											<tt>w = v / norm(v)</tt>
+										</span>
+									</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="3">
+									<td style="padding:8px; text-align:right;">
+										Angle between \( \mathbf{u} \) and \( \mathbf{v} \):
+									</td>
+									<td style="padding:8px; text-align:left;">
+										<span
+											style="background: #e1e1e1; padding: 8px; border-radius: 5px; color: #c51111;">
+											<tt>theta = acos(dot(u,v) / (norm(u)*norm(v)))</tt>
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+
+
+						<div class="fragment" data-fragment-index="4"
+							style="margin-top: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
+							<p style="font-size: 0.85em;"><b>NOTE!</b> The <tt>MATLAB/Octave</tt> command
+								<code>length(v)</code> finds
+								the number of entries in a 1D vector and is quite different from <code>norm(v)</code>.
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Definition of an Inner Product</h4>
+					<div class="size-80">
+						<p class="fragment" data-fragment-index="0" style="font-size: 0.7em;">
+							<span>
+								We wish to generalise these definitions, particularly for situations where we might not
+								have a geometrical picture to guide us (more on that later).
+							</span>
+							<span class="fragment" data-fragment-index="1">
+								From now on, we will
+								replace the terms <em>dot product</em> by <b>inner product</b>, and <em>length</em>
+								by <b>norm</b>.
+							</span>
+						</p>
+						<div class="fragment" data-fragment-index="2">
+							<p><b>Definition:</b> An <i>inner product</i> assigns to each pair $\mathbf{x}, \mathbf{y}
+								\in V$ a scalar $\langle \mathbf{x}, \mathbf{y} \rangle \in \mathbb{R}$ satisfying:</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								&nbsp;&nbsp;&nbsp;<b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge
+								0,\,$
+								<span class="fragment" data-fragment-index="4">
+									with $\,\langle \mathbf{x}, \mathbf{x} \rangle = 0 \iff \mathbf{x} =
+									\mathbf{0}$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								&nbsp;&nbsp;&nbsp;<b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \langle
+								\mathbf{y},
+								\mathbf{x} \rangle \quad \forall \; \mathbf{x}, \mathbf{y} \in V$
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								&nbsp;&nbsp;&nbsp;<b>3. Linearity:</b> $\langle \alpha \mathbf{x} + \beta \mathbf{y},
+								\mathbf{z} \rangle =
+								\alpha \langle \mathbf{x}, \mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z}
+								\rangle \quad \forall \; \alpha, \beta \in \mathbb{R}$
+							</p>
+						</div>
+
+						<div class="left-txt" style="margin-top: 15px;">
+							<ul style="line-height: 1.8;">
+								<li class="fragment" data-fragment-index="7"><b>Norm:</b> $\|\mathbf{x}\| =
+									\sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$</li>
+								<li class="fragment" data-fragment-index="8"><b>Unit Vector:</b> $\ds\hat{\mathbf{x}} =
+									\frac{\mathbf{x}}{\|\mathbf{x}\|}$</li>
+								<li class="fragment" data-fragment-index="9"><b>Orthogonality:</b> $\mathbf{x} \perp
+									\mathbf{y} \iff \langle \mathbf{x}, \mathbf{y} \rangle = 0$</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Why this Definition for an Inner Product? 🤔</h4>
+					<div class="size-80">
+
+						<div>
+							<p><b>Definition:</b> An <i>inner product</i> assigns to each pair $\mathbf{x}, \mathbf{y}
+								\in V$ a scalar $\langle \mathbf{x}, \mathbf{y} \rangle \in \mathbb{R}$ satisfying:</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p>
+								&nbsp;&nbsp;&nbsp;<b>1. Positivity:</b> $\langle \mathbf{x}, \mathbf{x} \rangle \ge
+								0,\,$
+								<span>
+									with $\,\langle \mathbf{x}, \mathbf{x} \rangle = 0 \iff \mathbf{x} =
+									\mathbf{0}$
+								</span>
+							</p>
+							<p>
+								&nbsp;&nbsp;&nbsp;<b>2. Symmetry:</b> $\langle \mathbf{x}, \mathbf{y} \rangle = \langle
+								\mathbf{y},
+								\mathbf{x} \rangle \quad \forall \; \mathbf{x}, \mathbf{y} \in V$
+							</p>
+							<p>
+								&nbsp;&nbsp;&nbsp;<b>3. Linearity:</b> $\langle \alpha \mathbf{x} + \beta \mathbf{y},
+								\mathbf{z} \rangle =
+								\alpha \langle \mathbf{x}, \mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z}
+								\rangle \quad \forall \; \alpha, \beta \in \mathbb{R}$
+							</p>
+						</div>
+
+						<ul style="line-height:1.8;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Positivity:</b> Allows taking the square root of
+								$\langle \mathbf{x}, \mathbf{x} \rangle$
+								to measure "size" (norm).
+								<span class="fragment" data-fragment-index="1">
+									Ensures $\|\mathbf{x}\| = 0 \iff \mathbf{x} = \mathbf{0}$.
+								</span>
+
+							</li>
+
+							<li class="fragment" data-fragment-index="2">
+								<b>Symmetry:</b> Order in which vectors occur in
+								$\langle \mathbf{x}, \mathbf{y} \rangle$
+								does not matter.
+							</li>
+
+							<li class="fragment" data-fragment-index="3">
+								<b>Linearity:</b> Essential algebraic property
+								needed for
+								algebraic manipulations and proofs.
+							</li>
+						</ul>
+
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>The Dot Product is an Inner Product</h4>
+					<div class="size-85">
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								For vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$,
+								<span class="fragment" data-fragment-index="1">
+									the standard inner product is:
+								</span>
+
+							</p>
+
+						</div>
+						<div class="cc" style="font-size: 1.1em;">
+							<p class="fragment" data-fragment-index="1">
+								$
+								\langle \mathbf{x}, \mathbf{y} \rangle
+								$
+								<span class="fragment" data-fragment-index="1">
+									$
+									=\mathbf x\pd \mathbf y = \mathbf{x}^T \mathbf{y}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$\ds= \sum_{i=1}^n x_i y_i
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$=
+									x_1 y_1 + x_2 y_2 + \dots + x_n y_n
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 45px;">
+							<p><b>Euclidean Norm:</b></p>
+
+						</div>
+
+						<div class="cc" style="font-size: 1.1em;">
+							<p class="fragment" data-fragment-index="4">
+								$
+								\|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}
+								$
+								<span class="fragment" data-fragment-index="5">
+									$
+									= \sqrt{x_1^2 + x_2^2 +
+									\dots + x_n^2}
+									$
+								</span>
+
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="6" style="margin-top: 40px;">
+							<p><b>Orthogonality:</b> $\;\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ are orthogonal $\iff
+								\langle \mathbf{x}, \mathbf{y} \rangle = 0$.</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Standard Inner Product Examples</h4>
+					<div class="size-85 left-txt">
+						<ul style="line-height: 3;">
+							<li class="fragment" data-fragment-index="0">The vector $\mathbf{0}$ is orthogonal to every
+								vector in $\mathbb{R}^n$.</li>
+							<li class="fragment" data-fragment-index="1">$\begin{pmatrix}3 \\ 2\end{pmatrix} \perp
+								\begin{pmatrix}-4 \\ 6\end{pmatrix}$ in $\mathbb{R}^2$,
+								<span class="fragment" data-fragment-index="2">
+									since $3(-4) + 2(6) = 0$.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="3" style="margin-top: 30px;">$\begin{pmatrix}2 \\
+								-3 \\ 1\end{pmatrix} \perp
+								\begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}$ in $\mathbb{R}^3$,
+								<span class="fragment" data-fragment-index="4">
+									since $2(1) - 3(1) + 1(1) = 0$.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="5" style="margin-top: 30px;">
+								If $\mathbf{x} = \begin{pmatrix}3 \\
+								4\end{pmatrix}$,
+								<span class="fragment" data-fragment-index="6">
+									then $\|\mathbf{x}\| = \sqrt{3^2 + 4^2} = 5$,
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									and $\hat{\mathbf{x}} =
+									\begin{pmatrix}3/5 \\ 4/5\end{pmatrix}$.
+								</span>
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Verification: Standard Inner Product on $\mathbb{R}^n$</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<p class="fragment" data-fragment-index="0">
+							Given \(\mathbf x = \left(x_1, x_2,\ldots,x_n\right)^T\), \(\mathbf y = \left(y_1,
+							y_2,\ldots,y_n\right)^T\), \(\mathbf z = \left(z_1, z_2,\ldots,z_n\right)^T\in\mathbb R^n\)
+						</p>
+						<div>
+							<p class="fragment" data-fragment-index="1">
+								<b>1. Positivity:</b>
+								<span class="fragment" data-fragment-index="2">
+									$\;\langle \mathbf{x}, \mathbf{x} \rangle = \ds \sum x_i^2 \ge 0$.
+								</span>
+
+							</p>
+						</div>
+						<div class="cc">
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									Sum of
+									squares is 0 iff each $x_i = 0$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \iff \mathbf{x} = \mathbf{0}$.
+								</span>
+
+							</p>
+						</div>
+						<div class="fragment" data-fragment-index="5" style="margin-top: 40px;">
+							<p>
+								<b>2. Symmetry:</b> $\;\langle \mathbf{x}, \mathbf{y} \rangle =\ds \sum x_i y_i $
+								<span class="fragment" data-fragment-index="6">
+									$=\ds \sum y_i x_i$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$\ds = \langle \mathbf{y}, \mathbf{x} \rangle$
+								</span>
+							</p>
+						</div>
+						<div class="fragment" data-fragment-index="8" style="margin-top: 60px;">
+							<p><b>3. Linearity:</b>
+
+								<span class="fragment" data-fragment-index="8">
+									$ \langle \alpha \mathbf{x} + \beta \mathbf{y}, \mathbf{z} \rangle $
+								</span>
+								<span class="fragment">
+									$\ds = \sum \big(\alpha x_i + \beta y_i\big)z_i$
+								</span>
+								<span class="fragment">
+									$\ds = \sum \big(\alpha x_iz_i + \beta y_iz_i\big)$
+								</span>
+							</p>
+
+						</div>
+						<div class="cc">
+							<p>
+
+
+								<span class="fragment">
+									$\ds = \alpha \sum x_i z_i + \beta \sum y_i z_i $
+								</span>
+								<span class="fragment">
+									$ \ds = \alpha \langle \mathbf{x},
+									\mathbf{z} \rangle + \beta \langle \mathbf{y}, \mathbf{z} \rangle $
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Weighted inner products on $\mathbb{R}^n$</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>With weights $\;w_i > 0,$
+								$w_i\in \mathbb R$: $\;\ds \langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^n w_i x_i
+								y_i$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p>
+								<b>Example in $\mathbb{R}^2$:</b> Define $\langle \mathbf{x}, \mathbf{y} \rangle = 2x_1
+								y_1 + x_2 y_2$.
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="2">
+								$\begin{pmatrix}3 \\ 2\end{pmatrix}$ and $\begin{pmatrix}-4 \\ 6\end{pmatrix}$ are
+								<b>not</b> orthogonal:
+								<span class="fragment" data-fragment-index="3">
+									$\color{red}{2}(3)(-4) + \color{red}{1}(2)(6) $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$= -12 $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\ne 0$.
+								</span>
+
+
+							</p>
+							<p class="fragment">
+								For $\mathbf{x} = \begin{pmatrix}2 \\ 1\end{pmatrix} $
+								<span class="fragment">
+									$\implies \|\mathbf{x}\| = \sqrt{2\left(2^2\right) + 1\left(1^2\right)} $
+								</span>
+								<span class="fragment">
+									$= 3$.
+								</span>
+
+							</p>
+							<p class="fragment">
+								For $\mathbf{y} = \begin{pmatrix}1 \\ 2\end{pmatrix} $
+								<span class="fragment">
+									$\implies \|\mathbf{y}\| =
+									\sqrt{2\left(1^2\right) + 1\left(2^2\right)} $
+								</span>
+								<span class="fragment">
+									$= \sqrt{6}$
+								</span>
+								<span class="fragment">
+									$\ne \|\mathbf{x}\|$ 👈
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Inner Product on Function Spaces $C[a,b]$</h4>
+					<div class="size-85">
+						<div>
+							<p class="fragment" data-fragment-index="0">Consider $C[a,b]$, the set of continuous
+								functions on the
+								interval $[a,b]$.
+								<span class="fragment" data-fragment-index="1">
+									The standard inner product if $C[a,b]$ is:
+								</span>
+
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ \ds\langle f, g \rangle = \int_a^b f(x)g(x) \, dx $
+							</p>
+
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="2"><b>Example on $C[0,1]$:</b>
+
+								<span class="fragment" data-fragment-index="3">
+									Calculate $\langle x, \sin(\pi x) \rangle$:
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="font-size: 0.95em;">
+							<p class="fragment" data-fragment-index="4">
+								$\langle x, \sin(\pi x) \rangle $
+								<span class="fragment" data-fragment-index="5">
+									$\ds = \int_0^1 x \sin(\pi x) \, dx $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$\ds = \left[ \frac{-x \cos(\pi x)}{\pi} \right]_0^1 + \int_0^1 \frac{\cos(\pi
+									x)}{\pi} \, dx$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$\ds = \frac{1}{\pi} + \left[ \frac{\sin(\pi x)}{\pi^2} \right]_0^1 $
+								<span class="fragment" data-fragment-index="8">
+									$\ds = \frac{1}{\pi}\qquad \qquad \qquad \quad\;$
+								</span>
+							</p>
+						</div>
+					</div>
+					<div style="font-size: 0.5em; margin-top: 50px; color: rgb(91, 91, 91);" class="cc">
+						<p class="fragment" data-fragment-index="6">
+							<b>Note:</b> Here we used integration by parts $\ds\int u\,dv = uv - \int v\,du$
+						</p>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Orthogonality</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								As in $\R^n$ with inner product
+								given by the usual dot product,
+								<span class="fragment" data-fragment-index="0">
+									we say that two vectors $\bfu,\bfv\in V$ are
+									<strong>orthogonal</strong> if
+									$$
+									\langle\bfu,\bfv\rangle=0.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									We need a bit of preparation before we
+									can talk more generally about the <em>angle</em>
+									between two vectors.
+								</span>
+
+							</p>
+
+							<p class="fragment" data-fragment-index="2">
+								<strong>Remark:</strong>
+								Notion of orthogonality is also relative to the
+								<em>inner product used</em>.
+							</p>
+
+						</div>
+						<div class="fragment" data-fragment-index="2">
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+									width="130" height="130">
+							</picture>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Pythagorean Theorem</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $V$ be a real inner product space, and let $\bfu,\bfv\in V$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then,
+									$$
+									||\bfu+\bfv||^2=||\bfu||^2+||\bfv||^2
+									\quad\Longleftrightarrow\quad
+									\langle\bfu,\bfv\rangle=0.
+									$$
+								</span>
+							</p>
+							<table>
+								<tr>
+									<td style="width:30%" class="fragment" data-fragment-index="2">
+
+										<p>Geometrically:</p>
+										<img style="width:100%" src="images/lecture-06/chapter-10-2-pythagoras.png">
+										<br /><br /><br /><br />
+									</td>
+									<td style="width:70%">
+										<p class="fragment" data-fragment-index="3">
+											On the other hand:
+										</p>
+										<table id="eqarray">
+											<tr class="fragment" data-fragment-index="3">
+												<td>
+													$\norm{\u + \v}^2$
+												</td>
+												<td>
+													$ = \langle \u+ \v, \u+ \v \rangle$
+												</td>
+											</tr>
+											<tr class="fragment" data-fragment-index="4">
+												<td>
+
+												</td>
+												<td>
+													$ = \langle \u, \u\rangle + \langle \u, \v \rangle + \langle \v, \u
+													\rangle +\langle \v, \v \rangle$
+												</td>
+											</tr>
+											<tr class="fragment" data-fragment-index="5">
+												<td>
+
+												</td>
+												<td>
+													$ = \norm{\u}^2 + 2 \langle \u, \v \rangle + \norm{\v}^2 .$
+												</td>
+											</tr>
+										</table>
+										<p class="fragment" data-fragment-index="6">
+											Hence
+											$$||\bfu+\bfv||^2=||\bfu||^2+||\bfv||^2 \iff \langle\bfu,\bfv\rangle=0.
+											\,\blacksquare$$
+										</p>
+										<br />
+										<br />
+										<br />
+									</td>
+
+								</tr>
+							</table>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>How "Close" Are Two Arbitrary Vectors?</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p>In $\mathbb{R}^2$ or $\mathbb{R}^3$, angle $\theta$ measures alignment:</p>
+							$$ \cos \theta = \frac{\mathbf{x}^T \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|}, \quad 0 \le
+							\theta \le \pi $$
+						</div>
+
+						<div style="margin-top: 15px;">
+							<ul>
+								<li class="fragment" data-fragment-index="1">Smaller angle $\implies$ closer directional
+									match.</li>
+								<li class="fragment" data-fragment-index="2">Dot product close to $\|\mathbf{x}\|
+									\|\mathbf{y}\| \implies$ aligned.</li>
+								<li class="fragment" data-fragment-index="3">Dot product close to $-\|\mathbf{x}\|
+									\|\mathbf{y}\| \implies$ opposite directions
+									($\theta = 180^\circ$).</li>
+							</ul>
+						</div>
+
+						<div id="rr" class="fragment" data-fragment-index="4">
+							<p>
+								Question: If we are using a different inner product, can we find an analogous
+								definition for the angle between them?
+							</p>
+							<div style="margin-top: -25px;">
+								<picture>
+									<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+										type="image/webp">
+									<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+										width="90" height="90">
+								</picture>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Cauchy-Schwarz Inequality</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $V$ be a real inner product space, and let $\bfu,\bfv\in V$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Then,
+									$$
+									|\langle\bfu,\bfv\rangle|\leq||\bfu||\,||\bfv||.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Moreover, this inequality is an equality if and only if
+									$\bfu$ or $\bfv$ is a scalar multiple of the other vector.
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								For $\u = \mathbf 0\;$ ✅ 😃.
+								<span class="fragment" data-fragment-index="4">
+									For $\u \neq \mathbf 0$, let $t\in \R$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									and
+								</span>
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="5">
+								$a = \langle \u, \u\rangle $,&nbsp;&nbsp;&nbsp; $b = 2 \langle \u, \v\rangle $,
+								&nbsp;&nbsp;&nbsp;$c = \langle \v, \v\rangle .$
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								Then &nbsp;&nbsp; $0 \leq \langle t\,\u + \v, t\,\u + \v \rangle$
+								<span class="fragment" data-fragment-index="7">
+									$ = \langle \u, \u\rangle t^2 + 2\langle \u, \v \rangle t + \langle \v, \v\rangle$
+								</span><br />
+								<span class="fragment" data-fragment-index="8">
+									$ \qquad \qquad\quad \ds = at^2 + b t + c$
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Cauchy-Schwarz Inequality</h4>
+					<div class="size-85">
+
+						<div style="font-size:83%" class="cc">
+							<p>
+								👉 &nbsp; $0 \leq \langle t\,\u + \v, t\,\u + \v \rangle$
+								<span>
+									$ = \langle \u, \u\rangle t^2 + 2\langle \u, \v \rangle t + \langle \v, \v\rangle$
+								</span>
+								<span>
+									$ \ds = at^2 + b t + c$
+								</span>
+							</p>
+						</div>
+						<div class="left-txt">
+							<p>
+								In this case we must have that $b^2 -4ac \leq 0$.
+								<span class="fragment" data-fragment-index="0">
+									So
+									\[
+									4 \langle \u, \v\rangle^2 - 4 \langle \u, \u\rangle\langle \v, \v\rangle \leq 0.
+									\]
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Or equivalently
+									\[
+									\langle \u, \v\rangle^2 \leq \langle \u, \u\rangle \langle \v, \v\rangle .
+									\]
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Taking square roots of both sides and using the fact that $\langle \u, \u\rangle$ and
+								$\langle \v, \v\rangle $
+								nonnegative yields
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$\ds \abs{\langle \u, \v\rangle}\leq \langle \u, \u\rangle^{1/2} \langle \v, \v\rangle
+								^{1/2}\; $
+								<span class="fragment" data-fragment-index="3">
+									or
+									$\; |\langle\bfu,\bfv\rangle|\leq||\bfu||\,||\bfv||.\;\blacksquare$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Cauchy-Schwarz Inequality &amp; Angle</h4>
+					<div class="size-85">
+						<div>
+							<p><b>Cauchy-Schwarz Inequality:</b> For arbitrary vectors $\mathbf{x}, \mathbf{y}$,</p>
+							$$ |\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\| $$
+						</div>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								Rewritten as:
+								$\;\ds -1 \le \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|
+								\|\mathbf{y}\|} \le 1, \quad (\|\mathbf{x}\|\|\mathbf{y}\|\neq 0)$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p><b>Angle Definition:</b> Defines unique angle $\theta \in [0, \pi]$ via:</p>
+							$$ \cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|
+							\|\mathbf{y}\|}, \quad 0\leq \theta \leq \pi $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>📝 Practice problems</h4>
+					<div class="size-85 left-txt" style="font-size: 0.85em;">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Problem 1:</b> $\mathbf{x} = (2,2,-1)^T, \,\mathbf{y} = (5,-3,2)^T \in \mathbb{R}^3$
+								with $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y}$.</p>
+							<ul>
+								<li>Show $|\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\|$.
+								</li>
+								<li>Find the angle $\theta$ between them.</li>
+							</ul>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 45px;">
+							<p><b>Problem 2:</b> On $C\left[0,1\right]$ with $\ds\langle f,g \rangle = \int_0^1 f(x)g(x)
+								\, dx$:
+							</p>
+							<ul>
+								<li>Calculate $\langle e^x, e^{-x} \rangle$.</li>
+								<li>Prove that $\langle f,g \rangle$ satisfies the inner product axioms.</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Solution – Problem 1</h4>
+
+					<div class="size-85 left-txt" style="font-size: 0.85em;">
+						<div>
+							<p><b>Problem 1:</b> $\mathbf{x} = (2,2,-1)^T, \,\mathbf{y} = (5,-3,2)^T \in \mathbb{R}^3$
+								with $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y}$.</p>
+							<ul>
+								<li>Show $|\langle \mathbf{x}, \mathbf{y} \rangle| \le \|\mathbf{x}\| \|\mathbf{y}\|$.
+								</li>
+							</ul>
+						</div>
+
+
+					</div>
+
+					<div style="font-size:0.7em;">
+
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								<b>Step 1:</b> Compute the inner product.
+
+							</p>
+
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$\langle \mathbf{x},\mathbf{y}\rangle $
+								<span class="fragment" data-fragment-index="1">
+									$=(2)(5)+(2)(-3)+(-1)(2) $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$=10-6-2=2.$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top:25px;">
+							<p><b>Step 2:</b> Compute the norms.</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$\|\mathbf{x}\|
+								$
+								<span class="fragment" data-fragment-index="4">
+									$=\sqrt{2^2+2^2+(-1)^2}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$=\sqrt9=3, $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="6">
+								$\|\mathbf{y}\|
+								$
+								<span class="fragment" data-fragment-index="7">
+									$=\sqrt{5^2+(-3)^2+2^2}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$=\sqrt{38}.$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="9" style="margin-top:25px;">
+							<p>
+								<b>Step 3:</b> Verify the Cauchy-Schwarz inequality.
+								<span class="fragment" data-fragment-index="10">
+									$|\langle\mathbf{x},\mathbf{y}\rangle|=|2|=2,$
+								</span>
+
+							</p>
+
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="11">
+								$\|\mathbf{x}\|\,\|\mathbf{y}\|$
+								<span class="fragment" data-fragment-index="12">
+									$=3\sqrt{38}\approx18.49,$
+								</span><span class="fragment" data-fragment-index="13">
+									and $2\lt 3\sqrt{38},\,$
+
+								</span>
+								<span class="fragment" data-fragment-index="14">
+									so the inequality holds. 😀
+								</span>
+
+							</p>
+						</div>
+
+
+
+					</div>
+
+					<br><br>
+				</section>
+				<section data-auto-animate>
+					<h4>📝 Solution – Problem 1</h4>
+
+					<div class="size-85 left-txt" style="font-size: 0.85em;">
+						<div>
+							<p><b>Problem 1:</b> $\mathbf{x} = (2,2,-1)^T, \,\mathbf{y} = (5,-3,2)^T \in \mathbb{R}^3$
+								with $\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{y}$.</p>
+							<ul>
+
+								<li>Find the angle $\theta$ between them.</li>
+							</ul>
+						</div>
+
+
+					</div>
+
+					<div style="font-size:0.8em;">
+
+
+
+						<div class="fragment" data-fragment-index="16" style="margin-top:25px;">
+							<p><b>Use the formula:</b></p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="16">
+								$\ds \cos\theta
+								=
+								\frac{\langle\mathbf{x},\mathbf{y}\rangle}
+								{\|\mathbf{x}\|\,\|\mathbf{y}\|}
+								$
+								<span class="fragment" data-fragment-index="17">
+									$\ds =\frac{2}{3\sqrt{38}}$
+								</span>
+								<span class="fragment" data-fragment-index="18">
+									$\approx0.1082.\;$
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment" data-fragment-index="19">
+									Then
+									$
+									\;\boxed{
+									\theta
+									=\cos^{-1}\!\left(\frac{2}{3\sqrt{38}}\right)
+									\approx83.8^\circ
+									}$
+								</span>
+							</p>
+
+						</div>
+
+					</div>
+
+					<br><br>
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Solution – Problem 2</h4>
+
+					<div class="left-txt" style="font-size: 0.85em;">
+
+
+						<div style="margin-top: 45px;">
+							<p><b>Problem 2:</b> On $C\left[0,1\right]$ with $\ds\langle f,g \rangle = \int_0^1 f(x)g(x)
+								\, dx$:
+							</p>
+							<ul>
+								<li>Calculate $\langle e^x, e^{-x} \rangle$.</li>
+
+							</ul>
+						</div>
+					</div>
+
+					<div style="font-size:0.9em; margin-top: 55px;">
+
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								That is:
+							</p>
+							<p style="text-align: center;">
+								<span class="fragment" data-fragment-index="0">
+									$\;\displaystyle \langle e^x,e^{-x}\rangle$
+									<span class="fragment" data-fragment-index="1">
+										$\displaystyle=\int_0^1 e^xe^{-x}\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="2">
+										$\displaystyle=\int_0^1 1\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="3">
+										$\displaystyle=1.$
+									</span>
+								</span>
+							</p>
+						</div>
+
+
+
+
+
+					</div>
+
+					<br><br>
+				</section>
+				<section data-auto-animate>
+					<h4>📝 Solution – Problem 2</h4>
+
+					<div class="left-txt" style="font-size: 0.85em;">
+						<div style="margin-top: 5px;">
+							<p><b>Problem 2:</b> On $C\left[0,1\right]$ with $\ds\langle f,g \rangle = \int_0^1 f(x)g(x)
+								\, dx$:
+							</p>
+							<ul>
+
+								<li>Prove that $\langle f,g \rangle$ satisfies the inner product axioms.</li>
+							</ul>
+						</div>
+					</div>
+
+
+
+					<div style="font-size:0.75em; margin-top: -15px;">
+
+
+
+						<div class="fragment" data-fragment-index="4" style="margin-top:15px;">
+							<p>
+								<b>Symmetry:</b>
+								<span class="fragment" data-fragment-index="4">
+									$\;\displaystyle \langle f,g\rangle$
+									<span class="fragment" data-fragment-index="5">
+										$\displaystyle=\int_0^1 f(x)g(x)\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										$\displaystyle=\int_0^1 g(x)f(x)\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\displaystyle=\langle g,f\rangle.$
+									</span>
+								</span>
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="8" style="margin-top:10px;">
+							<p>
+								<b>Linearity:</b>
+								<span class="fragment" data-fragment-index="8">
+									$\displaystyle \langle \alpha f(x)+\beta h(x),g(x)\rangle$
+									<span class="fragment" data-fragment-index="9">
+										$\displaystyle=\int_0^1 \big(\alpha f(x)+\beta h(x)\big)g(x)\,dx$
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$\displaystyle=a\langle f,g\rangle+b\langle h,g\rangle.$
+									</span>
+								</span>
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="11" style="margin-top:10px;">
+							<p>
+								<b>Positiveness:</b>
+								<span class="fragment" data-fragment-index="11">
+									$\displaystyle \langle f,f\rangle$
+
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$\displaystyle=\int_0^1 f(x)^2\,dx$
+								</span>
+								<span class="fragment" data-fragment-index="13">
+									$\displaystyle\ge 0.$
+								</span>
+								<span class="fragment" data-fragment-index="14">
+									If
+									$\displaystyle \langle f,f\rangle=0,$
+
+								</span><span class="fragment" data-fragment-index="15">
+									then
+									$\displaystyle f(x)\equiv0.$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc">
+
+
+
+
+							<p class="fragment" data-fragment-index="16">
+								Therefore
+								<span>
+									$\,\boxed{\displaystyle
+									\langle f,g\rangle
+									=
+									\int_0^1 f(x)g(x)\,dx
+									\text{ is an inner product on }C[0,1].}$
+								</span>
+							</p>
+						</div>
+
+					</div>
+
+					<br><br>
+				</section>
+
+
+
+
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-70">
+						<p class="fragment" data-fragment-index="0">
+							Consider searching a database for documents that
+							contains the frequency of certain key
+							words. If we want to find documents on a single topic,
+							then I can search for documents
+							that contain that word.
+							<span class="fragment" data-fragment-index="1">
+								What is the best match?
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Is it the one that contains that word the
+								most?
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								Or is it the one more focussed on that topic?
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								How could I find the best match?
+							</span>
+
+
+
+						</p>
+
+						<div style="margin-top: -30px;" class="fragment" data-fragment-index="0">
+							<img style="width: 800px;" data-src="images/lecture-06/search-key-words.gif">
+						</div>
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+
+					<div class="size-80">
+
+						<div style="margin-top: 10px;">
+							<p><b>Vector Search:</b>
+								Represent each document as a keyword-frequency vector.
+								<span class="fragment" data-fragment-index="0">
+									Find the document whose vector is most closely
+									aligned with the search vector using the inner product.
+								</span>
+
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<p>
+								<b>Scenario:</b> A website has 8 modules ($M_1 \dots M_8$) for learning linear algebra,
+								evaluated across key search terms.
+								Suppose each learning module is treated as a document in our database.
+							</p>
+						</div>
+					</div>
+
+					<div style="font-size: 0.45em; margin-top: -40px;" class="fragment" data-fragment-index="1">
+						<table style="width:50%; border-collapse: collapse; text-align: center;">
+							<thead>
+								<tr style="border-bottom: 1px solid #fff;">
+									<th style="text-align: center;">Keywords</th>
+									<th>M1</th>
+									<th>M2</th>
+									<th>M3</th>
+									<th>M4</th>
+									<th>M5</th>
+									<th>M6</th>
+									<th>M7</th>
+									<th>M8</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align: center;">determinants</td>
+									<td>0</td>
+									<td>6</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+									<td>0</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">eigenvalues</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">linear</td>
+									<td>5</td>
+									<td>4</td>
+									<td>4</td>
+									<td>5</td>
+									<td>4</td>
+									<td>0</td>
+									<td>3</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">matrices</td>
+									<td>6</td>
+									<td>5</td>
+									<td>3</td>
+									<td>4</td>
+									<td>3</td>
+									<td>4</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">numerical</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>3</td>
+									<td>0</td>
+									<td>4</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span>
+											orthogonality
+										</span>
+									</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>4</td>
+									<td>0</td>
+									<td>6</td>
+									<td>0</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span>
+											spaces
+										</span>
+
+									</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>2</td>
+									<td>3</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">systems</td>
+									<td>5</td>
+									<td>3</td>
+									<td>3</td>
+									<td>2</td>
+									<td>4</td>
+									<td>2</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">transformations</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>1</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span>
+											vector
+										</span>
+									</td>
+									<td>0</td>
+									<td>4</td>
+									<td>4</td>
+									<td>4</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+									<td>3</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div style="font-size: 0.58em; margin-top: -10px;">
+						<table style="width:70%; border-collapse: collapse; text-align: center;">
+							<thead>
+								<tr style="border-bottom: 1px solid #fff;">
+									<th style="text-align: center;">Keywords</th>
+									<th>M1</th>
+									<th>M2</th>
+									<th>M3</th>
+									<th>M4</th>
+									<th>M5</th>
+									<th>M6</th>
+									<th>M7</th>
+									<th>M8</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align: center;">determinants</td>
+									<td>0</td>
+									<td>6</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+									<td>0</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">eigenvalues</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">linear</td>
+									<td>5</td>
+									<td>4</td>
+									<td>4</td>
+									<td>5</td>
+									<td>4</td>
+									<td>0</td>
+									<td>3</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">matrices</td>
+									<td>6</td>
+									<td>5</td>
+									<td>3</td>
+									<td>4</td>
+									<td>3</td>
+									<td>4</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">numerical</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>3</td>
+									<td>0</td>
+									<td>4</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span class="fragment highlight-red" data-fragment-index="1">
+											orthogonality
+										</span>
+									</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>4</td>
+									<td>0</td>
+									<td>6</td>
+									<td>0</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span class="fragment highlight-red" data-fragment-index="1">
+											spaces
+										</span>
+
+									</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>2</td>
+									<td>3</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">systems</td>
+									<td>5</td>
+									<td>3</td>
+									<td>3</td>
+									<td>2</td>
+									<td>4</td>
+									<td>2</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">transformations</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>1</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<span class="fragment highlight-red" data-fragment-index="1">
+											vector
+										</span>
+									</td>
+									<td>0</td>
+									<td>4</td>
+									<td>4</td>
+									<td>4</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+									<td>3</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+
+					<div style="margin-top: 10px; font-size: 0.72em;">
+						<p class="fragment" data-fragment-index="0">
+							To search for the words
+							<tt style="font-size: 0.85em; font-weight: bold;">orthogonality</tt>,
+							<tt style="font-size: 0.85em; font-weight: bold">spaces</tt>,
+							<tt style="font-size: 0.85em; font-weight: bold">vector</tt>,
+							<span class="fragment" data-fragment-index="2">
+								we use the normalized search
+								vector
+							</span>
+
+						</p>
+						<div class="r-stack" style="margin-top: -5px;font-size: 1.1em;">
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$\mathbf{v} =(0,0,0,0,0, 1, 1, 0, 0, 1)^T$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="2">
+								$\hat{\mathbf{v}}=\mathbf{x} \approx (0,0,0,0,0, 0.577, 0.577, 0, 0, 0.577)^T$
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-75">
+						<div>
+							<p>
+								Define the keyword-document matrix whose columns are the document vectors:
+							</p>
+						</div>
+
+						<div class="cc">
+							<p>
+								\(
+								A=\begin{pmatrix}
+								| & | & & | \\
+								\mathbf{M}_1 & \mathbf{M}_2 & \cdots & \mathbf{M}_8 \\
+								| & | & & | \\
+								\end{pmatrix}
+								=
+								\begin{pmatrix}
+								0&6&3&0&1&0&1&1\\
+								0&0&0&0&0&5&3&2\\
+								5&4&4&5&4&0&3&3\\
+								6&5&3&4&3&4&3&2\\
+								0&0&0&0&3&0&4&3\\
+								0&0&0&4&0&6&0&2\\
+								0&0&5&2&3&3&0&1\\
+								5&3&3&2&4&2&1&1\\
+								0&0&0&5&1&3&1&0\\
+								0&4&4&4&3&1&0&3
+								\end{pmatrix}
+
+								\)
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-75">
+						<div>
+							<p>
+								Normalize each column of $A$ to obtain the matrix $Q$, whose columns have unit length.
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+								\(
+								Q=\begin{pmatrix}
+								0&0.594&0.327&0&0.1&0&0.147&0.154\\
+								0&0&0&0&0&0.5&0.442&0.309\\
+								0.539&0.396&0.436&0.574&0.4&0&0.442&0.463\\
+								0.647&0.495&0.327&0.344&0.4&0.4&0.442&0.309\\
+								0&0&0&0&0.3&0&0.59&0.463\\
+								0&0&0&0&0.4&0.6&0&0.309\\
+								0&0&0.546&0.229&0.3&0.3&0&0.154\\
+								0.539&0.297&0.327&0.229&0.4&0.2&0.147&0.154\\
+								0&0&0&0.574&0.1&0.3&0.147&0\\
+								0&0.396&0.436&0.344&0.4&0.1&0&0.463
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-85">
+						<div class="cc" style="font-size: 0.5em;">
+							<p>
+								\(
+								Q=\begin{pmatrix}
+								0&0.594&0.327&0&0.1&0&0.147&0.154\\
+								0&0&0&0&0&0.5&0.442&0.309\\
+								0.539&0.396&0.436&0.574&0.4&0&0.442&0.463\\
+								0.647&0.495&0.327&0.344&0.4&0.4&0.442&0.309\\
+								0&0&0&0&0.3&0&0.59&0.463\\
+								0&0&0&0&0.4&0.6&0&0.309\\
+								0&0&0.546&0.229&0.3&0.3&0&0.154\\
+								0.539&0.297&0.327&0.229&0.4&0.2&0.147&0.154\\
+								0&0&0&0.574&0.1&0.3&0.147&0\\
+								0&0.396&0.436&0.344&0.4&0.1&0&0.463
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+						<div>
+
+							<p>Computing $\mathbf{y} = Q^T \mathbf{x}$:</p>
+
+						</div>
+						<div class="r-stack">
+
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; 0.635, \;
+								0.577, \; 0, \;
+								0.535)^T$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \color{green}{\mathbf{0.635}}, \;
+								0.577, \; 0, \;
+								0.535)^T$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \; \color{green}{\mathbf{0.635}}, \;
+								0.577, \; 0, \;
+								0.535)^T$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="3">
+								$\mathbf{y} = (0, \; 0.229, \; 0.567, \; 0.331, \;
+								\color{green}{\mathbf{0.635}},
+								\;
+								\color{blue}{\mathbf{0.577}}, \; 0, \;
+								0.535)^T$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="4">
+								$\mathbf{y} = (0, \; 0.229, \; \color{red}{\mathbf{0.567}}, \; 0.331, \;
+								\color{green}{\mathbf{0.635}},
+								\;
+								\color{blue}{\mathbf{0.577}}, \; 0, \;
+								0.535)^T$
+							</p>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p>Then $\,\color{green}{\mathbf{y_5 = 0.635}}$ is the largest entry
+								<span class="fragment" data-fragment-index="2">
+									$\implies$ <b>Module 5</b> has the highest cosine
+									similarity with the query,
+									so it is the best match.
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								Next best matches are <b>Module 6</b>
+								($\color{blue}{\mathbf{y_6 = 0.577}}$)
+								<span class="fragment" data-fragment-index="4">
+									and <b>Module 3</b>
+									($\color{red}{\mathbf{y_3= 0.567}}$).
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-85">
+						<p>🤔 Why does this work?
+							<span class="fragment" data-fragment-index="0">What does it have to do with inner
+								products?</span>
+							<span class="fragment" data-fragment-index="1">
+								And why did we normalise all the vectors?
+							</span>
+
+						</p>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								Notice that $\, \mathbf{y} = Q^T \mathbf{x}$
+								<span class="fragment" data-fragment-index="3">
+									$ \implies y_i = \mathbf{q}_i^T \mathbf{x} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ =
+									\|\mathbf{q}_i\|
+									\|\mathbf{x}\| \cos \theta_i $
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="5">
+								If the vectors \(\mathbf x\) and \(\mathbf q_i\)
+								are normalized ($\|\mathbf{x}\| = 1, \|\mathbf{q}_i\| = 1$),
+								<span class="fragment" data-fragment-index="6">
+									then
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="6" style="margin-top: -5px; text-align: center;">
+								$ y_i = \cos \theta_i $
+							</p>
+
+						</div>
+
+						<p class="fragment" data-fragment-index="7" style="margin-top: 10px;">
+							This means that the largest entry of \(\mathbf y\) (that is, $y_5$) has the largest
+							value of $\cos \theta_i.$
+
+						</p>
+						<p style="margin-top: -20px;">
+							<span class="fragment" data-fragment-index="8">
+								Hence the direction of the search vector $\mathbf x$ is closest
+								to the direction of $\mathbf q_5$,
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								and is therefore its <b>best match</b>.
+							</span>
+						</p>
+
+						<div class="fragment" data-fragment-index="10" style="margin-top: 15px;">
+							<p><b>Conclusion:</b> Maximizing $y_i$ maximizes $\cos \theta_i$, finding the module vector
+								closest in direction to query vector $\mathbf{x}$.</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-85">
+						<div class="cc">
+							<p>
+								$\mathbf{x} \approx (0,0,0,0,0,0.577, 0.577, 0, 0, 0.577)^T$
+								<span class="fragment" data-fragment-index="2">
+									$\in \mathbb R^{10}$ 👈
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								The fifth column vector of the matrix $Q$ is $\mathbf q_5 $
+								<span class="fragment" data-fragment-index="2">
+									$\in \mathbb R^{10}$ 👈
+								</span>
+							</p>
+
+						</div>
+						<p style="margin-top: -10px;">
+							<span>
+								Hence the direction of the search vector $\mathbf x$ is closest
+								to the direction of $\mathbf q_5$,
+							</span>
+							<span>
+								and is therefore its <b>best match</b>.
+							</span>
+						</p>
+						<div style="margin-top: 15px;">
+							<p><b>Conclusion:</b> Maximizing $y_i$ maximizes $\cos \theta_i$, finding the module vector
+								closest in direction to query vector $\mathbf{x}$.</p>
+						</div>
+
+						<div>
+							<picture class="fragment" data-fragment-index="2">
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f62c/512.gif" alt="😬"
+									width="150" height="150">
+							</picture>
+
+						</div>
+					</div>
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Information Retrieval</h4>
+					<div class="size-85">
+						<div class="cc">
+							<p>
+								Assume for a moment that $\mathbf{x} $
+								<span>
+									$\in \mathbb R^{2}$
+								</span>
+								and $\mathbf q_5 $
+								<span>
+									$\in \mathbb R^{2}$
+								</span>
+							</p>
+
+						</div>
+					</div>
+					<div>
+						<iframe scrolling="no" title="Close vectors"
+							src="https://www.geogebra.org/material/iframe/id/nhemv3bz/width/786/height/385/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
+							width="786px" height="385px" style="border:0px;" allowfullscreen> </iframe>
+						<p style="font-size: 0.6em;text-align: center; margin-top: -10px;color: #4a4a4a;"><b>Note:</b>
+							$\theta$ is radians</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+
+					<div class="size-70">
+						<p class="fragment" data-fragment-index="0">
+							<b>Collaborative filtering</b> is a method used by social media platforms and
+							streaming services to recommend content that users are likely to enjoy by
+							identifying similar users or items.
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							Consider a dataset similar to the previous example, but now the entries
+							represent ratings (for example, stars out of 5) that 8 users have given to
+							10 songs. A value of 0 indicates that a user has not rated a song.
+						</p>
+
+
+					</div>
+					<div class="fragment" data-fragment-index="1" style="font-size: 0.5em; margin-top: -20px;">
+						<table style="width:55%; border-collapse: collapse; text-align: center;">
+							<thead>
+								<tr style="border-bottom: 1px solid #fff;">
+									<th>Song</th>
+									<th>U1</th>
+									<th>U2</th>
+									<th>U3</th>
+									<th>U4</th>
+									<th>U5</th>
+									<th>U6</th>
+									<th>U7</th>
+									<th>U8</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Song 1</td>
+									<td>0</td>
+									<td>5</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+									<td>0</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>Song 2</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>Song 3</td>
+									<td>5</td>
+									<td>4</td>
+									<td>4</td>
+									<td>5</td>
+									<td>4</td>
+									<td>0</td>
+									<td>3</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td>Song 4</td>
+									<td>5</td>
+									<td>5</td>
+									<td>3</td>
+									<td>3</td>
+									<td>4</td>
+									<td>4</td>
+									<td>3</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>Song 5</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>3</td>
+									<td>0</td>
+									<td>4</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td>Song 6</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>4</td>
+									<td>5</td>
+									<td>0</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>Song 7</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>2</td>
+									<td>3</td>
+									<td>3</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>Song 8</td>
+									<td>5</td>
+									<td>3</td>
+									<td>3</td>
+									<td>2</td>
+									<td>4</td>
+									<td>2</td>
+									<td>1</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>Song 9</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>5</td>
+									<td>1</td>
+									<td>3</td>
+									<td>1</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td>Song 10</td>
+									<td>0</td>
+									<td>4</td>
+									<td>4</td>
+									<td>3</td>
+									<td>4</td>
+									<td>1</td>
+									<td>0</td>
+									<td>3</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div class="size-85">
+
+						<div style="font-size: 0.65em;">
+							<table style="width:60%; border-collapse: collapse; text-align: center;">
+								<thead>
+									<tr style="border-bottom: 1px solid #fff;">
+										<th>Song</th>
+										<th>U1</th>
+										<th>U2</th>
+										<th>U3</th>
+										<th>U4</th>
+										<th>U5</th>
+										<th>U6</th>
+										<th>U7</th>
+										<th>U8</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Song 1</td>
+										<td>0</td>
+										<td>5</td>
+										<td>3</td>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Song 2</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>5</td>
+										<td>3</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>Song 3</td>
+										<td>5</td>
+										<td>4</td>
+										<td>4</td>
+										<td>5</td>
+										<td>4</td>
+										<td>0</td>
+										<td>3</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>Song 4</td>
+										<td>5</td>
+										<td>5</td>
+										<td>3</td>
+										<td>3</td>
+										<td>4</td>
+										<td>4</td>
+										<td>3</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>Song 5</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>3</td>
+										<td>0</td>
+										<td>4</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>Song 6</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>4</td>
+										<td>5</td>
+										<td>0</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>Song 7</td>
+										<td>0</td>
+										<td>0</td>
+										<td>5</td>
+										<td>2</td>
+										<td>3</td>
+										<td>3</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Song 8</td>
+										<td>5</td>
+										<td>3</td>
+										<td>3</td>
+										<td>2</td>
+										<td>4</td>
+										<td>2</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Song 9</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>5</td>
+										<td>1</td>
+										<td>3</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>Song 10</td>
+										<td>0</td>
+										<td>4</td>
+										<td>4</td>
+										<td>3</td>
+										<td>4</td>
+										<td>1</td>
+										<td>0</td>
+										<td>3</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1" style=" margin-top: 10px;">
+								👉 New user ratings: $\mathbf{x} = (0, 0, 5, 0, 0, 0, 3, 3, 0, 0)^T$.
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								What recommendation could the platform make? 🤔
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div class="size-75">
+						<div>
+							<p>
+								Define the rating matrix whose columns are the user-rating vectors:
+							</p>
+						</div>
+
+						<div class="cc">
+							<p>
+								\(
+								R=\begin{pmatrix}
+								| & | & & | \\
+								\mathbf{U}_1 & \mathbf{U}_2 & \cdots & \mathbf{U}_8 \\
+								| & | & & | \\
+								\end{pmatrix}
+								=
+								\begin{pmatrix}
+								0&5&3&0&1&0&1&1\\
+								0&0&0&0&0&5&3&2\\
+								5&4&4&5&4&0&3&3\\
+								5&5&3&3&4&4&3&2\\
+								0&0&0&0&3&0&4&3\\
+								0&0&0&0&4&5&0&2\\
+								0&0&5&2&3&3&0&1\\
+								5&3&3&2&4&2&1&1\\
+								0&0&0&5&1&3&1&0\\
+								0&4&4&3&4&1&0&3\\
+
+								\end{pmatrix}
+
+								\)
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div class="size-75">
+						<div>
+							<p>
+								Normalize each column of $R$ to obtain the matrix $Q$, whose columns have unit length.
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+								\(
+								Q=\begin{pmatrix}
+								0&0.524&0.327&0&0.100&0&0.147&0.154\\
+								0&0&0&0&0&0.530&0.442&0.309\\
+								0.577&0.419&0.436&0.574&0.400&0&0.442&0.463\\
+								0.577&0.524&0.327&0.344&0.400&0.424&0.442&0.309\\
+								0&0&0&0&0.300&0&0.590&0.463\\
+								0&0&0&0&0.400&0.530&0&0.309\\
+								0&0&0.546&0.229&0.300&0.318&0&0.154\\
+								0.577&0.314&0.327&0.229&0.400&0.212&0.147&0.154\\
+								0&0&0&0.574&0.100&0.318&0.147&0\\
+								0&0.419&0.436&0.344&0.400&0.106&0&0.463
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div class="size-80">
+						<div class="cc" style="font-size: 0.45em;">
+							<p>
+								\(
+								Q=\begin{pmatrix}
+								0&0.524&0.327&0&0.100&0&0.147&0.154\\
+								0&0&0&0&0&0.530&0.442&0.309\\
+								0.577&0.419&0.436&0.574&0.400&0&0.442&0.463\\
+								0.577&0.524&0.327&0.344&0.400&0.424&0.442&0.309\\
+								0&0&0&0&0.300&0&0.590&0.463\\
+								0&0&0&0&0.400&0.530&0&0.309\\
+								0&0&0.546&0.229&0.300&0.318&0&0.154\\
+								0.577&0.314&0.327&0.229&0.400&0.212&0.147&0.154\\
+								0&0&0&0.574&0.100&0.318&0.147&0\\
+								0&0.419&0.436&0.344&0.400&0.106&0&0.463
+								\end{pmatrix}
+								\)
+							</p>
+						</div>
+						<div>
+							<p>1. Normalize columns of rating matrix $R \Ra Q$.</p>
+							<p class="fragment" data-fragment-index="1">2. Normalize new user rating vector $\mathbf{x}
+								$:
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$\hat{\mathbf{x}} = (0, 0, 0.762, 0, 0, 0, 0.457, 0.457, 0, 0)^T$.
+
+							</p>
+						</div>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="3"><b>Calculate user similarity vector:</b></p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$ \mathbf{y} = Q^T \hat{\mathbf{x}} $
+								<span class="fragment" data-fragment-index="4">
+									$= (0.704, \; 0.464, \; 0.732, \; 0.647, \; 0.625, \;
+									0.242, \; 0.405, \; 0.494)^T$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div style="font-size: 0.8em;">
+						<div class="cc" style="font-size: 0.4em;">
+							<p>
+								\(
+								R
+								=
+								\begin{pmatrix}
+								0&5&3&0&1&0&1&1\\
+								0&0&0&0&0&5&3&2\\
+								5&4&4&5&4&0&3&3\\
+								5&5&3&3&4&4&3&2\\
+								0&0&0&0&3&0&4&3\\
+								0&0&0&0&4&5&0&2\\
+								0&0&5&2&3&3&0&1\\
+								5&3&3&2&4&2&1&1\\
+								0&0&0&5&1&3&1&0\\
+								0&4&4&3&4&1&0&3\\
+
+								\end{pmatrix}
+
+								\)
+							</p>
+						</div>
+						<div class="cc size-75">
+							<p>
+								$ \mathbf{y} = Q^T \hat{\mathbf{x}} $
+								<span>
+									$= (0.704, \; 0.464, \; 0.732, \; 0.647, \; 0.625, \;
+									0.242, \; 0.405, \; 0.494)^T$
+								</span>
+							</p>
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								<b>1. Match Coefficients:</b>
+								Use $\mathbf{y}$ as weights on unnormalized ratings $R$.
+								<span class="fragment" data-fragment-index="1">
+									That is
+								</span>
+							</p>
+
+						</div>
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$ R \mathbf{y}
+								= \,( $ 1.400, 0.792, 3.880, 3.628,
+								1.154, 1.090, 1.867, 2.849, 1.158, 2.538$ \,)^T $
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$ R \mathbf{y}
+								= \,( $ 1.400, 0.792, 3.880, 3.628,
+								1.154, 1.090, 1.867, 2.849, 1.158, 2.538$ \,)^T $
+							</p>
+
+							<p class="fragment fade-in" data-fragment-index="3">
+								$ R \mathbf{y}
+								= \,( $ 1.400, 0.792, <span style="text-decoration:line-through;">3.880</span>, <span
+									id="rr">3.628</span>,
+								1.154, 1.090, <span style="text-decoration:line-through;">1.867</span>, <span
+									style="text-decoration:line-through;">2.849</span>, 1.158, 2.538$ \,)^T $
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<p>
+								<b>2. Selection Criterion:</b>
+								Choose highest predicted rating for unrated songs
+								(excluding songs already rated).
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								In this case, <b>Song 4</b> (score: <span id="rr">3.628</span>) is the top
+								recommendation! ⭐️
+
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Collaborative Filtering</h4>
+					<div class="size-85">
+						<div>
+							<p>For ratings matrix $R$ (with $M$ rows and $N$ columns)
+								<span class="fragment" data-fragment-index="0">
+									and user-dependent weights $\mathbf{y} = [w_1, w_2, \dots,
+									w_N]^T$:
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px; font-size: 0.85em;">
+							<p class="fragment" data-fragment-index="1">
+								$ R \mathbf{y} = \begin{pmatrix}
+								R_{11} & R_{12} & \cdots & R_{1N} \\
+								R_{21} & R_{22} & \cdots & R_{2N} \\
+								\vdots & \vdots & \ddots & \vdots \\
+								R_{M1} & R_{M2} & \cdots & R_{MN}
+								\end{pmatrix}
+								\begin{pmatrix} w_1 \\ w_2 \\ \vdots \\ w_N \end{pmatrix}
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									= \begin{pmatrix}
+									w_1 R_{11} + w_2 R_{12} + \dots + w_N R_{1N} \\
+									w_1 R_{21} + w_2 R_{22} + \dots + w_N R_{2N} \\
+									\vdots \\
+									w_1 R_{M1} + w_2 R_{M2} + \dots + w_N R_{MN}
+									\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: 60px;">
+							<p class="fragment" data-fragment-index="2">
+								The output is the <b>weighted sum</b>
+								of song ratings across all users,
+								<span class="fragment" data-fragment-index="3">
+									which is proportional to the weighted
+									average.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Orthogonal and Orthonormal Sets &amp; Bases</h4>
+					<div class="size-85 left-txt">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Definitions (Sets):</b></p>
+							<ul>
+								<li class="fragment" data-fragment-index="1">
+									A set $\{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_p\}$ is <b>orthogonal</b> if
+									pairwise orthogonal:
+									$$ \langle \mathbf{u}_i, \mathbf{u}_j \rangle = 0 \quad\text{if}\quad i \ne j $$
+								</li>
+								<li class="fragment" data-fragment-index="2">An <b>orthonormal</b> set of vectors
+									is an orthogonal set of unit vectors (i.e. orthogonal vectors such that
+									$\|\mathbf{v}_i\| = 1$ for all $i$).</li>
+							</ul>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;">
+							<p><b>Definitions (Bases):</b> A basis $\{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_n\}$
+								for an inner product space
+								is:</p>
+							<ul>
+								<li class="fragment" data-fragment-index="4">an <b>orthogonal basis</b>
+									if $\langle \mathbf{v}_i, \mathbf{v}_j \rangle = 0$ whenever $i \ne j$.</li>
+								<li class="fragment" data-fragment-index="5">
+									an <b>orthonormal basis</b> if $\langle \mathbf{v}_i,
+									\mathbf{v}_j \rangle = \delta_{ij}$ (Kronecker delta: $1$ if $i=j$, $0$ if $i \ne
+									j$).</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Examples of Orthogonal &amp; Orthonormal Set</h4>
+					<div class="size-75">
+						<div class="fragment" data-fragment-index="0">
+							<p>Consider vectors in $\mathbb{R}^3$:
+								$\; \mathbf{v}_1 = \begin{pmatrix}1 \\ 1 \\ 1\end{pmatrix}, \;\;
+								\mathbf{v}_2 = \begin{pmatrix}2 \\ 1 \\ -3\end{pmatrix}, \;\;
+								\mathbf{v}_3 = \begin{pmatrix}4 \\ -5 \\ 1\end{pmatrix}$
+							</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								$\qquad\qquad \langle \mathbf{v}_1, \mathbf{v}_2 \rangle $
+								<span class="fragment" data-fragment-index="2">
+									$= 1(2) + 1(1) + 1(-3) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= 0$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="4">
+								$\qquad\qquad \langle \mathbf{v}_1, \mathbf{v}_3 \rangle $
+								<span class="fragment" data-fragment-index="5">
+									$= 1(4) + 1(-5) + 1(1) $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$= 0$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="7">
+								$\qquad \qquad \langle \mathbf{v}_2, \mathbf{v}_3 \rangle $
+								<span class="fragment" data-fragment-index="8">
+									$= 2(4) + 1(-5) + (-3)(1) = 0$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$\Ra \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is orthogonal.
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="10" style="margin-top: 15px; font-size: 0.85em;">
+							<p><b>Normalizing to form an orthonormal set:</b></p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="10">
+								$\mathbf{w}_1 = \dfrac{\mathbf{v}_1}{\|\mathbf{v}_1\|}$
+								<span class="fragment" data-fragment-index="11">
+									$= \dfrac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}, \;\;$
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$\mathbf{w}_2 = \dfrac{\mathbf{v}_2}{\|\mathbf{v}_2\|}$
+								</span>
+								<span class="fragment" data-fragment-index="13">
+									$= \dfrac{1}{\sqrt{14}}\begin{pmatrix}2\\1\\-3\end{pmatrix}, \;\;$
+								</span>
+								<span class="fragment" data-fragment-index="14">
+									$\mathbf{w}_3 = \dfrac{\mathbf{v}_3}{\|\mathbf{v}_3\|}$
+								</span>
+								<span class="fragment" data-fragment-index="15">
+									$= \dfrac{1}{\sqrt{42}}\begin{pmatrix}4\\-5\\1\end{pmatrix}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Examples of Orthogonal &amp; Orthonormal Set</h4>
+
+					<div class="size-40" style="margin-top: -15px;">
+						<div class="cc">
+							<p>
+								$\mathbf{w}_1 = \dfrac{\mathbf{v}_1}{\|\mathbf{v}_1\|}$
+								<span>
+									$= \dfrac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}, \quad$
+								</span>
+								<span>
+									$\mathbf{w}_2 = \dfrac{\mathbf{v}_2}{\|\mathbf{v}_2\|}$
+								</span>
+								<span>
+									$= \dfrac{1}{\sqrt{14}}\begin{pmatrix}2\\1\\-3\end{pmatrix}, \quad$
+								</span>
+								<span>
+									$\mathbf{w}_3 = \dfrac{\mathbf{v}_3}{\|\mathbf{v}_3\|}$
+								</span>
+								<span>
+									$= \dfrac{1}{\sqrt{42}}\begin{pmatrix}4\\-5\\1\end{pmatrix}$
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div style="margin-top: -10px;">
+						<iframe scrolling="no" title="Orthonormal set in 3D"
+							src="https://www.geogebra.org/material/iframe/id/rvd89p89/width/752/height/510/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="752px" height="510px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Orthonormal Basis Sets in $\mathbb{R}^2$ </h4>
+					<div class="size-65 left-txt">
+						<p class="fragment" data-fragment-index="0">
+							<b>Example 1:</b> $\{\mathbf{e}_1, \mathbf{e}_2\} = \left\{
+							\begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix} \right\}$
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							<b>Example 2:</b> $\ds \left\{ \frac{1}{\sqrt{2}}(\mathbf{e}_1+\mathbf{e}_2),
+							\frac{1}{\sqrt{2}}(\mathbf{e}_1-\mathbf{e}_2) \right\} $
+							<span class="fragment" data-fragment-index="3">
+								$\ds = \left\{
+								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},
+								\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix} \right\}$
+							</span>
+						</p>
+
+					</div>
+					<div style="margin-top: -30px;">
+						<table style="width: 77%;">
+							<tr>
+								<td style="width: 50%;" class="fragment" data-fragment-index="1">
+									<img src="images/lecture-06/005-basis-r2.png">
+								</td>
+								<td style="width: 50%;" class="fragment" data-fragment-index="4">
+									<img src="images/lecture-06/005-basis-r2-2.png">
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>More Orthonormal Sets and Bases in $\mathbb{R}^3$</h4>
+					<div class="size-75" style="margin-top: 60px;">
+						<div class="left-txt">
+
+							<p class="fragment" data-fragment-index="0">
+								<strong>Example 1:</strong>
+								$\left\{ (1,0,0)^T, (0,1,0)^T, (0,0,1)^T\right\}$ orthonormal set.
+							</p>
+							<br />
+							<p class="fragment" data-fragment-index="1">
+								<strong>Example 2:</strong>
+								$S = \ds \left\{
+								\left( \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right)^T,
+								\left(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)^T
+								\right\}$ orthonormal set in
+								$\R^3$.
+							</p>
+							<br />
+							<p class="fragment" data-fragment-index="2">
+								<strong>Example 3:</strong>
+								$\ds S \cup \left\{
+								\left( \frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}},-\frac{2}{\sqrt{6}} \right)^T
+								\right\}$ orthonormal set in
+								$\R^3$.
+							</p>
+						</div>
+					</div>
+
+
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>More Orthonormal Sets and Bases in $\mathbb{R}^3$</h4>
+
+					<div style="margin-top: 60px;">
+						<iframe scrolling="no" title="Examples orthonormal basis"
+							src="https://www.geogebra.org/material/iframe/id/mftrngkb/width/795/height/418/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="795px" height="418px" style="border:0px;" allowfullscreen> </iframe>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>More Orthonormal Sets and Bases in $\mathbb{R}^3$</h4>
+					<div class="size-65" style="margin-top: 40px;">
+						<div class="left-txt">
+
+							<p>
+								<strong>Example 1:</strong>
+								$\left\{ (1,0,0)^T, (0,1,0)^T, (0,0,1)^T\right\}$ orthonormal set.
+								<span id="gg" class="fragment" data-fragment-index="0">
+									👈 Orthonormal basis
+								</span>
+							</p>
+
+							<p>
+								<strong>Example 2:</strong>
+								$S = \ds \left\{
+								\left( \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right)^T,
+								\left(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0\right)^T
+								\right\}$ orthonormal set in
+								$\R^3$.
+								<span id="rr" class="fragment" data-fragment-index="1">
+									👈 NOT a basis!
+								</span>
+							</p>
+
+							<p>
+								<strong>Example 3:</strong>
+								$\ds S \cup \left\{
+								\left( \frac{1}{\sqrt{6}},\frac{1}{\sqrt{6}},-\frac{2}{\sqrt{6}} \right)^T
+								\right\}$ orthonormal set in
+								$\R^3$.
+								<span id="gg" class="fragment" data-fragment-index="0">
+									👈 Orthonormal basis
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									An <strong>orthonormal basis</strong> for $V$ is a basis
+									for $V$ that is also an orthonormal set.
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="0">
+								The sets in Examples 1 and 3 are also orthonormal bases for $\R^3$,
+								<span class="fragment" data-fragment-index="1">
+									but the set in Example 2 <strong>is NOT</strong> a basis for $\R^3$.
+								</span>
+
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Orthogonality Implies Linear Independence</h4>
+					<div class="size-85">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									Let $V$ be vector space with a real inner product.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									A nonempty set of vectors in $V$ is <strong>orthogonal</strong> if each vector in
+									the set is
+									orthogonal to all the other vectors in the set.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									That is, the set $\{\bfv_1,\ldots,\bfv_n\}\subseteq V$ is orthogonal if
+									$$
+									\langle\bfv_i,\bfv_j\rangle=0,\qquad i\neq j.
+									$$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Let $S$ be a finite set of vectors in $V$ such that ${\bf 0}\notin S$.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Then,
+								</span>
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$S$ orthogonal $\Longrightarrow$ $S$ linearly
+								independent.
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4 style="font-size:70%;margin-top:-20px">Orthogonality Implies Linear Independence</h4>
+					<div style="margin-top:-15px;font-size:80%">
+
+						<div class="cc" style="font-size:50%;font-weight:bold">
+							<p>
+								$S$ orthogonal $\Longrightarrow$ $S$ linearly
+								independent.
+							</p>
+						</div>
+						<div class="left-txt" style="margin-top:-10px">
+							<p class="fragment" data-fragment-index="0">
+								Let $S = \left\{\v_1, \v_2, \ldots, \v_n\right\}$ be orthogonal
+								and consider
+								\[
+								k_1 \v_1 + k_2\v_2 + \cdots + k_n\v_n = \mathbf 0.
+								\]
+								<span class="fragment" data-fragment-index="1">
+									Then for any $\v_i\in S$
+								</span>
+							</p>
+							<table id="eqarray">
+								<tr>
+									<td class="fragment" data-fragment-index="1">
+										$0 $
+
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$=$
+									</td>
+									<td class="fragment" data-fragment-index="1">
+										$ \langle \mathbf 0, \v_i \rangle$
+										<span class="fragment" data-fragment-index="2">
+											$= \langle k_1 \v_1 + \cdots + k_n\v_n, \v_i \rangle$
+										</span>
+									</td>
+								</tr>
+								<tr class="fragment" data-fragment-index="3">
+									<td>
+
+									</td>
+									<td>
+										$=$
+									</td>
+									<td>
+										$ k_1 \langle \v_1 , \v_i \rangle + \cdots + k_n \langle \v_n , \v_i \rangle$
+									</td>
+								</tr>
+								<tr>
+									<td>
+
+									</td>
+									<td class="fragment" data-fragment-index="4">
+										$=$
+									</td>
+									<td class="fragment" data-fragment-index="4">
+										$ k_i \langle \v_i , \v_i \rangle$
+										<span class="fragment" data-fragment-index="5">
+											&nbsp; by orthogonality.
+										</span>
+									</td>
+								</tr>
+							</table>
+							<p class="fragment" data-fragment-index="6">
+								Since $\mathbf 0 \notin S$,
+								<span class="fragment" data-fragment-index="7">
+									we have that $\v_i\neq \mathbf 0$ and
+									so $\langle \v_i, \v_i \rangle \neq 0$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$\,\Ra \, k_i =0\; \forall i.$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									Therefore $\ds \left\{\v_1, \v_2, \ldots, \v_n\right\}$ is
+									linearly independent. $\; \blacksquare$
+								</span>
+							</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Why Use Orthonormal Basis Sets?</h4>
+					<div class="size-90">
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								For any vector $\mathbf{x} = c_1 \mathbf{v}_1 +
+								c_2 \mathbf{v}_2 + \dots + c_n \mathbf{v}_n$,
+								<span class="fragment" data-fragment-index="1">
+									determining
+									coordinates $c_i$ is simple with an orthogonal basis:
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								$ \langle \mathbf{x}, \mathbf{v}_i \rangle = \langle c_1 \mathbf{v}_1 + \dots + c_n
+								\mathbf{v}_n,
+								\mathbf{v}_i \rangle $
+								<span class="fragment" data-fragment-index="2">
+									$= c_i
+									\langle \mathbf{v}_i, \mathbf{v}_i \rangle $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$ \implies c_i =
+								\dfrac{\langle \mathbf{x}, \mathbf{v}_i \rangle}{\langle \mathbf{v}_i, \mathbf{v}_i
+								\rangle}, \quad
+								i = 1, 2, \dots, n $
+							</p>
+
+						</div>
+
+						<p class="fragment" data-fragment-index="4" style="margin-top: 15px; font-size: 0.9em;" id="bb">
+							For an <b>orthonormal basis</b>,
+							$\langle \mathbf{v}_i, \mathbf{v}_i \rangle = 1$,
+							<span class="fragment" data-fragment-index="5">
+								making $c_i = \langle
+								\mathbf{x}, \mathbf{v}_i \rangle$ trivial to compute!
+							</span>
+						</p>
+					</div>
+
+					<div class="fragment" data-fragment-index="5">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃" width="120"
+								height="120">
+						</picture>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Vector Expansion Theorem</h4>
+					<div class="size-85" style="margin-top: 50px;">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Orthogonal Basis Expansion:</b> If $\{\mathbf{v}_1, \mathbf{v}_2, \dots,
+								\mathbf{v}_n\}$ is an orthogonal basis,
+								then any vector $\mathbf{x}$ can be expanded as:</p>
+							$$ \mathbf{x} = \frac{\langle \mathbf{x}, \mathbf{v}_1 \rangle}{\langle \mathbf{v}_1,
+							\mathbf{v}_1 \rangle} \mathbf{v}_1 +
+							\frac{\langle \mathbf{x}, \mathbf{v}_2 \rangle}{\langle \mathbf{v}_2, \mathbf{v}_2 \rangle}
+							\mathbf{v}_2 + \dots + \frac{\langle
+							\mathbf{x}, \mathbf{v}_n \rangle}{\langle \mathbf{v}_n, \mathbf{v}_n \rangle} \mathbf{v}_n
+							$$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Orthonormal Basis Expansion:</b> For an orthonormal basis, this reduces to:</p>
+							$$ \mathbf{x} = \langle \mathbf{x}, \mathbf{v}_1 \rangle \mathbf{v}_1 + \langle \mathbf{x},
+							\mathbf{v}_2 \rangle \mathbf{v}_2 +
+							\dots + \langle \mathbf{x}, \mathbf{v}_n \rangle \mathbf{v}_n $$
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Finding Coefficients Example</h4>
+					<div style="font-size: 0.7em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>Find coefficients of $\mathbf{v} = (-1,7)^T$ relative to orthogonal basis $\left\{
+								\begin{pmatrix}1\\1\end{pmatrix}, \begin{pmatrix}1\\-1\end{pmatrix} \right\}$ in
+								$\mathbb{R}^2$:</p>
+						</div>
+
+
+					</div>
+
+					<div class="size-75">
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								$c_1 = \dfrac{\langle \mathbf{v}, \mathbf{v}_1 \rangle}{\|\mathbf{v}_1\|^2} $
+								<span class="fragment" data-fragment-index="2">
+									$=
+									\dfrac{(-1,7)\begin{pmatrix}1\\1\end{pmatrix}}{\left\|\begin{pmatrix}1\\1\end{pmatrix}\right\|^2}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= \dfrac{6}{2} $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$=3$
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								$c_2 = \dfrac{\langle \mathbf{v}, \mathbf{v}_2 \rangle}{\|\mathbf{v}_2\|^2}$
+								<span class="fragment" data-fragment-index="6">
+									$=
+									\dfrac{(-1,7)\begin{pmatrix}1\\-1\end{pmatrix}}{\left\|\begin{pmatrix}1\\-1\end{pmatrix}\right\|^2}
+
+									$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$= \dfrac{-8}{2}$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$=-4$
+								</span>
+							</p>
+						</div>
+
+
+					</div>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="9" style="margin-top: 15px; font-size: 0.85em;">
+							<b>Note:</b> Gram-Schmidt Orthogonalisation can construct an orthonormal basis from any
+							arbitrary basis using projections.
+						</p>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Orthogonal Matrices</h4>
+					<div class="size-90" style="margin-top: 50px;">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Definition:</b> An $n \times n$ matrix $Q$ is an <i>orthogonal matrix</i> if its
+								column vectors form an orthonormal set in $\mathbb{R}^n$.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 50px;">
+							<p><b>Theorem:</b> An $n \times n$ matrix $Q$ is orthogonal $\iff Q^T Q = I$.</p>
+						</div>
+
+						<div style="margin-top: 15px; ">
+							<p class="fragment" data-fragment-index="2">
+								<b>Proof Outline:</b> $Q$ is orthogonal
+								<span class="fragment" data-fragment-index="3">
+									$\iff \mathbf{q}_i^T \mathbf{q}_j = \delta_{ij}$.
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									Since $\mathbf{q}_i^T \mathbf{q}_j$ is the $(i,j)$ entry of $Q^T Q$,
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$Q$ is
+									orthogonal
+									$\iff Q^T Q = I$.
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: 50px;">
+							<p class="fragment" data-fragment-index="6"><b>Corollary:</b> If $Q$ is orthogonal, then $Q$
+								is invertible and $Q^{-1} = Q^T$.</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Properties &amp; Rotation Matrix Example</h4>
+					<div class="size-85">
+
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>2D Rotation Matrix:</b> For a fixed angle $\theta$:</p>
+							$$ Q = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
+							\;\; \text{is orthognal.}$$
+						</div>
+
+						<p class="fragment" data-fragment-index="2">That is $QQ^T = Q^TQ = I$.
+							<span class="fragment" data-fragment-index="3">
+								We can also check this by showing that the inner product
+								of the columns is 0, as well as the norm of each column is 1.
+							</span>
+						</p>
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px; ">
+							<p>Inverse rotation by $-\theta$ is given directly by the transpose:</p>
+							$$ Q^{-1} = Q^T = \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta
+							\end{pmatrix} $$
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Rotation Matrices &amp; Length Preservation</h4>
+					<div class="size-90">
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								Consider $Q = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta &
+								\cos\theta\end{pmatrix}$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								Recall that $Q$ acts as a linear transformation <br />
+								rotating vectors in $\mathbb{R}^2$
+								through angle
+								$\theta$.
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="2">$Q^{-1} = Q^T$ rotates vectors through angle
+								$-\theta$.</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 55px;" id="rr">
+							Multiplication by any orthogonal matrix <br />
+							preserves
+							the length (norm) of vectors! 🤯
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Properties of Orthogonal Matrices</h4>
+					<div class="left-txt" style="font-size: 0.9em;margin-top: -10px;">
+
+						<div class="fragment" data-fragment-index="0">
+							<p>If $Q$ is an $n \times n$ orthogonal matrix:</p>
+							<ol style="margin-top: -20px;">
+								<li class="fragment" data-fragment-index="0">
+									The columns vectors of $Q$ form an orthonormal basis for $\mathbb{R}^n$.
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									$Q^TQ=I$
+								</li>
+								<li class="fragment" data-fragment-index="2">
+									$Q^T=Q^{-1}$
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									$\langle Q\mathbf{x},Q\mathbf{y}\rangle=\langle\mathbf{x},\mathbf{y}\rangle$
+								</li>
+								<li class="fragment" data-fragment-index="4">
+									$\|Q\mathbf{x}\|=\|\mathbf{x}\|$
+								</li>
+								<li class="fragment" data-fragment-index="5">
+									$\det(Q)=\pm1$
+								</li>
+							</ol>
+						</div>
+
+						<div style="margin-top:10px;">
+							<p class="fragment" data-fragment-index="6"><b>Proof Highlights:</b></p>
+
+
+							<p class="fragment" data-fragment-index="6" style="margin-top:-15px;">
+								&nbsp;&nbsp; <b>4:</b>
+								<span class="fragment" data-fragment-index="6">
+									$\langle Q\mathbf{x},Q\mathbf{y}\rangle$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$=(Q\mathbf{x})^TQ\mathbf{y}$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$=\mathbf{x}^TQ^TQ\mathbf{y}$
+								</span>
+								<span class="fragment" data-fragment-index="9">
+									$=\mathbf{x}^T\mathbf{y}$
+								</span>
+								<span class="fragment" data-fragment-index="10">
+									$=\langle\mathbf{x},\mathbf{y}\rangle$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="11">
+								&nbsp;&nbsp; <b>5:</b>
+								<span class="fragment" data-fragment-index="11">
+									$\|Q\mathbf{x}\|^2$
+								</span>
+								<span class="fragment" data-fragment-index="12">
+									$=\langle Q\mathbf{x},Q\mathbf{x}\rangle=\langle\mathbf{x},\mathbf{x}\rangle$
+								</span>
+								<span class="fragment" data-fragment-index="13">
+									$=\|\mathbf{x}\|^2$
+								</span>
+								<span class="fragment" data-fragment-index="14">
+									$\Ra\|Q\mathbf{x}\|=\|\mathbf{x}\|$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="15">
+								&nbsp;&nbsp; <b>6:</b>
+								<span class="fragment" data-fragment-index="15">
+									$Q^TQ=I$
+								</span>
+								<span class="fragment" data-fragment-index="16">
+									$\Ra\det\left(Q^T\right)\det\left(Q\right)=1$
+								</span>
+								<span class="fragment" data-fragment-index="17">
+									$\Ra\left(\det Q\right)^2=1$
+								</span>
+								<span class="fragment" data-fragment-index="18">
+									$\Ra\det\left(Q\right)=\pm1$
+								</span>
+							</p>
+
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Real Symmetric Matrices</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Theorem:</b> If $A$ is a real symmetric matrix ($A^T = A$), then:</p>
+							<ol>
+								<li class="fragment" data-fragment-index="1">All eigenvalues of $A$ are real.</li>
+								<li class="fragment" data-fragment-index="2">Eigenvectors corresponding to distinct
+									eigenvalues are orthogonal.</li>
+							</ol>
+						</div>
+
+						<div style="margin-top: 15px; font-size: 0.85em;">
+							<p class="fragment" data-fragment-index="3">
+								<b>Example:</b> $A = \begin{pmatrix}-1 & 2 & 5 \\ 2 & 2 & 2 \\ 5 & 2 & -1\end{pmatrix}$
+								has eigenvalues/vectors:
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$
+								\lambda_1 = 6, \, \mathbf{v}_1 = \begin{pmatrix}1\\1\\1\end{pmatrix} ; \;\; \lambda_2 =
+								0, \,
+								\mathbf{v}_2
+								= \begin{pmatrix}1\\-2\\1\end{pmatrix} ; \;\; \lambda_3 = -6, \, \mathbf{v}_3 =
+								\begin{pmatrix}-1\\0\\1\end{pmatrix}
+								$
+							</p>
+							<p class="fragment" data-fragment-index="4">
+								👉 &nbsp; $\lambda_1,\lambda_2,\lambda_3\in \mathbb R\;$
+								<span class="fragment">
+									and
+									$\;\mathbf{v}_1 \pd \mathbf{v}_2 = 0$, $\mathbf{v}_1 \pd \mathbf{v}_3 = 0$,
+									$\mathbf{v}_2
+									\pd \mathbf{v}_3 = 0$.
+								</span>
+							</p>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Spectral Theorem for Real Symmetric Matrices</h4>
+					<div class="size-85">
+						<div class="fragment" data-fragment-index="0">
+							<p><b>Spectral Theorem:</b> For every real symmetric matrix $A$, there exists an orthogonal
+								matrix $V$ and diagonal matrix $D$ such that:</p>
+							$$ A = VDV^T \quad (\text{or } D = V^T A V) $$
+							<p class="fragment" data-fragment-index="1" style="font-size: 0.95em;">Where $D$ contains
+								eigenvalues of $A$ and $V$ has normalized
+								eigenvectors as columns.</p>
+						</div>
+
+						<div class="left-txt">
+							<p class="fragment" data-fragment-index="2"><b>Proof Outline:</b></p>
+							<ul>
+								<li class="fragment" data-fragment-index="3">Real symmetric matrix $A$ has $n$
+									orthogonal eigenvectors.</li>
+								<li class="fragment" data-fragment-index="4">Normalizing eigenvectors constructs
+									orthogonal matrix $V$.</li>
+								<li class="fragment" data-fragment-index="5">
+									Since $V^T V = I $
+									<span class="fragment" data-fragment-index="6">
+										$\Ra V^{-1} = V^T $
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\Ra A = V D V^{-1} $
+									</span>
+									<span class="fragment" data-fragment-index="8">
+										$= V D V^T$
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+
+
+
+			</section>
+
+			<section>
+
+				<section data-auto-animate>
+					<h4>Quadratic Forms &amp; Positive Definite Matrices</h4>
+					<div class="size-85">
+						<div>
+							<p class="fragment" data-fragment-index="0">
+								<b>Definition:</b> If $A$ is an $n \times n$ real symmetric matrix,
+								$\mathbf x^T
+								A \mathbf x$ is a <b>quadratic form</b>.
+							</p>
+
+						</div>
+						<p class="fragment" data-fragment-index="1">
+							For example, for $\,n=2$: $\begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}a
+							& b \\ b & c\end{pmatrix}\begin{pmatrix}x \\ y\end{pmatrix} $
+							<span class="fragment" data-fragment-index="2">
+								$= ax^2 + 2bxy + cy^2$
+							</span>
+						</p>
+
+						<p style="font-size: 0.7em; color: #4a4a4a;" class="fragment" data-fragment-index="3">
+							Quadratic forms appear in a number of mathematical and physical applications (eg.
+							mechanical vibration, multi-particle systems, quantum mechanics as expectation values
+							of physical quantities such as the energy of complex molecules, and in statistics for
+							random quantities that have a Gaussian distribution).
+						</p>
+
+						<div style="margin-top: 55px;">
+							<p class="fragment" data-fragment-index="4">
+								<b>Definition:</b>
+								A real symmetric matrix $A$ is <b>positive definite</b> if and only if
+								$$
+								\mathbf{x}^T A \mathbf{x} > 0 \; \text{for all}\; \mathbf{x} \ne \mathbf{0} \in
+								\mathbb{R}^n
+								$$
+							</p>
+
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Checking if a Matrix is Positive Definite</h4>
+					<div class="size-80">
+						<div>
+							<p class="fragment" data-fragment-index="0"><b>Example:</b> Consider $A = \begin{pmatrix} 5
+								& 2 \\ 2 & 3 \end{pmatrix}$</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								Then $ \,\mathbf{x}^T A \mathbf{x} = 5x_1^2 + 4x_1 x_2 + 3x_2^2$
+								<span class="fragment" data-fragment-index="2">
+									$= (2x_1 + x_2)^2 + x_1^2 + 2x_2^2 > 0$ (for
+									$\mathbf{x} \ne \mathbf{0}$).
+								</span>
+							</p>
+						</div>
+						<p class="fragment" data-fragment-index="3">
+							So $A$ is positive definite.
+						</p>
+
+						<p class="fragment" data-fragment-index="4">Checking whether a real symmetric matrix is positive
+							definite using the above
+							method can be difficult depending on the numbers in A.</p>
+						<p class="fragment" data-fragment-index="5">
+							The following theorem provides an easier method.
+						</p>
+
+						<div class="fragment" data-fragment-index="6" style="margin-top: 15px;">
+							<p><b>Eigenvalue Criterion Theorem:</b>
+								A real symmetric matrix $A$ is positive definite if and only if all of its
+								eigenvalues are strictly positive ($\lambda_i > 0$).
+							</p>
+
+
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Optimization Example</h4>
+					<div class="size-75">
+						<table style="width: 95%; margin-top: -10px;" class="fragment" data-fragment-index="0">
+							<tr>
+								<td style="width: 50%;">
+									<div class="fragment" data-fragment-index="0">
+										<p>Consider the function of two variables:
+											$$ f(x,y) = 2x^2 - 4xy + 5y^2 $$</p>
+									</div>
+									<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+										<p><b>Goal:</b> Determine whether the stationary point at $(0,0)$ is a <i>global
+												minimum</i>
+											or a <i>saddle point</i>.</p>
+									</div>
+								</td>
+								<td style="width: 50%;">
+									<div class="mathcell" style="width:100%;height:450px;">
+										<script>
+
+											var parent = document.currentScript.parentNode;
+
+											var id = generateId();
+											parent.id = id;
+
+											MathCell(id, []);
+
+											parent.update = function (id) {
+
+												function z(x, y) { return [x, y, 2 * x * x - 4 * x * y + 5 * y * y]; }
+
+
+												var size = 5;
+												var s = parametric(z, [-size, size, 150], [-size, size, 150],
+													{ colormap: (x, y) => colorFromHue(-0.004 * (2 * x * x - 4 * x * y + 5 * y * y)) });
+
+												var data = [s];
+
+												var config = {
+													type: 'threejs',
+													viewpoint: [-1, -1.5, 0.05],
+													axesLabels: true,
+													aspectRatio: [1, 1, 1],
+												};
+
+												evaluate(id, data, config);
+											}
+
+											parent.update(id);
+
+
+										</script>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;" id="bb">
+							We can use information about positive definiteness <br />
+							of the associated matrix to decide!
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Optimization Example: $f(x,y) = 2x^2 - 4xy + 5y^2$</h4>
+					<div style="font-size: 0.8em;">
+						<div>
+							<p><b>1. Find Stationary Point:</b></p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ \dfrac{\partial f}{\partial x} $
+								<span class="fragment" data-fragment-index="1">
+									$= 4x - 4y $
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									$= 0 ,$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$\quad \dfrac{\partial f}{\partial y} = -4x +
+									10y $
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ = 0 $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\Ra (x,y) = (0,0) $
+								</span>
+
+
+							</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="6"><b>2. Matrix Representation:</b></p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$ f(x,y) $
+								<span class="fragment" data-fragment-index="7">
+									$ = \begin{pmatrix}x & y\end{pmatrix}\begin{pmatrix}2 & -2\\ -2 &
+									5\end{pmatrix}\begin{pmatrix}x\\ y\end{pmatrix} = \mathbf{x}^T A \mathbf{x} $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="8" style="margin-top: 10px;">
+							<p><b>3. Eigenvalue Test:</b> For the symmetric matrix $A = \begin{pmatrix}2 & -2\\ -2 &
+								5\end{pmatrix}$:</p>
+
+
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$ \text{trace}(A) = 7 $
+								<span class="fragment">
+									$ = \lambda_1 + \lambda_2,$
+								</span>
+								<span class="fragment">
+									$\;\; \det(A) = 6 $
+								</span>
+								<span class="fragment">
+									$= \lambda_1 \lambda_2
+									$
+								</span>
+								<span class="fragment">
+									$
+									\implies \lambda_1 = 6, \, \lambda_2 = 1 $
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment">
+							Since both $\lambda_1, \lambda_2 > 0$, $A$ is <b>positive definite</b>,
+							<span class="fragment">
+								then $ (0,0)$
+								is a <b>global minimum</b>. ✅
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+
+
+				<!--
+				<section data-auto-animate>
+					<h4>Class Examples</h4>
+					<div class="size-85">
+						<ol style="line-height: 2em;">
+							<li class="fragment" data-fragment-index="0">Show that the symmetric matrix $A =
+								\begin{pmatrix}2 & 2 \\ 2 & 5\end{pmatrix}$ is positive definite.</li>
+							<li class="fragment" data-fragment-index="1">Is the symmetric matrix $A = \begin{pmatrix}1 &
+								1 \\ 1 & 1\end{pmatrix}$ positive definite?</li>
+							<li class="fragment" data-fragment-index="2">Repeat Question 1 using a different method.
+							</li>
+							<li class="fragment" data-fragment-index="3">Repeat Question 2 using a different method.
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>-->
+
+				<section data-auto-animate>
+					<h4>General Quadratic Forms (Non-Origin Critical Points)</h4>
+					<div class="size-85 left-txt">
+						<div>
+							<p class="fragment" data-fragment-index="0">If the critical point is at $\mathbf{x}_0$
+								rather than the origin,
+								<span class="fragment" data-fragment-index="1">
+									the quadratic form
+									becomes:
+
+								</span>
+							</p>
+							<p style="text-align: center;" class="fragment" data-fragment-index="1">
+								$ (\mathbf{x} - \mathbf{x}_0)^T A (\mathbf{x} - \mathbf{x}_0) $
+								<span class="fragment" data-fragment-index="3">
+									$
+									= \mathbf{x}^T A
+									\mathbf{x}
+									$
+									<span class="fragment highlight-red" data-fragment-index="11">
+										$-\,2\mathbf{x}_0^T A \mathbf{x} $
+									</span>
+									$
+									+ \mathbf{x}_0^T A \mathbf{x}_0
+									$
+								</span>
+							</p>
+
+						</div>
+
+						<h4 style="text-align: center;" class="fragment" data-fragment-index="4">Locating the Critical
+							Point</h4>
+
+						<div style="margin-top: 15px; font-size: 0.9em;">
+							<p class="fragment" data-fragment-index="4">
+								To find the location and nature of the critical
+								point of the more general form:</p>
+							<ol style="margin-left: 0px;">
+								<li class="fragment" data-fragment-index="5">Rewrite in matrix form:
+									<p class="fragment" data-fragment-index="5" style="text-align: center;">
+										$ ax^2 + 2bxy + cy^2 - dx - ey + f
+										$
+										<span class="fragment" data-fragment-index="6">
+											$
+											= \mathbf{x}^T A \mathbf{x}$
+											<span class="fragment highlight-red" data-fragment-index="11">
+												$-\, B\mathbf{x} $
+											</span>
+											$+ f$
+										</span>
+									</p>
+									<p class="fragment" data-fragment-index="7">
+										where $A = \begin{pmatrix}a & b\\ b & c\end{pmatrix}$ and $B = \begin{pmatrix}d
+										&
+										e\end{pmatrix}$.
+									</p>
+								</li>
+								<li class="fragment" data-fragment-index="8">
+									Check eigenvalues of $A$:
+									<span class="fragment" data-fragment-index="9">
+										positive
+										eigenvalues $\Ra$ positive definite
+
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$\Ra$ concave up $\ds\bigcup$
+									</span>
+								</li>
+								<li class="fragment" data-fragment-index="11">
+									Match terms between $\color{red}{-2\mathbf{x}_0^T A \mathbf{x}}$ and
+									$\color{red}{-B\mathbf{x}}$.
+								</li>
+							</ol>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Locating the Critical Point</h4>
+					<div class="size-85" style="margin-top: 50px;">
+						<div>
+							<p>3. Match terms between $-2\mathbf{x}_0^T A \mathbf{x}$ and
+								$-B\mathbf{x}$.
+								</span>
+								<span>
+									Thus
+								</span>
+
+
+							</p>
+							<p style="text-align: center;">
+								👉 &nbsp; $ -2\mathbf{x}_0^T A = -B $
+								<span class="fragment" data-fragment-index="1">
+									$\implies 2\mathbf{x}_0^T A = B$
+								</span>
+							</p>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<p>4. Then by using the properties of symmetric matrices and matrix transposition, we
+								find the location of the critical point:
+								$$ \mathbf{x}_0 = \frac{1}{2} A^{-1} B^T $$</p>
+
+						</div>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 0.85em;"
+							id="rr">
+							Remark: The constant $f$ shifts the vertical position of the function but does not
+							alter the location of the critical point.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>General Quadratic Form Example</h4>
+					<div style="font-size: 0.75em;">
+						<p>Find the critical point of $g(x,y) = 2x^2 - 4xy + 5y^2 + 10x + 8y + 2$.</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p><b>1. Rewrite:</b> $g(x,y) = \mathbf{x}^T \begin{pmatrix}2 & -2\\ -2 & 5\end{pmatrix}
+								\mathbf{x} - \begin{pmatrix}-10 & -8\end{pmatrix} \mathbf{x} + 2$</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1"><b>2. Eigenvalues:</b> $A = \begin{pmatrix}2 &
+								-2\\ -2 & 5\end{pmatrix}$ has $\lambda_1 =
+								6, \lambda_2 = 1 $
+								<span class="fragment" data-fragment-index="2">
+									$> 0 \implies$ positive definite.
+								</span>
+
+							</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								<b>3. Critical Point Location:</b>
+
+							</p>
+							<p class="fragment" data-fragment-index="3" style="text-align: center;">
+								$ \mathbf{x}_0 = \dfrac{1}{2} A^{-1} B^T $
+								<span class="fragment" data-fragment-index="4">
+									$= \dfrac{1}{2} \begin{pmatrix}2 & -2\\ -2 &
+									5\end{pmatrix}^{-1} \begin{pmatrix}-10\\ -8\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$= \begin{pmatrix}-11/2 \\
+									-3\end{pmatrix} $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								This point represents a <b>global minimum</b>. 😃
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Least-Square Fitting</h4>
+					<div style="margin-top: -20px;">
+						<div class="left-txt">
+							<div class="r-stack">
+								<div class="fragment fade-out" data-fragment-index="4">
+									<p class="size-70">
+										<span class="fragment" data-fragment-index="0">
+											In applications, one is often faced with over-determined
+											linear systems.
+										</span>
+										<span class="fragment" data-fragment-index="1">
+											For example, we may have a bunch of data
+											points that we have reasons to believe should fit on a
+											straight line.
+										</span>
+										<span class="fragment" data-fragment-index="2">
+											But real-life data points rarely match
+											predictions exactly.
+										</span>
+									</p>
+
+								</div>
+								<div class="fragment fade-in" data-fragment-index="4">
+									<p class="size-75">
+										The challenge here is to develop a method for obtaining
+										the best fit or approximation of a specified kind to a given
+										set of data points.
+									</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="fragment" data-fragment-index="1">
+						<iframe scrolling="no" title="Chapter-12-2: Fitting line"
+							src="https://www.geogebra.org/material/iframe/id/tmyev6ke/width/790/height/368/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/true"
+							width="790px" height="368px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Least-Squares Fitting: Linear $y = mx + c$</h4>
+					<div style="font-size: 0.75em;">
+						<div class="fragment" data-fragment-index="0">
+							<p>If $n$ points $(x_i, y_i)$ were perfectly collinear:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$\left\{
+								\begin{array}{c}
+								y_1 = x_1 + c \\
+								y_2 = x_2 + c \\
+								\vdots \\
+								y_3 = x_n + c \\
+								\end{array}
+								\right.
+								$
+								<span class="fragment" data-fragment-index="2">
+									$
+									\Ra
+									\mathbf{y} = \begin{pmatrix}y_1 \\ y_2 \\ \vdots \\ y_n\end{pmatrix} =
+									\begin{pmatrix}x_1
+									& 1 \\ x_2 & 1 \\ \vdots & \vdots \\ x_n & 1\end{pmatrix}\begin{pmatrix}m \\
+									c\end{pmatrix}
+									= X\mathbf{k}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$
+									\Ra\mathbf{y} - X\mathbf{k} = \mathbf{0}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
+							<p>For real-world data, $\mathbf{y} - X\mathbf{k} \ne \mathbf{0}$ represents the error
+								vector.</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="5">To find best-fit parameters $\mathbf{k} =
+								\begin{pmatrix}m \\ c\end{pmatrix}$, we
+								minimize the squared norm:</p>
+
+
+						</div>
+						<div class="cc" style="font-size: 1.2em;">
+							<p class="fragment" data-fragment-index="5">
+								$ \|\mathbf{y} - X\mathbf{k}\|^2 $
+								<span class="fragment" data-fragment-index="6">
+									$ =\mathbf{k}^T$
+									<span>
+										$X^T X$
+									</span>
+									$ \mathbf{k} - 2\mathbf{y}^T X\,
+									\mathbf{k} + \mathbf{y}^T \mathbf{y} $
+								</span>
+							</p>
+
+						</div>
+						<div class="cc" style="font-size: 1.2em;">
+
+							<p class="fragment" data-fragment-index="7" id="bb">
+								👉 &nbsp; This is a <b>quadratic form</b> in $\mathbf{k}$! 😃
+							</p>
+						</div>
+
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Least-Squares as a Quadratic Form</h4>
+					<div class="size-95" style="margin-top: 60px;">
+						<div>
+							<p>We want to minimize the quadratic objective function:</p>
+
+						</div>
+						<div class="cc" style="font-size: 1.2em;">
+							<p>
+								$ \|\mathbf{y} - X\mathbf{k}\|^2 $
+								<span>
+									$ =\mathbf{k}^T$
+									<span class="fragment highlight-red" data-fragment-index="1">
+										$X^T X$
+									</span>
+									$ \mathbf{k} - 2\mathbf{y}^T X\,
+									\mathbf{k} + \mathbf{y}^T \mathbf{y} $
+								</span>
+							</p>
+
+						</div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 35px;">
+							<blockquote
+								style="text-align: left; background: rgba(255,255,255,0.05); padding: 22px; border-left: 4px solid #4285f4;">
+								It can be shown that the matrix $X^T X$ is <b>symmetric, real, and positive definite</b>
+								for non-collinear data.
+							</blockquote>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Deriving the Normal Equations</h4>
+					<div style="font-size: 0.85em;">
+						<div class="cc" style="font-size: 1.2em;">
+							<p>
+								$ \|\mathbf{y} - X\mathbf{k}\|^2 =$
+								<span class="fragment highlight-red" data-fragment-index="1">
+									$ \mathbf{k}^TX^T X \,\mathbf{k}$
+								</span>
+								<span class="fragment highlight-blue" data-fragment-index="3">
+									$-\, 2\mathbf{y}^T X\,
+									\mathbf{k} $
+								</span>
+								$ + \,\mathbf{y}^T \mathbf{y} $
+
+							</p>
+
+						</div>
+						<div>
+							<p>
+								Match objective function with general quadratic form
+							</p>
+							<p style="text-align: center;">
+								<span class="fragment highlight-red" data-fragment-index="1">
+									$\mathbf{k}^T A \mathbf{k} $
+								</span>
+								<span class="fragment highlight-blue" data-fragment-index="3">
+									$-\,
+									2\mathbf{k}_0^T A \mathbf{k}$
+								</span> $+\, \mathbf{k}_0^T A \mathbf{k}_0$
+							</p>
+
+						</div>
+						<div class="cc" style="font-size: 1.1em;">
+							<p class="fragment" data-fragment-index="1">
+								That is
+								$\, \color{red}{\mathbf{k}^T A \mathbf{k} = \mathbf{k}^T X^T X\, \mathbf{k}} $
+								<span class="fragment" data-fragment-index="2">
+									$\Ra A = X^T X $
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$ \color{blue}{-2\mathbf{k}_0^T A \mathbf{k} = -2\mathbf{y}^T X \mathbf{k} }$
+								<span class="fragment" data-fragment-index="4">
+									$\Ra 2\mathbf{k}_0^T A =
+									2\mathbf{y}^T X $
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$\Ra B = 2\mathbf{y}^T X $
+								</span>
+							</p>
+						</div>
+
+
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="6">Solving for minimizing parameters
+								$\mathbf{k}_0$:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$ \mathbf{k}_0 = \dfrac{1}{2} A^{-1} B^T $
+								<span class="fragment" data-fragment-index="7">
+									$= \dfrac{1}{2}\left(X^T X\right)^{-1} \left(2 X^T \mathbf{y}\right) $
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$= \left(X^T X\right)^{-1} X^T \mathbf{y} $
+								</span>
+							</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>General approach</h4>
+
+					<div class="size-90">
+
+						<div class="cc" style="margin-top: 10px; font-size: 1.2em;">
+							<p>
+								$ \mathbf{k}_0 = \left(X^T X\right)^{-1} X^T \mathbf{y} $
+
+							</p>
+
+						</div>
+						<p style="text-align: center;">
+							<span id="bb">
+								The beauty of this approach is its generality! 😀
+							</span>
+						</p>
+
+						<p style="margin-top: 50px;">
+
+							<span class="fragment">
+								It can also be extended to fitting any function of the form
+								$$ y = a\, f(x) + b\, g(x) + c\, h(x) + \cdots,$$
+							</span>
+							<span class="fragment">
+								that is, when $y$ is a <em>linear combination</em> of given functions of $x$, and we
+								just need to
+								determine their coefficients $a, b, c, \ldots$.
+							</span>
+
+						</p>
+					</div>
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Least-Squares Fitting Practice 📝</h4>
+
+					<div>
+
+						<table style="font-size: 0.75em;">
+							<tr>
+								<th><em>x</em><sub>i</sub></th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<th><em>y</em><sub>i</sub></th>
+								<td>0.6</td>
+								<td>2.1837</td>
+								<td>2.8844</td>
+								<td>4.3985</td>
+								<td>4.2369</td>
+								<td>4.7755</td>
+								<td>5.5160</td>
+								<td>5.6721</td>
+								<td>5.6654</td>
+								<td>4.7268</td>
+							</tr>
+						</table>
+
+					</div>
+					<table style="width: 100%;">
+						<tr>
+							<td style="width: 50%;">
+								<div>
+									<img style="width: 100%" src="images/lecture-06/data-set-fitting.svg">
+								</div>
+							</td>
+							<td style="width: 50%; font-size: 0.8em;">
+								<p class="fragment" data-fragment-index="0">
+									<b>1.</b> Linear: $y = ax+b$
+								</p>
+								<p class="fragment" data-fragment-index="1">
+									<b>2.</b> Quadratic: $y = ax^2+bx + c$
+								</p>
+								<p class="fragment" data-fragment-index="2">
+									<b>3.</b> Exponential: $y = a e^{-x}+ b e^{-x^2/2}+c$
+								</p>
+								<p class="fragment" data-fragment-index="3" style="font-size: 1.2em;">
+									<span class="fragment fade-in-then-out" data-fragment-index="3">
+										&nbsp;&nbsp;&nbsp;👉 &nbsp;
+									</span> $\mathbf{k}_0 = \left(X^T X\right)^{-1} X^T \mathbf{y}$
+								</p>
+								<p class="fragment" data-fragment-index="4" style="font-size: 1.2em;">
+									&nbsp;&nbsp;&nbsp;👉 &nbsp; $X=?\;$ and $\;\mathbf y=?$
+								</p>
+
+
+								<br />
+
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Linear Fit Solution</h4>
+
+					<div class="cc size-80">
+						<p>👉 &nbsp; $y = a x + b$&nbsp; &nbsp; &nbsp; </p>
+					</div>
+
+					<div>
+
+						<table style="font-size: 0.75em;">
+							<tr>
+								<th><em>x</em><sub>i</sub></th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<th><em>y</em><sub>i</sub></th>
+								<td>0.6</td>
+								<td>2.1837</td>
+								<td>2.8844</td>
+								<td>4.3985</td>
+								<td>4.2369</td>
+								<td>4.7755</td>
+								<td>5.5160</td>
+								<td>5.6721</td>
+								<td>5.6654</td>
+								<td>4.7268</td>
+							</tr>
+						</table>
+
+					</div>
+
+					<div class="size-80 cc">
+						<p class="fragment" data-fragment-index="0">
+							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
+							<span class="fragment" data-fragment-index="1">
+								$=
+								\begin{pmatrix} a(1) + b \\ a(2)+b \\ \vdots \\ a(10)+b \end{pmatrix}
+
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$=
+								\underbrace{\begin{pmatrix} 1 & 1 \\ 2 & 1 \\ \vdots &\vdots\\ 10 & 1 \end{pmatrix}}_{X}
+								\underbrace{\begin{pmatrix} a \\ b \end{pmatrix}}_{\mathbf k}
+								$
+							</span>
+
+						</p>
+					</div>
+					<div class="size-90">
+						<span class="fragment" data-fragment-index="3" style="font-size: 1.2em;">
+							$
+							\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+							$
+						</span>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Linear Fit Solution</h4>
+					<div style="font-size: 0.76em;">
+						<div>
+							<p>Given 10 data points $(x_i, y_i)$,
+								<span class="fragment" data-fragment-index="0">
+									compute $X^T X$
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									and its inverse:
+								</span>
+							</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$ X^T X = \begin{pmatrix}1 & 2 & \dots & 10 \\ 1 & 1 & \dots &
+								1\end{pmatrix}\begin{pmatrix}1 & 1 \\ 2 & 1 \\ \vdots & \vdots \\ 10 & 1\end{pmatrix}$
+								<span class="fragment" data-fragment-index="1">
+									$
+									=
+									\begin{pmatrix}385 & 55 \\ 55 & 10\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$ \left(X^T X\right)^{-1} $
+								<span class="fragment" data-fragment-index="3">
+									$
+									= \dfrac{1}{825}\begin{pmatrix}10 & -55 \\ -55 & 385\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
+							<p>Calculating parameter vector $\mathbf{k}_0 = \begin{pmatrix}a \\ b\end{pmatrix}$:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								$ \begin{pmatrix}a \\ b \end{pmatrix} = \left(X^T X\right)^{-1} X^T \mathbf{y} $
+								<span class="fragment" data-fragment-index="5">
+									$ \approx
+									\begin{pmatrix}0.48 \\ 1.42\end{pmatrix} $
+								</span>
+								<span class="fragment" data-fragment-index="6">
+									$ \Ra y = 0.48x + 1.42 \,$ ✅
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Quadratic Fit Solution</h4>
+
+					<div class="cc size-80">
+						<p>👉 &nbsp; $y = a x^2 + bx + c $ &nbsp; &nbsp; &nbsp; </p>
+					</div>
+
+					<div>
+
+						<table style="font-size: 0.75em;">
+							<tr>
+								<th><em>x</em><sub>i</sub></th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<th><em>y</em><sub>i</sub></th>
+								<td>0.6</td>
+								<td>2.1837</td>
+								<td>2.8844</td>
+								<td>4.3985</td>
+								<td>4.2369</td>
+								<td>4.7755</td>
+								<td>5.5160</td>
+								<td>5.6721</td>
+								<td>5.6654</td>
+								<td>4.7268</td>
+							</tr>
+						</table>
+
+					</div>
+
+					<div class="size-80 cc">
+						<p class="fragment" data-fragment-index="0">
+							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
+							<span class="fragment" data-fragment-index="1">
+								$=
+								\begin{pmatrix} a(1)^2 + b(1)+c \\ a(2)^2+b(2)+c \\ \vdots \\ a(10)^2+b(10)+c
+								\end{pmatrix}
+
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$=
+								\underbrace{\begin{pmatrix} 1 & 1 &1 \\ 4 & 2 & 1 \\ \vdots &\vdots &\vdots\\ 100 & 10 &
+								1 \end{pmatrix}}_{X}
+								\underbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}_{\mathbf k}
+								$
+							</span>
+
+						</p>
+					</div>
+					<div class="size-90">
+						<span class="fragment" data-fragment-index="3" style="font-size: 1.2em;">
+							$
+							\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+							$
+						</span>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Quadratic Fit Solution</h4>
+					<div style="font-size: 0.75em;">
+						<div>
+							<p>Now we compute $X^TX$
+								<span class="fragment" data-fragment-index="2">
+									and its inverse:
+								</span>
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p>
+								$ X^T X = \begin{pmatrix}1 & 4 & \dots & 100 \\ 1 & 2 & \dots & 10 \\ 1 & 1 & \dots &
+								1\end{pmatrix}\begin{pmatrix}1 & 1 & 1\\ 4 & 2 & 1\\ \vdots & \vdots & \vdots\\ 100 & 10
+								&
+								1\end{pmatrix} $
+								<span class="fragment" data-fragment-index="1">
+									$
+									= \begin{pmatrix}25333 & 3025 & 385 \\ 3025 & 385 & 55 \\ 385 & 55 &
+									10\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							$$ \left(X^T X\right)^{-1} = \frac{1}{2640}\begin{pmatrix}5 & -55 & 110 \\ -55 & 637 & -1386
+							\\ 110 &
+							-1386 & 3652\end{pmatrix} $$
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$ \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \left(X^T X\right)^{-1} X^T
+								\mathbf{y}$
+								<span class="fragment" data-fragment-index="4">
+									$
+									\approx \begin{pmatrix}-0.10 \\ 1.59 \\ -0.80\end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$
+									\;\Ra \; y = -0.1 x^2 + 1.59 x - 0.8\,
+									$ ✅
+								</span>
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Exponential Fit Solution</h4>
+
+					<div class="cc size-80">
+						<p>👉 &nbsp; $y = a e^{-x} + be^{-x/2} + c $ &nbsp; &nbsp; </p>
+					</div>
+
+					<div>
+
+						<table style="font-size: 0.75em;">
+							<tr>
+								<th><em>x</em><sub>i</sub></th>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+								<td>9</td>
+								<td>10</td>
+							</tr>
+							<tr>
+								<th><em>y</em><sub>i</sub></th>
+								<td>0.6</td>
+								<td>2.1837</td>
+								<td>2.8844</td>
+								<td>4.3985</td>
+								<td>4.2369</td>
+								<td>4.7755</td>
+								<td>5.5160</td>
+								<td>5.6721</td>
+								<td>5.6654</td>
+								<td>4.7268</td>
+							</tr>
+						</table>
+
+					</div>
+
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="0">
+							$\mathbf y= \begin{pmatrix} 0.6 \\ 2.1837 \\ \vdots \\ 4.7268 \end{pmatrix}$
+							<span class="fragment" data-fragment-index="1">
+								$=
+								\underbrace{\begin{pmatrix} 0.367879 & 0.606531 &1 \\ 0.135335 & 0.367879 & 1 \\ \vdots
+								&\vdots &\vdots\\ 0.000045 & 0.006738 & 1 \end{pmatrix}}_{X}
+								\underbrace{\begin{pmatrix} a \\ b \\ c \end{pmatrix}}_{\mathbf k}
+								$
+							</span>
+
+						</p>
+						<p class="fragment" data-fragment-index="2" style="margin-top: -10px;">
+							where the columns of $X$ are the values of $e^{-x_i}$, $e^{-x_i/2}$ and 1.
+						</p>
+					</div>
+					<div class="size-90">
+
+						<span class="fragment" data-fragment-index="3" style="font-size: 0.9em;">
+							$
+							\;\Ra \;\mathbf k_0= \left(X^{\mathrm{T}} X\right)^{-1} X^{\mathrm{T}} \mathbf y
+							$
+						</span>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Exponential Fit Solution</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<div>
+							<p>Again, we compute $X^TX$
+								<span class="fragment" data-fragment-index="2">
+									and its inverse:
+								</span>
+							</p>
+
+							$$ X^T X \approx \begin{pmatrix}0.15652 & 0.28722 & 0.58195 \\ 0.28722 & 0.58195 & 1.53111
+							\\ 0.58195 & 1.53111 & 10\end{pmatrix} $$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							$$ \left(X^T X\right)^{-1} \approx \begin{pmatrix}102.97874 & -58.70585 & 2.99565 \\
+							-58.70585 &
+							36.34439 & -2.14833 \\ 2.99565 & -2.14833 & 0.25460\end{pmatrix} $$
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$ \mathbf{k}_0 = \begin{pmatrix}a \\ b \\ c\end{pmatrix} = \left(X^T X\right)^{-1} X^T
+								\mathbf{y}$
+								<span class="fragment" data-fragment-index="4">
+									$
+									\approx \begin{pmatrix}5.95 \\ -11.64 \\ 5.50\end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$
+									\;\Ra \; y = 0.95 e^{-x} -11.64 e^{-x/2} + 5.5\,
+									$ ✅
+								</span>
+							</p>
+						</div>
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Comparison of Lines of Best Fit</h4>
+					<div class="size-80">
+						<div class="cc">
+
+							<ul style="line-height: 1.4em;list-style-type: none; ">
+								<li class="fragment" data-fragment-index="0">&nbsp;<b>—</b> $\,y = 0.48x + 1.42$ &nbsp;
+									<span style="color: #878787;">(linear)</span>
+								</li>
+								<li class="fragment" data-fragment-index="1"><span id="gg">- - -</span>$\,y = -0.10x^2 +
+									1.59x - 0.80$ &nbsp;<span style="color: #878787;">(quadratic)</span>
+								</li>
+								<li class="fragment" data-fragment-index="2"><span id="bb">- ∙ -</span>$\,y = 5.95e^{-x}
+									-
+									11.64e^{-x/2} + 5.50$ &nbsp;<span style="color: #878787;">(exponential)</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="r-stack">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-01.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-02.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-03.svg">
+						<img class="fragment fade-in-then-out" data-fragment-index="2" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-04.svg">
+						<img class="fragment fade-in" data-fragment-index="3" style="width: 52%;"
+							src="images/lecture-06/data-set-fitting-curves-05.svg">
+					</div>
+					<br />
+				</section>
+
+
+
+			</section>
+
+
+			<section data-auto-animate>
+				<h4>Summary of Inner Product Spaces</h4>
+				<div class="size-90">
+					<ul style="line-height: 65px;">
+						<li class="fragment" data-fragment-index="0">Inner product and norm on $\mathbb{R}^n$</li>
+						<li class="fragment" data-fragment-index="1">Inner product on general function spaces
+							(examples)</li>
+						<li class="fragment" data-fragment-index="2">Orthogonal and orthonormal basis sets</li>
+						<li class="fragment" data-fragment-index="3">Orthogonal matrices and their properties</li>
+						<li class="fragment" data-fragment-index="4">Symmetric matrices and their properties</li>
+						<li class="fragment" data-fragment-index="5">Positive-Definite Matrices and Quadratic Forms
+						</li>
+					</ul>
+				</div>
+				<br />
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
