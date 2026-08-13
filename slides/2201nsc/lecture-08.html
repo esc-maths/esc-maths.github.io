@@ -71,99 +71,194 @@
 
 			<section>
 
-				<!-- Slide 1 (PDF p.2): Why Factorisation in the Reals -->
+
+
+
 				<section data-auto-animate>
 					<h4>Why Factorisation? (Real Numbers)</h4>
-					<div class="size-85" style="font-size: 0.85em;">
-						<p>Prime factorisation is widely used in applications with real numbers:</p>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="0">Prime factorisation is widely used in applications
+							with real numbers:</p>
 						<ul style="line-height: 1.8em;">
-							<li class="fragment" data-fragment-index="0"><b>LCM:</b> Lowest Common Multiple (e.g.,
+							<li class="fragment" data-fragment-index="1"><b>LCM:</b> Lowest Common Multiple (e.g.,
 								adding fractions)</li>
-							<li class="fragment" data-fragment-index="1"><b>HCF:</b> Highest Common Factor (e.g.,
+							<li class="fragment" data-fragment-index="6"><b>HCF:</b> Highest Common Factor (e.g.,
 								simplifying/cancelling fractions)</li>
-							<li class="fragment" data-fragment-index="2">Dividing complicated numbers efficiently</li>
+							<li class="fragment" data-fragment-index="11">Simplifying fractions and algebraic
+								expressions</li>
 						</ul>
 
-						<div class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+						<table class="fragment" data-fragment-index="2"
+							style="width: 90%; margin: 15px auto 10px; text-align: center;">
+							<tr>
+								<td style="width: 15%;">
+									<b>LCM</b>
+								</td>
+								<td style="width: 85%;">
+									$
+									\displaystyle \frac{1}{12}+\frac{1}{18}
+									$
+									<span class="fragment" data-fragment-index="4">
+										$\ds =\frac{3}{36}+\frac{2}{36}$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+										$\ds =\frac{5}{36}$
+									</span>
+
+									<p class="fragment" data-fragment-index="3">Common denominator:
+										$\operatorname{LCM}(12,18)=36$</p>
+								</td>
+							</tr>
+
+							<tr class="fragment" data-fragment-index="7">
+								<td>
+									<b>HCF</b>
+								</td>
+								<td style="padding: 30px;">
+									$
+									\displaystyle \frac{18}{24}
+									$
+									<span class="fragment" data-fragment-index="9">
+										$\ds =\frac{6\times 3}{6\times 4}$
+									</span>
+									<span class="fragment" data-fragment-index="10">
+										$\ds =\frac{3}{4}$
+									</span>
+
+									<p class="fragment" data-fragment-index="8">Common factor
+										$\operatorname{HCF}(18,24)=6$</p>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Why Factorisation? (Real Numbers)</h4>
+					<div class="size-85 left-txt">
+						<p>Prime factorisation is widely used in applications with real numbers:</p>
+						<ul style="line-height: 1.8em;">
+							<li><b>LCM:</b> Lowest Common Multiple (e.g.,
+								adding fractions)</li>
+							<li><b>HCF:</b> Highest Common Factor (e.g.,
+								simplifying/cancelling fractions)</li>
+							<li>Simplifying fractions and algebraic expressions</li>
+						</ul>
+
+						<div style="margin-top: 20px;">
 							<p><b>Key Advantages:</b></p>
-							<ul>
+							<ul style="line-height: 1.8em;">
 								<li>Simpler, more manageable computational steps</li>
-								<li>A well-defined algorithmic process for humans or computers</li>
+								<li class="fragment" data-fragment-index="2">A well-defined algorithmic process for
+									humans or computers</li>
 							</ul>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 2 (PDF p.3): Factorisation and Matrices -->
 				<section data-auto-animate>
 					<h4>Factorisation and Matrices</h4>
-					<div class="size-85" style="font-size: 0.8em;">
+					<div class="size-75 left-txt">
 						<p>Which matrix structures are particularly convenient to work with?</p>
 
-						<ul style="line-height: 1.8em;">
+						<ul style="line-height: 4.8em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
-								<b>Diagonal Matrices:</b> e.g., $\begin{pmatrix}1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 &
-								2\end{pmatrix}$
+								<b>Diagonal Matrices:</b> e.g.,
+								$\begin{pmatrix}1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 2\end{pmatrix}$
+								<span class="fragment" data-fragment-index="1">
+									$\Ra
+									\begin{pmatrix}1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 2\end{pmatrix}^n
+									=
+									\begin{pmatrix}1^n & 0 & 0 \\ 0 & 3^n & 0 \\ 0 & 0 & 2^n\end{pmatrix}$
+								</span>
 							</li>
-							<li class="fragment" data-fragment-index="1">
-								<b>Upper-Triangular Matrices:</b> e.g., $\begin{pmatrix}1 & 3 & 2 \\ 0 & 0 & 4 \\ 0 & 0
-								& -2\end{pmatrix}$
-							</li>
+
 							<li class="fragment" data-fragment-index="2">
-								<b>Lower-Triangular Matrices:</b> e.g., $\begin{pmatrix}0 & 0 & 0 \\ -1 & 3 & 0 \\ 2 & 1
-								& -1 \\ 5 & 2 & 1\end{pmatrix}$
+								<b>Upper-Triangular Matrices:</b> e.g.,
+								$\begin{pmatrix}1 & 3 & 2 \\ 0 & 0 & 4 \\ 0 & 0 & -2\end{pmatrix}$
+								<span class="fragment" data-fragment-index="4">
+									$\Ra A^n$ can be computed efficiently
+								</span>
 							</li>
+
 							<li class="fragment" data-fragment-index="3">
-								<b>Orthogonal Matrices:</b> Columns satisfy $v_i \cdot v_j = \delta_{ij}$
+								<b>Lower-Triangular Matrices:</b> e.g.,
+								$\begin{pmatrix}0 & 0 & 0 \\ -1 & 3 & 0 \\ 2 & 1 & -1 \\ 5 & 2 & 1\end{pmatrix}$
+								<span class="fragment" data-fragment-index="4">
+									$\Ra A^n$ can be computed efficiently
+								</span>
+							</li>
+
+							<li class="fragment" data-fragment-index="5" style="margin-top: -30px;">
+								<b>Orthogonal Matrices:</b> Columns satisfy $\mathbf v_i \pd \mathbf v_j = \delta_{ij}$
+								<span class="fragment" data-fragment-index="6">
+									$\Ra A^{-1}=A^T$
+								</span>
 							</li>
 						</ul>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 3 (PDF p.4): Common Matrix Factorisations -->
 				<section data-auto-animate>
 					<h4>Matrix Factorisation Types</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>Matrix factorisations break $A$ into product forms of standard matrices:</p>
+					<div class="size-85">
+						<p>Matrix factorisations break a matrix $A$ into product forms of standard matrices.</p>
 
-						<p style="margin-top: 10px;"><b>Conventions:</b> $U$ (Upper triangular), $L$ (Lower triangular),
-							$D$ (Diagonal), $Q$ (Orthogonal)</p>
-
-						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
-							<div class="fragment" data-fragment-index="0"
-								style="width: 48%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
-								<p><b>LU Factorisation:</b></p>
-								$$ A = LU $$
-							</div>
-							<div class="fragment" data-fragment-index="1"
-								style="width: 48%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
-								<p><b>QR Factorisation:</b></p>
-								$$ A = QR $$
-							</div>
+						<p style="margin-top: -10px;text-align: center;" class="fragment" data-fragment-index="0"><b>Conventions:</b></p>
+						<div style="display: flex; justify-content: space-between; margin: -20px auto 0; width: 60%;">
+							<div class="fragment" data-fragment-index="0">$L$: Lower triangular</div>
+							<div class="fragment" data-fragment-index="2">$D$: Diagonal &nbsp; &nbsp; </div>
 						</div>
 
-						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
-							<div class="fragment" data-fragment-index="2"
-								style="width: 48%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
-								<p><b>Cholesky Factorisation:</b></p>
-								$$ A = U^T U $$
-							</div>
-							<div class="fragment" data-fragment-index="3"
-								style="width: 48%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px;">
-								<p><b>SVD:</b></p>
-								$$ A = Q_n \Sigma Q_m^T $$
-							</div>
+						<div style="display: flex; justify-content: space-between; margin: 20px auto 0; width: 60%;">
+							<div class="fragment" data-fragment-index="1">$U$: Upper triangular</div>
+							<div class="fragment" data-fragment-index="3">$Q$: Orthogonal</div>
 						</div>
+
+						<table class="fragment" data-fragment-index="4" style="width: 90%; margin: 20px auto; text-align: center;">
+							<thead>
+								<tr>
+									<th>Factorisation</th>
+									<th>Form</th>
+									<th>Matrix Types</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="fragment" data-fragment-index="4">
+									<td><b>LU</b></td>
+									<td>$\displaystyle A=LU$</td>
+									<td>Lower $\times$ Upper</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="5">
+									<td><b>QR</b></td>
+									<td>$\displaystyle A=QR$</td>
+									<td>Orthogonal $\times$ Upper</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="6">
+									<td><b>Cholesky</b></td>
+									<td>$\displaystyle A=LL^T$</td>
+									<td>Lower $\times$ Transpose</td>
+								</tr>
+
+								<tr class="fragment" data-fragment-index="7">
+									<td><b>SVD</b></td>
+									<td>$\displaystyle A=U\Sigma V^T$</td>
+									<td>Orthogonal $\times$ Diagonal $\times$ Orthogonal</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 4 (PDF p.5): LU Factorisation Concept -->
 				<section data-auto-animate>
 					<h4>LU Factorisation: Motivation</h4>
-					<div class="size-85" style="font-size: 0.8em;">
+					<div class="size-85 left-txt">
 						<p>Row reduction provides a systematic approach to solving $A x = b$:</p>
 
 						<ol style="line-height: 1.8em;">
@@ -171,7 +266,7 @@
 								$[A \mid b]$.</li>
 							<li class="fragment" data-fragment-index="1">
 								After $k$ steps, the augmented system becomes:
-								$$ [E_k \dots E_1 A \mid E_k \dots E_1 b] $$
+								$$ \large [E_k \dots E_1 A \mid E_k \dots E_1 b] $$
 							</li>
 							<li class="fragment" data-fragment-index="2"><b>Objective:</b> Convert $A$ into an upper
 								triangular matrix $U$.</li>
