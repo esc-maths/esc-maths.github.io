@@ -137,13 +137,15 @@
 				<section data-auto-animate>
 					<h4>Why Factorisation? (Real Numbers)</h4>
 					<div class="size-85 left-txt">
-						<p>Prime factorisation is widely used in applications with real numbers:</p>
+						<p>Prime factorisation is widely used in applications
+							with real numbers:</p>
 						<ul style="line-height: 1.8em;">
 							<li><b>LCM:</b> Lowest Common Multiple (e.g.,
 								adding fractions)</li>
 							<li><b>HCF:</b> Highest Common Factor (e.g.,
 								simplifying/cancelling fractions)</li>
-							<li>Simplifying fractions and algebraic expressions</li>
+							<li>Simplifying fractions and algebraic
+								expressions</li>
 						</ul>
 
 						<div style="margin-top: 20px;">
@@ -207,7 +209,9 @@
 					<div class="size-85">
 						<p>Matrix factorisations break a matrix $A$ into product forms of standard matrices.</p>
 
-						<p style="margin-top: -10px;text-align: center;" class="fragment" data-fragment-index="0"><b>Conventions:</b></p>
+						<p style="margin-top: -10px;text-align: center;" class="fragment" data-fragment-index="0">
+							<b>Conventions:</b>
+						</p>
 						<div style="display: flex; justify-content: space-between; margin: -20px auto 0; width: 60%;">
 							<div class="fragment" data-fragment-index="0">$L$: Lower triangular</div>
 							<div class="fragment" data-fragment-index="2">$D$: Diagonal &nbsp; &nbsp; </div>
@@ -218,7 +222,8 @@
 							<div class="fragment" data-fragment-index="3">$Q$: Orthogonal</div>
 						</div>
 
-						<table class="fragment" data-fragment-index="4" style="width: 90%; margin: 20px auto; text-align: center;">
+						<table class="fragment" data-fragment-index="4"
+							style="width: 90%; margin: 20px auto; text-align: center;">
 							<thead>
 								<tr>
 									<th>Factorisation</th>
@@ -235,19 +240,19 @@
 
 								<tr class="fragment" data-fragment-index="5">
 									<td><b>QR</b></td>
-									<td>$\displaystyle A=QR$</td>
+									<td>$\displaystyle A=QU$</td>
 									<td>Orthogonal $\times$ Upper</td>
 								</tr>
 
 								<tr class="fragment" data-fragment-index="6">
 									<td><b>Cholesky</b></td>
-									<td>$\displaystyle A=LL^T$</td>
-									<td>Lower $\times$ Transpose</td>
+									<td>$\displaystyle A=U^TU$</td>
+									<td>Transpose $\times$ Upper</td>
 								</tr>
 
 								<tr class="fragment" data-fragment-index="7">
 									<td><b>SVD</b></td>
-									<td>$\displaystyle A=U\Sigma V^T$</td>
+									<td>$\displaystyle A=Q_n\Sigma Q_m^T$</td>
 									<td>Orthogonal $\times$ Diagonal $\times$ Orthogonal</td>
 								</tr>
 							</tbody>
@@ -278,83 +283,254 @@
 					<br />
 				</section>
 
-				<!-- Slide 5 (PDF p.6): LU Back-substitution Example (Unique Solution) -->
 				<section data-auto-animate>
 					<h4>Back-Substitution: Unique Solution</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>System: $3x_1 + 2x_2 - x_3 = -2$, $3x_1 + x_2 - x_3 = -5$, $3x_1 + 2x_2 + x_3 = 2$</p>
+					<div class="size-85">
+						<p style="text-align: center;">System: $3x_1 + 2x_2 - x_3 = -2,\,$ $3x_1 + x_2 - x_3 = -5,\,$
+							$3x_1 + 2x_2 + x_3 = 2$</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p>Row reduction to $[U \mid r]$:</p>
-							$$ \begin{pmatrix}3 & 2 & -1 & -2 \\ 3 & 1 & -1 & -5 \\ 3 & 2 & 1 & 2\end{pmatrix}
-							\Rightarrow \begin{pmatrix}3 & 2 & -1 & -2 \\ 0 & -1 & 0 & -3 \\ 0 & 0 & 2 & 4\end{pmatrix}
-							$$
+							<p>Row reduction to $[U \mid \mathbf r]$:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{rrr|r}
+								3 & 2 & -1 & -2 \\ 3 & 1 & -1 & -5 \\ 3 & 2 & 1 & 2
+								\end{array}
+								\right)
+								\
+								$
+								<span class="fragment" data-fragment-index="1">
+									$
+									\Rightarrow \left(
+									\begin{array}{rrr|r}
+									3 & 2 & -1 & -2 \\ 0 & -1 & 0 & -3 \\ 0 & 0 & 2 & 4
+									\end{array}
+									\right)
+									$
+								</span>
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
 							<p>Back-substitution steps:</p>
 							<ul style="line-height: 1.6em;">
-								<li>$2x_3 = 4 \implies \mathbf{x_3 = 2}$</li>
-								<li>$-x_2 = -3 \implies \mathbf{x_2 = 3}$</li>
-								<li>$3x_1 + 2(3) - (2) = -2 \implies 3x_1 + 4 = -2 \implies \mathbf{x_1 = -2}$</li>
+								<li>
+									$2x_3 = 4 $
+									<span class="fragment" data-fragment-index="3">
+										$\implies x_3 = 2$
+									</span>
+								</li>
+								<li>
+									$-x_2 = -3$
+									<span class="fragment" data-fragment-index="4">
+										$ \implies x_2 = 3$
+									</span>
+								</li>
+								<li class="fragment" data-fragment-index="5">
+									$3x_1 + 2(3) - (2) = -2$
+									<span class="fragment" data-fragment-index="6">
+										$\implies 3x_1 + 4 = -2$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$ \implies x_1 = -2$
+									</span>
+								</li>
 							</ul>
 						</div>
+
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 6 (PDF p.7): LU Back-substitution Example (Family of Solutions) -->
 				<section data-auto-animate>
 					<h4>Back-Substitution: Family of Solutions</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>System: $3x_1 + 2x_2 - x_3 + 2x_4 = -2$, $3x_1 + x_2 - x_3 + x_4 = -5$, $3x_1 + 2x_2 + x_3 +
-							2x_4 = 2$</p>
+					<div class="size-80">
+						<p style="text-align: center;font-size: 0.9em;">
+							System: $3x_1 + 2x_2 - x_3 + 2x_4 = -2,\,$
+							$3x_1 + x_2 - x_3 + x_4 = -5,\,$
+							$3x_1 + 2x_2 + x_3 + 2x_4 = 2$
+						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
-							$$ \begin{pmatrix}3 & 2 & -1 & 2 & -2 \\ 3 & 1 & -1 & 1 & -5 \\ 3 & 2 & 1 & 2 &
-							2\end{pmatrix} \Rightarrow \begin{pmatrix}3 & 2 & -1 & 2 & -2 \\ 0 & -1 & 0 & -1 & -3 \\ 0 &
-							0 & 2 & 0 & 4\end{pmatrix} $$
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p>Row reduction to $[U \mid \mathbf r]$:</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
-							<p>Back-substitution yields:</p>
-							<ul style="line-height: 1.5em;">
-								<li>$2x_3 = 4 \implies \mathbf{x_3 = 2}$</li>
-								<li>$-x_2 - x_4 = -3 \implies \mathbf{x_2 = 3 - x_4}$</li>
-								<li>$3x_1 + 2(3 - x_4) - 2 + 2x_4 = -2 \implies 3x_1 + 4 = -2 \implies \mathbf{x_1 =
-									-2}$</li>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0">
+								$
+								\left(
+								\begin{array}{rrrr|r}
+								3 & 2 & -1 & 2 & -2 \\
+								3 & 1 & -1 & 1 & -5 \\
+								3 & 2 & 1 & 2 & 2
+								\end{array}
+								\right)
+								$
+								<span class="fragment" data-fragment-index="1">
+									$
+									\Rightarrow
+									\left(
+									\begin{array}{rrrr|r}
+									3 & 2 & -1 & 2 & -2 \\
+									0 & -1 & 0 & -1 & -3 \\
+									0 & 0 & 2 & 0 & 4
+									\end{array}
+									\right)
+									$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p>Back-substitution steps:</p>
+							<ul style="line-height: 1.6em;">
+								<li>
+									$2x_3 = 4$
+									<span class="fragment" data-fragment-index="3">
+										$\implies x_3 = 2$
+									</span>
+								</li>
+
+								<li>
+									$-x_2 - x_4 = -3$
+									<span class="fragment" data-fragment-index="4">
+										$\implies x_2 = 3 - x_4$
+									</span>
+								</li>
+
+								<li class="fragment" data-fragment-index="5">
+									$3x_1 + 2(3-x_4) - 2 + 2x_4 = -2$
+									<span class="fragment" data-fragment-index="6">
+										$\implies 3x_1 + 4 = -2$
+									</span>
+									<span class="fragment" data-fragment-index="7">
+										$\implies x_1 = -2$
+									</span>
+								</li>
 							</ul>
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 10px; color: #4285f4;">
-							<i>Question:</i> What form does $E = E_m \dots E_1$ take where $U = E A$?
+						<p class="fragment" data-fragment-index="8" style="margin-top: 40px;text-align: center;"
+							id="bb">
+							<i>Question:</i> What form does $E = E_m \dots E_1$ take where $U = EA$? 🤔
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 7 (PDF p.8): When A = LU Holds -->
 				<section data-auto-animate>
-					<h4>When Does $A = LU$ Hold?</h4>
-					<div class="size-85" style="font-size: 0.78em;">
-						<p>$A = LU$ holds directly if row reduction requires <b>no row swaps</b>.</p>
+					<h4>Elementary Matrix Factorisation</h4>
+					<div class="size-85">
+						<p style="text-align: center;">
+							We have $U = EA$, where $E = E_m \cdots E_1$.
+						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p>Writing $U = E A$ with lower triangular operations:</p>
-							$$ U = EA = \begin{pmatrix}E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 + E_{22}\vec{a}_2 \\ \vdots \\
-							E_{m1}\vec{a}_1 + \dots + E_{mm}\vec{a}_n\end{pmatrix} $$
+						<div class="fragment" data-fragment-index="0" style="margin-top: -15px;">
+							<p>Row operations:</p>
+							<p style="text-align: center;">
+								$R_2 \leftarrow R_2-R_1$
+								$\qquad$
+								$R_3 \leftarrow R_3-R_1$
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p>If $A = E^{-1} U$, then $E^{-1}$ must be lower-triangular.</p>
-							<blockquote
-								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 8px;">
-								This occurs if and only if the row reduction process uses <b>no row swaps</b>. In that
-								case, $L = E^{-1}$ and $A = LU$.
-							</blockquote>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p>Corresponding elementary matrices:</p>
+							<p style="text-align: center;">
+								$
+								E_1 =
+								\begin{pmatrix}
+								1 & 0 & 0 \\
+								-1 & 1 & 0 \\
+								0 & 0 & 1
+								\end{pmatrix},
+								\qquad
+								E_2 =
+								\begin{pmatrix}
+								1 & 0 & 0 \\
+								0 & 1 & 0 \\
+								-1 & 0 & 1
+								\end{pmatrix}
+								$
+							</p>
 						</div>
+
+						<div>
+							<p class="fragment" data-fragment-index="2" style="text-align: center;margin-top: -10px;">
+								Then $\,
+								E = E_2E_1 =
+								\begin{pmatrix}
+								1 & 0 & 0 \\
+								-1 & 1 & 0 \\
+								-1 & 0 & 1
+								\end{pmatrix}.
+								$
+								<span class="fragment" data-fragment-index="3">
+									Therefore, $\,\boxed{U=EA}$
+								</span>
+							</p>
+						</div>
+
+
+
+						<p class="fragment" data-fragment-index="4" style="margin-top: 15px; text-align: center;"
+							id="bb">
+							<i>Notice:</i> $E$ is lower triangular.
+						</p>
 					</div>
 					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>When Does $A = LU$ Hold?</h4>
+					<div class="size-80">
+						<p style="text-align: center;">$A = LU$ holds directly if row reduction requires <b>no row
+								swaps</b>.</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p>To understand this let's write:
+
+								$ U = EA $
+								<span class="fragment" data-fragment-index="1" style="font-size: 0.9em;">
+									$=\begin{pmatrix} E_{11} & \cdots & E_{1n} \\ E_{21} & \cdots & E_{2n} \\ \vdots &
+									\ddots & \vdots
+									\\ E_{n1} & \cdots & E_{nn}
+									\end{pmatrix}
+									\begin{pmatrix}\vec{\mathbf a}_1 \\ \vec{\mathbf a}_2 \\ \vdots
+									\\ \vec{\mathbf a}_n\end{pmatrix} $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p>If $A = E^{-1} U$, then $E^{-1}$ must be lower-triangular,
+								<span class="fragment" data-fragment-index="3">and $E$ is lower-triangular.</span>
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="4">
+								Thus $\, U = EA = \left(\begin{array}{l} E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 + E_{22}\vec{a}_2 \\\;\; \quad \quad\vdots
+									\\
+									E_{n1}\vec{a}_1 + \dots + E_{nn}\vec{a}_n\end{array}\right) $
+								</span>
+							</p>
+						</div>
+
+						<blockquote  class="fragment" data-fragment-index="5"
+							style="width: 78%; text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: -8px;">
+							This occurs if and only if the row reduction process uses <b>no row swaps</b>. In that
+							case, $L = E^{-1}$ and $A = LU$.
+						</blockquote>
+					</div>
+					<br />
+					
 				</section>
 
 				<!-- Slide 8 (PDF p.9): Row Reduction without Row Swaps Example -->
