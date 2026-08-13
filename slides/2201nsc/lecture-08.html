@@ -516,50 +516,195 @@
 
 						<div class="cc">
 							<p class="fragment" data-fragment-index="4">
-								Thus $\, U = EA = \left(\begin{array}{l} E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 + E_{22}\vec{a}_2 \\\;\; \quad \quad\vdots
-									\\
-									E_{n1}\vec{a}_1 + \dots + E_{nn}\vec{a}_n\end{array}\right) $
+								Thus $\, U = EA = \left(\begin{array}{l} E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 +
+								E_{22}\vec{a}_2 \\\;\; \quad \quad\vdots
+								\\
+								E_{n1}\vec{a}_1 + \dots + E_{nn}\vec{a}_n\end{array}\right) $
 								</span>
 							</p>
 						</div>
 
-						<blockquote  class="fragment" data-fragment-index="5"
+						<blockquote class="fragment" data-fragment-index="5"
 							style="width: 78%; text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: -8px;">
 							This occurs if and only if the row reduction process uses <b>no row swaps</b>. In that
 							case, $L = E^{-1}$ and $A = LU$.
 						</blockquote>
 					</div>
 					<br />
-					
+
 				</section>
 
-				<!-- Slide 8 (PDF p.9): Row Reduction without Row Swaps Example -->
 				<section data-auto-animate>
 					<h4>Row Reduction Without Swaps</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>Augmenting identity $I \mid A$ during row reduction:</p>
+					<div class="size-75">
+						
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
-							$$ \begin{pmatrix}1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\ 0&1&0&0 &
-							a_{21}&a_{22}&a_{23}&a_{24}\\ 0&0&1&0 & a_{31}&a_{32}&a_{33}&a_{34}\\ 0&0&0&1 &
-							a_{41}&a_{42}&a_{43}&a_{44}\end{pmatrix} $$
+						<div  style="margin-top: 8px;">
+							<p class="fragment" data-fragment-index="0" style="text-align: center;">
+								Start with $[I \mid A]=$ 
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								0&1&0&0 & a_{21}&a_{22}&a_{23}&a_{24}\\
+								0&0&1&0 & a_{31}&a_{32}&a_{33}&a_{34}\\
+								0&0&0&1 & a_{41}&a_{42}&a_{43}&a_{44}
+								\end{array}
+								\right)
+								$
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
-							<p>Applying forward elimination (lower triangular multiplier steps):</p>
-							$$ \rightarrow \begin{pmatrix}1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\ E_{21}&1&0&0 &
-							0&b_{22}&b_{23}&b_{24}\\ E_{31}&E_{32}&1&0 & 0&0&c_{33}&c_{34}\\ E_{41}&E_{42}&E_{43}&1 &
-							0&0&0&d_{44}\end{pmatrix} = [E \mid U] $$
+						<div style="margin-top: 8px;">
+							<p class="fragment" data-fragment-index="1" style="text-align: center;">
+								Row reduction with no row swaps...
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{E_{31}}&0&1&0 & \color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
+								\color{red}{E_{41}}&0&0&1 & \color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+						<div style="margin-top: 8px;">
+							<p class="fragment" data-fragment-index="2" style="text-align: center;">
+								...more row reduction with no row swaps...
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+								\color{red}{E_{41}}&\color{red}{E_{42}}&0&1 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Row Reduction Without Swaps</h4>
+					<div style="font-size: 0.48em;">
+						
+
+						<div  style="margin-top: 8px;">
+							<p style="text-align: center;">
+								Start with $[I \mid A]=$ 
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								0&1&0&0 & a_{21}&a_{22}&a_{23}&a_{24}\\
+								0&0&1&0 & a_{31}&a_{32}&a_{33}&a_{34}\\
+								0&0&0&1 & a_{41}&a_{42}&a_{43}&a_{44}
+								\end{array}
+								\right)
+								$
+							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-							Taking inverse of $E$ gives $A = E^{-1}U = LU$.
+						<div style="margin-top: 8px;">
+							<p style="text-align: center;">
+								Row reduction with no row swaps...
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{E_{31}}&0&1&0 & \color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
+								\color{red}{E_{41}}&0&0&1 & \color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+						<div style="margin-top: 8px;">
+							<p style="text-align: center;">
+								...more row reduction with no row swaps...
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+								\color{red}{E_{41}}&\color{red}{E_{42}}&0&1 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+						<div style="margin-top: 8px;">
+							<p style="text-align: center; font-size: 1.4em;">
+								$ [E | U ]=  $
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+								\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1 & \color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Row Reduction Without Swaps</h4>
+					<div style="font-size: 0.8em;">
+						
+
+						<div  style="margin-top: 8px;">
+							<p style="text-align: center;">
+								Start with $[I \mid A]=$ 
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								0&1&0&0 & a_{21}&a_{22}&a_{23}&a_{24}\\
+								0&0&1&0 & a_{31}&a_{32}&a_{33}&a_{34}\\
+								0&0&0&1 & a_{41}&a_{42}&a_{43}&a_{44}
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+
+						
+						<div style="margin-top: 8px;">
+							<p style="text-align: center">
+								$ [E | U ]=  $
+								$
+								\left(
+								\begin{array}{cccc|cccc}
+								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+								\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1 & \color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
+								\end{array}
+								\right)
+								$
+							</p>
+						</div>
+						<p style="text-align: center; font-size: 1.2em;">
+							Now take the inverse of $E$ to obtain $A = E^{-1} U $
+							<span class="fragment">
+								$=LU.$
+							</span>
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 9 (PDF p.10): Permutation Matrices & PLU Factorisation -->
+				
 				<section data-auto-animate>
 					<h4>PLU Factorisation & Permutations</h4>
 					<div class="size-85" style="font-size: 0.75em;">
