@@ -1,12 +1,12 @@
-let v1 = { x: 1, y: 2, z: 3 };
+let v1 = { x: 1, y: 2, z: 4 };
 let v2 = { x: 2, y: 1, z: 3 };
 let v3 = { x: 0, y: 0, z: 1 };
 
 let scale = 60;
 
 // Coefficient range
-let minCoeff = -5;
-let maxCoeff = 5;
+let minCoeff = -7;
+let maxCoeff = 7;
 let step = 1;
 
 // Store previous vectors
@@ -17,7 +17,7 @@ let b = minCoeff;
 let c = minCoeff;
 
 let timer = 0;
-let delay = 4;
+let delay = 2;
 
 let animating = false;
 let spanButton;
