@@ -266,3 +266,9 @@ function drawArrowHead3D(px, py, pz, col, size) {
   cone(size * 0.35, size);
   pop();
 }
+
+// Resize the canvas when the
+// browser's size changes.
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight, WEBGL);
+}
