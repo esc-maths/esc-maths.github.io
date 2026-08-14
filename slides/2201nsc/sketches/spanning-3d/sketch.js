@@ -79,9 +79,9 @@ function draw() {
   drawCombination(x, y, z, a, b, c);
 
   // Original spanning vectors
-  drawVector(v1, color(40));
-  drawVector(v2, color(40));
-  drawVector(v3, color(40));
+  drawVector(v1, color(220,22,10));
+  drawVector(v2, color(21,113,23));
+  drawVector(v3, color(20,20,153));
 
   // ==================================================
   // Animation
@@ -155,7 +155,7 @@ function toggleZRotation() {
 // ==================================================
 
 function drawAxes() {
-  strokeWeight(2);
+  strokeWeight(1);
   let len = 360;
 
   // X-axis (Red)
@@ -196,10 +196,10 @@ function drawVector(v, col) {
   let pz = v.z * scale;
 
   stroke(col);
-  strokeWeight(5);
+  strokeWeight(7);
   line(0, 0, 0, px, py, pz);
 
-  drawArrowHead3D(px, py, pz, col, 18);
+  drawArrowHead3D(px, py, pz, col, 22);
 }
 
 // ==================================================
