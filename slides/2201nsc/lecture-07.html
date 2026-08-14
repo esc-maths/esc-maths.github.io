@@ -1011,7 +1011,7 @@
 							<b>Theorem:</b> If $\mathbf{x}_p$ is a solution to $A\mathbf x = \mathbf b$,
 							<span class="fragment">
 								then the set of all solutions is
-								$$\big\{\mathbf{x}_p + \mathbf{v} \mid \mathbf{v} \in N(A)\big\}.$$
+								$$\big\{\mathbf{x}_p + \mathbf{y} \mid \mathbf{y} \in N(A)\big\}.$$
 							</span>
 						</p>
 
@@ -1020,13 +1020,13 @@
 							<p class="fragment">
 								<b>Proof:</b>
 								Let $\mathbf{x}_p$ be a solution of $A\mathbf{x} = \mathbf{b}$
-								and let $\mathbf{v} \in N(A)$.
+								and let $\mathbf{y} \in N(A)$.
 							</p>
 
 							<p style="text-align: center;">
 								<span class="fragment">
-									$\Ra\,A(\mathbf{x}_p+\mathbf{v})
-									= A\mathbf{x}_p + A\mathbf{v}$
+									$\Ra\,A(\mathbf{x}_p+\mathbf{y})
+									= A\mathbf{x}_p + A\mathbf{y}$
 								</span>
 								<span class="fragment">
 									$= \mathbf{b} + \mathbf{0}$
@@ -1062,11 +1062,11 @@
 							</p>
 
 							<p class="fragment">
-								In other words, $\,\mathbf{z}-\mathbf{x}_p = \mathbf{v}$ for some $\mathbf{v}\in N(A)$.
+								In other words, $\,\mathbf{z}-\mathbf{x}_p = \mathbf{v}$ for some $\mathbf{y}\in N(A)$.
 
 							</p>
 							<p class="fragment">
-								Therefore $\mathbf{z} = \mathbf{x}_p + \mathbf{v}$ for some $\mathbf{v}\in N(A)$.
+								Therefore $\mathbf{z} = \mathbf{x}_p + \mathbf{y}$ for some $\mathbf{y}\in N(A)$.
 								$\blacksquare$
 							</p>
 
@@ -1103,7 +1103,7 @@
 								</span>
 							</p>
 							<p style="text-align: center;" class="fragment" data-fragment-index="3">
-								$ x = \begin{pmatrix}1\\ 1\\ 0\\ 0\end{pmatrix} $
+								$\mathbf x = \begin{pmatrix}1\\ 1\\ 0\\ 0\end{pmatrix} $
 								<span class="fragment" data-fragment-index="4">
 									$+\, \alpha \begin{pmatrix}1\\ -2\\ 1\\
 									0\end{pmatrix} + \beta \begin{pmatrix}-1\\ 1\\ 0\\ 1\end{pmatrix}, \quad
