@@ -263,23 +263,27 @@
 
 				<section data-auto-animate>
 					<h4>LU Factorisation: Motivation</h4>
-					<div class="size-85 left-txt">
-						<p>Row reduction provides a systematic approach to solving $A x = b$:</p>
+					<div class="size-90 left-txt">
+						<p>Row reduction provides a systematic approach to solving $A\mathbf x = \mathbf b$:</p>
 
-						<ol style="line-height: 1.8em;">
+						<ol style="line-height: 1.8em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">Perform row operations on the augmented matrix
 								$[A \mid b]$.</li>
 							<li class="fragment" data-fragment-index="1">
 								After $k$ steps, the augmented system becomes:
-								$$ \large [E_k \dots E_1 A \mid E_k \dots E_1 b] $$
+								$$ \large [E_k \dots E_1 A \mid E_k \dots E_1 \mathbf b] $$
 							</li>
-							<li class="fragment" data-fragment-index="2"><b>Objective:</b> Convert $A$ into an upper
-								triangular matrix $U$.</li>
-							<li class="fragment" data-fragment-index="3">
-								The resulting system $[U \mid r]$ allows straightforward <b>back substitution</b>.
+							<li class="fragment" data-fragment-index="2">Our objective is to convert $A$ into an upper
+								triangular matrix $U$. <br />
+								<span class="fragment" data-fragment-index="3">
+									So the resulting system $[U \mid r]$ allows straightforward <b>back
+										substitution</b>.
+								</span>
 							</li>
+
 						</ol>
 					</div>
+					<br />
 					<br />
 				</section>
 
@@ -307,7 +311,7 @@
 									$
 									\Rightarrow \left(
 									\begin{array}{rrr|r}
-									3 & 2 & -1 & -2 \\ 0 & -1 & 0 & -3 \\ 0 & 0 & 2 & 4
+									3 & 2 & -1 & -2 \\ \color{red}0 & -1 & 0 & -3 \\ \color{red}0 & \color{red}0 & 2 & 4
 									\end{array}
 									\right)
 									$
@@ -376,8 +380,8 @@
 									\left(
 									\begin{array}{rrrr|r}
 									3 & 2 & -1 & 2 & -2 \\
-									0 & -1 & 0 & -1 & -3 \\
-									0 & 0 & 2 & 0 & 4
+									\color{red}0 & -1 & 0 & -1 & -3 \\
+									\color{red}0 & \color{red}0 & 2 & 0 & 4
 									\end{array}
 									\right)
 									$
@@ -414,8 +418,8 @@
 							</ul>
 						</div>
 
-						<p class="fragment" data-fragment-index="8" style="margin-top: 40px;text-align: center;"
-							id="bb">
+						<p class="fragment" data-fragment-index="8"
+							style="margin-top: 40px;text-align: center; font-size: 1.2em;" id="bb">
 							<i>Question:</i> What form does $E = E_m \dots E_1$ take where $U = EA$? 🤔
 						</p>
 					</div>
@@ -423,17 +427,20 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Elementary Matrix Factorisation</h4>
+					<h4>Back-Substitution: Family of Solutions</h4>
+
 					<div class="size-85">
+						<p style="margin-top: 10px;text-align: center;" id="bb">
+							<i>Question:</i> What form does $E = E_m \dots E_1$ take where $U = EA$? 🤔
+						</p>
 						<p style="text-align: center;">
 							We have $U = EA$, where $E = E_m \cdots E_1$.
 						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: -15px;">
-							<p>Row operations:</p>
-							<p style="text-align: center;">
-								$R_2 \leftarrow R_2-R_1$
-								$\qquad$
+						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
+							<p>Row operations:
+								$\;\; R_2 \leftarrow R_2-R_1$
+								$\quad$
 								$R_3 \leftarrow R_3-R_1$
 							</p>
 						</div>
@@ -464,8 +471,8 @@
 								Then $\,
 								E = E_2E_1 =
 								\begin{pmatrix}
-								1 & 0 & 0 \\
-								-1 & 1 & 0 \\
+								1 & \color{red}0 & \color{red}0 \\
+								-1 & 1 & \color{red}0 \\
 								-1 & 0 & 1
 								\end{pmatrix}.
 								$
@@ -478,8 +485,8 @@
 
 
 						<p class="fragment" data-fragment-index="4" style="margin-top: 15px; text-align: center;"
-							id="bb">
-							<i>Notice:</i> $E$ is lower triangular.
+							id="rr">
+							<b>Notice:</b> $E$ is lower triangular.
 						</p>
 					</div>
 					<br />
@@ -492,7 +499,7 @@
 						<p style="text-align: center;">$A = LU$ holds directly if row reduction requires <b>no row
 								swaps</b>.</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;font-size: 0.9em;">
 							<p>To understand this let's write:
 
 								$ U = EA $
@@ -516,15 +523,18 @@
 
 						<div class="cc">
 							<p class="fragment" data-fragment-index="4">
-								Thus $\, U = EA = \left(\begin{array}{l} E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 +
-								E_{22}\vec{a}_2 \\\;\; \quad \quad\vdots
-								\\
-								E_{n1}\vec{a}_1 + \dots + E_{nn}\vec{a}_n\end{array}\right) $
+								Then $E_{ij}=0\,$ if $\,j\gt i.$
+								<span class="fragment" data-fragment-index="5">
+									That is, $\, U = EA = \left(\begin{array}{l} E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 +
+									E_{22}\vec{a}_2 \\\;\; \quad \quad\vdots
+									\\
+									E_{n1}\vec{a}_1 + \dots + E_{nn}\vec{a}_n\end{array}\right) $
 								</span>
+
 							</p>
 						</div>
 
-						<blockquote class="fragment" data-fragment-index="5"
+						<blockquote class="fragment" data-fragment-index="6"
 							style="width: 78%; text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: -8px;">
 							This occurs if and only if the row reduction process uses <b>no row swaps</b>. In that
 							case, $L = E^{-1}$ and $A = LU$.
@@ -537,18 +547,26 @@
 				<section data-auto-animate>
 					<h4>Row Reduction Without Swaps</h4>
 					<div class="size-75">
-						
 
-						<div  style="margin-top: 8px;">
+
+						<div style="margin-top: 8px;">
 							<p class="fragment" data-fragment-index="0" style="text-align: center;">
-								Start with $[I \mid A]=$ 
+								Start with $I A=$
 								$
 								\left(
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								0&1&0&0 \\
+								0&0&1&0 \\
+								0&0&0&1
+								\end{array}
+								\right)
+								\left(
 								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								0&1&0&0 & a_{21}&a_{22}&a_{23}&a_{24}\\
-								0&0&1&0 & a_{31}&a_{32}&a_{33}&a_{34}\\
-								0&0&0&1 & a_{41}&a_{42}&a_{43}&a_{44}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								a_{21}&a_{22}&a_{23}&a_{24}\\
+								a_{31}&a_{32}&a_{33}&a_{34}\\
+								a_{41}&a_{42}&a_{43}&a_{44}
 								\end{array}
 								\right)
 								$
@@ -557,14 +575,22 @@
 
 						<div style="margin-top: 8px;">
 							<p class="fragment" data-fragment-index="1" style="text-align: center;">
-								Row reduction with no row swaps...
+								Row reduction with <b>no row swaps</b>...
 								$
 								\left(
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								\color{red}{E_{21}}&1&0&0 \\
+								\color{red}{E_{31}}&0&1&0 \\
+								\color{red}{E_{41}}&0&0&1
+								\end{array}
+								\right)
+								\left(
 								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{E_{31}}&0&1&0 & \color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
-								\color{red}{E_{41}}&0&0&1 & \color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
+								\color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
 								\end{array}
 								\right)
 								$
@@ -572,14 +598,22 @@
 						</div>
 						<div style="margin-top: 8px;">
 							<p class="fragment" data-fragment-index="2" style="text-align: center;">
-								...more row reduction with no row swaps...
+								...more row reduction with <b>no row swaps</b>...
 								$
 								\left(
-								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
-								\color{red}{E_{41}}&\color{red}{E_{42}}&0&1 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								\color{red}{E_{21}}&1&0&0 \\
+								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 \\
+								\color{red}{E_{41}}&\color{red}{E_{42}}&0&1
+								\end{array}
+								\right)
+								\left(
+								\begin{array}{cccc}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+								\color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
 								\end{array}
 								\right)
 								$
@@ -588,21 +622,29 @@
 					</div>
 					<br />
 				</section>
+
 				<section data-auto-animate>
 					<h4>Row Reduction Without Swaps</h4>
 					<div style="font-size: 0.48em;">
-						
 
-						<div  style="margin-top: 8px;">
+						<div style="margin-top: 8px;">
 							<p style="text-align: center;">
-								Start with $[I \mid A]=$ 
+								Start with $I A=$
 								$
 								\left(
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								0&1&0&0 \\
+								0&0&1&0 \\
+								0&0&0&1
+								\end{array}
+								\right)
+								\left(
 								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								0&1&0&0 & a_{21}&a_{22}&a_{23}&a_{24}\\
-								0&0&1&0 & a_{31}&a_{32}&a_{33}&a_{34}\\
-								0&0&0&1 & a_{41}&a_{42}&a_{43}&a_{44}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								a_{21}&a_{22}&a_{23}&a_{24}\\
+								a_{31}&a_{32}&a_{33}&a_{34}\\
+								a_{41}&a_{42}&a_{43}&a_{44}
 								\end{array}
 								\right)
 								$
@@ -611,14 +653,22 @@
 
 						<div style="margin-top: 8px;">
 							<p style="text-align: center;">
-								Row reduction with no row swaps...
+								Row reduction with <b>no row swaps</b>...
 								$
 								\left(
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								\color{red}{E_{21}}&1&0&0 \\
+								\color{red}{E_{31}}&0&1&0 \\
+								\color{red}{E_{41}}&0&0&1
+								\end{array}
+								\right)
+								\left(
 								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{E_{31}}&0&1&0 & \color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
-								\color{red}{E_{41}}&0&0&1 & \color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
+								\color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
 								\end{array}
 								\right)
 								$
@@ -626,14 +676,22 @@
 						</div>
 						<div style="margin-top: 8px;">
 							<p style="text-align: center;">
-								...more row reduction with no row swaps...
+								...more row reduction with <b>no row swaps</b>...
 								$
 								\left(
-								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
-								\color{red}{E_{41}}&\color{red}{E_{42}}&0&1 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								\color{red}{E_{21}}&1&0&0 \\
+								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 \\
+								\color{red}{E_{41}}&\color{red}{E_{42}}&0&1
+								\end{array}
+								\right)
+								\left(
+								\begin{array}{cccc}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+								\color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
 								\end{array}
 								\right)
 								$
@@ -641,14 +699,22 @@
 						</div>
 						<div style="margin-top: 8px;">
 							<p style="text-align: center; font-size: 1.4em;">
-								$ [E | U ]=  $
+								Finally, we obtain $\,E U = $
 								$
 								\left(
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								\color{red}{E_{21}}&1&0&0 \\
+								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 \\
+								\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1
+								\end{array}
+								\right)
+								\left(
 								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
-								\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1 & \color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+								\color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
 								\end{array}
 								\right)
 								$
@@ -660,35 +726,48 @@
 				<section data-auto-animate>
 					<h4>Row Reduction Without Swaps</h4>
 					<div style="font-size: 0.8em;">
-						
 
-						<div  style="margin-top: 8px;">
+						<div style="margin-top: 8px;">
 							<p style="text-align: center;">
-								Start with $[I \mid A]=$ 
+								Start with $I A=$
 								$
 								\left(
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								0&1&0&0 \\
+								0&0&1&0 \\
+								0&0&0&1
+								\end{array}
+								\right)
+								\left(
 								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								0&1&0&0 & a_{21}&a_{22}&a_{23}&a_{24}\\
-								0&0&1&0 & a_{31}&a_{32}&a_{33}&a_{34}\\
-								0&0&0&1 & a_{41}&a_{42}&a_{43}&a_{44}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								a_{21}&a_{22}&a_{23}&a_{24}\\
+								a_{31}&a_{32}&a_{33}&a_{34}\\
+								a_{41}&a_{42}&a_{43}&a_{44}
 								\end{array}
 								\right)
 								$
 							</p>
 						</div>
-
-						
 						<div style="margin-top: 8px;">
-							<p style="text-align: center">
-								$ [E | U ]=  $
+							<p style="text-align: center;">
+								Finally, we obtain $\,E U = $
 								$
 								\left(
+								\begin{array}{cccc}
+								1&0&0&0 \\
+								\color{red}{E_{21}}&1&0&0 \\
+								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 \\
+								\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1
+								\end{array}
+								\right)
+								\left(
 								\begin{array}{cccc|cccc}
-								1&0&0&0 & a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{E_{21}}&1&0&0 & \color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 & \color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
-								\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1 & \color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
+								a_{11}&a_{12}&a_{13}&a_{14}\\
+								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+								\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+								\color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
 								\end{array}
 								\right)
 								$
@@ -696,67 +775,287 @@
 						</div>
 						<p style="text-align: center; font-size: 1.2em;">
 							Now take the inverse of $E$ to obtain $A = E^{-1} U $
-							<span class="fragment">
+							<span class="fragment" data-fragment-index="0">
 								$=LU.$
 							</span>
 						</p>
+						<div class="r-stack" style="margin-top: -10px;">
+							<p class="fragment fade-in-then-out" data-fragment-index="1"
+								style="background: rgba(200,200,200,.09); padding: 10px 40px 10px 40px; border-left: 6px solid #fa1c1c;">
+								$L$ is a <i>unit lower-triangular</i> matrix (with 1s on the diagonal),<br />
+								and $U$ is a <i>upper-triangular</i> matrix.
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2"
+								style="background: rgba(200,200,200,.09); padding: 10px 40px 10px 40px; border-left: 6px solid #fa1c1c;">
+								During each step of row reduction, we use a <span id="rr">pivot row</span> <br />
+								— the row we use to set all other
+								entries in a column to 0.
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="3"
+								style="background: rgba(200,200,200,.09); padding: 10px 51px 10px 51px; border-left: 6px solid #fa1c1c;">
+								Ideally we use the first row as the first pivot, the second <br />
+								row as the second pivot, etc.
+							</p>
+							<p class="fragment fade-in" data-fragment-index="4"
+								style="background: rgba(200,200,200,.09); padding: 10px 41px 10px 41px; border-left: 6px solid #fa1c1c;">
+								If we cannot do this (there's already a zero in the pivot row, <br />
+								in that column), we <span id="rr">swap rows</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>PLU Factorisation & Permutations</h4>
+					<div class="size-90">
+						<p>
+							If zero pivots occur, row swaps are required.
+							<span class="fragment" data-fragment-index="0">
+								We represent row swaps via a <b>permutation
+									matrix $P$</b>.
+							</span>
+						</p>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								<b>Theorem:</b> Any matrix $A$ can be written as $A = PLU$,
+								<span class="fragment" data-fragment-index="2">
+									where $L$ is <i>lower-triangular</i>, $U$ is <i>upper-triangular</i>,
+									and $P$ is a <b>permutation</b> matrix.
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								<b>Properties of Permutation Matrices $P$:</b>
+							</p>
+							<ul style="line-height: 1.6em;margin-left: 0px;">
+								<li class="fragment" data-fragment-index="4">
+									They are square matrices with exactly one 1 per row and column <br />
+									(0s elsewhere).
+								</li>
+								<li class="fragment" data-fragment-index="5">
+									Determinant is $\det(P) = \pm 1.$
+								</li>
+								<li class="fragment" data-fragment-index="6">
+									$P^m = I$ for some integer $m$.
+								</li>
+								<li class="fragment" data-fragment-index="7">
+									$P^{-1} = P^T$ is also a permutation matrix.
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Uniqueness of PLU Factorisation</h4>
+					<div class="size-90">
+
+						<div>
+							<p>
+								Is there only one $PLU$ factorisation for a given matrix,
+								or are there many?
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 20px;">
+							<p>
+								The <b>RREF</b> of a matrix is unique, but a standard
+								$PLU$ factorisation is generally <b>not unique</b> due to scaling ambiguities.
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 20px;">
+							<p>
+								To guarantee uniqueness, we impose suitable
+								<b>normalisation and pivoting conventions</b>.
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+							<p>
+								In particular, we require the lower-triangular factor
+								to have $1$s along its main diagonal.
+							</p>
+							<p style="text-align: center;">
+								$\displaystyle
+								L'=
+								\begin{pmatrix}
+								1 & 0 & 0\\
+								* & 1 & 0\\
+								* & * & 1
+								\end{pmatrix}
+								$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="4"
+							style="margin-top: 15px; color: #4285f4; text-align: center;">
+							<i>$L'$ is called unit lower-triangular.</i>
+						</p>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Unique $PL'DU$ Factorisation</h4>
+					<div class="size-85">
+
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								Under fixed row-reduction and pivoting conventions,
+								we obtain
+							</p>
+							<p style="text-align: center;">
+								$\boxed{A=PL'DU}$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<ul style="line-height: 1.7em;">
+								<li>$P$: permutation matrix</li>
+								<li>$L'$: unit lower-triangular matrix</li>
+								<li>$D$: diagonal matrix containing scaling values</li>
+								<li>$U$: row-echelon form with $1$s on pivot entries</li>
+							</ul>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 20px;">
+							<p>
+								The original lower-triangular factor $L$ is recovered from
+							</p>
+							<p style="text-align: center;">
+								$\boxed{L=L'D}$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;">
+							<p style="text-align: center;">
+								Therefore, $\;A=PLU=PL'DU$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="4"
+							style="margin-top: 15px; color: #4285f4; text-align: center;">
+							<i>This normalisation removes scaling ambiguity to give a unique factorisation.</i>
+						</p>
+
 					</div>
 					<br />
 				</section>
 
 				
+
+				<!--
 				<section data-auto-animate>
-					<h4>PLU Factorisation & Permutations</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>If zero pivots occur, row swaps are required. We represent row swaps via a <b>permutation
-								matrix $P$</b>.</p>
-
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<blockquote
-								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
-								<b>Theorem:</b> Any matrix $A$ can be written as $A = PLU$, where $L$ is
-								lower-triangular, $U$ is upper-triangular, and $P$ is a permutation matrix.
-							</blockquote>
-						</div>
-
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<p><b>Properties of Permutation Matrices $P$:</b></p>
-							<ul style="line-height: 1.6em;">
-								<li>Square matrix with exactly one 1 per row and column (0s elsewhere)</li>
-								<li>Determinant is $\det(P) = \pm 1$</li>
-								<li>$P^m = I$ for some integer $m$, and $P^{-1} = P^T$ is also a permutation matrix</li>
-							</ul>
-						</div>
-					</div>
-					<br />
-				</section>
-
-				<!-- Slide 10 (PDF p.11): Uniqueness of PLU Factorisation -->
-				<section data-auto-animate>
-					<h4>Uniqueness of PLU & PDL'U</h4>
-					<div class="size-85" style="font-size: 0.75em;">
+					<h4>Uniqueness of LU Factorisation</h4>
+					<div class="size-90">
 						<div class="fragment" data-fragment-index="0">
-							<blockquote
-								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
-								<b>Theorem:</b> Any matrix $A$ has a unique factorisation $A = PLU$ where $U$ is in
-								row-reduced echelon form.
-							</blockquote>
+							<p>
+								Suppose
+								\[
+								A=L_1U_1=L_2U_2,
+								\]
+								where $L_1,L_2$ are <i>unit lower-triangular</i>
+								and $U_1,U_2$ are <i>upper-triangular</i>.
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>Extended Form ($A = PDL'U$):</b></p>
-							<ul style="line-height: 1.6em;">
-								<li>$P$ and $U$ are identical to the $PLU$ factorisation.</li>
-								<li>$L'$ is unit lower-triangular with 1s along the diagonal.</li>
-								<li>$D$ is a diagonal matrix containing row scaling factors.</li>
-								<li>Relation: $DL' = L$.</li>
-							</ul>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 20px;">
+							<p>Then</p>
+							<p style="text-align: center;">
+								$
+								L_2^{-1}L_1=U_2U_1^{-1}.
+								$
+							</p>
 						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<p>
+								But $L_2^{-1}L_1$ is unit lower-triangular,
+								while $U_2U_1^{-1}$ is upper-triangular.
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;">
+							<p style="text-align: center;">
+								$\therefore\quad L_2^{-1}L_1=I$
+								$\quad\Longrightarrow\quad$
+								$L_1=L_2$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
+							<p style="text-align: center;">
+								$\boxed{U_1=U_2}$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="5"
+							style="margin-top: 15px; color: #4285f4; text-align: center;">
+							<i>Thus, the normalized $LU$ factorisation is unique.</i>
+						</p>
 					</div>
 					<br />
 				</section>
+				<section data-auto-animate>
+					<h4>From $PLU$ to $PDL'U$</h4>
+					<div class="size-90">
 
-				<!-- Slide 11 (PDF p.12-13): MATLAB/Octave Implementation -->
+						<div class="fragment" data-fragment-index="0">
+							<p>
+								With row pivoting, Gaussian elimination gives a factorisation
+							</p>
+							<p style="text-align: center;">
+								$\boxed{A=PLU}$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 20px;">
+							<p>
+								Decompose the lower-triangular factor $L$ as
+							</p>
+							<p style="text-align: center;">
+								$\boxed{L=DL'}$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<ul style="line-height: 1.7em;">
+								<li>$D$ is diagonal and contains the diagonal entries of $L$.</li>
+								<li>$L'$ is unit lower-triangular, with 1s on the diagonal.</li>
+							</ul>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px;">
+							<p style="text-align: center;">
+								$
+								A=PLU=P(DL')U
+								$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
+							<p style="text-align: center;">
+								$\boxed{A=PDL'U}$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="5"
+							style="margin-top: 15px; color: #4285f4; text-align: center;">
+							<i>The decomposition $L=DL'$ is unique.</i>
+						</p>
+					</div>
+					<br />
+				</section>
+				-->
+
+
 				<section data-auto-animate>
 					<h4>LU Factorisation in Octave / MATLAB</h4>
 					<div class="size-85" style="font-size: 0.75em;">
