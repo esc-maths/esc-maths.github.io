@@ -890,22 +890,26 @@
 
 						<div class="r-stack" style="margin-top: 15px;">
 
-							<p class="fragment fade-in-then-out" data-fragment-index="3" style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
+							<p class="fragment fade-in-then-out" data-fragment-index="3"
+								style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
 								$L$ is a <i>unit lower-triangular</i> matrix (with 1s on the diagonal),<br />
 								and $U$ is an <i>upper-triangular</i> matrix.
 							</p>
 
-							<p class="fragment fade-in-then-out" data-fragment-index="4" style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
+							<p class="fragment fade-in-then-out" data-fragment-index="4"
+								style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
 								During each step of row reduction, we use a <span id="rr">pivot row</span><br />
 								— the row we use to set the entries below the pivot to 0.
 							</p>
 
-							<p class="fragment fade-in-then-out" data-fragment-index="5" style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
+							<p class="fragment fade-in-then-out" data-fragment-index="5"
+								style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
 								Ideally, we use the first row as the first pivot,<br />
 								the second row as the second pivot, etc.
 							</p>
 
-							<p class="fragment fade-in" data-fragment-index="6" style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
+							<p class="fragment fade-in" data-fragment-index="6"
+								style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
 								If we cannot do this because the pivot entry is zero,<br />
 								we <span id="rr">swap rows</span>.
 							</p>
@@ -916,7 +920,7 @@
 					<br />
 				</section>
 
-				
+
 
 				<section data-auto-animate>
 					<h4>PLU Factorisation & Permutations</h4>
@@ -1053,7 +1057,7 @@
 						</div>
 
 						<p class="fragment" data-fragment-index="4"
-							style="margin-top: 15px; color: #4285f4; text-align: center;">
+							style="text-align: center;" id="bb">
 							<i>This normalisation removes scaling ambiguity to give a unique factorisation.</i>
 						</p>
 
@@ -1170,17 +1174,21 @@
 
 				<section data-auto-animate>
 					<h4>LU Factorisation in Octave / MATLAB</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>Command: <code>[L, U, P] = lu(A)</code></p>
+					<div class="size-70">
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<pre><code class="language-matlab">> B = [4 5 0; 2 5 2; 0 5 4];
-> [L, U, P] = lu(B)
-
-L =
+						<p style="text-align: center; margin-top: -20px; font-size: 1.1em;">
+							<code>[L, U, P] = lu(A)</code>
+							returns
+							the $L,$ $U$ and $P$ components of the
+							$PLU$ factorisation.
+						</p>
+						<pre class="fragment" data-fragment-index="0" style="width: 40%;height: 70px; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A = [4 5 0; 2 5 2; 0 5 4];
+>> [L, U, P] = lu(A)
+</code></pre>
+						<pre class="fragment" data-fragment-index="1" style="width: 40%;height: 400px; font-size: 80%;margin-top: 25px;"><code class="language-matlab">L =
     1.0000         0         0
-    0.5000    1.0000         0
-         0    1.0000    1.0000
+         0    1.0000         0
+    0.5000    0.0005    1.0000
 
 U =
      4     5     0
@@ -1191,9 +1199,9 @@ P =
      1     0     0
      0     0     1
      0     1     0</code></pre>
-						</div>
-						<p class="fragment" data-fragment-index="1" style="color: #ff6b6b; margin-top: 5px;">
-							<i>Note:</i> Omitting <code>P</code> (e.g., <code>[L,U] = lu(B)</code>) merges $P$ into $L$,
+						<p class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
+							<b>Note:</b> Omitting <code>P</code> (e.g., <code>[L,U] = lu(A)</code>)
+							 merges $P$ into $L$,
 							which may result in $L$ not being strictly lower-triangular.
 						</p>
 					</div>
