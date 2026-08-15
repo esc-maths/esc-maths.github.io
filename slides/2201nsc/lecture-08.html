@@ -924,7 +924,7 @@
 
 				<section data-auto-animate>
 					<h4>PLU Factorisation & Permutations</h4>
-					<div class="size-90">
+					<div class="size-80 left-txt">
 						<p>
 							If zero pivots occur, row swaps are required.
 							<span class="fragment" data-fragment-index="0">
@@ -949,16 +949,33 @@
 							</p>
 							<ul style="line-height: 1.6em;margin-left: 0px;">
 								<li class="fragment" data-fragment-index="4">
-									They are square matrices with exactly one 1 per row and column <br />
+									They are square matrices with exactly one 1 per row and column
 									(0s elsewhere).
-								</li>
-								<li class="fragment" data-fragment-index="5">
-									Determinant is $\det(P) = \pm 1.$
+									<span class="fragment" data-fragment-index="5">
+										$\qquad \qquad $ e.g., 
+										$\;
+										P = \begin{pmatrix}
+										 0 & 1  \\ 
+										 1 & 0 
+										 \end{pmatrix}\;\;
+										 $
+										 or 
+										$\;\;
+										P = \begin{pmatrix}
+										 0 & 1 & 0 \\ 
+										 1 & 0 & 0 \\ 
+										 0 & 0 & 1 \\ 
+										 \end{pmatrix}
+										 $
+									</span>
 								</li>
 								<li class="fragment" data-fragment-index="6">
-									$P^m = I$ for some integer $m$.
+									Determinant is $\det(P) = \pm 1.$
 								</li>
 								<li class="fragment" data-fragment-index="7">
+									$P^m = I$ for some integer $m$.
+								</li>
+								<li class="fragment" data-fragment-index="8">
 									$P^{-1} = P^T$ is also a permutation matrix.
 								</li>
 							</ul>
