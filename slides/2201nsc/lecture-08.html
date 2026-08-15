@@ -179,7 +179,9 @@
 
 							<li class="fragment" data-fragment-index="2">
 								<b>Upper-Triangular Matrices:</b> e.g.,
-								$\begin{pmatrix}1 & 3 & 2 \\ 0 & 0 & 4 \\ 0 & 0 & -2\end{pmatrix}$
+								<span style="font-size: 0.9em;">
+									$\begin{pmatrix}1 & 3 & 2 \\ 0 & 0 & 4 \\ 0 & 0 & -2\end{pmatrix}$
+								</span>
 								<span class="fragment" data-fragment-index="4">
 									$\Ra A^n$ can be computed efficiently
 								</span>
@@ -187,7 +189,9 @@
 
 							<li class="fragment" data-fragment-index="3">
 								<b>Lower-Triangular Matrices:</b> e.g.,
-								$\begin{pmatrix}0 & 0 & 0 \\ -1 & 3 & 0 \\ 2 & 1 & -1 \\ 5 & 2 & 1\end{pmatrix}$
+								<span style="font-size: 0.9em;">
+									$\begin{pmatrix}0 & 0 & 0 \\ -1 & 3 & 0 \\ 2 & 1 & -1 \\ 5 & 2 & 1\end{pmatrix}$
+								</span>
 								<span class="fragment" data-fragment-index="4">
 									$\Ra A^n$ can be computed efficiently
 								</span>
@@ -196,7 +200,7 @@
 							<li class="fragment" data-fragment-index="5" style="margin-top: -30px;">
 								<b>Orthogonal Matrices:</b> Columns satisfy $\mathbf v_i \pd \mathbf v_j = \delta_{ij}$
 								<span class="fragment" data-fragment-index="6">
-									$\Ra A^{-1}=A^T$
+									$\large \Ra A^{-1}=A^T$
 								</span>
 							</li>
 						</ul>
@@ -268,15 +272,20 @@
 
 						<ol style="line-height: 1.8em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">Perform row operations on the augmented matrix
-								$[A \mid b]$.</li>
+								$[A \mid \mathbf b]$.</li>
 							<li class="fragment" data-fragment-index="1">
-								After $k$ steps, the augmented system becomes:
-								$$ \large [E_k \dots E_1 A \mid E_k \dots E_1 \mathbf b] $$
+								Each operation was represented by pre-multiplication by an elementary matrix $E_i.$
+								<span class="fragment" data-fragment-index="2">
+									After $k$ steps, the augmented system becomes:
+								</span>
+								<p style="text-align: center;">
+									$ \large [E_k \cdots E_1 A \mid E_k \cdots E_1 \mathbf b] $
+								</p>
 							</li>
 							<li class="fragment" data-fragment-index="2">Our objective is to convert $A$ into an upper
 								triangular matrix $U$. <br />
 								<span class="fragment" data-fragment-index="3">
-									So the resulting system $[U \mid r]$ allows straightforward <b>back
+									So the resulting system $[U \mid \mathbf r]$ allows straightforward <b>back
 										substitution</b>.
 								</span>
 							</li>
@@ -420,7 +429,7 @@
 
 						<p class="fragment" data-fragment-index="8"
 							style="margin-top: 40px;text-align: center; font-size: 1.2em;" id="bb">
-							<i>Question:</i> What form does $E = E_m \dots E_1$ take where $U = EA$? 🤔
+							<i>Question:</i> What form does $E = E_m \cdots E_1$ take where $U = EA$? 🤔
 						</p>
 					</div>
 					<br />
@@ -431,7 +440,7 @@
 
 					<div class="size-85">
 						<p style="margin-top: 10px;text-align: center;" id="bb">
-							<i>Question:</i> What form does $E = E_m \dots E_1$ take where $U = EA$? 🤔
+							<i>Question:</i> What form does $E = E_m \cdots E_1$ take where $U = EA$? 🤔
 						</p>
 						<p style="text-align: center;">
 							We have $U = EA$, where $E = E_m \cdots E_1$.
@@ -496,8 +505,10 @@
 				<section data-auto-animate>
 					<h4>When Does $A = LU$ Hold?</h4>
 					<div class="size-80">
-						<p style="text-align: center;">$A = LU$ holds directly if row reduction requires <b>no row
-								swaps</b>.</p>
+						<p style="text-align: center;">
+							$A = LU$ holds directly if row reduction requires <b>no row
+								swaps</b>.
+						</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;font-size: 0.9em;">
 							<p>To understand this let's write:
@@ -508,8 +519,12 @@
 									\ddots & \vdots
 									\\ E_{n1} & \cdots & E_{nn}
 									\end{pmatrix}
-									\begin{pmatrix}\vec{\mathbf a}_1 \\ \vec{\mathbf a}_2 \\ \vdots
-									\\ \vec{\mathbf a}_n\end{pmatrix} $
+									\begin{pmatrix}
+									\;- \;\;\vec{\mathbf a}_1\;-\;\\
+									\;- \;\;\vec{\mathbf a}_2 \;-\;\\
+									\vdots \\
+									\;- \;\; \vec{\mathbf a}_n\;-\;
+									\end{pmatrix} $
 								</span>
 							</p>
 						</div>
@@ -546,265 +561,362 @@
 
 				<section data-auto-animate>
 					<h4>Row Reduction Without Swaps</h4>
-					<div class="size-75">
+					<div style="font-size: 0.71em;">
 
+						<table style="width: 70%; border-collapse: collapse; margin-top: -15px;">
+							<tr class="fragment" data-fragment-index="0">
+								<td style="width: 20%; vertical-align: middle; text-align: center;">
+									<b>Start:</b>
+								</td>
+								<td style="text-align: right;">
+									<div class="r-stack">
+										<span class="fragment fade-in-then-out" data-fragment-index="0">
+											$
+											A=
+											\left(
+											\begin{array}{cccc}
+											a_{11}&a_{12}&a_{13}&a_{14}\\
+											a_{21}&a_{22}&a_{23}&a_{24}\\
+											a_{31}&a_{32}&a_{33}&a_{34}\\
+											a_{41}&a_{42}&a_{43}&a_{44}
+											\end{array}
+											\right)
+											$
+										</span>
+										<span class="fragment fade-in" data-fragment-index="1">
+											$
+											\overbrace{
+											\left(
+											\begin{array}{cccc}
+											1&0&0&0\\
+											0&1&0&0\\
+											0&0&1&0\\
+											0&0&0&1
+											\end{array}
+											\right)}^{\Large I}
+											\overbrace{
+											\left(
+											\begin{array}{cccc}
+											a_{11}&a_{12}&a_{13}&a_{14}\\
+											a_{21}&a_{22}&a_{23}&a_{24}\\
+											a_{31}&a_{32}&a_{33}&a_{34}\\
+											a_{41}&a_{42}&a_{43}&a_{44}
+											\end{array}
+											\right)}^{\Large A}
+											$
+										</span>
+									</div>
+								</td>
+							</tr>
 
-						<div style="margin-top: 8px;">
-							<p class="fragment" data-fragment-index="0" style="text-align: center;">
-								Start with $I A=$
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								0&1&0&0 \\
-								0&0&1&0 \\
-								0&0&0&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc|cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								a_{21}&a_{22}&a_{23}&a_{24}\\
-								a_{31}&a_{32}&a_{33}&a_{34}\\
-								a_{41}&a_{42}&a_{43}&a_{44}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
+							<tr class="fragment" data-fragment-index="2">
+								<td style="vertical-align: middle; text-align: center;">
+									<b>Step 1:</b><br>
+									No row swaps
+								</td>
+								<td style="text-align: center;">
+									$
+									\left(
+									\begin{array}{cccc}
+									1&0&0&0\\
+									\color{red}{E_{21}}&1&0&0\\
+									\color{red}{E_{31}}&0&1&0\\
+									\color{red}{E_{41}}&0&0&1
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									a_{11}&a_{12}&a_{13}&a_{14}\\
+									\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+									\color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
+									\color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
+									\end{array}
+									\right)
+									$
+								</td>
+							</tr>
 
-						<div style="margin-top: 8px;">
-							<p class="fragment" data-fragment-index="1" style="text-align: center;">
-								Row reduction with <b>no row swaps</b>...
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								\color{red}{E_{21}}&1&0&0 \\
-								\color{red}{E_{31}}&0&1&0 \\
-								\color{red}{E_{41}}&0&0&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc|cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
-								\color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
-						<div style="margin-top: 8px;">
-							<p class="fragment" data-fragment-index="2" style="text-align: center;">
-								...more row reduction with <b>no row swaps</b>...
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								\color{red}{E_{21}}&1&0&0 \\
-								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 \\
-								\color{red}{E_{41}}&\color{red}{E_{42}}&0&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
-								\color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
+							<tr class="fragment" data-fragment-index="3">
+								<td style="vertical-align: middle; text-align: center;">
+									<b>Step 2:</b><br>
+									No row swaps
+								</td>
+								<td style="text-align: center;">
+									$
+									\left(
+									\begin{array}{cccc}
+									1&0&0&0\\
+									\color{red}{E_{21}}&1&0&0\\
+									\color{red}{E_{31}}&\color{red}{E_{32}}&1&0\\
+									\color{red}{E_{41}}&\color{red}{E_{42}}&0&1
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									a_{11}&a_{12}&a_{13}&a_{14}\\
+									\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+									\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+									\color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
+									\end{array}
+									\right)
+									$
+								</td>
+							</tr>
+						</table>
+
 					</div>
 					<br />
 				</section>
 
+
 				<section data-auto-animate>
 					<h4>Row Reduction Without Swaps</h4>
-					<div style="font-size: 0.48em;">
+					<div style="font-size: 0.55em;">
 
-						<div style="margin-top: 8px;">
-							<p style="text-align: center;">
-								Start with $I A=$
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								0&1&0&0 \\
-								0&0&1&0 \\
-								0&0&0&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc|cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								a_{21}&a_{22}&a_{23}&a_{24}\\
-								a_{31}&a_{32}&a_{33}&a_{34}\\
-								a_{41}&a_{42}&a_{43}&a_{44}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
+						<table style="width: 55%; border-collapse: collapse; margin-top: -15px;">
 
-						<div style="margin-top: 8px;">
-							<p style="text-align: center;">
-								Row reduction with <b>no row swaps</b>...
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								\color{red}{E_{21}}&1&0&0 \\
-								\color{red}{E_{31}}&0&1&0 \\
-								\color{red}{E_{41}}&0&0&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc|cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
-								\color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
-						<div style="margin-top: 8px;">
-							<p style="text-align: center;">
-								...more row reduction with <b>no row swaps</b>...
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								\color{red}{E_{21}}&1&0&0 \\
-								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 \\
-								\color{red}{E_{41}}&\color{red}{E_{42}}&0&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
-								\color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
-						<div style="margin-top: 8px;">
-							<p style="text-align: center; font-size: 1.4em;">
-								Finally, we obtain $\,E U = $
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								\color{red}{E_{21}}&1&0&0 \\
-								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 \\
-								\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc|cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
-								\color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
+							<tr>
+								<td style="width: 18%; text-align: center; vertical-align: middle;">
+									<b>Start</b>
+								</td>
+								<td style="text-align: center;">
+									$
+									\overbrace{
+									\left(
+									\begin{array}{cccc}
+									1&0&0&0\\
+									0&1&0&0\\
+									0&0&1&0\\
+									0&0&0&1
+									\end{array}
+									\right)}^{\Large I}
+									\overbrace{
+									\left(
+									\begin{array}{cccc}
+									a_{11}&a_{12}&a_{13}&a_{14}\\
+									a_{21}&a_{22}&a_{23}&a_{24}\\
+									a_{31}&a_{32}&a_{33}&a_{34}\\
+									a_{41}&a_{42}&a_{43}&a_{44}
+									\end{array}
+									\right)}^{\Large A}
+									$
+								</td>
+							</tr>
+
+							<tr>
+								<td style="text-align: center; vertical-align: middle;">
+									<b>Step 1</b><br>
+									No row swaps
+								</td>
+								<td style="text-align: center;">
+									$
+									\left(
+									\begin{array}{cccc}
+									1&0&0&0\\
+									\color{red}{E_{21}}&1&0&0\\
+									\color{red}{E_{31}}&0&1&0\\
+									\color{red}{E_{41}}&0&0&1
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									a_{11}&a_{12}&a_{13}&a_{14}\\
+									\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+									\color{red}{0}&\color{blue}{b_{32}}&\color{blue}{b_{33}}&\color{blue}{b_{34}}\\
+									\color{red}{0}&\color{blue}{b_{42}}&\color{blue}{b_{43}}&\color{blue}{b_{44}}
+									\end{array}
+									\right)
+									$
+								</td>
+							</tr>
+
+							<tr>
+								<td style="text-align: center; vertical-align: middle;">
+									<b>Step 2</b><br>
+									No row swaps
+								</td>
+								<td style="text-align: center;">
+									$
+									\left(
+									\begin{array}{cccc}
+									1&0&0&0\\
+									\color{red}{E_{21}}&1&0&0\\
+									\color{red}{E_{31}}&\color{red}{E_{32}}&1&0\\
+									\color{red}{E_{41}}&\color{red}{E_{42}}&0&1
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									a_{11}&a_{12}&a_{13}&a_{14}\\
+									\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+									\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+									\color{red}{0}&\color{red}{0}&\color{blue}{c_{43}}&\color{blue}{c_{44}}
+									\end{array}
+									\right)
+									$
+								</td>
+							</tr>
+
+							<tr>
+								<td style="text-align: center; vertical-align: middle;">
+									<b>Finally</b>
+								</td>
+								<td style="text-align: center;">
+									$
+									\left(
+									\begin{array}{cccc}
+									1&0&0&0\\
+									\color{red}{E_{21}}&1&0&0\\
+									\color{red}{E_{31}}&\color{red}{E_{32}}&1&0\\
+									\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1
+									\end{array}
+									\right)
+									\left(
+									\begin{array}{cccc}
+									a_{11}&a_{12}&a_{13}&a_{14}\\
+									\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+									\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+									\color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
+									\end{array}
+									\right)
+									$
+								</td>
+							</tr>
+
+						</table>
+
 					</div>
 					<br />
 				</section>
+
+
 				<section data-auto-animate>
 					<h4>Row Reduction Without Swaps</h4>
-					<div style="font-size: 0.8em;">
+					<div style="font-size: 0.7em;">
 
-						<div style="margin-top: 8px;">
-							<p style="text-align: center;">
-								Start with $I A=$
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								0&1&0&0 \\
-								0&0&1&0 \\
-								0&0&0&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc|cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								a_{21}&a_{22}&a_{23}&a_{24}\\
-								a_{31}&a_{32}&a_{33}&a_{34}\\
-								a_{41}&a_{42}&a_{43}&a_{44}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
-						<div style="margin-top: 8px;">
-							<p style="text-align: center;">
-								Finally, we obtain $\,E U = $
-								$
-								\left(
-								\begin{array}{cccc}
-								1&0&0&0 \\
-								\color{red}{E_{21}}&1&0&0 \\
-								\color{red}{E_{31}}&\color{red}{E_{32}}&1&0 \\
-								\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1
-								\end{array}
-								\right)
-								\left(
-								\begin{array}{cccc|cccc}
-								a_{11}&a_{12}&a_{13}&a_{14}\\
-								\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
-								\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
-								\color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
-						<p style="text-align: center; font-size: 1.2em;">
-							Now take the inverse of $E$ to obtain $A = E^{-1} U $
-							<span class="fragment" data-fragment-index="0">
-								$=LU.$
-							</span>
-						</p>
-						<div class="r-stack" style="margin-top: -10px;">
-							<p class="fragment fade-in-then-out" data-fragment-index="1"
-								style="background: rgba(200,200,200,.09); padding: 10px 40px 10px 40px; border-left: 6px solid #fa1c1c;">
+						<table style="width: 75%; border-collapse: collapse; margin-top: 5px;">
+
+							<tr>
+								<td style="width: 18%; text-align: center; vertical-align: middle;">
+									<b>Initial matrix</b>
+								</td>
+								<td style="text-align: center; font-size: 0.86em;">
+									$A=
+									\left(
+									\begin{array}{cccc}
+									a_{11}&a_{12}&a_{13}&a_{14}\\
+									a_{21}&a_{22}&a_{23}&a_{24}\\
+									a_{31}&a_{32}&a_{33}&a_{34}\\
+									a_{41}&a_{42}&a_{43}&a_{44}
+									\end{array}
+									\right)
+									$
+								</td>
+							</tr>
+
+							<tr>
+								<td style="text-align: center; vertical-align: middle;">
+									<b>After<br>row reduction</b>
+								</td>
+								<td style="text-align: center;">
+									<div class="r-stack">
+										<span class="fragment fade-out" data-fragment-index="0">
+											$
+											\left(
+											\begin{array}{cccc}
+											1&0&0&0\\
+											\color{red}{E_{21}}&1&0&0\\
+											\color{red}{E_{31}}&\color{red}{E_{32}}&1&0\\
+											\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1
+											\end{array}
+											\right)
+											\left(
+											\begin{array}{cccc}
+											a_{11}&a_{12}&a_{13}&a_{14}\\
+											\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+											\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+											\color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
+											\end{array}
+											\right)
+											\quad \quad\;\;
+											$
+										</span>
+										<span class="fragment fade-in" data-fragment-index="0">
+											$
+											\underbrace{
+											\left(
+											\begin{array}{cccc}
+											1&0&0&0\\
+											\color{red}{E_{21}}&1&0&0\\
+											\color{red}{E_{31}}&\color{red}{E_{32}}&1&0\\
+											\color{red}{E_{41}}&\color{red}{E_{42}}&\color{red}{E_{43}}&1
+											\end{array}
+											\right)
+											\left(
+											\begin{array}{cccc}
+											a_{11}&a_{12}&a_{13}&a_{14}\\
+											\color{red}{0}&\color{blue}{b_{22}}&\color{blue}{b_{23}}&\color{blue}{b_{24}}\\
+											\color{red}{0}&\color{red}{0}&\color{blue}{c_{33}}&\color{blue}{c_{34}}\\
+											\color{red}{0}&\color{red}{0}&\color{red}{0}&\color{blue}{d_{44}}
+											\end{array}
+											\right)
+											}_{\Large EA}
+											$
+											<span class="fragment" data-fragment-index="1">
+												$\Large = U$
+											</span>
+										</span>
+									</div>
+								</td>
+							</tr>
+
+							<tr class="fragment" data-fragment-index="2">
+								<td style="text-align: center; vertical-align: middle;">
+									<b>Rearrange</b>
+								</td>
+								<td style="text-align: center;">
+									$
+									\Large A=E^{-1}U
+									$
+									<span class="fragment" data-fragment-index="3">
+										$
+										\Large =LU
+										$
+									</span>
+								</td>
+							</tr>
+
+						</table>
+
+						<div class="r-stack" style="margin-top: 15px;">
+
+							<p class="fragment fade-in-then-out" data-fragment-index="3" style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
 								$L$ is a <i>unit lower-triangular</i> matrix (with 1s on the diagonal),<br />
-								and $U$ is a <i>upper-triangular</i> matrix.
+								and $U$ is an <i>upper-triangular</i> matrix.
 							</p>
-							<p class="fragment fade-in-then-out" data-fragment-index="2"
-								style="background: rgba(200,200,200,.09); padding: 10px 40px 10px 40px; border-left: 6px solid #fa1c1c;">
-								During each step of row reduction, we use a <span id="rr">pivot row</span> <br />
-								— the row we use to set all other
-								entries in a column to 0.
+
+							<p class="fragment fade-in-then-out" data-fragment-index="4" style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
+								During each step of row reduction, we use a <span id="rr">pivot row</span><br />
+								— the row we use to set the entries below the pivot to 0.
 							</p>
-							<p class="fragment fade-in-then-out" data-fragment-index="3"
-								style="background: rgba(200,200,200,.09); padding: 10px 51px 10px 51px; border-left: 6px solid #fa1c1c;">
-								Ideally we use the first row as the first pivot, the second <br />
-								row as the second pivot, etc.
+
+							<p class="fragment fade-in-then-out" data-fragment-index="5" style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
+								Ideally, we use the first row as the first pivot,<br />
+								the second row as the second pivot, etc.
 							</p>
-							<p class="fragment fade-in" data-fragment-index="4"
-								style="background: rgba(200,200,200,.09); padding: 10px 41px 10px 41px; border-left: 6px solid #fa1c1c;">
-								If we cannot do this (there's already a zero in the pivot row, <br />
-								in that column), we <span id="rr">swap rows</span>
+
+							<p class="fragment fade-in" data-fragment-index="6" style="background: rgba(200,200,200,.09); padding: 10px 40px; border-left: 6px solid #fa1c1c;">
+								If we cannot do this because the pivot entry is zero,<br />
+								we <span id="rr">swap rows</span>.
 							</p>
+
 						</div>
+
 					</div>
 					<br />
 				</section>
+
+				
 
 				<section data-auto-animate>
 					<h4>PLU Factorisation & Permutations</h4>
@@ -949,7 +1061,7 @@
 					<br />
 				</section>
 
-				
+
 
 				<!--
 				<section data-auto-animate>
