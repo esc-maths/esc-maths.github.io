@@ -951,22 +951,23 @@
 								<li class="fragment" data-fragment-index="4">
 									They are square matrices with exactly one 1 per row and column
 									(0s elsewhere).
-									<p class="fragment" data-fragment-index="5" style="text-align: center; margin-top: -5px;">
-										e.g., 
+									<p class="fragment" data-fragment-index="5"
+										style="text-align: center; margin-top: -5px;">
+										e.g.,
 										$\;
 										P = \begin{pmatrix}
-										 0 & 1  \\ 
-										 1 & 0 
-										 \end{pmatrix}\;\;
-										 $
-										 or 
+										0 & 1 \\
+										1 & 0
+										\end{pmatrix}\;\;
+										$
+										or
 										$\;\;
 										P = \begin{pmatrix}
-										 0 & 1 & 0 \\ 
-										 1 & 0 & 0 \\ 
-										 0 & 0 & 1 \\ 
-										 \end{pmatrix}
-										 $
+										0 & 1 & 0 \\
+										1 & 0 & 0 \\
+										0 & 0 & 1 \\
+										\end{pmatrix}
+										$
 									</p>
 								</li>
 								<li class="fragment" data-fragment-index="6">
@@ -1073,8 +1074,7 @@
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="4"
-							style="text-align: center;" id="bb">
+						<p class="fragment" data-fragment-index="4" style="text-align: center;" id="bb">
 							This normalisation removes scaling ambiguity to give a unique factorisation.
 						</p>
 
@@ -1199,10 +1199,12 @@
 							the $L,$ $U$ and $P$ components of the
 							$PLU$ factorisation.
 						</p>
-						<pre class="fragment" data-fragment-index="0" style="width: 40%;height: 70px; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A = [4 5 0; 2 5 2; 0 5 4];
+						<pre class="fragment" data-fragment-index="0"
+							style="width: 40%;height: 70px; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A = [4 5 0; 2 5 2; 0 5 4];
 >> [L, U, P] = lu(A)
 </code></pre>
-						<pre class="fragment" data-fragment-index="1" style="width: 40%;height: 400px; font-size: 80%;margin-top: 25px;"><code class="language-matlab">L =
+						<pre class="fragment" data-fragment-index="1"
+							style="width: 40%;height: 400px; font-size: 80%;margin-top: 25px;"><code class="language-matlab">L =
     1.0000         0         0
          0    1.0000         0
     0.5000    0.0005    1.0000
@@ -1218,48 +1220,123 @@ P =
      0     1     0</code></pre>
 						<p class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
 							<b>Note:</b> Omitting <code>P</code> (e.g., <code>[L,U] = lu(A)</code>)
-							 merges $P$ into $L$,
+							merges $P$ into $L$,
 							which may result in $L$ not being strictly lower-triangular.
 						</p>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 12 (PDF p.14): QR Factorisation Context -->
+
 				<section data-auto-animate>
 					<h4>QR Factorisation: Column Space View</h4>
-					<div class="size-85" style="font-size: 0.8em;">
-						<p>In $A x = b$, the system represents a linear combination of columns:</p>
-						$$ \sum_i x_i a_i = x_1 a_1 + x_2 a_2 + \dots + x_n a_n = b $$
+					<div class="size-85">
+						<p>In $A \mathbf x = \mathbf b$, the system represents a linear combination of columns:</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="0">
+							$
+							\ds A \mathbf x
+							$
+							<span class="fragment" data-fragment-index="1">
+								$\ds
+								=
+								\left(
+								\begin{array}{cccc}
+								\mid & \mid & & \mid \\
+								\mathbf a_1 & \mathbf a_2& \cdots &\mathbf a_n \\
+								\mid & \mid & & \mid \\
+								\end{array}
+								\right)
+								\left(
+								\begin{array}{c}
+								x_1 \\
+								x_2 \\
+								\vdots \\
+								x_n \\
+								\end{array}
+								\right)
+								$
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								$
+								\ds
+								=
+								x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf a_n
+								$
+							</span>
+							<span class="fragment" data-fragment-index="3">
+								$
+								\ds = \mathbf b
+								$
+							</span>
+						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="4" style="margin-top: 15px;">
 							<p><b>Solvability conditions:</b></p>
 							<ul style="line-height: 1.6em;">
-								<li>If $b \notin \text{Col}(A) \implies$ No solution</li>
-								<li>If $b \in \text{Col}(A) \implies$ At least one solution</li>
-								<li>If $\text{Null}(A) \neq \{0\} \implies$ Infinite family of solutions</li>
+								<li class="fragment" data-fragment-index="5">If $\mathbf b \notin \text{Col}(A)
+									\implies$ No solution</li>
+								<li class="fragment" data-fragment-index="6">If $\mathbf b \in \text{Col}(A) \implies$
+									At least one solution</li>
+								<li class="fragment" data-fragment-index="7">If $\text{Null}(A) \neq \{\mathbf 0\}
+									\implies$ Infinite family of solutions</li>
 							</ul>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 13 (PDF p.15): Benefits of Orthogonal Column Bases -->
 				<section data-auto-animate>
 					<h4>Benefits of Orthogonal Bases</h4>
-					<div class="size-85" style="font-size: 0.78em;">
-						<p>If column vectors $a_i$ are <b>orthonormal</b> ($a_i \cdot a_j = \delta_{ij}$), finding
+					<div class="size-85">
+						<p style="text-align: center;font-size: 1.2em;">
+							👉 $\;x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf a_n = \mathbf b\;\;$
+						</p>
+						<p class="fragment" data-fragment-index="1">If column vectors $\mathbf a_i$ are <b>orthonormal</b> ($\mathbf a_i \pd \mathbf a_j =
+							\delta_{ij}$), finding
 							coefficients $x_j$ is trivial:</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							$$ a_j \cdot b = a_j \cdot (x_1 a_1 + x_2 a_2 + \dots + x_n a_n) $$
-							$$ a_j \cdot b = x_1 (a_j \cdot a_1) + \dots + x_j (a_j \cdot a_j) + \dots = x_j $$
+						<div class="cc" style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								$ \mathbf a_j \pd \mathbf b $
+								<span class="fragment" data-fragment-index="2">
+									$= \mathbf a_j \pd (x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf
+									a_n)\qquad \qquad \qquad\qquad \qquad$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="3">
+								$= x_1 (\mathbf a_j \pd \mathbf a_1) + \dots + x_j (\mathbf a_j \pd \mathbf a_j) + \dots
+								+ x_n(\mathbf a_j \pd \mathbf a_n)$
+								<span class="fragment" data-fragment-index="4">
+									$= x_j$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="5">
+								since
+								$\;\mathbf a_i \pd \mathbf a_j=
+								\delta_{ij}
+								\begin{cases}
+								0 \;\;\text{if }\, i\neq j \\
+								1 \;\;\text{if }\, i=j
+								\end{cases}
+								$
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="6" style="margin-top: 15px;">
 							<p>Alternatively, if $A$ is orthogonal ($A^T A = I$):</p>
-							$$ A x = b \implies x = A^T A x = A^T b \implies x_j = a_j \cdot b $$
+
 						</div>
+						<p style="text-align: center;font-size: 1.2em;" class="fragment">
+							$
+							A \mathbf x = \mathbf b \Ra \mathbf x = I \mathbf x = A^T A \mathbf x
+							$
+							<span class="fragment">
+								$= A^T \mathbf b \Ra x_j$
+							</span>
+							<span class="fragment">
+								$= \mathbf a_j \pd \mathbf b$
+							</span>
+						</p>
 					</div>
 					<br />
 				</section>
