@@ -1861,9 +1861,9 @@ U =
 				<section data-auto-animate>
 					<h4>The Reduced/Thin QR Factorisation</h4>
 
-					<div class="size-85">
+					<div class="size-90">
 
-						<div class="cc" style="font-size: 0.7em;margin-top: -10px;">
+						<div class="cc" style="font-size: 0.8em;margin-top: -10px;">
 							<p>
 								$
 								A = QR
@@ -1888,60 +1888,63 @@ U =
 						<div style="margin-top: -30px;">
 							<p>
 								We can remove the redundant parts:
-								\[
-								\large A = Q_{mn} R_n
-								\]
+
+							</p>
+							<p style="text-align: center;margin-top: -5px;font-size: 1em;">
+								$\large A = Q_{mn} R_n$
+								<span class="fragment" data-fragment-index="1">
+									$ {\large =}
+									\begin{pmatrix}
+									\vert & & \vert\\
+									\mathbf q_1 & \cdots & \mathbf q_n\\
+									\vert & & \vert
+									\end{pmatrix}
+									
+									\,
+									
+									\begin{pmatrix}
+									r_{11} & \cdots & r_{1n}\\
+									0 & \ddots & \vdots\\
+									\vdots & \ddots & r_{nn}
+									\end{pmatrix}$
+								</span>
 							</p>
 
 						</div>
 
-						<div class="fragment">
+						<div class="fragment" data-fragment-index="0" style="margin-top: 0px;">
 							\[
-							 Q_{mn}\in\mathbb{R}^{m\times n},
+							Q_{mn}\in\mathbb{R}^{m\times n},
 							\qquad
 							R_n\in\mathbb{R}^{n\times n}.
 							\]
 						</div>
 
-						<div class="fragment" style="font-size: 1em;">
+						<div class="fragment" data-fragment-index="1" style="font-size: 1em;margin-top: -20px;">
 							\[
-							Q_{nm}^{\mathsf T}Q_{mn}=I_n,
+							Q_{mn}^{\mathsf T}Q_{mn}=I_n,
 							\qquad
 							R_n\text{ is upper triangular}.
 							\]
 						</div>
 
+
+
 						<div class="fragment">
 
-							<p>
-								This is the <b>Reduced QR factorisation</b> of $A$ (also know as <b>Thin QR
-									factorisation</b>).
+							<p style="font-size: 1.1em; text-align: center; margin-top: 0px;">
+								This is the <b>Reduced QR factorisation</b> of $A$ <br />
+								<span>
+									(also known as <b>Thin QR
+										factorisation</b>).
+								</span>
 							</p>
-
-							<div style="margin-top: -25px; font-size: 0.9em;">
-								\[A=
-								\underbrace{
-								\begin{bmatrix}
-								\vert & & \vert\\
-								\mathbf q_1 & \cdots & \mathbf q_n\\
-								\vert & & \vert
-								\end{bmatrix}
-								}_{m\times n}
-								\quad
-								\underbrace{
-								\begin{bmatrix}
-								r_{11} & \cdots & r_{1n}\\
-								0 & \ddots & \vdots\\
-								\vdots & \ddots & r_{nn}
-								\end{bmatrix}
-								}_{n\times n}
-								\]
-							</div>
 
 						</div>
 
 
 					</div>
+					<br/>
 				</section>
 
 				<section>
