@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>2201NSC - Vector spaces</title>
+	<title>2201NSC - Lecture 7</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -16,21 +16,10 @@
 	<link rel="stylesheet" href="mySetup/mylayout.css" />
 
 	<!-- Code syntax highlighting https://revealjs.com/-->
-	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
 
 	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
-
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
-			'export/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
-
 
 	<!-- This script is to display Github buttons -->
 	<script async defer src="mySetup/buttons.js"></script>
@@ -38,18 +27,6 @@
 	<!--[if lt IE 9]>
 		<script src="../reveal.js/lib/js/html5shiv.js"></script>
 		<![endif]-->
-
-	<style>
-		.fragment.emph {
-			font-weight: normal;
-			text-decoration: none;
-		}
-
-		.fragment.emph.visible {
-			font-weight: bold;
-			text-decoration: underline;
-		}
-	</style>
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
@@ -80,484 +57,2315 @@
 						<h2>Linear Algebra & Applications</h2>
 					</span>
 					<span class="size-75">
-						<p style="font-weight: bold; font-size: 120%;text-align: center;">2201NSC</p>
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
 					</span>
 
 				</div>
-				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Vectors Spaces</p>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Vector Spaces
+				</p>
 
-				<div style="margin-top: -30px; margin-bottom:20px;">
-					<img src="images/fractal/f008.png" style="width: 500px; ">
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f007.png" style="width: 500px; ">
 				</div>
 			</section>
 
+
 			<section>
+
+
 				<section data-auto-animate>
-					<h4>Definition</h4>
-					<div class="size-90">
-						<div class="left-txt">
-							<p>
-								Let $V$ be a nonempty set on which are defined
-								operations "$+$" (called addition) and "$\pd$"
-								(called scalar multiplication).
-
-							</p>
-
+					<h4>Applying Our Ideas More Broadly</h4>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="0">We have seen that there is a broad range of linear
+							maps $\mathcal{L}(x)$ satisfying:</p>
+						<div class="cc" style="font-size: 1.1em; margin-top: 10px;">
 							<p class="fragment" data-fragment-index="0">
-								$V$ is a <strong>vector space</strong> (over $\BF$) if the following hold for
-								all $\bfx,\bfy,\bfz\in V$ and all $\alpha,\beta\in\BF$:
+								<span class="fragment" data-fragment-index="1">
+									$\mathcal{L}($
+								</span>
+								$ \alpha x + \beta y $
+								<span class="fragment" data-fragment-index="1">
+									$)$
+								</span>
+								<span class="fragment" data-fragment-index="2">$= \alpha \mathcal{L}(x) + \beta
+									\mathcal{L}(y) $</span>
 							</p>
+						</div>
+
+						<div style="margin-top: 20px;">
+							<p class="fragment"><b>Examples of Linear Maps:</b></p>
+							<ul style="line-height: 2.7;margin-left: 0px;">
+								<li class="fragment">
+									<b>Matrix Multiplication:</b>
+									$A\left(\alpha \mathbf x + \beta \mathbf y\right) $
+									<span class="fragment">
+										$=
+										\alpha A\mathbf x + \beta A\mathbf y$
+									</span>
+								</li>
+								<li class="fragment">
+									<b>Differentiation:</b> $\dfrac{d}{dx}\big(\alpha f(x) + \beta g(x)\big)$
+									<span class="fragment">
+										$= \alpha
+										\dfrac{df}{dx} + \beta \dfrac{dg}{dx}$
+									</span>
+								</li>
+								<li class="fragment">
+									<b>Integration:</b> $\ds \int\big(\alpha f(x) + \beta g(x)\big)dx $
+									<span class="fragment">
+										$\ds = \alpha \int
+										f(x)\,dx + \beta
+										\int g(x)\,dx$
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Applying Our Ideas More Broadly</h4>
+					<div class="size-80 left-txt">
+						<p>We have seen that there is a broad range of linear maps $\mathcal{L}(x)$ satisfying:</p>
+						<div class="cc" style="font-size: 1.1em; margin-top: 10px;">
+							<p>
+								<span>
+									$\mathcal{L}($
+								</span>
+								$ \alpha x + \beta y $
+								<span>
+									$)$
+								</span>
+								<span>$= \alpha \mathcal{L}(x) + \beta \mathcal{L}(y) $</span>
+							</p>
+						</div>
+
+						<div style="margin-top: -20px;font-size: 0.75em;">
+							<p><b>Examples of Linear Maps:</b></p>
+							<ul style="line-height: 2.7;margin-left: 0px;">
+								<li>
+									<b>Matrix Multiplication:</b>
+									$A\left(\alpha \mathbf x + \beta \mathbf y\right) $
+									<span>
+										$=
+										\alpha A\mathbf x + \beta A\mathbf y$
+									</span>
+								</li>
+								<li>
+									<b>Differentiation:</b> $\dfrac{d}{dx}\big(\alpha f(x) + \beta g(x)\big)$
+									<span>
+										$= \alpha
+										\dfrac{df}{dx} + \beta \dfrac{dg}{dx}$
+									</span>
+								</li>
+								<li>
+									<b>Integration:</b> $\ds \int\big(\alpha f(x) + \beta g(x)\big)dx $
+									<span>
+										$\ds = \alpha \int
+										f(x)\,dx + \beta
+										\int g(x)\,dx$
+									</span>
+								</li>
+							</ul>
+						</div>
+						<ul style="line-height: 1.8; margin-top: 20px;">
+							<li>
+								We have developed a lot of theory for matrix problems $A\mathbf x = \mathbf b$
+							</li>
+							<li class="fragment">
+								Can we apply our ideas to problems involving other linear maps?
+							</li>
+							<li class="fragment">
+								What conditions do we require for our ideas to work more broadly?
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
 
 
+				<section data-auto-animate>
+					<h4>Linearity &amp; Vector Spaces</h4>
+					<div class="size-85 left-txt">
+						<p>We have seen that there is a broad range of linear maps $\mathcal{L}(x)$ satisfying:</p>
+						<div class="cc" style="font-size: 1.1em; margin-top: 10px;">
+							<p>
+								<span>
+									$\mathcal{L}($
+								</span>
+								$ \alpha x + \beta y $
+								<span>
+									$)$
+								</span>
+								<span>$= \alpha \mathcal{L}(x) + \beta \mathcal{L}(y) $</span>
+							</p>
+						</div>
 
-							<table id="eqarray">
-								<tr class="fragment" data-fragment-index="1">
-									<td>
-										<strong>(V1)</strong>
-									</td>
-									<td>
-										$\bfx+\bfy\in V$ (closure)
-									</td>
-								</tr>
-								<tr class="fragment" data-fragment-index="2">
-									<td>
-										<strong>(V2)</strong>
-									</td>
-									<td>
-										$\bfx+\bfy=\bfy+\bfx$ (additive commutativity)
-									</td>
-								</tr>
+						<div style="margin-top: 20px;">
+							<ul style="line-height: 1.8; margin-left: 0px;">
+								<li class="fragment" data-fragment-index="1">$\alpha x + \beta y$ must always exist for
+									any scalars $\alpha, \beta$ and elements $x, y$.</li>
+								<li class="fragment" data-fragment-index="2">The usual algebraic rules (commutativity,
+									associativity, etc.) must apply.</li>
+							</ul>
 
-								<tr class="fragment" data-fragment-index="3">
-									<td>
-										<strong>(V3)</strong>
-									</td>
-									<td>
-										$\bfx+(\bfy+\bfz)=(\bfx+\bfy)+\bfz$ (additive associativity)
-									</td>
-								</tr>
-								
+						</div>
+						<div style="font-size: 1.15em;">
+							<p class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+								👉 Any set of objects obeying these rules is called a <span id="bb">vector space</span>.
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
 
-							</table>
+				<section data-auto-animate>
+					<h4>Why "Vector Space"?</h4>
+					<div class="size-85" style="font-size: 0.85em;">
+						<p class="fragment" data-fragment-index="0">
+							Any point in 3D space can be written as a vector of coefficients:
+							$$ \mathbf{c} = (c_1, c_2, c_3) = c_1 \mathbf{i} + c_2 \mathbf{j} + c_3 \mathbf{k} $$
+						</p>
+
+						<p class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							We can maintain this coefficient representation for completely different mathematical
+							objects using another basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$:
+						</p>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<p>For polynomials of degree $\le 2$:</p>
+							$$ p(x)= c_1 + c_2 x + c_3 x^2 \iff (c_1, c_2, c_3) $$
+						</div>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top: 15px;">
+							This provides a unified framework to analyze vectors, matrices, and functions.
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>What is a Vector Space?</h4>
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="0">A <b>vector space</b> is a collection of objects
+							(vectors) equipped with:</p>
+						<ul style="line-height: 1.7em;">
+							<li class="fragment" data-fragment-index="1">A notion of <b>vector addition</b></li>
+							<li class="fragment" data-fragment-index="2">A notion of <b>scalar multiplication</b></li>
+						</ul>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 20px; ">
+							<p><b>Closure Properties:</b></p>
+							<ul style="line-height: 1.5em;">
+								<li class="fragment" data-fragment-index="4">Adding two vectors produces another vector
+									in the space.</li>
+								<li class="fragment" data-fragment-index="5">Rescaling a vector produces another vector
+									in the space.</li>
+							</ul>
+						</div>
+						<div class="fragment" data-fragment-index="6" style="margin-top: 20px; ">
+							<p><b>Addition and scalar multiplication obey the 'usual' rules:</b></p>
+							<ul style="line-height: 1.5em;">
+								<li class="fragment" data-fragment-index="7">Associativity, commutativity,
+									distributivity, identity, inverse.</li>
+								<li class="fragment" data-fragment-index="8">Rules obeyed by vectors, matrices, and
+									functions.</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Formal Definition of a Vector Space</h4>
+					<div class="size-75 left-txt">
+						<p>
+							A real vector space $V$ is a nonempty set,
+							with a notion of <b>addition</b> and a notion of
+							<b>scalar multiplication</b>,
+							<span class="fragment">
+								whose elements satisfy the following axioms
+								for any $\mathbf x,\mathbf y,\mathbf z
+								\in V$ and $\alpha,\beta \in \mathbb{R}$:
+							</span>
+						</p>
+						<ol style="line-height: 1.5em; margin-top: -15px;">
+							<li class="fragment">
+								$\mathbf{x} + \mathbf{y} \in V$ (Closure under addition)
+							</li>
+							<li class="fragment">
+								$\alpha\mathbf{x} \in V$ (Closure under scalar mult.)
+							</li>
+							<li class="fragment">
+								$\mathbf{x} + \mathbf{y} = \mathbf{y} + \mathbf{x}$ (Commutativity)
+							</li>
+							<li class="fragment">
+								$(\mathbf{x}+\mathbf{y})+\mathbf{z} = \mathbf{x}+(\mathbf{y}+\mathbf{z})$
+								(Associativity)
+							</li>
+							<li class="fragment">
+								$\mathbf{x} + \mathbf{0} = \mathbf{x}$ (Additive identity)
+							</li>
+							<li class="fragment">
+								Each $\mathbf{x}$ has an element $-\mathbf{x}$ such that $\mathbf{x} + (-\mathbf{x}) =
+								\mathbf{0}$ (Additive inverse)
+							</li>
+							<li class="fragment">
+								$\alpha(\mathbf{x}+\mathbf{y}) = \alpha\mathbf{x} + \alpha\mathbf{y}$ (Distributivity
+								over vector addition)
+							</li>
+							<li class="fragment">
+								$(\alpha+\beta)\mathbf{x} = \alpha\mathbf{x} + \beta\mathbf{x}$ (Distributivity over
+								scalar addition)
+							</li>
+							<li class="fragment">
+								$(\alpha\beta)\mathbf{x} = \alpha(\beta\mathbf{x})$ (Scalar associativity)
+							</li>
+							<li class="fragment">
+								$1\mathbf{x} = \mathbf{x}$ (Multiplicative identity)
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Examples of Vector Spaces</h4>
+					<div class="size-95">
+						<p>The following sets form vector spaces under standard addition and scalar multiplication:</p>
+						<ul style="line-height: 2em;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Euclidean Spaces:</b> $\mathbb R,$ $\mathbb{R}^2,$ $\mathbb{R}^3, \dots,
+								\mathbb{R}^n$
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								<b>Matrix Spaces:</b> $m \times n$ real matrices ($\mathbb{R}^{m \times n}$)
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<b>Function Spaces:</b> All functions defined on a given domain, e.g., $f \colon [0, 1]
+								\to \mathbb{R}$
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Example 1: $\mathbb R^n$ - Euclidean spaces</h4>
+					<div class="size-80">
+						<div class="left-txt">
+
+							<p class="fragment" data-fragment-index="0"><strong>Identify elements of the
+									set:</strong>
+								<span>$$\mathbb R^n = \big\{ \mathbf x = \left( x_1, x_2, \ldots , x_n\right)~|~
+									x_1, x_2, \ldots , x_n \in \mathbb R \big\}$$</span>
+							</p>
+							<p class="fragment" data-fragment-index="1">Properties 1 & 2. <strong>Check for closure of
+									addition
+									and scalar multiplication:</strong>
+								<span>$$\mathbf x+ \mathbf y = \left( x_1+y_1, x_2+y_2, \ldots , x_n+y_n\right)$$
+								</span>
+								<span>
+									$$\;\,k \, \mathbf x = \left( kx_1, kx_2, \ldots , kx_n\right)$$
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">Property 5. <strong>Identify the vector
+									zero:</strong>
+								<span>$\mathbf 0 = \left( 0, 0, \ldots , 0\right)$
+								</span>
+
+							</p>
+							<p class="fragment" data-fragment-index="3">Property 6. <strong>Identify the inverse
+									additive:</strong>
+								<span>$ - \mathbf x = \left( -x_1, -x_2, \ldots , -x_n\right)$
+								</span>
+
+							</p>
 
 
 						</div>
 					</div>
 					<br /><br />
 				</section>
-
-
 				<section data-auto-animate>
-					<h5>Definition</h5>
-					<div class="size-50 left-txt" style="margin-top:-10px">
-						<p>
-							$V$ is a <strong>vector space</strong> (over $\BF$) if the following hold for
-							all $\bfx,\bfy,\bfz\in V$ and all $\alpha,\beta\in\BF$:
-						</p>
-					</div>
-					<div class="size-60"  style="margin-top:-20px">
-						<div class="left-txt">
-
-
-
-							<table id="eqarray">
-								<tr>
-									<td>
-										<strong>(V1)</strong>
-									</td>
-									<td>
-										$\bfx+\bfv\in V$ (closure)
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<strong>(V2)</strong>
-									</td>
-									<td>
-										$\bfx+\bfy=\bfy+\bfx$ (additive commutativity)
-									</td>
-								</tr>
-
-								<tr>
-									<td>
-										<strong>(V3)</strong>
-									</td>
-									<td>
-										$\bfx+(\bfy+\bfz)=(\bfx+\bfy)+\bfz$ (additive associativity)
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<strong>(V4)</strong>
-									</td>
-									<td>
-										$\exists\,{\bf 0}\in V$ such that $\bfx+{\bf 0}=\bfx$ (zero vector, or additive
-										identity)
-									</td>
-								</tr>
-
-								<tr class="fragment" data-fragment-index="0">
-									<td>
-										<strong>(V5)</strong>
-									</td>
-									<td>
-										For each $\bfx\in V$, $\exists\,(-\bfx)\in V$ such that $\bfx+(-\bfx)={\bf 0}$
-										(additive inverse)
-									</td>
-								</tr>
-
-								<tr class="fragment" data-fragment-index="1">
-									<td>
-										<strong>(V6)</strong>
-									</td>
-									<td>
-										$\alpha \bfx\in V$ (closure)
-									</td>
-								</tr>
-
-								<tr class="fragment" data-fragment-index="1">
-									<td>
-										<strong>(V7)</strong>
-									</td>
-									<td>
-										$\alpha(\bfx+\bfy)=\alpha\bfx+\alpha\bfy$ (multiplicative-additive
-										distributivity)
-									</td>
-								</tr>
-
-								<tr class="fragment" data-fragment-index="1">
-									<td>
-										<strong>(V8)</strong>
-									</td>
-									<td>
-										$\left(\alpha + \beta \right)\bfx=\alpha\bfx+\beta\bfx$ (additive-multiplicative
-										distributivity)
-									</td>
-								</tr>
-
-								<tr class="fragment" data-fragment-index="1">
-									<td>
-										<strong>(V9)</strong>
-									</td>
-									<td>
-										$\alpha(\beta\bfx)=(\alpha\beta)\bfx$ (multiplicative-multiplicative
-										distributivity)
-
-									</td>
-								</tr>
-
-								<tr class="fragment" data-fragment-index="1">
-									<td>
-										<strong>(V10)</strong>
-									</td>
-									<td>
-										$1\bfx=\bfx$ (multiplicative identity)
-									</td>
-								</tr>
-
-							</table>
-
-
-
-						</div>
-					</div>
-					<br />
-				</section>
-
-				
-
-
-			</section>
-
-
-			<section>
-				<section data-auto-animate>
-					<h4>Example 1: $\BF^n$ - set of $n$-tuples</h4>
-					<div class="size-75">
-						<div class="left-txt">
-
-							<p class="fragment" data-fragment-index="0">1) <strong>Identify elements of the set:</strong>
-								<span>$$\BF^n = \big\{ \u = \left( u_1, u_2, \ldots , u_n\right)~|~
-									u_1, u_2, \ldots , u_n \in \BF \big\}$$</span>
-							</p>
-							<p class="fragment" data-fragment-index="1">2) & 3) <strong>Check for closure of addition and scalar multiplication:</strong>
-								<span>$$\u+ \v = \left( u_1+v_1, u_2+v_2, \ldots , u_n+v_n\right)$$
-									</span>
-									<span>
-										$$\;\,k \cdot \u = \left( ku_1, ku_2, \ldots , ku_n\right)$$
-									</span>
-							</p>
-							<p class="fragment" data-fragment-index="2">4) <strong>Identify the vector zero:</strong>
-								<span>$\mathbf 0 = \left( 0, 0, \ldots , 0\right)$
-									</span>
-									
-							</p>
-							<p class="fragment" data-fragment-index="3">5) <strong>Identify the inverse additive:</strong>
-								<span>$ - \mathbf u = \left( -u_1, -u_2, \ldots , -u_n\right)$
-									</span>
-									
-							</p>
-
-							
-						</div>
-					</div>
-					<br /><br/>
-				</section>
-				<section data-auto-animate>
-					<h4>Example 2: $\BF^n$ - set of $n$-tuples</h4>
+					<h4>Example 1: $\mathbb R^n$ - Euclidean spaces</h4>
 					<div class="size-50">
 						<div class="left-txt">
 
-							<p>1) <strong>Identify elements of the set:</strong>
-								<span>$$\BF^n = \big\{ \u = \left( u_1, u_2, \ldots , u_n\right)~|~
-									u_1, u_2, \ldots , u_n \in \BF \big\}$$</span>
+							<p><strong>Identify elements of the
+									set:</strong>
+								<span>$$\mathbb R^n = \big\{ \mathbf x = \left( x_1, x_2, \ldots , x_n\right)~|~
+									x_1, x_2, \ldots , x_n \in \mathbb R \big\}$$</span>
 							</p>
-							<p>2) & 3) <strong>Check for closure of addition and scalar multiplication:</strong>
-								<span>$$\u+ \v = \left( u_1+v_1, u_2+v_2, \ldots , u_n+v_n\right)$$
-									</span>
-									<span>
-										$$\;\,k \cdot \u = \left( ku_1, ku_2, \ldots , ku_n\right)$$
-									</span>
+							<p>Properties 1 & 2. <strong>Check for closure of addition
+									and scalar multiplication:</strong>
+								<span>$$\mathbf x+ \mathbf y = \left( x_1+y_1, x_2+y_2, \ldots , x_n+y_n\right)$$
+								</span>
+								<span>
+									$$\;\,k \, \mathbf x = \left( kx_1, kx_2, \ldots , kx_n\right)$$
+								</span>
 							</p>
-							<p>4) <strong>Identify the vector zero:</strong>
+							<p>Property 5. <strong>Identify the vector zero:</strong>
 								<span>$\mathbf 0 = \left( 0, 0, \ldots , 0\right)$
-									</span>
-									
+								</span>
+
 							</p>
-							<p>5) <strong>Identify the inverse additive:</strong>
-								<span>$ - \mathbf u = \left( -u_1, -u_2, \ldots , -u_n\right)$
-									</span>
-									
+							<p>Property 6. <strong>Identify the inverse
+									additive:</strong>
+								<span>$ - \mathbf x = \left( -x_1, -x_2, \ldots , -x_n\right)$
+								</span>
+
 							</p>
 
-							
+
 						</div>
 					</div>
 					<div class="size-75">
 						<div class="left-txt">
 
-							
+
 
 							<p>Now you can continue checking that the other properties hold. 📝</p>
 
-							<p class="fragment" data-fragment-index="0"><strong>Remark:</strong> This is just an strategy you can use. But if you prefer,
-							you can verify each property one by one in the given order, that is, from (V1) to (V10).</p>
+							<p class="fragment" data-fragment-index="0"><strong>Remark:</strong> This is just an
+								strategy you can use. But if you prefer,
+								you can verify each property one by one in the given order, that is, from 1 to 10.
+							</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Example 3: $M_{m,n}(\BF)$ - set of $m\times n$ matrices</h4>
-					<div class="size-70">
+					<h4>Example 2: $\R^{m\times n}$ - set of $m\times n$ matrices</h4>
+					<div class="size-75">
 						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								1) $M_{m,n} = \left\{
-									\left(
-									\begin{array}{ccc}
-									a_{11} & \cdots & a_{1n} \\
-									\vdots & \ddots & \vdots \\
-									a_{m1} & \cdots & a_{mn} \\
-									\end{array}
-									\right)
-									~\Bigg|~
-									a_{ij}\in \BF,
-									1\leq i\leq m,
-									1\leq j\leq n
-									\right\}$
+							<p style="text-align: center;" class="fragment" data-fragment-index="0">
+								$\R^{m\times n} = \left\{
+								\left(
+								\begin{array}{ccc}
+								a_{11} & \cdots & a_{1n} \\
+								\vdots & \ddots & \vdots \\
+								a_{m1} & \cdots & a_{mn} \\
+								\end{array}
+								\right)
+								~\Bigg|~
+								a_{ij}\in \R,
+								1\leq i\leq m,
+								1\leq j\leq n
+								\right\}$
+								<span class="fragment">
+									$=M_{mn}\big(\mathbb R\big)$
+								</span>
 							</p>
-							<p class="fragment" data-fragment-index="1">
-								2) & 3)
+							<p class="fragment">
+								Prop. 1. & 2. <b>Closure of addition and scalar multiplication: </b>
 								Usual addition and scalar multiplication for matrices.
 							</p>
-							<p class="fragment" data-fragment-index="2">
-								4) $\mathbf 0 = \left(
-										\begin{array}{ccc}
-										0 & \cdots & 0 \\
-										\vdots & \ddots & \vdots \\
-										0 & \cdots & 0 \\
-										\end{array}
-										\right)$
+							<p class="fragment">
+								Prop. 5. <b> Identify the vector zero:</b>
+								$\;\mathbf 0 = \left(
+								\begin{array}{ccc}
+								0 & \cdots & 0 \\
+								\vdots & \ddots & \vdots \\
+								0 & \cdots & 0 \\
+								\end{array}
+								\right)$
 							</p>
 
-							<p class="fragment" data-fragment-index="3">
-								5)
-										$- \mathbf u = \left(
-										\begin{array}{ccc}
-										-a_{11} & \cdots & -a_{1n} \\
-										\vdots & \ddots & \vdots \\
-										-a_{m1} & \cdots & -a_{mn} \\
-										\end{array}
-										\right)$
+							<p class="fragment">
+								Prop. 6. <b>Identify the inverse additive:</b>
+								$\;- \mathbf x = \left(
+								\begin{array}{ccc}
+								-a_{11} & \cdots & -a_{1n} \\
+								\vdots & \ddots & \vdots \\
+								-a_{m1} & \cdots & -a_{mn} \\
+								\end{array}
+								\right)$
 							</p>
-							
+
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<section id="example-4">
-					<h4 style="font-size:72%">Example 4: $C[a,b]$ - set of continuous real-valued functions on $[a,b]$
+				<section id="example-3">
+					<h4 style="font-size:72%">Example 3: $C[a,b]$ - set of continuous real-valued functions on $[a,b]$
 					</h4>
-					
-					<div class="size-90" style="margin-top:60px">
+
+					<div class="size-90" style="margin-top:30px">
 						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								1) $\mathbf f, \mathbf g\in C[a,b],$ often represented as $f(x), g(x).$
+							<p style="text-align: center; margin-bottom: 40px;" class="fragment"
+								data-fragment-index="0">
+								$\mathbf f, \mathbf g\in C[a,b],$ often represented as $f(x), g(x).$
 							</p>
 							<p class="fragment" data-fragment-index="1">
-								2) & 3) 
-										$\left(\,f+g\right)(x) = f(x) + g(x)$<br />
-										
-											$\qquad \quad \,\, (k \cdot f)(x) = kf(x)$
+								Prop. 1 & 2. <b>Closure of addition and scalar multiplication: </b>
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								$\quad \left(\,f+g\right)(x) = f(x) + g(x)$
+
+								<span class="fragment" data-fragment-index="3">
+									$\quad \text{and} \quad (k \cdot f)(x) = kf(x)$
+								</span>
 							</p>
 
-							<p class="fragment" data-fragment-index="2">
-								4) $\mathbf 0 = \,?$ 🤔
+
+							<p class="fragment fade-in" data-fragment-index="4">
+								Prop. 5. <b>Identify the vector zero:</b>
+
 							</p>
-							<p class="fragment" data-fragment-index="3">
-								5) $ - \mathbf f = -f(x) $
+							<div class="r-stack">
+								<p class="fragment fade-in-then-out" data-fragment-index="4">
+									$\mathbf 0 = \,?\;$ 🤔
+								</p>
+								<p class="fragment fade-in" data-fragment-index="5">
+									$\mathbf 0 = f(x) \equiv 0$ for every $x\in[a,b].$ 😃
+								</p>
+							</div>
+
+
+							<p class="fragment" data-fragment-index="6">
+								Prop. 6. <b>Identify the inverse additive:</b> $ - \mathbf f = -f(x) $
 							</p>
-							
+
 						</div>
 					</div>
 					<br /><br /><br />
-				</section>
-
-
-				<section >
-					<h4 style="font-size:80%">Example 5: $P_n(\BF)$ - set of polynomials of degree at most $n$</h4>
-					<div class="size-80">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								1) $\mathbf p \in P_n(\BF)$, with $\mathbf p = a_0 + a_1x + \cdots + a_n x^n$
-								and $a_k\in \BF,$ $\forall k.$
-							</p>
-							<p class="fragment" data-fragment-index="1">
-								2) & 3) Operations similar to <a href="#/example-4/3">Example 4</a>.
-							</p>
-							<p class="fragment" data-fragment-index="2">
-								4) $\mathbf 0 = \,?$ 🤔
-							</p>
-							<p class="fragment" data-fragment-index="3">
-								5) $ - \mathbf p = -p(x) .$
-							</p>
-							
-						</div>
-					</div>
-					<br /><br /><br /><br />
 				</section>
 
 				<section>
-					<h4 style="font-size:80%">Example 6: Set of solutions to a homogeneous linear ODE</h4>
-					<div class="size-85">
-						<div class="left-txt">
-							<p class="fragment" data-fragment-index="0">
-								For example: $y''+p(x) y' + q(x) y = 0 $ ($y=y(x)$).
-							</p>
+					<h4 style="font-size:72%">Example 4: $P_n\big(\R\big)$ - set of polynomials of degree $\lt n$
+					</h4>
 
+					<div class="size-90" style="margin-top:30px">
+						<div class="left-txt">
+							<p style="text-align: center; margin-bottom: 40px;" class="fragment"
+								data-fragment-index="0">
+								$\mathbf p \in P_n\big(\R\big)$, with $\mathbf p = a_0 + a_1x + \cdots + a_{n-1}
+								x^{n-1}$
+								and $a_k\in \R,$ $\forall k.$
+							</p>
 							<p class="fragment" data-fragment-index="1">
-								1) Let $y_1$ and $y_2$ be solutions.
+								Prop. 1 & 2. <b>Closure of addition and scalar multiplication: </b>
+								Operations similar to <a href="#/example-3">Example 3</a>.
+
 							</p>
 							<p class="fragment" data-fragment-index="2">
-								2) Operations similar to <a href="#/example-4/3">Example 4</a>.
+								$\quad \left(p+q\right)(x) = p(x) + q(x)$
+
+								<span class="fragment" data-fragment-index="3">
+									$\quad \text{and} \quad (k p)(x) = kp(x)$
+								</span>
 							</p>
-							<p class="fragment" data-fragment-index="3">
-								3) Superposition principle: $y_1+y_2 $ is also a solution.
+
+
+							<p class="fragment fade-in" data-fragment-index="4">
+								Prop. 5. <b>Identify the vector zero:</b>
+
 							</p>
-							<p class="fragment" data-fragment-index="4">
-								4) The zero vector is the zero function.
+							<div class="r-stack">
+								<p class="fragment fade-in-then-out" data-fragment-index="4">
+									$\mathbf 0 = \,?\;$ 🤔
+								</p>
+								<p class="fragment fade-in" data-fragment-index="5">
+									$\mathbf 0 = p(x) \equiv 0$ for every $x\in\R.$ 😃
+								</p>
+							</div>
+
+
+							<p class="fragment" data-fragment-index="6">
+								Prop. 6. <b>Identify the inverse additive:</b> $ - \mathbf p = -p(x) $
 							</p>
-							<p class="fragment" data-fragment-index="5">
-								5) Given a solution $y$, $-y$ is also a solution.
-							</p>
-							
+
 						</div>
 					</div>
 					<br /><br /><br />
 				</section>
 
-				<section data-background-iframe="sketches/vectors/v.html"
-				data-background-interactive
-				data-background-color="rgb(0, 0, 0)" 
-				data-background-opacity="0.99"
-				data-auto-animate>
-				 <h3
-				 style="
-				  font-size:80%;margin-top:0px;
-				  background-color: rgb(231, 231, 231);
-				  border: 2px solid rgb(0, 0, 0);
-				  padding: 10px;
-				  margin: auto;
-				  color: black;
-				  width: 55%;
-				  ">Vector space representation</h3>
-				 
-				 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				<section data-auto-animate>
+					<h3>Question!</h3>
+
+					<div class="size-95 cc" style="margin-top:35px">
+						<div class="left-txt">
+
+							<p style="margin-bottom:5px;">
+								Consider the set of solutions of the homogeneous linear ODE
+							</p>
+
+							<p>
+								$y'' + p(x)y' + q(x)y = 0,\, $ where $\,y=y(x)$.
+							</p>
+
+							<div style="text-align: center;">
+								<p class="fragment" data-fragment-index="0">
+									Is this set a <b>vector space</b>?
+								</p>
+
+								<picture class="fragment" data-fragment-index="0">
+									<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+										type="image/webp">
+									<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔"
+										width="150" height="150">
+								</picture>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="size-75 cc">
+						<p class="fragment" data-fragment-index="1" style="margin-top:5px;">
+							💡 <b>Hint:</b> Think back to Examples 3 and 4.
+						</p>
+
+						<p class="fragment" data-fragment-index="2" style="margin-top:-15px;">
+							What happens when we add two solutions or multiply a
+							solution by a scalar?
+						</p>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top:-15px;">
+							<b>Superposition principle:</b>
+							If $y_1$ and $y_2$ are solutions, then
+							$c_1y_1+c_2y_2$ is also a solution.
+						</p>
+					</div>
+
+					<br />
 				</section>
 
-				<section data-background-iframe="sketches/points/"
-				data-background-interactive
-				data-background-color="rgb(0, 0, 0)"
-				data-background-opacity="0.9"
-				data-auto-animate>
-				<h3
-				style="
-			     font-size:80%;margin-top:0px;
-			     background-color: rgb(231, 231, 231);
-			     border: 2px solid rgb(0, 0, 0);
-			     padding: 10px;
-			     margin: auto;
-			     color: black;
-			     width: 55%;
-			     ">Vector space representation</h3>
-				 
-				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-				</section>
-
-				<section data-background-iframe="sketches/monkey-space/"
-				data-background-interactive
-				data-background-color="rgb(0, 0, 0)"
-				data-auto-animate>
-				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-				<h3 
-				style="
-				font-size:60%;margin-top:0px;
-				background-color: rgb(231, 231, 231);
-				border: 2px solid rgb(0, 0, 0);
-				padding: 10px;
-				margin: auto;
-				color: black;
-				width: 40%;
-				">Vector space representation</h3>
-
-				</section>
-
-				<section data-background-iframe="sketches/sponge-space/"
-				data-background-interactive
-				data-background-color="rgb(0, 0, 0)"
-				data-auto-animate>
-				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-				<h3 
-				style="
-				font-size:60%;margin-top:0px;
-				background-color: rgb(231, 231, 231);
-				border: 2px solid rgb(0, 0, 0);
-				padding: 10px;
-				margin: auto;
-				color: black;
-				width: 40%;
-				">Vector space representation</h3>
-				</section>
 			</section>
 
 			<section>
-				<h4>Credits</h4>
-				<div include-html="credits.html"></div>
+
+				<section data-auto-animate>
+					<h4>Subspaces</h4>
+					<div class="size-95 left-txt" style="margin-top: 30px;">
+						<p class="fragment" data-fragment-index="0">
+							To show a subset $S \subseteq V$ is itself a vector space, we only need to verify
+							<b>closure</b>.
+						</p>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="1">
+								<b>Definition:</b> A non-empty subset $S \subseteq V$ is a <b>subspace</b> of $V$ if:
+							<ol style="line-height: 1.7em;">
+								<li class="fragment" data-fragment-index="2">$\alpha \,\mathbf x \in S$ whenever
+									$\mathbf x \in S$ and $\alpha \in \mathbb{R}$</li>
+								<li class="fragment" data-fragment-index="3">$\mathbf x + \mathbf y \in S$ whenever
+									$\mathbf x \in S$ and $\mathbf y \in S$</li>
+							</ol>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="4" style="margin-top: 15px;">
+							<b>Note:</b> A subspace is a complete vector space in its own right.
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Subspace Example</h4>
+					<div class="size-90">
+						<p class="fragment">Let $S = \left\{\mathbf x \in \mathbb{R}^3 \mid x_3 = 0\right\}$
+							be a subset of $\R^3$ $(S\subset \R^3)$.
+
+						</p>
+						<p>
+							<span class="fragment">
+								For any $\mathbf x, \mathbf y\in S$ and $\alpha\in \R$:
+							</span>
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>1. Closure under addition:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\mathbf x+\mathbf y $
+								<span class="fragment">
+									$= (x_1, x_2, 0) + (y_1, y_2, 0) $
+								</span>
+								<span class="fragment">
+									$= (x_1+y_1, x_2+y_2, 0)$
+								</span>
+								<span class="fragment">
+									$ \in S$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>2. Closure under scalar multiplication:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\alpha \,\mathbf x $
+								<span class="fragment">
+									$= \alpha (x_1, x_2, 0) $
+								</span>
+								<span class="fragment">
+									$= (\alpha x_1, \alpha x_2, 0) $
+								</span>
+								<span class="fragment">
+									$ \in S$
+								</span>
+							</p>
+
+						</div>
+
+						<p class="fragment" style="margin-top: 45px; text-align: center;" id="bb">
+							Hence $S$ is a subspace of $\mathbb{R}^3$ ✅
+						</p>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Non-Subspace Example</h4>
+					<div class="size-90">
+						<p class="fragment">Let $S = \left\{\mathbf x \in \mathbb{R}^3 \mid x_3 = 1\right\}$
+							be a subset of $\R^3$ $(S\subset \R^3)$.
+
+						</p>
+						<p>
+							<span class="fragment">
+								For any $\mathbf x, \mathbf y\in S$ and $\alpha\in \R$:
+							</span>
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>1. Closure under addition:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\mathbf x+\mathbf y $
+								<span class="fragment">
+									$= (x_1, x_2, 1) + (y_1, y_2, 1) $
+								</span>
+								<span class="fragment">
+									$= (x_1+y_1, x_2+y_2, 2)$
+								</span>
+								<span class="fragment">
+									$ \notin S$
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>2. Closure under scalar multiplication:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\alpha \,\mathbf x $
+								<span class="fragment">
+									$= \alpha (x_1, x_2, 1) $
+								</span>
+								<span class="fragment">
+									$= (\alpha x_1, \alpha x_2, \alpha) $
+								</span>
+								<span class="fragment">
+									$ \notin S$
+								</span>
+							</p>
+
+						</div>
+
+						<p class="fragment" style="margin-top: 45px;text-align: center;">
+							Hence $S$ is <span id="rr">not</span> a subspace of $\mathbb{R}^3$
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Subspace Example: $2\times 2$ Matrices</h4>
+					<div class="size-85">
+						<p class="fragment">
+							Let $S$ be the set of $2\times 2$ matrices where $x_{21} = -x_{12}$.
+						</p>
+						<p>
+							<span class="fragment">
+								For any $A, B\in S$ and $\alpha\in \R$:
+							</span>
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>1. Closure under addition:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\begin{pmatrix}x_{11} & x_{12}\\ -x_{12} & x_{22}\end{pmatrix} + \begin{pmatrix}y_{11}
+								&
+								y_{12}\\ -y_{12} & y_{22}\end{pmatrix} $
+								<span class="fragment">
+									$= \begin{pmatrix}x_{11}+y_{11} & x_{12}+y_{12}\\
+									-(x_{12}+y_{12}) & x_{22}+y_{22}\end{pmatrix} $
+								</span>
+
+								<span class="fragment">
+									$ \in S $
+								</span>
+							</p>
+						</div>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>2. Closure under scalar multiplication:</b></p>
+							<p style="text-align: center;" class="fragment">
+								$\alpha \begin{pmatrix}x_{11} & x_{12}\\ -x_{12} & x_{22}\end{pmatrix} $
+								<span class="fragment">
+									$=
+									\begin{pmatrix}\alpha x_{11} & \alpha x_{12}\\ -(\alpha x_{12}) & \alpha
+									x_{22}\end{pmatrix}
+									$
+								</span>
+
+								<span class="fragment">
+									$ \in S $
+								</span>
+							</p>
+
+						</div>
+
+						<p class="fragment" style="margin-top: 55px;text-align: center;" id="bb">
+							Hence $S$ is a subspace of $\,\mathbb{R}^{2\times 2}$
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>The Null Space of a Matrix</h4>
+					<div class="size-85 left-txt" style="font-size: 0.8em;">
+						<p class="fragment">
+							<b>Definition:</b>
+							The null space $N(A)$ of $A \in \mathbb{R}^{m\times n}$
+							is the set of all solutions to the homogeneous system $A\mathbf x = \mathbf 0.$
+							<span class="fragment">
+								That is,
+								$$N(A) = \left\{\mathbf x \in \mathbb{R}^n \mid A\mathbf x = \mathbf 0\right\}.$$
+							</span>
+
+
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>Proof that $N(A)$ is a subspace of $\mathbb{R}^n$:</b></p>
+							<ol style="line-height: 1.7em;">
+								<li class="fragment">The zero solution always exists, so $N(A)$ is not empty:
+									<span class="fragment">
+										$ \mathbf{0} \in N(A)$.
+									</span>
+
+								</li>
+								<li class="fragment">
+									If $\mathbf x,\mathbf y \in N(A)$, then $\mathbf x+\mathbf y \in N(A)$:
+
+									<p style="text-align: center;" class="fragment">
+										$ A(\mathbf x+\mathbf y) $
+										<span class="fragment">
+											$ = A\mathbf x + A\mathbf y $
+										</span>
+										<span class="fragment">
+											$ =\mathbf 0 + \mathbf 0 = \mathbf 0 $
+										</span>
+									</p>
+								</li>
+								<li class="fragment">
+									If $\mathbf x \in N(A)$, then $\alpha \mathbf x \in N(A)$:
+									<p style="text-align: center;" class="fragment">
+										$ A(\alpha \mathbf x) $
+										<span class="fragment">
+											$ = \alpha (A\mathbf x) $
+										</span>
+										<span class="fragment">
+											$ = \alpha ( \mathbf 0) = \mathbf 0 $
+										</span>
+									</p>
+
+								</li>
+							</ol>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Finding the Null Space</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<p style="text-align: center;" class="fragment">Find $N(A)$ for $A = \begin{pmatrix}1 & 1 & 1 &
+							0 \\ 2 & 1 & 0 & 1\end{pmatrix}$</p>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment">
+								Augmented matrix:
+								$\; \left(\begin{array}{cccc|c}1 & 1 & 1 & 0 & 0\\ 2 & 1 & 0 & 1 & 0\end{array}\right)$
+								<span class="fragment">
+									$ \rightarrow
+									\left(\begin{array}{cccc|c}1 & 0 & -1 & 1 & 0\\ 0 & 1 & 2 & -1 & 0\end{array}\right)
+									$
+								</span>
+							</p>
+							<p class="fragment">
+								From which we obtain:
+								$
+								\;\;\left\{
+								\begin{array}{l}
+								x_1 -x_3 +x_4 = 0 \\
+								x_2 + 2x_3 - x_4 = 0
+								\end{array}\right.\;\;
+								$
+								<span class="fragment">
+									$
+									\Ra\;\;\left\{
+									\begin{array}{l}
+									x_1 = x_3 -x_4 \\
+									x_2 =- 2x_3 + x_4
+									\end{array}\right.
+									$
+								</span>
+							</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment">
+								Set as free variables $x_3 = \alpha$, $x_4 = \beta ,\,$
+								<span class="fragment">
+									then $\, x_1 = \alpha - \beta, \; x_2 =
+									-2\alpha + \beta$:
+								</span>
+
+							</p>
+						</div>
+						<div class="cc">
+							<p class="fragment">
+								$ \mathbf x = \begin{pmatrix}x_1 \\ x_2 \\ x_3 \\ x_4\end{pmatrix} $
+								<span class="fragment">
+									$
+									= \begin{pmatrix}\alpha -\beta \\ -2\alpha + \beta
+									\\ \alpha \\ \beta\end{pmatrix}
+									$
+								</span>
+								<span class="fragment">
+									$
+									= \alpha \begin{pmatrix}1 \\ -2
+									\\ 1 \\ 0\end{pmatrix} + \beta \begin{pmatrix}-1 \\ 1 \\ 0 \\ 1\end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Null Space Subspace Structure</h4>
+					<div class="size-85">
+						<p>
+							Denote $\mathbf v_1 = \begin{pmatrix}1 \\ -2 \\ 1 \\ 0\end{pmatrix}$
+							and
+							$\mathbf v_2 = \begin{pmatrix}-1 \\ 1 \\ 0 \\ 1\end{pmatrix}$
+							<span style="text-align: center;" class="fragment">
+								$\Ra N(A) = \big\{\alpha \mathbf v_1 + \beta \mathbf v_2 \mid \alpha, \beta \in
+								\mathbb{R}\big\} $
+							</span>
+						</p>
+
+
+						<div style="margin-top: 10px;">
+							<p class="fragment">
+								For $\mathbf x, \mathbf y \in N(A)$,
+								<span class="fragment">
+									then $\mathbf x = \alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2$ and $\mathbf y =
+									\alpha_2 \mathbf v_1 + \beta_2 \mathbf v_2$:
+								</span>
+							</p>
+							<p style="text-align: center;" class="fragment">
+								$ \mathbf x+\mathbf y =\alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2 + \alpha_2 \mathbf v_1
+								+ \beta_2 \mathbf v_2$
+								<span class="fragment">
+									$ = \left(\alpha_1+\alpha_2\right)\mathbf v_1 + \left(\beta_1+\beta_2\right)\mathbf
+									v_2 $
+								</span>
+								<span class="fragment">
+									$ \in N(A) $
+								</span>
+							</p>
+						</div>
+
+
+						<p style="text-align: center;" class="fragment">
+							For $k\in \R,\;$ $k\, \mathbf x = k \left(\alpha_1 \mathbf v_1 + \beta_1 \mathbf v_2\right)$
+
+							<span class="fragment">
+								$= \left(k \alpha_1\right) \mathbf v_1 +\left(k \beta_1\right) \mathbf v_2$
+							</span>
+							<span class="fragment">
+								$\in N(A)$
+							</span>
+						</p>
+
+
+						<p class="fragment" style="margin-top: 15px; text-align: center;font-size: 1.2em;" id="bb">
+							Therefore $N(A)$ is a subspace of $\mathbb{R}^4$!
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Solutions via Null Space</h4>
+					<div class="size-90">
+						<p>
+							<b>Theorem:</b> If $\mathbf{x}_p$ is a solution to $A\mathbf x = \mathbf b$,
+							<span class="fragment">
+								then the set of all solutions is
+								$$\big\{\mathbf{x}_p + \mathbf{y} \mid \mathbf{y} \in N(A)\big\}.$$
+							</span>
+						</p>
+
+						<div style="margin-top: 10px;">
+
+							<p class="fragment">
+								<b>Proof:</b>
+								Let $\mathbf{x}_p$ be a solution of $A\mathbf{x} = \mathbf{b}$
+								and let $\mathbf{y} \in N(A)$.
+							</p>
+
+							<p style="text-align: center;">
+								<span class="fragment">
+									$\Ra\,A(\mathbf{x}_p+\mathbf{y})
+									= A\mathbf{x}_p + A\mathbf{y}$
+								</span>
+								<span class="fragment">
+									$= \mathbf{b} + \mathbf{0}$
+								</span>
+								<span class="fragment">
+									$= \mathbf{b}$.
+								</span>
+							</p>
+
+						</div>
+
+
+						<div style="margin-top: 10px;">
+
+							<p class="fragment">
+								For any other solution $\mathbf{z}$ where $A\mathbf{z} = \mathbf{b}$:
+							</p>
+
+							<p style="text-align: center;" class="fragment">
+								$A(\mathbf{z}-\mathbf{x}_p)$
+								<span class="fragment">
+									$= A\mathbf{z} - A\mathbf{x}_p$
+								</span>
+								<span class="fragment">
+									$= \mathbf{b} - \mathbf{b}$
+								</span>
+								<span class="fragment">
+									$= \mathbf{0}$
+								</span>
+								<span class="fragment">
+									$\implies (\mathbf{z}-\mathbf{x}_p) \in N(A)$.
+								</span>
+							</p>
+
+							<p class="fragment">
+								In other words, $\,\mathbf{z}-\mathbf{x}_p = \mathbf{y}$ for some $\mathbf{y}\in N(A)$.
+
+							</p>
+							<p class="fragment">
+								Therefore $\mathbf{z} = \mathbf{x}_p + \mathbf{y}$ for some $\mathbf{y}\in N(A)$.
+								$\blacksquare$
+							</p>
+
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Solving $A\mathbf x =\mathbf b$ with Null Space</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<p class="fragment" data-fragment-index="0">
+							Consider the system $\begin{pmatrix}1 & 1 & 1 & 0\\ 2 & 1 & 0 & 1\end{pmatrix}\mathbf x =
+							\begin{pmatrix}2\\
+							3\end{pmatrix}.$
+						</p>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="1">
+								<b>First find a particular solution:</b> $\mathbf x_p = (1, 1, 0, 0)^T$
+							</p>
+							<p class="fragment" data-fragment-index="2" style="text-align: center;">
+								$\begin{pmatrix}1 & 1 & 1 & 0\\ 2 & 1 & 0 & 1\end{pmatrix}\mathbf x_p =
+								\begin{pmatrix}2\\
+								3\end{pmatrix}$
+							</p>
+						</div>
+
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="3">
+								<b>Full solution:</b> Particular solution
+								<span class="fragment" data-fragment-index="4">
+									+ Null space elements
+								</span>
+							</p>
+							<p style="text-align: center;" class="fragment" data-fragment-index="3">
+								$\mathbf x = \begin{pmatrix}1\\ 1\\ 0\\ 0\end{pmatrix} $
+								<span class="fragment" data-fragment-index="4">
+									$+\, \alpha \begin{pmatrix}1\\ -2\\ 1\\
+									0\end{pmatrix} + \beta \begin{pmatrix}-1\\ 1\\ 0\\ 1\end{pmatrix}, \quad
+									\alpha,\beta \in
+									\mathbb{R} $
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Linear Homogeneous ODEs</h4>
+					<div class="size-85 left-txt">
+						<p style="text-align: center;" class="fragment">A <i>linear homogeneous</i> ODE can be written
+							as $L\left[f\right] = 0.$</p>
+						<p class="fragment">
+							Here $L$ is a map of $f$ that returns a linear combination of $f$ and its derivatives.
+						</p>
+						<p style="text-align: center;" class="fragment">💡 <b>Example:</b> $\;L\left[f\right] = f'' +
+							3f' + 2f = 0$</p>
+						<p class="fragment">
+							Differentiation is a linear transformation, so $L\left[f\right]$ is a <b>linear map</b> of
+							$f.$
+						</p>
+
+						<div class="fragment">
+							<p style="text-align: center;" id="bb">
+								⭐️ Solutions form the <i>null space</i> $N(L)$ of the linear operator $L$ ⭐️
+							</p>
+						</div>
+
+						<p class="fragment">
+							🤔 How do we use this result in practice? (e.g. to solve $f'' + 3f' + 2f= g$)
+						</p>
+
+						<div class="fragment" style="margin-top: 10px;">
+							<p><b>General ODE Solution Strategy:</b></p>
+							<ol style="line-height: 1.7em; margin-top: -20px;" class="fragment">
+								<li>Find a particular solution $f_p$ to $L[f] = g$.</li>
+								<li class="fragment">Find homogeneous solutions $f_h \in N(L)$ (solutions for $L[f]=0$).
+								</li>
+								<li class="fragment">General solution is $f = f_p + f_h$.</li>
+							</ol>
+						</div>
+					</div>
+					<br />
+				</section>
+				
 			</section>
 
+			<section>
 
 
+				<section data-auto-animate>
+					<h4>Bases Revisited</h4>
+					<div class="size-90">
+						<p class="fragment" data-fragment-index="0">A basis allows us to express any vector in our space
+							as a linear combination:</p>
+						<div class="cc" style="font-size: 1.2em; margin-top: 10px;">
+							<p class="fragment" data-fragment-index="0">
+								$ \mathbf v = c_1 \mathbf v_1 + c_2 \mathbf v_2 + \dots + c_n \mathbf v_n $</p>
+						</div>
+
+						<div style="margin-top: 20px;">
+							<p class="fragment" data-fragment-index="1">
+								This provides a general representation for vectors in $\mathbb{R}^n$.
+							</p>
+							<p class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+								<b>Next Goal:</b> Extend these ideas to general vector spaces without knowing a priori
+								how many basis vectors are needed for:
+							</p>
+							<ul>
+								<li class="fragment" data-fragment-index="3">Subspaces of $\mathbb{R}^n$</li>
+								<li class="fragment" data-fragment-index="4">Matrix spaces and function spaces</li>
+							</ul>
+						</div>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Spanning</h4>
+					<div class="size-85" style="margin-top: 20px;">
+						<p class="fragment">
+							<b>Definition:</b> Let $\mathbf v_1, \mathbf v_2, \dots, \mathbf v_n$ be vectors in a vector
+							space $V$.
+							<span class="fragment">
+								The set of all <i>linear combinations</i>
+								$$ \alpha_1 \mathbf v_1 + \alpha_2 \mathbf v_2 + \dots + \alpha_n \mathbf v_n $$
+								is called the <b>span</b> of $\mathbf v_1, \mathbf v_2, \dots, \mathbf v_n,$
+							</span>
+							<span class="fragment">
+								denoted $\text{Span}(\mathbf v_1, \mathbf v_2, \dots,
+								\mathbf v_n)$.
+							</span>
+						</p>
+						<p class="fragment" style="margin-top: 50px;">
+							<b>Definition:</b> The set $\{\mathbf v_1, \mathbf v_2, \dots, \mathbf v_n\}$ of vectors in
+							$V$ is a
+							<b>spanning set</b> for $V$
+							<span class="fragment">
+								if and only if every vector $\mathbf v \in V$ can be written as a linear
+								combination of $\mathbf v_1, \mathbf v_2, \dots, \mathbf v_n$:
+								$$ \mathbf v = \alpha_1 \mathbf v_1 + \alpha_2 \mathbf v_2 + \dots + \alpha_n \mathbf
+								v_n \quad \forall \mathbf v \in V $$
+							</span>
+
+						</p>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>A spanning set of vectors</h4>
+					<div class="cc" style="font-size: 0.7em; margin-top: -10px;margin-bottom: -10px;">
+						<p>
+							$\left\{\mathbf v_1=(-3,1)^{T}, \mathbf v_2=(1,3)^{T}\right\}$
+							<span style="color: rgb(150, 0, 0);" class="fragment">
+								$\rightarrow \,\mathbf v= \alpha_1\mathbf v_1 +\alpha_2\mathbf v_2$
+							</span>
+						</p>
+					</div>
+					<div class="fragment">
+						<iframe style="width: 850px; height: 550px; border: none;" scrolling="no"
+							data-src="sketches/spanning-2d/"></iframe>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Proving Vectors Span a Space - Example 1</h4>
+					<div class="size-80">
+						<p>Do the vectors $\mathbf v_1 = \begin{pmatrix}1\\2\\4\end{pmatrix},$ $\mathbf v_2 =
+							\begin{pmatrix}2\\1\\3\end{pmatrix},$
+							and $\mathbf v_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}$ span $\mathbb{R}^3$?</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p>
+								We check if scalars $\alpha_1, \alpha_2, \alpha_3$ exist such that:
+								$$
+								\alpha_1 \mathbf v_1 + \alpha_2 \mathbf v_2 + \alpha_3 \mathbf v_3 = \mathbf x,
+								\;\, \text{for any} \;\, \mathbf x = \begin{pmatrix}x \\ y \\ z\end{pmatrix} \in
+								\mathbb{R}^3
+								$$
+							</p>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: -20px;">
+							<p>Express this as a matrix system:</p>
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ \begin{pmatrix}1 & 2 & 0 \\ 2 & 1 & 0 \\ 4 & 3 & 1\end{pmatrix}
+								\begin{pmatrix}\alpha_1
+								\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}x \\ y \\ z\end{pmatrix} $
+								<span style="font-size: 1.5em;">
+									$\,\rightarrow \,A \mathbf{\alpha} = \mathbf{x}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Proving Vectors Span a Space - Example 1</h4>
+					<div class="size-85">
+						<div class="cc">
+							<p>
+								$ \begin{pmatrix}1 & 2 & 0 \\ 2 & 1 & 0 \\ 4 & 3 & 1\end{pmatrix}
+								\begin{pmatrix}\alpha_1
+								\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}x \\ y \\ z\end{pmatrix} $
+								<span style="font-size: 1.5em;">
+									$\,\rightarrow \,A \mathbf{\alpha} = \mathbf{x}$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 30px;">
+							<p>
+								$\det(A) $
+								<span class="fragment" data-fragment-index="2">
+									$= 1(1 - 0) - 2(2 - 0) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= -3 \neq 0$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \implies A^{-1}$ exists!
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 20px;">
+							<p class="fragment" data-fragment-index="5">
+								$ \begin{pmatrix}\alpha_1 \\ \alpha_2 \\ \alpha_3\end{pmatrix} = A^{-1}\begin{pmatrix}x
+								\\
+								y \\ z\end{pmatrix} $
+								<span class="fragment" data-fragment-index="6">
+									$= \dfrac{1}{3}\begin{pmatrix}-1 & 2 & 0 \\ 2 & -1 & 0 \\ -2 & -5 &
+									3\end{pmatrix}\begin{pmatrix}x \\ y \\ z\end{pmatrix}$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="7" style="margin-top: 15px;text-align: center;"
+							id="bb">
+							Since unique coefficients $\alpha_i$ exist for any $x, y, z$, the vectors span
+							$\mathbb{R}^3$.
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-background-iframe="sketches/spanning-3d">
+					<div style="margin-top: -400px; font-size: 0.7em " class="r-stack">
+						<p style="background: rgba(250,250,250); padding: 10px 41px 10px 41px;">
+							The set $\,\left\{\color{red}{(1, 2, 4)^T}, \color{darkgreen}{(2, 1, 3)^T},
+							\color{blue}{(0,0,1)^T}\right\}\,$ spans $\,\R^3$</p>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Proving Functions Span a Space - Example 2</h4>
+					<div class="size-80">
+						<p>Do the polynomials $\mathbf v_1 = 1 - x^2$, $\mathbf v_2 = x + 2$, and $\mathbf v_3 = x^2$
+							span $P_3$?</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p>We check if $\alpha_1, \alpha_2, \alpha_3$ exist for any $ax^2 + bx + c$:</p>
+
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="1">
+								$ \alpha_1\left(1-x^2\right) + \alpha_2\left(x+2\right) + \alpha_3 x^2 = ax^2 + bx + c $
+
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Re-arranging $ \rightarrow \,\left(\alpha_3 - \alpha_1\right)\color{red}{x^2} + \alpha_2
+								\color{red}{x} + \left(\alpha_1 + 2\alpha_2\right)(\color{red}{1}) = ax^2 + bx + c
+								\qquad\qquad\qquad$
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+							<p>
+								Matrix representation:
+							</p>
+
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="3">
+								$ \begin{pmatrix}-1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix}
+								\begin{pmatrix}\alpha_1
+								\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} $
+								<span style="font-size: 1.5em;">
+									$\,\rightarrow \,A \mathbf{\alpha} = \mathbf{k}$
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Proving Functions Span a Space - Example 2</h4>
+					<div class="size-85">
+						<div class="cc">
+							<p>
+								$ \begin{pmatrix}-1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix}
+								\begin{pmatrix}\alpha_1
+								\\ \alpha_2 \\ \alpha_3\end{pmatrix} = \begin{pmatrix}a \\ b \\ c\end{pmatrix} $
+								<span style="font-size: 1.5em;">
+									$\,\rightarrow \,A \mathbf{\alpha} = \mathbf{k}$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 30px;">
+							<p>
+								$\det(A) $
+								<span class="fragment" data-fragment-index="2">
+									$=1(0 - 1) $
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$= -1 \neq 0$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \implies A^{-1}$ exists!
+								</span>
+							</p>
+						</div>
+
+
+
+						<div class="fragment" data-fragment-index="5" style="margin-top: 10px;">
+							<p>
+								$$ \begin{pmatrix}\alpha_1 \\ \alpha_2 \\ \alpha_3\end{pmatrix} = A^{-1}\begin{pmatrix}a
+								\\
+								b \\ c\end{pmatrix} = \begin{pmatrix}0 & -2 & 1 \\ 0 & 1 & 0 \\ 1 & -2 &
+								1\end{pmatrix}\begin{pmatrix}a \\ b \\ c\end{pmatrix} $$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="6" style="margin-top: 15px; text-align: center;"
+							id="bb">
+							Since coefficients $\alpha_i$ exist for any $a, b, c,$ these polynomials span $P_3$.
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Bases: Minimal Spanning Sets</h4>
+
+					<div class="size-95 left-txt" style="margin-top: 50px;">
+						<p class="fragment" data-fragment-index="0">
+							<b>Definition (Basis):</b> The vectors $\mathbf v_1, \mathbf v_2, \dots, \mathbf v_n$ in a
+							vector space $V$ form a
+							<b>basis</b> for $V$
+							<span class="fragment" data-fragment-index="1">
+								if and only if:
+							</span>
+						<ol style="margin-top: 10px; line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="1">$\mathbf v_1, \mathbf v_2, \dots, \mathbf
+								v_n\,$ are <b>linearly independent</b>.
+							</li>
+							<li class="fragment" data-fragment-index="2">$\mathbf v_1, \mathbf v_2, \dots, \mathbf
+								v_n\,$ <b>span</b> $\,V$.</li>
+						</ol>
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Basis Example</h4>
+					<div class="size-65 cc">
+						<p>
+							<span style="font-size: 1.3em;">
+								<b>Standard Basis for $\mathbb{R}^3$:</b>
+							</span>
+							$\; \left\{\mathbf e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}, \;\mathbf e_2 =
+							\begin{pmatrix}0\\1\\0\end{pmatrix}, \;\mathbf e_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}
+							\right\}
+							$
+						</p>
+
+						<p class="fragment" data-fragment-index="1" style="margin-top: -10px; font-size: 1.2em;"
+							id="bb">
+							👉 These vectors are linearly independent and span $\mathbb{R}^3$.
+						</p>
+					</div>
+					<div class="r-stack" style="margin-top: -30px;">
+						<img style="width:780px;" class="fragment fade-out" data-fragment-index="1"
+							src="images/lecture-07/std-basis.png">
+						<img style="width:780px;" class="fragment fade" data-fragment-index="1"
+							src="images/lecture-07/span-std-basis.png">
+					</div>
+					<!--
+					https://www.math3d.org/G7WdNtmqPQ
+					-->
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Alternative Bases for $\mathbb{R}^3$</h4>
+					<div class="size-75">
+						<p>Other valid bases for $\mathbb{R}^3$ include:</p>
+
+						<table style="width: 75%; margin-top: -10px;">
+							<tr>
+								<td style="border: none; text-align: center; font-size: 0.8em; padding: 0px;">
+									$\left\{ \begin{pmatrix}1\\0\\0\end{pmatrix},
+									\begin{pmatrix}1\\1\\0\end{pmatrix},
+									\begin{pmatrix}1\\1\\1\end{pmatrix} \right\}$
+								</td>
+								<td style="border: none; text-align: center; font-size: 1.2em; padding: 0px;"
+									class="fragment" data-fragment-index="0">
+									or
+								</td>
+								<td style="border: none; text-align: center; font-size: 0.8em; padding: 0px;"
+									class="fragment" data-fragment-index="0">
+									$ \left\{ \begin{pmatrix}1\\1\\1\end{pmatrix},
+									\begin{pmatrix}1\\0\\1\end{pmatrix},
+									\begin{pmatrix}2\\0\\1\end{pmatrix} \right\}$
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 50%; padding: 0px;">
+									<img style="
+                width: 100%;
+                border: 1px solid #d0d0d0;
+                border-radius: 8px;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            " src="images/lecture-07/basis-01.png">
+								</td>
+								<td class="fragment" data-fragment-index="0"></td>
+								<td style="width: 50%; padding: 10px;" class="fragment" data-fragment-index="0">
+									<img style="
+                width: 100%;
+                border: 1px solid #d0d0d0;
+                border-radius: 8px;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            " src="images/lecture-07/basis-02.png">
+								</td>
+							</tr>
+						</table>
+
+
+					</div>
+					<!--
+					https://www.math3d.org/tURs6r5IDD
+					-->
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Alternative Bases for $\mathbb{R}^3$</h4>
+					<div class="size-75">
+
+						<p>Other valid bases for $\mathbb{R}^3$ include:</p>
+
+						<table style="width: 75%; margin-top: -10px;">
+							<tr>
+								<td style="border: none; text-align: center; font-size: 0.8em; padding: 0px;">
+									$\left\{ \begin{pmatrix}1\\0\\0\end{pmatrix},
+									\begin{pmatrix}1\\1\\0\end{pmatrix},
+									\begin{pmatrix}1\\1\\1\end{pmatrix} \right\}$
+								</td>
+								<td style="border: none; text-align: center; font-size: 1.1em; padding: 0px;">
+									or
+								</td>
+								<td style="border: none; text-align: center; font-size: 0.8em; padding: 0px;">
+									$ \left\{ \begin{pmatrix}1\\1\\1\end{pmatrix},
+									\begin{pmatrix}1\\0\\1\end{pmatrix},
+									\begin{pmatrix}2\\0\\1\end{pmatrix} \right\}$
+								</td>
+							</tr>
+
+						</table>
+
+					</div>
+					<div class="size-80">
+
+
+						<div class="cc" id="bb" style="font-size: 1.2em;">
+							<p>👉 Both sets span $\R^3 $</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="1">
+							<p><b>Remark 1:</b> Only two vectors, e.g., $\left\{ \begin{pmatrix}1\\1\\1\end{pmatrix},
+								\begin{pmatrix}1\\0\\1\end{pmatrix} \right\}$, will <b>not</b> be enough to span
+								$\mathbb{R}^3$.</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							<b>Remark 2:</b> Four vectors in $\mathbb{R}^3$ <b>cannot</b> be linearly independent:
+						</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="2">
+							$ \left\{ \begin{pmatrix}1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\1\\0\end{pmatrix},
+							\begin{pmatrix}0\\0\\1\end{pmatrix}, \begin{pmatrix}1\\0\\1\end{pmatrix} \right\} $
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+
+
+				<section data-auto-animate>
+					<h4>Null Space Basis</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+
+						<p class="fragment" data-fragment-index="1">
+							Recall that the null space $N(A)$ of $A \in \mathbb{R}^{m\times n}$
+							is the set of all solutions to the homogeneous system $A\mathbf x = \mathbf 0.$
+							<span class="fragment" data-fragment-index="2">
+								That is,
+								$$N(A) = \left\{\mathbf x \in \mathbb{R}^n \mid A\mathbf x =\mathbf  0\right\}.$$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="3">Now consider the matrix
+							$\,A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}.$
+						</p>
+
+						<div style="margin-top: 20px;">
+							<p class="fragment" data-fragment-index="4"><b>Null Space Basis for $A$:</b></p>
+							<p style="text-align: center;" class="fragment" data-fragment-index="5">
+								The set $\,\left\{ \begin{pmatrix}1\\-2\\1\\0\end{pmatrix},
+								\begin{pmatrix}-1\\1\\0\\1\end{pmatrix} \right\}\,$
+								<span class="fragment" data-fragment-index="6">
+									forms a basis for $N(A)$.
+								</span>
+							</p>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Standard Bases for Matrices & Polynomials</h4>
+					<div class="size-80" style="margin-top: 50px;">
+						<p class="fragment" data-fragment-index="0"><b>Standard Basis for $2\times 2$ Matrices
+								(i.e. $\mathbb{R}^{2\times 2}$):</b></p>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 5px;">
+							<p>
+								$$ \left\{ E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix}, \;
+								E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix}, \;
+								E_{21}=\begin{pmatrix}0&0\\1&0\end{pmatrix},
+								\; E_{22}=\begin{pmatrix}0&0\\0&1\end{pmatrix} \right\} $$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2" style="margin-top: 80px;"><b>Standard Basis for
+								Polynomial Space $P_n$ is the set</b></p>
+						<div class="fragment" data-fragment-index="3">
+							<p style="margin-top: 5px;font-size: 1.3em; text-align: center;">
+								$ \left\{1, x, x^2, \dots, x^{n-1}\right\} $
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Important Results on Bases</h4>
+					<div class="size-95">
+						<ul style="line-height: 1.8em; margin-left: 0px;">
+							<li class="fragment" data-fragment-index="0">
+								If $\{\mathbf v_1, \dots, \mathbf v_n\}$ spans $V,\,$
+								<span class="fragment" data-fragment-index="1">
+									then any subset
+									of $V$ with more than $n$ vectors is
+									<b>linearly dependent</b>.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								If both $\{\mathbf v_1, \dots, \mathbf v_n\}$ and
+								$\{\mathbf u_1, \dots, \mathbf u_m\}$ are bases for $V,\,$
+								<span class="fragment" data-fragment-index="3">
+									then $n = m.$
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								If $\{\mathbf v_1, \dots, \mathbf v_n\}$ is a basis for $V,\,$
+								<span class="fragment" data-fragment-index="5">
+									each vector $\mathbf v \in V$ is a <b>unique</b>
+									linear combination of $\mathbf v_j$:
+
+								</span>
+								<p class="fragment" data-fragment-index="5"
+									style="text-align: center;margin-top: -20px;">
+									$\ds \mathbf v = \sum_{j=1}^n c_j \mathbf v_j $
+								</p>
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Dimension</h4>
+					<div class="size-90 left-txt" style="margin-top: 10px;">
+						<p class="fragment" data-fragment-index="0">All bases for a vector space contain the exact same
+							number of vectors.</p>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="1">
+								<b>Definition (Dimension of a vector space):</b> The <b>dimension</b> of a vector space
+								$V$ is the number
+								of non-zero vectors in any of its bases.
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="2" style="margin-top: 15px; text-align: center;">
+							<b>Examples</b>
+						</p>
+
+						<ul style="line-height: 1.8em;">
+							<li class="fragment" data-fragment-index="3">
+								<b>Euclidean space $\R^3$:</b> <br />
+								<span class="fragment" data-fragment-index="4">
+									$\dim\left(\mathbb{R}^3\right) = 3$, since its standard basis has 3 elements.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="5" style="margin-bottom: 15px;">
+								<b>Matrix Space $\mathbb{R}^{2\times 2}$:</b>
+								<span class="fragment" data-fragment-index="6">
+									<br />Basis has 4 elements $\implies \dim\left(\mathbb{R}^{2\times 2}\right) = 4$.
+								</span>
+							</li>
+						</ul>
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="3"
+								style="font-size: 0.6em; margin-top: -10px; text-align: center;">
+								<span style="font-size: 1.8em;">👉
+									$\,
+									\left\{ \mathbf e_1=(1,0,0)^T, \mathbf e_2=(0,1,0)^T,\mathbf e_3=(0,0,1)^T \right\}
+									$</span>
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="4"
+								style="font-size: 0.6em; margin-top: -10px; text-align: center;">
+								<span style="font-size: 1.8em;">👉
+									$\,
+									\left\{ \mathbf e_1=(1,0,0)^T, \mathbf e_2=(0,1,0)^T,\mathbf e_3=(0,0,1)^T \right\}
+									$
+								</span>
+							</p>
+							<p class="fragment fade-in" data-fragment-index="5"
+								style="font-size: 0.7em; margin-top: -10px; text-align: center;">
+								<span style="font-size: 1.8em;">👉</span> $\,\; \left\{
+								E_{11}=\begin{pmatrix}1&0\\0&0\end{pmatrix}, \;
+								E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix}, \;
+								E_{21}=\begin{pmatrix}0&0\\1&0\end{pmatrix},
+								\; E_{22}=\begin{pmatrix}0&0\\0&1\end{pmatrix} \right\} $
+							</p>
+						</div>
+					</div>
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>More Examples about dimension</h4>
+					<div class="size-90 left-txt" style="margin-top: -20px;">
+						<ul style="line-height: 1.8em;">
+							<li>
+								<b>Euclidean space $\R^3$:</b> <br />
+								<span>
+									$\dim\left(\mathbb{R}^3\right) = 3$, since its standard basis has 3 elements.
+								</span>
+							</li>
+							<li style="margin-bottom: 15px;">
+								<b>Matrix Space $\mathbb{R}^{2\times 2}$:</b>
+								<span>
+									<br />Basis has 4 elements $\implies \dim\left(\mathbb{R}^{2\times 2}\right) = 4$.
+								</span>
+							</li>
+							<li style="margin-bottom: 15px;">
+								<b>Polynomial Space $P_4$ (degree $\lt 4$):</b>
+
+								<span class="fragment" data-fragment-index="1">
+									<br />Basis is $\{1, x, x^2, x^3\} \implies \dim\left(P_4\right) = 4$.
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<b>Continuous Function Space $C[0,1]$:</b>
+								<span class="fragment" data-fragment-index="3">
+									<br />Basis contains infinitely many polynomial terms $\{1, x, x^2, \dots\}$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$ \Ra \dim\left(C[0,1]\right)=\infty$
+								</span>
+
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Changing Bases Outside Point Spaces</h4>
+					<div class="size-85">
+						<p class="fragment" data-fragment-index="0">
+							Write $x^2 + 2$ in terms of the basis $\left\{1-x^2, \; x+2, \; x^2\right\}$:
+						</p>
+
+						<div class="cc" style="margin-top: 8px;">
+							<p class="fragment" data-fragment-index="1">
+								$ c_1(1-x^2) + c_2(x+2) + c_3(x^2) = x^2 + 2 $
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								Re-arranging: $\; (c_3 - c_1)x^2 + c_2 x + (c_1 + 2c_2) = x^2 + 2 \qquad \qquad \quad$
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 8px;">
+							<p class="fragment" data-fragment-index="3">
+								$ \begin{pmatrix}-1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix} \begin{pmatrix}c_1 \\
+								c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix} $
+								<span class="fragment" data-fragment-index="4">
+									$\;\Ra \;\begin{pmatrix}c_1 \\ c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}-1 & 0 & 1
+									\\ 0 & 1 & 0 \\ 1 & 2 & 0\end{pmatrix}^{-1} \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix}$
+								</span>
+							</p>
+						</div>
+
+						<div class="cc" style="margin-top: 8px;">
+							<p class="fragment" data-fragment-index="5">
+								Thus $\; \begin{pmatrix}c_1 \\ c_2 \\ c_3\end{pmatrix} = \begin{pmatrix}0 & -2 & 1 \\ 0
+								& 1 & 0 \\
+								1 & -2 & 1\end{pmatrix} \begin{pmatrix}1 \\ 0 \\ 2\end{pmatrix} = \begin{pmatrix}2 \\ 0
+								\\
+								3\end{pmatrix} $
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="6" style="margin-top: 30px; text-align: center;"
+							id="gg">
+							<b>Check:</b> $2\left(1-x^2\right) + 3\left(x^2\right) $
+							<span class="fragment" data-fragment-index="7">
+								$= 2 - 2x^2 + 3x^2 $
+							</span>
+							<span class="fragment" data-fragment-index="8">
+								$= x^2 + 2 \; $ ✅
+							</span>
+						</p>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<section>
+
+
+				<section data-auto-animate>
+					<h4>Column and Row Spaces</h4>
+					<div class="size-85">
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="0" style="font-size: 1.1em;">
+								Returning to the matrix system
+							</p>
+							<p class="fragment" data-fragment-index="0" style="font-size: 1.4em;margin-top: -10px;">
+								$A \mathbf x = \mathbf b$
+							</p>
+							<p class="fragment" data-fragment-index="1" style="text-align: center;margin-top: 10px;">
+								where $\;A\in \R^{m\times n}, \,\mathbf x\in \R^n,\,$ and $\,\mathbf b\in \R^m $
+							</p>
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 35px;">
+							<p>
+								<b>Definition:</b> The <b>column space</b> of a matrix $A \in
+								\mathbb{R}^{m \times n}$ is the subspace of $\mathbb{R}^m$ spanned by the columns of
+								$A.$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="4" id="bb"
+							style="font-size: 0.85em;  text-align: center;">
+							👉 $\text{Column Space of } A = \{\mathbf y \in \R^m : \mathbf y = A\mathbf x \,\text{ for
+							some }\,
+							\mathbf x\in \R^n\}$
+						</p>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top: 45px;">
+							<p>
+								<b>Definition:</b> The <b>row space</b> of a matrix $A \in \mathbb{R}^{m
+								\times n}$ is the subspace of $\mathbb{R}^n$ spanned by the rows of $A$.
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="5" id="gg"
+							style="font-size:0.85em; text-align: center;">
+							👉 $\text{Row Space of } A = \{\vec{\mathbf y}\in\R^n :\vec{\mathbf y} =
+							\vec{\mathbf x}\,A \,\text{ for some }\,
+							\vec{\mathbf x}\in \R^m\}$
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Column & Row Spaces: Examples</h4>
+					<div class="size-85">
+						<p>Consider matrix $A = \begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1\end{pmatrix}$:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							<p><b>Column Space:</b> Set of all linear combinations of columns</p>
+
+
+						</div>
+						<div class="cc">
+							<p class="fragment" data-fragment-index="2">
+								$ \alpha_1 \begin{pmatrix}1\\0\end{pmatrix} + \alpha_2 \begin{pmatrix}0\\1\end{pmatrix}
+								+
+								\alpha_3 \begin{pmatrix}1\\1\end{pmatrix} $
+								<span class="fragment" data-fragment-index="3">
+									$
+									= \begin{pmatrix}\alpha_1 + \alpha_3 \\
+									\alpha_2 +
+									\alpha_3\end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									\large =A \mathbf x
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="4" id="bb"
+							style="font-size: 1.1em;  text-align: center;">
+							👉 $\text{Column Space of } A = \{\mathbf y \in\R^2: \mathbf y = A\mathbf x \,\text{ for
+							some }\,
+							\mathbf x\in \R^3\}$
+						</p>
+
+						<div class="fragment" data-fragment-index="5" style="margin-top: 15px;">
+							<p><b>Row Space:</b> Set of all linear combinations of rows</p>
+
+
+						</div>
+
+						<div class="cc">
+							<p class="fragment" data-fragment-index="6">
+								$ \alpha_1 \begin{pmatrix}1 & 0 & 1\end{pmatrix} + \alpha_2 \begin{pmatrix}0 & 1 &
+								1\end{pmatrix} $
+								<span class="fragment" data-fragment-index="7">
+									$
+									= \begin{pmatrix}\alpha_1 & \alpha_2 & \alpha_1 + \alpha_2\end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="8">
+									$
+									\large = \vec{\mathbf x}A
+									$
+								</span>
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="8" id="gg"
+							style="font-size:1.1em; text-align: center;">
+							👉 $\text{Row Space of } A = \{\vec{\mathbf y}\in \R^3 :\vec{\mathbf y} =
+							\vec{\mathbf x}\,A \,\text{ for some }\,
+							\vec{\mathbf x}\in \R^2\}$
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Consistency & Invertibility Results</h4>
+					<div class="size-95">
+						<ul style="line-height: 1.8em; margin-left: 0px;">
+							<li class="fragment" data-fragment-index="3">
+								A linear system $A \mathbf x = \mathbf b$ is consistent for
+								<i>all</i> $\mathbf b \in \mathbb{R}^m$
+								<span class="fragment" data-fragment-index="4">
+									if and only if the column space of $A$ is
+									$\mathbb{R}^m$.
+								</span>
+							</li>
+
+							<li class="fragment" data-fragment-index="5">
+								An $n \times n$ matrix $A$ is <b>invertible</b>
+								<span class="fragment" data-fragment-index="6">
+									if and only if its column vectors form a
+									<b>basis</b> for $\mathbb{R}^n$.
+									<br />
+								</span>
+								<span class="fragment" data-fragment-index="7" style="font-size: 0.9em;" id="bb">
+									Invertible $\iff$ $A\mathbf x=\mathbf b$ has a unique solution
+									for every $\mathbf b\in\mathbb{R}^n$.
+									<br />
+								</span>
+								<span class="fragment" data-fragment-index="8" style="font-size: 0.9em;" id="bb">
+									$\iff$ columns of $A$ span $\mathbb{R}^n$ and are linearly independent.
+								</span>
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Rank and Nullity</h4>
+					<div class="size-90 left-txt">
+
+						<p style="text-align: center;">Let $A\in \R^{m\times n}.$</p>
+
+						<p class="fragment" data-fragment-index="0">
+							<b>Rank of $A$:</b>
+						</p>
+						<ul style="margin-left: 0px; line-height: 1.6em;">
+							<li class="fragment" data-fragment-index="1">
+								Is the dimension of its row space.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Is, equivalently, the dimension of its column space.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Equals the number of non-zero rows in its reduced row echelon form.
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								Equals the number of lead variables in its reduced row echelon form.
+							</li>
+						</ul>
+
+						<p class="fragment" data-fragment-index="5">
+							<b>Nullity of $A$:</b>
+						</p>
+						<ul style="margin-left: 0px; line-height: 1.6em;">
+							<li class="fragment" data-fragment-index="6">
+								Is the dimension of its null space.
+							</li>
+							<li class="fragment" data-fragment-index="7">
+								Equals the number of free variables in its reduced row echelon form.
+							</li>
+						</ul>
+
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Rank, Nullity & The Rank-Nullity Theorem</h4>
+					<div class="size-95">
+
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							<p>
+								<b>Theorem (Rank-Nullity Theorem):</b> If $A$ is an $m \times n$ matrix, then:
+								\[
+								\text{the rank of }A
+								+
+								\text{ the nullity of }A
+								= n
+								\]
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="3">
+							<b>Proof:</b>
+							The number of columns in the row-reduced matrix is $n.$ <br />
+							<span class="fragment" data-fragment-index="4">
+								They are either lead variables (<span id="rr">rank</span>)
+
+							</span>
+							<span class="fragment" data-fragment-index="5">
+								or free variables (<span id="bb">nullity</span>).
+							</span>
+						</p>
+
+						<p style="text-align: center;" class="fragment" data-fragment-index="3">
+							\(\underbrace{n}_{\text{total variables}}\)
+							<span class="fragment" data-fragment-index="5">
+								\(=\)
+							</span>
+							<span class="fragment" data-fragment-index="4" id="rr">
+								\(
+								\underbrace{\operatorname{rank}(A)}_{\text{lead variables}}
+								\)
+							</span>
+							<span class="fragment" data-fragment-index="5" id="bb">
+								\(
+								+\,\,
+								\underbrace{\operatorname{nullity}(A)}_{\text{free variables}}
+								\)
+							</span>
+
+
+
+						</p>
+
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Finding Spaces in Practice Problems</h4>
+					<div style="margin-top: 50px;">
+						<p>
+							<b>1.</b>
+							For matrix $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}$,
+							find the row space, column space, and null space.
+
+						</p>
+
+						<p style="margin-top: 50px;">
+							<b>2.</b>
+							For matrix $A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$,
+							find the row space, column space, and null space.
+
+						</p>
+					</div>
+					<br />
+					<br />
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Finding Spaces in Practice: Solution to Problem 1</h4>
+					<div class="size-70 left-txt">
+						<p style="text-align: center; font-size: 0.9em;">
+							For matrix $A = \begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}$,
+							find the row space, column space, and null space.
+						</p>
+
+						<ol style="line-height: 1.9em; margin-left: 0px;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Row Reduce:</b>
+								$\begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}
+								\rightarrow \dots \rightarrow \begin{pmatrix}1 & 0 & -1 & 1 \\ 0 & 1 & 2 &
+								-1\end{pmatrix}$
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								<b>Column Space Basis:</b> Lead variable columns from RREF
+								<p style="text-align: center; margin-top:2px;" class="fragment" data-fragment-index="1">
+									$
+									\left\{ \begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix}
+									\right\}
+									$
+									<span class="fragment" data-fragment-index="5">
+										$
+										\Ra \dim = 2 \quad (\text{rank} = 2)
+										$
+									</span>
+								</p>
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<b>Row Space Basis:</b> Non-zero rows from RREF
+								<p style="text-align: center; margin-top: 2px;" class="fragment" data-fragment-index="2">
+									$
+									\left\{ \begin{pmatrix}1 & 0 & -1 & 1\end{pmatrix}, \begin{pmatrix}0 & 1 & 2 &
+									-1\end{pmatrix} \right\}
+									$
+									<span class="fragment" data-fragment-index="6">
+										$\Ra \dim = 2$
+									</span>
+								</p>
+
+
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<span>
+									<b>Null Space Basis:</b> $\left\{ \begin{pmatrix}1\\-2\\1\\0\end{pmatrix},
+									\begin{pmatrix}-1\\1\\0\\1\end{pmatrix} \right\}$
+								</span>
+
+								<span class="fragment" data-fragment-index="7">
+									$
+									\Ra \text{nullity} = 2\quad
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4" style="border: 2px solid black; padding: 20px 20px 20px 20px;">
+									<span style="font-size: 1.2em;">
+										$\operatorname{rank}(A)+ \operatorname{nullity}(A) $
+									</span>
+									<span class="fragment" data-fragment-index="8" style="font-size: 1.2em;">
+										$=4 $
+									</span>
+								</span>
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>📝 Finding Spaces in Practice: Solution to Problem 2</h4>
+
+					<div>
+						<p style="text-align: center; font-size: 0.6em;margin-top: -18px;">
+							For matrix 
+							<span style="font-size: 0.8em;">
+								$A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$,
+							</span>
+							find the row space, column space, and null space.
+						</p>
+					</div>
+					<div class="size-75 left-txt" style="margin-top: -10px;">
+
+						<ol style="line-height: 1.9em; margin-left: 0px;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Row Reduce:</b>
+								<span style="font-size: 0.9em;">
+									$\begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}
+									\rightarrow \dots \rightarrow
+									\begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 0\end{pmatrix}$
+								</span>
+							</li>
+
+							<li class="fragment" data-fragment-index="1">
+								<b>Column Space Basis:</b> Lead variable columns from RREF
+								<p style="text-align: center; font-size: 0.9em;margin-top: -5px;" class="fragment"
+									data-fragment-index="1">
+									$
+									\left\{
+									\begin{pmatrix}1\\0\\0\end{pmatrix},
+									\begin{pmatrix}0\\1\\0\end{pmatrix}
+									\right\}
+									$
+									<span class="fragment" data-fragment-index="5">
+										$
+										\Ra \dim = 2 \quad (\text{rank} = 2)
+										$
+									</span>
+								</p>
+							</li>
+
+							<li class="fragment" data-fragment-index="2">
+								<b>Row Space Basis:</b> Non-zero rows from RREF
+								<p style="text-align: center;margin-top: -5px;" class="fragment"
+									data-fragment-index="2">
+									$
+									\left\{
+									\begin{pmatrix}1 & 0 & 1\end{pmatrix},
+									\begin{pmatrix}0 & 1 & 1\end{pmatrix}
+									\right\}
+									$
+									<span class="fragment" data-fragment-index="6">
+										$\Ra \dim = 2$
+									</span>
+								</p>
+							</li>
+
+							<li class="fragment" data-fragment-index="3">
+								<span>
+									<b>Null Space Basis:</b>
+									$\left\{
+									\begin{pmatrix}-1\\-1\\1\end{pmatrix}
+									\right\}$
+								</span>
+								<span class="fragment" data-fragment-index="7">
+									$
+									\Ra \text{nullity} = 1\quad
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4" style="border: 2px solid black; padding: 20px 20px 20px 20px;">
+									<span style="font-size: 1.2em;">
+										$\operatorname{rank}(A)+\operatorname{nullity}(A)$
+									</span>
+									<span class="fragment" data-fragment-index="8" style="font-size: 1.2em;">
+										$=3 $
+									</span>
+								</span>
+
+							</li>
+						</ol>
+					</div>
+					<br />
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Solvability of $A\mathbf x =\mathbf b$: Example 1</h4>
+					<div class="size-85 left-txt">
+						<p>Does $A\mathbf x = \mathbf b$ always have a solution for $A = \begin{pmatrix}1 & 1 & 1 & 0 \\
+							2 & 1 & 0
+							&
+							1\end{pmatrix}$?</p>
+
+						<ol style="line-height: 1.7em;">
+							<li class="fragment" data-fragment-index="0">Rank $= 2$ and Nullity $= 2$.</li>
+							<li class="fragment" data-fragment-index="1">
+								$\text{Rank } 2 \implies \dim(\text{Column
+								Space}) = 2$.</li>
+							<li class="fragment" data-fragment-index="2">
+								Column space is in $\mathbb{R}^2$. Since its dimension is 2, it spans all of
+								$\mathbb{R}^2$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<b>Conclusion:</b> Any $\mathbf b \in \mathbb{R}^2$ can be reached, so $A \mathbf x = \mathbf b$
+								<b>always</b>
+								has a solution.
+							</li>
+
+						</ol>
+						<p style="text-align: center;" class="fragment" data-fragment-index="4">
+							👉 Since nullity $= 2$, there is a 2-dimensional family of solutions for each $\mathbf b$.
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Solvability of $A\mathbf x =\mathbf b$: Example 2</h4>
+					<div class="size-85" style="font-size: 0.8em;">
+						<p>Does $A\mathbf x = \mathbf b$ always have a solution for $A = \begin{pmatrix}1 & 2 & 3 \\ 2 &
+							-1 & 1 \\
+							0 &
+							1 & 1\end{pmatrix}$?</p>
+
+						<ol style="line-height: 1.7em;">
+							<li class="fragment" data-fragment-index="0">Rank $= 2$ and Nullity $= 1$.</li>
+							<li class="fragment" data-fragment-index="1">$\text{Rank } 2 \implies \dim(\text{Column
+								Space}) = 2$.</li>
+							<li class="fragment" data-fragment-index="2">
+								Column space lives in $\mathbb{R}^3$. Because $\dim = 2$, it forms a 2D plane
+								subspace
+								and does <b>not</b> fill $\mathbb{R}^3$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<b>Conclusion:</b> Not every $\mathbf b \in \mathbb{R}^3$ can be reached
+								<span class="fragment" data-fragment-index="4">
+									$\implies A \mathbf x = \mathbf b$
+									does
+									<b>not</b> always have a solution.
+								</span>
+							</li>
+
+						</ol>
+
+						<p class="fragment" data-fragment-index="5">
+							👉 When a solution exists, nullity $= 1$ yields a 1-dimensional family of solutions.
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+
+			</section>
+
+			<section data-auto-animate>
+				<h4>Summary of Vector Spaces</h4>
+				<div class="size-95">
+
+
+					<div>
+						<ul style="width: 70%; line-height: 1.5em;">
+							<li class="fragment" data-fragment-index="0">Vector Spaces & Subspaces</li>
+							<li class="fragment" data-fragment-index="1">Null Space</li>
+							<li class="fragment" data-fragment-index="2">Span and Spanning Sets</li>
+							<li class="fragment" data-fragment-index="3">Bases as Minimal Spanning Sets</li>
+
+							<li class="fragment" data-fragment-index="4">Dimension</li>
+							<li class="fragment" data-fragment-index="5">Column Space & Row Space</li>
+							<li class="fragment" data-fragment-index="6">Rank, Nullity & Rank-Nullity Theorem</li>
+						</ul>
+					</div>
+				</div>
+				<br />
+			</section>
 
 			<!-- Ends sections -->
 
