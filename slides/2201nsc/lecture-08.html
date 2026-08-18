@@ -1718,9 +1718,9 @@ P =
 					<br />
 				</section>
 
-				<!-- Slide 4 (PDF p.20): QR Factorisation in MATLAB/Octave -->
+
 				<section data-auto-animate>
-					<h4>Calculating QR in MATLAB / Octave</h4>
+					<h4>Calculating QR in Octave/MATLAB</h4>
 					<div class="size-85">
 						<p style="text-align: center;">Command: <code>[Q, U] = qr(A)</code></p>
 
@@ -1765,11 +1765,175 @@ U =
 							</tr>
 						</table>
 
+						<p style="text-align: center; font-size: 1.2em;" id="bb">
+							👉 This works for square matrices $A\in \R^{n\times n}$
+						</p>
 
 
 
 					</div>
 					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>From Full QR to Thin QR</h4>
+
+					<div class="size-95">
+
+						<p>
+							Let $A\in\mathbb{R}^{m\times n}$ with $m>n$.
+						</p>
+
+						<div class="cc" style="font-size: 1.2em;">
+							<p class="fragment">
+								$
+								A = QR
+								$
+								<span class="fragment">
+									$=
+									\begin{bmatrix}
+									Q_{mn} & Q_{\mathrm{rest}}
+									\end{bmatrix}
+									\begin{bmatrix}
+									R_n\\
+									0
+									\end{bmatrix}.$
+								</span>
+
+							</p>
+
+						</div>
+
+						<div class="cc" style="font-size: 1.2em;">
+							<p class="fragment">
+								$
+								\underbrace{Q_{mn}}_{m\times n}
+								\qquad
+
+								$
+								<span class="fragment">
+									$\underbrace{Q_{\mathrm{rest}}}_{m\times(m-n)}
+									\qquad\qquad
+									$
+								</span>
+								<span class="fragment">
+									$
+									\underbrace{R_n}_{n\times n}
+									\qquad
+									$
+								</span>
+								<span class="fragment">
+									$
+									\underbrace{0}_{(m-n)\times n}$
+								</span>
+
+							</p>
+
+						</div>
+
+
+
+						<div class="cc" id="bb" style="margin-top: 70px;">
+							<span class="fragment">
+								👉 The blocks $Q_{\mathrm{rest}}$ and $0$ do not contribute to
+								the product.
+							</span>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>The Reduced/Thin QR Factorisation</h4>
+
+					<div class="size-85">
+
+						<p>
+							We can remove the redundant parts:
+						</p>
+
+						<div class="fragment">
+							\[
+							\Large A = Q_{mn} R_n
+							\]
+						</div>
+
+						<div class="fragment">
+							\[
+							\large Q_{mn}\in\mathbb{R}^{m\times n},
+							\qquad
+							R_n\in\mathbb{R}^{n\times n}.
+							\]
+						</div>
+
+						<div class="fragment" style="font-size: 1.1em;">
+							\[
+							Q_{nm}^{\mathsf T}Q_{mn}=I_n,
+							\qquad
+							R_n\text{ is upper triangular}.
+							\]
+						</div>
+
+						<div class="fragment">
+
+							<p>
+								This is the <b>Reduced QR factorisation</b> of $A$ (also know as <b>Thin QR
+									factorisation</b>).
+							</p>
+
+							<div style="margin-top: -25px;">
+								\[A=
+								\underbrace{
+								\begin{bmatrix}
+								\vert & & \vert\\
+								\mathbf q_1 & \cdots & \mathbf q_n\\
+								\vert & & \vert
+								\end{bmatrix}
+								}_{m\times n}
+								\quad
+								\underbrace{
+								\begin{bmatrix}
+								r_{11} & \cdots & r_{1n}\\
+								0 & \ddots & \vdots\\
+								\vdots & \ddots & r_{nn}
+								\end{bmatrix}
+								}_{n\times n}
+								\]
+							</div>
+
+						</div>
+
+
+					</div>
+				</section>
+
+				<section>
+					<h4>Calculating Reduced/Thin QR in Octave/MATLAB</h4>
+					<div class="size-85">
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: -5px;">
+							<pre
+								style="width: 80%;font-size: 0.9em;"><code class="language-matlab">>> A = [ 3 3 3 ; 2 1 2 ; -1 -1 1 ; 2 -3 1 ]</code></pre>
+						</div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: -8px;">
+							<pre
+								style="width: 80%;font-size: 0.9em;"><code class="language-matlab">>> [Q, R] = qr(A, 0) % Reduced QR/Thin QR</code></pre>
+						</div>
+						<div class="fragment" data-fragment-index="2" style="margin-top: -5px;">
+							<pre style="width: 60%;font-size: 0.85em; height:400px"><code class="language-matlab">Q =
+  -0.707107   0.471405  -0.208758
+  -0.471405   0.078567  -0.205595
+   0.235702  -0.157135  -0.955228
+  -0.471405  -0.864242   0.041119
+
+R =
+  -4.2426  -1.4142  -3.2998
+        0   4.2426   0.5500
+        0        0  -1.9516</code></pre>
+						</div>
+					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
@@ -1931,7 +2095,7 @@ U =
 				</section>
 
 				<section data-auto-animate>
-					<h4>QR factorisation with Octave/MATLAB</h4>
+					<h4>Reduced/Thin QR factorisation with Octave/MATLAB</h4>
 
 					<div class="size-75">
 
@@ -1942,16 +2106,16 @@ U =
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: -10px;">
+						<div class="fragment" data-fragment-index="0" style="margin-top: -15px;">
 							<pre
-								style="width: 100%;font-size: 0.84em;"><code class="language-matlab">>> X = [1 1; 2 1; 3 1; 4 1; 5 1; 6 1; 7 1; 8 1; 9 1;10 1];</code></pre>
+								style="width: 90%;font-size: 0.98em;"><code class="language-matlab">>> X = [1 1; 2 1; 3 1; 4 1; 5 1; 6 1; 7 1; 8 1; 9 1;10 1];</code></pre>
 						</div>
 						<div class="fragment" data-fragment-index="1" style="margin-top: -8px;">
 							<pre
-								style="width: 100%;font-size: 0.84em;"><code class="language-matlab">>> [Q, U] = qr(X, 0) % Reduced QR: Q contains the orthonormalised columns of X</code></pre>
+								style="width: 90%;font-size: 0.98em;"><code class="language-matlab">>> [Q, U] = qr(X, 0) % Reduced/Thin QR</code></pre>
 						</div>
 						<div class="fragment" data-fragment-index="2" style="margin-top: -5px;">
-							<pre style="width: 40%;font-size: 0.85em; height:500px"><code class="language-matlab">Q =
+							<pre style="width: 40%;font-size: 0.87em; height:520px"><code class="language-matlab">Q =
   -5.0965e-02  -5.8554e-01
   -1.0193e-01  -4.8795e-01
   -1.5289e-01  -3.9036e-01
@@ -2256,7 +2420,7 @@ U =
 					<h4>Summary of QR Factorisation</h4>
 					<div class="size-90">
 						<p class="fragment" data-fragment-index="0">
-							<b>Theorem:</b> Any matrix $A$ can be factorised as $A = QU$ (or $A = QR$), 
+							<b>Theorem:</b> Any matrix $A$ can be factorised as $A = QU$ (or $A = QR$),
 							where $Q$ is
 							<i>orthogonal</i> and $U$ is <i>upper-triangular</i>.
 						</p>
@@ -2264,10 +2428,14 @@ U =
 						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
 							<p><b>Key Properties & Advantages:</b></p>
 							<ul style="line-height: 1.7em;">
-								<li class="fragment" data-fragment-index="1">Directly related to the column space of $A$.</li>
-								<li class="fragment" data-fragment-index="2">Provides an explicit orthonormal basis for the column space.</li>
-								<li class="fragment" data-fragment-index="3">Highly advantageous for regression and least-squares problems.</li>
-								<li class="fragment" data-fragment-index="4">Offers superior numerical stability compared to standard LU decomposition.</li>
+								<li class="fragment" data-fragment-index="1">Directly related to the column space of
+									$A$.</li>
+								<li class="fragment" data-fragment-index="2">Provides an explicit orthonormal basis for
+									the column space.</li>
+								<li class="fragment" data-fragment-index="3">Highly advantageous for regression and
+									least-squares problems.</li>
+								<li class="fragment" data-fragment-index="4">Offers superior numerical stability
+									compared to standard LU decomposition.</li>
 							</ul>
 						</div>
 					</div>
