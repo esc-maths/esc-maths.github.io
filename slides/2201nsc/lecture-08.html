@@ -1237,17 +1237,26 @@ P =
 
 				<section data-auto-animate>
 					<h4>QR Factorisation: Column Space View</h4>
-					<div class="size-85">
-						<p class="fragment" data-fragment-index="0">In $A \mathbf x = \mathbf b$, the system represents
-							a linear combination of columns:</p>
-						<p style="text-align: center;" class="fragment" data-fragment-index="1">
-							$
-							\ds A \mathbf x
-							$
-							<span class="fragment" data-fragment-index="2">
-								$\ds
-								=
-								\left(
+					<div class="size-90">
+						<div class="r-stack">
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								Consider the system of linear equations:
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								The system $A\mathbf x = \mathbf b$ can be written in matrix form on the left side:
+							</p>
+							<p class="fragment fade-in" data-fragment-index="3">
+								The system $A\mathbf x = \mathbf b$ represents a linear combination of columns:
+							</p>
+						</div>
+
+						<div class="r-stack">
+
+							<p class="fragment fade-in-then-out" data-fragment-index="1" style="font-size: 2em;">
+								$ A \mathbf x = \mathbf b$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="2">
+								$\ds \left(
 								\begin{array}{cccc}
 								| & | & & | \\
 								\mathbf a_1 & \mathbf a_2& \cdots &\mathbf a_n \\
@@ -1261,24 +1270,15 @@ P =
 								\vdots \\
 								x_n \\
 								\end{array}
-								\right)
-								$
-							</span>
-							<span class="fragment">
-								$
-								\ds
-								=
-								x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf a_n
-								$
-							</span>
-							<span class="fragment">
-								$
-								\ds = \mathbf b
-								$
-							</span>
-						</p>
+								\right)= \mathbf b$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="3" style="font-size: 1.5em;">
+								$x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf a_n = \mathbf b$
+							</p>
 
-						<div class="fragment" style="margin-top: 15px;">
+						</div>
+
+						<div class="fragment" style="margin-top: -45px;">
 							<p><b>Solvability conditions:</b></p>
 							<ul style="line-height: 1.6em;">
 								<li class="fragment">If $\mathbf b \notin \text{Col}(A)
@@ -1296,9 +1296,12 @@ P =
 				<section data-auto-animate>
 					<h4>Benefits of Orthogonal Bases</h4>
 					<div class="size-85">
-						<p style="text-align: center;font-size: 1.2em;">
-							👉 $\;x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf a_n = \mathbf b\;\;$
-						</p>
+						<div class="r-stack">
+							<p style="font-size: 1.5em;">
+								$x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf a_n = \mathbf b$
+							</p>
+
+						</div>
 						<p class="fragment" data-fragment-index="1">If column vectors $\mathbf a_i$ are
 							<b>orthonormal</b> ($\mathbf a_i \pd \mathbf a_j =
 							\delta_{ij}$), finding
@@ -1452,7 +1455,7 @@ P =
 				<section data-auto-animate>
 					<h4>Gram-Schmidt: Preserving the Span</h4>
 
-					<div style="font-size: 0.75em; text-align: left;">
+					<div style="font-size: 0.78em; text-align: left;">
 
 						<p>
 							At each step, $\mathbf v_m$ is constructed from
@@ -1484,7 +1487,7 @@ P =
 									$
 								</span>
 								<p class="fragment" data-fragment-index="5">
-									$\Longrightarrow
+									$\quad \Ra
 									\mathbf v_2\in
 									\operatorname{span}\{\mathbf a_1,\mathbf a_2\}$
 								</p>
@@ -1502,7 +1505,7 @@ P =
 									for some $\,c_1,c_2\in\mathbb R$
 								</span>
 								<p class="fragment" data-fragment-index="8">
-									$\Longrightarrow
+									$\quad\Ra
 									\mathbf v_3\in
 									\operatorname{span}\{\mathbf a_1,\mathbf a_2,\mathbf a_3\}$
 								</p>
@@ -1522,8 +1525,8 @@ P =
 							</span>
 						</p>
 
-						<div style="margin-top: 15px;">
-							<p class="fragment" data-fragment-index="11" style="text-align: center;">
+						<div class="r-stack" style="margin-top: -20px;">
+							<p class="fragment fade-in-then-out" data-fragment-index="11">
 								$
 
 								\operatorname{span}
@@ -1534,12 +1537,7 @@ P =
 
 								$
 							</p>
-
-							<p class="fragment" data-fragment-index="12" style="text-align: center;">
-								Normalising does not change the span:
-
-							</p>
-							<p class="fragment" data-fragment-index="12" style="text-align: center;">
+							<p class="fragment fade-in" data-fragment-index="12">
 								$
 								\boxed{
 								\operatorname{span}
@@ -1550,8 +1548,11 @@ P =
 								}
 								$
 							</p>
-
 						</div>
+						<p class="fragment" data-fragment-index="12" style="text-align: center;" id="bb">
+							Normalising does not change the span!
+
+						</p>
 					</div>
 
 					<br />
@@ -1561,22 +1562,29 @@ P =
 
 				<section data-auto-animate>
 					<h4>QR Factorisation: Basis Construction</h4>
-					<div style="font-size: 0.78em;">
+					<div style="font-size: 0.75em;">
 
-						<p style="text-align: center;">
-							$
-							\boxed{
-							\operatorname{span}
-							\{\hat{\mathbf v}_1,\ldots,\hat{\mathbf v}_m\}
-							=
-							\operatorname{span}
-							\{\mathbf a_1,\ldots,\mathbf a_m\}
-							}
-							$
-						</p>
+						<div class="r-stack" style="margin-top: -10px;">
+							<p>
+								$
+								\boxed{
+								\operatorname{span}
+								\{\hat{\mathbf v}_1,\ldots,\hat{\mathbf v}_m\}
+								=
+								\operatorname{span}
+								\{\mathbf a_1,\ldots,\mathbf a_m\}
+								}
+								$
+							</p>
+						</div>
 						<p>
-							Since the Gram-Schmidt vectors $\hat{\mathbf v}_j$ can be expressed as linear combinations
-							of $\mathbf a_i$:</p>
+							The Gram-Schmidt vectors $\hat{\mathbf v}_j$ can 
+							be expressed as linear combinations
+							of $\mathbf a_i.$<br/>
+							<span class="fragment" data-fragment-index="0">
+								Using block matrices we can write the linear combinations as follows:
+							</span>
+						</p>
 
 						<div class="r-stack" style="margin-top: 10px;">
 
@@ -1608,10 +1616,16 @@ P =
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 1.2em;">
-							<p>In matrix notation:</p>
-							$$\Large Q = AC $$
-							<p>where $Q$ has orthonormal columns and $C$ is an upper-triangular matrix.</p>
+						<div style="margin-top: 15px; font-size: 1.1em;">
+							<p class="fragment">
+								In matrix notation:$$\Large Q = AC $$
+								<span class="fragment">
+									where $Q$ has <i>orthonormal columns</i>
+								</span> 
+								<span class="fragment">
+									and $C$ is an <i>upper-triangular</i> matrix.
+								</span> 
+							</p>
 						</div>
 					</div>
 					<br />
@@ -1765,7 +1779,7 @@ U =
 							</tr>
 						</table>
 
-						<p style="text-align: center; font-size: 1.2em;" id="bb">
+						<p style="text-align: center; font-size: 1.2em;" id="bb" class="fragment">
 							👉 This works for square matrices $A\in \R^{n\times n}$
 						</p>
 
@@ -1933,7 +1947,7 @@ R =
         0        0  -1.9516</code></pre>
 						</div>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -2076,15 +2090,15 @@ R =
 
 
 							</p>
-							<p style="font-size: 1.5em;" class="fragment" data-fragment-index="4">
+							<p style="font-size: 1.5em;" >
 
-								<span class="fragment" data-fragment-index="5">
+								<span class="fragment" data-fragment-index="4">
 									$\;\Ra\;
 									\mathbf k_0 = U^{-1} Q^T \mathbf y
 									$
 								</span>
 							</p>
-							<p style="font-size: 1.2em;" id="bb" class="fragment" data-fragment-index="6">
+							<p style="font-size: 1.2em;" id="bb" class="fragment" data-fragment-index="5">
 								<span>How do we compute $Q$ and $U$?</span> 🤔
 							</p>
 						</div>
@@ -2203,11 +2217,11 @@ U =
 									-0.50965 & 0.29277
 									\end{pmatrix}
 									$
-								</span><span>,
+								</span><span>$,$
 									$\; U =
 									\begin{pmatrix}-19.6214 & -2.8031 \\ 0 & -1.4639\end{pmatrix}$
 								</span>
-								<span>,
+								<span>$,$
 									$\;
 									\mathbf y=
 									$
@@ -2224,7 +2238,8 @@ U =
 						<p style="font-size: 1.8em; text-align: center; margin-top: 20px;">
 
 							<span class="fragment" data-fragment-index="0">
-								$
+								👉
+								$\;
 								\mathbf k_0= U^{-1} Q^T \mathbf y
 								$
 							</span>
@@ -2343,9 +2358,8 @@ U =
 							$
 							X=QU,
 							$
-							we obtain
+							we just need to compute
 							$$
-
 							\mathbf k_{0}
 							=
 							U^{-1}Q^T\mathbf y
@@ -2353,7 +2367,7 @@ U =
 							$$
 						</p>
 
-						<p class="fragment" data-fragment-index="3" style="text-align: center;" id="bb">
+						<p class="fragment" data-fragment-index="3" style="text-align: center;margin-top: -10px;" id="bb">
 							💡 The same process works for polynomial fits of any degree.
 						</p>
 
