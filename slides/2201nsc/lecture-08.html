@@ -1228,22 +1228,30 @@ P =
 				</section>
 
 
+
+
+			</section>
+
+			<section>
+
+
 				<section data-auto-animate>
 					<h4>QR Factorisation: Column Space View</h4>
 					<div class="size-85">
-						<p>In $A \mathbf x = \mathbf b$, the system represents a linear combination of columns:</p>
-						<p style="text-align: center;" class="fragment" data-fragment-index="0">
+						<p class="fragment" data-fragment-index="0">In $A \mathbf x = \mathbf b$, the system represents
+							a linear combination of columns:</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="1">
 							$
 							\ds A \mathbf x
 							$
-							<span class="fragment" data-fragment-index="1">
+							<span class="fragment" data-fragment-index="2">
 								$\ds
 								=
 								\left(
 								\begin{array}{cccc}
-								\mid & \mid & & \mid \\
+								| & | & & | \\
 								\mathbf a_1 & \mathbf a_2& \cdots &\mathbf a_n \\
-								\mid & \mid & & \mid \\
+								| & | & & | \\
 								\end{array}
 								\right)
 								\left(
@@ -1256,28 +1264,28 @@ P =
 								\right)
 								$
 							</span>
-							<span class="fragment" data-fragment-index="2">
+							<span class="fragment">
 								$
 								\ds
 								=
 								x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf a_n
 								$
 							</span>
-							<span class="fragment" data-fragment-index="3">
+							<span class="fragment">
 								$
 								\ds = \mathbf b
 								$
 							</span>
 						</p>
 
-						<div class="fragment" data-fragment-index="4" style="margin-top: 15px;">
+						<div class="fragment" style="margin-top: 15px;">
 							<p><b>Solvability conditions:</b></p>
 							<ul style="line-height: 1.6em;">
-								<li class="fragment" data-fragment-index="5">If $\mathbf b \notin \text{Col}(A)
+								<li class="fragment">If $\mathbf b \notin \text{Col}(A)
 									\implies$ No solution</li>
-								<li class="fragment" data-fragment-index="6">If $\mathbf b \in \text{Col}(A) \implies$
+								<li class="fragment">If $\mathbf b \in \text{Col}(A) \implies$
 									At least one solution</li>
-								<li class="fragment" data-fragment-index="7">If $\text{Null}(A) \neq \{\mathbf 0\}
+								<li class="fragment">If $\text{Null}(A) \neq \{\mathbf 0\}
 									\implies$ Infinite family of solutions</li>
 							</ul>
 						</div>
@@ -1291,9 +1299,11 @@ P =
 						<p style="text-align: center;font-size: 1.2em;">
 							👉 $\;x_1 \mathbf a_1 + x_2 \mathbf a_2 + \dots + x_n \mathbf a_n = \mathbf b\;\;$
 						</p>
-						<p class="fragment" data-fragment-index="1">If column vectors $\mathbf a_i$ are <b>orthonormal</b> ($\mathbf a_i \pd \mathbf a_j =
+						<p class="fragment" data-fragment-index="1">If column vectors $\mathbf a_i$ are
+							<b>orthonormal</b> ($\mathbf a_i \pd \mathbf a_j =
 							\delta_{ij}$), finding
-							coefficients $x_j$ is trivial:</p>
+							coefficients $x_j$ is trivial:
+						</p>
 
 						<div class="cc" style="margin-top: 10px;">
 							<p class="fragment" data-fragment-index="1">
@@ -1323,11 +1333,12 @@ P =
 						</div>
 
 						<div class="fragment" data-fragment-index="6" style="margin-top: 15px;">
-							<p>Alternatively, we can solve $A \mathbf x = \mathbf b $ if $A$ is orthogonal ($A^T A = I$):</p>
+							<p>Alternatively, we can solve $A \mathbf x = \mathbf b $ if $A$ is orthogonal ($A^T A =
+								I$):</p>
 
 						</div>
-						<p style="text-align: center;font-size: 1.2em;" >
-							
+						<p style="text-align: center;font-size: 1.2em;">
+
 							<span class="fragment">
 								$ \mathbf x = I \mathbf x $
 							</span>
@@ -1348,65 +1359,284 @@ P =
 					<br />
 				</section>
 
-				<!-- Slide 14 (PDF p.16): Gram-Schmidt Orthogonalisation Process -->
 				<section data-auto-animate>
 					<h4>Gram-Schmidt Orthogonalisation</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>Constructing an orthonormal basis $\{\hat{v}_j\}$ from span $\{a_j\}$:</p>
 
-						<ol style="line-height: 1.6em;">
+					<div style="font-size: 0.74em;text-align: left;">
+						<p>
+							Given vectors $\mathbf a_1,\mathbf a_2,\ldots,\mathbf a_n$,
+							construct an orthonormal set
+							$\{\hat{\mathbf v}_1,\hat{\mathbf v}_2,\ldots\}$
+							with the same span.
+						</p>
+
+						<ol style="line-height: 1.6em;font-size: 1.1em;">
 							<li class="fragment" data-fragment-index="0">
-								$v_1 = a_1 \implies \mathbf{\hat{v}_1 = \frac{v_1}{\|v_1\|}}$
+								Start with
+								$\mathbf v_1=\mathbf a_1$,
+								then normalise:
+								$\displaystyle
+								\mathbf{\hat v}_1=
+								\frac{\mathbf v_1}{\|\mathbf v_1\|}$.
 							</li>
+
 							<li class="fragment" data-fragment-index="1">
-								Subtract projection onto $\hat{v}_1$: $v_2 = a_2 - (a_2 \cdot \hat{v}_1)\hat{v}_1
-								\implies \mathbf{\hat{v}_2 = \frac{v_2}{\|v_2\|}}$
+								Remove the component of $\mathbf a_2$ in the
+								$\hat{\mathbf v}_1$ direction
+								<p style="text-align: center;">
+									$
+									\mathbf v_2
+									=\mathbf a_2-
+									(\mathbf a_2\pd\hat{\mathbf v}_1)\hat{\mathbf v}_1,\;
+									$
+									<span class="fragment" data-fragment-index="2">
+										then normalise:
+										$\displaystyle
+										\mathbf{\hat v}_2=
+										\frac{\mathbf v_2}{\|\mathbf v_2\|}.$
+									</span>
+								</p>
+
 							</li>
-							<li class="fragment" data-fragment-index="2">
-								Subtract projections onto $\hat{v}_1, \hat{v}_2$: $v_3 = a_3 - (a_3 \cdot
-								\hat{v}_1)\hat{v}_1 - (a_3 \cdot \hat{v}_2)\hat{v}_2 \implies \mathbf{\hat{v}_3 =
-								\frac{v_3}{\|v_3\|}}$
-							</li>
+
 							<li class="fragment" data-fragment-index="3">
-								General step:
-								$$ v_m = a_m - \sum_{i=1}^{m-1} (a_m \cdot \hat{v}_i) \hat{v}_i \implies
-								\mathbf{\hat{v}_m = \frac{v_m}{\|v_m\|}} $$
+								Remove the components of $\mathbf a_3$ in the
+								$\hat{\mathbf v}_1$ and $\hat{\mathbf v}_2$ directions:
+
+								<p style="text-align: center;">
+									<span class="fragment" data-fragment-index="4">
+										$
+										\mathbf v_3
+										=\mathbf a_3
+										$
+									</span>
+									<span class="fragment" data-fragment-index="5">
+
+										$-\,(\mathbf a_3\pd\hat{\mathbf v}_1)\hat{\mathbf v}_1
+										-(\mathbf a_3\pd\hat{\mathbf v}_2)\hat{\mathbf v}_2,\,$
+									</span>
+									<span class="fragment" data-fragment-index="6">
+										then normalise:
+										$\displaystyle
+										\mathbf{\hat v}_3=
+										\frac{\mathbf v_3}{\|\mathbf v_3\|}.$
+									</span>
+								</p>
+							</li>
+
+							<li class="fragment">
+								Continue in this fashion:
+								$
+								\ds \mathbf v_m
+								=\mathbf a_m-
+								\sum_{i=1}^{m-1}
+								(\mathbf a_m\pd\hat{\mathbf v}_i)\hat{\mathbf v}_i\,
+								$
+								and
+								$\,
+								\mathbf{\hat v}_m=
+								\dfrac{\mathbf v_m}{\|\mathbf v_m\|}.
+								$
 							</li>
 						</ol>
+
+						<p class="fragment" style="font-size: 0.86em;">
+							<b>Remark:</b>
+							If $\mathbf v_m=\mathbf 0$, skip this vector.
+							This occurs when $\mathbf a_m$ is linearly dependent on
+							the preceding vectors.
+						</p>
 					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Gram-Schmidt: Preserving the Span</h4>
+
+					<div style="font-size: 0.75em; text-align: left;">
+
+						<p>
+							At each step, $\mathbf v_m$ is constructed from
+							$\mathbf a_m$ and the previous $\hat{\mathbf v}_i$'s.
+						</p>
+
+						<ul style="line-height: 1.8em; margin-left: 0px;">
+							<li class="fragment" data-fragment-index="0">
+								$\mathbf v_1=\mathbf a_1$
+								<span class="fragment" data-fragment-index="1">
+									$\Longrightarrow
+									\mathbf v_1\in\operatorname{span}\{\mathbf a_1\}$
+								</span>
+							</li>
+
+							<li class="fragment" data-fragment-index="2">
+								$\mathbf v_2
+								=\mathbf a_2-
+								(\mathbf a_2\pd\hat{\mathbf v}_1)\hat{\mathbf v}_1$
+								<span class="fragment" data-fragment-index="3">
+									$=\mathbf a_2- \left(\mathbf a_2\pd \dfrac{\mathbf a_1}{||\mathbf a_1 ||}\right)
+									\dfrac{\mathbf a_1}{||\mathbf a_1 ||}$
+								</span>
+
+								<span class="fragment" data-fragment-index="4">
+									$
+									=- \left( \dfrac{\mathbf a_2 \pd \mathbf a_1}{||\mathbf a_1 ||^2}\right) \mathbf a_1
+									+ \mathbf a_2
+									$
+								</span>
+								<p class="fragment" data-fragment-index="5">
+									$\Longrightarrow
+									\mathbf v_2\in
+									\operatorname{span}\{\mathbf a_1,\mathbf a_2\}$
+								</p>
+							</li>
+
+							<li class="fragment" data-fragment-index="6">
+								$\mathbf v_3
+								=\mathbf a_3-
+								(\mathbf a_3\cdot\hat{\mathbf v}_1)\hat{\mathbf v}_1
+								-(\mathbf a_3\cdot\hat{\mathbf v}_2)\hat{\mathbf v}_2$
+								<span class="fragment" data-fragment-index="7">
+									$
+									=
+									c_1\mathbf a_1+c_2\mathbf a_2+\mathbf a_3\,$
+									for some $\,c_1,c_2\in\mathbb R$
+								</span>
+								<p class="fragment" data-fragment-index="8">
+									$\Longrightarrow
+									\mathbf v_3\in
+									\operatorname{span}\{\mathbf a_1,\mathbf a_2,\mathbf a_3\}$
+								</p>
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="9" style="margin-top: -10px;">
+							In general,
+							$
+							\mathbf v_m
+							\in
+							\operatorname{span}
+							\{\mathbf a_1,\ldots,\mathbf a_m\}.
+							$
+							<span class="fragment" data-fragment-index="10" style="text-align: center;">
+								Since each $\mathbf a_m$ can also be written in terms of
+								$\mathbf v_1,\ldots,\mathbf v_m,$
+							</span>
+						</p>
+
+						<div style="margin-top: 15px;">
+							<p class="fragment" data-fragment-index="11" style="text-align: center;">
+								$
+
+								\operatorname{span}
+								\{\mathbf v_1,\ldots,\mathbf v_m\}
+								=
+								\operatorname{span}
+								\{\mathbf a_1,\ldots,\mathbf a_m\}
+
+								$
+							</p>
+
+							<p class="fragment" data-fragment-index="12" style="text-align: center;">
+								Normalising does not change the span:
+
+							</p>
+							<p class="fragment" data-fragment-index="12" style="text-align: center;">
+								$
+								\boxed{
+								\operatorname{span}
+								\{\hat{\mathbf v}_1,\ldots,\hat{\mathbf v}_m\}
+								=
+								\operatorname{span}
+								\{\mathbf a_1,\ldots,\mathbf a_m\}
+								}
+								$
+							</p>
+
+						</div>
+					</div>
+
 					<br />
 				</section>
 
-			</section>
 
-			<section>
 
-				<!-- Slide 1 (PDF p.17): Gram-Schmidt to Matrix Representation -->
 				<section data-auto-animate>
 					<h4>QR Factorisation: Basis Construction</h4>
-					<div class="size-85" style="font-size: 0.78em;">
-						<p>Gram-Schmidt vectors $\hat{v}_j$ expressed as linear combinations of $a_i$:</p>
+					<div style="font-size: 0.78em;">
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							$$ \begin{pmatrix} | & | & | \\ \hat{v}_1 & \hat{v}_2 & \hat{v}_3 & \dots \\ | & | & |
-							\end{pmatrix} = \begin{pmatrix} | & | & | \\ a_1 & a_2 & a_3 & \dots \\ | & | & |
-							\end{pmatrix} \begin{pmatrix} c_{11} & c_{12} & c_{13} & \dots \\ 0 & c_{22} & c_{23} &
-							\dots \\ 0 & 0 & c_{33} & \dots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix} $$
+						<p style="text-align: center;">
+							$
+							\boxed{
+							\operatorname{span}
+							\{\hat{\mathbf v}_1,\ldots,\hat{\mathbf v}_m\}
+							=
+							\operatorname{span}
+							\{\mathbf a_1,\ldots,\mathbf a_m\}
+							}
+							$
+						</p>
+						<p>
+							Since the Gram-Schmidt vectors $\hat{\mathbf v}_j$ can be expressed as linear combinations
+							of $\mathbf a_i$:</p>
+
+						<div class="r-stack" style="margin-top: 10px;">
+
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$ \begin{pmatrix} | & | & | \\ \hat{\mathbf v}_1 & \hat{\mathbf v}_2 &
+								\hat{\mathbf v}_3
+								& \dots \\ | & | & |
+								\end{pmatrix}
+								= \begin{pmatrix}
+								| &| & | & \\
+								c_{11} \mathbf a_1 & c_{12} \mathbf a_1 + c_{22} \mathbf a_2 & c_{13} \mathbf a_1 +
+								c_{23} \mathbf a_2 + c_{33}
+								\mathbf a_3 & \cdots \\
+								| & | & | &
+								\end{pmatrix} $
+
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
+								$ \begin{pmatrix} | & | & | \\ \hat{\mathbf v}_1 & \hat{\mathbf v}_2 &
+								\hat{\mathbf v}_3
+								& \dots \\ | & | & |
+								\end{pmatrix}
+								= \begin{pmatrix} | & | & | \\ \mathbf a_1 & \mathbf a_2 & \mathbf a_3 & \dots \\
+								| & | & |
+								\end{pmatrix} \begin{pmatrix} c_{11} & c_{12} & c_{13} & \dots \\ 0 & c_{22} &
+								c_{23} &
+								\dots \\ 0 & 0 & c_{33} & \dots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix} $
+
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="3" style="margin-top: 15px; font-size: 1.2em;">
 							<p>In matrix notation:</p>
-							$$ Q = AC $$
+							$$\Large Q = AC $$
 							<p>where $Q$ has orthonormal columns and $C$ is an upper-triangular matrix.</p>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 2 (PDF p.18): Deriving A = QU -->
+
 				<section data-auto-animate>
 					<h4>Deriving the QR Form</h4>
-					<div class="size-85" style="font-size: 0.8em;">
+					<div class="size-80 left-txt">
+
+						<div class="r-stack" style="margin-top: -10px; font-size: 0.8em;">
+
+							<p>
+								$ \begin{pmatrix} | & | & | \\ \hat{\mathbf v}_1 & \hat{\mathbf v}_2 &
+								\hat{\mathbf v}_3
+								& \dots \\ | & | & |
+								\end{pmatrix}
+								= \begin{pmatrix} | & | & | \\ \mathbf a_1 & \mathbf a_2 & \mathbf a_3 & \dots \\
+								| & | & |
+								\end{pmatrix} \begin{pmatrix} c_{11} & c_{12} & c_{13} & \dots \\ 0 & c_{22} &
+								c_{23} &
+								\dots \\ 0 & 0 & c_{33} & \dots \\ \vdots & \vdots & \vdots & \ddots \end{pmatrix} $
+
+							</p>
+						</div>
 						<p>From the Gram-Schmidt relation, $Q = AC$ where $C$ is upper-triangular.</p>
 
 						<ul style="line-height: 1.8em; margin-top: 15px;">
@@ -1415,12 +1645,17 @@ P =
 							</li>
 							<li class="fragment" data-fragment-index="1">
 								Rearranging $Q = AC$ gives:
-								$$ A = Q C^{-1} = Q U $$
+								<p style="text-align: center;">
+									$ \large A = Q C^{-1} $
+									<span class="fragment" data-fragment-index="2">
+										$ \large = Q U $
+									</span>
+								</p>
 								where $U = C^{-1}$ is an upper-triangular matrix.
 							</li>
 						</ul>
 
-						<blockquote class="fragment" data-fragment-index="2"
+						<blockquote class="fragment" data-fragment-index="3"
 							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 20px;">
 							<b>Note:</b> In general proofs of QR factorisation, $C$ does not strictly need to be
 							invertible.
@@ -1429,30 +1664,53 @@ P =
 					<br />
 				</section>
 
-				<!-- Slide 3 (PDF p.19): QR Factorisation Theorem -->
 				<section data-auto-animate>
 					<h4>The QR Factorisation Theorem</h4>
-					<div class="size-85" style="font-size: 0.78em;">
-						<blockquote
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 12px; border-left: 4px solid #4285f4;">
+					<div style="font-size: 0.9em;">
+						<p style="margin-top: 40px;">
 							<b>Theorem (QR Factorisation):</b> Any matrix $A$ can be factorised as:
 							$$ A = QU \quad (\text{or } A = QR) $$
-							where $Q$ is an orthogonal matrix and $U$ (or $R$) is upper-triangular.
-						</blockquote>
+							<span class="fragment" data-fragment-index="0">
+								where $Q$ is an orthogonal matrix and $U$ (or $R$) is upper-triangular.
+							</span>
+						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="1" style="margin-top: 45px;">
+							<p><b>Remark:</b> It is called the <span id="bb">QR factorisation</span> because $R$ is a commonly used (but
+								less obvious) symbol for the upper-triangular matrix</p>
+						</div>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 45px;">
 							<p><b>Non-Uniqueness of QR Factorisation:</b></p>
-							<p>The QR factorisation is <b>not unique</b> because multiple orthonormal bases can span the
+							<p>The QR factorisation is <span id="rr">not unique</span> because multiple orthonormal bases can span the
 								same space.</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1"
+
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>The QR Factorisation Theorem</h4>
+					<div style="font-size: 0.9em;">
+						<div style="margin-top: 45px;">
+							<p><b>Non-Uniqueness of QR Factorisation:</b></p>
+							<p>The QR factorisation is <span id="rr">not unique</span> because multiple orthonormal bases can span the
+								same space.</p>
+						</div>
+
+
+					</div>
+					<div class="size-85">
+						<div 
 							style="margin-top: 10px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-							<p><i>Example in $\mathbb{R}^3$:</i> For any angle $\theta$,</p>
-							$$ \{\begin{pmatrix}\cos\theta \\ \sin\theta \\ 0\end{pmatrix}, \begin{pmatrix}-\sin\theta
-							\\ \cos\theta \\ 0\end{pmatrix}, \begin{pmatrix}0 \\ 0 \\ 1\end{pmatrix}\} $$
+							<p><b>Example in $\mathbb{R}^3$:</b> For any angle $\theta$,</p>
+							$$ \left\{\begin{pmatrix}\cos\theta \\ \sin\theta \\ 0\end{pmatrix},
+							\begin{pmatrix}-\sin\theta
+							\\ \cos\theta \\ 0\end{pmatrix}, \begin{pmatrix}0 \\ 0 \\ 1\end{pmatrix}\right\} $$
 							<p>forms a valid orthonormal basis.</p>
 						</div>
+
 					</div>
 					<br />
 				</section>
