@@ -1578,9 +1578,9 @@ P =
 							</p>
 						</div>
 						<p>
-							The Gram-Schmidt vectors $\hat{\mathbf v}_j$ can 
+							The Gram-Schmidt vectors $\hat{\mathbf v}_j$ can
 							be expressed as linear combinations
-							of $\mathbf a_i.$<br/>
+							of $\mathbf a_i.$<br />
 							<span class="fragment" data-fragment-index="0">
 								Using block matrices we can write the linear combinations as follows:
 							</span>
@@ -1621,10 +1621,10 @@ P =
 								In matrix notation:$$\Large Q = AC $$
 								<span class="fragment">
 									where $Q$ has <i>orthonormal columns</i>
-								</span> 
+								</span>
 								<span class="fragment">
 									and $C$ is an <i>upper-triangular</i> matrix.
-								</span> 
+								</span>
 							</p>
 						</div>
 					</div>
@@ -1811,7 +1811,7 @@ U =
 									\begin{bmatrix}
 									R_n\\
 									0
-									\end{bmatrix}.$
+									\end{bmatrix}$
 								</span>
 
 							</p>
@@ -1827,7 +1827,7 @@ U =
 								$
 								<span class="fragment">
 									$\underbrace{Q_{\mathrm{rest}}}_{m\times(m-n)}
-									\qquad\qquad
+									\qquad
 									$
 								</span>
 								<span class="fragment">
@@ -1863,25 +1863,47 @@ U =
 
 					<div class="size-85">
 
-						<p>
-							We can remove the redundant parts:
-						</p>
+						<div class="cc" style="font-size: 0.7em;margin-top: -10px;">
+							<p>
+								$
+								A = QR
+								$
+								<span>
+									$=
+									\begin{bmatrix}
+									Q_{mn} & Q_{\mathrm{rest}}
+									\end{bmatrix}
+									\begin{bmatrix}
+									R_n\\
+									0
+									\end{bmatrix}$
+								</span>
 
-						<div class="fragment">
-							\[
-							\Large A = Q_{mn} R_n
-							\]
+							</p>
+
+						</div>
+
+
+
+						<div style="margin-top: -30px;">
+							<p>
+								We can remove the redundant parts:
+								\[
+								\large A = Q_{mn} R_n
+								\]
+							</p>
+
 						</div>
 
 						<div class="fragment">
 							\[
-							\large Q_{mn}\in\mathbb{R}^{m\times n},
+							 Q_{mn}\in\mathbb{R}^{m\times n},
 							\qquad
 							R_n\in\mathbb{R}^{n\times n}.
 							\]
 						</div>
 
-						<div class="fragment" style="font-size: 1.1em;">
+						<div class="fragment" style="font-size: 1em;">
 							\[
 							Q_{nm}^{\mathsf T}Q_{mn}=I_n,
 							\qquad
@@ -1896,7 +1918,7 @@ U =
 									factorisation</b>).
 							</p>
 
-							<div style="margin-top: -25px;">
+							<div style="margin-top: -25px; font-size: 0.9em;">
 								\[A=
 								\underbrace{
 								\begin{bmatrix}
@@ -2090,7 +2112,7 @@ R =
 
 
 							</p>
-							<p style="font-size: 1.5em;" >
+							<p style="font-size: 1.5em;">
 
 								<span class="fragment" data-fragment-index="4">
 									$\;\Ra\;
@@ -2367,7 +2389,8 @@ U =
 							$$
 						</p>
 
-						<p class="fragment" data-fragment-index="3" style="text-align: center;margin-top: -10px;" id="bb">
+						<p class="fragment" data-fragment-index="3" style="text-align: center;margin-top: -10px;"
+							id="bb">
 							💡 The same process works for polynomial fits of any degree.
 						</p>
 
