@@ -1682,7 +1682,7 @@ P =
 					<h4>The QR Factorisation Theorem</h4>
 					<div style="font-size: 0.9em;">
 						<p style="margin-top: 40px;">
-							<b>Theorem (QR Factorisation):</b> Any matrix $A$ can be factorised as:
+							<b>Theorem (QR Factorisation):</b> Any $m\times n$ matrix $A$ can be factorised as:
 							$$ A = QU \quad (\text{or } A = QR) $$
 							<span class="fragment" data-fragment-index="0">
 								where $Q$ is an <i>orthogonal</i> matrix and $U$ (or $R$) is <i>upper-triangular</i>.
@@ -1899,9 +1899,9 @@ U =
 									\mathbf q_1 & \cdots & \mathbf q_n\\
 									\vert & & \vert
 									\end{pmatrix}
-									
+
 									\,
-									
+
 									\begin{pmatrix}
 									r_{11} & \cdots & r_{1n}\\
 									0 & \ddots & \vdots\\
@@ -1944,7 +1944,7 @@ U =
 
 
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section>
@@ -2404,15 +2404,7 @@ U =
 
 				<section data-auto-animate>
 					<h4>Quadratic Best Fit: Solution</h4>
-
-
-
-
-
 					<div style="font-size: 0.85em;">
-
-
-
 						<p style="text-align: center;">
 							For
 							$
@@ -2448,91 +2440,103 @@ U =
 
 						</div>
 
-
-
 					</div>
 
 					<br />
 				</section>
 
-
 				<section data-auto-animate>
-					<h4>Summary of QR Factorisation</h4>
-					<div class="size-90">
+					<h4 class="fragment" data-fragment-index="3">Cholesky Factorisation</h4>
+					<div class="size-85">
+						<p>
+							If the matrix A is a real, symmetric, positive-definite matrix,
+							<span class="fragment" data-fragment-index="0">
+								then it admits a particularly useful factorisation:
+							</span>
+						</p>
 						<p class="fragment" data-fragment-index="0">
-							<b>Theorem:</b> Any matrix $A$ can be factorised as $A = QU$ (or $A = QR$),
-							where $Q$ is
-							<i>orthogonal</i> and $U$ is <i>upper-triangular</i>.
+							<b>Theorem:</b> Any real, symmetric, positive-definite
+							matrix $A$ can be factorised as:
+						</p>
+						<p style="text-align: center;" class="fragment" data-fragment-index="0">
+							$ A = U^T U\quad $
+							<span class="fragment" data-fragment-index="1">
+								or equivalently $\quad A = L L^T $
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							where $U$ is <i>upper-triangular</i> and $L = U^T$ is <i>lower-triangular</i>.
 						</p>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-							<p><b>Key Properties & Advantages:</b></p>
-							<ul style="line-height: 1.7em;">
-								<li class="fragment" data-fragment-index="1">Directly related to the column space of
-									$A$.</li>
-								<li class="fragment" data-fragment-index="2">Provides an explicit orthonormal basis for
-									the column space.</li>
-								<li class="fragment" data-fragment-index="3">Highly advantageous for regression and
-									least-squares problems.</li>
-								<li class="fragment" data-fragment-index="4">Offers superior numerical stability
-									compared to standard LU decomposition.</li>
-							</ul>
-						</div>
-					</div>
-					<br />
-				</section>
+						<div style="margin-top: 10px;">
+							<p class="fragment" data-fragment-index="2"><b>Proof Outline:</b></p>
+							<ol style="line-height: 1.5em;margin-top: -20px;margin-left: 0px;">
+								<li class="fragment" data-fragment-index="3">
+									Diagonalise $A = V D V^T$ with orthogonal $V$.
+									<span class="fragment" data-fragment-index="4">
+										Positive-definiteness implies
+										eigenvalues $D_i > 0$.
+									</span>
+								</li>
+								<li class="fragment">
+									Define diagonal $S = D^{1/2},$
+									<span class="fragment">
+										so $D = S^2 $
+									</span>
+									<span class="fragment">
+										$ = S S^T $
+									</span>
+									<span class="fragment">
+										$ \Ra A = V S S^T V^T $
+									</span>
+									<span class="fragment">
+										$ =\left(VS\right)\left(VS\right)^T.$
+									</span>
 
-			</section>
 
-			<section>
-
-
-
-
-				<!-- Slide 3 (PDF p.27): Cholesky Factorisation -->
-				<section data-auto-animate>
-					<h4>Cholesky Factorisation</h4>
-					<div class="size-85" style="font-size: 0.73em;">
-						<blockquote
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
-							<b>Theorem:</b> Any real, symmetric, positive-definite matrix $A$ can be factorised as:
-							$$ A = U^T U \quad \text{or equivalently} \quad A = L L^T $$
-							where $U$ is upper-triangular and $L = U^T$ is lower-triangular.
-						</blockquote>
-
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<p><b>Proof Outline:</b></p>
-							<ol style="line-height: 1.5em;">
-								<li>Diagonalise $A = V D V^T$ with orthogonal $V$. Positive-definiteness implies
-									eigenvalues $D_i > 0$.</li>
-								<li>Define diagonal $S = D^{1/2}$, so $D = S^2 = S S^T \implies A = V S S^T V^T =
-									(VS)(VS)^T$.</li>
-								<li>Apply QR factorisation to $(VS)^T = QU \implies A = (QU)^T (QU) = U^T Q^T Q U = U^T
-									U$.</li>
+								</li>
+								<li class="fragment">
+									Apply QR factorisation to $\left(VS\right)^T$
+									<span class="fragment">
+										$= QU $
+									</span><br />
+									<span class="fragment">
+										$\quad \implies A = \left(QU\right)^T \left(QU\right) $
+									</span>
+									<span class="fragment">
+										$ = U^T Q^T Q U $
+									</span>
+									<span class="fragment">
+										$ = U^T U.$
+									</span>
+								</li>
 							</ol>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 4 (PDF p.28): Cholesky in MATLAB -->
 				<section data-auto-animate>
-					<h4>Calculating Cholesky Factorisation</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>Command: <code>U = chol(A)</code></p>
+					<h4>Calculating Cholesky Factorisation Octave/MATLAB</h4>
+					<div class="size-85">
+						<p style="text-align: center;">Command: <code>U = chol(A)</code></p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<pre><code class="language-matlab">> C = [4 3 2; 3 6 3; 2 3 4];
-> U = chol(C)
-
-U =
+							<pre style="font-size: 0.9em; width: 75%;"><code class="language-matlab">>> A = [4 3 2; 3 6 3; 2 3 4];
+>> U = chol(A)</code></pre>
+						</div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<pre style="font-size: 0.9em; width: 75%;"><code class="language-matlab">U =
     2.0000    1.5000    1.0000
          0    1.9365    0.7746
-         0         0    1.5492
-
-> U' * U    % Reconstructs original matrix C
-
-ans =
+         0         0    1.5492</code></pre>
+						</div>
+						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+							<pre
+								style="font-size: 0.9em; width: 75%;"><code class="language-matlab">>> U' * U    % Reconstructs original matrix A</code></pre>
+						</div>
+						<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+							<pre style="font-size: 0.9em; width: 75%;"><code class="language-matlab">ans =
     4    3    2
     3    6    3
     2    3    4</code></pre>
@@ -2540,6 +2544,106 @@ ans =
 					</div>
 					<br />
 				</section>
+
+				<section data-auto-animate>
+					<h4>Application: Solving Linear Systems</h4>
+					<div class="size-85">
+
+						<p>
+							Cholesky factorisation provides an efficient way to solve
+							linear systems
+							$A\mathbf{x}=\mathbf{b}$
+							when $A$ is symmetric positive-definite.
+						</p>
+
+						<p class="fragment" data-fragment-index="0">
+							Since
+							$A=LL^T$,
+							we can write:
+						</p>
+
+						<div class="fragment" data-fragment-index="1" style="text-align: center; margin-top: 15px;">
+							$A\mathbf{x}=\mathbf{b}$
+							<span style="margin: 0 20px;">$\Longrightarrow$</span>
+							$LL^T\mathbf{x}=\mathbf{b}$
+						</div>
+
+						<div class="fragment" data-fragment-index="2" style="text-align: center; margin-top: 20px;">
+
+							\[
+							\underbrace{L\mathbf{y}=\mathbf{b}}_
+							{\text{solve for }\mathbf{y}}
+							\qquad\text{then}\qquad
+							\underbrace{L^T\mathbf{x}=\mathbf{y}}_
+							{\text{solve for }\mathbf{x}}
+							\]
+
+						</div>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+							Both systems are triangular, so they can be solved efficiently
+							using <i>forward</i> and <i>back substitution</i>.
+						</p>
+
+						<div class="fragment" data-fragment-index="4" style="margin-top: 20px; text-align: center;">
+							<b>Key advantage:</b>
+							Once $A=LL^T$ is computed, solving for different
+							$\mathbf{b}$ vectors is very efficient.
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Summary of QR Factorisation</h4>
+					<div class="size-90">
+
+						<p class="fragment" data-fragment-index="0">
+							<b>Theorem:</b> Any real $m\times n$ matrix $A$ can be
+							factorised as $A=QU$ (or $A=QR$),
+							where $Q$ is <i>orthogonal</i> and
+							$U$ is <i>upper-triangular</i>.
+						</p>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+							<p><b>Key Properties & Advantages:</b></p>
+
+							<ul style="line-height: 1.7em;">
+								<li class="fragment" data-fragment-index="1">
+									Directly related to the column space of $A$.
+								</li>
+
+								<li class="fragment" data-fragment-index="2">
+									Provides an explicit orthonormal basis for
+									the column space.
+								</li>
+
+								<li class="fragment" data-fragment-index="3">
+									Highly advantageous for regression and
+									least-squares problems.
+								</li>
+
+								<li class="fragment" data-fragment-index="4">
+									Offers superior numerical stability compared to
+									standard LU decomposition.
+								</li>
+							</ul>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+
+
+			</section>
+
+			<section>
+
+
 
 				<!-- Slide 5 (PDF p.29): SVD Definition -->
 				<section data-auto-animate>
