@@ -2697,12 +2697,14 @@ U =
 					<table style="width: 100%;  margin-top: -40px;">
 						<tr>
 							<td style="width: 50%;">
-								<p class="fragment" data-fragment-index="0" style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
+								<p class="fragment" data-fragment-index="0"
+									style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
 								<div class="fragment" data-fragment-index="0" style="margin-top: -10px;">
-							<pre style="width: 100%; font-size: 0.6em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
-						</div>
-						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-							<pre style="width: 100%; font-size: 0.6em; height: 390px;"><code class="language-matlab">U =
+									<pre
+										style="width: 100%; font-size: 0.6em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
+								</div>
+								<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.6em; height: 390px;"><code class="language-matlab">U =
    -0.9940   -0.1091
    -0.1091    0.9940
 
@@ -2714,96 +2716,355 @@ Diagonal Matrix
 V =
    -0.9085    0.4179
     0.4179    0.9085</code></pre>
-						</div>
+								</div>
 							</td>
 
 							<td style="width: 50%;">
-								<p class="fragment" data-fragment-index="2" style="text-align: center;font-size: 0.8em;"><b>Eigenvalues/Eigenvectors</b></p>
+								<p class="fragment" data-fragment-index="2"
+									style="text-align: center;font-size: 0.8em;"><b>Eigenvalues/Eigenvectors of $A$</b>
+								</p>
 								<div class="fragment" data-fragment-index="2" style="margin-top: -10px;">
-							<pre style="width: 100%; font-size: 0.6em;"><code class="language-matlab">>> [W, D] = eig([4 -2; 1 1])</code></pre>
-						</div>
-						<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
-							<pre style="width: 100%; font-size: 0.6em; height: 240px;"><code class="language-matlab">W =
+									<pre
+										style="width: 100%; font-size: 0.6em;"><code class="language-matlab">>> [W, D] = eig([4 -2; 1 1])</code></pre>
+								</div>
+								<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.6em; height: 240px;"><code class="language-matlab">W =
    0.8944   0.7071
    0.4472   0.7071
 
 D =
    3   0
    0   2</code></pre>
-						</div>
-						<p class="fragment" data-fragment-index="4"
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #f82a2a; margin-top: 20px; font-size: 0.75em;">
-							There is generally <b>no direct connection</b> between the eigenvalues & eigenvectors
-							of $A$ and its singular values! 🤔
-						</p>
+								</div>
+								<p class="fragment" data-fragment-index="4"
+									style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #f82a2a; margin-top: 20px; font-size: 0.75em;">
+									There is generally <b>no direct connection</b> between the eigenvalues &
+									eigenvectors
+									of $A$ and its singular values! 🤔
+								</p>
 							</td>
 						</tr>
 					</table>
 					<br />
 				</section>
-
-				
-
 				<section data-auto-animate>
-					<h4>SVD vs. $A^T A$ and $A A^T$</h4>
+					<h4>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems</h4>
 
-					<div class="size-80" style="margin-top: -30px;">
-						<div style="display: flex; justify-content: space-between;">
-							<div style="width: 45%;">
-								<p><b>SVD Singular Values:</b></p>
-								<pre style="font-size: 0.9em; height: 150px;"><code class="language-matlab">S =
-   4.4966        0
-        0   1.3343</code></pre>
-							</div>
-							<div style="width: 50%;">
-								<p><b>Eigenvalues/Eigenvectors of $A$:</b></p>
-								<pre style="font-size: 0.7em; height: 230px;"><code class="language-matlab">>> [W, D] = eig(A)
-W =
-   0.8944   0.7071
-   0.4472   0.7071
+					<div>
+						<p style="width: 80%; text-align: right;font-size: 0.7em;font-weight: bold;margin-top: -10px;">
+								Eigenvalues & Eigenvectors
+						</p>
+					</div>
 
-D =
-   3   0
-   0   2</code></pre>
-							</div>
-						</div>
+					<table style="width: 100%;  margin-top: -30px;">
+						<tr>
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 315px;"><code class="language-matlab">U =
+   -0.9940   -0.1091
+   -0.1091    0.9940
+
+S =
+Diagonal Matrix
+    4.4966         0
+         0    1.3343
+
+V =
+   -0.9085    0.4179
+    0.4179    0.9085</code></pre>
+								</div>
+							</td>
+
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>$AA^T$</b></p>
+								<div class="fragment" data-fragment-index="1" style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W1, D1] = eig(A * A')</code></pre>
+								</div>
+								<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 260px;"><code class="language-matlab">W1 =
+   0.1091  -0.9940
+  -0.9940  -0.1091
+
+D1 =
+Diagonal Matrix
+    1.7805         0
+         0   20.2195</code></pre>
+								</div>
+								<br />
+
+
+							</td>
+
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>$A^TA$</b></p>
+								<div class="fragment" data-fragment-index="3" style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W2, D2] = eig(A' * A)</code></pre>
+								</div>
+								<div class="fragment" data-fragment-index="4" style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 260px;"><code class="language-matlab">W2 =
+  -0.4179  -0.9085
+  -0.9085   0.4179
+
+D2 =
+Diagonal Matrix
+    1.7805         0
+         0   20.2195</code></pre>
+								</div>
+								<br />
+
+							</td>
+						</tr>
+					</table>
+
+					<div style="font-size: 0.8em;margin-top: -25px;" >
+						<p class="fragment" data-fragment-index="5">
+							<b>Singular Values ($\Sigma$):</b>
+							Square roots of the eigenvalues of $A A^T$ and $A
+							A^T$.
+						</p>
+						<p class="fragment" data-fragment-index="6" style="text-align: center; font: 0.99em;margin-top: -10px;">
+							$ \sqrt{\lambda(A^T A)}$
+							<span class="fragment" data-fragment-index="7" style="font-size: 0.8em;">
+								$
+								= \sqrt{\begin{pmatrix}1.7805 & 0 \\ 0 & 20.2195\end{pmatrix}}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="8" style="font-size: 0.8em;">
+								$
+								= \begin{pmatrix}1.3343 & 0 \\ 0 & 4.4966\end{pmatrix}
+								$
+							</span>
+							<span class="fragment" data-fragment-index="9">
+								$ = \Sigma $
+							</span>
+						</p>
 
 					</div>
 
-					<div class="size-85 left-txt">
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems</h4>
+
+					<div>
+						<p style="width: 80%; text-align: right;font-size: 0.7em;font-weight: bold;margin-top: -10px;">
+								Eigenvalues & Eigenvectors
+						</p>
+					</div>
+
+					<table style="width: 100%;  margin-top: -30px;">
+						<tr>
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 315px;"><code class="language-matlab">U =
+   -0.9940   -0.1091
+   -0.1091    0.9940
+
+S =
+Diagonal Matrix
+    4.4966         0
+         0    1.3343
+
+V =
+   -0.9085    0.4179
+    0.4179    0.9085</code></pre>
+								</div>
+							</td>
+
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>$AA^T$</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W1, D1] = eig(A * A')</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 260px;"><code class="language-matlab">W1 =
+   0.1091  -0.9940
+  -0.9940  -0.1091
+
+D1 =
+Diagonal Matrix
+    1.7805         0
+         0   20.2195</code></pre>
+								</div>
+								<br />
 
 
-						<p>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems:</p>
+							</td>
 
-						<ul style="line-height: 1.8em; margin-top: -10px; margin-left: 0px;">
-							<li class="fragment" data-fragment-index="0">
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>$A^TA$</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W2, D2] = eig(A' * A)</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 260px;"><code class="language-matlab">W2 =
+  -0.4179  -0.9085
+  -0.9085   0.4179
+
+D2 =
+Diagonal Matrix
+    1.7805         0
+         0   20.2195</code></pre>
+								</div>
+								<br />
+
+							</td>
+						</tr>
+					</table>
+
+					<div style="font-size: 0.9em;margin-top: 25px;" class="cc">
+						<p>
+							<b>Left matrix $U$:</b> Columns of $U$ are the eigenvectors of $A A^T$.
+						</p>
+
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems</h4>
+
+					<div>
+						<p style="width: 80%; text-align: right;font-size: 0.7em;font-weight: bold;margin-top: -10px;">
+								Eigenvalues & Eigenvectors
+						</p>
+					</div>
+
+					<table style="width: 100%;  margin-top: -30px;">
+						<tr>
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 315px;"><code class="language-matlab">U =
+   -0.9940   -0.1091
+   -0.1091    0.9940
+
+S =
+Diagonal Matrix
+    4.4966         0
+         0    1.3343
+
+V =
+   -0.9085    0.4179
+    0.4179    0.9085</code></pre>
+								</div>
+							</td>
+
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>$AA^T$</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W1, D1] = eig(A * A')</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 260px;"><code class="language-matlab">W1 =
+   0.1091  -0.9940
+  -0.9940  -0.1091
+
+D1 =
+Diagonal Matrix
+    1.7805         0
+         0   20.2195</code></pre>
+								</div>
+								<br />
+
+
+							</td>
+
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>$A^TA$</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W2, D2] = eig(A' * A)</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 260px;"><code class="language-matlab">W2 =
+  -0.4179  -0.9085
+  -0.9085   0.4179
+
+D2 =
+Diagonal Matrix
+    1.7805         0
+         0   20.2195</code></pre>
+								</div>
+								<br />
+
+							</td>
+						</tr>
+					</table>
+
+					<div style="font-size: 0.9em;margin-top: 25px;" class="cc">
+						<p>
+								<b>Right matrix $V$:</b> Columns of $V$ are the eigenvectors of $A^T A$.
+						</p>
+
+					</div>
+
+					<br />
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems</h4>
+
+					<div class="size-85 left-txt" style="margin-top: 50px;">
+
+						<p style="text-align: center; font-size: 1.6em;">
+							$A = Q_m\Sigma Q_n^T = U\Sigma V^T$
+						</p>
+
+
+
+						<ul style="line-height: 2.2em; margin-top: 30px; margin-left: 0px;">
+							<li>
+								<b>Left Matrix ($U$):</b> Columns of $U$ are the eigenvectors of $A A^T$.
+							</li>
+							<li>
 								<b>Singular Values ($\Sigma$):</b>
 								Square roots of the eigenvalues of $A^T A$ (and $A
 								A^T$).
-								<p class="fragment" data-fragment-index="1" style="text-align: center; font: 0.99em;">
+								<p style="text-align: center; font: 0.99em;">
 									$ \sqrt{\lambda(A^T A)}$
-									<span class="fragment" data-fragment-index="2" style="font-size: 0.9em;">
+									<span style="font-size: 0.9em;">
 										$
-										= \sqrt{\begin{pmatrix}20.2195 & 0 \\ 0 & 1.7805\end{pmatrix}}
-										$
-									</span>
-									<span class="fragment" data-fragment-index="3" style="font-size: 0.9em;">
-										$
-										= \begin{pmatrix}4.4966 & 0 \\ 0 & 1.3343\end{pmatrix}
+										= \sqrt{\begin{pmatrix}1.7805 & 0 \\ 0 & 20.2195\end{pmatrix}}
 										$
 									</span>
-									<span class="fragment" data-fragment-index="4">
+									<span style="font-size: 0.9em;">
+										$
+										= \begin{pmatrix}1.3343 & 0 \\ 0 & 4.4966\end{pmatrix}
+										$
+									</span>
+									<span>
 										$ = \Sigma $
 									</span>
 								</p>
 
 							</li>
-							<li class="fragment" data-fragment-index="5">
-								<b>Right Vectors ($V$):</b> Columns of $V$ are the eigenvectors of $A^T A$.
+							
+							<li>
+								<b>Right Matrix ($V$):</b> Columns of $V$ are the eigenvectors of $A^T A$.
 							</li>
-							<li class="fragment" data-fragment-index="6">
-								<b>Left Vectors ($U$):</b> Columns of $U$ are the eigenvectors of $A A^T$.
-							</li>
+							
 						</ul>
 					</div>
 					<br />
