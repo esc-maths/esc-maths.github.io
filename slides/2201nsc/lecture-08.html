@@ -1734,7 +1734,7 @@ P =
 
 
 				<section data-auto-animate>
-					<h4>Calculating QR in Octave/MATLAB</h4>
+					<h4>Calculating QR in Octave / MATLAB</h4>
 					<div class="size-85">
 						<p style="text-align: center;">Command: <code>[Q, U] = qr(A)</code></p>
 
@@ -1948,7 +1948,7 @@ U =
 				</section>
 
 				<section>
-					<h4>Calculating Reduced/Thin QR in Octave/MATLAB</h4>
+					<h4>Calculating Reduced/Thin QR in Octave / MATLAB</h4>
 					<div class="size-85">
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: -5px;">
@@ -2134,7 +2134,7 @@ R =
 				</section>
 
 				<section data-auto-animate>
-					<h4>Reduced/Thin QR factorisation with Octave/MATLAB</h4>
+					<h4>Reduced/Thin QR factorisation with Octave / MATLAB</h4>
 
 					<div class="size-75">
 
@@ -2517,7 +2517,7 @@ U =
 				</section>
 
 				<section data-auto-animate>
-					<h4>Calculating Cholesky Factorisation Octave/MATLAB</h4>
+					<h4>Calculating Cholesky Factorisation Octave / MATLAB</h4>
 					<div class="size-85">
 						<p style="text-align: center;">Command: <code>U = chol(A)</code></p>
 
@@ -2550,7 +2550,7 @@ U =
 					<div class="size-85">
 
 						<p>
-							Cholesky factorisation provides an efficient way to solve
+							<b>Cholesky factorisation</b> provides an efficient way to solve
 							linear systems
 							$A\mathbf{x}=\mathbf{b}$
 							when $A$ is symmetric positive-definite.
@@ -2562,13 +2562,14 @@ U =
 							we can write:
 						</p>
 
-						<div class="fragment" data-fragment-index="1" style="text-align: center; margin-top: 15px;">
+						<div class="fragment" data-fragment-index="0"
+							style="text-align: center; margin-top: 15px;font-size: 1.5em;">
 							$A\mathbf{x}=\mathbf{b}$
-							<span style="margin: 0 20px;">$\Longrightarrow$</span>
-							$LL^T\mathbf{x}=\mathbf{b}$
+							<span class="fragment" data-fragment-index="1">$\Ra LL^T\mathbf{x}=\mathbf{b}$</span>
+
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="text-align: center; margin-top: 20px;">
+						<div class="fragment" data-fragment-index="2" style="text-align: center; margin-top: -20px;">
 
 							\[
 							\underbrace{L\mathbf{y}=\mathbf{b}}_
@@ -2580,12 +2581,13 @@ U =
 
 						</div>
 
-						<p class="fragment" data-fragment-index="3" style="margin-top: 20px;">
+						<p class="fragment" data-fragment-index="3" style="margin-top: -10px;">
 							Both systems are triangular, so they can be solved efficiently
 							using <i>forward</i> and <i>back substitution</i>.
 						</p>
 
-						<div class="fragment" data-fragment-index="4" style="margin-top: 20px; text-align: center;">
+						<div class="fragment" data-fragment-index="4"
+							style="margin-top: 20px; text-align: left; border-left: 6px solid #f44242; padding-left: 20px;">
 							<b>Key advantage:</b>
 							Once $A=LL^T$ is computed, solving for different
 							$\mathbf{b}$ vectors is very efficient.
@@ -2643,101 +2645,163 @@ U =
 
 			<section>
 
-
-
-				<!-- Slide 5 (PDF p.29): SVD Definition -->
 				<section data-auto-animate>
 					<h4>Singular Value Decomposition (SVD)</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<blockquote
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4;">
-							<b>Theorem:</b> Any matrix $A \in \mathbb{R}^{n \times m}$ can be written as:
-							$$ A = Q_n \Sigma Q_m^T $$
-							where $Q_n$ ($n \times n$) and $Q_m$ ($m \times m$) are orthogonal matrices, and $\Sigma$ is
-							an $n \times m$ diagonal matrix with non-negative real entries.
-						</blockquote>
+					<div class="size-90">
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 15px;">
-							<p style="color: #ff6b6b;"><b>Notation Warning:</b></p>
-							<p>SVD is often written as $A = U \Sigma V^T$. Note that $U$ and $V$ in this context refer
-								to <i>orthogonal matrices</i>, not upper-triangular matrices!</p>
+						<p class="fragment" data-fragment-index="0">
+							<b>Theorem:</b> Any matrix $A \in \mathbb{R}^{m \times n}$ can be written as:
+							$$
+							\large A = Q_m \Sigma Q_n^T
+							$$
+							<span class="fragment" data-fragment-index="1">
+								where $Q_m$ ($m \times m$) and $Q_n$ ($n \times n$) are
+								<i>orthogonal</i> matrices,
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								and $\Sigma$ is an
+								$m \times n$ <i>rectangular diagonal</i> matrix with
+								non-negative real entries.
+							</span>
+						</p>
+
+						<div class="fragment" data-fragment-index="3"
+							style="margin-top: 20px; text-align: left; border-left: 6px solid #f44242; padding-left: 20px;">
+
+							<p>
+								<b>Notation Warning:</b>
+								SVD is often written as $A = U\Sigma V^T$.
+
+								<span class="fragment" data-fragment-index="4">
+									Here, $U$ and $V$ denote <i>orthogonal matrices</i>;
+								</span>
+								<span class="fragment" data-fragment-index="5">
+									$U$ does <b>NOT</b> denote the upper-triangular matrix
+									from QR factorisation.
+								</span>
+							</p>
 						</div>
+
 					</div>
 					<br />
 				</section>
-
-				<!-- Slide 6 (PDF p.30): SVD MATLAB Example -->
 				<section data-auto-animate>
-					<h4>Calculating SVD in MATLAB / Octave</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>Command: <code>[u, s, v] = svd(A)</code> for $A = \begin{pmatrix}4 & -2 \\ 1 &
-							1\end{pmatrix}$</p>
+					<h4>Calculating SVD in Octave / MATLAB</h4>
+					<div class="size-70">
+						<p style="text-align: center;">
+							Command: <code>[U, S, V] = svd(A)</code> for $A = \begin{pmatrix}4 & -2 \\ 1 &
+							1\end{pmatrix}$
+						</p>
+					</div>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							<pre><code class="language-matlab">> A = [4 -2; 1 1];
-> [u, s, v] = svd(A)
-
-u =
+					<table style="width: 100%;  margin-top: -40px;">
+						<tr>
+							<td style="width: 50%;">
+								<p class="fragment" data-fragment-index="0" style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
+								<div class="fragment" data-fragment-index="0" style="margin-top: -10px;">
+							<pre style="width: 100%; font-size: 0.6em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
+						</div>
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							<pre style="width: 100%; font-size: 0.6em; height: 390px;"><code class="language-matlab">U =
    -0.9940   -0.1091
    -0.1091    0.9940
 
-s =
+S =
+Diagonal Matrix
     4.4966         0
          0    1.3343
 
-v =
+V =
    -0.9085    0.4179
     0.4179    0.9085</code></pre>
 						</div>
-					</div>
+							</td>
+
+							<td style="width: 50%;">
+								<p class="fragment" data-fragment-index="2" style="text-align: center;font-size: 0.8em;"><b>Eigenvalues/Eigenvectors</b></p>
+								<div class="fragment" data-fragment-index="2" style="margin-top: -10px;">
+							<pre style="width: 100%; font-size: 0.6em;"><code class="language-matlab">>> [W, D] = eig([4 -2; 1 1])</code></pre>
+						</div>
+						<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+							<pre style="width: 100%; font-size: 0.6em; height: 240px;"><code class="language-matlab">W =
+   0.8944   0.7071
+   0.4472   0.7071
+
+D =
+   3   0
+   0   2</code></pre>
+						</div>
+						<p class="fragment" data-fragment-index="4"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #f82a2a; margin-top: 20px; font-size: 0.75em;">
+							There is generally <b>no direct connection</b> between the eigenvalues & eigenvectors
+							of $A$ and its singular values! 🤔
+						</p>
+							</td>
+						</tr>
+					</table>
 					<br />
 				</section>
 
-				<!-- Slide 7 (PDF p.31): SVD vs Spectrum of A -->
+				
+
 				<section data-auto-animate>
-					<h4>SVD vs. Spectrum of $A$</h4>
-					<div class="size-85" style="font-size: 0.75em;">
+					<h4>SVD vs. $A^T A$ and $A A^T$</h4>
+
+					<div class="size-80" style="margin-top: -30px;">
 						<div style="display: flex; justify-content: space-between;">
-							<div style="width: 48%;">
+							<div style="width: 45%;">
 								<p><b>SVD Singular Values:</b></p>
-								<pre><code class="language-matlab">s =
+								<pre style="font-size: 0.9em; height: 150px;"><code class="language-matlab">S =
    4.4966        0
         0   1.3343</code></pre>
 							</div>
-							<div style="width: 48%;">
-								<p><b>Eigenvalues of $A$:</b></p>
-								<pre><code class="language-matlab">d =
-   3.0000        0
-        0   2.0000</code></pre>
+							<div style="width: 50%;">
+								<p><b>Eigenvalues/Eigenvectors of $A$:</b></p>
+								<pre style="font-size: 0.7em; height: 230px;"><code class="language-matlab">>> [W, D] = eig(A)
+W =
+   0.8944   0.7071
+   0.4472   0.7071
+
+D =
+   3   0
+   0   2</code></pre>
 							</div>
 						</div>
 
-						<blockquote class="fragment" data-fragment-index="0"
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #ff6b6b; margin-top: 20px;">
-							<b>Key Insight:</b> There is generally <b>no direct connection</b> between the eigenvalues
-							of $A$ and its singular values!
-						</blockquote>
 					</div>
-					<br />
-				</section>
 
-				<!-- Slide 8 (PDF p.32-33): SVD vs Spectrum of A^T A and A A^T -->
-				<section data-auto-animate>
-					<h4>SVD vs. $A^T A$ and $A A^T$</h4>
-					<div class="size-85" style="font-size: 0.75em;">
+					<div class="size-85 left-txt">
+
+
 						<p>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems:</p>
 
-						<ul style="line-height: 1.8em; margin-top: 10px;">
+						<ul style="line-height: 1.8em; margin-top: -10px; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
-								<b>Singular Values ($\Sigma$):</b> Square roots of the eigenvalues of $A^T A$ (and $A
+								<b>Singular Values ($\Sigma$):</b>
+								Square roots of the eigenvalues of $A^T A$ (and $A
 								A^T$).
-								$$ \sqrt{\lambda(A^T A)} = \sqrt{\begin{pmatrix}20.2195 & 0 \\ 0 & 1.7805\end{pmatrix}}
-								= \begin{pmatrix}4.4966 & 0 \\ 0 & 1.3343\end{pmatrix} = \Sigma $$
+								<p class="fragment" data-fragment-index="1" style="text-align: center; font: 0.99em;">
+									$ \sqrt{\lambda(A^T A)}$
+									<span class="fragment" data-fragment-index="2" style="font-size: 0.9em;">
+										$
+										= \sqrt{\begin{pmatrix}20.2195 & 0 \\ 0 & 1.7805\end{pmatrix}}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="3" style="font-size: 0.9em;">
+										$
+										= \begin{pmatrix}4.4966 & 0 \\ 0 & 1.3343\end{pmatrix}
+										$
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$ = \Sigma $
+									</span>
+								</p>
+
 							</li>
-							<li class="fragment" data-fragment-index="1">
+							<li class="fragment" data-fragment-index="5">
 								<b>Right Vectors ($V$):</b> Columns of $V$ are the eigenvectors of $A^T A$.
 							</li>
-							<li class="fragment" data-fragment-index="2">
+							<li class="fragment" data-fragment-index="6">
 								<b>Left Vectors ($U$):</b> Columns of $U$ are the eigenvectors of $A A^T$.
 							</li>
 						</ul>
