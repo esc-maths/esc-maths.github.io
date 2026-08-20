@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Factorisations</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'export/pdf.css' :
+			'export/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%;text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Factorisations</p>
+
+				<div style="margin-top: -30px; margin-bottom:20px;">
+					<img src="images/fractal/f009.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+				<section data-auto-animate="">
+					<h4>Factorisations and matrices</h4>
+
+					<div class="left-txt size-95">
+						<p class="fragment" data-fragment-index="0">
+							Convention:
+						</p>
+						<ul style="line-height: 65px;">
+							<li class="fragment" data-fragment-index="1">
+								$U$ denotes an <b>upper</b> triangular matrix
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								$L$ denotes a <b>lower</b> triangular matrix
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								$D$ denotes a <b>diagonal</b> matrix
+							</li>
+							<li class="fragment" data-fragment-index="4">
+								$Q$ denotes an <b>orthogonal</b> matrix
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h4>Factorisations and matrices</h4>
+
+					<div class="left-txt size-90">
+						<p>
+							• $PLU$ factorisation ($LU$ factorisation):
+							<span class="fragment" data-fragment-index="0">
+								$\;\large A = PLU$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							&nbsp;&nbsp; - $P = \,$ permutation matrix
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							&nbsp;&nbsp; - $L = \,$ lower-triangular matrix
+						</p>
+						<p class="fragment" data-fragment-index="3">
+							&nbsp;&nbsp; - $U = \,$ upper-triangular matrix
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="4">
+							• $QR$ factorisation ($QU$ factorisation):
+							<span class="fragment" data-fragment-index="5">
+								$\;\large A = QR$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							&nbsp;&nbsp; - $Q = \,$ orthogonal matrix
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							&nbsp;&nbsp; - $R = \,$ upper-triangular matrix
+						</p>
+					</div>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate="">
+					<h4>Factorisations and matrices</h4>
+
+					<div class="left-txt size-90">
+						<p>
+							• Cholesky factorisation:
+							<span class="fragment" data-fragment-index="0">
+								$\;\large A = U^TU$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="1">
+							<b>Remark:</b> The matrix $A$ must be a real, symmetryic and positive-definite.
+						</p>
+						<p class="fragment" data-fragment-index="2">
+							&nbsp;&nbsp; - $U = \,$ upper-triangular matrix
+						</p>
+					</div>
+
+					<div class="left-txt size-90">
+						<p class="fragment" data-fragment-index="4">
+							• $SVD$ factorisation:
+							<span class="fragment" data-fragment-index="5">
+								$\;\large A = Q_m\Sigma Q_n^T$
+							</span>
+						</p>
+						<p class="fragment" data-fragment-index="6">
+							&nbsp;&nbsp; - $Q_m = \,$ $m\times m$ orthogonal matrix
+						</p>
+						<p class="fragment" data-fragment-index="7">
+							&nbsp;&nbsp; - $\Sigma= \,$ $m\times n$ diagonal matrix
+						</p>
+						<p class="fragment" data-fragment-index="8">
+							&nbsp;&nbsp; - $Q_n = \,$ $n\times n$ orthogonal matrix
+						</p>
+					</div>
+
+					<br />
+				</section>
+
+				<section>
+					<h5>Factorisations and matrices</h5>
+
+					<table style="width:100%; table-layout:fixed; border-collapse:collapse;margin-top: -10px;">
+						<tr>
+							<td class="left-txt" style="vertical-align:top; padding:5px; font-size: 0.7em;">
+								<p>• $PLU$ factorisation ($LU$ factorisation):</p>
+								<p>$\qquad\quad\large A = PLU$</p>
+								<p>&nbsp;&nbsp; - $P = \,$ permutation matrix</p>
+								<p>&nbsp;&nbsp; - $L = \,$ lower-triangular matrix</p>
+								<p>&nbsp;&nbsp; - $U = \,$ upper-triangular matrix</p>
+							</td>
+							<td class="left-txt" style="vertical-align:top; padding:5px; font-size: 0.7em">
+								<p>• $QR$ factorisation ($QU$ factorisation):</p>
+								<p>$\qquad\quad\large A = QR$</p>
+								<p>&nbsp;&nbsp; - $Q = \,$ orthogonal matrix</p>
+								<p>&nbsp;&nbsp; - $R = \,$ upper-triangular matrix</p>
+							</td>
+
+						</tr>
+						<tr>
+							<td class="left-txt" style="vertical-align:top; padding:5px; font-size: 0.7em">
+								<p>• Cholesky factorisation:</p>
+								<p>$\qquad\quad\large A = U^TU$</p>
+								<p><b>Remark:</b> $A$ must be real, symmetric, and positive-definite.</p>
+								<p>&nbsp;&nbsp; - $U = \,$ upper-triangular matrix</p>
+							</td>
+							<td class="left-txt" style="vertical-align:top; padding:5px; font-size: 0.7em">
+								<p>• $SVD$ factorisation:</p>
+								<p>$\qquad\quad\large A = Q_m \Sigma Q_n^T$</p>
+								<p>&nbsp;&nbsp; - $Q_m = \,$ $m\times m$ orthogonal matrix</p>
+								<p>&nbsp;&nbsp; - $\Sigma= \,$ $m\times n$ diagonal matrix</p>
+								<p>&nbsp;&nbsp; - $Q_n = \,$ $n\times n$ orthogonal matrix</p>
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+			</section>
+
+			<section data-visibility="hidden">
+
+				<section data-auto-animate>
+					<h4>Construction of orthonormal basis</h4>
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span class="fragment" data-fragment-index="0">
+									It is often convenient to have an
+									orthonormal basis for a given
+									finite-dimensional inner product space.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									The following algorithm turns a linearly
+									independent set of vectors into an
+									orthonormal set of vectors
+									with the same span as the original set.
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									Applying the algorithm to a basis thus
+									turns the basis into an orthonormal basis.
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									Hence:
+								</span>
+							</p>
+							<div id="theorem" class="fragment" data-fragment-index="3">
+								<p>
+									Every finite-dimensional real inner product space has an orthonormal basis.
+								</p>
+							</div>
+
+						</div>
+					</div>
+					<br /><br />
+				</section>
+				<section data-auto-animate>
+					<h4>Construction of orthonormal basis</h4>
+					<div class="size-55">
+						<div class="left-txt">
+							<p>
+								<span>
+									It is often convenient to have an
+									orthonormal basis for a given
+									finite-dimensional inner product space.
+								</span>
+								<span>
+									The following algorithm turns a linearly
+									independent set of vectors into an
+									orthonormal set of vectors
+									with the same span as the original set.
+								</span>
+								<span>
+									Applying the algorithm to a basis thus
+									turns the basis into an orthonormal basis.
+								</span>
+								<span>
+									Hence:
+								</span>
+							</p>
+							<div id="theorem">
+								<p>
+									Every finite-dimensional real inner product space has an orthonormal basis.
+								</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="size-80">
+						<div class="left-txt">
+
+							<p>
+								Let $\{\bfa_1,\ldots,\bfa_n\}$ be a
+								linearly independent set of vectors in the
+								real inner product space $V$.
+							</p>
+							<p class="fragment" data-fragment-index="0">
+
+								The corresponding <strong>Gram-Schmidt process</strong>
+								is the following algorithm:
+
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Construction of orthonormal basis</h5>
+
+					<div class="size-80">
+						<div class="left-txt">
+							<p>
+								<span>
+									The corresponding <strong>Gram-Schmidt process</strong>
+									is the following algorithm:
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="0">
+								<strong>
+									Step 1.
+								</strong>
+								Let $\w_1 = \v_1$.
+								<span class="fragment" data-fragment-index="1">
+									(Easy! 😃)
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="2">
+								<strong>
+									Step 2.
+								</strong>
+								We can obtain a vector $\w_2$ that is
+								orthogonal to $\w_1$ by computing the
+								component of $\v_2$ that is
+								orthogonal to the space $W_1$ spanned
+								by $\w_1$.
+								<span class="fragment" data-fragment-index="3">
+									To do this we use the formula:
+								</span>
+							</p>
+
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="3">
+									\( \w_2 = \v_2 - \mathrm{Proj}_{W_1} \v_2 \)
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									\(\ds = \v_2 - \frac{\langle \v_2, \w_1 \rangle}{\norm{\w_1}^2}\w_1.\)
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<br /><br /><br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Construction of orthonormal basis</h5>
+
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								<span>
+									The corresponding <strong>Gram-Schmidt process</strong>
+									is the following algorithm:
+								</span>
+							</p>
+							<p>
+								<strong>
+									Step 1.
+								</strong>
+								Let $\w_1 = \v_1$.
+								<span>
+									(Easy! 😃)
+								</span>
+							</p>
+							<p>
+								<strong>
+									Step 2.
+								</strong>
+								We can obtain a vector $\w_2$ that is
+								orthogonal to $\w_1$ by computing the
+								component of $\v_2$ that is
+								orthogonal to the space $W_1$ spanned
+								by $\w_1$.
+								<span>
+									To do this we use the formula:
+								</span>
+							</p>
+
+						</div>
+						<div>
+							<p>
+								<span>
+									\( \w_2 = \v_2 - \mathrm{Proj}_{W_1} \v_2 \)
+								</span>
+								<span>
+									\(\ds = \v_2 - \frac{\langle \v_2, \w_1 \rangle}{\norm{\w_1}^2}\w_1.\)
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-75">
+						<div class="left-txt">
+
+
+							<p>
+								<strong>
+									Step 3.
+								</strong>
+								To construct a vector $\w_3$ that is orthogonal
+								to both $\w_1$ and $\w_2$,
+								<span class="fragment" data-fragment-index="0">
+									we compute the
+									component of $\v_3$ orthogonal to the
+									space $W_2$ spanned by $\w_1$ and $\w_2$.
+								</span>
+								<span class="fragment" data-fragment-index="1">
+									Here we use the
+									formula:
+
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span class="fragment" data-fragment-index="1">
+									\(
+									\w_3 = \v_3 - \mathrm{Proj}_{W_2} \v_3
+									\)
+								</span>
+								<span class="fragment" data-fragment-index="2">
+									\(
+									= \ds \v_3 - \frac{\langle \v_3, \w_1
+									\rangle}{\norm{\w_1}^2}\w_1 - \frac{\langle \v_3, \w_2 \rangle}{\norm{\w_2}^2}\w_2.
+									\)
+								</span>
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+					<h5>Construction of orthonormal basis</h5>
+
+					<div class="size-50">
+						<div class="left-txt">
+							<p>
+								<span>
+									The corresponding <strong>Gram-Schmidt process</strong>
+									is the following algorithm:
+								</span>
+							</p>
+							<p>
+								<strong>
+									Step 1.
+								</strong>
+								Let $\w_1 = \v_1$.
+								<span>
+									(Easy! 😃)
+								</span>
+							</p>
+							<p>
+								<strong>
+									Step 2.
+								</strong>
+								We can obtain a vector $\w_2$ that is
+								orthogonal to $\w_1$ by computing the
+								component of $\v_2$ that is
+								orthogonal to the space $W_1$ spanned
+								by $\w_1$.
+								<span>
+									To do this we use the formula:
+								</span>
+							</p>
+
+						</div>
+						<div>
+							<p>
+								<span>
+									\( \w_2 = \v_2 - \mathrm{Proj}_{W_1} \v_2 \)
+								</span>
+								<span>
+									\(\ds = \v_2 - \frac{\langle \v_2, \w_1 \rangle}{\norm{\w_1}^2}\w_1.\)
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-50">
+						<div class="left-txt">
+
+
+							<p>
+								<strong>
+									Step 3.
+								</strong>
+								To construct a vector $\w_3$ that is orthogonal
+								to both $\w_1$ and $\w_2$,
+								<span>
+									we compute the
+									component of $\v_3$ orthogonal to the
+									space $W_2$ spanned by $\w_1$ and $\w_2$.
+								</span>
+								<span>
+									Here we use the
+									formula:
+
+								</span>
+							</p>
+						</div>
+						<div>
+							<p>
+								<span>
+									\(
+									\w_3 = \v_3 - \mathrm{Proj}_{W_2} \v_3
+									\)
+								</span>
+								<span>
+									\(
+									= \ds \v_3 - \frac{\langle \v_3, \w_1
+									\rangle}{\norm{\w_1}^2}\w_1 - \frac{\langle \v_3, \w_2 \rangle}{\norm{\w_2}^2}\w_2.
+									\)
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="size-70">
+						<div class="left-txt">
+
+
+							<p>
+								<strong>
+									Step <em>n</em>.
+								</strong>
+								Continuing in this way we will produce after
+								$n$ steps an orthogonal set of nonzero
+								vectors $\left\{\w_1, \w_2, \ldots, \w_n \right\}.$
+							</p>
+							<p class="fragment" data-fragment-index="1">
+								<strong>
+									Final step.
+								</strong>
+								To convert the orthogonal basis into an orthonormal basis
+								$\left\{\mathbf q_1, \mathbf q_2, \ldots, \mathbf q_n \right\},\,$
+								normalize the orthogonal basis vectors.
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</section>
+
+				<section data-auto-animate>
+
+					<h5>Construction of orthonormal basis</h5>
+
+					
+					<div>
+						<iframe scrolling="no" title="Chapter-11: Gram-Schmidt process"
+							src="https://www.geogebra.org/material/iframe/id/b5qd7atx/width/787/height/537/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+							width="787px" height="537px" style="border:0px;" allowfullscreen=""> </iframe>
+					</div>
+
+					<p style="font-size:16px;margin-top:1px">Inspired by
+						<a href="https://1ucasvb.tumblr.com/" target="_blank">Lucas Vieira</a> -
+						<a href="https://twitter.com/LucasVB" target="_blank">@LucasVB</a>
+
+					</p>
+					<br />
+				</section>
+
+				<section data-auto-animate id="gram-schmidt">
+
+					<h5>The Gram-Schmidt Process</h5>
+
+
+					<div class="size-65 left-txt">
+						<p style="font-size:85%">To convert a basis $\{\v_1, \ldots, \v_n\}$ into an orthogonal basis
+							$\{\mathbf w_1, \mathbf w_2, \ldots, \mathbf w_n\}$, perform the following computations:
+						</p>
+						<p>
+							<strong>
+								Step 1.
+							</strong>
+							Let $\w_1 = \v_1$
+							<span>
+								(Easy! 😃)
+							</span>
+						</p>
+						<p>
+							<strong>
+								Step 2.
+							</strong>
+
+							$\ds \w_2 = \v_2 - \frac{\langle \v_2, \w_1 \rangle}{\norm{\w_1}^2}\w_1$
+
+						</p>
+						<p>
+							<strong>
+								Step 3.
+							</strong>
+
+							$\ds\w_3 = \v_3 - \frac{\langle \v_3, \w_1 \rangle}{\norm{\w_1}^2}\w_1 - \frac{\langle \v_3,
+							\w_2 \rangle}{\norm{\w_2}^2}\w_2$
+
+							</span>
+						</p>
+						<p>
+							$\qquad\quad\quad\vdots$
+						</p>
+						<p>
+							<strong>
+								Step <em>n</em>.
+							</strong>
+							$\ds\w_n = \v_n - \sum_{k=1}^{n-1}\frac{\langle \v_n, \w_k \rangle}{\norm{\w_k}^2}\w_k $
+						</p>
+						<p>
+							<strong>
+								Final step.
+							</strong>
+							To convert the orthogonal basis $\{\mathbf w_1, \ldots, \mathbf w_n\}$
+							into an orthonormal basis
+							$\left\{\mathbf q_1, \ldots, \mathbf q_n \right\},$
+							normalize the orthogonal basis vectors.
+						</p>
+					</div>
+
+					<br /><br />
+
+				</section>
+
+			</section>
+
+
+			<section>
+				<h4>Credits</h4>
+				<div include-html="credits.html"></div>
+			</section>
+
+
+
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
