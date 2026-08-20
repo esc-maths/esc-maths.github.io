@@ -65,7 +65,7 @@ function draw() {
       noStroke();
       circle(sX.x, sX.y, 14);
       // Increased label size by +10px (now 32px)
-      drawLabel("x", createVector(sX.x + 22, sX.y - 18), color(0), 32, true, true);
+      drawLabel("x", createVector(sX.x + 22, sX.y - 18), color(0), 32, false, true);
     }
   }
 
@@ -116,7 +116,15 @@ function draw() {
       noStroke();
       circle(sTx.x, sTx.y, 14);
       // Increased label size by +10px (now 34px)
-      drawLabel("T(x)", createVector(sTx.x + 40, sTx.y - 15), color(0), 34, true, true);
+      //drawLabel("T(x)", createVector(sTx.x + 40, sTx.y - 15), color(0), 34, true, true);
+      // drawLabel("T", createVector(sTx.x + 0, sTx.y - 20), color(0), 34, true);
+      // drawLabel("(", createVector(sTx.x + 24, sTx.y - 20), color(0), 34, false);
+      // drawLabel("x", createVector(sTx.x + 40, sTx.y - 20), color(0), 34, false, true);
+      // drawLabel(")", createVector(sTx.x + 58, sTx.y - 20), color(0), 34, false);
+      drawLabel("T", createVector(sTx.x - 28, sTx.y - 30), color(0), 34, true);
+      drawLabel("(", createVector(sTx.x - 7, sTx.y - 30), color(0), 34, false);
+      drawLabel("x", createVector(sTx.x + 10, sTx.y - 30), color(0), 34, false, true);
+      drawLabel(")", createVector(sTx.x + 28, sTx.y - 30), color(0), 34, false);
     }
   }
 }

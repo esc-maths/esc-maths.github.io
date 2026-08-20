@@ -79,7 +79,7 @@ function draw() {
       fill(0);
       noStroke();
       circle(sX.x, sX.y, 14);
-      drawLabel("x", createVector(sX.x - 10, sX.y - 25), color(0), 32, true, true);
+      drawLabel("x", createVector(sX.x - 10, sX.y - 25), color(0), 32, false, true);
     }
   }
 
@@ -124,7 +124,11 @@ function draw() {
       fill(0);
       noStroke();
       circle(sTx.x, sTx.y, 14);
-      drawLabel("T(x)", createVector(sTx.x + 35, sTx.y - 20), color(0), 34, true, true);
+      //drawLabel("T(x)", createVector(sTx.x + 35, sTx.y - 20), color(0), 34, true, true);
+      drawLabel("T", createVector(sTx.x - 28, sTx.y - 30), color(0), 34, true);
+      drawLabel("(", createVector(sTx.x - 7, sTx.y - 30), color(0), 34, false);
+      drawLabel("x", createVector(sTx.x + 10, sTx.y - 30), color(0), 34, false, true);
+      drawLabel(")", createVector(sTx.x + 28, sTx.y - 30), color(0), 34, false);
     }
   }
 }
