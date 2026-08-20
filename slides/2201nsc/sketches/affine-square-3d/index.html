@@ -311,12 +311,42 @@
     // --- Axes ---
     const axesGroup = new THREE.Group();
 
-    function createLine(p1, p2, colorHex, linewidth = 2) {
-      const geom = new THREE.BufferGeometry().setFromPoints([p1, p2]);
-      const mat = new THREE.LineBasicMaterial({ color: colorHex, linewidth: linewidth, depthTest: false });
-      const line = new THREE.Line(geom, mat);
-      line.renderOrder = 100;
-      return line;
+    // Helper to create a thick axis as a cylinder mesh
+    function createThickAxis(p1, p2, colorHex, radius = 0.06) {
+      const direction = new THREE.Vector3().copy(p2).sub(p1);
+      const length = direction.length();
+      direction.normalize();
+
+      const geometry = new THREE.CylinderGeometry(radius, radius, length, 8, 1);
+      const material = new THREE.MeshBasicMaterial({ color: colorHex, depthTest: false });
+      const cylinder = new THREE.Mesh(geometry, material);
+      cylinder.renderOrder = 100;
+
+      // Orient the cylinder along the direction
+      // Cylinder is along Y by default, so we need to rotate to align with direction
+      const up = new THREE.Vector3(0, 1, 0);
+      const quaternion = new THREE.Quaternion().setFromUnitVectors(up, direction);
+      cylinder.quaternion.copy(quaternion);
+
+      // Position the cylinder at the midpoint
+      const midpoint = new THREE.Vector3().copy(p1).add(p2).multiplyScalar(0.5);
+      cylinder.position.copy(midpoint);
+
+      // Add a small sphere at each end for better visual
+      const sphereGeom = new THREE.SphereGeometry(radius * 1.2, 8, 8);
+      const sphereMat = new THREE.MeshBasicMaterial({ color: colorHex, depthTest: false });
+      const sphere1 = new THREE.Mesh(sphereGeom, sphereMat);
+      sphere1.position.copy(p1);
+      sphere1.renderOrder = 100;
+      const sphere2 = new THREE.Mesh(sphereGeom, sphereMat);
+      sphere2.position.copy(p2);
+      sphere2.renderOrder = 100;
+
+      const group = new THREE.Group();
+      group.add(cylinder);
+      group.add(sphere1);
+      group.add(sphere2);
+      return group;
     }
 
     // Darker, high-visibility colors for axes
@@ -325,25 +355,33 @@
     const COLOR_W = 0x183bbd; // Dark Blue
 
     // X Axis
-    const xLine = createLine(new THREE.Vector3(-range, 0, 0), new THREE.Vector3(range, 0, 0), COLOR_X, 3);
-    axesGroup.add(xLine);
-    const xLabel = createTextSprite("x", "#9e1212", 44);
+    const xStart = new THREE.Vector3(-range, 0, 0);
+    const xEnd = new THREE.Vector3(range, 0, 0);
+    const xAxisGroup = createThickAxis(xStart, xEnd, COLOR_X, 0.015);
+    axesGroup.add(xAxisGroup);
+
+    const xLabel = createTextSprite("x", "#ff0000", 44);
     xLabel.position.set(range + 0.4, 0, 0);
     axesGroup.add(xLabel);
 
     // Y Axis
-    const yLine = createLine(new THREE.Vector3(0, -range, 0), new THREE.Vector3(0, range, 0), COLOR_Y, 3);
-    axesGroup.add(yLine);
-    const yLabel = createTextSprite("y", "#146c14", 44);
+    const yStart = new THREE.Vector3(0, -range, 0);
+    const yEnd = new THREE.Vector3(0, range, 0);
+    const yAxisGroup = createThickAxis(yStart, yEnd, COLOR_Y, 0.015);
+    axesGroup.add(yAxisGroup);
+
+    const yLabel = createTextSprite("y", "#006600", 44);
     yLabel.position.set(0, range + 0.4, 0);
     axesGroup.add(yLabel);
 
     // W Axis
-    const wAxisLine = createLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 4.3), COLOR_W, 3);
-    const wLabel = createTextSprite("w", "#183bbd", 44);
+    const wStart = new THREE.Vector3(0, 0, 0);
+    const wEnd = new THREE.Vector3(0, 0, 4.3);
+    const wAxisGroup = createThickAxis(wStart, wEnd, COLOR_W, 0.015);
+    const wLabel = createTextSprite("w", "#0000ff", 44);
     wLabel.position.set(0, 0, 4.6);
     const wGroup = new THREE.Group();
-    wGroup.add(wAxisLine);
+    wGroup.add(wAxisGroup);
     wGroup.add(wLabel);
     axesGroup.add(wGroup);
 
@@ -479,17 +517,18 @@
 
     function setCameraView(is3D) {
       if (is3D) {
-        //camera.position.set(8, -9, 6);
-        //camera.position.set(3, -10, 6);
-        camera.position.set(8, -9, 6);
+        //camera.position.set(8, -9, 4);
+        camera.position.set(10, -10, 4);
         camera.up.set(0, 0, 1);
-        controls.target.set(0, 0, 0);
-        controls.enabled = false;
+        controls.target.set(0, 0, 1);
+        controls.enabled = true;
+        gridHelper.visible = false;
       } else {
         camera.position.set(0, 0, 16);
         camera.up.set(0, 1, 0);
         controls.target.set(0, 0, 0);
         controls.enabled = false;
+        gridHelper.visible = true;
       }
       controls.update();
 
@@ -661,9 +700,6 @@
       updateTransformedMesh();
       updateInfoText();
 
-      // if (controls.enabled) {
-      //   controls.update();
-      // }
       renderer.render(scene, camera);
     }
 
