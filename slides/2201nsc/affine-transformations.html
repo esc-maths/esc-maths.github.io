@@ -145,7 +145,9 @@
 							<img style="width: 480px;" src="images/affine-transformations/application-001.png">
 						</div>
 						<div class="fragment" data-fragment-index="0">
-							<p style="text-align: center; font-size: 0.6em; margin-top: -20px;">Geometry correction for satellite images by S. Ban & T. Kim (2024). <a href="doi.org/10.3390/rs16162890">doi.org/10.3390/rs16162890</a></p>
+							<p style="text-align: center; font-size: 0.6em; margin-top: -20px;">Geometry correction for
+								satellite images by S. Ban & T. Kim (2024). <a
+									href="doi.org/10.3390/rs16162890">doi.org/10.3390/rs16162890</a></p>
 						</div>
 					</div>
 					<br />
@@ -227,7 +229,8 @@
 								</td>
 								<td style="width: 60%; text-align: center;">
 
-									<iframe style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
+									<iframe
+										style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
 										data-src="sketches/p5-tex/affine-translation/"></iframe>
 									<!--
 									<img class="fragment" data-fragment-index="2" style="width: 100%;"
@@ -274,7 +277,8 @@
 									<br />
 								</td>
 								<td style="width: 60%; text-align: center;">
-									<iframe style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
+									<iframe
+										style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
 										data-src="sketches/p5-tex/affine-scale/"></iframe>
 									<!--
 									<img class="fragment" data-fragment-index="2" style="width: 100%;"
@@ -323,7 +327,8 @@
 									<br />
 								</td>
 								<td style="width: 60%; text-align: center;">
-									<iframe style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
+									<iframe
+										style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
 										data-src="sketches/p5-tex/affine-rotation/"></iframe>
 									<!--
 									<img class="fragment" data-fragment-index="2" style="width: 100%;"
@@ -371,7 +376,8 @@
 									<br />
 								</td>
 								<td style="width: 60%; text-align: center;">
-									<iframe style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
+									<iframe
+										style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
 										data-src="sketches/p5-tex/affine-shear/"></iframe>
 									<!--
 										<img class="fragment" data-fragment-index="2" style="width: 100%;"
@@ -425,7 +431,7 @@
 					</div>
 					<div class="size-95 cc">
 						<p class="fragment" data-fragment-index="3" id="bb">
-							Can we do the same with affine transformations? 
+							Can we do the same with affine transformations?
 						</p>
 						<p class="fragment" data-fragment-index="4">
 							No, the problem is the <b>translation</b>❗️
@@ -439,7 +445,7 @@
 								height="110">
 						</picture>
 					</div>
-					
+
 					<br />
 				</section>
 
@@ -529,12 +535,210 @@
 					<br />
 				</section>
 
+
+
 				<section data-auto-animate>
 					<h4>Homogeneous coordinates</h4>
 
 					<div style="text-align: center;">
 						<iframe style="width: 800px; height: 500px;border: none;"
 							data-src="sketches/p5-tex/all-matrices-affine-2d"></iframe>
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Affine transformations applied to a square</h4>
+					<div class="size-80">
+						<p>
+							For example, suppose we have $2\times 2$ square centred at the origin.
+							<span class="fragment">
+								First, we want to <span>rotate the square by $45^{\circ}$ about its centre</span>;
+							</span>
+							<span class="fragment">
+								and then <span>move it so its centre is at $(2, 3).$</span>
+							</span>
+
+						</p>
+
+						<div style="margin-top: -30px;">
+							<img src="https://esc-maths.github.io/notes/2201nsc/imgs/affine-transformations/example-01.png"
+								loading="lazy" alt="Mountain landscape" width="650">
+						</div>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Affine transformations applied to a square</h4>
+					<div class="size-80">
+						<p>
+							For example, suppose we have $2\times 2$ square centred at the origin.
+							<span>
+								First, we want to <span class="fragment highlight-red" data-fragment-index="0">rotate
+									the square by $45^{\circ}$ about its centre</span>;
+							</span>
+							<span>
+								and then <span class="fragment highlight-blue" data-fragment-index="1">move it so its
+									centre is at $(2, 3).$</span>
+							</span>
+
+						</p>
+
+						<p>
+							In matrix form we have
+						</p>
+						<div class="cc">
+							<p>
+								${\large M}=$
+								<span class="fragment" data-fragment-index="1">
+									$ \color{blue}{
+									\overbrace{\begin{pmatrix}
+									1 &amp; 0 &amp; 2 \\
+									0 &amp; 1 &amp; 3 \\
+									0 &amp; 0 &amp; 1
+									\end{pmatrix}}^{\text{Translate at } (2,3)} }$
+								</span>
+								<span class="fragment" data-fragment-index="0">
+									$ \color{red}{\overbrace{\begin{pmatrix}
+									\cos 45^{\circ} &amp; -\sin 45^{\circ}&amp; 0 \\
+									\sin 45^{\circ} &amp; \cos 45^{\circ} &amp; 0 \\
+									0 &amp; 0 &amp; 1
+									\end{pmatrix}}^{\text{Rotate} 45^\circ}} \qquad\qquad\quad\;$
+								</span>
+							</p>
+
+							<p class="fragment" data-fragment-index="2">
+								$= \begin{pmatrix}
+								\cos 45^{\circ} &amp; -\sin 45^{\circ}&amp; 3 \\
+								\sin 45^{\circ} &amp; \cos 45^{\circ} &amp; 2 \\
+								0 &amp; 0 &amp; 1
+								\end{pmatrix}$
+								<span class="fragment" data-fragment-index="3">
+									$= \begin{pmatrix}
+									\sqrt{2}/2 &amp; -\sqrt{2}/2 &amp; 3 \\
+									\sqrt{2}/2 &amp; \sqrt{2}/2 &amp; 2 \\
+									0 &amp; 0 &amp; 1
+									\end{pmatrix}$
+								</span>
+							</p>
+
+
+						</div>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Affine transformations applied to a square</h4>
+					<div class="size-80">
+						<p>
+							For example, suppose we have $2\times 2$ square centred at the origin.
+							<span>
+								First, we want to <span>rotate the square by $45^{\circ}$ about its centre</span>;
+							</span>
+							<span>
+								and then <span>move it so its centre is at $(2, 3).$</span>
+							</span>
+
+						</p>
+
+						<p>
+							Now consider the vertices of the square using homogeneous coordinates
+						</p>
+						<div class="cc" style="font-size: 0.85em; margin-top: -20px;">
+							<p>
+								\(
+								v_1 =
+								\begin{pmatrix}
+								1 \\
+								1 \\
+								1
+								\end{pmatrix}, \;\; v_2 =
+								\begin{pmatrix}
+								-1 \\
+								1 \\
+								1
+								\end{pmatrix}, \;\; v_3 =
+								\begin{pmatrix}
+								1 \\
+								-1 \\
+								1
+								\end{pmatrix},\;\; v_4 =
+								\begin{pmatrix}
+								-1 \\
+								-1 \\
+								1
+								\end{pmatrix}.
+								\)
+							</p>
+
+
+
+
+						</div>
+
+						<p class="fragment" data-fragment-index="2">
+							Multiplying by the matrix $M$ we obtain the new vertices:
+
+						</p>
+
+						<div class="cc" style="font-size: 0.85em; margin-top: -10px;">
+							<p> 
+								\(
+								v_1' =
+								M \begin{pmatrix}
+								1 \\
+								1 \\
+								1
+								\end{pmatrix} =
+								\begin{pmatrix}
+								3 \\
+								2+\sqrt{2} \\
+								1
+								\end{pmatrix},\quad
+								 v_2' =
+								M \begin{pmatrix}
+								-1 \\
+								1 \\
+								1
+								\end{pmatrix} =
+								\begin{pmatrix}
+								3-\sqrt{2} \\
+								2\\
+								1
+								\end{pmatrix}, 
+
+								\)
+							</p>
+							<p> 
+								\(
+								v_3' =
+								M \begin{pmatrix}
+								1 \\
+								-1 \\
+								1
+								\end{pmatrix} =
+								\begin{pmatrix}
+								3 + \sqrt{2} \\
+								2 \\
+								1
+								\end{pmatrix}, \quad
+								v_4' =
+								M \begin{pmatrix}
+								-1 \\
+								-1 \\
+								1
+								\end{pmatrix} =
+								\begin{pmatrix}
+								3 \\
+								2-\sqrt{2} \\
+								1
+								\end{pmatrix}.
+								\)
+							</p>
+						</div>
+
 					</div>
 					<br />
 				</section>
