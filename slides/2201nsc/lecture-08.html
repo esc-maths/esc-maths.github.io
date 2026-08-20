@@ -537,10 +537,13 @@
 							<p class="fragment" data-fragment-index="4">
 								Then $E_{ij}=0\,$ if $\,j\gt i.$
 								<span class="fragment" data-fragment-index="5">
-									That is, $\, U = EA = \left(\begin{array}{l} E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 +
-									E_{22}\vec{a}_2 \\\;\; \quad \quad\vdots
-									\\
-									E_{n1}\vec{a}_1 + \dots + E_{nn}\vec{a}_n\end{array}\right) $
+									That is,
+									<span style="font-size: 0.85em;">
+										$\, U = EA = \left(\begin{array}{l} E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 +
+										E_{22}\vec{a}_2 \\\;\; \quad \quad\vdots
+										\\
+										E_{n1}\vec{a}_1 + \dots + E_{nn}\vec{a}_n\end{array}\right) $
+									</span>
 								</span>
 
 							</p>
@@ -548,7 +551,7 @@
 
 						<blockquote class="fragment" data-fragment-index="6"
 							style="width: 78%; text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: -8px;font-style: normal;width: 85%;">
-							This occurs if and only if the row reduction process uses <b>no row swaps</b>. 
+							This occurs if and only if the row reduction process uses <b>no row swaps</b>.
 							In that case, $\,L = E^{-1}$ and $A = LU$.
 						</blockquote>
 					</div>
@@ -1024,8 +1027,7 @@
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="4"
-							style="margin-top: 15px; text-align: center;">
+						<p class="fragment" data-fragment-index="4" style="margin-top: 15px; text-align: center;">
 							$L'$ is called <span id="bb">unit lower-triangular</span>.
 						</p>
 
@@ -1071,7 +1073,8 @@
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="4" style="text-align: center;margin-top: -10px;" id="bb">
+						<p class="fragment" data-fragment-index="4" style="text-align: center;margin-top: -10px;"
+							id="bb">
 							This normalisation removes scaling ambiguity to give a unique factorisation.
 						</p>
 
@@ -1215,7 +1218,8 @@ P =
      1     0     0
      0     0     1
      0     1     0</code></pre>
-						<p class="fragment" data-fragment-index="2" style="font-size: 1.1em;border-left: 6px solid red; padding-left: 20px;">
+						<p class="fragment" data-fragment-index="2"
+							style="font-size: 1.1em;border-left: 6px solid red; padding-left: 20px;">
 							<b>Note:</b> Omitting <code>P</code> (e.g., <code>[L,U] = lu(A)</code>)
 							merges $P$ into $L$,
 							which may result in $L$ not being strictly lower-triangular.
@@ -1440,14 +1444,15 @@ P =
 							</li>
 						</ol>
 
-						<p class="fragment" style="font-size: 0.86em;border-left: 6px solid red; padding-left: 10px;margin-top: 10px;">
+						<p class="fragment"
+							style="font-size: 0.86em;border-left: 6px solid red; padding-left: 10px;margin-top: 10px;">
 							<b>Remark:</b>
 							If $\mathbf v_m=\mathbf 0$, skip this vector.
 							This occurs when $\mathbf a_m$ is linearly dependent on
 							the preceding vectors.
 						</p>
 					</div>
-					<br/>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -2026,7 +2031,7 @@ R =
 						<div class="fragment">
 
 							<p style="margin-top: 12px; font-size: 0.95em; text-align: center;" id="bb">
-								Using QR factorisation simplifies least-squares <br/>into an elegant,
+								Using QR factorisation simplifies least-squares <br />into an elegant,
 								computationally stable
 								form!
 							</p>
@@ -3272,7 +3277,8 @@ Diagonal Matrix
 						</p>
 						<ul style="line-height: 2.2em; margin-top: -10px; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
-								<b>Left Matrix ($\color{red}{U}$):</b> Columns of $\color{red}{U}$ are the eigenvectors of
+								<b>Left Matrix ($\color{red}{U}$):</b> Columns of $\color{red}{U}$ are the eigenvectors
+								of
 								$A A^T$.
 							</li>
 							<li class="fragment" data-fragment-index="1">
@@ -3290,7 +3296,8 @@ Diagonal Matrix
 							</li>
 
 							<li class="fragment" data-fragment-index="2">
-								<b>Right Matrix ($\color{blue}{V}$):</b> Columns of $\color{blue}{V}$ are the eigenvectors
+								<b>Right Matrix ($\color{blue}{V}$):</b> Columns of $\color{blue}{V}$ are the
+								eigenvectors
 								of $A^T A$.
 							</li>
 
@@ -3540,7 +3547,8 @@ Diagonal Matrix
 
 								<p class="fragment" data-fragment-index="3"
 									style="font-size: 0.74em; border-left: 6px solid red; padding-left: 20px;">
-									<b>Numerical Artifacts:</b> Values like $2.5208 \times 10^{-15}$ arise from floating-point limitations and represent exact zeros.
+									<b>Numerical Artifacts:</b> Values like $2.5208 \times 10^{-15}$ arise from
+									floating-point limitations and represent exact zeros.
 								</p>
 
 
@@ -3659,7 +3667,8 @@ Diagonal Matrix
 								in descending order along the diagonal.
 							</li>
 							<li class="fragment" data-fragment-index="2">
-								<b>Dimensions:</b> The matrices $Q_m$ ($m \times m$) and $Q_n$ ($n \times n$) differ in size for
+								<b>Dimensions:</b> The matrices $Q_m$ ($m \times m$) and $Q_n$ ($n \times n$) differ in
+								size for
 								non-square matrices.
 							</li>
 							<li class="fragment" data-fragment-index="3">
@@ -3732,13 +3741,14 @@ Diagonal Matrix
 						<p>If $\Sigma$ contains $r$ non-zero singular values, $Q_m$ and $Q_n$ provide orthonormal bases
 							for the four fundamental subspaces:</p>
 
-						<div style="display: flex; justify-content: space-between; margin-top: -20px; font-size: 0.85em;">
+						<div
+							style="display: flex; justify-content: space-between; margin-top: -20px; font-size: 0.85em;">
 							<div class="fragment" data-fragment-index="0"
 								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
 								<p style="color: #015ff5; margin-bottom: 5px;">
 									<b>Left Vectors ($Q_m$ - Eigenvectors of
 										$A A^T$)</b>
-									</p>
+								</p>
 								<ul style="line-height: 1.5em; padding-left: 0px;">
 									<li>
 										<b>First $r$ columns:</b> Orthonormal basis for the column space of $A$,
@@ -3756,21 +3766,22 @@ Diagonal Matrix
 								<p style="color: #015ff5; margin-bottom: 5px;">
 									<b>Right Vectors ($Q_n$ - Eigenvectors of
 										$A^TA$)</b>
-									</p>
+								</p>
 								<ul style="line-height: 1.5em; padding-left: 0px;">
 									<li><b>First $r$ columns:</b> Orthonormal basis for the row space of $A$,
 										$\text{Col}(A^T)$.</li>
 									<li class="fragment" data-fragment-index="3">
 										<b>Final $n-r$ columns:</b> Orthonormal basis for the null space of $A$,
-										$\text{Null}(A)$.</li>
+										$\text{Null}(A)$.
+									</li>
 								</ul>
 							</div>
 						</div>
 
 						<blockquote class="fragment" data-fragment-index="4"
 							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px; width: 92%; font-style: normal;">
-							💡 <b>Key Takeaway:</b> 
-							The descending singular values in $\Sigma$ 
+							💡 <b>Key Takeaway:</b>
+							The descending singular values in $\Sigma$
 							naturally rank the matrix's components by their relative importance, with
 							$r= \text{rank}(A)$.
 						</blockquote>
@@ -3800,7 +3811,8 @@ Diagonal Matrix
 								factorisation when $A$ is real, symmetric, and positive-definite.</span>
 						</li>
 						<li class="fragment" data-fragment-index="3" style="margin-top: 8px;">
-							<b>Singular Value Decomposition (SVD):</b> $\,A = Q_m \Sigma Q_n^T \;\; (\text{or } U\Sigma V^T)$
+							<b>Singular Value Decomposition (SVD):</b> $\,A = Q_m \Sigma Q_n^T \;\; (\text{or } U\Sigma
+							V^T)$
 							<br /><span style="font-size: 0.9em; ">$Q_m$ and $Q_n$ are orthogonal matrices
 								(eigenvectors of $A A^T$ and $A^TA$), with singular values arranged on the diagonal of
 								$\Sigma$.</span>
