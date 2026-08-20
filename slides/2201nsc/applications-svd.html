@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>2201NSC - Applications of the SVD</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenesc.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section>
+
+				<div style="margin-top: 0px; margin-bottom: 20px;">
+					<img src="images/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div>
+					<span class="size-70">
+						<h2>Linear Algebra & Applications</h2>
+					</span>
+					<span class="size-75">
+						<p style="font-weight: bold; font-size: 120%; text-align: center;">2201NSC</p>
+					</span>
+
+				</div>
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Applications of the SVD
+				</p>
+
+				<div style="margin-top: -40px; margin-bottom:20px;">
+					<img src="images/fractal/f009.png" style="width: 500px; ">
+				</div>
+			</section>
+
+			<section>
+
+				<!-- Slide 1: SVD Recall & Matrix Factorisation (PDF p.2) -->
+				<section data-auto-animate>
+					<h4>SVD Recall & Matrix Factorisation</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Any matrix $A \in \mathbb{R}^{m \times n}$ can be written as $A = U \Sigma V^T$, where $U \in
+							\mathbb{R}^{m \times m}$ and $V \in \mathbb{R}^{n \times n}$ are orthogonal matrices, and
+							$\Sigma \in \mathbb{R}^{m \times n}$ contains singular values $\sigma_1 \ge \sigma_2 \ge
+							\dots \ge \sigma_r > 0$.</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 12px;">
+							$$ A = \begin{pmatrix} | & | & & | \\ u_1 & u_2 & \dots & u_m \\ | & | & & | \end{pmatrix}
+							\begin{pmatrix} \sigma_1 & & \\ & \sigma_2 & \\ & & \ddots \end{pmatrix} \begin{pmatrix} - &
+							v_1^T & - \\ - & v_2^T & - \\ & \vdots & \end{pmatrix} = \sum_{i=1}^{r} \sigma_i u_i v_i^T
+							$$
+						</div>
+
+						<blockquote class="fragment" data-fragment-index="1"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
+							The SVD decomposes $A$ into a linear combination of rank-1 outer product matrices.
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 2: The SVD is an Expansion (PDF p.3) -->
+				<section data-auto-animate>
+					<h4>The SVD as an Outer Product Expansion</h4>
+					<div class="size-85" style="font-size: 0.73em;">
+						<p>The expansion $A = \sum_{i=1}^{r} \sigma_i u_i v_i^T$ represents $A$ as a weighted sum of
+							outer products $u_i v_i^T$:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
+							$$ u_i v_i^T = \begin{pmatrix} u_{1i} \\ u_{2i} \\ \vdots \\ u_{mi} \end{pmatrix}
+							\begin{pmatrix} v_{1i} & v_{2i} & \dots & v_{ni} \end{pmatrix} = \begin{pmatrix}
+							u_{1i}v_{1i} & u_{1i}v_{2i} & \dots & u_{1i}v_{ni} \\ u_{2i}v_{1i} & u_{2i}v_{2i} & \dots &
+							u_{2i}v_{ni} \\ \vdots & \vdots & \ddots & \vdots \\ u_{mi}v_{1i} & u_{mi}v_{2i} & \dots &
+							u_{mi}v_{ni} \end{pmatrix} $$
+						</div>
+
+						<ul style="line-height: 1.6em; margin-top: 12px;">
+							<li class="fragment" data-fragment-index="1">
+								Orthonormality of $U$ and $V$ implies $\|u_i\| = \|v_i\| = 1$.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								Bounded element magnitude: $|u_{ji}| \le 1$ and $|v_{ki}| \le 1$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Sum of squared entries over each term satisfies $\sum_{j,k} (u_{ji} v_{ki})^2 = 1$.
+							</li>
+						</ul>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 3: Low-Rank Matrix Approximation (PDF p.4) -->
+				<section data-auto-animate>
+					<h4>Low-Rank Approximation & Data Truncation</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Because singular values are ordered ($\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r > 0$),
+							term significance drops rapidly:</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
+							$$ A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T \quad (k < r) $$ </div>
+
+								<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+									<p><b>Data Savings Comparison:</b></p>
+									<div
+										style="display: flex; justify-style: space-around; text-align: center; margin-top: 10px;">
+										<div
+											style="background: rgba(255,255,255,0.03); padding: 12px 20px; border-radius: 5px;">
+											<p style="color: #ff6b6b; margin: 0;"><b>Original Storage</b></p>
+											<p style="font-size: 1.2em; margin: 5px 0 0 0;">$m \times n$ entries</p>
+										</div>
+										<div
+											style="background: rgba(255,255,255,0.03); padding: 12px 20px; border-radius: 5px;">
+											<p style="color: #4285f4; margin: 0;"><b>Truncated $k$-rank SVD</b></p>
+											<p style="font-size: 1.2em; margin: 5px 0 0 0;">$k \times (m + n + 1)$
+												entries</p>
+										</div>
+									</div>
+								</div>
+						</div>
+						<br />
+				</section>
+
+				<!-- Slide 4: Application to Image Compression (PDF p.19, 20) -->
+				<section data-auto-animate>
+					<h4>Application: SVD Image Compression</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Workflow for compressing image data using SVD truncation:</p>
+
+						<ol style="line-height: 1.7em; margin-top: 10px;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Matrix Representation:</b> Convert image pixels into intensity matrix $A \in
+								\mathbb{R}^{m \times n}$.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								<b>Factorisation:</b> Compute full SVD: $A = U \Sigma V^T$.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								<b>Rank Culling:</b> Eliminate zero singular values to determine exact rank $r$.
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<b>Compression:</b> Discard smallest $\sigma_i$ values along with corresponding columns
+								of $U$ and rows of $V^T$.
+							</li>
+						</ol>
+
+						<blockquote class="fragment" data-fragment-index="4"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
+							Reduces parameter storage from $m \times n$ down to $k \times (m + n + 1)$ while preserving
+							dominant visual structure.
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 5: Geometric Action on Unit Circle (PDF p.29, 30, 31) -->
+				<section data-auto-animate>
+					<h4>Geometric Interpretation: Action on Unit Circle</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>Consider transformation of unit circle points $x \in \mathbb{R}^2$ ($||x|| = 1$) under matrix
+							$A$:</p>
+
+						<div
+							style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+							<div style="width: 45%;">
+								$$ A = \begin{pmatrix} 3 & 1 \\ 4 & 2 \end{pmatrix} $$
+								<p style="font-size: 0.85em; color: #ccc; margin-top: 10px;">
+									Maps unit circle into an ellipse in $\mathbb{R}^2$.
+								</p>
+							</div>
+							<div class="fragment" data-fragment-index="0"
+								style="width: 50%; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 5px;">
+								<p style="color: #4285f4; margin: 0 0 5px 0;"><b>Key Questions:</b></p>
+								<ul style="line-height: 1.5em; padding-left: 18px; margin: 0;">
+									<li>In which direction is data stretched most?</li>
+									<li>In which direction is data stretched least?</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 6: Derivation of Maximum & Minimum Stretch (PDF p.32) -->
+				<section data-auto-animate>
+					<h4>Deriving Maximum and Minimum Stretch</h4>
+					<div class="size-85" style="font-size: 0.72em;">
+						<p>For $\|x\| = 1$, distance from origin is $\|Ax\| = \sqrt{x^T A^T A x}$. Since $A^T A$ is
+							symmetric positive-definite ($V D V^T$):</p>
+
+						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
+							$$ x = c_1 v_1 + c_2 v_2 = V c \quad \text{with} \quad c_1^2 + c_2^2 = 1 $$
+						</div>
+
+						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
+							$$ \|Ax\| = \sqrt{(c^T V^T)(V D V^T)(V c)} = \sqrt{c^T D c} = \sqrt{\lambda_1 c_1^2 +
+							\lambda_2 c_2^2} $$
+						</div>
+
+						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
+							<div class="fragment" data-fragment-index="2"
+								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+								<p style="color: #4285f4; margin: 0;"><b>Maximum Stretch</b></p>
+								<p style="margin: 5px 0 0 0;">$c_1 = 1, c_2 = 0 \implies x = v_1$</p>
+								<p style="margin: 2px 0 0 0;">Length $\|Ax\| = \sqrt{\lambda_1} = \sigma_1$</p>
+							</div>
+							<div class="fragment" data-fragment-index="3"
+								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+								<p style="color: #ff6b6b; margin: 0;"><b>Minimum Stretch</b></p>
+								<p style="margin: 5px 0 0 0;">$c_1 = 0, c_2 = 1 \implies x = v_2$</p>
+								<p style="margin: 2px 0 0 0;">Length $\|Ax\| = \sqrt{\lambda_2} = \sigma_2$</p>
+							</div>
+						</div>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 7: SVD Identifies Important Directions (PDF p.33) -->
+				<section data-auto-animate>
+					<h4>Principal Directions & Matrix $V$</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<ul style="line-height: 1.7em;">
+							<li class="fragment" data-fragment-index="0">
+								The eigenvectors of $A^T A$ define orthogonal directions of principal stretching.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								<b>Higher Dimensions:</b> Columns of $V$ sequentially order axes from greatest
+								stretching to lowest stretching.
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								These principal directions correspond directly to the rows of $V^T$ in $A = U \Sigma
+								V^T$.
+							</li>
+						</ul>
+
+						<blockquote class="fragment" data-fragment-index="3"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
+							$V$ identifies the domain orientation vectors, while $\Sigma$ scales their transformed
+							magnitudes.
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+				<!-- Slide 8: Variance in Multi-Variable Data (PDF p.34, 35) -->
+				<section data-auto-animate>
+					<h4>Directions of Maximum Variance in Data</h4>
+					<div class="size-85" style="font-size: 0.75em;">
+						<p>For a dataset $X \in \mathbb{R}^{m \times 2}$ containing $m$ observations:</p>
+
+						<div
+							style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+							<div style="width: 45%;">
+								$$ X = \begin{pmatrix} x_1 & y_1 \\ x_2 & y_2 \\ \vdots & \vdots \\ x_m & y_m
+								\end{pmatrix} $$
+							</div>
+
+							<div class="fragment" data-fragment-index="0"
+								style="width: 50%; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 5px;">
+								<p style="color: #4285f4; margin: 0 0 5px 0;"><b>Principal Axes of Variance:</b></p>
+								<p style="font-size: 0.9em; margin: 0;">
+									Obtained directly from rows of $V^T$ in SVD expansion $X = U \Sigma V^T$.
+								</p>
+							</div>
+						</div>
+
+						<blockquote class="fragment" data-fragment-index="1"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
+							<b>Conclusion:</b> SVD automatically provides Principal Component Analysis (PCA) directions
+							without forming explicit covariance matrices.
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+
+</body>
+
+</html>
