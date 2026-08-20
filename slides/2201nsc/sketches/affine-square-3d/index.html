@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Three.js Geometry Resolution Demo</title>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #ui {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .count-display {
+      font-size: 1.2em;
+      color: #0066cc;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background-color: #004b99;
+    }
+
+    .hint {
+      font-size: 0.85em;
+      color: #666;
+      margin-top: 8px;
+      font-weight: normal;
+      font-style: italic;
+    }
+
+    /* ---------- Info Button ---------- */
+
+    #infoBtn {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background: #444;
+    }
+
+    #infoBtn:hover {
+      background: #222;
+    }
+
+    /* ---------- Modal ---------- */
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .6);
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 650px;
+      margin: 6% auto;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+      line-height: 1.6;
+      color: #333;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      color: #0066cc;
+    }
+
+    .modal-content ul {
+      padding-left: 22px;
+    }
+
+    .modal-content a {
+      text-decoration: none;
+    }
+
+    .modal-content a:link {
+      color: #014d9a;
+      font-weight: bold;
+    }
+
+    .modal-content a:hover {
+      color: #4894e0;
+    }
+
+    .close {
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+  </style>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8GQQBCYTB5');
+  </script>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    // ============================================================
+    // STATE & VARIABLES
+    // ============================================================
+
+    let angle = 0;
+    let tx = 0;
+    let ty = 0;
+
+    let targetAngle = 0;
+    let targetTx = 0;
+    let targetTy = 0;
+
+    let startAngle = 0;
+    let startTx = 0;
+    let startTy = 0;
+
+    let animationStart = 0;
+    const animationDuration = 1000;
+    let animating = false;
+
+    let view3D = false;
+
+    // Original square vertices [x, y]
+    const square = [
+      [-1, 1],
+      [1, 1],
+      [1, -1],
+      [-1, -1]
+    ];
+
+    // Layer Z-offsets to prevent Z-fighting
+    const Z_PLANE = 0.999;
+    const Z_GRID = 1.0;
+    const Z_ORIGINAL = 1.001;
+    const Z_ORIGINAL_OUTLINE = 1.0015;
+    const Z_TRANSFORMED = 1.002;
+    const Z_TRANSFORMED_OUTLINE = 1.0025;
+
+    // ============================================================
+    // THREE.JS SETUP
+    // ============================================================
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xfafafa);
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    document.body.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+    // Clamp polar angle to prevent gimbal lock/spinning when dragging vertically past poles
+    controls.minPolarAngle = 0.1;
+    controls.maxPolarAngle = Math.PI / 2 + 0.15;
+
+    // ============================================================
+    // UI OVERLAY CREATION
+    // ============================================================
+
+    const uiContainer = document.createElement('div');
+    uiContainer.style.position = 'absolute';
+    uiContainer.style.top = '20px';
+    uiContainer.style.left = '20px';
+    uiContainer.style.fontFamily = 'sans-serif';
+    uiContainer.style.pointerEvents = 'none';
+    document.body.appendChild(uiContainer);
+
+    const buttonRow = document.createElement('div');
+    buttonRow.style.pointerEvents = 'auto';
+    buttonRow.style.display = 'flex';
+    buttonRow.style.gap = '10px';
+    uiContainer.appendChild(buttonRow);
+
+    function createBtn(text, onClick) {
+      const btn = document.createElement('button');
+      btn.innerText = text;
+      btn.style.fontSize = '16px';
+      btn.style.padding = '8px 14px';
+      btn.style.cursor = 'pointer';
+      btn.addEventListener('click', onClick);
+      buttonRow.appendChild(btn);
+      return btn;
+    }
+
+    const rotateButton = createBtn("Rotate 45°", startRotation);
+    const translateButton = createBtn("Translate (2, 3)", startTranslation);
+    translateButton.disabled = true;
+    const resetButton = createBtn("Reset", resetTransformation);
+    const viewButton = createBtn("3D view", toggleView);
+
+    const infoDiv = document.createElement('div');
+    infoDiv.style.marginTop = '20px';
+    infoDiv.style.color = '#282828';
+    infoDiv.style.fontSize = '18px';
+    infoDiv.style.lineHeight = '1.5';
+    uiContainer.appendChild(infoDiv);
+
+    // ============================================================
+    // TEXT SPRITES HELPERS
+    // ============================================================
+
+    function createTextSprite(text, colorHex, fontSize = 48) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 300;
+      canvas.height = 128;
+      const ctx = canvas.getContext('2d');
+      ctx.font = `Bold ${fontSize}px sans-serif`;
+      ctx.fillStyle = colorHex;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, 128, 64);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true, depthTest: false });
+      const sprite = new THREE.Sprite(spriteMaterial);
+      sprite.scale.set(2, 1, 1);
+      sprite.renderOrder = 101;
+      return sprite;
+    }
+
+    // ============================================================
+    // SCENE OBJECTS CREATION
+    // ============================================================
+
+    const range = 5;
+
+    // --- XY Plane Base Grid (w = 0) ---
+    const gridXY = new THREE.GridHelper(range * 2, range * 2, 0xa0a0a0, 0xc8c8c8);
+    gridXY.rotation.x = Math.PI / 2;
+    gridXY.position.z = 0;
+    gridXY.renderOrder = 0;
+    scene.add(gridXY);
+
+    // --- Axes ---
+    const axesGroup = new THREE.Group();
+
+    function createLine(p1, p2, colorHex, linewidth = 2) {
+      const geom = new THREE.BufferGeometry().setFromPoints([p1, p2]);
+      const mat = new THREE.LineBasicMaterial({ color: colorHex, linewidth: linewidth, depthTest: false });
+      const line = new THREE.Line(geom, mat);
+      line.renderOrder = 100;
+      return line;
+    }
+
+    // Darker, high-visibility colors for axes
+    const COLOR_X = 0x9e1212; // Dark Red
+    const COLOR_Y = 0x146c14; // Dark Green
+    const COLOR_W = 0x183bbd; // Dark Blue
+
+    // X Axis
+    const xLine = createLine(new THREE.Vector3(-range, 0, 0), new THREE.Vector3(range, 0, 0), COLOR_X, 3);
+    axesGroup.add(xLine);
+    const xLabel = createTextSprite("x", "#9e1212", 44);
+    xLabel.position.set(range + 0.4, 0, 0);
+    axesGroup.add(xLabel);
+
+    // Y Axis
+    const yLine = createLine(new THREE.Vector3(0, -range, 0), new THREE.Vector3(0, range, 0), COLOR_Y, 3);
+    axesGroup.add(yLine);
+    const yLabel = createTextSprite("y", "#146c14", 44);
+    yLabel.position.set(0, range + 0.4, 0);
+    axesGroup.add(yLabel);
+
+    // W Axis
+    const wAxisLine = createLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 4.3), COLOR_W, 3);
+    const wLabel = createTextSprite("w", "#183bbd", 44);
+    wLabel.position.set(0, 0, 4.6);
+    const wGroup = new THREE.Group();
+    wGroup.add(wAxisLine);
+    wGroup.add(wLabel);
+    axesGroup.add(wGroup);
+
+    // Origin Sphere
+    const originGeom = new THREE.SphereGeometry(0.1, 16, 16);
+    const originMat = new THREE.MeshBasicMaterial({ color: 0x1e1e1e, depthTest: false });
+    const originSphere = new THREE.Mesh(originGeom, originMat);
+    originSphere.renderOrder = 100;
+    axesGroup.add(originSphere);
+
+    scene.add(axesGroup);
+
+    // --- Affine Plane (w = 1) ---
+    const affinePlaneGroup = new THREE.Group();
+
+    const planeGeom = new THREE.PlaneGeometry(range * 2, range * 2);
+    const planeMat = new THREE.MeshBasicMaterial({
+      color: 0x96b4dc,
+      transparent: true,
+      opacity: 0.25,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    });
+    const planeMesh = new THREE.Mesh(planeGeom, planeMat);
+    planeMesh.position.z = Z_PLANE;
+    planeMesh.renderOrder = 0;
+    affinePlaneGroup.add(planeMesh);
+
+    // Grid on plane w = 1
+    const gridHelper = new THREE.GridHelper(range * 2, range * 2, 0xb4c8dc, 0xb4c8dc);
+    gridHelper.rotation.x = Math.PI / 2;
+    gridHelper.position.z = Z_GRID;
+    gridHelper.renderOrder = 1;
+    affinePlaneGroup.add(gridHelper);
+
+    // Plane Label
+    const planeLabel = createTextSprite("Plane  w = 1", "#000000", 32);
+    planeLabel.scale.set(4, 2, 1);
+    planeLabel.position.set(-4.5, 6.5, 1.05);
+    affinePlaneGroup.add(planeLabel);
+
+    scene.add(affinePlaneGroup);
+
+    // --- Original Square ---
+    const origSquareGroup = new THREE.Group();
+
+    // Face
+    const quadIndices = [0, 1, 2, 0, 2, 3];
+    const origGeom = new THREE.BufferGeometry();
+    const origPos = new Float32Array(6 * 3);
+    quadIndices.forEach((idx, i) => {
+      origPos[i * 3] = square[idx][0];
+      origPos[i * 3 + 1] = square[idx][1];
+      origPos[i * 3 + 2] = Z_ORIGINAL;
+    });
+    origGeom.setAttribute('position', new THREE.BufferAttribute(origPos, 3));
+    const origMat = new THREE.MeshBasicMaterial({
+      color: 0x969696,
+      transparent: true,
+      opacity: 0.35,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    });
+    const origMesh = new THREE.Mesh(origGeom, origMat);
+    origMesh.renderOrder = 2;
+    origSquareGroup.add(origMesh);
+
+    // Outline
+    const origOutlineGeom = new THREE.BufferGeometry();
+    const origOutlinePos = new Float32Array(4 * 3);
+    square.forEach((p, i) => {
+      origOutlinePos[i * 3] = p[0];
+      origOutlinePos[i * 3 + 1] = p[1];
+      origOutlinePos[i * 3 + 2] = Z_ORIGINAL_OUTLINE;
+    });
+    origOutlineGeom.setAttribute('position', new THREE.BufferAttribute(origOutlinePos, 3));
+    const origOutlineMat = new THREE.LineBasicMaterial({ color: 0x404040, linewidth: 2 });
+    const origOutlineLine = new THREE.LineLoop(origOutlineGeom, origOutlineMat);
+    origOutlineLine.renderOrder = 3;
+    origSquareGroup.add(origOutlineLine);
+
+    // Vertices
+    const sphereGeom = new THREE.SphereGeometry(0.08, 16, 16);
+    const origSphereMat = new THREE.MeshBasicMaterial({ color: 0x303030 });
+    square.forEach(p => {
+      const sp = new THREE.Mesh(sphereGeom, origSphereMat);
+      sp.position.set(p[0], p[1], Z_ORIGINAL_OUTLINE);
+      sp.renderOrder = 3;
+      origSquareGroup.add(sp);
+    });
+
+    scene.add(origSquareGroup);
+
+    // --- Transformed Square ---
+    const transSquareGroup = new THREE.Group();
+
+    const transGeom = new THREE.BufferGeometry();
+    const transPos = new Float32Array(6 * 3);
+    transGeom.setAttribute('position', new THREE.BufferAttribute(transPos, 3));
+    const transMat = new THREE.MeshBasicMaterial({
+      color: 0x1e64dc,
+      transparent: true,
+      opacity: 0.5,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    });
+    const transMesh = new THREE.Mesh(transGeom, transMat);
+    transMesh.renderOrder = 4;
+    transSquareGroup.add(transMesh);
+
+    const transOutlineGeom = new THREE.BufferGeometry();
+    const transOutlinePos = new Float32Array(4 * 3);
+    transOutlineGeom.setAttribute('position', new THREE.BufferAttribute(transOutlinePos, 3));
+    const transOutlineMat = new THREE.LineBasicMaterial({ color: 0x1040a0, linewidth: 2 });
+    const transOutlineLine = new THREE.LineLoop(transOutlineGeom, transOutlineMat);
+    transOutlineLine.renderOrder = 5;
+    transSquareGroup.add(transOutlineLine);
+
+    const transSpheres = [];
+    const transSphereMat = new THREE.MeshBasicMaterial({ color: 0x1040a0 });
+    for (let i = 0; i < 4; i++) {
+      const sp = new THREE.Mesh(sphereGeom, transSphereMat);
+      sp.renderOrder = 5;
+      transSquareGroup.add(sp);
+      transSpheres.push(sp);
+    }
+
+    scene.add(transSquareGroup);
+
+    // ============================================================
+    // CAMERA MANAGEMENT
+    // ============================================================
+
+    function setCameraView(is3D) {
+      if (is3D) {
+        camera.position.set(11, -13, 5);
+        camera.up.set(0, 0, 1);
+        controls.target.set(0, 0, 0.5);
+        controls.enabled = true;
+      } else {
+        camera.position.set(0, 0, 18);
+        camera.up.set(0, 1, 0);
+        controls.target.set(0, 0, 0);
+        controls.enabled = false;
+      }
+      controls.update();
+
+      gridXY.visible = is3D;
+      wGroup.visible = is3D;
+      planeMesh.visible = is3D;
+      planeLabel.visible = is3D;
+    }
+
+    setCameraView(view3D);
+
+    // ============================================================
+    // TRANSFORMATIONS & ANIMATION LOGIC
+    // ============================================================
+
+    function transformPoint(p) {
+      const x = p[0];
+      const y = p[1];
+
+      // Rotation
+      const xr = x * Math.cos(angle) - y * Math.sin(angle);
+      const yr = x * Math.sin(angle) + y * Math.cos(angle);
+
+      // Translation
+      const xt = xr + tx;
+      const yt = yr + ty;
+
+      return [xt, yt];
+    }
+
+    function easeInOut(t) {
+      return t < 0.5
+        ? 2 * t * t
+        : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    }
+
+    function updateAnimation(now) {
+      if (!animating) return;
+
+      let t = (now - animationStart) / animationDuration;
+      t = Math.max(0, Math.min(1, t));
+      const easedT = easeInOut(t);
+
+      angle = startAngle + (targetAngle - startAngle) * easedT;
+      tx = startTx + (targetTx - startTx) * easedT;
+      ty = startTy + (targetTy - startTy) * easedT;
+
+      if (t >= 1) {
+        angle = targetAngle;
+        tx = targetTx;
+        ty = targetTy;
+        animating = false;
+        updateButtons();
+      }
+    }
+
+    function startRotation() {
+      if (animating) return;
+      startAngle = angle;
+      startTx = tx;
+      startTy = ty;
+
+      targetAngle = Math.PI / 4;
+      targetTx = tx;
+      targetTy = ty;
+
+      startAnimation();
+    }
+
+    function startTranslation() {
+      if (animating) return;
+      startAngle = angle;
+      startTx = tx;
+      startTy = ty;
+
+      targetAngle = angle;
+      targetTx = 2;
+      targetTy = 3;
+
+      startAnimation();
+    }
+
+    function resetTransformation() {
+      if (animating) return;
+      startAngle = angle;
+      startTx = tx;
+      startTy = ty;
+
+      targetAngle = 0;
+      targetTx = 0;
+      targetTy = 0;
+
+      startAnimation();
+    }
+
+    function startAnimation() {
+      animationStart = performance.now();
+      animating = true;
+
+      rotateButton.disabled = true;
+      translateButton.disabled = true;
+      resetButton.disabled = true;
+    }
+
+    function updateButtons() {
+      resetButton.disabled = false;
+
+      if (Math.abs(angle) < 0.001 && Math.abs(tx) < 0.001 && Math.abs(ty) < 0.001) {
+        rotateButton.disabled = false;
+        translateButton.disabled = true;
+      } else if (Math.abs(angle - Math.PI / 4) < 0.001 && Math.abs(tx) < 0.001 && Math.abs(ty) < 0.001) {
+        rotateButton.disabled = true;
+        translateButton.disabled = false;
+      } else {
+        rotateButton.disabled = true;
+        translateButton.disabled = true;
+      }
+    }
+
+    function toggleView() {
+      view3D = !view3D;
+      viewButton.innerText = view3D ? "2D view" : "3D view";
+      setCameraView(view3D);
+    }
+
+    // ============================================================
+    // DYNAMIC RENDER UPDATE & LOOP
+    // ============================================================
+
+    function updateTransformedMesh() {
+      const transformed = square.map(transformPoint);
+
+      // Dynamic mesh update
+      const posAttr = transGeom.attributes.position;
+      quadIndices.forEach((idx, i) => {
+        const pt = transformed[idx];
+        posAttr.setXYZ(i, pt[0], pt[1], Z_TRANSFORMED);
+      });
+      posAttr.needsUpdate = true;
+
+      // Dynamic outline & vertices update
+      const outPosAttr = transOutlineGeom.attributes.position;
+      transformed.forEach((pt, i) => {
+        outPosAttr.setXYZ(i, pt[0], pt[1], Z_TRANSFORMED_OUTLINE);
+        transSpheres[i].position.set(pt[0], pt[1], Z_TRANSFORMED_OUTLINE);
+      });
+      outPosAttr.needsUpdate = true;
+    }
+
+    function updateInfoText() {
+      const viewText = view3D ? "3D affine-coordinate view" : "2D view";
+      const deg = (angle * 180 / Math.PI).toFixed(1);
+      const txStr = tx.toFixed(1);
+      const tyStr = ty.toFixed(1);
+
+      let html = `<div>${viewText}</div>`;
+      html += `<div>Rotation: ${deg}°</div>`;
+      html += `<div>Translation: (${txStr}, ${tyStr})</div>`;
+      if (view3D) {
+        html += `<div>Affine plane: w = 1</div>`;
+      }
+      infoDiv.innerHTML = html;
+    }
+
+    function animate(now) {
+      requestAnimationFrame(animate);
+
+      updateAnimation(now);
+      updateTransformedMesh();
+      updateInfoText();
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    requestAnimationFrame(animate);
+
+    // ============================================================
+    // RESIZE
+    // ============================================================
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+</body>
+
+</html>
