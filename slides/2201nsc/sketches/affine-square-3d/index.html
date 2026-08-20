@@ -226,7 +226,7 @@
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
 
-    // Clamp polar angle to prevent gimbal lock/spinning when dragging vertically past poles
+    // // Clamp polar angle to prevent gimbal lock/spinning when dragging vertically past poles
     controls.minPolarAngle = 0.1;
     controls.maxPolarAngle = Math.PI / 2 + 0.15;
 
@@ -479,12 +479,14 @@
 
     function setCameraView(is3D) {
       if (is3D) {
-        camera.position.set(11, -13, 5);
+        //camera.position.set(8, -9, 6);
+        //camera.position.set(3, -10, 6);
+        camera.position.set(8, -9, 6);
         camera.up.set(0, 0, 1);
-        controls.target.set(0, 0, 0.5);
-        controls.enabled = true;
+        controls.target.set(0, 0, 0);
+        controls.enabled = false;
       } else {
-        camera.position.set(0, 0, 18);
+        camera.position.set(0, 0, 16);
         camera.up.set(0, 1, 0);
         controls.target.set(0, 0, 0);
         controls.enabled = false;
@@ -659,7 +661,9 @@
       updateTransformedMesh();
       updateInfoText();
 
-      controls.update();
+      // if (controls.enabled) {
+      //   controls.update();
+      // }
       renderer.render(scene, camera);
     }
 
