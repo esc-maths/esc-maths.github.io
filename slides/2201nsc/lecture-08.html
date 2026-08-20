@@ -71,15 +71,12 @@
 
 			<section>
 
-
-
-
 				<section data-auto-animate>
 					<h4>Why Factorisation? (Real Numbers)</h4>
-					<div class="size-85 left-txt">
+					<div class="size-80 left-txt">
 						<p class="fragment" data-fragment-index="0">Prime factorisation is widely used in applications
 							with real numbers:</p>
-						<ul style="line-height: 1.8em;">
+						<ul style="line-height: 1.8em; margin-top: -20px;">
 							<li class="fragment" data-fragment-index="1"><b>LCM:</b> Lowest Common Multiple (e.g.,
 								adding fractions)</li>
 							<li class="fragment" data-fragment-index="6"><b>HCF:</b> Highest Common Factor (e.g.,
@@ -136,7 +133,7 @@
 
 				<section data-auto-animate>
 					<h4>Why Factorisation? (Real Numbers)</h4>
-					<div class="size-85 left-txt">
+					<div class="size-80 left-txt">
 						<p>Prime factorisation is widely used in applications
 							with real numbers:</p>
 						<ul style="line-height: 1.8em;">
@@ -148,7 +145,7 @@
 								expressions</li>
 						</ul>
 
-						<div style="margin-top: 20px;">
+						<div style="margin-top: 60px;">
 							<p><b>Key Advantages:</b></p>
 							<ul style="line-height: 1.8em;">
 								<li>Simpler, more manageable computational steps</li>
@@ -236,28 +233,28 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="fragment" data-fragment-index="4">
-									<td><b>LU</b></td>
-									<td>$\displaystyle A=LU$</td>
-									<td>Lower $\times$ Upper</td>
+								<tr class="fragment" data-fragment-index="4" style="border: none;">
+									<td style="border: none;"><b>LU</b></td>
+									<td style="border: none;">$\displaystyle A=LU$</td>
+									<td style="border: none;">Lower $\times$ Upper</td>
 								</tr>
 
 								<tr class="fragment" data-fragment-index="5">
-									<td><b>QR</b></td>
-									<td>$\displaystyle A=QU$</td>
-									<td>Orthogonal $\times$ Upper</td>
+									<td style="border: none;"><b>QR</b></td>
+									<td style="border: none;">$\displaystyle A=QU$</td>
+									<td style="border: none;">Orthogonal $\times$ Upper</td>
 								</tr>
 
 								<tr class="fragment" data-fragment-index="6">
-									<td><b>Cholesky</b></td>
-									<td>$\displaystyle A=U^TU$</td>
-									<td>Transpose $\times$ Upper</td>
+									<td style="border: none;"><b>Cholesky</b></td>
+									<td style="border: none;">$\displaystyle A=U^TU$</td>
+									<td style="border: none;">Transpose $\times$ Upper</td>
 								</tr>
 
 								<tr class="fragment" data-fragment-index="7">
-									<td><b>SVD</b></td>
-									<td>$\displaystyle A=Q_n\Sigma Q_m^T$</td>
-									<td>Orthogonal $\times$ Diagonal $\times$ Orthogonal</td>
+									<td style="border: none;"><b>SVD</b></td>
+									<td style="border: none;">$\displaystyle A=Q_n\Sigma Q_m^T$</td>
+									<td style="border: none;">Orthogonal $\times$ Diagonal $\times$ Orthogonal</td>
 								</tr>
 							</tbody>
 						</table>
@@ -282,9 +279,9 @@
 									$ \large [E_k \cdots E_1 A \mid E_k \cdots E_1 \mathbf b] $
 								</p>
 							</li>
-							<li class="fragment" data-fragment-index="2">Our objective is to convert $A$ into an upper
+							<li class="fragment" data-fragment-index="3">Our objective is to convert $A$ into an upper
 								triangular matrix $U$. <br />
-								<span class="fragment" data-fragment-index="3">
+								<span class="fragment" data-fragment-index="4">
 									So the resulting system $[U \mid \mathbf r]$ allows straightforward <b>back
 										substitution</b>.
 								</span>
@@ -428,8 +425,8 @@
 						</div>
 
 						<p class="fragment" data-fragment-index="8"
-							style="margin-top: 40px;text-align: center; font-size: 1.2em;" id="bb">
-							<i>Question:</i> What form does $E = E_m \cdots E_1$ take where $U = EA$? 🤔
+							style="margin-top: 10px;text-align: center; font-size: 1.1em;" id="bb">
+							Question: What form does $E = E_m \cdots E_1$ take where $U = EA$? 🤔
 						</p>
 					</div>
 					<br />
@@ -440,7 +437,7 @@
 
 					<div class="size-85">
 						<p style="margin-top: 10px;text-align: center;" id="bb">
-							<i>Question:</i> What form does $E = E_m \cdots E_1$ take where $U = EA$? 🤔
+							Question: What form does $E = E_m \cdots E_1$ take where $U = EA$? 🤔
 						</p>
 						<p style="text-align: center;">
 							We have $U = EA$, where $E = E_m \cdots E_1$.
@@ -493,7 +490,7 @@
 
 
 
-						<p class="fragment" data-fragment-index="4" style="margin-top: 15px; text-align: center;"
+						<p class="fragment" data-fragment-index="4" style="margin-top: -10px; text-align: center;"
 							id="rr">
 							<b>Notice:</b> $E$ is lower triangular.
 						</p>
@@ -504,7 +501,7 @@
 
 				<section data-auto-animate>
 					<h4>When Does $A = LU$ Hold?</h4>
-					<div class="size-80">
+					<div style="font-size: 0.8em;">
 						<p style="text-align: center;">
 							$A = LU$ holds directly if row reduction requires <b>no row
 								swaps</b>.
@@ -550,9 +547,9 @@
 						</div>
 
 						<blockquote class="fragment" data-fragment-index="6"
-							style="width: 78%; text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: -8px;">
-							This occurs if and only if the row reduction process uses <b>no row swaps</b>. In that
-							case, $L = E^{-1}$ and $A = LU$.
+							style="width: 78%; text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: -8px;font-style: normal;width: 85%;">
+							This occurs if and only if the row reduction process uses <b>no row swaps</b>. 
+							In that case, $\,L = E^{-1}$ and $A = LU$.
 						</blockquote>
 					</div>
 					<br />
@@ -564,13 +561,13 @@
 					<div style="font-size: 0.71em;">
 
 						<table style="width: 70%; border-collapse: collapse; margin-top: -15px;">
-							<tr class="fragment" data-fragment-index="0">
+							<tr>
 								<td style="width: 20%; vertical-align: middle; text-align: center;">
 									<b>Start:</b>
 								</td>
 								<td style="text-align: right;">
 									<div class="r-stack">
-										<span class="fragment fade-in-then-out" data-fragment-index="0">
+										<span class="fragment fade-out" data-fragment-index="0">
 											$
 											A=
 											\left(
@@ -583,7 +580,7 @@
 											\right)
 											$
 										</span>
-										<span class="fragment fade-in" data-fragment-index="1">
+										<span class="fragment fade-in" data-fragment-index="0">
 											$
 											\overbrace{
 											\left(
@@ -671,7 +668,7 @@
 
 				<section data-auto-animate>
 					<h4>Row Reduction Without Swaps</h4>
-					<div style="font-size: 0.55em;">
+					<div style="font-size: 0.58em;">
 
 						<table style="width: 55%; border-collapse: collapse; margin-top: -15px;">
 
@@ -924,7 +921,7 @@
 
 				<section data-auto-animate>
 					<h4>PLU Factorisation & Permutations</h4>
-					<div class="size-80 left-txt">
+					<div style="text-align: left; font-size: 0.82em;">
 						<p>
 							If zero pivots occur, row swaps are required.
 							<span class="fragment" data-fragment-index="0">
@@ -952,7 +949,7 @@
 									They are square matrices with exactly one 1 per row and column
 									(0s elsewhere).
 									<p class="fragment" data-fragment-index="5"
-										style="text-align: center; margin-top: -5px;">
+										style="text-align: center; margin-top: 0px;">
 										e.g.,
 										$\;
 										P = \begin{pmatrix}
@@ -970,7 +967,7 @@
 										$
 									</p>
 								</li>
-								<li class="fragment" data-fragment-index="6">
+								<li class="fragment" data-fragment-index="6" style="margin-top: -20px;">
 									Determinant is $\det(P) = \pm 1.$
 								</li>
 								<li class="fragment" data-fragment-index="7">
@@ -987,7 +984,7 @@
 
 				<section data-auto-animate>
 					<h4>Uniqueness of PLU Factorisation</h4>
-					<div class="size-90">
+					<div class="size-85">
 
 						<div>
 							<p>
@@ -1028,8 +1025,8 @@
 						</div>
 
 						<p class="fragment" data-fragment-index="4"
-							style="margin-top: 15px; color: #4285f4; text-align: center;">
-							<i>$L'$ is called unit lower-triangular.</i>
+							style="margin-top: 15px; text-align: center;">
+							$L'$ is called <span id="bb">unit lower-triangular</span>.
 						</p>
 
 					</div>
@@ -1038,7 +1035,7 @@
 
 				<section data-auto-animate>
 					<h4>Unique $PL'DU$ Factorisation</h4>
-					<div class="size-85">
+					<div class="size-80">
 
 						<div class="fragment" data-fragment-index="0">
 							<p>
@@ -1050,7 +1047,7 @@
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="1" style="margin-top: -15px;">
 							<ul style="line-height: 1.7em;">
 								<li>$P$: permutation matrix</li>
 								<li>$L'$: unit lower-triangular matrix</li>
@@ -1074,7 +1071,7 @@
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="4" style="text-align: center;" id="bb">
+						<p class="fragment" data-fragment-index="4" style="text-align: center;margin-top: -10px;" id="bb">
 							This normalisation removes scaling ambiguity to give a unique factorisation.
 						</p>
 
@@ -1218,7 +1215,7 @@ P =
      1     0     0
      0     0     1
      0     1     0</code></pre>
-						<p class="fragment" data-fragment-index="2" style="font-size: 1.2em;">
+						<p class="fragment" data-fragment-index="2" style="font-size: 1.1em;border-left: 6px solid red; padding-left: 20px;">
 							<b>Note:</b> Omitting <code>P</code> (e.g., <code>[L,U] = lu(A)</code>)
 							merges $P$ into $L$,
 							which may result in $L$ not being strictly lower-triangular.
@@ -1373,7 +1370,7 @@ P =
 							with the same span.
 						</p>
 
-						<ol style="line-height: 1.6em;font-size: 1.1em;">
+						<ol style="line-height: 1.6em;font-size: 1em;">
 							<li class="fragment" data-fragment-index="0">
 								Start with
 								$\mathbf v_1=\mathbf a_1$,
@@ -1443,19 +1440,20 @@ P =
 							</li>
 						</ol>
 
-						<p class="fragment" style="font-size: 0.86em;">
+						<p class="fragment" style="font-size: 0.86em;border-left: 6px solid red; padding-left: 10px;margin-top: 10px;">
 							<b>Remark:</b>
 							If $\mathbf v_m=\mathbf 0$, skip this vector.
 							This occurs when $\mathbf a_m$ is linearly dependent on
 							the preceding vectors.
 						</p>
 					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
 					<h4>Gram-Schmidt: Preserving the Span</h4>
 
-					<div style="font-size: 0.78em; text-align: left;">
+					<div style="font-size: 0.75em; text-align: left;">
 
 						<p>
 							At each step, $\mathbf v_m$ is constructed from
@@ -1525,7 +1523,7 @@ P =
 							</span>
 						</p>
 
-						<div class="r-stack" style="margin-top: -20px;">
+						<div class="r-stack" style="margin-top: 20px;">
 							<p class="fragment fade-in-then-out" data-fragment-index="11">
 								$
 
@@ -1634,7 +1632,7 @@ P =
 
 				<section data-auto-animate>
 					<h4>Deriving the QR Form</h4>
-					<div class="size-80 left-txt">
+					<div class="size-75 left-txt">
 
 						<div class="r-stack" style="margin-top: -10px; font-size: 0.8em;">
 
@@ -1670,7 +1668,7 @@ P =
 						</ul>
 
 						<blockquote class="fragment" data-fragment-index="3"
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 20px;">
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 20px;font-style: normal;font-size: 0.9em; width: 84%;">
 							<b>Note:</b> In general proofs of QR factorisation, $C$ does not strictly need to be
 							invertible.
 						</blockquote>
@@ -1932,7 +1930,7 @@ U =
 
 						<div class="fragment">
 
-							<p style="font-size: 1.1em; text-align: center; margin-top: 0px;">
+							<p style="font-size: 1em; text-align: center; margin-top: 0px;">
 								This is the <b>Reduced QR factorisation</b> of $A$ <br />
 								<span>
 									(also known as <b>Thin QR
@@ -2027,8 +2025,8 @@ R =
 
 						<div class="fragment">
 
-							<p style="margin-top: 12px; font-size: 1.15em;" id="bb">
-								Using QR factorisation simplifies least-squares into an elegant,
+							<p style="margin-top: 12px; font-size: 0.95em; text-align: center;" id="bb">
+								Using QR factorisation simplifies least-squares <br/>into an elegant,
 								computationally stable
 								form!
 							</p>
@@ -2037,7 +2035,7 @@ R =
 									<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
 										type="image/webp">
 									<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃"
-										width="120" height="120">
+										width="100" height="100">
 								</picture>
 							</div>
 						</div>
@@ -2136,7 +2134,7 @@ R =
 				<section data-auto-animate>
 					<h4>Reduced/Thin QR factorisation with Octave / MATLAB</h4>
 
-					<div class="size-75">
+					<div class="size-70">
 
 
 						<div class="cc">
@@ -2147,14 +2145,14 @@ R =
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: -15px;">
 							<pre
-								style="width: 90%;font-size: 0.98em;"><code class="language-matlab">>> X = [1 1; 2 1; 3 1; 4 1; 5 1; 6 1; 7 1; 8 1; 9 1;10 1];</code></pre>
+								style="width: 85%;font-size: 0.98em;"><code class="language-matlab">>> X = [1 1; 2 1; 3 1; 4 1; 5 1; 6 1; 7 1; 8 1; 9 1;10 1];</code></pre>
 						</div>
 						<div class="fragment" data-fragment-index="1" style="margin-top: -8px;">
 							<pre
-								style="width: 90%;font-size: 0.98em;"><code class="language-matlab">>> [Q, U] = qr(X, 0) % Reduced/Thin QR</code></pre>
+								style="width: 85%;font-size: 0.98em;"><code class="language-matlab">>> [Q, U] = qr(X, 0) % Reduced/Thin QR</code></pre>
 						</div>
 						<div class="fragment" data-fragment-index="2" style="margin-top: -5px;">
-							<pre style="width: 40%;font-size: 0.87em; height:510px"><code class="language-matlab">Q =
+							<pre style="width: 40%;font-size: 0.87em; height:490px"><code class="language-matlab">Q =
   -5.0965e-02  -5.8554e-01
   -1.0193e-01  -4.8795e-01
   -1.5289e-01  -3.9036e-01
@@ -2282,10 +2280,10 @@ U =
 
 				<section data-auto-animate>
 					<h4>Linear Fit: Solving for $m$ and $c$</h4>
-					<div class="size-95">
+					<div class="size-90">
 						<p>Computing coefficient vector </p>
 
-						<p style="text-align: center; margin-top: 0px;">
+						<p style="text-align: center; margin-top: -15px;">
 							<span>
 								$
 								\mathbf k_0= U^{-1} Q^T \mathbf y
@@ -2303,7 +2301,7 @@ U =
 							Line of best fit: <b>$y = 0.48x + 1.42$</b>
 						</p>
 						<div style="margin-top: -20px;" class="fragment" data-fragment-index="2">
-							<img style="width: 600px;" src="images/lecture-06/data-set-fitting-curves-02.svg">
+							<img style="width: 550px;" src="images/lecture-06/data-set-fitting-curves-02.svg">
 
 						</div>
 					</div>
@@ -2354,7 +2352,7 @@ U =
 
 					</div>
 
-					<div style="font-size: 0.85em;">
+					<div style="font-size: 0.8em;">
 
 
 
@@ -2392,7 +2390,7 @@ U =
 							$$
 						</p>
 
-						<p class="fragment" data-fragment-index="3" style="text-align: center;margin-top: -10px;"
+						<p class="fragment" data-fragment-index="3" style="text-align: center;margin-top: -20px;"
 							id="bb">
 							💡 The same process works for polynomial fits of any degree.
 						</p>
@@ -2447,7 +2445,7 @@ U =
 
 				<section data-auto-animate>
 					<h4 class="fragment" data-fragment-index="3">Cholesky Factorisation</h4>
-					<div class="size-85">
+					<div class="size-80">
 						<p>
 							If the matrix A is a real, symmetric, positive-definite matrix,
 							<span class="fragment" data-fragment-index="0">
@@ -2468,12 +2466,12 @@ U =
 							where $U$ is <i>upper-triangular</i> and $L = U^T$ is <i>lower-triangular</i>.
 						</p>
 
-						<div style="margin-top: 10px;">
-							<p class="fragment" data-fragment-index="2"><b>Proof Outline:</b></p>
+						<div style="margin-top: -10px;">
+							<p class="fragment" data-fragment-index="4"><b>Proof Outline:</b></p>
 							<ol style="line-height: 1.5em;margin-top: -20px;margin-left: 0px;">
-								<li class="fragment" data-fragment-index="3">
+								<li class="fragment" data-fragment-index="5">
 									Diagonalise $A = V D V^T$ with orthogonal $V$.
-									<span class="fragment" data-fragment-index="4">
+									<span class="fragment" data-fragment-index="6">
 										Positive-definiteness implies
 										eigenvalues $D_i > 0$.
 									</span>
@@ -2647,7 +2645,7 @@ U =
 
 				<section data-auto-animate>
 					<h4>Singular Value Decomposition (SVD)</h4>
-					<div class="size-95">
+					<div class="size-90">
 
 						<p class="fragment" data-fragment-index="0">
 							<b>Theorem:</b> Any matrix $A \in \mathbb{R}^{m \times n}$ can be written as:
@@ -2700,7 +2698,7 @@ U =
 				</section>
 				<section data-auto-animate>
 					<h4>Singular Value Decomposition (SVD)</h4>
-					<div class="size-95">
+					<div class="size-90">
 
 						<p>
 							<b>Theorem:</b> Any matrix $A \in \mathbb{R}^{m \times n}$ can be written as:
@@ -2872,7 +2870,7 @@ Diagonal Matrix
 							and its singular values! 🤔
 						</p>
 						<p class="fragment fade-in" data-fragment-index="6"
-							style="text-align: left;  margin-top: 20px; font-size: 0.95em; color: #051bc5;">
+							style="text-align: left;  margin-top: -10px; font-size: 0.9em; color: #051bc5;">
 							💡 Let's compute the eigenvalues & eigenvectors of $AA^T$ and $A^TA\;\;$
 						</p>
 					</div>
@@ -3128,14 +3126,14 @@ Diagonal Matrix
 						</tr>
 					</table>
 
-					<div style="font-size: 0.8em;margin-top: -30px;">
+					<div style="font-size: 0.78em;margin-top: -30px;">
 						<p style="text-align: center;">
 							<b>Singular Values $\Sigma$:</b>
 							Square roots of the eigenvalues of $A A^T$ and $A
 							A^T$.
 						</p>
 						<p class="fragment" data-fragment-index="6"
-							style="text-align: center; font: 0.99em;margin-top: -10px;">
+							style="text-align: center; font: 0.95em;margin-top: -10px;">
 							<span style="font-size: 0.8em;">
 								$ \begin{pmatrix}\sqrt{\lambda_1} & 0 \\ 0 & \sqrt{\lambda_2}\end{pmatrix}$
 							</span>
@@ -3315,7 +3313,7 @@ Diagonal Matrix
 >> [U, S, V] = svd(A)</code></pre>
 						</div>
 						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
-							<pre style="font-size: 0.7em; width: 50%; height: 420px;"><code class="language-matlab">U =
+							<pre style="font-size: 0.7em; width: 50%; height: 410px;"><code class="language-matlab">U =
    -0.7288   -0.6847
    -0.6847    0.7288
 
@@ -3652,7 +3650,7 @@ Diagonal Matrix
 							$A= Q_m \,\Sigma \, Q_n^T\;\;$ vs. $\;\;A = V D V^{-1}$
 						</p>
 					</div>
-					<div class="left-txt" style="font-size: 0.89em;">
+					<div class="left-txt" style="font-size: 0.85em;">
 						<ul style="line-height: 1.4em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
 								<b>Singular Values vs. Eigenvalues:</b> $\Sigma$ entries are non-negative square roots
@@ -3785,7 +3783,7 @@ Diagonal Matrix
 			<section data-auto-animate>
 				<h4>Summary of Matrix Factorisations</h4>
 				<div class="size-85">
-					<ul style="line-height: 1.6em;">
+					<ul style="line-height: 1.2em;">
 						<li class="fragment" data-fragment-index="0">
 							<b>LU Factorisation:</b> $\,A = PLU$
 							<br /><span style="font-size: 0.9em; ">$L$ is lower-triangular, $U$ is
