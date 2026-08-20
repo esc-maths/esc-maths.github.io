@@ -19,10 +19,10 @@ function setup() {
   origin = createVector(60, height - 60);
   
   // Vector x = (x, y) relative to origin
-  xVec = createVector(130, 110);
+  xVec = createVector(100, 120);
   
   // Scale factors along x and y directions
-  scaleX = 3.5; // Factor 'a' for x
+  scaleX = 4.5; // Factor 'a' for x
   scaleY = 2.5; // Factor 'd' for y
 }
 
@@ -72,13 +72,13 @@ function draw() {
     }
 
     // Gray arrow from Origin to x
-    drawArrow(sO, sCurrX, color(120), 2.5, 10);
+    drawArrow(sO, sCurrX, color(120), 2.5, 14);
 
     // Point x
     if (pX >= 0.95) {
       fill(0);
       noStroke();
-      circle(sX.x, sX.y, 12);
+      circle(sX.x, sX.y, 10);
       drawLabel("x", createVector(sX.x - 10, sX.y - 22), color(0), 32, false, true);
     }
   }
@@ -97,7 +97,7 @@ function draw() {
     circle(sCurrAX.x, sO.y, 4);
 
     if (pAX > 0.5) {
-      drawLabel("ax", createVector((sO.x + sAX.x) / 2, sO.y + 24), color(0), 32, true, true);
+      drawLabel("ax", createVector((sO.x + sAX.x) / 2, sO.y + 24), color(0), 32, true, false);
     }
   }
 
@@ -111,7 +111,7 @@ function draw() {
     line(sAX.x, sAX.y, sCurrDY.x, sCurrDY.y);
 
     if (pDY > 0.5) {
-      drawLabel("dy", createVector(sAX.x + 22, (sAX.y + sTx.y) / 2), color(0), 32, true, true);
+      drawLabel("dy", createVector(sAX.x + 22, (sAX.y + sTx.y) / 2), color(0), 32, true, false);
     }
   }
 
@@ -127,11 +127,11 @@ function draw() {
     if (pT >= 0.95) {
       fill(0);
       noStroke();
-      circle(sTx.x, sTx.y, 14);
-      drawLabel("T", createVector(sTx.x - 28, sTx.y - 20), color(0), 34, true);
-      drawLabel("(", createVector(sTx.x - 7, sTx.y - 20), color(0), 34, false);
-      drawLabel("x", createVector(sTx.x + 10, sTx.y - 20), color(0), 34, false, true);
-      drawLabel(")", createVector(sTx.x + 28, sTx.y - 20), color(0), 34, false);
+      circle(sTx.x, sTx.y, 10);
+      drawLabel("T", createVector(sTx.x - 28, sTx.y - 30), color(0), 34, true);
+      drawLabel("(", createVector(sTx.x - 7, sTx.y - 30), color(0), 34, false);
+      drawLabel("x", createVector(sTx.x + 10, sTx.y - 30), color(0), 34, false, true);
+      drawLabel(")", createVector(sTx.x + 28, sTx.y - 30), color(0), 34, false);
     }
   }
 }
@@ -179,7 +179,7 @@ function drawArrow(p1, p2, col, weight = 2, headSize = 10) {
   translate(p2.x, p2.y);
   rotate(angle);
   noStroke();
-  triangle(0, 0, -headSize, -headSize / 2, -headSize, headSize / 2);
+  triangle(5, 0, -headSize - 5, -headSize / 2, -headSize - 5, headSize / 2);
   pop();
 }
 

@@ -21,7 +21,7 @@ function setup() {
   // Vector properties
   radius = 360;
   startAngle = radians(14); // Angle of x relative to horizontal
-  rotAngle   = radians(42); // Rotation angle theta
+  rotAngle   = radians(45); // Rotation angle theta
   endAngle   = startAngle + rotAngle;
 }
 
@@ -57,13 +57,13 @@ function draw() {
     let sCurrX = toScreen(currX, currY);
 
     // Gray arrow from Origin to x
-    drawArrow(sO, sCurrX, color(120), 2.5, 10);
+    drawArrow(sO, sCurrX, color(120), 2.5, 14);
 
     // Point x
     if (pX >= 0.95) {
       fill(0);
       noStroke();
-      circle(sX.x, sX.y, 14);
+      circle(sX.x, sX.y, 10);
       // Increased label size by +10px (now 32px)
       drawLabel("x", createVector(sX.x + 22, sX.y - 18), color(0), 32, false, true);
     }
@@ -79,7 +79,7 @@ function draw() {
     drawDashedArc(sO, radius, startAngle, currRot);
 
     // Draw Angle Arc (theta)
-    let thetaRadius = 100;
+    let thetaRadius = 102;
     stroke(0);
     strokeWeight(1.8);
     noFill();
@@ -109,12 +109,12 @@ function draw() {
     let sCurrT = toScreen(currTx, currTy);
 
     // Thick Black Arrow from Origin to T(x)
-    drawArrow(sO, sCurrT, color(0), 4, 14);
+    drawArrow(sO, sCurrT, color(0), 4, 18);
 
     if (pT >= 0.95) {
       fill(0);
       noStroke();
-      circle(sTx.x, sTx.y, 14);
+      circle(sTx.x, sTx.y, 10);
       // Increased label size by +10px (now 34px)
       //drawLabel("T(x)", createVector(sTx.x + 40, sTx.y - 15), color(0), 34, true, true);
       // drawLabel("T", createVector(sTx.x + 0, sTx.y - 20), color(0), 34, true);
@@ -172,7 +172,7 @@ function drawArrow(p1, p2, col, weight = 2, headSize = 10) {
   translate(p2.x, p2.y);
   rotate(angle);
   noStroke();
-  triangle(0, 0, -headSize, -headSize / 2, -headSize, headSize / 2);
+  triangle(5, 0, -headSize - 5, -headSize / 2, -headSize - 5, headSize / 2);
   pop();
 }
 
