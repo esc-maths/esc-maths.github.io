@@ -1,7 +1,7 @@
-// sketch.js - Pure Translation Affine Transformation (4s Start Delay + Slower + Hold)
+// sketch.js - Pure Shear Affine Transformation
 
 let origin;
-let xVec, transVec;
+let xVec, shearX, shearY;
 
 // Timing Configuration
 let delayFrames = 240; // 4 seconds initial delay (at 60fps)
@@ -16,13 +16,14 @@ function setup() {
   totalFrames = delayFrames + animFrames + holdFrames;
   
   // Define coordinate origin on canvas
-  origin = createVector(80, height - 70);
+  origin = createVector(60, height - 60);
   
   // Vector x = (x, y) relative to origin
-  xVec = createVector(120, 120);
+  xVec = createVector(130, 110);
   
-  // Translation displacement vector (e, f)
-  transVec = createVector(340, 220);
+  // Shear values: by (horizontal displacement), cx (vertical displacement)
+  shearX = 310; // by
+  shearY = 120; // cx
 }
 
 function draw() {
@@ -35,19 +36,19 @@ function draw() {
   let p = constrain((cycleFrame - delayFrames) / animFrames, 0, 1);
   
   // Animation phase progress timing
-  let pX = getSubProgress(p, 0.00, 0.30);
-  let pE = getSubProgress(p, 0.30, 0.55);
-  let pF = getSubProgress(p, 0.55, 0.78);
-  let pT = getSubProgress(p, 0.78, 0.98);
+  let pX  = getSubProgress(p, 0.00, 0.30);
+  let pBY = getSubProgress(p, 0.30, 0.55);
+  let pCX = getSubProgress(p, 0.55, 0.78);
+  let pT  = getSubProgress(p, 0.78, 0.98);
 
   // 1. Draw Static Axes & Origin (Visible immediately)
   drawAxes();
   
   // Calculated Screen Points
-  let sO  = toScreen(0, 0);
-  let sX  = toScreen(xVec.x, xVec.y);
-  let sCorner = toScreen(xVec.x + transVec.x, xVec.y);
-  let sTx = toScreen(xVec.x + transVec.x, xVec.y + transVec.y);
+  let sO      = toScreen(0, 0);
+  let sX      = toScreen(xVec.x, xVec.y);
+  let sCorner = toScreen(xVec.x + shearX, xVec.y);
+  let sTx     = toScreen(xVec.x + shearX, xVec.y + shearY);
 
   // 2. Animate Position Vector x and components (Gray)
   if (pX > 0) {
@@ -55,20 +56,19 @@ function draw() {
     let currY = xVec.y * pX;
     let sCurrX = toScreen(currX, currY);
 
-    // Gray component lines x and y
-    stroke(120);
+    // Component x (Horizontal)
+    stroke(140);
     strokeWeight(2);
-    // Horizontal component 'x'
     line(sO.x, sO.y, toScreen(min(currX, xVec.x), 0).x, sO.y);
     if (pX > 0.4) {
-      drawLabel("x", toScreen(xVec.x / 2, -22), color(100), 30, true);
+      drawLabel("x", toScreen(xVec.x / 2, -25), color(120), 30, true);
     }
-    
-    // Vertical component 'y'
+
+    // Component y (Vertical)
     if (pX > 0.5) {
-      let yProgress = map(pX, 0.5, 1.0, 0, xVec.y, true);
-      line(sX.x, sO.y, sX.x, toScreen(xVec.x, yProgress).y);
-      drawLabel("y", createVector(sX.x + 15, (sO.y + sX.y) / 2), color(100), 30, true);
+      let yProg = map(pX, 0.5, 1.0, 0, xVec.y, true);
+      line(sX.x, sO.y, sX.x, toScreen(xVec.x, yProg).y);
+      drawLabel("y", createVector(sX.x + 20, (sO.y + sX.y) / 2), color(120), 30, true);
     }
 
     // Gray arrow from Origin to x
@@ -79,42 +79,42 @@ function draw() {
       fill(0);
       noStroke();
       circle(sX.x, sX.y, 14);
-      drawLabel("x", createVector(sX.x - 12, sX.y - 22), color(0), 32, true, true);
+      drawLabel("x", createVector(sX.x - 10, sX.y - 25), color(0), 32, true, true);
     }
   }
 
-  // 3. Animate Horizontal Translation Component 'e'
-  if (pE > 0) {
-    let currE = transVec.x * pE;
-    let sCurrE = toScreen(xVec.x + currE, xVec.y);
+  // 3. Animate Horizontal Shear Component 'by'
+  if (pBY > 0) {
+    let currBY = shearX * pBY;
+    let sCurrBY = toScreen(xVec.x + currBY, xVec.y);
     
     stroke(0);
     strokeWeight(2.5);
-    line(sX.x, sX.y, sCurrE.x, sCurrE.y);
+    line(sX.x, sX.y, sCurrBY.x, sCurrBY.y);
     
-    if (pE > 0.5) {
-      drawLabel("e", createVector((sX.x + sCorner.x) / 2, sX.y + 22), color(0), 32, true);
+    if (pBY > 0.5) {
+      drawLabel("by", createVector((sX.x + sCorner.x) / 2, sX.y + 25), color(0), 32, true);
     }
   }
 
-  // 4. Animate Vertical Translation Component 'f'
-  if (pF > 0) {
-    let currF = transVec.y * pF;
-    let sCurrF = toScreen(xVec.x + transVec.x, xVec.y + currF);
+  // 4. Animate Vertical Shear Component 'cx'
+  if (pCX > 0) {
+    let currCX = shearY * pCX;
+    let sCurrCX = toScreen(xVec.x + shearX, xVec.y + currCX);
     
     stroke(0);
     strokeWeight(2.5);
-    line(sCorner.x, sCorner.y, sCurrF.x, sCurrF.y);
-    
-    if (pF > 0.5) {
-      drawLabel("f", createVector(sCorner.x + 18, (sCorner.y + sTx.y) / 2), color(0), 32, true);
+    line(sCorner.x, sCorner.y, sCurrCX.x, sCurrCX.y);
+
+    if (pCX > 0.5) {
+      drawLabel("cx", createVector(sCorner.x + 25, (sCorner.y + sTx.y) / 2), color(0), 32, true);
     }
   }
 
-  // 5. Animate Vector Arrow T(x) and Point
+  // 5. Animate Transformed Vector T(x) Arrow from x to T(x)
   if (pT > 0) {
-    let currTx = xVec.x + transVec.x * pT;
-    let currTy = xVec.y + transVec.y * pT;
+    let currTx = xVec.x + shearX * pT;
+    let currTy = xVec.y + shearY * pT;
     let sCurrT = toScreen(currTx, currTy);
 
     // Thick Black Arrow from x to T(x)
@@ -124,7 +124,7 @@ function draw() {
       fill(0);
       noStroke();
       circle(sTx.x, sTx.y, 14);
-      drawLabel("T(x)", createVector(sTx.x + 10, sTx.y - 20), color(0), 34, true, true);
+      drawLabel("T(x)", createVector(sTx.x + 35, sTx.y - 20), color(0), 34, true, true);
     }
   }
 }
@@ -145,8 +145,8 @@ function getSubProgress(p, start, end) {
 function drawAxes() {
   stroke(0);
   strokeWeight(1.5);
-  let xAxisLen = width - origin.x - 30;
-  let yAxisLen = origin.y - 30;
+  let xAxisLen = width - origin.x - 20;
+  let yAxisLen = origin.y - 20;
 
   // X Axis
   drawArrow(origin, createVector(origin.x + xAxisLen, origin.y), color(0), 1.5, 8);
@@ -177,7 +177,7 @@ function drawArrow(p1, p2, col, weight = 2, headSize = 10) {
 }
 
 // Helper: Text Labels with Math Styling
-function drawLabel(txt, pos, col, size = 20, isItalic = false, isBold = false) {
+function drawLabel(txt, pos, col, size = 30, isItalic = false, isBold = false) {
   push();
   fill(col);
   noStroke();

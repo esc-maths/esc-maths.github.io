@@ -1,7 +1,7 @@
-// sketch.js - Pure Translation Affine Transformation (4s Start Delay + Slower + Hold)
+// sketch.js - Pure Scale Affine Transformation
 
 let origin;
-let xVec, transVec;
+let xVec, scaleX, scaleY;
 
 // Timing Configuration
 let delayFrames = 240; // 4 seconds initial delay (at 60fps)
@@ -16,13 +16,14 @@ function setup() {
   totalFrames = delayFrames + animFrames + holdFrames;
   
   // Define coordinate origin on canvas
-  origin = createVector(80, height - 70);
+  origin = createVector(60, height - 60);
   
   // Vector x = (x, y) relative to origin
-  xVec = createVector(120, 120);
+  xVec = createVector(130, 110);
   
-  // Translation displacement vector (e, f)
-  transVec = createVector(340, 220);
+  // Scale factors along x and y directions
+  scaleX = 3.5; // Factor 'a' for x
+  scaleY = 2.5; // Factor 'd' for y
 }
 
 function draw() {
@@ -35,10 +36,10 @@ function draw() {
   let p = constrain((cycleFrame - delayFrames) / animFrames, 0, 1);
   
   // Animation phase progress timing
-  let pX = getSubProgress(p, 0.00, 0.30);
-  let pE = getSubProgress(p, 0.30, 0.55);
-  let pF = getSubProgress(p, 0.55, 0.78);
-  let pT = getSubProgress(p, 0.78, 0.98);
+  let pX  = getSubProgress(p, 0.00, 0.30);
+  let pAX = getSubProgress(p, 0.30, 0.55);
+  let pDY = getSubProgress(p, 0.55, 0.78);
+  let pT  = getSubProgress(p, 0.78, 0.98);
 
   // 1. Draw Static Axes & Origin (Visible immediately)
   drawAxes();
@@ -46,8 +47,8 @@ function draw() {
   // Calculated Screen Points
   let sO  = toScreen(0, 0);
   let sX  = toScreen(xVec.x, xVec.y);
-  let sCorner = toScreen(xVec.x + transVec.x, xVec.y);
-  let sTx = toScreen(xVec.x + transVec.x, xVec.y + transVec.y);
+  let sAX = toScreen(xVec.x * scaleX, 0);
+  let sTx = toScreen(xVec.x * scaleX, xVec.y * scaleY);
 
   // 2. Animate Position Vector x and components (Gray)
   if (pX > 0) {
@@ -55,20 +56,19 @@ function draw() {
     let currY = xVec.y * pX;
     let sCurrX = toScreen(currX, currY);
 
-    // Gray component lines x and y
-    stroke(120);
+    // Component x (Horizontal)
+    stroke(140);
     strokeWeight(2);
-    // Horizontal component 'x'
     line(sO.x, sO.y, toScreen(min(currX, xVec.x), 0).x, sO.y);
     if (pX > 0.4) {
-      drawLabel("x", toScreen(xVec.x / 2, -22), color(100), 30, true);
+      drawLabel("x", toScreen(xVec.x / 2, -22), color(120), 30, true);
     }
-    
-    // Vertical component 'y'
+
+    // Component y (Vertical)
     if (pX > 0.5) {
-      let yProgress = map(pX, 0.5, 1.0, 0, xVec.y, true);
-      line(sX.x, sO.y, sX.x, toScreen(xVec.x, yProgress).y);
-      drawLabel("y", createVector(sX.x + 15, (sO.y + sX.y) / 2), color(100), 30, true);
+      let yProg = map(pX, 0.5, 1.0, 0, xVec.y, true);
+      line(sX.x, sO.y, sX.x, toScreen(xVec.x, yProg).y);
+      drawLabel("y", createVector(sX.x + 15, (sO.y + sX.y) / 2), color(120), 30, true);
     }
 
     // Gray arrow from Origin to x
@@ -78,47 +78,51 @@ function draw() {
     if (pX >= 0.95) {
       fill(0);
       noStroke();
-      circle(sX.x, sX.y, 14);
-      drawLabel("x", createVector(sX.x - 12, sX.y - 22), color(0), 32, true, true);
+      circle(sX.x, sX.y, 12);
+      drawLabel("x", createVector(sX.x - 10, sX.y - 22), color(0), 32, true, true);
     }
   }
 
-  // 3. Animate Horizontal Translation Component 'e'
-  if (pE > 0) {
-    let currE = transVec.x * pE;
-    let sCurrE = toScreen(xVec.x + currE, xVec.y);
+  // 3. Animate Scaled Horizontal Component 'ax'
+  if (pAX > 0) {
+    let currAX = xVec.x * scaleX * pAX;
+    let sCurrAX = toScreen(currAX, 0);
     
     stroke(0);
     strokeWeight(2.5);
-    line(sX.x, sX.y, sCurrE.x, sCurrE.y);
+    line(sO.x, sO.y, sCurrAX.x, sO.y);
     
-    if (pE > 0.5) {
-      drawLabel("e", createVector((sX.x + sCorner.x) / 2, sX.y + 22), color(0), 32, true);
+    // Endpoint marker tick
+    fill(0);
+    circle(sCurrAX.x, sO.y, 4);
+
+    if (pAX > 0.5) {
+      drawLabel("ax", createVector((sO.x + sAX.x) / 2, sO.y + 24), color(0), 32, true, true);
     }
   }
 
-  // 4. Animate Vertical Translation Component 'f'
-  if (pF > 0) {
-    let currF = transVec.y * pF;
-    let sCurrF = toScreen(xVec.x + transVec.x, xVec.y + currF);
+  // 4. Animate Scaled Vertical Component 'dy'
+  if (pDY > 0) {
+    let currDY = (xVec.y * scaleY) * pDY;
+    let sCurrDY = toScreen(xVec.x * scaleX, currDY);
     
     stroke(0);
     strokeWeight(2.5);
-    line(sCorner.x, sCorner.y, sCurrF.x, sCurrF.y);
-    
-    if (pF > 0.5) {
-      drawLabel("f", createVector(sCorner.x + 18, (sCorner.y + sTx.y) / 2), color(0), 32, true);
+    line(sAX.x, sAX.y, sCurrDY.x, sCurrDY.y);
+
+    if (pDY > 0.5) {
+      drawLabel("dy", createVector(sAX.x + 22, (sAX.y + sTx.y) / 2), color(0), 32, true, true);
     }
   }
 
-  // 5. Animate Vector Arrow T(x) and Point
+  // 5. Animate Transformed Vector T(x) from Origin
   if (pT > 0) {
-    let currTx = xVec.x + transVec.x * pT;
-    let currTy = xVec.y + transVec.y * pT;
+    let currTx = xVec.x * scaleX * pT;
+    let currTy = xVec.y * scaleY * pT;
     let sCurrT = toScreen(currTx, currTy);
 
-    // Thick Black Arrow from x to T(x)
-    drawArrow(sX, sCurrT, color(0), 4, 14);
+    // Thick Black Arrow from Origin O to T(x)
+    drawArrow(sO, sCurrT, color(0), 4, 14);
 
     if (pT >= 0.95) {
       fill(0);
@@ -145,8 +149,8 @@ function getSubProgress(p, start, end) {
 function drawAxes() {
   stroke(0);
   strokeWeight(1.5);
-  let xAxisLen = width - origin.x - 30;
-  let yAxisLen = origin.y - 30;
+  let xAxisLen = width - origin.x - 20;
+  let yAxisLen = origin.y - 20;
 
   // X Axis
   drawArrow(origin, createVector(origin.x + xAxisLen, origin.y), color(0), 1.5, 8);
@@ -154,7 +158,7 @@ function drawAxes() {
   drawArrow(origin, createVector(origin.x, origin.y - yAxisLen), color(0), 1.5, 8);
   
   // Origin Label 'O'
-  drawLabel("O", createVector(origin.x - 22, origin.y + 22), color(0), 32, true);
+  drawLabel("O", createVector(origin.x - 20, origin.y + 20), color(0), 32, true);
 }
 
 // Helper: Render Arrow Vector
