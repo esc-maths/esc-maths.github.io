@@ -3251,7 +3251,7 @@ Diagonal Matrix
 				<section data-auto-animate>
 					<h4>Comparing SVD components with $AA^T$ and $A^TA$ eigensystems</h4>
 
-					<div class="size-90 left-txt" style="margin-top: 50px;">
+					<div class="size-90 left-txt" style="margin-top: 20px;">
 
 						<div class="r-stack" style="font-size: 1.4em;">
 							<p class="fragment fade-out" data-fragment-index="0">
@@ -3267,12 +3267,12 @@ Diagonal Matrix
 								$A =\color{red}{U}\,\color{darkgreen}{\Sigma}\, \color{blue}{V}^T $
 							</p>
 						</div>
-						<p class="fragment" style="text-align: center; font-size: 0.9em;">
+						<p class="fragment" style="text-align: center; font-size: 0.9em; margin-top: 5px;">
 							$
 							\left(A=\color{red}{Q_m}\,\color{darkgreen}{\Sigma}\, \color{blue}{Q_n}^T\right)
 							$
 						</p>
-						<ul style="line-height: 2.2em; margin-top: 10px; margin-left: 0px;">
+						<ul style="line-height: 2.2em; margin-top: -10px; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
 								<b>Left Matrix $\color{red}{U}$:</b> Columns of $\color{red}{U}$ are the eigenvectors of
 								$A A^T$.
@@ -3663,11 +3663,11 @@ Diagonal Matrix
 								in descending order along the diagonal.
 							</li>
 							<li class="fragment" data-fragment-index="2">
-								<b>Dimensions:</b> $Q_n$ ($n \times n$) and $Q_m$ ($m \times m$) differ in size for
+								<b>Dimensions:</b> The matrices $Q_m$ ($m \times m$) and $Q_n$ ($n \times n$) differ in size for
 								non-square matrices.
 							</li>
 							<li class="fragment" data-fragment-index="3">
-								<b>Orthonormality:</b> Columns of $Q_n$ and $Q_m$ form orthonormal sets because they are
+								<b>Orthonormality:</b> Columns of $Q_m$ and $Q_n$ form orthonormal sets because they are
 								eigenvectors of real symmetric matrices $A A^T$ and $A^T A$.
 								<span class="fragment" data-fragment-index="4">
 									These matrices provide an orthonormal bases for the column space and row space of A.
@@ -3680,11 +3680,12 @@ Diagonal Matrix
 
 				<section data-auto-animate>
 					<h4>
-						SVD & its relationship to orthogonal bases of <br/>
+						SVD & its relationship to orthogonal bases of <br />
 						the column and null spaces of $A$ and $A^T$
 					</h4>
 					<div class="fragment" data-fragment-index="0">
-						<p style="font-size: 1.1em; text-align: center; margin-top: 30px; margin-bottom: 30px;">Assume that $A \in \R^{m\times n}$ matrix with
+						<p style="font-size: 1.1em; text-align: center; margin-top: 30px; margin-bottom: 30px;">Assume
+							that $A \in \R^{m\times n}$ matrix with
 							rank = 2</p>
 					</div>
 
@@ -3697,38 +3698,118 @@ Diagonal Matrix
 							src="images/lecture-08/svd-003.png">
 					</div>
 					<br>
-					<br/>
+					<br />
 
 				</section>
 				<section data-auto-animate>
 					<h4>
-						SVD & its relationship to orthogonal bases of <br/>
+						SVD & its relationship to orthogonal bases of <br />
 						the column and null spaces of $A$ and $A^T$
 					</h4>
 					<div>
-						<p style="font-size: 0.8em; text-align: center; margin-top: -10px; margin-bottom: -5px;">Assume that $A \in \R^{m\times n}$ matrix with
+						<p style="font-size: 0.8em; text-align: center; margin-top: -10px; margin-bottom: -5px;">Assume
+							that $A \in \R^{m\times n}$ matrix with
 							rank = 2</p>
 					</div>
 
 					<div class="r-stack" style="margin-bottom: -15px;">
-						<img style="width: 40%;"
-							src="images/lecture-08/svd-003.png">
+						<img style="width: 40%;" src="images/lecture-08/svd-003.png">
 					</div>
 					<hr>
 
-					<div class="r-stack" style="margin-top: -20px;">
-						<img class="fragment fade-out" data-fragment-index="0" style="width: 83%;"
+					<div class="r-stack" style="margin-top: -25px;">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 90%;"
 							src="images/lecture-08/svd-004.png">
-						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 83%;"
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 90%;"
 							src="images/lecture-08/svd-005.png">
-						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 83%;"
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 90%;"
 							src="images/lecture-08/svd-006.png">
-						<img class="fragment fade-in" data-fragment-index="2" style="width: 83%;"
+						<img class="fragment fade-in" data-fragment-index="2" style="width: 90%;"
 							src="images/lecture-08/svd-007.png">
 					</div>
-					<br/>
+					<br />
 				</section>
 
+				<section data-auto-animate>
+					<h4>SVD and Fundamental Subspaces</h4>
+					<div class="size-90">
+						<p>If $\Sigma$ contains $r$ non-zero singular values, $Q_m$ and $Q_n$ provide orthonormal bases
+							for the four fundamental subspaces:</p>
+
+						<div style="display: flex; justify-content: space-between; margin-top: -20px; font-size: 0.85em;">
+							<div class="fragment" data-fragment-index="0"
+								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+								<p style="color: #015ff5; margin-bottom: 5px;">
+									<b>Left Vectors ($Q_m$ - Eigenvectors of
+										$AA^T$)</b>
+									</p>
+								<ul style="line-height: 1.5em; padding-left: 0px;">
+									<li>
+										<b>First $r$ columns:</b> Orthonormal basis for the column space of $A$,
+										$\text{Col}(A)$.
+									</li>
+									<li class="fragment" data-fragment-index="1">
+										<b>Final $m-r$ columns:</b> Orthonormal basis for the null space of $A^T$,
+										$\text{Null}(A^T)$.
+									</li>
+								</ul>
+							</div>
+
+							<div class="fragment" data-fragment-index="2"
+								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+								<p style="color: #015ff5; margin-bottom: 5px;">
+									<b>Right Vectors ($Q_n$ - Eigenvectors of
+										$A^TA$)</b>
+									</p>
+								<ul style="line-height: 1.5em; padding-left: 0px;">
+									<li><b>First $r$ columns:</b> Orthonormal basis for the row space of $A$,
+										$\text{Col}(A^T)$.</li>
+									<li class="fragment" data-fragment-index="3">
+										<b>Final $n-r$ columns:</b> Orthonormal basis for the null space of $A$,
+										$\text{Null}(A)$.</li>
+								</ul>
+							</div>
+						</div>
+
+						<blockquote class="fragment" data-fragment-index="4"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px; width: 92%; font-style: normal;">
+							💡 <b>Key Takeaway:</b> The descending singular values in $\Sigma$ 
+							naturally rank the matrix's components by their relative importance and rank $r$.
+						</blockquote>
+					</div>
+					<br />
+				</section>
+
+			</section>
+
+			<section data-auto-animate>
+				<h4>Summary of Matrix Factorisations</h4>
+				<div class="size-85">
+					<ul style="line-height: 1.6em;">
+						<li class="fragment" data-fragment-index="0">
+							<b>LU Factorisation:</b> $\,A = PLU$
+							<br /><span style="font-size: 0.9em; ">$L$ is lower-triangular, $U$ is
+								upper-triangular, and $P$ is a permutation matrix accounting for row swaps.</span>
+						</li>
+						<li class="fragment" data-fragment-index="1" style="margin-top: 8px;">
+							<b>QR (QU) Factorisation:</b> $\,A = QR \quad (\text{or } QU)$
+							<br /><span style="font-size: 0.9em; ">$Q$ contains orthonormal basis vectors;
+								$R$ (or $U$) is upper-triangular.</span>
+						</li>
+						<li class="fragment" data-fragment-index="2" style="margin-top: 8px;">
+							<b>Cholesky Factorisation:</b> $\,A = U^T U \quad (\text{or } LL^T)$
+							<br /><span style="font-size: 0.9em; ">Special case derived from QR
+								factorisation when $A$ is real, symmetric, and positive-definite.</span>
+						</li>
+						<li class="fragment" data-fragment-index="3" style="margin-top: 8px;">
+							<b>Singular Value Decomposition (SVD):</b> $\,A = Q_m \Sigma Q_n^T \;\; (\text{or } U\Sigma V^T)$
+							<br /><span style="font-size: 0.9em; ">$Q_m$ and $Q_n$ are orthogonal matrices
+								(eigenvectors of $AA^T$ and $A^TA$), with singular values arranged on the diagonal of
+								$\Sigma$.</span>
+						</li>
+					</ul>
+				</div>
+				<br />
 			</section>
 
 			<!-- Ends sections -->
