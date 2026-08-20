@@ -49,7 +49,7 @@
       background-color: #0066cc;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       font-weight: bold;
       cursor: pointer;
       margin-top: 5px;
@@ -226,7 +226,7 @@
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
 
-    // // Clamp polar angle to prevent gimbal lock/spinning when dragging vertically past poles
+    // Clamp polar angle to prevent gimbal lock/spinning when dragging vertically past poles
     controls.minPolarAngle = 0.1;
     controls.maxPolarAngle = Math.PI / 2 + 0.15;
 
@@ -238,7 +238,7 @@
     uiContainer.style.position = 'absolute';
     uiContainer.style.top = '20px';
     uiContainer.style.left = '20px';
-    uiContainer.style.fontFamily = 'sans-serif';
+    uiContainer.style.fontFamily = 'Arial, Helvetica, sans-serif';
     uiContainer.style.pointerEvents = 'none';
     document.body.appendChild(uiContainer);
 
@@ -251,8 +251,8 @@
     function createBtn(text, onClick) {
       const btn = document.createElement('button');
       btn.innerText = text;
-      btn.style.fontSize = '16px';
-      btn.style.padding = '8px 14px';
+      btn.style.fontSize = '1em';
+      btn.style.padding = '8px 10px';
       btn.style.cursor = 'pointer';
       btn.addEventListener('click', onClick);
       buttonRow.appendChild(btn);
@@ -266,9 +266,9 @@
     const viewButton = createBtn("3D view", toggleView);
 
     const infoDiv = document.createElement('div');
-    infoDiv.style.marginTop = '20px';
+    infoDiv.style.marginTop = '10px';
     infoDiv.style.color = '#282828';
-    infoDiv.style.fontSize = '18px';
+    infoDiv.style.fontSize = '1.1em';
     infoDiv.style.lineHeight = '1.5';
     uiContainer.appendChild(infoDiv);
 
@@ -512,16 +512,27 @@
     scene.add(transSquareGroup);
 
     // ============================================================
-    // CAMERA MANAGEMENT
+    // CAMERA MANAGEMENT & SMOOTH TRANSITION
     // ============================================================
 
-    function setCameraView(is3D) {
+    let camAnimating = false;
+    let camAnimationStart = 0;
+    const camAnimationDuration = 1000; // Duration in milliseconds
+
+    const camStartPos = new THREE.Vector3();
+    const camTargetPos = new THREE.Vector3();
+    const camStartUp = new THREE.Vector3();
+    const camTargetUp = new THREE.Vector3();
+    const targetStart = new THREE.Vector3();
+    const targetEnd = new THREE.Vector3();
+
+    // Set initial static view state on page load
+    function initCameraView(is3D) {
       if (is3D) {
-        //camera.position.set(8, -9, 4);
         camera.position.set(10, -10, 4);
         camera.up.set(0, 0, 1);
         controls.target.set(0, 0, 1);
-        controls.enabled = true;
+        controls.enabled = false;
         gridHelper.visible = false;
       } else {
         camera.position.set(0, 0, 16);
@@ -538,7 +549,68 @@
       planeLabel.visible = is3D;
     }
 
-    setCameraView(view3D);
+    function toggleView() {
+      if (camAnimating) return;
+
+      view3D = !view3D;
+      viewButton.innerText = view3D ? "2D view" : "3D view";
+
+      // Store current camera states
+      camStartPos.copy(camera.position);
+      camStartUp.copy(camera.up);
+      targetStart.copy(controls.target);
+
+      // Disable orbit controls while transitioning
+      controls.enabled = false;
+
+      // Keep 3D elements visible during transition
+      gridXY.visible = true;
+      wGroup.visible = true;
+      planeMesh.visible = true;
+      planeLabel.visible = true;
+      gridHelper.visible = true;
+
+      if (view3D) {
+        camTargetPos.set(10, -10, 4);
+        camTargetUp.set(0, 0, 1);
+        targetEnd.set(0, 0, 1);
+      } else {
+        camTargetPos.set(0, 0, 16);
+        camTargetUp.set(0, 1, 0);
+        targetEnd.set(0, 0, 0);
+      }
+
+      camAnimationStart = performance.now();
+      camAnimating = true;
+    }
+
+    function updateCameraAnimation(now) {
+      if (!camAnimating) return;
+
+      let t = (now - camAnimationStart) / camAnimationDuration;
+      t = Math.max(0, Math.min(1, t));
+      const easedT = easeInOut(t);
+
+      // Interpolate camera position, orientation up-vector, and orbit pivot
+      camera.position.lerpVectors(camStartPos, camTargetPos, easedT);
+      camera.up.lerpVectors(camStartUp, camTargetUp, easedT).normalize();
+      controls.target.lerpVectors(targetStart, targetEnd, easedT);
+      controls.update();
+
+      if (t >= 1) {
+        camAnimating = false;
+        controls.enabled = false;
+
+        // Hide non-relevant elements when transition finishes
+        gridHelper.visible = !view3D; 
+        gridXY.visible = view3D;
+        wGroup.visible = view3D;
+        planeMesh.visible = view3D;
+        planeLabel.visible = view3D;
+      }
+    }
+
+    initCameraView(view3D);
 
     // ============================================================
     // TRANSFORMATIONS & ANIMATION LOGIC
@@ -648,12 +720,6 @@
       }
     }
 
-    function toggleView() {
-      view3D = !view3D;
-      viewButton.innerText = view3D ? "2D view" : "3D view";
-      setCameraView(view3D);
-    }
-
     // ============================================================
     // DYNAMIC RENDER UPDATE & LOOP
     // ============================================================
@@ -697,6 +763,7 @@
       requestAnimationFrame(animate);
 
       updateAnimation(now);
+      updateCameraAnimation(now);
       updateTransformedMesh();
       updateInfoText();
 
