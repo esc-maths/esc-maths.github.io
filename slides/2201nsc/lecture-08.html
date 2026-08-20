@@ -2654,7 +2654,7 @@ U =
 						</p>
 						<p class="fragment" data-fragment-index="0" style="text-align: center; font-size: 1.4em;">
 							$
-							\qquad A = Q_m \,\Sigma\, Q_n^T
+							A = Q_m \,\Sigma\, Q_n^T
 							$
 							<span class="fragment" data-fragment-index="6">
 								$=U\,\Sigma \,V^T$
@@ -2770,7 +2770,7 @@ U =
 
 
 						<div style="margin-top: 40px;">
-							<p style="text-align: center; font-size: 1.4em;margin-top: 0px;">
+							<p style="text-align: center; font-size: 1.4em;margin-top: 10px;">
 								$A = V\,D \,V^{-1},\;\;$
 								<span>
 									$A\in\R^{n\times n}$
@@ -2815,7 +2815,8 @@ U =
 						<tr>
 							<td style="width: 45%;">
 								<p class="fragment" data-fragment-index="1"
-									style="text-align: center;font-size: 0.8em;margin-top: 0px;"><b>SVD factoristion</b>
+									style="text-align: center;font-size: 0.8em;margin-top: 0px;"><b>SVD factoristion
+										$A=U\,\Sigma\, V^T$</b>
 								</p>
 								<div class="fragment" data-fragment-index="1" style="margin-top: -10px;">
 									<pre
@@ -2890,7 +2891,8 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 33.3%;">
-								<p style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
+								<p style="text-align: center;font-size: 0.65em;"><b>SVD factoristion $A=U\,\Sigma\,
+										V^T$</b></p>
 								<div style="margin-top: -10px;">
 									<pre
 										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
@@ -2929,9 +2931,7 @@ Diagonal Matrix
     1.7805         0
          0   20.2195</code></pre>
 								</div>
-
-								<p class="fragment" data-fragment-index="5"
-									style="text-align: center; font-size: 0.6em;" id="rr">👆</p>
+								<br />
 
 
 							</td>
@@ -2958,8 +2958,90 @@ Diagonal Matrix
 						</tr>
 					</table>
 
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Comparing SVD components with $AA^T$ and $A^TA$ eigensystems</h4>
+
+					<div>
+						<p style="width: 80%; text-align: right;font-size: 0.7em;font-weight: bold;margin-top: -10px;">
+							Eigenvalues & Eigenvectors
+						</p>
+					</div>
+
+					<table style="width: 100%;  margin-top: -30px;">
+						<tr>
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.65em;"><b>SVD factoristion $A=U\,\Sigma\,
+										V^T$</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em;"><code class="language-matlab">U =
+   -0.9940   -0.1091
+   -0.1091    0.9940</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; opacity: 0.3;"><code class="language-matlab">S =
+Diagonal Matrix
+    4.4966         0
+         0    1.3343</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; opacity: 0.3;"><code class="language-matlab">V =
+   -0.9085    0.4179
+    0.4179    0.9085</code></pre>
+								</div>
+							</td>
+
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>$AA^T$</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W1, D1] = eig(A * A')</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 260px;"><code class="language-matlab">W1 =
+   0.1091  -0.9940
+  -0.9940  -0.1091
+
+D1 =
+Diagonal Matrix
+    1.7805         0
+         0   20.2195</code></pre>
+								</div>
+								<br />
+
+
+							</td>
+
+							<td style="width: 33.3%;">
+								<p style="text-align: center;font-size: 0.8em;"><b>$A^TA$</b></p>
+								<div style="margin-top: -10px;">
+									<pre
+										style="width: 100%; font-size: 0.5em; opacity: 0.3;"><code class="language-matlab">>> [W2, D2] = eig(A' * A)</code></pre>
+								</div>
+								<div style="margin-top: 10px;">
+									<pre style="width: 100%; font-size: 0.5em; height: 260px; opacity: 0.3"><code class="language-matlab">W2 =
+  -0.4179  -0.9085
+  -0.9085   0.4179
+
+D2 =
+Diagonal Matrix
+    1.7805         0
+         0   20.2195</code></pre>
+								</div>
+								<br />
+
+							</td>
+						</tr>
+					</table>
+
 					<div style="font-size: 0.9em;margin-top: 25px;" class="cc">
-						<p class="fragment" data-fragment-index="5">
+						<p>
 							<b>Left matrix $U$:</b> Columns of $U$ are the eigenvectors of $A A^T$.
 						</p>
 
@@ -2979,7 +3061,8 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 33.3%;">
-								<p style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
+								<p style="text-align: center;font-size: 0.65em;"><b>SVD factoristion $A=U\,\Sigma\,
+										V^T$</b></p>
 								<div style="margin-top: -10px;">
 									<pre
 										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
@@ -3074,7 +3157,7 @@ Diagonal Matrix
 				</section>
 
 				<section data-auto-animate>
-					<h4>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems</h4>
+					<h4>Comparing SVD components with $AA^T$ and $A^TA$ eigensystems</h4>
 
 					<div>
 						<p style="width: 80%; text-align: right;font-size: 0.7em;font-weight: bold;margin-top: -10px;">
@@ -3085,7 +3168,8 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 33.3%;">
-								<p style="text-align: center;font-size: 0.8em;"><b>SVD factoristion</b></p>
+								<p style="text-align: center;font-size: 0.65em;"><b>SVD factoristion $A=U\,\Sigma\,
+										V^T$</b></p>
 								<div style="margin-top: -10px;">
 									<pre
 										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd([4 -2; 1 1])</code></pre>
@@ -3112,10 +3196,10 @@ Diagonal Matrix
 								<p style="text-align: center;font-size: 0.8em;"><b>$AA^T$</b></p>
 								<div style="margin-top: -10px;">
 									<pre
-										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W1, D1] = eig(A * A')</code></pre>
+										style="width: 100%; font-size: 0.5em; opacity: 0.3;"><code class="language-matlab">>> [W1, D1] = eig(A * A')</code></pre>
 								</div>
 								<div style="margin-top: 10px;">
-									<pre style="width: 100%; font-size: 0.5em; height: 260px;"><code class="language-matlab">W1 =
+									<pre style="width: 100%; font-size: 0.5em; height: 260px; opacity: 0.3;"><code class="language-matlab">W1 =
    0.1091  -0.9940
   -0.9940  -0.1091
 
@@ -3145,7 +3229,7 @@ Diagonal Matrix
     1.7805         0
          0   20.2195</code></pre>
 								</div>
-								<p style="text-align: center; font-size: 0.6em;" id="rr">👆</p>
+								<br />
 
 
 							</td>
@@ -3165,21 +3249,35 @@ Diagonal Matrix
 
 
 				<section data-auto-animate>
-					<h4>Comparing SVD components with $A^T A$ and $A A^T$ eigensystems</h4>
+					<h4>Comparing SVD components with $AA^T$ and $A^TA$ eigensystems</h4>
 
 					<div class="size-90 left-txt" style="margin-top: 50px;">
 
-						<p style="text-align: center; font-size: 1.4em;">
-							$A =\color{red}{Q_m}\color{darkgreen}{\Sigma} \color{blue}{Q_n}^T =
-							\color{red}{U}\color{darkgreen}{\Sigma} \color{blue}{V}^T$
+						<div class="r-stack" style="font-size: 1.4em;">
+							<p class="fragment fade-out" data-fragment-index="0">
+								$A =U\,\Sigma\, V^T $
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								$A =\color{red}{U}\,\Sigma\, V^T $
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$A =\color{red}{U}\,\color{darkgreen}{\Sigma}\, V^T $
+							</p>
+							<p class="fragment fade-in" data-fragment-index="2">
+								$A =\color{red}{U}\,\color{darkgreen}{\Sigma}\, \color{blue}{V}^T $
+							</p>
+						</div>
+						<p class="fragment" style="text-align: center; font-size: 0.9em;">
+							$
+							\left(A=\color{red}{Q_m}\,\color{darkgreen}{\Sigma}\, \color{blue}{Q_n}^T\right)
+							$
 						</p>
-
-						<ul style="line-height: 2.2em; margin-top: 30px; margin-left: 0px;">
-							<li>
+						<ul style="line-height: 2.2em; margin-top: 10px; margin-left: 0px;">
+							<li class="fragment" data-fragment-index="0">
 								<b>Left Matrix $\color{red}{U}$:</b> Columns of $\color{red}{U}$ are the eigenvectors of
 								$A A^T$.
 							</li>
-							<li>
+							<li class="fragment" data-fragment-index="1">
 								<b>Singular Values $\color{darkgreen}{\Sigma}$:</b>
 								Square roots of the eigenvalues of $A^T A$ (and $A
 								A^T$).
@@ -3194,7 +3292,7 @@ Diagonal Matrix
 
 							</li>
 
-							<li>
+							<li class="fragment" data-fragment-index="2">
 								<b>Right Matrix $\color{blue}{V}$:</b> Columns of $\color{blue}{V}$ are the eigenvectors
 								of $A^T A$.
 							</li>
@@ -3205,10 +3303,10 @@ Diagonal Matrix
 				</section>
 
 				<section data-auto-animate>
-					<h4>SVD for Non-Square Matrices in Octave / MATLAB</h4>
+					<h4>Example 2: SVD for Non-Square Matrices in Octave / MATLAB</h4>
 					<div class="size-85">
-						<p style="text-align: center;">Example for $2 \times 3$ matrix $A = \begin{pmatrix}1 & -3 & 2 \\
-							2 & 0 & 3\end{pmatrix}$:
+						<p style="text-align: center;">Consider the $2 \times 3$ matrix $A = \begin{pmatrix}1 & -3 & 2 \\
+							2 & 0 & 3\end{pmatrix}$
 						</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: -15px;">
@@ -3235,7 +3333,7 @@ V =
 				</section>
 
 				<section data-auto-animate>
-					<h4>Non-Square SVD: Spectral Properties
+					<h4>Example 2 (Non-Square SVD): Spectral Properties
 						<span style="font-size: 0.8em;">
 							$A = \begin{pmatrix}1 & -3 & 2 \\ 2 & 0 & 3\end{pmatrix}$
 						</span>
@@ -3299,8 +3397,7 @@ Diagonal Matrix
 
 					<p class="fragment" data-fragment-index="2"
 						style="margin-top: -15px;font-size: 0.8em;text-align: center;">
-						• Square roots of the eigenvalues of $A A^T$
-						for the $3 \times 2$ matrix:
+						• Square roots of the eigenvalues of $\,2\times 2\,$ matrix  $\,A A^T:$
 					</p>
 
 					<div style="margin-top: 10px; font-size: 0.8em;">
@@ -3318,7 +3415,7 @@ Diagonal Matrix
 					<br />
 				</section>
 				<section data-auto-animate>
-					<h4>Non-Square SVD: Spectral Properties
+					<h4>Example 2 (Non-Square SVD): Spectral Properties
 						<span style="font-size: 0.8em;">
 							$A = \begin{pmatrix}1 & -3 & 2 \\ 2 & 0 & 3\end{pmatrix}$
 						</span>
@@ -3390,7 +3487,7 @@ Diagonal Matrix
 				</section>
 
 				<section data-auto-animate>
-					<h4>Non-Square SVD: Spectral Properties
+					<h4>Example 2 (Non-Square SVD): Spectral Properties
 						<span style="font-size: 0.8em;">
 							$A = \begin{pmatrix}1 & -3 & 2 \\ 2 & 0 & 3\end{pmatrix}$
 						</span>
@@ -3426,7 +3523,7 @@ Diagonal Matrix
 							<td style="width: 65%;">
 								<p style="text-align: center;font-size: 0.8em; "><b>Eigenvalues & Eigenvectors
 										$A^TA$</b></p>
-								<div class="fragment" data-fragment-index="1">
+								<div>
 									<pre
 										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [W2, D2] = eig(A' * A)</code></pre>
 								</div>
@@ -3456,8 +3553,7 @@ Diagonal Matrix
 
 					<p class="fragment" data-fragment-index="4"
 						style="margin-top: -15px;font-size: 0.8em; text-align: center;">
-						• Square roots of the eigenvalues of $A^TA$
-						for the $2 \times 3$ matrix:
+						• Square roots of the eigenvalues of $\,3\times 3\,$ matrix  $\,A^T A:\qquad\qquad$
 					</p>
 
 					<div style="margin-top: 10px; font-size: 0.8em;">
@@ -3475,7 +3571,7 @@ Diagonal Matrix
 					<br />
 				</section>
 				<section data-auto-animate>
-					<h4>Non-Square SVD: Spectral Properties
+					<h4>Example 2 (Non-Square SVD): Spectral Properties
 						<span style="font-size: 0.8em;">
 							$A = \begin{pmatrix}1 & -3 & 2 \\ 2 & 0 & 3\end{pmatrix}$
 						</span>
@@ -3547,66 +3643,16 @@ Diagonal Matrix
 					<br />
 				</section>
 
-				<!--
-				
-				<section data-auto-animate>
-					<h4>Non-Square SVD: Spectral Properties
-						<span style="font-size: 0.85em;">
-							$A = \begin{pmatrix}1 & -3 & 2 \\ 2 & 0 & 3\end{pmatrix}$
-						</span>
-					</h4>
-					<div class="size-80">
-
-						<p style="margin-top: -20px;">• Eigenvalues of $A A^T$
-							for the $3 \times 2$ matrix:</p>
-
-						<div class="cc" style="margin-top: 10px;">
-							<p>
-								$ \lambda_{AA^T} = \left\{ 5.4844, \; 21.5156\right\} $
-							</p>
-							<p>
-								$ \sqrt{\lambda_{AA^T}} \approx \left\{2.3419, \; 4.6385\right\} =
-								\text{diag}\left(\Sigma\right) $
-							</p>
-
-						</div>
-						<p>• Eigenvalues of $A^T A$ for the $2 \times 3$
-							matrix:</p>
-
-						<div class="cc" style="margin-top: 10px;">
-							<p>
-								$ \lambda_{A^TA} = \left\{ 2.52 \times 10^{-15},\; 5.4844, \; 21.5156\right\} $
-							</p>
-							<p>
-								$ \sqrt{\lambda_{A^TA}} \approx \left\{0,\; 2.3419, \; 4.6385 \right\} =
-								\text{diag}\left(\Sigma\right) $
-							</p>
-
-						</div>
-
-						<div style="margin-top: 15px;">
-							<blockquote
-								style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #e82121; font-style: normal; width: 79%; font-size: 0.85em;">
-								<b>Numerical Artifacts:</b> Values like $2.52 \times 10^{-15}$ are floating-point
-								limitations and represent exact zeroes.
-							</blockquote>
-						</div>
-
-						<p>
-							• Eigenvectors of $AA^T$ are the columns of the orthogonal matrix $U.$
-						</p>
-						<p>
-							• Eigenvectors of $A^TA$ are the columns of the orthogonal matrix $V.$
-						</p>
-					</div>
-					<br />
-				</section>-->
-
 
 				<section data-auto-animate>
 					<h4>SVD vs. Canonical (Diagonal) Form</h4>
-					<div class="size-85">
-						<ul style="line-height: 1.6em;">
+					<div class="cc">
+						<p>
+							$A= Q_m \,\Sigma \, Q_n^T\;\;$ vs.  $\;\;A = V D V^{-1}$
+						</p>
+					</div>
+					<div class="left-txt" style="font-size: 0.89em;">
+						<ul style="line-height: 1.5em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
 								<b>Singular Values vs. Eigenvalues:</b> $\Sigma$ entries are non-negative square roots
 								of the non-zero eigenvalues of $A A^T$ and $A^T A$.
@@ -3622,6 +3668,9 @@ Diagonal Matrix
 							<li class="fragment" data-fragment-index="3">
 								<b>Orthonormality:</b> Columns of $Q_n$ and $Q_m$ form orthonormal sets because they are
 								eigenvectors of real symmetric matrices $A A^T$ and $A^T A$.
+								<span class="fragment" data-fragment-index="4">
+									These matrices provode an orthonormal bases for the column space and row space of A.
+								</span>
 							</li>
 						</ul>
 					</div>
