@@ -3305,7 +3305,8 @@ Diagonal Matrix
 				<section data-auto-animate>
 					<h4>Example 2: SVD for Non-Square Matrices in Octave / MATLAB</h4>
 					<div class="size-85">
-						<p style="text-align: center;">Consider the $2 \times 3$ matrix $A = \begin{pmatrix}1 & -3 & 2 \\
+						<p style="text-align: center;">Consider the $2 \times 3$ matrix $A = \begin{pmatrix}1 & -3 & 2
+							\\
 							2 & 0 & 3\end{pmatrix}$
 						</p>
 
@@ -3397,7 +3398,7 @@ Diagonal Matrix
 
 					<p class="fragment" data-fragment-index="2"
 						style="margin-top: -15px;font-size: 0.8em;text-align: center;">
-						• Square roots of the eigenvalues of $\,2\times 2\,$ matrix  $\,A A^T:$
+						• Square roots of the eigenvalues of $\,2\times 2\,$ matrix $\,A A^T:$
 					</p>
 
 					<div style="margin-top: 10px; font-size: 0.8em;">
@@ -3553,7 +3554,7 @@ Diagonal Matrix
 
 					<p class="fragment" data-fragment-index="4"
 						style="margin-top: -15px;font-size: 0.8em; text-align: center;">
-						• Square roots of the eigenvalues of $\,3\times 3\,$ matrix  $\,A^T A:\qquad\qquad$
+						• Square roots of the eigenvalues of $\,3\times 3\,$ matrix $\,A^T A:\qquad\qquad$
 					</p>
 
 					<div style="margin-top: 10px; font-size: 0.8em;">
@@ -3648,11 +3649,11 @@ Diagonal Matrix
 					<h4>SVD vs. Canonical (Diagonal) Form</h4>
 					<div class="cc">
 						<p>
-							$A= Q_m \,\Sigma \, Q_n^T\;\;$ vs.  $\;\;A = V D V^{-1}$
+							$A= Q_m \,\Sigma \, Q_n^T\;\;$ vs. $\;\;A = V D V^{-1}$
 						</p>
 					</div>
 					<div class="left-txt" style="font-size: 0.89em;">
-						<ul style="line-height: 1.5em; margin-left: 0px;">
+						<ul style="line-height: 1.4em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
 								<b>Singular Values vs. Eigenvalues:</b> $\Sigma$ entries are non-negative square roots
 								of the non-zero eigenvalues of $A A^T$ and $A^T A$.
@@ -3669,12 +3670,63 @@ Diagonal Matrix
 								<b>Orthonormality:</b> Columns of $Q_n$ and $Q_m$ form orthonormal sets because they are
 								eigenvectors of real symmetric matrices $A A^T$ and $A^T A$.
 								<span class="fragment" data-fragment-index="4">
-									These matrices provode an orthonormal bases for the column space and row space of A.
+									These matrices provide an orthonormal bases for the column space and row space of A.
 								</span>
 							</li>
 						</ul>
 					</div>
 					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						SVD & its relationship to orthogonal bases of <br/>
+						the column and null spaces of $A$ and $A^T$
+					</h4>
+					<div class="fragment" data-fragment-index="0">
+						<p style="font-size: 1.1em; text-align: center; margin-top: 30px; margin-bottom: 30px;">Assume that $A \in \R^{m\times n}$ matrix with
+							rank = 2</p>
+					</div>
+
+					<div class="r-stack">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 100%;"
+							src="images/lecture-08/svd-001.png">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 100%;"
+							src="images/lecture-08/svd-002.png">
+						<img class="fragment fade-in" data-fragment-index="2" style="width: 100%;"
+							src="images/lecture-08/svd-003.png">
+					</div>
+					<br>
+					<br/>
+
+				</section>
+				<section data-auto-animate>
+					<h4>
+						SVD & its relationship to orthogonal bases of <br/>
+						the column and null spaces of $A$ and $A^T$
+					</h4>
+					<div>
+						<p style="font-size: 0.8em; text-align: center; margin-top: -10px; margin-bottom: -5px;">Assume that $A \in \R^{m\times n}$ matrix with
+							rank = 2</p>
+					</div>
+
+					<div class="r-stack" style="margin-bottom: -15px;">
+						<img style="width: 40%;"
+							src="images/lecture-08/svd-003.png">
+					</div>
+					<hr>
+
+					<div class="r-stack" style="margin-top: -20px;">
+						<img class="fragment fade-out" data-fragment-index="0" style="width: 83%;"
+							src="images/lecture-08/svd-004.png">
+						<img class="fragment fade-in-then-out" data-fragment-index="0" style="width: 83%;"
+							src="images/lecture-08/svd-005.png">
+						<img class="fragment fade-in-then-out" data-fragment-index="1" style="width: 83%;"
+							src="images/lecture-08/svd-006.png">
+						<img class="fragment fade-in" data-fragment-index="2" style="width: 83%;"
+							src="images/lecture-08/svd-007.png">
+					</div>
+					<br/>
 				</section>
 
 			</section>
