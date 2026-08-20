@@ -97,7 +97,7 @@
 			<section>
 				<section data-auto-animate>
 					<h3>What are affine transformations?</h3>
-					<div class="size-85">
+					<div class="size-95" style="margin-top: 60px;">
 						<div class="left-txt">
 							<p class="fragment" data-fragment-index="0">
 								An <b>affine transformation</b> maps points, straight lines and planes while preserving
@@ -107,8 +107,12 @@
 							<p class="fragment" data-fragment-index="1">
 								Widely used in geometry, computer graphics and vision to map coordinates while keeping
 								geometric relations.
+
+							</p>
+
+							<p>
 								<span class="fragment" data-fragment-index="2">
-									Unlike <em>linear transformations</em>, affine transforms can also
+									Unlike <b>linear transformations</b>, affine transforms can also
 									translate (shift) the space.
 								</span>
 							</p>
@@ -121,13 +125,13 @@
 
 				<section data-auto-animate>
 					<h3>What are affine transformations?</h3>
-					<div class="size-85">
+					<div class="size-90">
 						<div class="left-txt">
 
 							<p>
 								This generalisation makes affine transformations particularly useful for:
 							</p>
-							<ul style="line-height: 60px;">
+							<ul style="line-height: 70px;">
 								<li class="fragment" data-fragment-index="0">Representing more general geometric
 									deformations</li>
 								<li class="fragment" data-fragment-index="1">Modelling transformations where position
@@ -145,7 +149,7 @@
 
 				<section data-auto-animate>
 					<h3>Affine Transformations</h3>
-					<div class="size-85">
+					<div class="size-90">
 						<div class="left-txt">
 							<p>
 								Consider a point $\mathbf x=(x,y).$
@@ -158,7 +162,7 @@
 						<div class="cc">
 							<p class="fragment" data-fragment-index="0">
 								\(
-								\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+								T\left( \mathbf x\right) = \begin{pmatrix}
 								ax + by + e \\
 								cx + dy + f
 								\end{pmatrix}
@@ -187,7 +191,7 @@
 
 				<section data-auto-animate>
 					<h3>Affine Transformations</h3>
-					<div class="size-70">
+					<div class="size-80">
 
 						<table style="width: 100%;">
 							<tr>
@@ -195,7 +199,7 @@
 									<div class="cc">
 										<p>
 											\(
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											T\left( \mathbf x\right) = \begin{pmatrix}
 											ax + by + e \\
 											cx + dy + f
 											\end{pmatrix}
@@ -206,7 +210,7 @@
 										<span class="fragment" data-fragment-index="1">
 											then we have a <b>pure translation</b>
 											\[
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											T\left( \mathbf x\right) = \begin{pmatrix}
 											x + e \\
 											y + f
 											\end{pmatrix}
@@ -233,7 +237,7 @@
 				</section>
 				<section data-auto-animate>
 					<h3>Affine Transformations</h3>
-					<div class="size-70">
+					<div class="size-80">
 
 						<table style="width: 100%;">
 							<tr>
@@ -241,7 +245,7 @@
 									<div class="cc">
 										<p>
 											\(
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											T\left( \mathbf x\right) = \begin{pmatrix}
 											ax + by + e \\
 											cx + dy + f
 											\end{pmatrix}
@@ -253,7 +257,7 @@
 										<span class="fragment" data-fragment-index="1">
 											then we have a <b>pure scale</b>
 											\[
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											T\left( \mathbf x\right) = \begin{pmatrix}
 											ax \\
 											dy
 											\end{pmatrix}
@@ -280,7 +284,7 @@
 				</section>
 				<section data-auto-animate>
 					<h3>Affine Transformations</h3>
-					<div class="size-70">
+					<div class="size-80">
 
 						<table style="width: 100%;">
 							<tr>
@@ -288,7 +292,7 @@
 									<div class="cc">
 										<p>
 											\(
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											T\left( \mathbf x\right) = \begin{pmatrix}
 											ax + by + e \\
 											cx + dy + f
 											\end{pmatrix}
@@ -303,7 +307,7 @@
 											the origin
 											\[
 											\small
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											T\left( \mathbf x\right) = \begin{pmatrix}
 											x\cos\theta -y \sin \theta \\
 											x\sin \theta + y \cos \theta
 											\end{pmatrix}
@@ -329,7 +333,7 @@
 				</section>
 				<section data-auto-animate>
 					<h3>Affine Transformations</h3>
-					<div class="size-70">
+					<div class="size-80">
 
 						<table style="width: 100%;">
 							<tr>
@@ -349,7 +353,7 @@
 										<span class="fragment" data-fragment-index="1">
 											we have the <b>shear transforms</b>
 											\[
-											\mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
+											T\left( \mathbf x\right) = \begin{pmatrix}
 											x+ by \\
 											y+ cx
 											\end{pmatrix}
@@ -380,7 +384,7 @@
 					<h4>
 						Matrix representation of affine transformations
 					</h4>
-					<div class="size-80">
+					<div class="size-95">
 						<p class="fragment" data-fragment-index="1">
 							We know a linear transformation
 							<span class="fragment" data-fragment-index="2">
@@ -389,7 +393,7 @@
 
 						</p>
 					</div>
-					<div class="size-85 cc">
+					<div class="size-95 cc">
 						<p>
 							<span class="fragment" data-fragment-index="1">
 								\(T(\mathbf{x}) =
@@ -414,22 +418,29 @@
 							</span>
 						</p>
 					</div>
-					<div class="size-85 cc">
-						<p class="fragment" data-fragment-index="3">
-							Can we do the same with affine transformations? 🤔
+					<div class="size-95 cc">
+						<p class="fragment" data-fragment-index="3" id="bb">
+							Can we do the same with affine transformations? 
 						</p>
 						<p class="fragment" data-fragment-index="4">
 							No, the problem is the <b>translation</b>❗️
 						</p>
 					</div>
-					<br />
-					<br />
+					<div class="fragment" data-fragment-index="3">
+						<picture>
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="110"
+								height="110">
+						</picture>
+					</div>
+					
 					<br />
 				</section>
 
 				<section data-auto-animate>
 					<h4>Homogeneous coordinates</h4>
-					<div class="size-80">
+					<div class="size-95">
 						<div class="left-txt">
 							<p class="fragment" data-fragment-index="1">
 								To enable affine transformations, such as translation,
@@ -490,7 +501,7 @@
 
 				<section data-auto-animate="">
 					<h4>Homogeneous coordinates</h4>
-					<div class="size-80">
+					<div class="size-95">
 						<div class="left-txt">
 							<p>
 								Therefore, affine transformations can be written as
@@ -649,7 +660,7 @@
 						</p>
 					</div>
 
-					<div class="size-90 left-txt">
+					<div class="size-95 left-txt">
 						<p> There are two common approaches for plotting fractals using IFS:</p>
 						<ul style="line-height: 60px;margin-left: 0px;">
 							<li class="fragment" data-fragment-index="1"><b>Deterministic Algorithm:</b>
@@ -669,7 +680,7 @@
 
 				<section data-auto-animate>
 					<h4>Deterministic IFS</h4>
-					<div class="size-75 cc">
+					<div class="size-85 cc">
 						<p>We apply the following affine transformations at each iteration:</p>
 						<p>
 							\(
@@ -710,7 +721,7 @@
 					<table style="width: 100%;">
 						<tr>
 							<td style="width: 40%;">
-								<div class="size-55">
+								<div class="size-60">
 									<p>
 										\(
 										\begin{aligned}
@@ -903,7 +914,7 @@ function plotAxesInfo() {
 				<section>
 					<h4>Probabilistic IFS </h4>
 
-					<div style="font-size: 60%;">
+					<div style="font-size: 75%;">
 						<p class="fragment" data-fragment-index="0">We apply the following affine transformations,
 							<span class="fragment" data-fragment-index="1">
 								with a given probability for each case:
@@ -912,10 +923,10 @@ function plotAxesInfo() {
 
 					</div>
 
-					<div class="fragment" data-fragment-index="0" style="margin-top: -20px;">
-						<table style="width: 80%;">
+					<div class="fragment" data-fragment-index="0" style="margin-top: -30px;">
+						<table style="width: 75%;">
 							<tr>
-								<td style="text-align: right; width: 60%;font-size: 59%;">
+								<td style="text-align: right; width: 60%;font-size: 68%;">
 									<p>
 										$
 										\begin{aligned}
@@ -970,7 +981,7 @@ function plotAxesInfo() {
 								<td style="text-align: center; width: 40%;">
 
 									<table
-										style="margin: 0 auto; border-collapse: collapse; text-align: center; font-size: 80%;"
+										style="margin: 0 auto; border-collapse: collapse; text-align: center; font-size: 100%;"
 										class="fragment" data-fragment-index="1">
 										<thead>
 											<tr>
@@ -1032,7 +1043,7 @@ function plotAxesInfo() {
 				<section>
 					<h4>Probabilistic IFS</h4>
 
-					<div class="size-90">
+					<div class="size-95">
 						<p>IFS values for a fern</p>
 						<table style="margin: 0 auto; border-collapse: collapse; text-align: center;">
 
@@ -1101,10 +1112,10 @@ function plotAxesInfo() {
 				<section>
 					<h4>Probabilistic IFS: JavaScript</h4>
 
-					<table style="width: 80%;">
+					<table style="width: 90%;">
 						<tr>
 							<td style="width: 50%;">
-								<div style="font-size: 40%;" class="cc">
+								<div style="font-size: 60%;" class="cc">
 									<p>
 										$
 										\begin{aligned}
@@ -1123,8 +1134,7 @@ function plotAxesInfo() {
 										\mapsto 0.01
 										$
 									</p>
-									<br />
-									<p>
+									<p style="margin-top: 30px;">
 										$
 										\begin{aligned}
 										T_2(\mathbf{x}) &=
@@ -1142,8 +1152,7 @@ function plotAxesInfo() {
 										\mapsto 0.85
 										$
 									</p>
-									<br />
-									<p>
+									<p style="margin-top: 30px;">
 										$
 										\begin{aligned}
 										T_3(\mathbf{x}) &=
@@ -1161,8 +1170,7 @@ function plotAxesInfo() {
 										\mapsto 0.07
 										$
 									</p>
-									<br />
-									<p>
+									<p style="margin-top: 30px;">
 										$
 										\begin{aligned}
 										T_4(\mathbf{x}) &=
@@ -1184,7 +1192,7 @@ function plotAxesInfo() {
 								</div>
 							</td>
 							<td style="width: 50%;">
-								<pre style="width: 100%;height: 545px; font-size: 48%; margin-top: -10px;">
+								<pre style="width: 100%;height: 590px; font-size: 50%; margin-top: -10px;">
 						<code data-trim data-noescape 
 							data-line-numbers="1|3-22|4|5-9|5,6,10-12|5,6,13-15|5,6,16-18|20-21|1-22">
 let x = 0, y = 0;
