@@ -202,12 +202,12 @@
     ];
 
     // Layer Z-offsets to prevent Z-fighting
-    const Z_PLANE = 0.999;
-    const Z_GRID = 1.0;
-    const Z_ORIGINAL = 1.001;
-    const Z_ORIGINAL_OUTLINE = 1.0015;
-    const Z_TRANSFORMED = 1.002;
-    const Z_TRANSFORMED_OUTLINE = 1.0025;
+    const Z_PLANE = 1.399;
+    const Z_GRID = 1.4;
+    const Z_ORIGINAL = 1.401;
+    const Z_ORIGINAL_OUTLINE = 1.4015;
+    const Z_TRANSFORMED = 1.402;
+    const Z_TRANSFORMED_OUTLINE = 1.4025;
 
     // ============================================================
     // THREE.JS SETUP
@@ -251,8 +251,8 @@
     function createBtn(text, onClick) {
       const btn = document.createElement('button');
       btn.innerText = text;
-      btn.style.fontSize = '1em';
-      btn.style.padding = '8px 10px';
+      btn.style.fontSize = '0.85em';
+      btn.style.padding = '5px 9px';
       btn.style.cursor = 'pointer';
       btn.addEventListener('click', onClick);
       buttonRow.appendChild(btn);
@@ -268,7 +268,7 @@
     const infoDiv = document.createElement('div');
     infoDiv.style.marginTop = '10px';
     infoDiv.style.color = '#282828';
-    infoDiv.style.fontSize = '1.1em';
+    infoDiv.style.fontSize = '1.2em';
     infoDiv.style.lineHeight = '1.5';
     uiContainer.appendChild(infoDiv);
 
@@ -386,7 +386,7 @@
     axesGroup.add(wGroup);
 
     // Origin Sphere
-    const originGeom = new THREE.SphereGeometry(0.1, 16, 16);
+    const originGeom = new THREE.SphereGeometry(0.05, 16, 16);
     const originMat = new THREE.MeshBasicMaterial({ color: 0x1e1e1e, depthTest: false });
     const originSphere = new THREE.Mesh(originGeom, originMat);
     originSphere.renderOrder = 100;
@@ -568,7 +568,7 @@
       wGroup.visible = true;
       planeMesh.visible = true;
       planeLabel.visible = true;
-      gridHelper.visible = true;
+      gridHelper.visible = false;
 
       if (view3D) {
         camTargetPos.set(10, -10, 4);
