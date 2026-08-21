@@ -284,12 +284,12 @@
 						</p>
 						<div style="display: flex; justify-content: space-between; margin: -20px auto 0; width: 60%;">
 							<div class="fragment" data-fragment-index="0">$L$: Lower triangular</div>
-							<div class="fragment" data-fragment-index="2">$D$: Diagonal &nbsp; &nbsp; </div>
+							<div class="fragment" data-fragment-index="2">$D$: Diagonal $(\Sigma)$  </div>
 						</div>
 
 						<div style="display: flex; justify-content: space-between; margin: 20px auto 0; width: 60%;">
 							<div class="fragment" data-fragment-index="1">$U$: Upper triangular</div>
-							<div class="fragment" data-fragment-index="3">$Q$: Orthogonal</div>
+							<div class="fragment" data-fragment-index="3">$Q$: Orthogonal &nbsp;&nbsp;</div>
 						</div>
 
 						<table class="fragment" data-fragment-index="4"
@@ -322,7 +322,7 @@
 
 								<tr class="fragment" data-fragment-index="7">
 									<td style="border: none;"><b>SVD</b></td>
-									<td style="border: none;">$\displaystyle A=Q_m\Sigma Q_n^T$</td>
+									<td style="border: none;">$\displaystyle A=Q_m D Q_n^T$</td>
 									<td style="border: none;">Orthogonal $\times$ Diagonal $\times$ Orthogonal</td>
 								</tr>
 							</tbody>
@@ -346,11 +346,17 @@
 								</span>
 								<p style="text-align: center;" class="fragment" data-fragment-index="2">
 									$ \large [E_k \cdots E_1 A \mid E_k \cdots E_1 \mathbf b] $
+									<span class="fragment" data-fragment-index="3">
+										$\rightarrow \large [E A \mid E \mathbf b] $
+									</span>
+									<span class="fragment" data-fragment-index="4">
+										$\rightarrow \large [U \mid \mathbf r] $
+									</span>
 								</p>
 							</li>
-							<li class="fragment" data-fragment-index="3">Our objective is to convert $A$ into an upper
+							<li class="fragment" data-fragment-index="4">Our objective is to convert $A$ into an upper
 								triangular matrix $U$. <br />
-								<span class="fragment" data-fragment-index="4">
+								<span class="fragment" data-fragment-index="6">
 									So the resulting system $[U \mid \mathbf r]$ allows straightforward <b>back
 										substitution</b>.
 								</span>
