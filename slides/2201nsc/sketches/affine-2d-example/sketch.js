@@ -1,10 +1,10 @@
 let startTime;
 
 // Timeline Timing Configurations (in milliseconds)
-const INITIAL_WAIT = 3000; // 3s initial pause
+const INITIAL_WAIT = 2000; // 2s initial pause
 const ANIM_DUR     = 2000; // 2s duration for each transformation
-const PAUSE_DUR    = 2000; // 2s pause between steps
-const HOLD_WAIT    = 4000; // 4s final hold at fully transformed state
+const PAUSE_DUR    = 1500; // 1.5s pause between steps
+const HOLD_WAIT    = 3000; // 3s final hold at fully transformed state
 const RESET_DUR   = 3000; // 3s smooth return back to origin
 
 // Step Timeline Milestones
@@ -166,7 +166,7 @@ function drawPhaseIndicator(elapsed) {
   else if (elapsed < t7) {
     label = "Step 4/4: Applying SCALING";
   } else if (elapsed < t8) {
-    label = `Final State: Holding position for ${((t8 - elapsed) / 1000).toFixed(1)}s...`;
+    label = `Final State.`;
   } else if (elapsed < t9) {
     label = "Reset State";
   } else {
