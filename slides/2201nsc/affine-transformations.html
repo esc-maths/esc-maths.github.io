@@ -112,10 +112,20 @@
 
 							<p>
 								<span class="fragment" data-fragment-index="2">
-									Unlike <b>linear transformations</b>, affine transforms can also
-									translate (shift) the space.
+									Unlike <b>linear transformations</b>, <span id="bb">affine transforms can also
+										translate (shift) the space</span>.
 								</span>
 							</p>
+
+							<div class="fragment" data-fragment-index="2"
+								style="text-align: center; margin-top: -40px;">
+								<picture>
+									<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f92f/512.webp"
+										type="image/webp">
+									<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f92f/512.gif" alt="🤯"
+										width="120" height="120">
+								</picture>
+							</div>
 
 
 						</div>
@@ -123,6 +133,69 @@
 					<br /><br />
 				</section>
 
+				<section data-auto-animate data-background-iframe="sketches/affine-2d-example/"
+					data-background-color="rgb(0,0,0)" data-background-interactive="false">
+					<h3>Affine transformations</h3>
+					
+					<div class="size-75" style="margin-top: 540px;">
+						<div >
+
+							<p style="text-align: center;">
+								This generalisation makes affine transformations
+								particularly useful for:
+							</p>
+							<ul style="line-height: 45px;margin-top: -20px;">
+								<li class="fragment" data-fragment-index="0">
+									Representing more general geometric
+									deformations
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									Modelling transformations where position
+									changes matter
+								</li>
+							</ul>
+
+
+						</div>
+
+
+
+					</div>
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h3>Affine transformations</h3>
+					<div class="size-80" style="margin-top: -20px;">
+						<div class="left-txt">
+
+							<p>
+								This generalisation makes affine transformations
+								particularly useful for:
+							</p>
+							<ul style="line-height: 45px;margin-top: -15px;">
+								<li class="fragment" data-fragment-index="0">
+									Representing more general geometric
+									deformations
+								</li>
+								<li class="fragment" data-fragment-index="1">
+									Modelling transformations where position
+									changes matter
+								</li>
+							</ul>
+
+
+						</div>
+
+
+
+					</div>
+					<div style="margin-top: 10px;">
+						<iframe style="width: 900px; height: 500px; border: none;"
+							src="sketches/affine-2d-example/"></iframe>
+					</div>
+					<br />
+				</section>
 				<section data-auto-animate>
 					<h3>What are affine transformations?</h3>
 					<div class="size-80">
@@ -131,8 +204,8 @@
 							<p>
 								This generalisation makes affine transformations particularly useful for:
 							</p>
-							<ul style="line-height: 50px;">
-								<li class="fragment" data-fragment-index="0">Representing more general geometric
+							<ul style="line-height: 50px;margin-top: -15px;">
+								<li>Representing more general geometric
 									deformations</li>
 								<li class="fragment" data-fragment-index="1">Modelling transformations where position
 									changes matter</li>
@@ -231,7 +304,7 @@
 
 									<iframe
 										style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
-										data-src="sketches/p5-tex/affine-translation/"></iframe>
+										data-src="sketches/affine-transformations/translation/"></iframe>
 									<!--
 									<img class="fragment" data-fragment-index="2" style="width: 100%;"
 										src="images/affine-transformations/translate.png" loading="lazy"
@@ -279,7 +352,7 @@
 								<td style="width: 60%; text-align: center;">
 									<iframe
 										style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
-										data-src="sketches/p5-tex/affine-scale/"></iframe>
+										data-src="sketches/affine-transformations/scale/"></iframe>
 									<!--
 									<img class="fragment" data-fragment-index="2" style="width: 100%;"
 										src="images/affine-transformations/scale.png" loading="lazy"
@@ -329,7 +402,7 @@
 								<td style="width: 60%; text-align: center;">
 									<iframe
 										style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
-										data-src="sketches/p5-tex/affine-rotation/"></iframe>
+										data-src="sketches/affine-transformations/rotation/"></iframe>
 									<!--
 									<img class="fragment" data-fragment-index="2" style="width: 100%;"
 										src="images/affine-transformations/rotate.png" loading="lazy"
@@ -378,7 +451,7 @@
 								<td style="width: 60%; text-align: center;">
 									<iframe
 										style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
-										data-src="sketches/p5-tex/affine-shear/"></iframe>
+										data-src="sketches/affine-transformations/shear"></iframe>
 									<!--
 										<img class="fragment" data-fragment-index="2" style="width: 100%;"
 										src="images/affine-transformations/shear.png" loading="lazy"
@@ -684,7 +757,7 @@
 						</p>
 
 						<div class="cc" style="font-size: 0.85em; margin-top: -10px;">
-							<p> 
+							<p class="fragment" data-fragment-index="3">
 								\(
 								v_1' =
 								M \begin{pmatrix}
@@ -697,7 +770,7 @@
 								2+\sqrt{2} \\
 								1
 								\end{pmatrix},\quad
-								 v_2' =
+								v_2' =
 								M \begin{pmatrix}
 								-1 \\
 								1 \\
@@ -707,11 +780,11 @@
 								3-\sqrt{2} \\
 								2\\
 								1
-								\end{pmatrix}, 
+								\end{pmatrix},
 
 								\)
 							</p>
-							<p> 
+							<p class="fragment" data-fragment-index="4">
 								\(
 								v_3' =
 								M \begin{pmatrix}
