@@ -80,7 +80,8 @@
 							Recall that a <b>prime factorisation</b> writes a number as a product of prime numbers.
 						</p>
 
-						<table class="fragment" data-fragment-index="1" style="width: 85%; margin: 25px auto; text-align: center; font-size: 1.15em;">
+						<table class="fragment" data-fragment-index="1"
+							style="width: 85%; margin: 25px auto; text-align: center; font-size: 1.15em;">
 
 							<tr>
 								<td style="width: 25%;">
@@ -120,7 +121,8 @@
 
 						</table>
 
-						<blockquote class="fragment" data-fragment-index="9" style="text-align: center; border-left: 6px solid blue; padding-left: 10px; font-style: normal; width: 85%;">
+						<blockquote class="fragment" data-fragment-index="9"
+							style="text-align: center; border-left: 6px solid blue; padding-left: 10px; font-style: normal; width: 85%;">
 							<b>Key idea:</b> Every integer greater than $1$ has a unique prime factorisation.
 						</blockquote>
 
@@ -129,15 +131,16 @@
 								💡 <b>Prime factorisation</b> is widely used in modern encryption methods
 								and cybersecurity.
 							</p>
-							
+
 						</div>
-						
-					</div>
-					<div class="fragment" data-fragment-index="10">
-						<iframe style="width: 1100px;height: 250px; border: none;" data-src="sketches/encryption-demo/"></iframe>
 
 					</div>
-					<br/>
+					<div class="fragment" data-fragment-index="10">
+						<iframe style="width: 1100px;height: 250px; border: none;"
+							data-src="sketches/encryption-demo/"></iframe>
+
+					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
@@ -284,7 +287,7 @@
 						</p>
 						<div style="display: flex; justify-content: space-between; margin: -20px auto 0; width: 60%;">
 							<div class="fragment" data-fragment-index="0">$L$: Lower triangular</div>
-							<div class="fragment" data-fragment-index="2">$D$: Diagonal $(\Sigma)$  </div>
+							<div class="fragment" data-fragment-index="2">$D$: Diagonal $(\Sigma)$ </div>
 						</div>
 
 						<div style="display: flex; justify-content: space-between; margin: 20px auto 0; width: 60%;">
@@ -1760,7 +1763,8 @@ P =
 					<h4>The QR Factorisation Theorem</h4>
 					<div style="font-size: 0.9em;">
 						<p style="margin-top: 40px;">
-							<b>Theorem (QR Factorisation):</b> Any $m\times n$ matrix $A$ can be factorised as:
+							<b>Theorem (QR Factorisation):</b> Any $m\times n$ matrix $A,$ with $m\geq n,$ can be
+							factorised as:
 							$$ A = QU \quad (\text{or } A = QR) $$
 							<span class="fragment" data-fragment-index="0">
 								where $Q$ is an <i>orthogonal</i> matrix and $U$ (or $R$) is <i>upper-triangular</i>.
@@ -1814,18 +1818,18 @@ P =
 				<section data-auto-animate>
 					<h4>Calculating QR in Octave / MATLAB</h4>
 					<div class="size-85">
-						<p style="text-align: center;">Command: <code>[Q, U] = qr(A)</code></p>
+						<p style="text-align: center; margin-top: -10px;">Command: <code>[Q, U] = qr(A)</code></p>
 
 
-						<table style="width: 100%;">
+						<table style="width: 100%;margin-top: -30px;">
 							<tr>
-								<td style="width: 50%;">
+								<td style="width: 42%;">
 									<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-										<pre style="width: 100%;font-size: 0.78em;"><code class="language-matlab">>> A = [3 2 -1; 3 1 -1; 3 2 1];
+										<pre style="width: 100%;font-size: 0.75em;"><code class="language-matlab">>> A = [3 2 -1; 3 1 -1; 3 2 1]
 >> [Q, U] = qr(A)</code></pre>
 									</div>
 									<div class="fragment" data-fragment-index="1" style="margin-top: 10px;">
-										<pre style="width: 100%;font-size: 0.78em;"><code class="language-matlab">Q =
+										<pre style="width: 100%;font-size: 0.75em;"><code class="language-matlab">Q =
    -0.5774    0.4082   -0.7071
    -0.5774   -0.8165    0.0000
    -0.5774    0.4082    0.7071
@@ -1836,21 +1840,23 @@ U =
          0         0    1.4142</code></pre>
 									</div>
 								</td>
-								<td style="width: 50%;">
+								<td style="width: 58%;">
 									<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
-										<pre style="width: 100%;font-size: 0.78em;"><code class="language-matlab">>> B = [4 5 0; 2 5 2; 0 5 4];
+										<pre style="width: 100%;font-size: 0.75em;"><code class="language-matlab">>> B = [3 3 3; 2 1 2; -1 -1 1; 2 -3 1];
 >> [Q, U] = qr(B)</code></pre>
 									</div>
 									<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
-										<pre style="width: 100%;font-size: 0.78em;"><code class="language-matlab">Q =
-   -0.8944    0.1826    0.4082
-   -0.4472   -0.3651   -0.8165
-         0   -0.9129    0.4082
+										<pre style="width: 100%;font-size: 0.75em;"><code class="language-matlab">Q =
+  -0.707107   0.471405  -0.208758   0.483940
+  -0.471405   0.078567  -0.205595  -0.854011
+   0.235702  -0.157135  -0.955228   0.085401
+  -0.471405  -0.864242   0.041119   0.170802
 
 U =
-   -4.4721   -6.7082   -0.8944
-         0   -5.4772   -4.3818
-         0         0   -0.0000</code></pre>
+  -4.2426  -1.4142  -3.2998
+        0   4.2426   0.5500
+        0        0  -1.9516
+        0        0        0</code></pre>
 									</div>
 
 								</td>
@@ -1858,7 +1864,7 @@ U =
 						</table>
 
 						<p style="text-align: center; font-size: 1.2em;" id="bb" class="fragment">
-							👉 This works for square matrices $A\in \R^{n\times n}$
+							👉 This works for $A\in \R^{m\times n}$ with $m\geq n.$
 						</p>
 
 
@@ -1868,7 +1874,7 @@ U =
 				</section>
 
 				<section data-auto-animate>
-					<h4>From Full QR to Thin QR</h4>
+					<h4>From Full QR to Reduced/Thin QR</h4>
 
 					<div class="size-95">
 
@@ -2030,15 +2036,22 @@ U =
 					<div class="size-85">
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: -5px;">
-							<pre
-								style="width: 80%;font-size: 0.9em;"><code class="language-matlab">>> A = [ 3 3 3 ; 2 1 2 ; -1 -1 1 ; 2 -3 1 ]</code></pre>
-						</div>
-						<div class="fragment" data-fragment-index="1" style="margin-top: -8px;">
-							<pre
-								style="width: 80%;font-size: 0.9em;"><code class="language-matlab">>> [Q, R] = qr(A, 0) % Reduced QR/Thin QR</code></pre>
-						</div>
-						<div class="fragment" data-fragment-index="2" style="margin-top: -5px;">
-							<pre style="width: 60%;font-size: 0.85em; height:400px"><code class="language-matlab">Q =
+										<pre
+											style="width: 65%;font-size: 0.85em;"><code class="language-matlab">>> B = [ 3 3 3 ; 2 1 2 ; -1 -1 1 ; 2 -3 1 ]</code></pre>
+									</div>
+
+						<table style="width: 100%;margin-top: -30px;">
+							<tr>
+
+								
+								<td style="width: 45%;">
+									
+									<div class="fragment" data-fragment-index="1" style="margin-top: -30px;" >
+										<pre
+											style="width: 100%;font-size: 0.7em;"><code class="language-matlab">>> [Q, R] = qr(B, 0) % Reduced QR/Thin QR</code></pre>
+									</div>
+									<div class="fragment" data-fragment-index="2"  style="margin-top: 10px;">
+										<pre style="width: 100%;font-size: 0.7em;"><code class="language-matlab">Q =
   -0.707107   0.471405  -0.208758
   -0.471405   0.078567  -0.205595
    0.235702  -0.157135  -0.955228
@@ -2048,7 +2061,32 @@ R =
   -4.2426  -1.4142  -3.2998
         0   4.2426   0.5500
         0        0  -1.9516</code></pre>
-						</div>
+									</div>
+								</td>
+
+								<td style="width: 55%;">
+									<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+										<pre style="width: 100%;font-size: 0.7em;"><code class="language-matlab">>> [Q, U] = qr(B)</code></pre>
+									</div>
+									<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+										<pre style="width: 100%;font-size: 0.7em;"><code class="language-matlab">Q =
+  -0.707107   0.471405  -0.208758   0.483940
+  -0.471405   0.078567  -0.205595  -0.854011
+   0.235702  -0.157135  -0.955228   0.085401
+  -0.471405  -0.864242   0.041119   0.170802
+
+U =
+  -4.2426  -1.4142  -3.2998
+        0   4.2426   0.5500
+        0        0  -1.9516
+        0        0        0</code></pre>
+									</div>
+
+								</td>
+							</tr>
+						</table>
+
+
 					</div>
 					<br />
 				</section>
