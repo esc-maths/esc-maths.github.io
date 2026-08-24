@@ -577,16 +577,16 @@
 				<section data-auto-animate>
 					<h4>When Does $A = LU$ Hold?</h4>
 					<div style="font-size: 0.8em;">
-						<p style="text-align: center;">
+						<p class="fragment" data-fragment-index="0" style="text-align: center;">
 							$A = LU$ holds directly if row reduction requires <b>no row
 								swaps</b>.
 						</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;font-size: 0.9em;">
+						<div class="fragment" data-fragment-index="1" style="margin-top: 10px;font-size: 0.9em;">
 							<p>To understand this let's write:
 
 								$ U = EA $
-								<span class="fragment" data-fragment-index="1" style="font-size: 0.9em;">
+								<span class="fragment" data-fragment-index="2" style="font-size: 0.9em;">
 									$=\begin{pmatrix} E_{11} & \cdots & E_{1n} \\ E_{21} & \cdots & E_{2n} \\ \vdots &
 									\ddots & \vdots
 									\\ E_{n1} & \cdots & E_{nn}
@@ -601,17 +601,17 @@
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
+						<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
 							<p>If $A = E^{-1} U$, then $E^{-1}$ must be lower-triangular,
-								<span class="fragment" data-fragment-index="3">and $E$ is lower-triangular.</span>
+								<span class="fragment" data-fragment-index="4">and $E$ is lower-triangular.</span>
 							</p>
 
 						</div>
 
 						<div class="cc">
-							<p class="fragment" data-fragment-index="4">
+							<p class="fragment" data-fragment-index="5">
 								Then $E_{ij}=0\,$ if $\,j\gt i.$
-								<span class="fragment" data-fragment-index="5">
+								<span class="fragment" data-fragment-index="6">
 									That is,
 									<span style="font-size: 0.85em;">
 										$\, U = EA = \left(\begin{array}{l} E_{11}\vec{a}_1 \\ E_{21}\vec{a}_1 +
@@ -624,7 +624,7 @@
 							</p>
 						</div>
 
-						<blockquote class="fragment" data-fragment-index="6"
+						<blockquote class="fragment" data-fragment-index="7"
 							style="width: 78%; text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: -8px;font-style: normal;width: 85%;">
 							This occurs if and only if the row reduction process uses <b>no row swaps</b>.
 							In that case, $\,L = E^{-1}$ and $A = LU$.
