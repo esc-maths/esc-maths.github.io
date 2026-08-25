@@ -3019,13 +3019,13 @@ Diagonal Matrix
    -0.1091    0.9940</code></pre>
 								</div>
 								<div style="margin-top: 10px;">
-									<pre style="width: 100%; font-size: 0.5em; opacity: 0.3;"><code class="language-matlab">S =
+									<pre style="width: 100%; font-size: 0.5em;"><code class="language-matlab">S =
 Diagonal Matrix
     4.4966         0
          0    1.3343</code></pre>
 								</div>
 								<div style="margin-top: 10px;">
-									<pre style="width: 100%; font-size: 0.5em; opacity: 0.3;"><code class="language-matlab">V =
+									<pre style="width: 100%; font-size: 0.5em;"><code class="language-matlab">V =
    -0.9085    0.4179
     0.4179    0.9085</code></pre>
 								</div>
@@ -3763,20 +3763,20 @@ Diagonal Matrix
 
 
 				<section data-auto-animate>
-					<h4>SVD vs. Canonical (Diagonal) Form</h4>
+					<h4>Remarks about the SVD</h4>
 					<div class="cc">
 						<p>
-							$A= Q_m \,\Sigma \, Q_n^T\;\;$ vs. $\;\;A = V D V^{-1}$
+							$A= Q_m \,\Sigma \, Q_n^T$ 
 						</p>
 					</div>
 					<div class="left-txt" style="font-size: 0.85em;">
 						<ul style="line-height: 1.4em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
-								<b>Singular Values vs. Eigenvalues:</b> $\Sigma$ entries are non-negative square roots
+								<b>Singular Values vs. Eigenvalues:</b> The entries in the diagonal matrix $\Sigma$ are non-negative square roots
 								of the non-zero eigenvalues of $A A^T$ and $A^T A$.
 							</li>
 							<li class="fragment" data-fragment-index="1">
-								<b>Rank & Ordering:</b> For rank $r$, exactly $r$ singular values are non-zero, placed
+								<b>Rank & Ordering:</b> For a matrix with rank $r$, exactly $r$ singular values are non-zero, placed
 								in descending order along the diagonal.
 							</li>
 							<li class="fragment" data-fragment-index="2">
