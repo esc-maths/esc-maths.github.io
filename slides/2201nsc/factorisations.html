@@ -1929,21 +1929,21 @@ U =
 					<div class="size-85">
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: -5px;">
-										<pre
-											style="width: 65%;font-size: 0.85em;"><code class="language-matlab">>> B = [ 3 3 3; 2 1 2; -1 -1 1; 2 -3 1 ];</code></pre>
-									</div>
+							<pre
+								style="width: 65%;font-size: 0.85em;"><code class="language-matlab">>> B = [ 3 3 3; 2 1 2; -1 -1 1; 2 -3 1 ];</code></pre>
+						</div>
 
 						<table style="width: 100%;margin-top: -30px;">
 							<tr>
 
-								
+
 								<td style="width: 45%;">
-									
-									<div class="fragment" data-fragment-index="1" style="margin-top: -30px;" >
+
+									<div class="fragment" data-fragment-index="1" style="margin-top: -30px;">
 										<pre
 											style="width: 100%;font-size: 0.7em;"><code class="language-matlab">>> [Q, R] = qr(B, 0)</code></pre>
 									</div>
-									<div class="fragment" data-fragment-index="2"  style="margin-top: 10px;">
+									<div class="fragment" data-fragment-index="2" style="margin-top: 10px;">
 										<pre style="width: 100%;font-size: 0.7em;"><code class="language-matlab">Q =
   -0.707107   0.471405  -0.208758
   -0.471405   0.078567  -0.205595
@@ -1959,7 +1959,8 @@ R =
 
 								<td style="width: 55%;">
 									<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
-										<pre style="width: 100%;font-size: 0.7em;"><code class="language-matlab">>> [Q, U] = qr(B)</code></pre>
+										<pre
+											style="width: 100%;font-size: 0.7em;"><code class="language-matlab">>> [Q, U] = qr(B)</code></pre>
 									</div>
 									<div class="fragment" data-fragment-index="3" style="margin-top: 10px;">
 										<pre style="width: 100%;font-size: 0.7em;"><code class="language-matlab">Q =
@@ -2456,37 +2457,38 @@ U =
 
 				<section data-auto-animate>
 					<h4>Summary of QR Factorisation</h4>
-					<div class="size-90">
+
+					<div class="size-85 left-txt">
 
 						<p class="fragment" data-fragment-index="0">
-							<b>Theorem:</b> Any real $m\times n$ matrix $A,$ with $m\geq n,$ can be
-							factorised as $A=QU$ (or $A=QR$),
-							where $Q$ is <i>orthogonal</i> and
-							$U$ is <i>upper-triangular</i>.
+							For a real $m\times n$ matrix $A$ with $m\geq n$,
+							we can write
+							$$
+							A = QR,
+							$$
+							where $Q$ is <i>orthogonal</i> and $R$ is
+							<i>upper-triangular</i>.
 						</p>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
+						<div class="fragment" data-fragment-index="1" style="margin-top: 20px;">
 							<p><b>Key Properties & Advantages:</b></p>
 
 							<ul style="line-height: 1.7em;">
+
 								<li class="fragment" data-fragment-index="1">
-									Directly related to the column space of $A$.
+									The columns of $Q$ form an <b>orthonormal basis</b>
+									for the column space of $A$.
 								</li>
 
 								<li class="fragment" data-fragment-index="2">
-									Provides an explicit orthonormal basis for
-									the column space.
+									Provides a <b>stable and efficient</b> way to solve
+									least-squares and regression problems.
 								</li>
 
 								<li class="fragment" data-fragment-index="3">
-									Highly advantageous for regression and
-									least-squares problems.
+									Can be computed efficiently using a <b>computer</b>.
 								</li>
 
-								<li class="fragment" data-fragment-index="4">
-									Offers superior numerical stability compared to
-									standard LU decomposition.
-								</li>
 							</ul>
 						</div>
 
@@ -2822,7 +2824,7 @@ U =
 						<tr>
 							<td style="width: 45%;">
 								<p class="fragment" data-fragment-index="1"
-									style="text-align: center;font-size: 0.8em;margin-top: 0px;"><b>SVD 
+									style="text-align: center;font-size: 0.8em;margin-top: 0px;"><b>SVD
 										$A=U\,\Sigma\, V^T$</b>
 								</p>
 								<div class="fragment" data-fragment-index="1" style="margin-top: -10px;">
