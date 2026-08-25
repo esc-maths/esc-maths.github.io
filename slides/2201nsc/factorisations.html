@@ -2564,7 +2564,7 @@ U =
 					<h4 class="fragment" data-fragment-index="3">Cholesky Factorisation</h4>
 					<div class="size-80">
 						<p>
-							If the matrix $A$ is a real, symmetric and positive-definite;
+							If the matrix $A$ is real, symmetric and positive-definite;
 							<span class="fragment" data-fragment-index="0">
 								then it admits a particularly useful factorisation.
 							</span>
@@ -2589,8 +2589,8 @@ U =
 								<li class="fragment" data-fragment-index="5">
 									Diagonalise $A = V D V^T$ with orthogonal $V$.
 									<span class="fragment" data-fragment-index="6">
-										Positive-definiteness implies
-										eigenvalues $D_i > 0$.
+										Since $A$ is positive-definite, the
+										eigenvalues $\lambda_i > 0$ (diagonal values of $D$).
 									</span>
 								</li>
 								<li class="fragment">
@@ -2681,10 +2681,11 @@ U =
 							style="text-align: center; margin-top: 15px;font-size: 1.5em;">
 							$A\mathbf{x}=\mathbf{b}$
 							<span class="fragment" data-fragment-index="1">$\Ra LL^T\mathbf{x}=\mathbf{b}$</span>
+							<span class="fragment" data-fragment-index="2">$\Ra L\mathbf y=\mathbf{b}$</span>
 
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="text-align: center; margin-top: -20px;">
+						<div class="fragment" data-fragment-index="3" style="text-align: center; margin-top: -20px;">
 
 							\[
 							\underbrace{L\mathbf{y}=\mathbf{b}}_
@@ -2696,12 +2697,12 @@ U =
 
 						</div>
 
-						<p class="fragment" data-fragment-index="3" style="margin-top: -10px;">
+						<p class="fragment" data-fragment-index="4" style="margin-top: -10px;">
 							Both systems are triangular, so they can be solved efficiently
 							using <i>forward</i> and <i>back substitution</i>.
 						</p>
 
-						<div class="fragment" data-fragment-index="4"
+						<div class="fragment" data-fragment-index="5"
 							style="margin-top: 20px; text-align: left; border-left: 6px solid #f44242; padding-left: 20px;">
 							<b>Key advantage:</b>
 							Once $A=LL^T$ is computed, solving for different
@@ -2719,7 +2720,7 @@ U =
 					<div class="size-90">
 
 						<p class="fragment" data-fragment-index="0">
-							<b>Theorem:</b> Any real $m\times n$ matrix $A$ can be
+							<b>Theorem:</b> Any real $m\times n$ matrix $A,$ with $m\geq n,$ can be
 							factorised as $A=QU$ (or $A=QR$),
 							where $Q$ is <i>orthogonal</i> and
 							$U$ is <i>upper-triangular</i>.
@@ -2849,7 +2850,7 @@ U =
 
 							</p>
 							<p style="text-align: center; font-size: 1.4em;margin-top: 0px;">
-								$A = V\,D \,V^{-1},\;\;$
+								$A = V\,D \,V^{T},\;\;$
 								<span class="fragment" data-fragment-index="4">
 									$A\in\R^{n\times n}$
 								</span>
@@ -2930,7 +2931,7 @@ U =
 						<tr>
 							<td style="width: 45%;">
 								<p class="fragment" data-fragment-index="1"
-									style="text-align: center;font-size: 0.8em;margin-top: 0px;"><b>SVD factorisation
+									style="text-align: center;font-size: 0.8em;margin-top: 0px;"><b>SVD 
 										$A=U\,\Sigma\, V^T$</b>
 								</p>
 								<div class="fragment" data-fragment-index="1" style="margin-top: -10px;">
@@ -3006,7 +3007,7 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 33.3%;">
-								<p style="text-align: center;font-size: 0.65em;"><b>SVD factorisation $A=U\,\Sigma\,
+								<p style="text-align: center;font-size: 0.65em;"><b>SVD $A=U\,\Sigma\,
 										V^T$</b></p>
 								<div style="margin-top: -10px;">
 									<pre
@@ -3088,7 +3089,7 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 33.3%;">
-								<p style="text-align: center;font-size: 0.65em;"><b>SVD factorisation $A=U\,\Sigma\,
+								<p style="text-align: center;font-size: 0.65em;"><b>SVD $A=U\,\Sigma\,
 										V^T$</b></p>
 								<div style="margin-top: -10px;">
 									<pre
@@ -3176,7 +3177,7 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 33.3%;">
-								<p style="text-align: center;font-size: 0.65em;"><b>SVD factorisation $A=U\,\Sigma\,
+								<p style="text-align: center;font-size: 0.65em;"><b>SVD $A=U\,\Sigma\,
 										V^T$</b></p>
 								<div style="margin-top: -10px;">
 									<pre
@@ -3283,7 +3284,7 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 33.3%;">
-								<p style="text-align: center;font-size: 0.65em;"><b>SVD factorisation $A=U\,\Sigma\,
+								<p style="text-align: center;font-size: 0.65em;"><b>SVD $A=U\,\Sigma\,
 										V^T$</b></p>
 								<div style="margin-top: -10px;">
 									<pre
@@ -3461,7 +3462,7 @@ V =
 					<table style="width: 100%;  margin-top: -20px;">
 						<tr>
 							<td style="width: 50%;">
-								<p style="text-align: center;font-size: 0.8em;"><b>SVD factorisation</b></p>
+								<p style="text-align: center;font-size: 0.8em;"><b>SVD</b></p>
 								<div style="margin-top: -10px;">
 									<pre
 										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd(A)</code></pre>
@@ -3543,7 +3544,7 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -20px;">
 						<tr>
 							<td style="width: 50%;">
-								<p style="text-align: center;font-size: 0.8em;"><b>SVD factorisation</b></p>
+								<p style="text-align: center;font-size: 0.8em;"><b>SVD</b></p>
 								<div style="margin-top: -10px;">
 									<pre
 										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd(A)</code></pre>
@@ -3613,7 +3614,7 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 35%;">
-								<p style="text-align: center;font-size: 0.8em;"><b>SVD factorisation</b></p>
+								<p style="text-align: center;font-size: 0.8em;"><b>SVD</b></p>
 								<div style="margin-top: -10px;">
 									<pre
 										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd(A)</code></pre>
@@ -3697,7 +3698,7 @@ Diagonal Matrix
 					<table style="width: 100%;  margin-top: -30px;">
 						<tr>
 							<td style="width: 35%;">
-								<p style="text-align: center;font-size: 0.8em;"><b>SVD factorisation</b></p>
+								<p style="text-align: center;font-size: 0.8em;"><b>SVD</b></p>
 								<div style="margin-top: -10px;">
 									<pre
 										style="width: 100%; font-size: 0.5em;"><code class="language-matlab">>> [U, S, V] = svd(A)</code></pre>
