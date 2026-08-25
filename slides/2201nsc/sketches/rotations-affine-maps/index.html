@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Airplane Visualizer - Rotation Matrix</title>
+
+    <!-- MathJax Configuration and Script -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #1a1a1e;
+            color: #e0e0e6;
+        }
+
+        /* Left Sidebar Panel */
+        #sidebar {
+            width: 360px;
+            height: 100%;
+            background: #242429;
+            border-right: 1px solid #36363d;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            gap: 20px;
+            overflow-y: auto;
+            z-index: 10;
+            box-shadow: 4px 0 16px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 8px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .slider-header span.axis-x {
+            color: #ef4444;
+        }
+
+        .slider-header span.axis-y {
+            color: #10b981;
+        }
+
+        .slider-header span.axis-z {
+            color: #3b82f6;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #36363d;
+            outline: none;
+            accent-color: #3b82f6;
+            cursor: pointer;
+        }
+
+        /* Matrix Display Box */
+        .matrix-box {
+            background: #18181b;
+            border: 1px solid #3f3f46;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            text-align: center;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .matrix-cell {
+            background: #27272a;
+            padding: 8px 4px;
+            border-radius: 4px;
+            border: 1px solid #3f3f46;
+            color: #60a5fa;
+        }
+
+        /* Buttons */
+        .btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .btn-secondary {
+            background: #374151;
+            margin-top: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        /* Right 3D Canvas Area */
+        #canvas-container {
+            flex: 1;
+            height: 100%;
+            position: relative;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.1rem;
+            color: #9ca3af;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 24px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: #242429;
+            border: 1px solid #3f3f46;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 680px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #3f3f46;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            color: #ffffff;
+        }
+
+        .modal-body {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #d1d5db;
+        }
+
+        .modal-body p {
+            margin-bottom: 12px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .modal-footer .btn {
+            width: auto;
+            padding: 8px 20px;
+        }
+
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #a4bee7;
+        }
+
+        input[type=range] {
+            width: 100%;
+            margin: 7.75px 0;
+            background-color: transparent;
+            -webkit-appearance: none;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            background: #e9e9e9;
+            border: 1px solid #010101;
+            border-radius: 6.2px;
+            width: 100%;
+            height: 6.5px;
+            cursor: pointer;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            margin-top: -8.75px;
+            width: 22px;
+            height: 22px;
+            background: #066bd1;
+            border: 1.2px solid #000000;
+            border-radius: 50px;
+            cursor: pointer;
+            -webkit-appearance: none;
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #f6f6f6;
+        }
+
+        input[type=range]::-moz-range-track {
+            background: #e9e9e9;
+            border: 1px solid #010101;
+            border-radius: 6.2px;
+            width: 100%;
+            height: 6.5px;
+            cursor: pointer;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            background: #066bd1;
+            border: 1.2px solid #000000;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-track {
+            background: transparent;
+            border-color: transparent;
+            border-width: 8.75px 0;
+            color: transparent;
+            width: 100%;
+            height: 6.5px;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-fill-lower {
+            background: #dcdcdc;
+            border: 1px solid #010101;
+            border-radius: 12.4px;
+        }
+
+        input[type=range]::-ms-fill-upper {
+            background: #e9e9e9;
+            border: 1px solid #010101;
+            border-radius: 12.4px;
+        }
+
+        input[type=range]::-ms-thumb {
+            width: 22px;
+            height: 22px;
+            background: #066bd1;
+            border: 1.2px solid #000000;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 0px;
+            /*Needed to keep the Edge thumb centred*/
+        }
+
+        input[type=range]:focus::-ms-fill-lower {
+            background: #e9e9e9;
+        }
+
+        input[type=range]:focus::-ms-fill-upper {
+            background: #f6f6f6;
+        }
+
+        /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
+        @supports (-ms-ime-align:auto) {
+
+            /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+            input[type=range] {
+                margin: 0;
+                /*Edge starts the margin from the thumb, not the track as other browsers do*/
+            }
+        }
+
+        /* Responsive adjustment */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                height: 45%;
+            }
+
+            #canvas-container {
+                height: 55%;
+            }
+        }
+    </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+    <!-- Left Sidebar Controls & Matrix Display -->
+    <div id="sidebar">
+        <h2>Rotation Controls</h2>
+
+        <div class="control-group">
+            <div class="slider-container">
+                <div class="slider-header">
+                    <span class="axis-x">X Rotation (Pitch $\alpha$)</span>
+                    <span id="val-x">0°</span>
+                </div>
+                <input type="range" id="slider-x" min="0" max="360" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <span class="axis-y">Y Rotation (Yaw $\beta$)</span>
+                    <span id="val-y">0°</span>
+                </div>
+                <input type="range" id="slider-y" min="0" max="360" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <span class="axis-z">Z Rotation (Roll $\gamma$)</span>
+                    <span id="val-z">0°</span>
+                </div>
+                <input type="range" id="slider-z" min="0" max="360" value="0">
+            </div>
+        </div>
+
+        <button class="btn" id="btn-reset">Reset Orientation</button>
+
+        <h2>3x3 Rotation Matrix</h2>
+        <div class="matrix-box">
+            <div class="matrix-grid">
+                <div class="matrix-cell" id="m00">1.00</div>
+                <div class="matrix-cell" id="m01">0.00</div>
+                <div class="matrix-cell" id="m02">0.00</div>
+                <div class="matrix-cell" id="m10">0.00</div>
+                <div class="matrix-cell" id="m11">1.00</div>
+                <div class="matrix-cell" id="m12">0.00</div>
+                <div class="matrix-cell" id="m20">0.00</div>
+                <div class="matrix-cell" id="m21">0.00</div>
+                <div class="matrix-cell" id="m22">1.00</div>
+            </div>
+            <button class="btn btn-secondary" id="btn-info">How this works?</button>
+        </div>
+
+         <div style="text-align: center; margin-top: 30px;">
+                <p>Made with &#9829; by <a href="https://www.jcponce.com/">JCPC</a></p>
+            </div>
+    </div>
+
+    <!-- Right Viewport -->
+    <div id="canvas-container">
+        <div id="loading">Loading Airplane Model...</div>
+    </div>
+
+    <!-- Math Explanation Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Affine Transformation & Rotation Matrices</h3>
+            </div>
+            <div class="modal-body">
+                <p>An <strong>affine transformation</strong> preserves points, straight lines, and planes. In 3D
+                    graphics, linear rotations are combined with translation vectors into a single transformation model.
+                </p>
+
+                <p>The total rotation applied to the aircraft is determined by combining three separate rotation
+                    matrices for each Cartesian axis—<strong>Pitch ($\alpha$)</strong> around X, <strong>Yaw
+                        ($\beta$)</strong> around Y, and <strong>Roll ($\gamma$)</strong> around Z:</p>
+
+                $$\mathbf{R}_x(\alpha) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\alpha & -\sin\alpha \\ 0 & \sin\alpha &
+                \cos\alpha \end{pmatrix}$$
+
+                $$\mathbf{R}_y(\beta) = \begin{pmatrix} \cos\beta & 0 & \sin\beta \\ 0 & 1 & 0 \\ -\sin\beta & 0 &
+                \cos\beta \end{pmatrix}$$
+
+                $$\mathbf{R}_z(\gamma) = \begin{pmatrix} \cos\gamma & -\sin\gamma & 0 \\ \sin\gamma & \cos\gamma & 0 \\
+                0 & 0 & 1 \end{pmatrix}$$
+
+                <p>Using the default intrinsic <strong>$XYZ$ Euler order</strong>, the final $3 \times 3$ rotation
+                    matrix $\mathbf{R}_{XYZ}$ shown on the panel is calculated by multiplying these three matrices
+                    sequentially:</p>
+
+                $$\mathbf{R}_{XYZ} = \mathbf{R}_x(\alpha) \cdot \mathbf{R}_y(\beta) \cdot \mathbf{R}_z(\gamma)$$
+            </div>
+
+           
+            <div class="modal-footer">
+                <button class="btn" id="btn-close-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+        import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // DOM Elements
+        const container = document.getElementById('canvas-container');
+        const loadingEl = document.getElementById('loading');
+        const sliderX = document.getElementById('slider-x');
+        const sliderY = document.getElementById('slider-y');
+        const sliderZ = document.getElementById('slider-z');
+        const valX = document.getElementById('val-x');
+        const valY = document.getElementById('val-y');
+        const valZ = document.getElementById('val-z');
+        const btnReset = document.getElementById('btn-reset');
+        const btnInfo = document.getElementById('btn-info');
+        const btnCloseModal = document.getElementById('btn-close-modal');
+        const modalOverlay = document.getElementById('modal-overlay');
+
+        // Matrix Cell Elements
+        const matrixCells = [
+            document.getElementById('m00'), document.getElementById('m01'), document.getElementById('m02'),
+            document.getElementById('m10'), document.getElementById('m11'), document.getElementById('m12'),
+            document.getElementById('m20'), document.getElementById('m21'), document.getElementById('m22')
+        ];
+
+        // Scene Setup
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1a1a1e);
+
+        // Camera Setup
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            container.clientWidth / container.clientHeight,
+            0.1,
+            1000
+        );
+        camera.position.set(0, 50, 150);
+
+        // Renderer Setup
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        container.appendChild(renderer.domElement);
+
+        // Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+        scene.add(ambientLight);
+
+        const dirLight1 = new THREE.DirectionalLight(0xffffff, 2.0);
+        dirLight1.position.set(100, 150, 100);
+        scene.add(dirLight1);
+
+        const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight2.position.set(-100, -50, -100);
+        scene.add(dirLight2);
+
+        // Grid Floor
+        const gridHelper = new THREE.GridHelper(200, 40, 0x3b82f6, 0x36363d);
+        gridHelper.position.y = -30;
+        scene.add(gridHelper);
+
+        // Airplane Target Pivot Group
+        const airplaneGroup = new THREE.Group();
+        scene.add(airplaneGroup);
+
+        // Base directory for model assets
+        const MODEL_PATH = 'plane/';
+
+        // Load OBJ & MTL
+        const mtlLoader = new MTLLoader();
+        mtlLoader.setPath(MODEL_PATH);
+        mtlLoader.load(
+            '11803_Airplane_v1_l1.mtl',
+            (materials) => {
+                materials.preload();
+
+                const objLoader = new OBJLoader();
+                objLoader.setMaterials(materials);
+                objLoader.setPath(MODEL_PATH);
+                objLoader.load(
+                    '11803_Airplane_v1_l1.obj',
+                    (object) => {
+                        // Internal base rotation so object lies parallel to floor at (0°, 0°, 0°)
+                        object.rotation.x = -Math.PI / 2;
+
+                        // Center geometry and scale automatically
+                        const box = new THREE.Box3().setFromObject(object);
+                        const center = box.getCenter(new THREE.Vector3());
+                        const size = box.getSize(new THREE.Vector3());
+
+                        object.position.sub(center);
+
+                        const maxDim = Math.max(size.x, size.y, size.z);
+                        const scale = 50 / maxDim;
+
+                        const alignedModelWrapper = new THREE.Group();
+                        alignedModelWrapper.scale.set(scale, scale, scale);
+                        alignedModelWrapper.add(object);
+
+                        airplaneGroup.add(alignedModelWrapper);
+                        loadingEl.style.display = 'none';
+
+                        updateRotation();
+                    },
+                    (xhr) => {
+                        if (xhr.lengthComputable) {
+                            const percent = Math.round((xhr.loaded / xhr.total) * 100);
+                            loadingEl.textContent = `Loading Airplane Model... ${percent}%`;
+                        }
+                    },
+                    (error) => {
+                        console.error('Error loading OBJ:', error);
+                        loadingEl.textContent = 'Failed to load model files.';
+                    }
+                );
+            },
+            (xhr) => { },
+            (error) => {
+                console.error('Error loading MTL:', error);
+                loadingEl.textContent = 'Failed to load MTL material file.';
+            }
+        );
+
+        // Matrix Calculation & UI Update
+        function updateRotation() {
+            const radX = THREE.MathUtils.degToRad(parseFloat(sliderX.value));
+            const radY = THREE.MathUtils.degToRad(parseFloat(sliderY.value));
+            const radZ = THREE.MathUtils.degToRad(parseFloat(sliderZ.value));
+
+            // Display Angle Values
+            valX.textContent = `${sliderX.value}°`;
+            valY.textContent = `${sliderY.value}°`;
+            valZ.textContent = `${sliderZ.value}°`;
+
+            // Apply Euler rotation to model (XYZ order)
+            airplaneGroup.rotation.set(radX, radY, radZ, 'XYZ');
+
+            // Extract 3x3 Rotation Matrix
+            airplaneGroup.updateMatrix();
+            const matrix4 = airplaneGroup.matrix;
+
+            const e = matrix4.elements;
+            // Matrix4 elements are column-major in Three.js
+            const rotMatrix = [
+                e[0], e[4], e[8],
+                e[1], e[5], e[9],
+                e[2], e[6], e[10]
+            ];
+
+            // Update Matrix UI
+            matrixCells.forEach((cell, index) => {
+                cell.textContent = rotMatrix[index].toFixed(2);
+            });
+        }
+
+        // Modal Events
+        btnInfo.addEventListener('click', () => {
+            modalOverlay.classList.add('active');
+        });
+
+        btnCloseModal.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        // Event Listeners for Sliders
+        [sliderX, sliderY, sliderZ].forEach(slider => {
+            slider.addEventListener('input', updateRotation);
+        });
+
+        btnReset.addEventListener('click', () => {
+            sliderX.value = 0;
+            sliderY.value = 0;
+            sliderZ.value = 0;
+            updateRotation();
+        });
+
+        // Window Resize Handler
+        window.addEventListener('resize', () => {
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(width, height);
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+
+</html>
