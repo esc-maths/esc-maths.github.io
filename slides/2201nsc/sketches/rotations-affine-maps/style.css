@@ -195,7 +195,8 @@
         }
 
         .modal-header h3 {
-            font-size: 1.25rem;
+            text-align: center !important;
+            font-size: 1.5rem;
             color: #ffffff;
         }
 

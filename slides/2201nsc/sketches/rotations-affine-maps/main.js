@@ -89,6 +89,7 @@ mtlLoader.load(
             (object) => {
                 // Base alignment to make plane parallel to ground at 0 deg
                 object.rotation.x = -Math.PI / 2;
+                //object.rotation.z = Math.PI / 2;
 
                 const box = new THREE.Box3().setFromObject(object);
                 const center = box.getCenter(new THREE.Vector3());
