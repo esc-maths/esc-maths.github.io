@@ -70,6 +70,7 @@ scene.add(gridHelper);
 const airplaneGroup = new THREE.Group();
 scene.add(airplaneGroup);
 
+// https://free3d.com/3d-model/airplane-v1--79106.html
 const MODEL_PATH = 'plane/';
 
 // Load OBJ & MTL
