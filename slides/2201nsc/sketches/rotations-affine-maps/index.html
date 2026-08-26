@@ -112,13 +112,15 @@
                 <h3>Affine Transformation & Rotation Matrices</h3>
             </div>
             <div class="modal-body">
-                <p>An <strong>affine transformation</strong> preserves points, straight lines, and planes. In 3D
-                    graphics, linear rotations are combined with translation vectors into a single transformation model.
+                <p>
+                    An <strong>affine transformation</strong> preserves points, straight lines, and planes. In 3D
+                    graphics, linear rotations are combined with translation 
+                    vectors into a single transformation model.
                 </p>
 
                 <p>The total rotation applied to the aircraft is determined by combining three separate rotation
-                    matrices for each Cartesian axis, <strong>Roll ($\alpha$)</strong> around $x$-axis, <strong>Pitch
-                        ($\beta$)</strong> around $y$-axis, and <strong>Yaw ($\gamma$)</strong> around $z$-axis:</p>
+                    matrices for each Cartesian axis, <strong>Roll $(\alpha)$</strong> around $x$-axis, 
+                    <strong>Pitch $(\beta)$</strong> around $y$-axis, and <strong>Yaw $(\gamma)$</strong> around $z$-axis:</p>
 
                 $$\mathbf{R}_x(\alpha) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\alpha & -\sin\alpha \\ 0 & \sin\alpha &
                 \cos\alpha \end{pmatrix}$$
