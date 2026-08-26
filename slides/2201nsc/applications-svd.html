@@ -293,20 +293,21 @@
 
 				<section data-auto-animate>
 					<h4>Approximating the 10-by-10 magic square</h4>
-					<div class="cc" style="font-size: 0.57em; margin-top: 10px; margin-bottom: -10px;">
+					<div class="cc" style="font-size: 0.67em; margin-top: 10px; margin-bottom: -10px;">
 						<p>
-							$\begin{pmatrix}
-							92.0000&99.0000&1.0000&8.0000&15.0000&67.0000&74.0000&51.0000&58.0000&40.0000\\
-							98.0000&80.0000&7.0000&14.0000&16.0000&73.0000&55.0000&57.0000&64.0000&41.0000\\
-							4.0000&81.0000&88.0000&20.0000&22.0000&54.0000&56.0000&63.0000&70.0000&47.0000\\
-							85.0000&87.0000&19.0000&21.0000&3.0000&60.0000&62.0000&69.0000&71.0000&28.0000\\
-							86.0000&93.0000&25.0000&2.0000&9.0000&61.0000&68.0000&75.0000&52.0000&34.0000\\
-							17.0000&24.0000&76.0000&83.0000&90.0000&42.0000&49.0000&26.0000&33.0000&65.0000\\
-							23.0000&5.0000&82.0000&89.0000&91.0000&48.0000&30.0000&32.0000&39.0000&66.0000\\
-							79.0000&6.0000&13.0000&95.0000&97.0000&29.0000&31.0000&38.0000&45.0000&72.0000\\
-							10.0000&12.0000&94.0000&96.0000&78.0000&35.0000&37.0000&44.0000&46.0000&53.0000\\
-							11.0000&18.0000&100.0000&77.0000&84.0000&36.0000&43.0000&50.0000&27.0000&59.0000\\
-							\end{pmatrix}$
+							${\Large A=}\;\;\begin{pmatrix}
+							92&99&1&8&15&67&74&51&58&40\\
+							98&80&7&14&16&73&55&57&64&41\\
+							4&81&88&20&22&54&56&63&70&47\\
+							85&87&19&21&3&60&62&69&71&28\\
+							86&93&25&2&9&61&68&75&52&34\\
+							17&24&76&83&90&42&49&26&33&65\\
+							23&5&82&89&91&48&30&32&39&66\\
+							79&6&13&95&97&29&31&38&45&72\\
+							10&12&94&96&78&35&37&44&46&53\\
+							11&18&100&77&84&36&43&50&27&59
+							\end{pmatrix}
+							$
 						</p>
 					</div>
 
@@ -486,7 +487,7 @@
 
 
 
-					<div style="font-size: 0.8em;margin-top: 0px;">
+					<div style="font-size: 0.9em;margin-top: 0px;">
 						<p style="text-align: center;">
 							Thus, for a rank-6 approximation we need to compute the following sum:
 						</p>
@@ -509,7 +510,7 @@
 						</p>
 
 					</div>
-					<div class="r-stack" style="font-size: 0.8em; margin-top: 0px; margin-bottom: -5px;">
+					<div class="r-stack" style="font-size: 0.8em; margin-top: 30px; margin-bottom: 10px;">
 						<p>
 							$\left(\begin{array}{cccccccccc}
 							505&0&0&0&0&0\\
@@ -526,11 +527,9 @@
 
 
 
-					<div style="font-size: 0.8em;margin-top: 0px;">
-						<p style="text-align: center;">
-							Thus, for a rank-6 approximation we need to compute the following sum:
-						</p>
-						<p style="text-align: center; margin-top: -15px;">
+					<div style="font-size: 0.9em;margin-top: 40px;">
+
+						<p style="text-align: center; margin-top: 15px;">
 							$ A_6 = U_6\Sigma_6 V_6^T $
 							<span>
 								$\ds = \sum_{i=1}^{6} \sigma_i \u_i\v_i^T$
@@ -551,7 +550,7 @@
 							The matrices $U$ and $V$ in the decomposition are:
 						</p>
 					</div>
-					<div style="font-size: 0.4em;" class="cc">
+					<div style="font-size: 0.38em; margin-top: -10px;" class="cc">
 						<p>
 							$
 							{\Huge U=}\;\;
@@ -590,6 +589,18 @@
 							\right)
 							$
 						</p>
+
+
+					</div>
+
+					<div style="font-size: 0.6em;margin-top: -15px;">
+
+						<p style="text-align: center; margin-top: 15px;">
+							$ A_6 = U_6\Sigma_6 V_6^T $
+							<span>
+								$\ds = \sum_{i=1}^{6} \sigma_i \u_i\v_i^T$
+							</span>
+						</p>
 					</div>
 				</section>
 				<section data-auto-animate>
@@ -600,47 +611,58 @@
 						<p>
 							The matrices $U_6$ and $V_6$ in the decomposition are:
 						</p>
-						<div style="font-size: 0.47em;" class="cc">
-							<p>
-								$
-								{\Huge U_6=}\;\;
-								\left(
-								\begin{array}{rrrrrr}
-								-0.3162&-0.3921& 0.1171& 0.4893&-0.1445&-0.1839\\
-								-0.3162&-0.3442& 0.1773&-0.0238&-0.1595& 0.5724\\
-								-0.3162&-0.0604&-0.6447&-0.0794&-0.4320&-0.2556\\
-								-0.3162&-0.3454&-0.0042&-0.4769&-0.0270&-0.0846\\
-								-0.3162&-0.3654&-0.0663& 0.0292& 0.5937&-0.0349\\
-								-0.3162& 0.2989&-0.0068& 0.5504&-0.1404&-0.1506\\
-								-0.3162& 0.3468& 0.0535& 0.0372&-0.1554& 0.6057\\
-								-0.3162& 0.1906& 0.6923&-0.2003&-0.1098&-0.4156\\
-								-0.3162& 0.3456&-0.1281&-0.4158&-0.0229&-0.0513\\
-								-0.3162& 0.3256&-0.1901& 0.0902& 0.5978&-0.0017
-								\end{array}
-								\right)
-								$
-							</p>
+					</div>
+					<div style="font-size: 0.38em; margin-top: -10px;" class="cc">
+						<p>
+							$
+							{\Huge U_6=}\;\;
+							\left(
+							\begin{array}{rrrrrr}
+							-0.3162&-0.3921& 0.1171& 0.4893&-0.1445&-0.1839\\
+							-0.3162&-0.3442& 0.1773&-0.0238&-0.1595& 0.5724\\
+							-0.3162&-0.0604&-0.6447&-0.0794&-0.4320&-0.2556\\
+							-0.3162&-0.3454&-0.0042&-0.4769&-0.0270&-0.0846\\
+							-0.3162&-0.3654&-0.0663& 0.0292& 0.5937&-0.0349\\
+							-0.3162& 0.2989&-0.0068& 0.5504&-0.1404&-0.1506\\
+							-0.3162& 0.3468& 0.0535& 0.0372&-0.1554& 0.6057\\
+							-0.3162& 0.1906& 0.6923&-0.2003&-0.1098&-0.4156\\
+							-0.3162& 0.3456&-0.1281&-0.4158&-0.0229&-0.0513\\
+							-0.3162& 0.3256&-0.1901& 0.0902& 0.5978&-0.0017
+							\end{array}
+							\right)
+							$
+						</p>
 
-							<p>
-								$
-								{\Huge V_6=}\;\;
-								\left(
-								\begin{array}{rrrrrr}
-								-0.3162&-0.3754& 0.5851&-0.1205& 0.3217& 0.2559\\
-								-0.3162&-0.4521&-0.2739& 0.2759&-0.1152&-0.3187\\
-								-0.3162& 0.3722&-0.6124&-0.0758& 0.2570& 0.2860\\
-								-0.3162& 0.4507& 0.2712&-0.2981&-0.1143&-0.1518\\
-								-0.3162& 0.4481& 0.2867& 0.3439& 0.0670&-0.1149\\
-								-0.3162&-0.1535&-0.0593& 0.2093&-0.1927& 0.7409\\
-								-0.3162&-0.1563&-0.1028& 0.3594& 0.1623&-0.3476\\
-								-0.3162&-0.1454&-0.1391&-0.4892& 0.4939&-0.1701\\
-								-0.3162&-0.1407&-0.0711&-0.4652&-0.6693&-0.0940\\
-								-0.3162& 0.1524& 0.1156& 0.2604&-0.2105&-0.0860
-								\end{array}
-								\right)
-								$
-							</p>
-						</div>
+						<p>
+							$
+							{\Huge V_6=}\;\;
+							\left(
+							\begin{array}{rrrrrr}
+							-0.3162&-0.3754& 0.5851&-0.1205& 0.3217& 0.2559\\
+							-0.3162&-0.4521&-0.2739& 0.2759&-0.1152&-0.3187\\
+							-0.3162& 0.3722&-0.6124&-0.0758& 0.2570& 0.2860\\
+							-0.3162& 0.4507& 0.2712&-0.2981&-0.1143&-0.1518\\
+							-0.3162& 0.4481& 0.2867& 0.3439& 0.0670&-0.1149\\
+							-0.3162&-0.1535&-0.0593& 0.2093&-0.1927& 0.7409\\
+							-0.3162&-0.1563&-0.1028& 0.3594& 0.1623&-0.3476\\
+							-0.3162&-0.1454&-0.1391&-0.4892& 0.4939&-0.1701\\
+							-0.3162&-0.1407&-0.0711&-0.4652&-0.6693&-0.0940\\
+							-0.3162& 0.1524& 0.1156& 0.2604&-0.2105&-0.0860
+							\end{array}
+							\right)
+							$
+						</p>
+					</div>
+
+					<div style="font-size: 0.6em;margin-top: -15px;">
+
+						<p style="text-align: center; margin-top: 15px;">
+							$ A_6 = U_6\Sigma_6 V_6^T $
+							<span>
+								$\ds = \sum_{i=1}^{6} \sigma_i \u_i\v_i^T$
+							</span>
+						</p>
+					</div>
 				</section>
 
 				<section data-auto-animate>
@@ -695,8 +717,11 @@
 
 					<div style="font-size: 1.2em;margin-top: 50px;">
 
-						<p style="text-align: center; margin-top: -15px;">
-							$\ds A_6 = U_6\Sigma_6 V_6^T = \sum_{i=1}^{6} \sigma_i \u_i\v_i^T$
+						<p style="text-align: center; margin-top: 15px;">
+							$ A_6 = U_6\Sigma_6 V_6^T $
+							<span>
+								$\ds = \sum_{i=1}^{6} \sigma_i \u_i\v_i^T$
+							</span>
 						</p>
 					</div>
 
@@ -962,9 +987,9 @@
 					<h4>Approximating the 10-by-10 magic square: An alternative representation</h4>
 					<div class="size-75">
 						<p>
-							We can represent the $10\times 10$ magic square matrix and the SVD approximations
-							from rank 6 down
-							to rank 1, as images generated with the computer.
+							We can represent the $10\times 10$ magic square matrix and
+							the SVD approximations from rank 6 down to rank 1, as images
+							generated with the computer.
 						</p>
 
 						<table style="width: 95%;">
@@ -983,7 +1008,7 @@
 									11&18&100&77&84&36&43&50&27&59
 									\end{pmatrix}$
 								</td>
-								<td style="width: 50%;">
+								<td style="width: 50%;" class="fragment">
 									<div style="margin-top: -40px; margin-bottom: -60px;">
 										<img style="width: 100%;" src="images/applications-svd/magic.png">
 									</div>
@@ -991,17 +1016,21 @@
 							</tr>
 						</table>
 
-						<p>
+						<p class="fragment">
 							The values in the matrices have been rescaled to
-							fit in the range [0, 63], and a shade of gray assigned ranging from
-							black (0) to white (63).
+							fit in the range [0, 63],
+							<span class="fragment">
+								and a shade of gray assigned ranging from
+								black (0) to white (63).
+							</span>
+
 						</p>
 					</div>
 				</section>
 				<section data-auto-animate>
 					<h4>Approximating the 10-by-10 magic square: An alternative representation</h4>
 					<div class="size-75 cc">
-						
+
 
 						<table style="width: 100%;">
 							<tr>
@@ -1037,7 +1066,7 @@
 				<section>
 					<h4>Approximating the 10-by-10 magic square: An alternative representation</h4>
 					<div class="size-75 cc">
-						
+
 
 						<table style="width: 100%;">
 							<tr>
@@ -1073,7 +1102,7 @@
 				<section>
 					<h4>Approximating the 10-by-10 magic square: An alternative representation</h4>
 					<div class="size-75 cc">
-				
+
 						<table style="width: 100%;">
 							<tr>
 								<td style="font-size: 0.7em; width: 50%; text-align: center;">
@@ -1108,7 +1137,7 @@
 				<section>
 					<h4>Approximating the 10-by-10 magic square: An alternative representation</h4>
 					<div class="size-75 cc">
-						
+
 
 						<table style="width: 100%;">
 							<tr>
@@ -1144,7 +1173,7 @@
 				<section>
 					<h4>Approximating the 10-by-10 magic square: An alternative representation</h4>
 					<div class="size-75 cc">
-						
+
 
 						<table style="width: 100%;">
 							<tr>
@@ -1180,7 +1209,7 @@
 				<section>
 					<h4>Approximating the 10-by-10 magic square: An alternative representation</h4>
 					<div class="size-75 cc">
-						
+
 
 						<table style="width: 100%;">
 							<tr>
