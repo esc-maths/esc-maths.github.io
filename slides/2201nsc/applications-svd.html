@@ -322,14 +322,18 @@
 				</section>
 				<section data-auto-animate>
 					<h4>Approximating the 10-by-10 magic square</h4>
-					<div class="cc">
+					<div class="cc" style="font-size: 0.9em;">
 						<p>
 							The diagonal
-							matrix Σ from the decomposition is
+							matrix Σ from the decomposition is:
+						</p>
+						<p class="fragment" data-fragment-index="0"
+							style="font-size: 0.8em; margin-top: -14px;" id="rr">
+							 (computed with the assistance of the 💻)
 						</p>
 					</div>
-					<div class="cc" style="font-size: 0.56em; margin-top: 30px; margin-bottom: 40px;">
-						<p>
+					<div class="r-stack" style="font-size: 0.56em; margin-top: 10px; margin-bottom: 40px;">
+						<p class="fragment fade-out" data-fragment-index="1">
 							$\begin{pmatrix}
 							505&0&0&0&0&0&0&0&0&0\\
 							0&254.8589&0&0&0&0&0&0&0&0\\
@@ -342,6 +346,83 @@
 							0&0&0&0&0&0&0&0&9\text{e-}15&0\\
 							0&0&0&0&0&0&0&0&0&6\text{e-}16\\
 							\end{pmatrix}$
+						</p>
+						<p class="fragment fade-in" data-fragment-index="1">
+							$\begin{pmatrix}
+							505&0&0&0&0&0&0&0&0&0\\
+							0&254.8589&0&0&0&0&0&0&0&0\\
+							0&0&122.9542&0&0&0&0&0&0&0\\
+							0&0&0&36.8347&0&0&0&0&0&0\\
+							0&0&0&0&30.5167&0&0&0&0&0\\
+							0&0&0&0&0&23.3508&0&0&0&0\\
+							0&0&0&0&0&0&20.5153&0&0&0\\
+							0&0&0&0&0&0&0&\color{red}{2\text{e-}14}&0&0\\
+							0&0&0&0&0&0&0&0&\color{red}{9\text{e-}15}&0\\
+							0&0&0&0&0&0&0&0&0&\color{red}{6\text{e-}16}\\
+							\end{pmatrix}$
+						</p>
+
+					</div>
+
+					<div style="font-size: 0.9em;">
+						<p class="fragment" data-fragment-index="1">
+							The last three values are essentially zero,
+							<span class="fragment" data-fragment-index="2">
+								the tiny non-zero values are a result of
+								numerical error at the limit of machine accuracy.
+							</span>
+						</p>
+					</div>
+
+
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Approximating the 10-by-10 magic square</h4>
+					<div class="cc" style="font-size: 0.9em;">
+						<p>
+							The diagonal
+							matrix Σ from the decomposition is:
+						</p>
+					
+					</div>
+					<div class="r-stack" style="font-size: 0.56em; margin-top: 10px; margin-bottom: -5px;">
+						<p>
+							$\begin{pmatrix}
+							505&0&0&0&0&0&0&0&0&0\\
+							0&254.8589&0&0&0&0&0&0&0&0\\
+							0&0&122.9542&0&0&0&0&0&0&0\\
+							0&0&0&36.8347&0&0&0&0&0&0\\
+							0&0&0&0&30.5167&0&0&0&0&0\\
+							0&0&0&0&0&23.3508&0&0&0&0\\
+							0&0&0&0&0&0&20.5153&0&0&0\\
+							0&0&0&0&0&0&0&0&0&0\\
+							0&0&0&0&0&0&0&0&0&0\\
+							0&0&0&0&0&0&0&0&0&0\\
+							\end{pmatrix}$
+						</p>
+
+
+					</div>
+
+					<div style="font-size: 0.9em;" class="cc">
+						<p class="fragment" id="bb">
+							This means that the full magic square has rank 7. 😃
+						</p>
+						
+					</div>
+
+					<div style="font-size: 0.8em;margin-top: -15px;">
+						<p class="fragment">
+							If we want to approximate it,
+							<span class="fragment">
+								the closest approximation to the original
+								would be the rank 6 approximation,
+							</span>
+							<span class="fragment">
+								where we include the first 6 terms out of the full 7 in
+								the summation.
+							</span>
 						</p>
 					</div>
 
