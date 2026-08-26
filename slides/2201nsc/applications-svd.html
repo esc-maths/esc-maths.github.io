@@ -1345,13 +1345,58 @@
 				</section>
 
 
+
+
 			</section>
 
 			<section>
 
 				<section data-auto-animate>
-					<h4>Application: SVD Image Compression</h4>
-					<div class="size-85" style="font-size: 0.75em;">
+					<h4>
+						Key points so far . . .
+					</h4>
+
+					<div class="left-txt" style="font-size: 0.82em;margin-top: -10px;">
+						<ul style="line-height: 1.7em; margin-left: 0px;">
+							<li class="fragment">
+								The SVD expresses a matrix as a sum:
+								$\,A = \ds \sum_{i=1}^r \sigma_i\u_i\v_i^T.$
+							</li>
+							<li class="fragment">
+								The terms are ordered by "significance",
+								so we can truncate the expansion to obtain an approximation
+								$\,A \approx \ds \sum_{i=1}^k \sigma_i\u_i\v_i^T$,
+								with $\,k\lt r.$
+							</li>
+							<li class="fragment">
+								The approximation requires only
+								$k(m+n+1)$ numbers instead of $mn$.
+							</li>
+							<li class="fragment">
+								We can visualise the effect of these approximations by viewing matrices as images.
+							</li>
+						</ul>
+
+						<p class="fragment"
+							style="border-left: 6px solid #0048bb; padding-left: 15px; padding-right: 15px;">
+							💡 This suggests that we could approximate an image using the SVD,
+							<span class="fragment">
+								and in the process store it with fewer pieces of information.
+
+							</span>
+							<span class="fragment">
+								This is exactly what we aim to achieve in <b>image compression</b>.
+							</span>
+						</p>
+					</div>
+
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>SVD Image Compression</h4>
+					<div style="font-size: 0.8em;">
 						<p>Workflow for compressing image data using SVD truncation:</p>
 
 						<ol style="line-height: 1.7em; margin-top: 10px;">
@@ -1372,7 +1417,7 @@
 						</ol>
 
 						<blockquote class="fragment" data-fragment-index="4"
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #4285f4; margin-top: 15px; width: 70%;">
 							Reduces parameter storage from $m \times n$ down to $k \times (m + n + 1)$ while preserving
 							dominant visual structure.
 						</blockquote>
@@ -1380,6 +1425,59 @@
 					<br />
 				</section>
 
+
+				<section data-auto-animate>
+					<h4>
+						SVD Image Compression: "The Scream"
+					</h4>
+					<div class="size-85">
+						<p>
+							<b>Goal:</b> Obtain approximations of various rank to Edvard
+							Munch's famous picture "The Scream".
+						</p>
+						<div style="margin-top: -40px;">
+							<img style="width: 33%;" src="images/applications-svd/screamBW770.jpg">
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						SVD Image Compression: "The Scream"
+					</h4>
+					<div class="size-85">
+
+						<table style="width: 80%;">
+							<tr>
+								<td style="width: 50%;margin-bottom: 0px; border: none;">
+									<div style="margin-top: -40px;margin-bottom: -40px; border: none;">
+										<img style="width:100%;" src="images/applications-svd/screamBW770.jpg">
+									</div>
+								</td>
+								<td style="width: 50%;margin-bottom: 0px; border: none;">
+									<div style="margin-top: -40px;margin-bottom: -40px;">
+										<img style="width:100%;" src="images/applications-svd/screamBW250.jpg">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center; border: none;">
+									Original
+								</td>
+								<td style="text-align: center; border: none;">
+									78% compression
+								</td>
+							</tr>
+						</table>
+
+					</div>
+				</section>
+
+
+
+			</section>
+
+			<section>
 				<!-- Slide 5: Geometric Action on Unit Circle (PDF p.29, 30, 31) -->
 				<section data-auto-animate>
 					<h4>Geometric Interpretation: Action on Unit Circle</h4>
