@@ -23,14 +23,14 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-		gtag('config', 'G-8GQQBCYTB5');
-	</script>
+        gtag('config', 'G-8GQQBCYTB5');
+    </script>
 
     <script type="importmap">
     {
@@ -92,9 +92,9 @@
             <button class="btn btn-secondary" id="btn-info">How this works?</button>
         </div>
 
-         <div style="text-align: center; margin-top: 30px;">
-                <p>Made with &#9829; by <a href="https://www.jcponce.com/">JCPC</a></p>
-            </div>
+        <div style="text-align: center; margin-top: 0px; font-size: 0.9em;">
+            <p>Made with &#9829; by <a href="https://www.jcponce.com/">JCPC</a></p>
+        </div>
     </div>
 
     <!-- Right Viewport -->
@@ -102,6 +102,7 @@
         <div id="loading">Loading Airplane Model...</div>
     </div>
 
+    <!-- Math Explanation Modal -->
     <!-- Math Explanation Modal -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-content">
@@ -114,8 +115,8 @@
                 </p>
 
                 <p>The total rotation applied to the aircraft is determined by combining three separate rotation
-                    matrices for each Cartesian axis—<strong>Pitch ($\alpha$)</strong> around X, <strong>Yaw
-                        ($\beta$)</strong> around Y, and <strong>Roll ($\gamma$)</strong> around Z:</p>
+                    matrices for each Cartesian axis, <strong>Pitch ($\alpha$)</strong> around $x$-axis, <strong>Yaw
+                        ($\beta$)</strong> around $y$-axis, and <strong>Roll ($\gamma$)</strong> around $z$-axis:</p>
 
                 $$\mathbf{R}_x(\alpha) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\alpha & -\sin\alpha \\ 0 & \sin\alpha &
                 \cos\alpha \end{pmatrix}$$
@@ -126,14 +127,29 @@
                 $$\mathbf{R}_z(\gamma) = \begin{pmatrix} \cos\gamma & -\sin\gamma & 0 \\ \sin\gamma & \cos\gamma & 0 \\
                 0 & 0 & 1 \end{pmatrix}$$
 
-                <p>Using the default intrinsic <strong>$XYZ$ Euler order</strong>, the final $3 \times 3$ rotation
+                <p>Using the default intrinsic <strong>$XYZ$ <a href="https://en.wikipedia.org/wiki/Euler_angles"
+                            target="_blank">Euler order</a></strong>, the final $3 \times 3$ rotation
                     matrix $\mathbf{R}_{XYZ}$ shown on the panel is calculated by multiplying these three matrices
                     sequentially:</p>
 
                 $$\mathbf{R}_{XYZ} = \mathbf{R}_x(\alpha) \cdot \mathbf{R}_y(\beta) \cdot \mathbf{R}_z(\gamma)$$
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <picture>
+                        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/2708_fe0f/512.webp"
+                            type="image/webp">
+                        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/2708_fe0f/512.gif" alt="✈" width="32"
+                            height="32">
+                    </picture>
+                </div>
+                <p style="margin-top: 2px; font-size: 0.85rem; color: #9ca3af; text-align: center;">
+                    <b>Note:</b> This interactive 3D visualization is rendered using <a href="https://threejs.org/"
+                        target="_blank">Three.js</a>.
+                </p>
             </div>
 
-           
+
+
             <div class="modal-footer">
                 <button class="btn" id="btn-close-modal">Close</button>
             </div>
