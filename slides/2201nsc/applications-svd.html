@@ -75,7 +75,8 @@
 				<section data-auto-animate>
 					<h4>Singular Value Decomposition (SVD)</h4>
 					<div class="size-80">
-						<p>Any matrix $A \in \mathbb{R}^{m \times n}$ can be written as $A = U \Sigma V^T$, where $U \in
+						<p style="font-size: 1.2em;">Recall that any matrix $A \in \mathbb{R}^{m \times n}$ can be
+							written as $A = U \Sigma V^T$, where $U \in
 							\mathbb{R}^{m \times m}$ and $V \in \mathbb{R}^{n \times n}$ are orthogonal matrices, and
 							$\Sigma \in \mathbb{R}^{m \times n}$ contains singular values $\sigma_1 \ge \sigma_2 \ge
 							\dots \ge \sigma_r > 0$.</p>
@@ -116,7 +117,7 @@
 							</p>
 						</div>
 
-						<blockquote class="fragment" data-fragment-index="1"
+						<blockquote class="fragment" data-fragment-index="4"
 							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #4285f4; margin-top: 15px; font-style: normal; width: 90%;">
 							The SVD decomposes $A$ into a linear combination of <b>outer</b> product matrices.
 						</blockquote>
@@ -128,20 +129,36 @@
 				<section data-auto-animate>
 					<h4>The SVD as an Outer Product Expansion</h4>
 					<div class="size-80 left-txt">
-						<p>The expansion $A = \ds \sum_{i=1}^{r} \sigma_i \u_i \v_i^T$ represents $A$ as a weighted sum
-							of
-							<b>outer</b> products $\u_i \v_i^T$:</p>
+						<p>
+							The SVD expresses $A$ as a <b>sum</b>
+							of matrices:
 
-						<div class="cc" style="margin-top: 8px;">
-							<p class="fragment" data-fragment-index="1">
+						</p>
+						<div class="cc" style="margin-top: -30px;">
+							<p>
+								$\ds A = U\Sigma V^{T} =\sum_{i=1}^{r} \sigma_i \u_i
+								\v_i^T$
+							</p>
+						</div>
+
+						<p class="fragment" data-fragment-index="1" style="margin-top: 60px;">
+							Here, $\u_i \v_i^T$ is the <b>outer</b>
+							product of $\u_i$ and $\v_i$.
+							<span class="fragment" data-fragment-index="2">
+								This is a $m$-by-$n$ matrix:
+							</span>
+						</p>
+
+						<div class="cc" style="margin-top: 0px;">
+							<p class="fragment" data-fragment-index="3">
 								$ \u_i \v_i^T $
-								<span class="fragment" data-fragment-index="2">
+								<span class="fragment" data-fragment-index="4">
 									$
 									= \begin{pmatrix} u_{1i} \\ u_{2i} \\ \vdots \\ u_{mi} \end{pmatrix}
 									\begin{pmatrix} v_{1i} & v_{2i} & \dots & v_{ni} \end{pmatrix}
 									$
 								</span>
-								<span class="fragment" data-fragment-index="3">
+								<span class="fragment" data-fragment-index="5">
 									$ = \begin{pmatrix}
 									u_{1i}v_{1i} & u_{1i}v_{2i} & \dots & u_{1i}v_{ni} \\ u_{2i}v_{1i} & u_{2i}v_{2i} &
 									\dots &
@@ -153,53 +170,192 @@
 							</p>
 						</div>
 
-						<ul style="line-height: 1.7em; margin-top: 12px;">
-							<li class="fragment" data-fragment-index="4">
+
+					</div>
+					<br />
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>The SVD as an Outer Product Expansion</h4>
+					<div class="size-80 left-txt">
+						<p>
+							The SVD expresses $A$ as a <b>sum</b>
+							of matrices:
+
+						</p>
+						<div class="cc" style="margin-top: -30px;">
+							<p>
+								$\ds A = U\Sigma V^{T} =\sum_{i=1}^{r} \sigma_i \u_i
+								\v_i^T$
+							</p>
+						</div>
+
+						<p style="margin-top: -10px;">
+							Here, $\u_i \v_i^T$ is the <b>outer</b>
+							product of $\u_i$ and $\v_i$.
+							<span>
+								This is a $m$-by-$n$ matrix:
+							</span>
+						</p>
+
+						<div class="cc" style="margin-top: -10px; font-size: 0.76em;">
+							<p>
+								$ \u_i \v_i^T $
+								<span>
+									$
+									= \begin{pmatrix} u_{1i} \\ u_{2i} \\ \vdots \\ u_{mi} \end{pmatrix}
+									\begin{pmatrix} v_{1i} & v_{2i} & \dots & v_{ni} \end{pmatrix}
+									$
+								</span>
+								<span>
+									$ = \begin{pmatrix}
+									u_{1i}v_{1i} & u_{1i}v_{2i} & \dots & u_{1i}v_{ni} \\ u_{2i}v_{1i} & u_{2i}v_{2i} &
+									\dots &
+									u_{2i}v_{ni} \\ \vdots & \vdots & \ddots & \vdots \\ u_{mi}v_{1i} & u_{mi}v_{2i} &
+									\dots &
+									u_{mi}v_{ni} \end{pmatrix}
+									$
+								</span>
+							</p>
+						</div>
+
+						<ul style="line-height: 1.7em; margin-top: 12px; margin-left: 0px;">
+							<li>
 								Orthonormality of $U$ and $V$ implies $\|\u_i\| = \|\v_i\| = 1$.
 							</li>
-							<li class="fragment" data-fragment-index="5">
-								Bounded element magnitude: $|u_{ji}| \le 1$ and $|v_{ki}| \le 1$.
+							<li class="fragment">
+								This imposes a limit on the size of the elements of $\u_i \v_i^T$:
 							</li>
-							<li class="fragment" data-fragment-index="6">
-								Sum of squared entries over each term satisfies $\ds\sum_{j,\,k} \left(u_{ji} v_{ki}\right)^2 = 1$.
+							<ul style="margin-left: 0px;">
+								<li class="fragment">
+									$|u_{ji}| \le 1$ and $|v_{ki}| \le 1$, so each element has size $\leq 1$; and
+								</li>
+								<li class="fragment">
+									Sum of squared entries over each term satisfies $\ds\sum_{j,\,k} \left(u_{ji}
+									v_{ki}\right)^2 = 1$.
+								</li>
+							</ul>
+						</ul>
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>The SVD as an Outer Product Expansion</h4>
+					<div class="size-85 left-txt">
+						<p>
+							Thus, the "size" of the terms in the SVD expansion
+
+						</p>
+						<div class="cc" style="margin-top: -10px; font-size: 1.2em;">
+							<p>
+								$\ds A = U\Sigma V^{T} =\sum_{i=1}^{r} \sigma_i \u_i
+								\v_i^T$
+							</p>
+						</div>
+
+						<p><i>decreases</i> as we move from term to term in the expansion.</p>
+
+
+						<ul style="line-height: 1.6em; margin-left: 0px;">
+							<li class="fragment" data-fragment-index="1">
+								The singular values $\sigma_i$ act as <b>weights</b> for the rank-one terms
+								$\sigma_i \u_i \v_i^T$.
+							</li>
+
+							<li class="fragment" data-fragment-index="2">
+								Since $\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_r > 0$,
+								the terms become progressively <b>less significant</b>.
+							</li>
+
+							<li class="fragment" data-fragment-index="3">
+								We can therefore <b>approximate $A$</b> by keeping only the first few
+								terms of the SVD expansion:
+
+								$A \approx \sum_{i=1}^{k} \sigma_i \u_i \v_i^T.$
+
+							</li>
+
+							<li class="fragment" data-fragment-index="4">
+								This can provide substantial <b>data compression</b>: a $k$-term
+								approximation requires $k(m+n+1)$ numbers instead of $mn$.
 							</li>
 						</ul>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 3: Low-Rank Matrix Approximation (PDF p.4) -->
 				<section data-auto-animate>
-					<h4>Low-Rank Approximation & Data Truncation</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>Because singular values are ordered ($\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r > 0$),
-							term significance drops rapidly:</p>
+					<h4>Approximating the 10-by-10 magic square</h4>
+					<div class="cc" style="font-size: 0.56em; margin-top: 70px; margin-bottom: 40px;">
+						<p>
+							$\begin{pmatrix}
+							92.0000&99.0000&1.0000&8.0000&15.0000&67.0000&74.0000&51.0000&58.0000&40.0000\\
+							98.0000&80.0000&7.0000&14.0000&16.0000&73.0000&55.0000&57.0000&64.0000&41.0000\\
+							4.0000&81.0000&88.0000&20.0000&22.0000&54.0000&56.0000&63.0000&70.0000&47.0000\\
+							85.0000&87.0000&19.0000&21.0000&3.0000&60.0000&62.0000&69.0000&71.0000&28.0000\\
+							86.0000&93.0000&25.0000&2.0000&9.0000&61.0000&68.0000&75.0000&52.0000&34.0000\\
+							17.0000&24.0000&76.0000&83.0000&90.0000&42.0000&49.0000&26.0000&33.0000&65.0000\\
+							23.0000&5.0000&82.0000&89.0000&91.0000&48.0000&30.0000&32.0000&39.0000&66.0000\\
+							79.0000&6.0000&13.0000&95.0000&97.0000&29.0000&31.0000&38.0000&45.0000&72.0000\\
+							10.0000&12.0000&94.0000&96.0000&78.0000&35.0000&37.0000&44.0000&46.0000&53.0000\\
+							11.0000&18.0000&100.0000&77.0000&84.0000&36.0000&43.0000&50.0000&27.0000&59.0000\\
+							\end{pmatrix}$
+						</p>
+					</div>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 10px;">
-							$$ A_k = \sum_{i=1}^{k} \sigma_i u_i v_i^T \quad (k < r) $$ </div>
+					<div class="cc fragment">
+						<p>
+							Let's investigate how we might approximate this matrix via its SVD.
+						</p>
 
-								<div class="fragment" data-fragment-index="1" style="margin-top: 15px;">
-									<p><b>Data Savings Comparison:</b></p>
-									<div
-										style="display: flex; justify-style: space-around; text-align: center; margin-top: 10px;">
-										<div
-											style="background: rgba(255,255,255,0.03); padding: 12px 20px; border-radius: 5px;">
-											<p style="color: #ff6b6b; margin: 0;"><b>Original Storage</b></p>
-											<p style="font-size: 1.2em; margin: 5px 0 0 0;">$m \times n$ entries</p>
-										</div>
-										<div
-											style="background: rgba(255,255,255,0.03); padding: 12px 20px; border-radius: 5px;">
-											<p style="color: #4285f4; margin: 0;"><b>Truncated $k$-rank SVD</b></p>
-											<p style="font-size: 1.2em; margin: 5px 0 0 0;">$k \times (m + n + 1)$
-												entries</p>
-										</div>
-									</div>
-								</div>
+						<div style="margin-top: -30px;">
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f9d0/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f9d0/512.gif" alt="🧐"
+									width="80" height="80">
+							</picture>
 						</div>
-						<br />
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Approximating the 10-by-10 magic square</h4>
+					<div class="cc">
+						<p>
+							The diagonal
+							matrix Σ from the decomposition is
+						</p>
+					</div>
+					<div class="cc" style="font-size: 0.56em; margin-top: 30px; margin-bottom: 40px;">
+						<p>
+							$\begin{pmatrix}
+							505&0&0&0&0&0&0&0&0&0\\
+							0&254.8589&0&0&0&0&0&0&0&0\\
+							0&0&122.9542&0&0&0&0&0&0&0\\
+							0&0&0&36.8347&0&0&0&0&0&0\\
+							0&0&0&0&30.5167&0&0&0&0&0\\
+							0&0&0&0&0&23.3508&0&0&0&0\\
+							0&0&0&0&0&0&20.5153&0&0&0\\
+							0&0&0&0&0&0&0&2\text{e-}14&0&0\\
+							0&0&0&0&0&0&0&0&9\text{e-}15&0\\
+							0&0&0&0&0&0&0&0&0&6\text{e-}16\\
+							\end{pmatrix}$
+						</p>
+					</div>
+
+
+					<br />
 				</section>
 
-				<!-- Slide 4: Application to Image Compression (PDF p.19, 20) -->
+
+
+
+			</section>
+
+			<section>
+
 				<section data-auto-animate>
 					<h4>Application: SVD Image Compression</h4>
 					<div class="size-85" style="font-size: 0.75em;">
@@ -350,7 +506,6 @@
 					</div>
 					<br />
 				</section>
-
 			</section>
 
 			<!-- Ends sections -->
