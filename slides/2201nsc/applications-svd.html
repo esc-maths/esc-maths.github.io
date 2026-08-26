@@ -1246,7 +1246,7 @@
 				</section>
 
 				<section data-auto-animate>
-					<h4>Approximating the 10-by-10 magic square - Octave / MATLAB</h4>
+					<h4>Approximating the 10-by-10 magic square - Octave / MATLAB 💻</h4>
 
 
 					<div style="font-size: 0.8em;">
@@ -1269,13 +1269,29 @@
 
 					</div>
 
-					<div class="size-85 cc">
-						<p>
-							Use the command <tt>[U, S, V] = svds(A, r)</tt>
-						</p>
-						<p style="margin-top: -20px;">
-							produces a rank-$r$ decomposition, whose factors  can be <br/>  multiplied together to generate the approximation.
-						</p>
+					<div class="size-80">
+						<div class="r-stack">
+							<div class="fragment fade-in-then-out" data-fragment-index="2">
+								<p style="margin-top: -20px;">
+									Command: <tt>[U, S, V] = svd(A)</tt>
+								</p>
+								<p style="margin-top: -10px;">
+									computes the singular value decomposition of a matrix.
+								</p>
+							</div>
+							<div class="fragment fade" data-fragment-index="3">
+								<p style="margin-top: 13px;">
+									💡 Command: <tt style="color: #1219ed;">[U, S, V] = svds(A, r)</tt>
+								</p>
+								<p style="margin-top: -20px;">
+									produces a rank-$r$ decomposition, whose factors can be <br /> multiplied together
+									to
+									generate the approximation.
+								</p>
+							</div>
+
+						</div>
+
 					</div>
 					<br />
 
@@ -1285,18 +1301,18 @@
 					<h4>Approximating the 10-by-10 magic square - Octave / MATLAB</h4>
 
 
-					<div style="font-size: 0.65em;">
+					<div style="font-size: 0.75em;">
 
 
 						<pre
-							style="width: 80%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A = magic(10);</code></pre>
-						<pre
-							style="width: 80%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> [U_6, S_6, V_6] = svds(A, 6); % Perfom rank-6 approximation</code></pre>
+							style="width: 88%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A = magic(10);</code></pre>
+						<pre class="fragment" data-fragment-index="0"
+							style="width: 88%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> [U_6, S_6, V_6] = svds(A, 6); % Perfom rank-6 approximation</code></pre>
 						<pre class="fragment" data-fragment-index="1"
-							style="width: 80%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A_6 = U_6 * S_6 *V_6' % Construct the rank-4 approximation to A.
+							style="width: 88%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A_6 = U_6 * S_6 *V_6' % Construct the rank-4 approximation to A.
 </code></pre>
 						<pre class="fragment" data-fragment-index="2"
-							style="width: 80%;height: 510px; font-size: 64%;margin-top: -5px;"><code class="language-matlab">A6 =
+							style="width: 88%;height: 510px; font-size: 55.5%;margin-top: -10px;"><code class="language-matlab">A_6 =
  Columns 1 through 7:
     91.7464    98.5805     0.7630     5.1421    16.2435    66.4286    71.8975
     98.1473    80.2437     7.1377    15.6605    15.2775    73.3320    56.2216
@@ -1325,6 +1341,7 @@
 					</div>
 
 
+					<br />
 				</section>
 
 
