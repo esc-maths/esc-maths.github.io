@@ -61,7 +61,8 @@
 					</span>
 
 				</div>
-				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Applications of the SVD
+				<p style="margin-top: 0px; font-size: 80%;text-align: center;">Applications of the Singular Value
+					Decomposition
 				</p>
 
 				<div style="margin-top: -40px; margin-bottom:20px;">
@@ -71,54 +72,96 @@
 
 			<section>
 
-				<!-- Slide 1: SVD Recall & Matrix Factorisation (PDF p.2) -->
 				<section data-auto-animate>
-					<h4>SVD Recall & Matrix Factorisation</h4>
-					<div class="size-85" style="font-size: 0.75em;">
+					<h4>Singular Value Decomposition (SVD)</h4>
+					<div class="size-80">
 						<p>Any matrix $A \in \mathbb{R}^{m \times n}$ can be written as $A = U \Sigma V^T$, where $U \in
 							\mathbb{R}^{m \times m}$ and $V \in \mathbb{R}^{n \times n}$ are orthogonal matrices, and
 							$\Sigma \in \mathbb{R}^{m \times n}$ contains singular values $\sigma_1 \ge \sigma_2 \ge
 							\dots \ge \sigma_r > 0$.</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 12px;">
-							$$ A = \begin{pmatrix} | & | & & | \\ u_1 & u_2 & \dots & u_m \\ | & | & & | \end{pmatrix}
-							\begin{pmatrix} \sigma_1 & & \\ & \sigma_2 & \\ & & \ddots \end{pmatrix} \begin{pmatrix} - &
-							v_1^T & - \\ - & v_2^T & - \\ & \vdots & \end{pmatrix} = \sum_{i=1}^{r} \sigma_i u_i v_i^T
-							$$
+						<div class="r-stack" style="margin-top: 12px;">
+
+							<p class="fragment fade-in-then-out" data-fragment-index="0" style="font-size: 2em;">
+								$
+								A = U\Sigma V^{T}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="1">
+								$ {\Large A} = \begin{pmatrix} | & | & & | \\ \u_1 & \u_2 & \dots & \u_m \\ | & | & & |
+								\end{pmatrix}
+								\left(\begin{array}{ccc|c} \sigma_1 & \cdots & 0 & \\ \vdots & \ddots & \vdots & \mathbf
+								0 \\ 0 & \cdots & \sigma_r & \\ \hline & \mathbf 0 & & \mathbf 0 \end{array} \right)
+								\begin{pmatrix}
+								\,-\; \v_1^T \;- \\ \,- \; \v_2^T \; - \\ \vdots \\ \,-\; \v_n^T \;-
+								\end{pmatrix}
+								$
+							</p>
+							<p class="fragment fade-in" data-fragment-index="2">
+								$ {\Large A} = \begin{pmatrix} | & | & & | \\ \u_1 & \u_2 & \dots & \u_r \\ | & | & & |
+								\end{pmatrix}
+								\begin{pmatrix} \sigma_1 & & & \\ & \sigma_2 & & \\ & & \ddots & \\ & & & \sigma_r
+								\end{pmatrix} \begin{pmatrix}
+								\,-\; \v_1^T \;- \\ \,- \; \v_2^T \; - \\ \vdots \\ \,-\; \v_r^T \;-
+								\end{pmatrix}
+								$
+							</p>
+
+						</div>
+						<div class="fragment" data-fragment-index="3"
+							style="margin-top: -20px; margin-left: 200px; font-size: 1.2em;">
+							<p>
+								$\ds \quad = \sum_{i=1}^{r} \sigma_i \u_i
+								\v_i^T$
+							</p>
 						</div>
 
 						<blockquote class="fragment" data-fragment-index="1"
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
-							The SVD decomposes $A$ into a linear combination of rank-1 outer product matrices.
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #4285f4; margin-top: 15px; font-style: normal; width: 90%;">
+							The SVD decomposes $A$ into a linear combination of <b>outer</b> product matrices.
 						</blockquote>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 2: The SVD is an Expansion (PDF p.3) -->
+
 				<section data-auto-animate>
 					<h4>The SVD as an Outer Product Expansion</h4>
-					<div class="size-85" style="font-size: 0.73em;">
-						<p>The expansion $A = \sum_{i=1}^{r} \sigma_i u_i v_i^T$ represents $A$ as a weighted sum of
-							outer products $u_i v_i^T$:</p>
+					<div class="size-80 left-txt">
+						<p>The expansion $A = \ds \sum_{i=1}^{r} \sigma_i \u_i \v_i^T$ represents $A$ as a weighted sum
+							of
+							<b>outer</b> products $\u_i \v_i^T$:</p>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
-							$$ u_i v_i^T = \begin{pmatrix} u_{1i} \\ u_{2i} \\ \vdots \\ u_{mi} \end{pmatrix}
-							\begin{pmatrix} v_{1i} & v_{2i} & \dots & v_{ni} \end{pmatrix} = \begin{pmatrix}
-							u_{1i}v_{1i} & u_{1i}v_{2i} & \dots & u_{1i}v_{ni} \\ u_{2i}v_{1i} & u_{2i}v_{2i} & \dots &
-							u_{2i}v_{ni} \\ \vdots & \vdots & \ddots & \vdots \\ u_{mi}v_{1i} & u_{mi}v_{2i} & \dots &
-							u_{mi}v_{ni} \end{pmatrix} $$
+						<div class="cc" style="margin-top: 8px;">
+							<p class="fragment" data-fragment-index="1">
+								$ \u_i \v_i^T $
+								<span class="fragment" data-fragment-index="2">
+									$
+									= \begin{pmatrix} u_{1i} \\ u_{2i} \\ \vdots \\ u_{mi} \end{pmatrix}
+									\begin{pmatrix} v_{1i} & v_{2i} & \dots & v_{ni} \end{pmatrix}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="3">
+									$ = \begin{pmatrix}
+									u_{1i}v_{1i} & u_{1i}v_{2i} & \dots & u_{1i}v_{ni} \\ u_{2i}v_{1i} & u_{2i}v_{2i} &
+									\dots &
+									u_{2i}v_{ni} \\ \vdots & \vdots & \ddots & \vdots \\ u_{mi}v_{1i} & u_{mi}v_{2i} &
+									\dots &
+									u_{mi}v_{ni} \end{pmatrix}
+									$
+								</span>
+							</p>
 						</div>
 
-						<ul style="line-height: 1.6em; margin-top: 12px;">
-							<li class="fragment" data-fragment-index="1">
-								Orthonormality of $U$ and $V$ implies $\|u_i\| = \|v_i\| = 1$.
+						<ul style="line-height: 1.7em; margin-top: 12px;">
+							<li class="fragment" data-fragment-index="4">
+								Orthonormality of $U$ and $V$ implies $\|\u_i\| = \|\v_i\| = 1$.
 							</li>
-							<li class="fragment" data-fragment-index="2">
+							<li class="fragment" data-fragment-index="5">
 								Bounded element magnitude: $|u_{ji}| \le 1$ and $|v_{ki}| \le 1$.
 							</li>
-							<li class="fragment" data-fragment-index="3">
-								Sum of squared entries over each term satisfies $\sum_{j,k} (u_{ji} v_{ki})^2 = 1$.
+							<li class="fragment" data-fragment-index="6">
+								Sum of squared entries over each term satisfies $\ds\sum_{j,\,k} \left(u_{ji} v_{ki}\right)^2 = 1$.
 							</li>
 						</ul>
 					</div>
