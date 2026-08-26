@@ -1239,8 +1239,91 @@
 
 
 					</div>
+
+
 					<br />
 					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Approximating the 10-by-10 magic square - Octave / MATLAB</h4>
+
+
+					<div style="font-size: 0.8em;">
+
+
+						<pre class="fragment" data-fragment-index="0"
+							style="width: 80%; font-size: 85%;margin-top: 25px;"><code class="language-matlab">>> A = magic(10) % Create a magic square.</code></pre>
+						<pre class="fragment" data-fragment-index="1"
+							style="width: 80%;height: 400px; font-size: 80%;margin-top: 25px;"><code class="language-matlab">A =
+    92    99     1     8    15    67    74    51    58    40
+    98    80     7    14    16    73    55    57    64    41
+     4    81    88    20    22    54    56    63    70    47
+    86    93    25     2     9    61    68    75    52    34
+    17    24    76    83    90    42    49    26    33    65
+    23     5    82    89    91    48    30    32    39    66
+    79     6    13    95    97    29    31    38    45    72
+    10    12    94    96    78    35    37    44    46    53
+    11    18   100    77    84    36    43    50    27    59</code></pre>
+
+					</div>
+
+					<div class="size-85 cc">
+						<p>
+							Use the command <tt>[U, S, V] = svds(A, r)</tt>
+						</p>
+						<p style="margin-top: -20px;">
+							produces a rank-$r$ decomposition, whose factors  can be <br/>  multiplied together to generate the approximation.
+						</p>
+					</div>
+					<br />
+
+
+				</section>
+				<section data-auto-animate>
+					<h4>Approximating the 10-by-10 magic square - Octave / MATLAB</h4>
+
+
+					<div style="font-size: 0.65em;">
+
+
+						<pre
+							style="width: 80%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A = magic(10);</code></pre>
+						<pre
+							style="width: 80%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> [U_6, S_6, V_6] = svds(A, 6); % Perfom rank-6 approximation</code></pre>
+						<pre class="fragment" data-fragment-index="1"
+							style="width: 80%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A_6 = U_6 * S_6 *V_6' % Construct the rank-4 approximation to A.
+</code></pre>
+						<pre class="fragment" data-fragment-index="2"
+							style="width: 80%;height: 510px; font-size: 64%;margin-top: -5px;"><code class="language-matlab">A6 =
+ Columns 1 through 7:
+    91.7464    98.5805     0.7630     5.1421    16.2435    66.4286    71.8975
+    98.1473    80.2437     7.1377    15.6605    15.2775    73.3320    56.2216
+     4.4749    81.7856    88.4438    25.3526    19.6711    55.0702    59.9377
+    84.5843    86.3123    18.6115    16.3148     5.0385    59.0632    58.5533
+    86.1816    93.3004    25.1697     4.0469     8.1094    61.4093    69.5058
+    16.6973    23.4993    75.7172    79.5887    91.4842    41.3179    46.4905
+    23.0982     5.1625    82.0918    90.1072    90.5183    48.2214    30.8145
+    79.4021     6.6652    13.3758    99.5323    95.0280    29.9062    34.3342
+     9.5352    11.2311    93.5657    90.7614    80.2793    33.9526    33.1462
+    11.1325    18.2192   100.1238    78.4935    83.3502    36.2986    44.0987
+
+ Columns 8 through 10:
+    52.7639    58.5080    42.9264
+    55.9752    63.7048    39.2997
+    59.6965    69.0485    41.5191
+    71.8916    71.8329    32.7976
+    73.7367    51.6361    31.9040
+    28.1054    33.6064    68.4931
+    31.3167    38.8032    64.8663
+    35.2027    44.1943    67.3590
+    47.2332    46.9312    58.3642
+    49.0782    26.7345    57.4706
+</code></pre>
+
+					</div>
+
+
 				</section>
 
 
