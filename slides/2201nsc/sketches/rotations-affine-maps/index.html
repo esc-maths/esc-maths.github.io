@@ -51,26 +51,28 @@
         <div class="control-group">
             <div class="slider-container">
                 <div class="slider-header">
-                    <span class="axis-x">X Rotation (Pitch $\alpha$)</span>
+                    <span class="axis-x">X Rotation (Roll $\alpha$)</span>
                     <span id="val-x">0°</span>
                 </div>
                 <input type="range" id="slider-x" min="0" max="360" value="0">
             </div>
 
+
+
             <div class="slider-container">
                 <div class="slider-header">
-                    <span class="axis-y">Y Rotation (Yaw $\beta$)</span>
-                    <span id="val-y">0°</span>
+                    <span class="axis-z">Y Rotation (Pitch $\beta$)</span>
+                    <span id="val-z">0°</span>
                 </div>
-                <input type="range" id="slider-y" min="0" max="360" value="0">
+                <input type="range" id="slider-z" min="0" max="360" value="0">
             </div>
 
             <div class="slider-container">
                 <div class="slider-header">
-                    <span class="axis-z">Z Rotation (Roll $\gamma$)</span>
-                    <span id="val-z">0°</span>
+                    <span class="axis-y">Z Rotation (Yaw $\gamma$)</span>
+                    <span id="val-y">0°</span>
                 </div>
-                <input type="range" id="slider-z" min="0" max="360" value="0">
+                <input type="range" id="slider-y" min="0" max="360" value="0">
             </div>
         </div>
 
@@ -115,8 +117,8 @@
                 </p>
 
                 <p>The total rotation applied to the aircraft is determined by combining three separate rotation
-                    matrices for each Cartesian axis, <strong>Pitch ($\alpha$)</strong> around $x$-axis, <strong>Yaw
-                        ($\beta$)</strong> around $y$-axis, and <strong>Roll ($\gamma$)</strong> around $z$-axis:</p>
+                    matrices for each Cartesian axis, <strong>Roll ($\alpha$)</strong> around $x$-axis, <strong>Pitch
+                        ($\beta$)</strong> around $y$-axis, and <strong>Yaw ($\gamma$)</strong> around $z$-axis:</p>
 
                 $$\mathbf{R}_x(\alpha) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\alpha & -\sin\alpha \\ 0 & \sin\alpha &
                 \cos\alpha \end{pmatrix}$$
