@@ -1962,26 +1962,33 @@ plt.show()</code></pre>
 
 						<p class="fragment" data-fragment-index="0">
 							Let $\v_1,\v_2$ be orthonormal eigenvectors of $A^T A$:
-							$$
+
+						</p>
+						<p style="text-align: center;">
+							$
 							A^T A\,\v_i = \lambda_i \v_i,
 							\qquad \lambda_1 > \lambda_2 > 0.
-							$$
+							$
 						</p>
 
 						<p class="fragment" data-fragment-index="1">
 							Any unit vector can be written as
-							$$
+
+						</p>
+						<p style="text-align: center; margin-top: -10px;">
+							$
 							\mathbf{x}=c_1\v_1+c_2\v_2,
 							\qquad c_1^2+c_2^2=1.
-							$$
+							$
 						</p>
-
-						<div class="fragment" data-fragment-index="2" style="margin-top: 5px;">
-							$$
+						<p style="text-align: center; margin-top: -10px;">
+							$
 							\|A\mathbf{x}\|^2
 							= \lambda_1c_1^2+\lambda_2c_2^2.
-							$$
-						</div>
+							$
+						</p>
+
+
 
 						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
 
@@ -2039,20 +2046,24 @@ plt.show()</code></pre>
 				<section data-auto-animate>
 					<h4>From $A^T A$ to the SVD</h4>
 
-					<div style="font-size: 0.75em;" class="left-txt">
+					<div style="font-size: 0.85em;" class="left-txt">
 
 						<ul style="line-height: 1.65em; margin-left: 0px;">
 
 							<li class="fragment" data-fragment-index="0">
 								The eigenvalues of $A^T A$ satisfy
-								$$\lambda_i=\sigma_i^2,$$
+								<p style="margin-top: -5px;text-align: center;margin-bottom: -3px;">
+									$\lambda_i=\sigma_i^2,$
+								</p>
 								where $\sigma_i$ are the singular values of $A$.
 							</li>
 
 							<li class="fragment" data-fragment-index="1">
 								The corresponding eigenvectors $\v_i$ are the columns of
 								$V$ in
-								$$A=U\Sigma V^T.$$
+								<p style="margin-top: -5px;text-align: center;margin-bottom: 5px;">
+									$A=U\Sigma V^T.$
+								</p>
 							</li>
 
 							<li class="fragment" data-fragment-index="2">
@@ -2070,18 +2081,22 @@ plt.show()</code></pre>
 						<div class="fragment" data-fragment-index="4" style="background: rgba(255,255,255,0.05);
 			padding: 12px; border-radius: 5px; margin-top: 15px;">
 
-							<p style="margin: 0; text-align: center; margin-top: -50px;">
-								$$
-								\boxed{
+							<p style="margin: 0; text-align: center; margin-top: -15px; font-size: 1.2em;">
+								$
+
 								\v_i \xrightarrow{\;A\;} \sigma_i\,\u_i
-								}
-								$$
+
+								$
 							</p>
 
-							<p style="margin: 5px 0 0 0; text-align: center;">
+							<p class="fragment" style="margin: 5px 0 0 0; text-align: center;">
 								$V$: directions &nbsp;&nbsp;&nbsp;
-								$\Sigma$: stretching &nbsp;&nbsp;&nbsp;
-								$U$: resulting directions
+								<span class="fragment">
+									$\Sigma$: stretching &nbsp;&nbsp;&nbsp;
+								</span>
+								<span class="fragment">
+									$U$: resulting directions
+								</span>
 							</p>
 
 						</div>
@@ -2118,14 +2133,14 @@ plt.show()</code></pre>
 							</div>
 						</div>
 
-						
 
-						<div style="display: flex; justify-content: space-around; margin-top: -10px;">
+
+						<div style="display: flex; justify-content: space-around; margin-top: -12px;">
 
 							<div style="width: 45%; text-align: center;" class="fragment" data-fragment-index="0">
 								$\displaystyle
 								\color{red}{\v_1 \approx
-								\begin{pmatrix}0.572\\0.820\end{pmatrix}},
+								\begin{pmatrix}-0.572\\-0.820\end{pmatrix}},
 								$
 								<span class="fragment" data-fragment-index="1">
 									$\qquad\color{red}{
@@ -2153,8 +2168,22 @@ plt.show()</code></pre>
 									with corresponding stretching factors.
 								</span>
 							</p>
-							<p class="fragment" data-fragment-index="4" style="text-align: center; font-size: 1.3em;">
-								👉 $\,A= U\Sigma V^T\;\;$	
+
+						</div>
+
+						<div>
+							<p class="fragment" data-fragment-index="4" style="text-align: center; font-size: 1.2em;">
+								👉 $\,A= U\Sigma V^T$
+								<span style=" font-size: 0.55em;">
+									$=
+									\begin{pmatrix} \color{red}{-0.915} & \color{blue}{-0.405} \\ \color{red}{-0.404} &
+									\color{blue}{0.915} \end{pmatrix}
+									\begin{pmatrix} \color{red}{5.465} & 0 \\ 0 & \color{blue}{0.37} \end{pmatrix}
+									\begin{pmatrix} \color{red}{-0.572} & \color{blue}{-0.820} \\ \color{red}{-0.820} &
+									\color{blue}{0.572} \end{pmatrix}^T
+
+									$
+								</span>
 							</p>
 						</div>
 
