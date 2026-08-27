@@ -1887,13 +1887,13 @@ plt.show()</code></pre>
 						<div
 							style="display: flex; justify-content: space-between; align-items: center; margin-top: -35px;">
 							<div style="width: 45%;" class="fragment" data-fragment-index="0">
-								$$ A = \begin{pmatrix} 3 & 1 \\ 4 & 2 \end{pmatrix} $$
+								$$ A = \begin{pmatrix} 3 & 4 \\ 1 & 2 \end{pmatrix} $$
 								<p style="font-size: 0.85em;  margin-top: -30px; text-align: center;" class="fragment"
-									data-fragment-index="1">
+									data-fragment-index="0">
 									Maps unit circle into an ellipse in $\mathbb{R}^2$.
 								</p>
-								<img class="fragment" data-fragment-index="1" style="width: 410px; margin-top: -15px;"
-									src="images/applications-svd/mapping-circle.gif">
+								<img class="fragment" data-fragment-index="0" style="width: 500px; margin-top: -15px;"
+									data-src="images/applications-svd/mapping-circle.gif">
 							</div>
 							<div class="fragment" data-fragment-index="2"
 								style="width: 50%; background: rgba(255,255,255,0.03); padding: 5px; border-radius: 5px; font-size: 1.1em;">
@@ -2090,7 +2090,79 @@ plt.show()</code></pre>
 					<br />
 				</section>
 
-				
+				<section data-auto-animate>
+					<h4>Geometric Meaning of the Principal Directions</h4>
+
+					<div style="font-size: 0.82em;">
+
+						<div style="display: flex; justify-content:space-around; align-items:center;">
+
+							<div class="cc">
+								<p>$\qquad A = \begin{pmatrix} 3 & 4 \\ 1 & 2
+									\end{pmatrix} $</p>
+								<p class="fragment" data-fragment-index="2">
+									$
+									\qquad \color{red}{\v_1} \xrightarrow{\ A\ } \color{red}{\sigma_1 \u_1}
+									$
+								</p>
+								<p class="fragment" data-fragment-index="3">
+									$
+									\qquad \color{blue}{\v_2} \xrightarrow{\ A\ } \color{blue}{\sigma_2 \u_2}
+									$
+								</p>
+							</div>
+							<div style="margin-top: 0px;">
+								<iframe scrolling="no" title="PCA: Unit Circle"
+									src="https://www.geogebra.org/material/iframe/id/brrevcvv/width/831/height/396/border/888888/sfsb/false/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false"
+									width="831px" height="396px" style="border:0px;"> </iframe>
+							</div>
+						</div>
+
+						
+
+						<div style="display: flex; justify-content: space-around; margin-top: -10px;">
+
+							<div style="width: 45%; text-align: center;" class="fragment" data-fragment-index="0">
+								$\displaystyle
+								\color{red}{\v_1 \approx
+								\begin{pmatrix}0.572\\0.820\end{pmatrix}},
+								$
+								<span class="fragment" data-fragment-index="1">
+									$\qquad\color{red}{
+									\sigma_1\approx5.465}
+									$
+								</span>
+							</div>
+
+							<div class="fragment" data-fragment-index="0" style="width: 45%; text-align: center;">
+								$\displaystyle
+								\color{blue}{\v_2 \approx
+								\begin{pmatrix}-0.820\\0.572\end{pmatrix}},$
+								<span class="fragment" data-fragment-index="1">
+									$\qquad
+									\color{blue}{\sigma_2\approx0.366}
+									$
+								</span>
+							</div>
+
+						</div>
+						<div>
+							<p class="fragment" data-fragment-index="0" style="text-align: center;">
+								Eigenvectors of $A^TA,$
+								<span class="fragment" data-fragment-index="1">
+									with corresponding stretching factors.
+								</span>
+							</p>
+							<p class="fragment" data-fragment-index="4" style="text-align: center; font-size: 1.3em;">
+								👉 $\,A= U\Sigma V^T\;\;$	
+							</p>
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+
 
 				<!-- Slide 8: Variance in Multi-Variable Data (PDF p.34, 35) -->
 				<section data-auto-animate>
