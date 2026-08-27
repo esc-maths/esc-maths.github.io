@@ -75,7 +75,7 @@
 				<section data-auto-animate>
 					<h4>Singular Value Decomposition (SVD)</h4>
 					<div class="size-80">
-						<p style="font-size: 1.2em;" class="fragment" data-fragment-index="0">
+						<p style="font-size: 1.1em;" class="fragment" data-fragment-index="0">
 							Recall that any matrix $A \in \mathbb{R}^{m \times n}$ can be
 							written as $A = U \Sigma V^T,$
 							<span class="fragment" data-fragment-index="1">
@@ -124,9 +124,12 @@
 						</div>
 
 						<blockquote class="fragment" data-fragment-index="6"
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #4285f4; margin-top: 15px; font-style: normal; width: 90%;">
-							The SVD decomposes $A$ into a linear combination of <b>outer</b> product matrices.
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #4285f4; margin-top: -10px; font-style: normal; width: 90%;">
+							The SVD decomposes $A$ into a linear combination of <b>outer product</b> matrices.
 						</blockquote>
+						<p class="fragment" data-fragment-index="7" style="font-size: 0.7em;margin-top: -10px; ">
+							<b>Note:</b> The <i>outer product</i> of two vectors is a matrix whose entries are all products of an element in the first vector with an element in the second vector. 
+						</p>
 					</div>
 					<br />
 				</section>
@@ -148,8 +151,8 @@
 						</div>
 
 						<p class="fragment" data-fragment-index="1" style="margin-top: 60px;">
-							Here, $\u_i \v_i^T$ is the <b>outer</b>
-							product of $\u_i$ and $\v_i$.
+							Here, $\u_i \v_i^T$ is the <b>outer product</b>
+							 of $\u_i$ and $\v_i$.
 							<span class="fragment" data-fragment-index="2">
 								This is a $m$-by-$n$ matrix:
 							</span>
@@ -158,7 +161,7 @@
 						<div class="cc" style="margin-top: 0px;">
 							<p class="fragment" data-fragment-index="3">
 								$ \u_i \v_i^T $
-								<span class="fragment" data-fragment-index="4">
+								<span class="fragment" data-fragment-index="3">
 									$
 									= \begin{pmatrix} u_{1i} \\ u_{2i} \\ \vdots \\ u_{mi} \end{pmatrix}
 									\begin{pmatrix} v_{1i} & v_{2i} & \dots & v_{ni} \end{pmatrix}
@@ -198,8 +201,8 @@
 						</div>
 
 						<p style="margin-top: -10px;">
-							Here, $\u_i \v_i^T$ is the <b>outer</b>
-							product of $\u_i$ and $\v_i$.
+							Here, $\u_i \v_i^T$ is the <b>outer product</b>
+							 of $\u_i$ and $\v_i$.
 							<span>
 								This is a $m$-by-$n$ matrix:
 							</span>
@@ -435,7 +438,7 @@
 
 					<div style="font-size: 0.9em;" class="cc">
 						<p class="fragment" id="bb">
-							This means that the full magic square has rank 7. 😃
+							This means that the full magic square has rank 7 😃
 						</p>
 
 					</div>
@@ -493,7 +496,7 @@
 						</p>
 						<p style="text-align: center; margin-top: -15px;">
 							$ A_6 = U_6\Sigma_6 V_6^T $
-							<span class="fragment">
+							<span>
 								$\ds = \sum_{i=1}^{6} \sigma_i \u_i\v_i^T$
 							</span>
 						</p>
@@ -547,7 +550,7 @@
 					</h4>
 					<div class="cc" style="font-size: 0.85em;margin-top: -10px;">
 						<p>
-							The matrices $U$ and $V$ in the decomposition are:
+							The matrices $U$ and $V$ from the decomposition are:
 						</p>
 					</div>
 					<div style="font-size: 0.38em; margin-top: -10px;" class="cc">
@@ -609,7 +612,7 @@
 					</h4>
 					<div class="cc" style="font-size: 0.85em;margin-top: -10px;">
 						<p>
-							The matrices $U_6$ and $V_6$ in the decomposition are:
+							The matrices $U_6$ and $V_6$ from the decomposition are:
 						</p>
 					</div>
 					<div style="font-size: 0.38em; margin-top: -10px;" class="cc">
@@ -1733,7 +1736,7 @@
 						</p>
 						<div class="fragment" style="margin-top: -10px;">
 							<p style="text-align: center; font-size: 1.15em; margin-bottom: -10px;">
-								But the <b id="bb">mathematical theory lasts much longer.</b>
+								But the <b id="bb">mathematical theory lasts much longer!</b>
 							</p>
 							<picture>
 								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
