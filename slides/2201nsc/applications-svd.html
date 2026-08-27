@@ -264,7 +264,8 @@
 							</p>
 						</div>
 
-						<p style="margin-top: -10px;"><i>decreases</i> as we move from term to term in the expansion.</p>
+						<p style="margin-top: -10px;"><i>decreases</i> as we move from term to term in the expansion.
+						</p>
 
 
 						<ul style="line-height: 1.6em; margin-left: 0px;">
@@ -1874,28 +1875,34 @@ plt.show()</code></pre>
 			</section>
 
 			<section>
-				
+
 				<section data-auto-animate>
 					<h4>Geometric Interpretation: Action on Unit Circle</h4>
 					<div style="font-size: 0.78em;">
-						<p class="fragment" data-fragment-index="0">Consider transformation of unit circle points $x \in \mathbb{R}^2$ ($||x|| = 1$) under matrix
+						<p class="fragment" data-fragment-index="0">
+							Consider transformation of unit circle points $x \in
+							\mathbb{R}^2$ ($\|\mathbf{x}\| = 1$) under matrix
 							$A$:</p>
 
 						<div
 							style="display: flex; justify-content: space-between; align-items: center; margin-top: -35px;">
 							<div style="width: 45%;" class="fragment" data-fragment-index="0">
 								$$ A = \begin{pmatrix} 3 & 1 \\ 4 & 2 \end{pmatrix} $$
-								<p style="font-size: 0.85em;  margin-top: -30px; text-align: center;" class="fragment" data-fragment-index="1">
+								<p style="font-size: 0.85em;  margin-top: -30px; text-align: center;" class="fragment"
+									data-fragment-index="1">
 									Maps unit circle into an ellipse in $\mathbb{R}^2$.
 								</p>
-								<img class="fragment" data-fragment-index="1" style="width: 410px; margin-top: -15px;" src="images/applications-svd/mapping-circle.gif">
+								<img class="fragment" data-fragment-index="1" style="width: 410px; margin-top: -15px;"
+									src="images/applications-svd/mapping-circle.gif">
 							</div>
 							<div class="fragment" data-fragment-index="2"
-								style="width: 50%; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 5px; font-size: 1.1em;">
+								style="width: 50%; background: rgba(255,255,255,0.03); padding: 5px; border-radius: 5px; font-size: 1.1em;">
 								<p style="color: #0f5ad3; margin: 0 0 5px 0;"><b>Key Questions:</b></p>
-								<ul style="line-height: 1.5em; padding-left: 80px; margin: 0;">
-									<li>In which direction is data stretched <i>most</i>?</li>
-									<li class="fragment" data-fragment-index="3">In which direction is data stretched <i>least</i>?</li>
+								<ul style="line-height: 1.5em; padding-left: 80px; margin-left: -100px;">
+									<li>Which direction produces the <i>most</i> stretching?</li>
+									<li class="fragment" data-fragment-index="3">
+										Which direction produces the <i>least</i> stretching?
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -1904,63 +1911,186 @@ plt.show()</code></pre>
 				</section>
 
 				<section data-auto-animate>
-					<h4>Deriving Maximum and Minimum Stretch</h4>
-					<div style="font-size: 0.85em;">
-						<p>For $\|x\| = 1$, distance from origin is $\|Ax\| = \sqrt{x^T A^T A x}$. Since $A^T A$ is
-							symmetric positive-definite ($V D V^T$):</p>
+					<h4>Finding the Directions of Maximum and Minimum Stretch</h4>
 
-						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
-							$$\mathbf x = c_1 \v_1 + c_2 \v_2 = V \mathbf c \quad \text{with} \quad c_1^2 + c_2^2 = 1 $$
+					<div style="font-size: 0.85em;">
+
+						<p class="fragment" data-fragment-index="0">
+							A point $\mathbf{x}$ on the unit circle satisfies
+							$\|\mathbf{x}\|=1$ and is mapped to $A\mathbf{x}$.
+						</p>
+
+						<div class="fragment" data-fragment-index="1"
+							style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px; margin-top: 10px;">
+							<p style="margin: 0;">
+								<b>Question:</b> Which direction $\mathbf{x}$ produces the
+								<strong>largest</strong> or <strong>smallest</strong> value of
+								$\|A\mathbf{x}\|$?
+							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
-							$$ \|Ax\| = \sqrt{\left(\mathbf c^T V^T\right)\left(V D V^T\right)\left(V \mathbf c\right)} = \sqrt{\mathbf c^T D \mathbf c} = \sqrt{\lambda_1 c_1^2 +
-							\lambda_2 c_2^2} $$
+						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
+							$$
+							\|A\mathbf{x}\|
+							= \sqrt{(A\mathbf{x})^T(A\mathbf{x})}
+							= \sqrt{\mathbf{x}^T A^T A\,\mathbf{x}}.
+							$$
+						</div>
+
+						<p class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+							So we need to understand the symmetric matrix $A^T A$.
+						</p>
+
+						<div class="fragment" data-fragment-index="4"
+							style="background: rgba(255,255,255,0.03); padding-left: 20px; margin-top: 12px; border-left: 6px solid blue; font-size: 1.2em; margin-top: 50px;">
+							<p style="margin: 0 0 5px 0;">
+								<b>Key idea:</b>
+								The directions of greatest and least stretching are hidden
+								in the <b>eigenvectors of $A^T A$</b>.
+							</p>
+						</div>
+
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Principal Directions of Stretching</h4>
+
+					<div style="font-size: 0.8em;">
+
+						<p class="fragment" data-fragment-index="0">
+							Let $\v_1,\v_2$ be orthonormal eigenvectors of $A^T A$:
+							$$
+							A^T A\,\v_i = \lambda_i \v_i,
+							\qquad \lambda_1 > \lambda_2 > 0.
+							$$
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							Any unit vector can be written as
+							$$
+							\mathbf{x}=c_1\v_1+c_2\v_2,
+							\qquad c_1^2+c_2^2=1.
+							$$
+						</p>
+
+						<div class="fragment" data-fragment-index="2" style="margin-top: 5px;">
+							$$
+							\|A\mathbf{x}\|^2
+							= \lambda_1c_1^2+\lambda_2c_2^2.
+							$$
 						</div>
 
 						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
-							<div class="fragment" data-fragment-index="2"
-								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-								<p style="color: #1153bd; margin: 0;"><b>Maximum Stretch</b></p>
-								<p style="margin: 5px 0 0 0;">$c_1 = 1, c_2 = 0 \implies \mathbf  x = \v_1$</p>
-								<p style="margin: 2px 0 0 0;">Length $\|A\mathbf x\| = \sqrt{\lambda_1} = \sigma_1$</p>
+
+							<div class="fragment" data-fragment-index="3" style="width: 48%; background: rgba(255,255,255,0.03);
+				padding: 10px; border-radius: 5px;">
+
+								<p style="color: #1153bd; margin: 0;">
+									<b>Maximum Stretch</b>
+								</p>
+
+								<p style="margin: 5px 0;">
+									$c_1=1,\;c_2=0$
+									$\quad\Longrightarrow\quad \mathbf{x}=\v_1$
+								</p>
+
+								<p style="margin: 0;">
+									$$\|A\v_1\|=\sqrt{\lambda_1}=\sigma_1$$
+								</p>
 							</div>
-							<div class="fragment" data-fragment-index="3"
-								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-								<p style="color: #d20c0c; margin: 0;"><b>Minimum Stretch</b></p>
-								<p style="margin: 5px 0 0 0;">$c_1 = 0, c_2 = 1 \implies \mathbf x = \v_2$</p>
-								<p style="margin: 2px 0 0 0;">Length $\|A\mathbf x\| = \sqrt{\lambda_2} = \sigma_2$</p>
+
+							<div class="fragment" data-fragment-index="4" style="width: 48%; background: rgba(255,255,255,0.03);
+				padding: 10px; border-radius: 5px;">
+
+								<p style="color: #d20c0c; margin: 0;">
+									<b>Minimum Stretch</b>
+								</p>
+
+								<p style="margin: 5px 0;">
+									$c_1=0,\;c_2=1$
+									$\quad\Longrightarrow\quad \mathbf{x}=\v_2$
+								</p>
+
+								<p style="margin: 0;">
+									$$\|A\v_2\|=\sqrt{\lambda_2}=\sigma_2$$
+								</p>
 							</div>
+
 						</div>
+
+						<div class="fragment" data-fragment-index="5" style="background: rgba(255,255,255,0.05);
+			padding: 10px; border-radius: 5px; margin-top: 15px;">
+
+							<p style="margin-top: -40px;">
+								Therefore,
+								<b>the eigenvectors of $A^T A$ give the principal directions</b>,
+								while their eigenvalues determine the amount of stretching.
+							</p>
+
+						</div>
+
 					</div>
 					<br />
 				</section>
 
 				<section data-auto-animate>
-					<h4>Principal Directions & Matrix $V$</h4>
-					<div style="font-size: 0.85em;">
-						<ul style="line-height: 1.7em; margin-left: 0px;">
+					<h4>From $A^T A$ to the SVD</h4>
+
+					<div style="font-size: 0.75em;" class="left-txt">
+
+						<ul style="line-height: 1.65em; margin-left: 0px;">
+
 							<li class="fragment" data-fragment-index="0">
-								The eigenvectors of $A^T A$ define orthogonal directions of principal stretching.
+								The eigenvalues of $A^T A$ satisfy
+								$$\lambda_i=\sigma_i^2,$$
+								where $\sigma_i$ are the singular values of $A$.
 							</li>
+
 							<li class="fragment" data-fragment-index="1">
-								<b>Higher Dimensions:</b> Columns of $V$ sequentially order axes from greatest
-								stretching to lowest stretching.
+								The corresponding eigenvectors $\v_i$ are the columns of
+								$V$ in
+								$$A=U\Sigma V^T.$$
 							</li>
+
 							<li class="fragment" data-fragment-index="2">
-								These principal directions correspond directly to the rows of $V^T$ in $A = U \Sigma
-								V^T$.
+								Thus, the columns of $V$ give the
+								<b>principal directions in the original space</b>.
 							</li>
+
+							<li class="fragment" data-fragment-index="3">
+								The singular values $\sigma_i$ give the corresponding
+								<b>stretching factors</b>.
+							</li>
+
 						</ul>
 
-						<blockquote class="fragment" data-fragment-index="3"
-							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 4px solid #4285f4; margin-top: 15px;">
-							$V$ identifies the domain orientation vectors, while $\Sigma$ scales their transformed
-							magnitudes.
-						</blockquote>
+						<div class="fragment" data-fragment-index="4" style="background: rgba(255,255,255,0.05);
+			padding: 12px; border-radius: 5px; margin-top: 15px;">
+
+							<p style="margin: 0; text-align: center; margin-top: -50px;">
+								$$
+								\boxed{
+								\v_i \xrightarrow{\;A\;} \sigma_i\,\u_i
+								}
+								$$
+							</p>
+
+							<p style="margin: 5px 0 0 0; text-align: center;">
+								$V$: directions &nbsp;&nbsp;&nbsp;
+								$\Sigma$: stretching &nbsp;&nbsp;&nbsp;
+								$U$: resulting directions
+							</p>
+
+						</div>
+
 					</div>
 					<br />
 				</section>
+
+				
 
 				<!-- Slide 8: Variance in Multi-Variable Data (PDF p.34, 35) -->
 				<section data-auto-animate>
