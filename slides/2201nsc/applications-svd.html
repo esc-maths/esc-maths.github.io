@@ -1614,7 +1614,7 @@
 						SVD Image Compression: <i>The Scream</i>
 					</h4>
 					<div style="font-size: 0.8em;">
-						<div style="display: flex; justify-content:space-around; align-items:center">
+						<div style="display: flex; justify-content:space-around; align-items:center;">
 							<div>
 								<table
 									style="width: 100%; border-collapse: collapse; text-align: center; font-size: 0.75em; margin-top: -20px;">
@@ -1692,6 +1692,63 @@
 				</section>
 
 				<section>
+					<h4>
+						From Theory to Computation
+					</h4>
+
+					<div class="size-80">
+
+						<p class="fragment">
+							<b>Theoretically:</b> we can compute the SVD using the
+							linear algebra we have learned.
+						</p>
+
+						<p class="fragment">
+							However, computing an SVD by hand becomes
+							<b>very time-consuming</b> for large matrices.
+						</p>
+
+						<div class="fragment"
+							style="display: flex; justify-content:space-around; align-items:center; width: 80%; margin-top: -30px; margin-left: 60px;">
+
+							<div>
+								<p>
+									💻 This is where the <b>computer helps us</b>:
+									it performs the numerical calculations quickly and accurately.
+								</p>
+							</div>
+							<div>
+								<img style="width: 300px;"
+									src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
+							</div>
+						</div>
+
+
+
+						<hr />
+
+						<p class="fragment" style="text-align: center; font-size: 1.15em;">
+							<b>Technology changes quickly!</b>
+							
+						</p>
+						<div class="fragment" style="margin-top: -10px;">
+							<p style="text-align: center; font-size: 1.15em; margin-bottom: -10px;">
+								But the <b id="bb">mathematical theory lasts much longer.</b>
+							</p>
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃"
+									width="92" height="92">
+							</picture>
+						</div>
+
+					</div>
+
+					<br />
+				</section>
+
+				<section>
 					<div style="display: flex; justify-content:space-around; align-items:center">
 						<div>
 							<h4>
@@ -1699,12 +1756,12 @@
 							</h4>
 							<p style="text-align: center;font-size: 0.85em;">
 								Run code locally! 💻 😃
-								<pre style="font-size: 0.5em; width: 390px;"><code>svd_compression/
+							<pre style="font-size: 0.5em; width: 390px;"><code>svd_compression/
 ├── svd_image_compression.m
 └── picture_file.jpg</code></pre>
 							</p>
 
-							
+
 						</div>
 						<div>
 							<pre style="font-size: 0.39em; height: 710px; margin-top: -10px; width: 102%;"><code>r = 10;  % Rank
@@ -1753,10 +1810,10 @@ title(sprintf("Rank-%d Approximation / Compression %d%%", r, comp));</code></pre
 							<h4>
 								Python 🐍
 							</h4>
-							
+
 							<p style="text-align: center;font-size: 0.85em;">
 								Run code locally! 💻 😃
-								<pre style="font-size: 0.5em; width: 390px;"><code>svd_compression/
+							<pre style="font-size: 0.5em; width: 390px;"><code>svd_compression/
 ├── svd_image_compression.py
 └── picture_file.jpg</code></pre>
 							</p>
