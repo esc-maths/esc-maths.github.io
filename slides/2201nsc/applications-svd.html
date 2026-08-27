@@ -1874,27 +1874,28 @@ plt.show()</code></pre>
 			</section>
 
 			<section>
-				<!-- Slide 5: Geometric Action on Unit Circle (PDF p.29, 30, 31) -->
+				
 				<section data-auto-animate>
 					<h4>Geometric Interpretation: Action on Unit Circle</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<p>Consider transformation of unit circle points $x \in \mathbb{R}^2$ ($||x|| = 1$) under matrix
+					<div style="font-size: 0.78em;">
+						<p class="fragment" data-fragment-index="0">Consider transformation of unit circle points $x \in \mathbb{R}^2$ ($||x|| = 1$) under matrix
 							$A$:</p>
 
 						<div
-							style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-							<div style="width: 45%;">
+							style="display: flex; justify-content: space-between; align-items: center; margin-top: -35px;">
+							<div style="width: 45%;" class="fragment" data-fragment-index="0">
 								$$ A = \begin{pmatrix} 3 & 1 \\ 4 & 2 \end{pmatrix} $$
-								<p style="font-size: 0.85em; color: #ccc; margin-top: 10px;">
+								<p style="font-size: 0.85em;  margin-top: -30px; text-align: center;" class="fragment" data-fragment-index="1">
 									Maps unit circle into an ellipse in $\mathbb{R}^2$.
 								</p>
+								<img class="fragment" data-fragment-index="1" style="width: 410px; margin-top: -15px;" src="images/applications-svd/mapping-circle.gif">
 							</div>
-							<div class="fragment" data-fragment-index="0"
-								style="width: 50%; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 5px;">
-								<p style="color: #4285f4; margin: 0 0 5px 0;"><b>Key Questions:</b></p>
-								<ul style="line-height: 1.5em; padding-left: 18px; margin: 0;">
-									<li>In which direction is data stretched most?</li>
-									<li>In which direction is data stretched least?</li>
+							<div class="fragment" data-fragment-index="2"
+								style="width: 50%; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 5px; font-size: 1.1em;">
+								<p style="color: #0f5ad3; margin: 0 0 5px 0;"><b>Key Questions:</b></p>
+								<ul style="line-height: 1.5em; padding-left: 80px; margin: 0;">
+									<li>In which direction is data stretched <i>most</i>?</li>
+									<li class="fragment" data-fragment-index="3">In which direction is data stretched <i>least</i>?</li>
 								</ul>
 							</div>
 						</div>
@@ -1902,45 +1903,43 @@ plt.show()</code></pre>
 					<br />
 				</section>
 
-				<!-- Slide 6: Derivation of Maximum & Minimum Stretch (PDF p.32) -->
 				<section data-auto-animate>
 					<h4>Deriving Maximum and Minimum Stretch</h4>
-					<div class="size-85" style="font-size: 0.72em;">
+					<div style="font-size: 0.85em;">
 						<p>For $\|x\| = 1$, distance from origin is $\|Ax\| = \sqrt{x^T A^T A x}$. Since $A^T A$ is
 							symmetric positive-definite ($V D V^T$):</p>
 
 						<div class="fragment" data-fragment-index="0" style="margin-top: 8px;">
-							$$ x = c_1 v_1 + c_2 v_2 = V c \quad \text{with} \quad c_1^2 + c_2^2 = 1 $$
+							$$\mathbf x = c_1 \v_1 + c_2 \v_2 = V \mathbf c \quad \text{with} \quad c_1^2 + c_2^2 = 1 $$
 						</div>
 
 						<div class="fragment" data-fragment-index="1" style="margin-top: 8px;">
-							$$ \|Ax\| = \sqrt{(c^T V^T)(V D V^T)(V c)} = \sqrt{c^T D c} = \sqrt{\lambda_1 c_1^2 +
+							$$ \|Ax\| = \sqrt{\left(\mathbf c^T V^T\right)\left(V D V^T\right)\left(V \mathbf c\right)} = \sqrt{\mathbf c^T D \mathbf c} = \sqrt{\lambda_1 c_1^2 +
 							\lambda_2 c_2^2} $$
 						</div>
 
 						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
 							<div class="fragment" data-fragment-index="2"
 								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-								<p style="color: #4285f4; margin: 0;"><b>Maximum Stretch</b></p>
-								<p style="margin: 5px 0 0 0;">$c_1 = 1, c_2 = 0 \implies x = v_1$</p>
-								<p style="margin: 2px 0 0 0;">Length $\|Ax\| = \sqrt{\lambda_1} = \sigma_1$</p>
+								<p style="color: #1153bd; margin: 0;"><b>Maximum Stretch</b></p>
+								<p style="margin: 5px 0 0 0;">$c_1 = 1, c_2 = 0 \implies \mathbf  x = \v_1$</p>
+								<p style="margin: 2px 0 0 0;">Length $\|A\mathbf x\| = \sqrt{\lambda_1} = \sigma_1$</p>
 							</div>
 							<div class="fragment" data-fragment-index="3"
 								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
-								<p style="color: #ff6b6b; margin: 0;"><b>Minimum Stretch</b></p>
-								<p style="margin: 5px 0 0 0;">$c_1 = 0, c_2 = 1 \implies x = v_2$</p>
-								<p style="margin: 2px 0 0 0;">Length $\|Ax\| = \sqrt{\lambda_2} = \sigma_2$</p>
+								<p style="color: #d20c0c; margin: 0;"><b>Minimum Stretch</b></p>
+								<p style="margin: 5px 0 0 0;">$c_1 = 0, c_2 = 1 \implies \mathbf x = \v_2$</p>
+								<p style="margin: 2px 0 0 0;">Length $\|A\mathbf x\| = \sqrt{\lambda_2} = \sigma_2$</p>
 							</div>
 						</div>
 					</div>
 					<br />
 				</section>
 
-				<!-- Slide 7: SVD Identifies Important Directions (PDF p.33) -->
 				<section data-auto-animate>
 					<h4>Principal Directions & Matrix $V$</h4>
-					<div class="size-85" style="font-size: 0.75em;">
-						<ul style="line-height: 1.7em;">
+					<div style="font-size: 0.85em;">
+						<ul style="line-height: 1.7em; margin-left: 0px;">
 							<li class="fragment" data-fragment-index="0">
 								The eigenvectors of $A^T A$ define orthogonal directions of principal stretching.
 							</li>
