@@ -1885,23 +1885,25 @@ plt.show()</code></pre>
 							$A$:</p>
 
 						<div
-							style="display: flex; justify-content: space-between; align-items: center; margin-top: -35px;">
-							<div style="width: 45%;" class="fragment" data-fragment-index="0">
-								$$ A = \begin{pmatrix} 3 & 4 \\ 1 & 2 \end{pmatrix} $$
-								<p style="font-size: 0.85em;  margin-top: -30px; text-align: center;" class="fragment"
+							style="display: flex; justify-content: space-between; align-items: center; margin-top: -25px;">
+							<div style="width: 45%;">
+								<p style="text-align:center" class="fragment" data-fragment-index="0">
+									$ A = \begin{pmatrix} 3 & 4 \\ 1 & 2 \end{pmatrix} $
+								</p>
+								<p style="font-size: 0.85em;  margin-top: -5px; text-align: center;" class="fragment"
 									data-fragment-index="0">
 									Maps unit circle into an ellipse in $\mathbb{R}^2$.
 								</p>
-								<img class="fragment" data-fragment-index="0" style="width: 500px; margin-top: -15px;"
+								<img style="width: 600px; margin-top: -15px;"
 									data-src="images/applications-svd/mapping-circle.gif">
 							</div>
 							<div class="fragment" data-fragment-index="2"
 								style="width: 50%; background: rgba(255,255,255,0.03); padding: 5px; border-radius: 5px; font-size: 1.1em;">
 								<p style="color: #0f5ad3; margin: 0 0 5px 0;"><b>Key Questions:</b></p>
-								<ul style="line-height: 1.5em; padding-left: 80px; margin-left: -100px;">
-									<li>Which direction produces the <i>most</i> stretching?</li>
+								<ul style="line-height: 1.7em; margin-left: -200px;;">
+									<li>Which direction produces the <br /> <i>most</i> stretching?</li>
 									<li class="fragment" data-fragment-index="3">
-										Which direction produces the <i>least</i> stretching?
+										Which direction produces the <br /> <i>least</i> stretching?
 									</li>
 								</ul>
 							</div>
@@ -1929,20 +1931,28 @@ plt.show()</code></pre>
 							</p>
 						</div>
 
-						<div class="fragment" data-fragment-index="2" style="margin-top: 15px;">
-							$$
-							\|A\mathbf{x}\|
-							= \sqrt{(A\mathbf{x})^T(A\mathbf{x})}
-							= \sqrt{\mathbf{x}^T A^T A\,\mathbf{x}}.
-							$$
+						<div class="cc" style="margin-top: 15px; font-size: 1.2em;">
+							<p class="fragment" data-fragment-index="2"> $
+								\|A\mathbf{x}\|
+
+								$
+								<span class="fragment" data-fragment-index="3">
+									$= \sqrt{\left(A\mathbf{x}\right)^T\left(A\mathbf{x}\right)}
+									$
+								</span>
+								<span class="fragment" data-fragment-index="4">
+									$
+									= \sqrt{\mathbf{x}^T A^T A\,\mathbf{x}}.$
+								</span>
+							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="3" style="margin-top: 10px;">
+						<p class="fragment" data-fragment-index="5" style="margin-top: 10px;">
 							So we need to understand the symmetric matrix $A^T A$.
 						</p>
 
-						<div class="fragment" data-fragment-index="4"
-							style="background: rgba(255,255,255,0.03); padding-left: 20px; margin-top: 12px; border-left: 6px solid blue; font-size: 1.2em; margin-top: 50px;">
+						<div class="fragment" data-fragment-index="5"
+							style="background: rgba(255,255,255,0.03); padding-left: 20px; margin-top: 12px; border-left: 6px solid blue; font-size: 1.1em; margin-top: 50px;">
 							<p style="margin: 0 0 5px 0;">
 								<b>Key idea:</b>
 								The directions of greatest and least stretching are hidden
