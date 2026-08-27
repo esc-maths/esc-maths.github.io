@@ -74,7 +74,7 @@
 
 				<section data-auto-animate>
 					<h4>Singular Value Decomposition (SVD)</h4>
-					<div class="size-80">
+					<div class="size-75">
 						<p class="fragment" data-fragment-index="0">
 							Recall that any matrix $A \in \mathbb{R}^{m \times n}$ can be
 							written as $A = U \Sigma V^T,$
@@ -87,7 +87,7 @@
 							</span>
 						</p>
 
-						<div class="r-stack" style="margin-top: 12px;">
+						<div class="r-stack" style="margin-top: -5px;font-size: 0.9em;">
 
 							<p class="fragment fade-in-then-out" data-fragment-index="2" style="font-size: 2em;">
 								$
@@ -209,7 +209,7 @@
 							</span>
 						</p>
 
-						<div class="cc" style="margin-top: -10px; font-size: 0.76em;">
+						<div class="cc" style="margin-top: -10px; font-size: 0.7em;">
 							<p>
 								$ \u_i \v_i^T $
 								<span>
@@ -1043,7 +1043,7 @@
 										<img style="width: 100%;" src="images/applications-svd/magic.png">
 									</div>
 								</td>
-								<td style="width: 50%;">
+								<td class="fragment" data-fragment-index="0" style="width: 50%;">
 									<div style="margin-top: -40px; margin-bottom: -60px;">
 										<img style="width: 100%;" src="images/applications-svd/magic6.png">
 									</div>
@@ -1056,7 +1056,7 @@
 								<td style="width: 50%; text-align: center;">
 									Original
 								</td>
-								<td style="width: 50%; text-align: center;">
+								<td class="fragment" data-fragment-index="0" style="width: 50%; text-align: center;">
 									Rank-6
 								</td>
 							</tr>
@@ -1311,9 +1311,9 @@
 						<pre
 							style="width: 88%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A = magic(10);</code></pre>
 						<pre class="fragment" data-fragment-index="0"
-							style="width: 88%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> [U_6, S_6, V_6] = svds(A, 6); % Perfom rank-6 approximation</code></pre>
+							style="width: 88%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> [U_6, S_6, V_6] = svds(A, 6); % Perform rank-6 approximation</code></pre>
 						<pre class="fragment" data-fragment-index="1"
-							style="width: 88%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A_6 = U_6 * S_6 *V_6' % Construct the rank-4 approximation to A.
+							style="width: 88%; font-size: 85%;margin-top: -15px;"><code class="language-matlab">>> A_6 = U_6 * S_6 * V_6' % Construct the rank-4 approximation to A.
 </code></pre>
 						<pre class="fragment" data-fragment-index="2"
 							style="width: 88%;height: 510px; font-size: 55.5%;margin-top: -10px;"><code class="language-matlab">A_6 =
