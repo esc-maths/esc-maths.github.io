@@ -1951,7 +1951,7 @@ plt.show()</code></pre>
 							So we need to understand the symmetric matrix $A^T A$.
 						</p>
 
-						<div class="fragment" data-fragment-index="5"
+						<div class="fragment" data-fragment-index="6"
 							style="background: rgba(255,255,255,0.03); padding-left: 20px; margin-top: 12px; border-left: 6px solid blue; font-size: 1.1em; margin-top: 50px;">
 							<p style="margin: 0 0 5px 0;">
 								<b>Key idea:</b>
@@ -1968,13 +1968,13 @@ plt.show()</code></pre>
 				<section data-auto-animate>
 					<h4>Principal Directions of Stretching</h4>
 
-					<div style="font-size: 0.8em;">
+					<div style="font-size: 0.85em;">
 
 						<p class="fragment" data-fragment-index="0">
 							Let $\v_1,\v_2$ be orthonormal eigenvectors of $A^T A$:
 
 						</p>
-						<p style="text-align: center;">
+						<p style="text-align: center;" class="fragment" data-fragment-index="0">
 							$
 							A^T A\,\v_i = \lambda_i \v_i,
 							\qquad \lambda_1 > \lambda_2 > 0.
@@ -1985,14 +1985,14 @@ plt.show()</code></pre>
 							Any unit vector can be written as
 
 						</p>
-						<p style="text-align: center; margin-top: -10px;">
+						<p style="text-align: center; margin-top: -10px;"  class="fragment" data-fragment-index="1">
 							$
 							\mathbf{x}=c_1\v_1+c_2\v_2,
 							\qquad c_1^2+c_2^2=1.
 							$
 						</p>
-						<p style="text-align: center; margin-top: -10px;">
-							$
+						<p style="text-align: center; margin-top: 0px;" class="fragment" data-fragment-index="2">
+							Thus $\,
 							\|A\mathbf{x}\|^2
 							= \lambda_1c_1^2+\lambda_2c_2^2.
 							$
@@ -2002,8 +2002,7 @@ plt.show()</code></pre>
 
 						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
 
-							<div class="fragment" data-fragment-index="3" style="width: 48%; background: rgba(255,255,255,0.03);
-				padding: 10px; border-radius: 5px;">
+							<div class="fragment" data-fragment-index="3" style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
 
 								<p style="color: #1153bd; margin: 0;">
 									<b>Maximum Stretch</b>
@@ -2011,16 +2010,15 @@ plt.show()</code></pre>
 
 								<p style="margin: 5px 0;">
 									$c_1=1,\;c_2=0$
-									$\quad\Longrightarrow\quad \mathbf{x}=\v_1$
+									$\;\Longrightarrow\; \mathbf{x}=\v_1$
 								</p>
 
-								<p style="margin: 0;">
-									$$\|A\v_1\|=\sqrt{\lambda_1}=\sigma_1$$
+								<p style="margin-top: 15px; text-align: center;" class="fragment" data-fragment-index="4">
+									$\|A\v_1\|=\sqrt{\lambda_1}=\sigma_1 \qquad \qquad$
 								</p>
 							</div>
 
-							<div class="fragment" data-fragment-index="4" style="width: 48%; background: rgba(255,255,255,0.03);
-				padding: 10px; border-radius: 5px;">
+							<div class="fragment" data-fragment-index="5" style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
 
 								<p style="color: #d20c0c; margin: 0;">
 									<b>Minimum Stretch</b>
@@ -2028,23 +2026,26 @@ plt.show()</code></pre>
 
 								<p style="margin: 5px 0;">
 									$c_1=0,\;c_2=1$
-									$\quad\Longrightarrow\quad \mathbf{x}=\v_2$
+									$\;\Longrightarrow\; \mathbf{x}=\v_2$
 								</p>
 
-								<p style="margin: 0;">
-									$$\|A\v_2\|=\sqrt{\lambda_2}=\sigma_2$$
+								<p style="margin-top: 10px; text-align: center;"  class="fragment" data-fragment-index="6">
+									$\|A\v_2\|=\sqrt{\lambda_2}=\sigma_2\qquad \qquad$
 								</p>
 							</div>
 
 						</div>
 
-						<div class="fragment" data-fragment-index="5" style="background: rgba(255,255,255,0.05);
+						<div class="fragment" data-fragment-index="7" style="background: rgba(255,255,255,0.05);
 			padding: 10px; border-radius: 5px; margin-top: 15px;">
 
 							<p style="margin-top: -40px;">
 								Therefore,
-								<b>the eigenvectors of $A^T A$ give the principal directions</b>,
-								while their eigenvalues determine the amount of stretching.
+								the <span style="font-style: normal;"><b>eigenvectors</b></span> of $A^T A$ <span id="gg">give 
+								the principal directions</span>,
+								<span class="fragment">
+								while their <b>eigenvalues</b> <span id="gg">determine the amount of stretching</span>.
+								</span>
 							</p>
 
 						</div>
@@ -2056,9 +2057,9 @@ plt.show()</code></pre>
 				<section data-auto-animate>
 					<h4>From $A^T A$ to the SVD</h4>
 
-					<div style="font-size: 0.85em;" class="left-txt">
+					<div style="font-size: 0.87em;" class="left-txt">
 
-						<ul style="line-height: 1.65em; margin-left: 0px;">
+						<ul style="line-height: 1.7em; margin-left: 0px;">
 
 							<li class="fragment" data-fragment-index="0">
 								The eigenvalues of $A^T A$ satisfy
