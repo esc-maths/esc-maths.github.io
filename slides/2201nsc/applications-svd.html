@@ -1398,6 +1398,119 @@
 					<br />
 				</section>
 
+				<section data-auto-animate>
+					<h4>Images as Matrices</h4>
+
+					<div style="font-size: 0.85em;">
+						<p>
+							A digital image can be represented by <b>matrices of numbers</b>.
+						</p>
+
+						<div
+							style="display: flex; justify-content: space-around; align-items: center; margin-top: 30px;">
+							<div>
+								<p style="text-align: center;">
+									<b>Colour image</b>
+								</p>
+								<img src="images/applications-svd/thescream-original-color.jpg" style="height: 280px;">
+							</div>
+
+							<div style="font-size: 1.5em;">
+								$\iff$
+							</div>
+
+							<div>
+								<p style="text-align: center;">
+									<b>Three matrices</b>
+								</p>
+							
+								<p style="text-align: center; font-size: 0.75em;">
+										\(
+R =
+\begin{pmatrix}
+255 & 120  & \cdots \\
+240 & 110  & \cdots \\
+198 & 95   & \cdots \\
+\vdots & \vdots  & \ddots
+\end{pmatrix}
+\;
+G =
+\begin{pmatrix}
+80 & 180 &  \cdots \\
+75 & 165 & \cdots \\
+60 & 140 &  \cdots \\
+\vdots & \vdots &  \ddots
+\end{pmatrix}
+\;
+B =
+\begin{pmatrix}
+30 & 90  & \cdots \\
+25 & 85  & \cdots \\
+20 & 70  & \cdots \\
+\vdots &  \vdots & \ddots
+\end{pmatrix}.
+\)
+								</p>
+							</div>
+						</div>
+
+						<p class="fragment" style="margin-top: 25px;">
+							Each matrix stores the <b>intensity</b> of one colour channel at each pixel.
+						</p>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Images as Matrices</h4>
+
+					<div style="font-size: 0.85em;">
+						<p>
+							A <b>grayscale image</b> can be represented by a single matrix.
+						</p>
+
+						<div
+							style="display: flex; justify-content: space-around; align-items: center; margin-top: 30px;">
+							<div>
+								<p style="text-align: center;">
+									<b>Grayscale image</b>
+								</p>
+								<img src="images/applications-svd/thescream-original.jpg" style="height: 280px;">
+							</div>
+
+							<div style="font-size: 1.5em;">
+								$\Longleftrightarrow$
+							</div>
+
+							<div>
+								<p style="text-align: center;">
+									<b>Intensity matrix</b>
+								</p>
+								\[
+								A =
+								\begin{pmatrix}
+								255 & 254 & 250 & \cdots \\
+								248 & 245 & 241 & \cdots \\
+								\vdots & \vdots & \vdots & \ddots
+								\end{pmatrix}
+								\]
+							</div>
+						</div>
+
+						<p class="fragment" style="margin-top: 25px;">
+							Each entry of $A$ represents the <b>intensity of one pixel</b>.
+						</p>
+
+						<p class="fragment">
+							Thus, an $m\times n$ grayscale image corresponds to a matrix
+							$A\in\mathbb{R}^{m\times n}$.
+						</p>
+					</div>
+
+				</section>
+
+
+
 
 				<section data-auto-animate>
 					<h4>SVD Image Compression</h4>
@@ -1985,7 +2098,7 @@ plt.show()</code></pre>
 							Any unit vector can be written as
 
 						</p>
-						<p style="text-align: center; margin-top: -10px;"  class="fragment" data-fragment-index="1">
+						<p style="text-align: center; margin-top: -10px;" class="fragment" data-fragment-index="1">
 							$
 							\mathbf{x}=c_1\v_1+c_2\v_2,
 							\qquad c_1^2+c_2^2=1.
@@ -2002,7 +2115,8 @@ plt.show()</code></pre>
 
 						<div style="display: flex; justify-content: space-between; margin-top: 15px;">
 
-							<div class="fragment" data-fragment-index="3" style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+							<div class="fragment" data-fragment-index="3"
+								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
 
 								<p style="color: #1153bd; margin: 0;">
 									<b>Maximum Stretch</b>
@@ -2013,12 +2127,14 @@ plt.show()</code></pre>
 									$\;\Longrightarrow\; \mathbf{x}=\v_1$
 								</p>
 
-								<p style="margin-top: 15px; text-align: center;" class="fragment" data-fragment-index="4">
+								<p style="margin-top: 15px; text-align: center;" class="fragment"
+									data-fragment-index="4">
 									$\|A\v_1\|=\sqrt{\lambda_1}=\sigma_1 \qquad \qquad$
 								</p>
 							</div>
 
-							<div class="fragment" data-fragment-index="5" style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
+							<div class="fragment" data-fragment-index="5"
+								style="width: 48%; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 5px;">
 
 								<p style="color: #d20c0c; margin: 0;">
 									<b>Minimum Stretch</b>
@@ -2029,7 +2145,8 @@ plt.show()</code></pre>
 									$\;\Longrightarrow\; \mathbf{x}=\v_2$
 								</p>
 
-								<p style="margin-top: 10px; text-align: center;"  class="fragment" data-fragment-index="6">
+								<p style="margin-top: 10px; text-align: center;" class="fragment"
+									data-fragment-index="6">
 									$\|A\v_2\|=\sqrt{\lambda_2}=\sigma_2\qquad \qquad$
 								</p>
 							</div>
@@ -2041,10 +2158,12 @@ plt.show()</code></pre>
 
 							<p style="margin-top: -40px;">
 								Therefore,
-								the <span style="font-style: normal;"><b>eigenvectors</b></span> of $A^T A$ <span id="gg">give 
-								the principal directions</span>,
+								the <span style="font-style: normal;"><b>eigenvectors</b></span> of $A^T A$ <span
+									id="gg">give
+									the principal directions</span>,
 								<span class="fragment">
-								while their <b>eigenvalues</b> <span id="gg">determine the amount of stretching</span>.
+									while their <b>eigenvalues</b> <span id="gg">determine the amount of
+										stretching</span>.
 								</span>
 							</p>
 
