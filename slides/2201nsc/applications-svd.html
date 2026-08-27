@@ -1461,7 +1461,7 @@
 								<td style="width: 50%;margin-bottom: 0px; border: none;" class="fragment"
 									data-fragment-index="0">
 									<div style="margin-top: -40px;margin-bottom: -40px;">
-										<img style="width:100%;" src="images/applications-svd/thescream-rank-250.jpg">
+										<img style="width:100%;" src="images/applications-svd/thescream-rank-350.jpg">
 									</div>
 								</td>
 							</tr>
@@ -1493,7 +1493,7 @@
 								</td>
 								<td style="width: 50%;margin-bottom: 0px; border: none;">
 									<div style="margin-top: -40px;margin-bottom: -40px;">
-										<img style="width:100%;" src="images/applications-svd/thescream-rank-100.jpg">
+										<img style="width:100%;" src="images/applications-svd/thescream-rank-150.jpg">
 									</div>
 								</td>
 							</tr>
@@ -1502,7 +1502,39 @@
 									Original
 								</td>
 								<td style="text-align: center; border: none;">
-									78% compression
+									76% compression
+								</td>
+							</tr>
+						</table>
+
+					</div>
+					<br />
+				</section>
+				<section>
+					<h4>
+						SVD Image Compression: <i>The Scream</i>
+					</h4>
+					<div class="size-85">
+
+						<table style="width: 80%;">
+							<tr>
+								<td style="width: 50%;margin-bottom: 0px; border: none;">
+									<div style="margin-top: -40px;margin-bottom: -40px; border: none;">
+										<img style="width:100%;" src="images/applications-svd/thescream-original.jpg">
+									</div>
+								</td>
+								<td style="width: 50%;margin-bottom: 0px; border: none;">
+									<div style="margin-top: -40px;margin-bottom: -40px;">
+										<img style="width:100%;" src="images/applications-svd/thescream-rank-80.jpg">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align: center; border: none;">
+									Original
+								</td>
+								<td style="text-align: center; border: none;">
+									87% compression
 								</td>
 							</tr>
 						</table>
@@ -1534,39 +1566,7 @@
 									Original
 								</td>
 								<td style="text-align: center; border: none;">
-									89% compression
-								</td>
-							</tr>
-						</table>
-
-					</div>
-					<br />
-				</section>
-				<section>
-					<h4>
-						SVD Image Compression: <i>The Scream</i>
-					</h4>
-					<div class="size-85">
-
-						<table style="width: 80%;">
-							<tr>
-								<td style="width: 50%;margin-bottom: 0px; border: none;">
-									<div style="margin-top: -40px;margin-bottom: -40px; border: none;">
-										<img style="width:100%;" src="images/applications-svd/thescream-original.jpg">
-									</div>
-								</td>
-								<td style="width: 50%;margin-bottom: 0px; border: none;">
-									<div style="margin-top: -40px;margin-bottom: -40px;">
-										<img style="width:100%;" src="images/applications-svd/thescream-rank-30.jpg">
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td style="text-align: center; border: none;">
-									Original
-								</td>
-								<td style="text-align: center; border: none;">
-									93% compression
+									92% compression
 								</td>
 							</tr>
 						</table>
@@ -1635,7 +1635,7 @@
 										<td style="text-align: center;">
 											<img src="images/applications-svd/thescream-rank-100.jpg" height="230">
 
-											<p style="text-align: center; margin-top: -20px; margin-bottom: -5px;">78%
+											<p style="text-align: center; margin-top: -20px; margin-bottom: -5px;">76%
 											</p>
 										</td>
 									</tr>
@@ -1643,12 +1643,12 @@
 										<td style="text-align: center;">
 											<img src="images/applications-svd/thescream-rank-50.jpg" height="230">
 
-											<p style="text-align: center; margin-top: -20px;">89%</p>
+											<p style="text-align: center; margin-top: -20px;">87%</p>
 										</td>
 										<td style="text-align: center;">
 											<img src="images/applications-svd/thescream-rank-30.jpg" height="230">
 
-											<p style="text-align: center; margin-top: -20px;">93%</p>
+											<p style="text-align: center; margin-top: -20px;">92%</p>
 										</td>
 										<td style="text-align: center;">
 											<img src="images/applications-svd/thescream-rank-10.jpg" height="230">
@@ -1674,11 +1674,11 @@
 									</span>
 								</p>
 								<p class="fragment">
-									👉 $\,r=250,\,100,\,50,\,30,$ and $10$
+									👉 $\,r=350,\,150,\,80,\,50,$ and $10$
 								</p>
 								<p class="fragment">
-									$\Rightarrow \,45\%,\,78\%,\,89\%,\,93\%,$ and $98\%;$<br />
-									$\quad \,$respectively
+									$\Rightarrow \,45\%,\,76\%,\,87\%,\,92\%,$ and $98\%;$<br />
+									$\quad \,$respectively.
 								</p>
 							</div>
 						</div>
@@ -1697,13 +1697,20 @@
 							<h4>
 								Octave<br/>MATLAB
 							</h4>
-							<p style="text-align: center;">💻 😃</p>
+							<p style="text-align: center;font-size: 0.85em;">
+								Run code locally! 💻 😃
+								<pre style="font-size: 0.5em; width: 390px;"><code>svd_compression/
+├── svd_image_compression.m
+└── thescream-original.jpg</code></pre>
+							</p>
+
+							
 						</div>
 						<div>
 							<pre style="font-size: 0.39em; height: 710px; margin-top: -10px; width: 102%;"><code>r = 10;  % Rank
 
 % Load image
-a = imread("screamBW770.jpg");
+a = imread("picture_file.jpg");
 
 % RGB channels
 R = double(a(:, :, 1));
@@ -1746,30 +1753,36 @@ title(sprintf("Rank-%d Approximation / Compression %d%%", r, comp));</code></pre
 							<h4>
 								Python 🐍
 							</h4>
-							<p style="text-align: center;">💻 😃</p>
+							
+							<p style="text-align: center;font-size: 0.85em;">
+								Run code locally! 💻 😃
+								<pre style="font-size: 0.5em; width: 390px;"><code>svd_compression/
+├── svd_image_compression.py
+└── thescream-original.jpg</code></pre>
+							</p>
 						</div>
 						<div>
-							<pre style="font-size: 0.36em; height: 710px; margin-top: -10px; width: 102%;"><code>import numpy as np
+							<pre style="font-size: 0.36em; height: 745px; margin-top: -10px; width: 102%;"><code>import numpy as np
 from scipy.sparse.linalg import svds
 import matplotlib.pyplot as plt
 from PIL import Image
-import requests
-from io import BytesIO
-r = 10 # Rank
-url = "https://esc-maths.github.io/slides/2201nsc/images/applications-svd/thescream-original.jpg"
-response = requests.get(url)
-a = np.array(Image.open(BytesIO(response.content))) # numpy array
+
+r = 10  # Rank
+# Load image from local folder
+a = np.array(Image.open("picture_file.jpg"))
 R = a[:, :, 0].astype(float)
 G = a[:, :, 1].astype(float)
 B = a[:, :, 2].astype(float)
+
 # Function for rank-r SVD approximation
 def svd_approx(X, r):
     U, S, Vt = svds(X, k=r)
     # Reverse order: svds returns smallest → largest
     S = np.diag(S[::-1])
-    U = U[:, ::-1] # Now reorder the corresponding singular vectors
+    U = U[:, ::-1]
     Vt = Vt[::-1, :]
     return U @ S @ Vt
+
 # Apply to each channel
 R_approx = svd_approx(R, r)
 G_approx = svd_approx(G, r)
@@ -1777,15 +1790,17 @@ B_approx = svd_approx(B, r)
 # Reconstruct image
 a_out = np.stack([R_approx, G_approx, B_approx], axis=2)
 a_out = np.clip(a_out, 0, 255).astype(np.uint8)
+# Compression
 m, n, _ = a.shape
-comp = round( (1 - r*(1+m+n)/(m*n)) , 2) * 100
-# Plot side by side (like montage in Octave)
+comp = round((1 - r * (1 + m + n) / (m * n)), 2) * 100
+
+# Display
 fig, axes = plt.subplots(1, 2, figsize=(15, 10))
 axes[0].imshow(a)
 axes[0].set_title("Original")
 axes[0].axis("off")
 axes[1].imshow(a_out)
-axes[1].set_title(f"Rank-{r} Approximation/ Compression {comp}%")
+axes[1].set_title(f"Rank-{r} Approximation / Compression {comp}%")
 axes[1].axis("off")
 plt.show()</code></pre>
 						</div>
