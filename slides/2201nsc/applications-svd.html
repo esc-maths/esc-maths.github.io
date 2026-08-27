@@ -1458,7 +1458,8 @@
 										<img style="width:100%;" src="images/applications-svd/thescream-original.jpg">
 									</div>
 								</td>
-								<td style="width: 50%;margin-bottom: 0px; border: none;">
+								<td style="width: 50%;margin-bottom: 0px; border: none;" class="fragment"
+									data-fragment-index="0">
 									<div style="margin-top: -40px;margin-bottom: -40px;">
 										<img style="width:100%;" src="images/applications-svd/thescream-rank-250.jpg">
 									</div>
@@ -1468,7 +1469,7 @@
 								<td style="text-align: center; border: none;">
 									Original
 								</td>
-								<td style="text-align: center; border: none;">
+								<td style="text-align: center; border: none;" class="fragment" data-fragment-index="0">
 									45% compression
 								</td>
 							</tr>
@@ -1690,6 +1691,107 @@
 					</div>
 				</section>
 
+				<section>
+					<div style="display: flex; justify-content:space-around; align-items:center">
+						<div>
+							<h4>
+								Octave<br/>MATLAB
+							</h4>
+							<p style="text-align: center;">💻 😃</p>
+						</div>
+						<div>
+							<pre style="font-size: 0.39em; height: 710px; margin-top: -10px; width: 102%;"><code>r = 10;  % Rank
+
+% Load image
+a = imread("screamBW770.jpg");
+
+% RGB channels
+R = double(a(:, :, 1));
+G = double(a(:, :, 2));
+B = double(a(:, :, 3));
+
+% Rank-r SVD approximation of each channel
+[U,S,V] = svd(R, "econ");
+Rr = U(:,1:r) * S(1:r,1:r) * V(:,1:r)';
+
+[U,S,V] = svd(G, "econ");
+Gr = U(:,1:r) * S(1:r,1:r) * V(:,1:r)';
+
+[U,S,V] = svd(B, "econ");
+Br = U(:,1:r) * S(1:r,1:r) * V(:,1:r)';
+
+% Reconstruct image
+a_out = cat(3, Rr, Gr, Br);
+a_out = uint8(max(0, min(255, a_out)));
+
+% Compression
+[m,n,~] = size(a);
+comp = round((1 - r*(1+m+n)/(m*n))*100);
+
+% Display
+subplot(1,2,1);
+imshow(a);
+title("Original");
+
+subplot(1,2,2);
+imshow(a_out);
+title(sprintf("Rank-%d Approximation / Compression %d%%", r, comp));</code></pre>
+						</div>
+					</div>
+
+				</section>
+				<section>
+					<div style="display: flex; justify-content:space-around; align-items:center">
+						<div>
+							<h4>
+								Python 🐍
+							</h4>
+							<p style="text-align: center;">💻 😃</p>
+						</div>
+						<div>
+							<pre style="font-size: 0.36em; height: 710px; margin-top: -10px; width: 102%;"><code>import numpy as np
+from scipy.sparse.linalg import svds
+import matplotlib.pyplot as plt
+from PIL import Image
+import requests
+from io import BytesIO
+r = 10 # Rank
+url = "https://esc-maths.github.io/slides/2201nsc/images/applications-svd/thescream-original.jpg"
+response = requests.get(url)
+a = np.array(Image.open(BytesIO(response.content))) # numpy array
+R = a[:, :, 0].astype(float)
+G = a[:, :, 1].astype(float)
+B = a[:, :, 2].astype(float)
+# Function for rank-r SVD approximation
+def svd_approx(X, r):
+    U, S, Vt = svds(X, k=r)
+    # Reverse order: svds returns smallest → largest
+    S = np.diag(S[::-1])
+    U = U[:, ::-1] # Now reorder the corresponding singular vectors
+    Vt = Vt[::-1, :]
+    return U @ S @ Vt
+# Apply to each channel
+R_approx = svd_approx(R, r)
+G_approx = svd_approx(G, r)
+B_approx = svd_approx(B, r)
+# Reconstruct image
+a_out = np.stack([R_approx, G_approx, B_approx], axis=2)
+a_out = np.clip(a_out, 0, 255).astype(np.uint8)
+m, n, _ = a.shape
+comp = round( (1 - r*(1+m+n)/(m*n)) , 2) * 100
+# Plot side by side (like montage in Octave)
+fig, axes = plt.subplots(1, 2, figsize=(15, 10))
+axes[0].imshow(a)
+axes[0].set_title("Original")
+axes[0].axis("off")
+axes[1].imshow(a_out)
+axes[1].set_title(f"Rank-{r} Approximation/ Compression {comp}%")
+axes[1].axis("off")
+plt.show()</code></pre>
+						</div>
+					</div>
+
+				</section>
 
 
 			</section>
