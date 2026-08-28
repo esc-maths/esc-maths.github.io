@@ -1404,7 +1404,7 @@
 					<h4>Images as Matrices</h4>
 
 					<div style="margin-top: -20px;">
-						<iframe style="width: 90%; height: 670px; border: 1px solid black;"
+						<iframe style="width: 90%; height: 650px; border: 1px solid black;"
 							data-src="=../../../revealjs-animations/images-as-arrays-of-pixels"></iframe>
 					</div>
 
@@ -1414,12 +1414,12 @@
 					<h4>Images as Matrices</h4>
 
 					<div style="font-size: 0.85em;">
-						<p>
+						<p style="text-align: center;">
 							A digital image can be represented by <b>matrices of numbers</b>.
 						</p>
 
 						<div
-							style="display: flex; justify-content: space-around; align-items: center; margin-top: 30px;">
+							style="display: flex; justify-content: space-around; align-items: center; margin-top: -20px;">
 							<div>
 								<p style="text-align: center;">
 									<b>Colour image</b>
@@ -1436,37 +1436,37 @@
 									<b>Three matrices</b>
 								</p>
 
-								<p style="text-align: center; font-size: 0.75em;">
+								<p style="text-align: center; font-size: 0.7em;">
 									\(
-									R =
+									\color{red}{{\Large R =}
 									\begin{pmatrix}
 									255 & 120 & \cdots \\
 									240 & 110 & \cdots \\
 									198 & 95 & \cdots \\
 									\vdots & \vdots & \ddots
-									\end{pmatrix}
+									\end{pmatrix}}
 									\;
-									G =
+									\color{darkgreen}{{\Large G =}
 									\begin{pmatrix}
 									80 & 180 & \cdots \\
 									75 & 165 & \cdots \\
 									60 & 140 & \cdots \\
 									\vdots & \vdots & \ddots
-									\end{pmatrix}
+									\end{pmatrix}}
 									\;
-									B =
+									\color{blue}{{\Large B =}
 									\begin{pmatrix}
 									30 & 90 & \cdots \\
 									25 & 85 & \cdots \\
 									20 & 70 & \cdots \\
 									\vdots & \vdots & \ddots
-									\end{pmatrix}.
+									\end{pmatrix}}
 									\)
-								</p>
+								</p><br />
 							</div>
 						</div>
 
-						<p class="fragment" style="margin-top: 25px;">
+						<p class="fragment" style="margin-top: 25px; text-align: center;">
 							Each matrix stores the <b>intensity</b> of one colour channel at each pixel.
 						</p>
 					</div>
@@ -1477,12 +1477,12 @@
 					<h4>Images as Matrices</h4>
 
 					<div style="font-size: 0.85em;">
-						<p>
+						<p style="text-align: center;">
 							A <b>grayscale image</b> can be represented by a single matrix.
 						</p>
 
 						<div
-							style="display: flex; justify-content: space-around; align-items: center; margin-top: 30px;">
+							style="display: flex; justify-content: space-around; align-items: center; margin-top: -20px;">
 							<div>
 								<p style="text-align: center;">
 									<b>Grayscale image</b>
@@ -1498,27 +1498,29 @@
 								<p style="text-align: center;">
 									<b>Intensity matrix</b>
 								</p>
-								\[
-								A =
-								\begin{pmatrix}
-								255 & 254 & 250 & \cdots \\
-								248 & 245 & 241 & \cdots \\
-								\vdots & \vdots & \vdots & \ddots
-								\end{pmatrix}
-								\]
+								<p style="text-align: center;">
+									${\Large A =}\,
+									\begin{pmatrix}
+									255 & 254 & 250 & \cdots \\
+									248 & 245 & 241 & \cdots \\
+									\vdots & \vdots & \vdots & \ddots
+									\end{pmatrix}$
+								</p>
+								<br />
 							</div>
 						</div>
 
-						<p class="fragment" style="margin-top: 25px;">
+						<p class="fragment" style="margin-top: 25px; text-align: center;">
 							Each entry of $A$ represents the <b>intensity of one pixel</b>.
 						</p>
 
-						<p class="fragment">
+						<p class="fragment" style="text-align: center;">
 							Thus, an $m\times n$ grayscale image corresponds to a matrix
 							$A\in\mathbb{R}^{m\times n}$.
 						</p>
 					</div>
 
+					<Br />
 				</section>
 
 
@@ -1566,10 +1568,33 @@
 							ranks to <b>Norwegian artist Edvard Munch's</b> famous painting
 							<i>The Scream</i> (1893).
 						</p>
-						<div style="margin-top: -30px;">
-							<img style="width: 30%;" src="images/applications-svd/thescream-original.jpg">
-						</div>
+
 					</div>
+
+					<table style="width: 80%; margin-top: -20px; ">
+						<tr>
+							<td style="width: 45%; text-align: center;">
+								<div>
+									<img style="width: 100%;" src="images/applications-svd/thescream-original.jpg">
+								</div>
+							</td>
+							<td style="width: 55%; text-align: left; font-size: 0.9em;">
+								Color Model: RGB (B&amp;W) <br/>
+								Image size: 1094✕1504 pixels <br />
+								Type: JPEG image<br />
+								<br/>
+								<br/>
+
+							</td>
+							
+						</tr>
+					</table>
+
+
+
+
+
+
 				</section>
 
 
@@ -1597,7 +1622,7 @@
 							</tr>
 							<tr>
 								<td style="text-align: center; border: none;">
-									Original
+									Original <span style="font-size: 0.7em;">(1094✕1504 pixels)</span>
 								</td>
 								<td style="text-align: center; border: none;" class="fragment" data-fragment-index="0">
 									45% compression
@@ -1629,7 +1654,7 @@
 							</tr>
 							<tr>
 								<td style="text-align: center; border: none;">
-									Original
+									Original <span style="font-size: 0.7em;">(1094✕1504 pixels)</span>
 								</td>
 								<td style="text-align: center; border: none;">
 									76% compression
@@ -1661,7 +1686,7 @@
 							</tr>
 							<tr>
 								<td style="text-align: center; border: none;">
-									Original
+									Original <span style="font-size: 0.7em;">(1094✕1504 pixels)</span>
 								</td>
 								<td style="text-align: center; border: none;">
 									87% compression
@@ -1693,7 +1718,7 @@
 							</tr>
 							<tr>
 								<td style="text-align: center; border: none;">
-									Original
+									Original <span style="font-size: 0.7em;">(1094✕1504 pixels)</span>
 								</td>
 								<td style="text-align: center; border: none;">
 									92% compression
@@ -1725,7 +1750,7 @@
 							</tr>
 							<tr>
 								<td style="text-align: center; border: none;">
-									Original
+									Original <span style="font-size: 0.7em;">(1094✕1504 pixels)</span>
 								</td>
 								<td style="text-align: center; border: none;">
 									98% compression
@@ -1830,9 +1855,14 @@
 							</h4>
 							<p style="text-align: center;font-size: 0.85em;">
 								Run code locally! 💻 😃
-							<pre style="font-size: 0.5em; width: 390px;"><code>svd_compression/
+							<pre style="font-size: 0.5em; width: 390px;"><code data-trim class="language-matlab">svd_compression/
 ├── svd_image_compression.m
 └── picture_file.jpg</code></pre>
+							</p>
+							<p style="text-align: left; font-size: 0.6em; margin-top: 50px; border-left: 6px solid red; padding-left: 10px;">
+								<b>Warning:</b> It requires a little more <br/>
+								knowledge of Octave / MATLAB❗️
+
 							</p>
 
 
@@ -1887,9 +1917,13 @@ title(sprintf("Rank-%d Approximation / Compression %d%%", r, comp));</code></pre
 
 							<p style="text-align: center;font-size: 0.85em;">
 								Run code locally! 💻 😃
-							<pre style="font-size: 0.5em; width: 390px;"><code>svd_compression/
+							<pre style="font-size: 0.5em; width: 390px;"><code data-trim class="language-python">svd_compression/
 ├── svd_image_compression.py
 └── picture_file.jpg</code></pre>
+							</p>
+							<p style="text-align: left; font-size: 0.6em; margin-top: 50px; border-left: 6px solid red; padding-left: 10px;">
+								<b>Warning:</b> It requires a more advanced <br/>
+								knowledge of Python❗️❗️🧐
 							</p>
 						</div>
 						<div>
@@ -1946,7 +1980,7 @@ plt.show()</code></pre>
 
 					<div class="size-80">
 
-						<p class="fragment">
+						<p>
 							<b>Theoretically:</b> we can compute the SVD using the
 							linear algebra we have learned.
 						</p>
@@ -2874,8 +2908,8 @@ plt.show()</code></pre>
 
 							<p style="text-align: center;font-size: 0.75em;">
 								Run code locally! 💻 😃
-							<pre style="font-size: 0.55em; width: 320px;"><code>iris_class_svd/
-├── iris_class_svd.m
+							<pre style="font-size: 0.55em; width: 320px;"><code data-trim class="language-matlab">iris_data_plot/
+├── iris_data_plot.m
 └── iris.data.csv</code></pre>
 							</p>
 						</div>
@@ -2883,23 +2917,76 @@ plt.show()</code></pre>
 							<p style="font-size: 0.7em;">
 								<b>Plot of sepal length (horizontal) vs sepal width (vertical):</b>
 							</p>
-							<pre style="font-size: 0.55em;  margin-top: -20px; width: 102%;"><code data-trim class="language-python">T = readtable("iris.data.csv");
+							<pre style="font-size: 0.45em;  margin-top: 10px; width: 102%;"><code data-trim class="language-matlab">% 1. Read the mixed data into a table
+T = readtable("iris.data.csv");
+
+% 2. Extract ONLY the first 4 columns (the numbers) for math
+% Note: If your CSV has no headers, this might be T(:, 1:4)
 iris_num = table2array(T(:, 1:4)); 
+
+% 3. Extract the 5th column (the text) and convert to numeric color codes
 [~, ~, color_idx] = unique(T{:, 5});
-iris_cen = iris_num - mean(iris_num);
-scatter(iris_cen(:,1), iris_cen(:,2), [], color_idx, 'filled')
+
+% 4. Do the math ONLY on the numbers
+iris_centered = iris_num - mean(iris_num);
+
+% 5. Plot
+scatter(iris_centered(:,1), iris_centered(:,2), [], color_idx, 'filled')
 xlabel('sepal length')
 ylabel('sepal width')</code></pre>
 
-							<p style="font-size: 0.7em; margin-top: 40px;">
+							
+						</div>
+					</div>
+
+					<div
+						style="font-size: 0.8em; border-left: 6px solid red; padding-left: 10px; margin-left: 80px; margin-top: 30px;">
+						<p><b>Warning:</b> It requires a more advanced knowledge of MATLAB❗️❗️❗️🧐</p>
+					</div>
+
+					<br />
+
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Using PCA for Iris Dataset Classification
+					</h4>
+					<div style="display: flex; justify-content:space-around; align-items:center; margin-top: -20px;">
+						<div>
+							<h4>
+								MATLAB
+							</h4>
+
+							<p style="text-align: center;font-size: 0.75em;">
+								Run code locally! 💻 😃
+							<pre style="font-size: 0.55em; width: 320px;"><code data-trim class="language-matlab">iris_class_svd/
+├── iris_class_svd.m
+└── iris.data.csv</code></pre>
+							</p>
+						</div>
+						<div>
+							
+							<p style="font-size: 0.7em; margin-top: 20px;">
 								<b>Plot of the first and second principal components:</b>
 							</p>
-							<pre style="font-size: 0.55em;  margin-top: -20px; width: 102%;"><code data-trim class="language-python">T = readtable("iris.data.csv");
+							<pre style="font-size: 0.45em;  margin-top: -20px; width: 102%; height: 490px;"><code data-trim class="language-matlab">% 1. Load the CSV into a table (preserving both numbers and text)
+% Add 'ReadVariableNames', false if your CSV file has no header row
+T = readtable("iris.data.csv");
+
+% 2. Separate the numeric features (cols 1-4) from the species text (col 5)
 iris_num = table2array(T(:, 1:4));
 [~, ~, color_idx] = unique(T{:, 5});
+
+% 3. Mean-center ONLY the numeric features
 iris_centered = iris_num - mean(iris_num);
+
+% 4. Compute Singular Value Decomposition (SVD)
 [u, s, v] = svds(iris_centered, 2);
+
+% 5. Project numeric data onto the top 2 principal components
 us = iris_centered * v;
+
+% 6. Plot using the species color indices
 scatter(us(:,1), us(:,2), [], color_idx, 'filled')
 xlabel('princomp1')
 ylabel('princomp2')</code></pre>
@@ -2907,8 +2994,8 @@ ylabel('princomp2')</code></pre>
 					</div>
 
 					<div
-						style="font-size: 0.8em; border-left: 6px solid red; padding-left: 10px; margin-left: 100px; margin-top: -20px;">
-						<p><b>Warning:</b> It requires a more advanced knowledge of MATLAB❗️🧐</p>
+						style="font-size: 0.8em; border-left: 6px solid red; padding-left: 10px; margin-left: 80px; margin-top: 30px;">
+						<p><b>Warning:</b> It requires a more advanced knowledge of MATLAB❗️❗️❗️🧐</p>
 					</div>
 
 					<br />
@@ -2922,7 +3009,7 @@ ylabel('princomp2')</code></pre>
 
 					<div class="size-80">
 
-						<p class="fragment">
+						<p>
 							<b>Theoretically:</b> we can compute PCA using the
 							linear algebra we have learned.
 						</p>
@@ -2932,21 +3019,38 @@ ylabel('princomp2')</code></pre>
 							<b>very time-consuming</b> for large datasets.
 						</p>
 
+						<!--
 						<div class="fragment"
-							style="display: flex; justify-content: space-between; align-items: center; width: 80%; margin-top: -20px; margin-left: 20px;">
+							style="display: flex; justify-content:space-around; align-items:center; width: 80%; margin-top: -30px; margin-left: 60px;">
 
-							<div style="width: 55%; font-size: 0.9em;">
+							<div>
 								<p>
-									💻 This is where the <b>computer helps us</b>:<br/>
+									💻 This is where the <b>computer helps us</b>:
 									it performs the numerical calculations quickly and accurately.
 								</p>
 							</div>
+							<div>
+								<img style="width: 300px;"
+									src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
+							</div>
+						</div>-->
 
-							<div style="width: 45%;">
-								<h4 style="margin-bottom: 5px;">MATLAB</h4>
-								<pre style="font-size: 0.7em; width: 650px; margin-top: -5px;"><code>iris_centered = iris_num - mean(iris_num);
-[u, s, v] = svds(iris_centered, 2);
-us = iris_centered * v;</code></pre>
+						<div class="fragment"
+							style="display: flex; justify-content: space-around; align-items: center; width: 80%; margin-top: -20px; margin-left: 60px;">
+
+							<div>
+								<p>
+									💻 This is where the <b>computer helps us</b>:<br />
+									it performs the numerical calculations <br>
+									quickly and accurately.
+								</p>
+							</div>
+
+							<div >
+								
+								<img style="width: 200px;"
+									src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
+							
 							</div>
 
 						</div>

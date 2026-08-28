@@ -63,9 +63,9 @@ async function setup() {
   labelCodes = labels.map(label => labelMap[label]);
 
   speciesColors = [
-    color(255, 99, 132), // setosa
-    color(54, 162, 235), // versicolor
-    color(255, 206, 86)  // virginica
+    color(31, 119, 180),  // setosa — blue
+    color(255, 127, 14),  // versicolor — orange
+    color(44, 160, 44)    // virginica — green
   ];
 
   // ---- Center data for PCA (and for initial plot) ----
@@ -235,8 +235,9 @@ function drawPlot() {
   for (let i = 0; i < currentPoints.length; i++) {
     const [x, y] = currentPoints[i];
     const code = labelCodes[i];
+    stroke(255);
+    strokeWeight(1);
     fill(speciesColors[code]);
-    noStroke();
     ellipse(mapX(x), mapY(y), pointSize, pointSize);
   }
 
@@ -253,9 +254,9 @@ function drawPlot() {
   pop();
 
   // ----- Legend -----
-  const legX = width - 180;
+  const legX = width - 160;
   const legY = 30;
-  textSize(14);
+  textSize(16);
   textAlign(LEFT, CENTER);
   for (let i = 0; i < uniqueLabels.length; i++) {
     fill(speciesColors[i]);
@@ -270,7 +271,7 @@ function drawPlot() {
     fill(0);
     textSize(14);
     textAlign(LEFT, TOP);
-    text('Transition: ' + round(transitionProgress * 100) + '%', 10, 10);
+    text('Transition: ' + round(transitionProgress * 100) + '%', width/2 - 50, 10);
   }
 }
 
