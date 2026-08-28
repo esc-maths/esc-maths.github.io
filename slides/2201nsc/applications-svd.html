@@ -2558,7 +2558,7 @@ plt.show()</code></pre>
 									\text{obs. 2}\\
 									\vdots\\
 									\text{obs. }m
-									\end{pmatrix}\quad 
+									\end{pmatrix}\quad
 									$
 								</p>
 
@@ -2636,7 +2636,7 @@ plt.show()</code></pre>
 						<div class="cc" style="margin-top:0px; font-size:1.1em;">
 							<p class="fragment" data-fragment-index="5" id="bb">
 								PCA finds a new orthogonal basis that reveals
-							dominant patterns in the data!
+								dominant patterns in the data!
 							</p>
 
 						</div>
@@ -2673,7 +2673,7 @@ plt.show()</code></pre>
 								</p>
 
 								<p style="text-align: left; font-size: 0.9em;">
-									<tt>high-dimensional data </tt><br/>
+									<tt>high-dimensional data </tt><br />
 									$\qquad \longrightarrow\;$
 									<tt>informative features</tt>
 								</p>
@@ -2696,7 +2696,7 @@ plt.show()</code></pre>
 								</p>
 
 								<p style="text-align: left; font-size: 0.9em;">
-									<tt>many variables</tt><br/>
+									<tt>many variables</tt><br />
 									$\qquad \longrightarrow\;$
 									<tt>fewer variables</tt>
 								</p>
@@ -2747,7 +2747,7 @@ plt.show()</code></pre>
 								</p>
 
 								<p style="text-align: left; font-size: 0.9em;">
-									<tt>high-dimensional data</tt><br/>
+									<tt>high-dimensional data</tt><br />
 									$\;\longrightarrow\;$
 									<tt>2D or 3D visualisation</tt>
 								</p>
@@ -2764,6 +2764,138 @@ plt.show()</code></pre>
 						</p>
 
 					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>
+						Iris Dataset Classification using SVD
+					</h4>
+					<div style="margin-top: -30px;">
+						<img style="width: 900px;" src="images/applications-svd/iris_photo.png">
+					</div>
+					<div class="size-80" style="margin-top: -40px;">
+						<p class="fragment">
+							A well-established example of the value of PCA, through a set of data obtained by Edgar
+							Anderson measuring the lengths and widths of <i>Iris</i> sepals and petals.
+							<span class="fragment">
+								The data set
+								contains measurements for 30 flowers from each of three different species of irises
+								(<i>setosa</i>, <i>versicolor</i>, <i>virginia</i>).
+							</span>
+						</p>
+						<p class="fragment"
+							style="font-size: 1.1em; border-left: 6px solid rgb(0, 38, 255); padding-left: 20px;">
+							<b>Question:</b>
+							Can we use these measurements as a way of identifying which species an iris belongs to?
+						</p>
+					</div>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Iris Dataset Classification using SVD
+					</h4>
+					<table style="width: 100%;">
+
+						<td style="width: 40%;">
+							<div style="margin-top: 0px; font-size: 0.9em;">
+								<pre style="width: 100%;"><code>5.1,3.5,1.4,0.2,Iris-setosa
+4.9,3.0,1.4,0.2,Iris-setosa
+4.7,3.2,1.3,0.2,Iris-setosa
+...
+					</code></pre>
+								<pre style="width: 100%;"><code>7.0,3.2,4.7,1.4,Iris-versicolor
+6.4,3.2,4.5,1.5,Iris-versicolor
+6.9,3.1,4.9,1.5,Iris-versicolor
+...
+					</code></pre>
+								<pre style="width: 100%;"><code>6.3,3.3,6.0,2.5,Iris-virginica
+5.8,2.7,5.1,1.9,Iris-virginica
+7.1,3.0,5.9,2.1,Iris-virginica
+...
+					</code></pre>
+							</div>
+						</td>
+						<td style="width: 60%;">
+							<div style="margin-top: -30px;">
+								<img style="width: 100%" src="images/applications-svd/iris_photo.png">
+							</div>
+							<div class="cc" style="font-size: 0.9em;">
+								<p>
+									<a
+										href="https://archive.ics.uci.edu/dataset/53/iris">archive.ics.uci.edu/dataset/53/iris</a>
+								</p>
+							</div>
+						</td>
+					</table>
+
+
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>
+						Iris Dataset Classification using SVD
+					</h4>
+					<div>
+						<iframe style="width: 800px; height: 600px; border: 1px solid grey;"
+							src="sketches/pca-iris-svd/"></iframe>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>
+						Iris Dataset Classification using SVD
+					</h4>
+					<div style="display: flex; justify-content:space-around; align-items:center; margin-top: -10px;">
+						<div>
+							<h4>
+								Octave / MATLAB
+							</h4>
+
+							<p style="text-align: center;font-size: 0.75em;">
+								Run code locally! 💻 😃
+							<pre style="font-size: 0.55em; width: 320px;"><code>iris_class_svd/
+├── iris_class_svd.m
+└── iris.data.csv</code></pre>
+							</p>
+						</div>
+						<div>
+							<p style="font-size: 0.7em;">
+								<b>Plot of sepal length (horizontal) vs sepal width (vertical):</b>
+							</p>
+							<pre style="font-size: 0.55em;  margin-top: -20px; width: 102%;"><code data-trim class="language-python">T = readtable("iris.data.csv");
+iris_num = table2array(T(:, 1:4)); 
+[~, ~, color_idx] = unique(T{:, 5});
+iris_cen = iris_num - mean(iris_num);
+scatter(iris_cen(:,1), iris_cen(:,2), [], color_idx, 'filled')
+xlabel('sepal length')
+ylabel('sepal width')</code></pre>
+
+							<p style="font-size: 0.7em; margin-top: 40px;">
+								<b>Plot of the first and second principal components:</b>
+							</p>
+							<pre style="font-size: 0.55em;  margin-top: -20px; width: 102%;"><code data-trim class="language-python">T = readtable("iris.data.csv");
+iris_num = table2array(T(:, 1:4));
+[~, ~, color_idx] = unique(T{:, 5});
+iris_centered = iris_num - mean(iris_num);
+[u, s, v] = svds(iris_centered, 2);
+us = iris_centered * v;
+scatter(us(:,1), us(:,2), [], color_idx, 'filled')
+xlabel('princomp1')
+ylabel('princomp2')</code></pre>
+						</div>
+					</div>
+
+					<div style="font-size: 0.8em; border-left: 6px solid red; padding-left: 10px; margin-left: 50px; margin-top: -20px;" >
+						<p><b>Warning:</b> It requires a more advanced knowledge of Octave / MATLAB❗️</p>
+					</div>
+
+					<br/>
+
 				</section>
 
 			</section>

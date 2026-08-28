@@ -1,312 +1,295 @@
-let iris;
+// ----- Global variables -----
+let table;
+let dataMatrix;          // rows x 4 features
+let labels;              // species strings
+let labelCodes;          // 0,1,2
+let speciesColors;
+let uniqueLabels;
+
+// Two sets of 2D points
+let initialPoints = [];  // centered sepal length vs sepal width
+let finalPoints = [];    // PCA scores (PC1 vs PC2)
+let currentPoints = [];  // blended for drawing
+
+// Transition state
+let transitionProgress = 0;   // 0 = original, 1 = PCA
+let isAnimating = false;
+let targetProgress = 0;
+const speed = 0.03;
+
+// Axis labels (change dynamically)
+let xLabel = 'Sepal length';
+let yLabel = 'Sepal width';
+
+// Plot padding
+const pad = 70;
+
+// p5 button
+let toggleBtn;
+
+// ----- p5 lifecycle -----
+// function preload() {
+//   // Assumes 'iris.data.csv' is in the same folder and has a header row.
+
+// }
 
 async function setup() {
-  createCanvas(600, 600);
+  createCanvas(800, 600);
+  table = await loadTable('iris/iris.data.csv', ',', 'header');
+  background(255);
 
-  iris = await loadTable("iris/iris.data.csv", ",", "header");
+  // ---- Extract data ----
+  const rows = table.getRows();
+  const numRows = rows.length;
+  const numFeatures = 4;
 
-  // Check the structure of the CSV
-  console.log(iris.getRowCount(), iris.getColumnCount());
-  console.log(iris.columns);
+  dataMatrix = [];
+  labels = [];
 
-  noLoop();
+  for (let i = 0; i < numRows; i++) {
+    const row = rows[i];
+    const features = [];
+    for (let j = 0; j < numFeatures; j++) {
+      features.push(parseFloat(row.getString(j)));
+    }
+    dataMatrix.push(features);
+    labels.push(row.getString(4));
+  }
+
+  // ---- Encode labels ----
+  uniqueLabels = [...new Set(labels)];
+  const labelMap = {};
+  uniqueLabels.forEach((label, idx) => { labelMap[label] = idx; });
+  labelCodes = labels.map(label => labelMap[label]);
+
+  speciesColors = [
+    color(255, 99, 132), // setosa
+    color(54, 162, 235), // versicolor
+    color(255, 206, 86)  // virginica
+  ];
+
+  // ---- Center data for PCA (and for initial plot) ----
+  const n = dataMatrix.length;
+  const p = numFeatures;
+  const mean = Array(p).fill(0);
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < p; j++) {
+      mean[j] += dataMatrix[i][j];
+    }
+  }
+  for (let j = 0; j < p; j++) mean[j] /= n;
+
+  const centered = dataMatrix.map(row => row.map((val, j) => val - mean[j]));
+
+  // ---- SVD (numeric.js) ----
+  const svd = numeric.svd(centered);
+  const V = svd.V; // right singular vectors
+
+  // ---- PCA scores (first two components) ----
+  const V2 = V.map(row => [row[0], row[1]]);
+  finalPoints = centered.map(row => {
+    const x = row.reduce((sum, val, j) => sum + val * V2[j][0], 0);
+    const y = row.reduce((sum, val, j) => sum + val * V2[j][1], 0);
+    return [x, y];
+  });
+
+  // ---- Initial points: centered sepal length (col 0) and sepal width (col 1) ----
+  initialPoints = centered.map(row => [row[0], row[1]]);
+
+  // Start with the original view
+  currentPoints = initialPoints.map(p => p.slice());
+  transitionProgress = 0;
+
+  // ---- Create the toggle button (top‑right corner) ----
+  toggleBtn = createButton('Show PCA');
+  toggleBtn.position(120, 10);
+  toggleBtn.style('padding', '8px 16px');
+  toggleBtn.style('font-size', '16px');
+  toggleBtn.mousePressed(toggleTransition);
+
+  // ---- Draw initial plot ----
+  drawPlot();
 }
 
 function draw() {
+  // Only animate if we're transitioning
+  if (isAnimating) {
+    const step = speed * (targetProgress - transitionProgress);
+    if (abs(step) < 0.001) {
+      transitionProgress = targetProgress;
+      isAnimating = false;
+      toggleBtn.html(targetProgress === 0 ? 'Show PCA' : 'Show Original');
+    } else {
+      transitionProgress += step;
+      transitionProgress = constrain(transitionProgress, 0, 1);
+    }
+    // Update points
+    updateCurrentPoints();
+    drawPlot();
+  }
+}
+
+function updateCurrentPoints() {
+  const t = transitionProgress;
+  currentPoints = initialPoints.map((init, i) => {
+    const fin = finalPoints[i];
+    return [lerp(init[0], fin[0], t), lerp(init[1], fin[1], t)];
+  });
+  // Update axis labels
+  xLabel = t < 0.5 ? 'Sepal length' : 'PC1';
+  yLabel = t < 0.5 ? 'Sepal width' : 'PC2';
+}
+
+function toggleTransition() {
+  // If already animating, we simply reverse direction
+  if (isAnimating) {
+    targetProgress = 1 - transitionProgress;
+  } else {
+    targetProgress = transitionProgress < 0.5 ? 1 : 0;
+    isAnimating = true;
+  }
+  // Update button text while animating (will be set when done)
+  toggleBtn.html(targetProgress === 0 ? 'Show PCA' : 'Show Original');
+}
+
+// ----- Plotting function -----
+function drawPlot() {
   background(255);
 
-  // --------------------------------------------------
-  // Read the data
-  // --------------------------------------------------
+  // Compute min/max of currentPoints with some padding
+  let xMin = Infinity, xMax = -Infinity;
+  let yMin = Infinity, yMax = -Infinity;
+  for (let p of currentPoints) {
+    if (p[0] < xMin) xMin = p[0];
+    if (p[0] > xMax) xMax = p[0];
+    if (p[1] < yMin) yMin = p[1];
+    if (p[1] > yMax) yMax = p[1];
+  }
+  const xRange = xMax - xMin || 1;
+  const yRange = yMax - yMin || 1;
+  const xPad = xRange * 0.1;
+  const yPad = yRange * 0.1;
+  xMin -= xPad; xMax += xPad;
+  yMin -= yPad; yMax += yPad;
 
-  let X = [];
-  let species = [];
+  // Plot area dimensions
+  const plotW = width - 2 * pad;
+  const plotH = height - 2 * pad;
+  const scaleX = plotW / (xMax - xMin);
+  const scaleY = plotH / (yMax - yMin);
 
-  for (let i = 0; i < iris.getRowCount(); i++) {
+  let mapX, mapY;
 
-    // Four numerical measurements
-    X.push([
-      Number(iris.getString(i, 0)),
-      Number(iris.getString(i, 1)),
-      Number(iris.getString(i, 2)),
-      Number(iris.getString(i, 3))
-    ]);
-
-    // Fifth column = species
-    species.push(iris.getString(i, 4));
+  // If we are showing PCA (progress > 0.5), stretch to fill the canvas.
+  // Otherwise, keep the original square aspect ratio.
+  if (transitionProgress > 0.5) {
+    // Stretch independently to fill the plot area
+    mapX = (x) => pad + (x - xMin) * scaleX;
+    mapY = (y) => pad + (yMax - y) * scaleY;
+  } else {
+    // Original view: preserve aspect ratio (like MATLAB's default behavior)
+    const scale = Math.min(scaleX, scaleY);
+    const xOffset = (width - scale * (xMax - xMin)) / 2;
+    const yOffset = (height - scale * (yMax - yMin)) / 2;
+    mapX = (x) => xOffset + (x - xMin) * scale;
+    mapY = (y) => yOffset + (yMax - y) * scale;
   }
 
-  // --------------------------------------------------
-  // Centre the data
-  // X = X - mean(X)
-  // --------------------------------------------------
-
-  let means = [0, 0, 0, 0];
-
-  for (let j = 0; j < 4; j++) {
-    for (let i = 0; i < X.length; i++) {
-      means[j] += X[i][j];
-    }
-    means[j] /= X.length;
-  }
-
-  for (let i = 0; i < X.length; i++) {
-    for (let j = 0; j < 4; j++) {
-      X[i][j] -= means[j];
-    }
-  }
-
-  // --------------------------------------------------
-  // SVD
-  //
-  // X = U S V^T
-  //
-  // We need the first two right singular vectors.
-  // --------------------------------------------------
-
-  let V = pca(X, 2);
-
-  // --------------------------------------------------
-  // Project onto the first two principal components
-  //
-  // us = X * V
-  // --------------------------------------------------
-
-  let US = [];
-
-  for (let i = 0; i < X.length; i++) {
-
-    let pc1 = 0;
-    let pc2 = 0;
-
-    for (let j = 0; j < 4; j++) {
-      pc1 += X[i][j] * V[j][0];
-      pc2 += X[i][j] * V[j][1];
-    }
-
-    US.push([pc1, pc2]);
-  }
-
-  // --------------------------------------------------
-  // Plot
-  // --------------------------------------------------
-
-  plotPoints(US, species);
-}
-
-
-// ======================================================
-// PCA using covariance matrix
-// ======================================================
-//
-// For centred X:
-//
-// X^T X v = lambda v
-//
-// The eigenvectors of X^T X are the right singular
-// vectors of X.
-//
-// We find the two largest eigenvectors using
-// power iteration with deflation.
-// ======================================================
-
-function pca(X, components) {
-
-  let n = X.length;
-  let d = X[0].length;
-
-  // Compute X^T X
-  let C = Array.from({ length: d }, () =>
-    Array(d).fill(0)
-  );
-
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < d; j++) {
-      for (let k = 0; k < d; k++) {
-        C[j][k] += X[i][j] * X[i][k];
-      }
-    }
-  }
-
-  let V = [];
-
-  for (let c = 0; c < components; c++) {
-
-    // Start with a random vector
-    let v = [];
-
-    for (let j = 0; j < d; j++) {
-      v.push(random(-1, 1));
-    }
-
-    normalize(v);
-
-    // Power iteration
-    for (let iteration = 0; iteration < 1000; iteration++) {
-
-      let w = multiplyMatrixVector(C, v);
-
-      normalize(w);
-
-      v = w;
-    }
-
-    // Store eigenvector
-    V.push(v);
-
-    // Deflation
-    let Cv = multiplyMatrixVector(C, v);
-
-    let lambda = dot(v, Cv);
-
-    for (let j = 0; j < d; j++) {
-      for (let k = 0; k < d; k++) {
-        C[j][k] -= lambda * v[j] * v[k];
-      }
-    }
-  }
-
-  // Convert from [v1, v2] to matrix with columns
-  let result = Array.from({ length: d }, () =>
-    Array(components).fill(0)
-  );
-
-  for (let i = 0; i < d; i++) {
-    for (let j = 0; j < components; j++) {
-      result[i][j] = V[j][i];
-    }
-  }
-
-  return result;
-}
-
-
-// ======================================================
-// Matrix-vector multiplication
-// ======================================================
-
-function multiplyMatrixVector(A, v) {
-
-  let result = [];
-
-  for (let i = 0; i < A.length; i++) {
-
-    let sum = 0;
-
-    for (let j = 0; j < v.length; j++) {
-      sum += A[i][j] * v[j];
-    }
-
-    result.push(sum);
-  }
-
-  return result;
-}
-
-
-// ======================================================
-// Vector utilities
-// ======================================================
-
-function dot(a, b) {
-
-  let sum = 0;
-
-  for (let i = 0; i < a.length; i++) {
-    sum += a[i] * b[i];
-  }
-
-  return sum;
-}
-
-
-function normalize(v) {
-
-  let length = Math.sqrt(dot(v, v));
-
-  for (let i = 0; i < v.length; i++) {
-    v[i] /= length;
-  }
-}
-
-
-// ======================================================
-// Scatter plot
-// ======================================================
-
-function plotPoints(data, species) {
-
-  let margin = 70;
-
-  let xs = data.map(p => p[0]);
-  let ys = data.map(p => p[1]);
-
-  let minX = min(xs);
-  let maxX = max(xs);
-  let minY = min(ys);
-  let maxY = max(ys);
-
-  let paddingX = 0.1 * (maxX - minX);
-  let paddingY = 0.1 * (maxY - minY);
-
-  minX -= paddingX;
-  maxX += paddingX;
-  minY -= paddingY;
-  maxY += paddingY;
-
-  // Axes through zero
-  let x0 = map(0, minX, maxX, margin, width - margin);
-  let y0 = map(0, minY, maxY, height - margin, margin);
-
+  // ----- Axes -----
   stroke(0);
   strokeWeight(1);
+  line(pad, height - pad, width - pad, height - pad); // X axis
+  line(pad, pad, pad, height - pad);                 // Y axis
 
-  line(margin, y0, width - margin, y0);
-  line(x0, margin, x0, height - margin);
-
-  // Points
-  for (let i = 0; i < data.length; i++) {
-
-    let px = map(
-      data[i][0],
-      minX,
-      maxX,
-      margin,
-      width - margin
-    );
-
-    let py = map(
-      data[i][1],
-      minY,
-      maxY,
-      height - margin,
-      margin
-    );
-
-    if (species[i].includes("setosa")) {
-      fill(220, 70, 70);
-    }
-    else if (species[i].includes("versicolor")) {
-      fill(70, 130, 220);
-    }
-    else {
-      fill(70, 170, 100);
-    }
-
+  // ----- Tick marks & numbers (X) -----
+  let xTickStep = niceStep((xMax - xMin) / 2);
+  let xStart = ceil(xMin / xTickStep) * xTickStep;
+  fill(0);
+  noStroke();
+  textSize(12);
+  textAlign(CENTER, TOP);
+  for (let v = xStart; v <= xMax; v += xTickStep) {
+    const xPos = mapX(v);
+    stroke(0);
+    line(xPos, height - pad, xPos, height - pad + 6);
     noStroke();
-    circle(px, py, 8);
+    fill(0);
+    text(nf(formatTick(v), 1, 2), xPos, height - pad + 10);
   }
 
-  // Labels
+  // ----- Tick marks & numbers (Y) -----
+  let yTickStep = niceStep((yMax - yMin) / 2);
+  let yStart = ceil(yMin / yTickStep) * yTickStep;
+  textAlign(RIGHT, CENTER);
+  for (let v = yStart; v <= yMax; v += yTickStep) {
+    const yPos = mapY(v);
+    stroke(0);
+    line(pad - 6, yPos, pad, yPos);
+    noStroke();
+    fill(0);
+    text(nf(formatTick(v), 1, 2), pad - 10, yPos);
+  }
+
+  // ----- Scatter points -----
+  const pointSize = 10;
+  for (let i = 0; i < currentPoints.length; i++) {
+    const [x, y] = currentPoints[i];
+    const code = labelCodes[i];
+    fill(speciesColors[code]);
+    noStroke();
+    ellipse(mapX(x), mapY(y), pointSize, pointSize);
+  }
+
+  // ----- Axis labels -----
   fill(0);
-  textSize(16);
-  textAlign(CENTER);
-
-  text("princomp1", width / 2, height - 20);
-
+  noStroke();
+  textSize(18);
+  textAlign(CENTER, CENTER);
+  text(xLabel, width / 2, height - 20);
   push();
-  translate(20, height / 2);
-  rotate(-HALF_PI);
-  text("princomp2", 0, 0);
+  translate(18, height / 2);
+  rotate(-PI / 2);
+  text(yLabel, 0, 0);
   pop();
+
+  // ----- Legend -----
+  const legX = width - 180;
+  const legY = 30;
+  textSize(14);
+  textAlign(LEFT, CENTER);
+  for (let i = 0; i < uniqueLabels.length; i++) {
+    fill(speciesColors[i]);
+    noStroke();
+    ellipse(legX, legY + i * 25, 10, 10);
+    fill(0);
+    text(uniqueLabels[i], legX + 20, legY + i * 25);
+  }
+
+  // Show progress if animating (optional)
+  if (isAnimating) {
+    fill(0);
+    textSize(14);
+    textAlign(LEFT, TOP);
+    text('Transition: ' + round(transitionProgress * 100) + '%', 10, 10);
+  }
+}
+
+// ----- Helper: nice step for ticks -----
+function niceStep(range) {
+  const rough = range / 6;
+  const magnitude = pow(10, floor(log(rough) / log(10)));
+  const normalized = rough / magnitude;
+  let step;
+  if (normalized < 1.5) step = 1;
+  else if (normalized < 3.5) step = 2;
+  else if (normalized < 7.5) step = 5;
+  else step = 10;
+  return step * magnitude;
+}
+
+function formatTick(val) {
+  if (abs(val) < 1e-6) {
+    return '0.00';
+  }
+  return nf(val, 1, 2);
 }
