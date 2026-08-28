@@ -1,347 +1,112 @@
-let data = [];
-
-let mean = {
-    x: 0,
-    y: 0
-};
-
-let theta = -35;
-
-let v1 = {
-    x: 0.92,
-    y: 0.39
-};
-
-let canvasSizeX = 850;
-let canvasSizeY = 550;
-
-let scale = 70;
-
-
-// --------------------------------------------------
-// SETUP
-// --------------------------------------------------
+let points = [];
+let minWidth = 500;
+let minHeight = 700;
 
 function setup() {
-
-    createCanvas(canvasSizeX, canvasSizeY);
-
-    textFont("Arial");
-
-    generateData();
+  // Ensure the canvas meets minimum size requirements for the visualization
+  let w = max(windowWidth, minWidth);
+  let h = max(windowHeight, minHeight);
+  createCanvas(w, h);
+  
+  // Seed initial data with a positive correlation
+  for (let i = 0; i < 100; i++) {
+    let x = random(-150, 150);
+    let y = x * 0.7 + random(-60, 60);
+    points.push(createVector(x + width / 2, y + height / 2));
+  }
 }
-
-
-// --------------------------------------------------
-// DATA
-// --------------------------------------------------
-
-function generateData() {
-
-    randomSeed(5);
-
-    // Elongated cloud
-    let angle = radians(23);
-
-    let c = cos(angle);
-    let s = sin(angle);
-
-    for (let i = 0; i < 60; i++) {
-
-        let a = randomGaussian() * 2.8;
-        let b = randomGaussian() * 0.65;
-
-        let x = a * c - b * s;
-        let y = a * s + b * c;
-
-        data.push({
-            x: x,
-            y: y
-        });
-
-        mean.x += x;
-        mean.y += y;
-    }
-
-    mean.x /= data.length;
-    mean.y /= data.length;
-}
-
-
-// --------------------------------------------------
-// DRAW
-// --------------------------------------------------
 
 function draw() {
+  background(30);
+  
+  // 1. Arrange the data (User interactivity to draw spread)
+  if (mouseIsPressed && mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+    points.push(createVector(mouseX, mouseY));
+  }
 
-    background(250);
+  // Draw data points
+  fill(255, 150);
+  noStroke();
+  for (let p of points) {
+    ellipse(p.x, p.y, 8, 8);
+  }
 
-    drawAxes();
-
-    drawData();
-
-    drawDirection();
-
-    drawPrincipalDirection();
-
-    drawLabels();
-
+  if (points.length > 1) {
+    drawPCA();
+  }
+  
+  // UI Instructions
+  fill(255);
+  noStroke();
+  textSize(16);
+  text("Click and drag to add data points", 20, 30);
 }
 
+function drawPCA() {
+  // 1. Calculate the mean (center of the data)
+  let xSum = 0, ySum = 0;
+  for (let p of points) { 
+    xSum += p.x; 
+    ySum += p.y; 
+  }
+  let meanX = xSum / points.length;
+  let meanY = ySum / points.length;
 
-// --------------------------------------------------
-// DATA POINTS
-// --------------------------------------------------
+  // 2. Compute the Covariance Matrix (Equivalent to X^T * X / (n-1))
+  let cxx = 0, cyy = 0, cxy = 0;
+  for (let p of points) {
+    let dx = p.x - meanX;
+    let dy = p.y - meanY;
+    cxx += dx * dx;
+    cyy += dy * dy;
+    cxy += dx * dy;
+  }
+  let n = points.length - 1;
+  cxx /= n;
+  cyy /= n;
+  cxy /= n;
 
-function drawData() {
+  // 3. Find principal vectors by calculating Eigenvalues (Roots of the characteristic polynomial)
+  let trace = cxx + cyy;
+  let det = (cxx * cyy) - (cxy * cxy);
+  
+  // Singular values squared (sigma^2)
+  let lambda1 = (trace + sqrt(max(0, trace * trace - 4 * det))) / 2;
+  let lambda2 = (trace - sqrt(max(0, trace * trace - 4 * det))) / 2;
 
-    noStroke();
-    fill(40, 100, 180);
+  // Eigenvectors (v1, v2)
+  let v1, v2;
+  if (abs(cxy) > 1e-5) {
+    v1 = createVector(cxy, lambda1 - cxx).normalize();
+    v2 = createVector(cxy, lambda2 - cxx).normalize();
+  } else {
+    v1 = createVector(1, 0);
+    v2 = createVector(0, 1);
+  }
 
-    for (let p of data) {
+  // Draw the mean origin
+  fill(255, 200, 0);
+  ellipse(meanX, meanY, 12, 12);
 
-        let x = screenX(p.x);
-        let y = screenY(p.y);
+  // 4. Scale by the singular values (sqrt of eigenvalues) to show variation
+  // Multiplied by a constant (e.g., 2.5) purely for visual scaling on the canvas
+  let scale1 = sqrt(lambda1) * 2.5;
+  let scale2 = sqrt(lambda2) * 2.5;
 
-        circle(x, y, 8);
-    }
+  // Draw Principal Vector 1 (Greatest spread)
+  strokeWeight(4);
+  stroke(255, 50, 50); // Red
+  line(meanX, meanY, meanX + v1.x * scale1, meanY + v1.y * scale1);
+  line(meanX, meanY, meanX - v1.x * scale1, meanY - v1.y * scale1);
+
+  // Draw Principal Vector 2 (Orthogonal spread)
+  stroke(50, 150, 255); // Blue
+  line(meanX, meanY, meanX + v2.x * scale2, meanY + v2.y * scale2);
+  line(meanX, meanY, meanX - v2.x * scale2, meanY - v2.y * scale2);
 }
 
-
-// --------------------------------------------------
-// CURRENT DIRECTION v
-// --------------------------------------------------
-
-function drawDirection() {
-
-    let v = {
-        x: cos(radians(theta)),
-        y: sin(radians(theta))
-    };
-
-    let originX = screenX(mean.x);
-    let originY = screenY(mean.y);
-
-    let L = 260;
-
-    // Direction vector
-    stroke(70);
-    strokeWeight(3);
-
-    line(
-        originX - L * v.x,
-        originY + L * v.y,
-        originX + L * v.x,
-        originY - L * v.y
-    );
-
-    // ------------------------------------------------
-    // Projections
-    // ------------------------------------------------
-
-    for (let p of data) {
-
-        // Centre the observation
-        let x = p.x - mean.x;
-        let y = p.y - mean.y;
-
-        // Xv = projection onto v
-        let projection = x * v.x + y * v.y;
-
-        let projectedX =
-            mean.x + projection * v.x;
-
-        let projectedY =
-            mean.y + projection * v.y;
-
-        let px = screenX(p.x);
-        let py = screenY(p.y);
-
-        let qx = screenX(projectedX);
-        let qy = screenY(projectedY);
-
-        // Perpendicular projection line
-        stroke(190);
-        strokeWeight(1);
-
-        line(
-            px,
-            py,
-            qx,
-            qy
-        );
-
-        // Projected point
-        noStroke();
-        fill(210, 60, 60);
-
-        circle(
-            qx,
-            qy,
-            6
-        );
-    }
-
-    // Calculate ||Xv||
-    let normXv = 0;
-
-    for (let p of data) {
-
-        let x = p.x - mean.x;
-        let y = p.y - mean.y;
-
-        let projection =
-            x * v.x + y * v.y;
-
-        normXv += projection * projection;
-    }
-
-    normXv = sqrt(normXv);
-
-    // Display Xv norm
-    noStroke();
-    fill(50);
-
-    textSize(20);
-
-    text(
-        "‖Xv‖ = " + normXv.toFixed(2),
-        25,
-        35
-    );
-
-    textSize(16);
-
-    text(
-        "v = (" +
-        v.x.toFixed(2) +
-        ", " +
-        v.y.toFixed(2) +
-        ")",
-        25,
-        62
-    );
-}
-
-
-// --------------------------------------------------
-// PRINCIPAL DIRECTION
-// --------------------------------------------------
-
-function drawPrincipalDirection() {
-
-    let originX = screenX(mean.x);
-    let originY = screenY(mean.y);
-
-    let L = 270;
-
-    stroke(210, 40, 40);
-    strokeWeight(4);
-
-    line(
-        originX - L * v1.x,
-        originY + L * v1.y,
-        originX + L * v1.x,
-        originY - L * v1.y
-    );
-
-    noStroke();
-    fill(210, 40, 40);
-
-    textSize(20);
-
-    text(
-        "v₁",
-        originX + L * v1.x + 10,
-        originY - L * v1.y
-    );
-}
-
-
-// --------------------------------------------------
-// LABELS
-// --------------------------------------------------
-
-function drawLabels() {
-
-    noStroke();
-
-    fill(80);
-
-    textSize(16);
-
-    text(
-        "Drag the grey direction",
-        width - 230,
-        height - 25
-    );
-
-    fill(210, 40, 40);
-
-    text(
-        "principal direction",
-        width - 230,
-        height - 48
-    );
-}
-
-
-// --------------------------------------------------
-// AXES
-// --------------------------------------------------
-
-function drawAxes() {
-
-    stroke(215);
-    strokeWeight(1);
-
-    // x-axis
-    line(
-        0,
-        screenY(0),
-        width,
-        screenY(0)
-    );
-
-    // y-axis
-    line(
-        screenX(0),
-        0,
-        screenX(0),
-        height
-    );
-}
-
-
-// --------------------------------------------------
-// COORDINATE TRANSFORMATION
-// --------------------------------------------------
-
-function screenX(x) {
-
-    return width / 2 + x * scale;
-}
-
-
-function screenY(y) {
-
-    return height / 2 - y * scale;
-}
-
-
-// --------------------------------------------------
-// INTERACTION
-// --------------------------------------------------
-
-function mouseDragged() {
-
-    let cx = screenX(mean.x);
-    let cy = screenY(mean.y);
-
-    let dx = mouseX - cx;
-    let dy = -(mouseY - cy);
-
-    theta = degrees(
-        atan2(dy, dx)
-    );
+function windowResized() {
+  let w = max(windowWidth, minWidth);
+  let h = max(windowHeight, minHeight);
+  resizeCanvas(w, h);
 }
