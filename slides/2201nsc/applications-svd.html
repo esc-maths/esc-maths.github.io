@@ -2823,11 +2823,12 @@ plt.show()</code></pre>
 							</div>
 							<div style="font-size: 0.8em;">
 								<p>
-									<i class="fa fa-link"></i> <b>Source:</b> <br/>
-									<a href="https://archive.ics.uci.edu/dataset/53/iris"><tt>archive.ics.uci.edu/dataset/53/iris</tt></a>
+									<i class="fa fa-link"></i> <b>Source:</b> <br />
+									<a
+										href="https://archive.ics.uci.edu/dataset/53/iris"><tt>archive.ics.uci.edu/dataset/53/iris</tt></a>
 								</p>
-								<p  class="fragment" style="font-size: 0.8em; text-align: justify;" id="bb">
-									This is one of the earliest datasets used in the literature on classification 
+								<p class="fragment" style="font-size: 0.8em; text-align: justify;" id="bb">
+									This is one of the earliest datasets used in the literature on classification
 									methods and widely used in <i>statistics</i> and <i>machine learning</i>.
 								</p>
 							</div>
@@ -2844,7 +2845,7 @@ plt.show()</code></pre>
 								(<i>setosa</i>, <i>versicolor</i>, <i>virginia</i>).
 							</span>
 						</p>
-						
+
 					</div>
 
 					<br />
@@ -2905,12 +2906,73 @@ ylabel('princomp2')</code></pre>
 						</div>
 					</div>
 
-					<div style="font-size: 0.8em; border-left: 6px solid red; padding-left: 10px; margin-left: 100px; margin-top: -20px;" >
+					<div
+						style="font-size: 0.8em; border-left: 6px solid red; padding-left: 10px; margin-left: 100px; margin-top: -20px;">
 						<p><b>Warning:</b> It requires a more advanced knowledge of MATLAB❗️🧐</p>
 					</div>
 
-					<br/>
+					<br />
 
+				</section>
+
+				<section>
+					<h4>
+						From PCA Theory to Computation
+					</h4>
+
+					<div class="size-80">
+
+						<p class="fragment">
+							<b>Theoretically:</b> we can compute PCA using the
+							linear algebra we have learned.
+						</p>
+
+						<p class="fragment">
+							However, carrying out the calculations by hand becomes
+							<b>very time-consuming</b> for large datasets.
+						</p>
+
+						<div class="fragment"
+							style="display: flex; justify-content: space-between; align-items: center; width: 80%; margin-top: -20px; margin-left: 20px;">
+
+							<div style="width: 55%; font-size: 0.9em;">
+								<p>
+									💻 This is where the <b>computer helps us</b>:<br/>
+									it performs the numerical calculations quickly and accurately.
+								</p>
+							</div>
+
+							<div style="width: 45%;">
+								<h4 style="margin-bottom: 5px;">MATLAB</h4>
+								<pre style="font-size: 0.7em; width: 650px; margin-top: -5px;"><code>iris_centered = iris_num - mean(iris_num);
+[u, s, v] = svds(iris_centered, 2);
+us = iris_centered * v;</code></pre>
+							</div>
+
+						</div>
+
+						<hr />
+
+						<p class="fragment" style="text-align: center; font-size: 1.15em;">
+							<b>Technology changes quickly!</b>
+						</p>
+
+						<div class="fragment" style="margin-top: -10px;">
+							<p style="text-align: center; font-size: 1.15em; margin-bottom: -10px;">
+								But the <b id="bb">mathematical ideas behind PCA last much longer!</b>
+							</p>
+
+							<picture>
+								<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.webp"
+									type="image/webp">
+								<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f603/512.gif" alt="😃"
+									width="92" height="92">
+							</picture>
+						</div>
+
+					</div>
+
+					<br />
 				</section>
 
 			</section>
