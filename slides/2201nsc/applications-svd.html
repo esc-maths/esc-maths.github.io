@@ -2671,6 +2671,128 @@ plt.show()</code></pre>
 					</div>
 				</section>
 
+				<section data-auto-animate>
+					<h4>Why is PCA Useful?</h4>
+
+					<div style="font-size: 0.7em;">
+
+						<p class="fragment" data-fragment-index="0">
+							PCA transforms data into a new coordinate system that
+							highlights the <b>most important patterns and variations</b>.
+						</p>
+
+						<div style="display: flex; justify-content: space-around;
+					margin-top: 25px;">
+
+							<div class="fragment" data-fragment-index="1" style="width: 45%;
+				background: rgba(255,255,255,0.05);
+				padding: 15px;
+				border-radius: 8px;">
+
+								<p style="font-size: 1.15em; color: #1153bd;
+					margin-top: 0;">
+									<b>Distinguishing Data Sets</b>
+								</p>
+
+								<p>
+									Project data onto the principal directions to reveal
+									differences between groups or classes.
+								</p>
+
+								<p style="text-align: center;">
+									$\text{high-dimensional data}
+									\;\longrightarrow\;
+									\text{informative features}$
+								</p>
+
+							</div>
+
+							<div class="fragment" data-fragment-index="2" style="width: 45%;
+				background: rgba(255,255,255,0.05);
+				padding: 15px;
+				border-radius: 8px;">
+
+								<p style="font-size: 1.15em; color: #1153bd;
+					margin-top: 0;">
+									<b>Dimensionality Reduction</b>
+								</p>
+
+								<p>
+									Keep only the principal components that capture most
+									of the variation in the data.
+								</p>
+
+								<p style="text-align: center;">
+									$\text{many variables}
+									\;\longrightarrow\;
+									\text{fewer variables}$
+								</p>
+
+							</div>
+
+						</div>
+
+						<div style="display: flex; justify-content: space-around;
+					margin-top: 20px;">
+
+							<div class="fragment" data-fragment-index="3" style="width: 45%;
+				background: rgba(255,255,255,0.05);
+				padding: 15px;
+				border-radius: 8px;">
+
+								<p style="font-size: 1.15em; color: #1153bd;
+					margin-top: 0;">
+									<b>Data Compression</b>
+								</p>
+
+								<p>
+									Approximate the data using only the most significant
+									SVD components.
+								</p>
+
+								<p style="text-align: center;">
+									$X \approx
+									\sum_{i=1}^{k}
+									\sigma_i\mathbf u_i\mathbf v_i^T$
+								</p>
+
+							</div>
+
+							<div class="fragment" data-fragment-index="4" style="width: 45%;
+				background: rgba(255,255,255,0.05);
+				padding: 15px;
+				border-radius: 8px;">
+
+								<p style="font-size: 1.15em; color: #1153bd;
+					margin-top: 0;">
+									<b>Data Visualisation</b>
+								</p>
+
+								<p>
+									Reduce complex data to two or three principal
+									components for visual exploration.
+								</p>
+
+								<p style="text-align: center;">
+									$\text{high-dimensional data}
+									\;\longrightarrow\;
+									\text{2D or 3D visualisation}$
+								</p>
+
+							</div>
+
+						</div>
+
+						<p class="fragment" data-fragment-index="5" style="text-align: center; font-size: 1.15em;
+			margin-top: 25px;">
+
+							$\boxed{\text{PCA helps us see what matters most in our data.}}$
+
+						</p>
+
+					</div>
+				</section>
+
 			</section>
 
 			<!-- Ends sections -->
