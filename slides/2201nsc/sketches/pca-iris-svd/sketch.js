@@ -102,7 +102,7 @@ async function setup() {
 
   // ---- Create the toggle button (top‑right corner) ----
   toggleBtn = createButton('Show PCA');
-  toggleBtn.position(120, 10);
+  toggleBtn.position(10, 10);
   toggleBtn.style('padding', '8px 16px');
   toggleBtn.style('font-size', '16px');
   toggleBtn.mousePressed(toggleTransition);
