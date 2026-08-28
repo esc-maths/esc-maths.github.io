@@ -1398,15 +1398,16 @@
 					<br />
 				</section>
 
-				
+
 
 				<section data-auto-animate>
 					<h4>Images as Matrices</h4>
 
 					<div style="margin-top: -20px;">
-						<iframe style="width: 90%; height: 670px; border: 1px solid black;" data-src="=../../../revealjs-animations/images-as-arrays-of-pixels"></iframe>
-					</div>		
-						
+						<iframe style="width: 90%; height: 670px; border: 1px solid black;"
+							data-src="=../../../revealjs-animations/images-as-arrays-of-pixels"></iframe>
+					</div>
+
 
 				</section>
 				<section data-auto-animate>
@@ -1434,33 +1435,33 @@
 								<p style="text-align: center;">
 									<b>Three matrices</b>
 								</p>
-							
+
 								<p style="text-align: center; font-size: 0.75em;">
-										\(
-R =
-\begin{pmatrix}
-255 & 120  & \cdots \\
-240 & 110  & \cdots \\
-198 & 95   & \cdots \\
-\vdots & \vdots  & \ddots
-\end{pmatrix}
-\;
-G =
-\begin{pmatrix}
-80 & 180 &  \cdots \\
-75 & 165 & \cdots \\
-60 & 140 &  \cdots \\
-\vdots & \vdots &  \ddots
-\end{pmatrix}
-\;
-B =
-\begin{pmatrix}
-30 & 90  & \cdots \\
-25 & 85  & \cdots \\
-20 & 70  & \cdots \\
-\vdots &  \vdots & \ddots
-\end{pmatrix}.
-\)
+									\(
+									R =
+									\begin{pmatrix}
+									255 & 120 & \cdots \\
+									240 & 110 & \cdots \\
+									198 & 95 & \cdots \\
+									\vdots & \vdots & \ddots
+									\end{pmatrix}
+									\;
+									G =
+									\begin{pmatrix}
+									80 & 180 & \cdots \\
+									75 & 165 & \cdots \\
+									60 & 140 & \cdots \\
+									\vdots & \vdots & \ddots
+									\end{pmatrix}
+									\;
+									B =
+									\begin{pmatrix}
+									30 & 90 & \cdots \\
+									25 & 85 & \cdots \\
+									20 & 70 & \cdots \\
+									\vdots & \vdots & \ddots
+									\end{pmatrix}.
+									\)
 								</p>
 							</div>
 						</div>
@@ -2331,6 +2332,345 @@ plt.show()</code></pre>
 					</div>
 					<br />
 				</section>
+
+
+
+
+				<section data-auto-animate>
+					<h4>From SVD to Principal Component Analysis</h4>
+
+					<div style="font-size: 0.85em;">
+
+						<p class="fragment" data-fragment-index="0">
+							So far, we have considered the action of a matrix
+							$A$ on vectors $\mathbf{x}$.
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							What if instead we have a <b>set of data</b>
+							stored in a matrix $X$?
+						</p>
+
+						<div class="fragment" data-fragment-index="2" style="text-align:center; margin-top:20px;">
+
+							\[
+							X=
+							\begin{pmatrix}
+							x_1 & y_1\\
+							x_2 & y_2\\
+							\vdots & \vdots\\
+							x_m & y_m
+							\end{pmatrix}
+							\]
+
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="background:rgba(255,255,255,0.05);
+                   padding:12px; border-radius:6px;
+                   margin-top:20px;">
+
+							<p style="margin:0; text-align:center;">
+								<b>Can we find the directions in which the data
+									have the greatest spread?</b>
+							</p>
+
+						</div>
+
+						<p class="fragment" data-fragment-index="4" style="text-align:center; font-size:1.2em;
+                   margin-top:25px;">
+
+							\[
+							\boxed{\text{Which direction captures the most variation?}}
+							\]
+
+						</p>
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Finding the Direction of Greatest Spread</h4>
+
+					<div style="font-size: 0.65em;">
+
+						<p class="fragment" data-fragment-index="0">
+							Let $\mathbf v$ be a unit vector:
+							$\|\mathbf v\|=1$.
+						</p>
+
+						<p class="fragment" data-fragment-index="1">
+							Multiplying by $X$ gives
+						</p>
+
+						<p class="fragment" data-fragment-index="1" style="text-align:center; font-size:1.2em;">
+
+							\[
+							X\mathbf v
+							\]
+
+						</p>
+
+						<p class="fragment" data-fragment-index="2">
+							The entries of $X\mathbf v$ are the projections of
+							the observations onto the direction $\mathbf v$.
+						</p>
+
+						<div class="fragment" data-fragment-index="3" style="background:rgba(255,255,255,0.05);
+                   padding:12px; border-radius:6px;
+                   margin-top:15px;">
+
+							<p style="margin:0; text-align:center;">
+								Therefore, the direction of greatest spread
+								maximises
+							</p>
+
+							<p style="text-align:center; font-size:1.3em; margin:8px;">
+								\[
+								\boxed{\|X\mathbf v\|}
+								\qquad\text{subject to}\qquad
+								\|\mathbf v\|=1.
+								\]
+							</p>
+
+						</div>
+
+						<p class="fragment" data-fragment-index="4" style="margin-top:20px;">
+
+							But this is exactly the problem we solved when studying
+							the <b>maximum stretching</b> of a matrix!
+						</p>
+
+						<p class="fragment" data-fragment-index="5" style="text-align:center; font-size:1.25em;">
+
+							\[
+							\boxed{X=U\Sigma V^T}
+							\]
+
+						</p>
+
+						<p class="fragment" data-fragment-index="6" style="text-align:center;">
+
+							The columns of $V$ give the orthogonal directions of
+							spread, from greatest to least.
+
+						</p>
+
+					</div>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Principal Vectors and Principal Components</h4>
+
+					<div style="font-size: 0.54em;">
+
+						<p class="fragment" data-fragment-index="0">
+							Suppose
+						</p>
+
+						<p class="fragment" data-fragment-index="0" style="text-align:center;">
+
+							\[
+							X=U\Sigma V^T
+							=
+							\sum_{i=1}^r
+							\sigma_i\,\mathbf u_i\mathbf v_i^T.
+							\]
+
+						</p>
+
+						<div style="display:flex; justify-content:space-around;
+                    margin-top:20px;">
+
+							<div class="fragment" data-fragment-index="1" style="width:44%;
+                       background:rgba(255,255,255,0.05);
+                       padding:12px; border-radius:6px;">
+
+								<p style="color:#d20c0c; text-align:center;">
+									<b>Principal vectors</b>
+								</p>
+
+								<p style="text-align:center;">
+									$\mathbf v_1,\mathbf v_2,\ldots$
+								</p>
+
+								<p style="text-align:center;">
+									Orthogonal directions of decreasing spread
+								</p>
+
+								<p style="text-align:center;">
+									$\sigma_1\geq\sigma_2\geq\cdots$
+								</p>
+
+							</div>
+
+							<div class="fragment" data-fragment-index="2" style="width:44%;
+                       background:rgba(255,255,255,0.05);
+                       padding:12px; border-radius:6px;">
+
+								<p style="color:#1153bd; text-align:center;">
+									<b>Principal components</b>
+								</p>
+
+								<p style="text-align:center;">
+									$\mathbf c_j=X\mathbf v_j$
+								</p>
+
+								<p style="text-align:center;">
+									$=\sigma_j\mathbf u_j$
+								</p>
+
+								<p style="text-align:center;">
+									Coefficients describing the data
+								</p>
+
+							</div>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="3" style="margin-top:20px;
+                   border-left:6px solid #1153bd;
+                   padding:10px 15px;
+                   background:rgba(255,255,255,0.04);">
+
+							<p style="margin:0;">
+								Since the $\mathbf v_i$ are orthonormal,
+							</p>
+
+							<p style="text-align:center; margin:8px 0;">
+								\[
+								X\mathbf v_j
+								=
+								U\Sigma V^T\mathbf v_j
+								=
+								\sigma_j\mathbf u_j.
+								\]
+							</p>
+
+							<p style="margin:0; text-align:center;">
+								Thus the principal components are the columns of
+								\[
+								\boxed{XV=U\Sigma}.
+								\]
+							</p>
+
+						</div>
+
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Principal Component Analysis: The Procedure</h4>
+
+					<div style="font-size:0.52em;">
+
+						<div style="display:flex; justify-content:space-around;
+                    align-items:center; margin-top:20px;">
+
+							<div style="text-align:center; width:27%;" class="fragment" data-fragment-index="0">
+
+								<p><b>1. Arrange the data</b></p>
+
+								\[
+								X=
+								\begin{pmatrix}
+								\text{obs. 1}\\
+								\text{obs. 2}\\
+								\vdots\\
+								\text{obs. }m
+								\end{pmatrix}
+								\]
+
+							</div>
+
+							<div style="font-size:1.5em;" class="fragment" data-fragment-index="1">
+								$\longrightarrow$
+							</div>
+
+							<div style="text-align:center; width:27%;" class="fragment" data-fragment-index="1">
+
+								<p><b>2. Compute the SVD</b></p>
+
+								\[
+								X=U\Sigma V^T
+								\]
+
+							</div>
+
+							<div style="font-size:1.5em;" class="fragment" data-fragment-index="2">
+								$\longrightarrow$
+							</div>
+
+							<div style="text-align:center; width:27%;" class="fragment" data-fragment-index="2">
+
+								<p><b>3. Find principal vectors</b></p>
+
+								\[
+								\mathbf v_1,\mathbf v_2,\ldots
+								\]
+
+							</div>
+
+						</div>
+
+						<div style="margin-top:25px;" class="fragment" data-fragment-index="3">
+
+							<p><b>4. Compute the principal components</b></p>
+
+							<p style="text-align:center;">
+								\[
+								XV=
+								\begin{pmatrix}
+								|&|&&|\\
+								X\mathbf v_1&
+								X\mathbf v_2&
+								\cdots&
+								X\mathbf v_r\\
+								|&|&&|
+								\end{pmatrix}
+								=
+								U\Sigma
+								\]
+							</p>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="4" style="background:rgba(255,255,255,0.05);
+                   padding:12px; border-radius:6px;
+                   margin-top:15px;">
+
+							<p style="margin:0;">
+								<b>5. Keep the most significant components</b>
+							</p>
+
+							<p style="text-align:center; margin:8px 0;">
+								\[
+								\sigma_1\geq\sigma_2\geq\cdots
+								\]
+							</p>
+
+							<p style="margin:0; text-align:center;">
+								The first components capture the greatest variation
+								in the data.
+							</p>
+
+						</div>
+
+						<div class="fragment" data-fragment-index="5" style="margin-top:18px; text-align:center;
+                   font-size:1.15em;">
+
+							\[
+							\boxed{
+							\text{PCA finds a new orthogonal basis that reveals
+							dominant patterns in the data.}
+							}
+							\]
+
+						</div>
+
+					</div>
+				</section>
+
 
 
 
