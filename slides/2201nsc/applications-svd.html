@@ -2337,7 +2337,7 @@ plt.show()</code></pre>
 
 
 				<section data-auto-animate>
-					<h4>From SVD to Principal Component Analysis</h4>
+					<h4>From SVD to Principal Component Analysis (PCA)</h4>
 
 					<div style="font-size: 0.85em;">
 
@@ -2377,12 +2377,8 @@ plt.show()</code></pre>
 						</div>
 
 						<p class="fragment" data-fragment-index="4" style="text-align:center; font-size:1.2em;
-                   margin-top:25px;">
-
-							\[
-							\boxed{\text{Which direction captures the most variation?}}
-							\]
-
+                   margin-top:25px;" id="bb">
+							Which direction captures the most variation? 🤔
 						</p>
 
 					</div>
@@ -2391,23 +2387,14 @@ plt.show()</code></pre>
 				<section data-auto-animate>
 					<h4>Finding the Direction of Greatest Spread</h4>
 
-					<div style="font-size: 0.65em;">
+					<div style="font-size: 0.85em;">
 
 						<p class="fragment" data-fragment-index="0">
 							Let $\mathbf v$ be a unit vector:
 							$\|\mathbf v\|=1$.
-						</p>
-
-						<p class="fragment" data-fragment-index="1">
-							Multiplying by $X$ gives
-						</p>
-
-						<p class="fragment" data-fragment-index="1" style="text-align:center; font-size:1.2em;">
-
-							\[
-							X\mathbf v
-							\]
-
+							<span class="fragment" data-fragment-index="1">
+								Multiplying by $\,X\,$ gives $\,X\v.$
+							</span>
 						</p>
 
 						<p class="fragment" data-fragment-index="2">
@@ -2415,72 +2402,71 @@ plt.show()</code></pre>
 							the observations onto the direction $\mathbf v$.
 						</p>
 
-						<div class="fragment" data-fragment-index="3" style="background:rgba(255,255,255,0.05);
+						<div class="cc" style="background:rgba(255,255,255,0.05);
                    padding:12px; border-radius:6px;
                    margin-top:15px;">
 
-							<p style="margin:0; text-align:center;">
+							<p class="fragment" data-fragment-index="3" style="margin-top: -10px; text-align:center;">
 								Therefore, the direction of greatest spread
 								maximises
 							</p>
 
-							<p style="text-align:center; font-size:1.3em; margin:8px;">
-								\[
-								\boxed{\|X\mathbf v\|}
-								\qquad\text{subject to}\qquad
+							<p class="fragment" data-fragment-index="3"
+								style="text-align:center; font-size:1.3em; margin-top: 0px;">
+								\(
+								\|X\mathbf v\|\;
+								\)
+								subject to
+								\(\;
 								\|\mathbf v\|=1.
-								\]
+								\)
 							</p>
 
 						</div>
 
-						<p class="fragment" data-fragment-index="4" style="margin-top:20px;">
+						<p class="fragment" data-fragment-index="4" style="margin-top:-10px;">
 
 							But this is exactly the problem we solved when studying
 							the <b>maximum stretching</b> of a matrix!
 						</p>
 
-						<p class="fragment" data-fragment-index="5" style="text-align:center; font-size:1.25em;">
+						<div class="cc">
+							<p class="fragment" data-fragment-index="5" style="font-size:1.5em; margin-top: -20px;">
 
-							\[
-							\boxed{X=U\Sigma V^T}
-							\]
+								$X=U\Sigma V^T$
 
-						</p>
 
-						<p class="fragment" data-fragment-index="6" style="text-align:center;">
+							</p>
+						</div>
 
+						<p class="fragment" data-fragment-index="6"
+							style="margin-left: 50px; border-left: 6px solid red; padding-left: 15px; margin-right: 150px;">
 							The columns of $V$ give the orthogonal directions of
 							spread, from greatest to least.
-
 						</p>
 
 					</div>
+					<br />
 				</section>
 
 
 				<section data-auto-animate>
 					<h4>Principal Vectors and Principal Components</h4>
 
-					<div style="font-size: 0.54em;">
+					<div style="font-size: 0.84em;">
 
-						<p class="fragment" data-fragment-index="0">
+						<p class="fragment" data-fragment-index="0" style="text-align: center; margin-top: -10px;">
 							Suppose
-						</p>
-
-						<p class="fragment" data-fragment-index="0" style="text-align:center;">
-
-							\[
-							X=U\Sigma V^T
+							\( \ds X=U\Sigma V^T
 							=
 							\sum_{i=1}^r
 							\sigma_i\,\mathbf u_i\mathbf v_i^T.
-							\]
+							\)
 
 						</p>
 
 						<div style="display:flex; justify-content:space-around;
-                    margin-top:20px;">
+                    margin-top:-20px;">
 
 							<div class="fragment" data-fragment-index="1" style="width:44%;
                        background:rgba(255,255,255,0.05);
@@ -2494,19 +2480,21 @@ plt.show()</code></pre>
 									$\mathbf v_1,\mathbf v_2,\ldots$
 								</p>
 
-								<p style="text-align:center;">
-									Orthogonal directions of decreasing spread
-								</p>
+								<div class="fragment" data-fragment-index="2">
+									<p style="text-align:center;">
+										Orthogonal directions <br /> of decreasing spread
+									</p>
 
-								<p style="text-align:center;">
-									$\sigma_1\geq\sigma_2\geq\cdots$
-								</p>
+									<p style="text-align:center;">
+										$\sigma_1\geq\sigma_2\geq\cdots$
+									</p>
+								</div>
 
 							</div>
 
-							<div class="fragment" data-fragment-index="2" style="width:44%;
+							<div class="fragment" data-fragment-index="3" style="width:44%;
                        background:rgba(255,255,255,0.05);
-                       padding:12px; border-radius:6px;">
+                       padding:6px; border-radius:6px; ">
 
 								<p style="color:#1153bd; text-align:center;">
 									<b>Principal components</b>
@@ -2514,13 +2502,12 @@ plt.show()</code></pre>
 
 								<p style="text-align:center;">
 									$\mathbf c_j=X\mathbf v_j$
+									<span style="text-align:center;" class="fragment" data-fragment-index="4">
+										$=\sigma_j\mathbf u_j$
+									</span>
 								</p>
 
-								<p style="text-align:center;">
-									$=\sigma_j\mathbf u_j$
-								</p>
-
-								<p style="text-align:center;">
+								<p style="text-align:center;" class="fragment" data-fragment-index="5">
 									Coefficients describing the data
 								</p>
 
@@ -2528,58 +2515,56 @@ plt.show()</code></pre>
 
 						</div>
 
-						<div class="fragment" data-fragment-index="3" style="margin-top:20px;
+						<blockquote class="fragment" data-fragment-index="6" style="margin-top:-20px;
                    border-left:6px solid #1153bd;
                    padding:10px 15px;
-                   background:rgba(255,255,255,0.04);">
+                   background:rgba(255,255,255,0.04); font-style: normal; width: 80%;">
 
-							<p style="margin:0;">
+							<p style="margin:5px; text-align:center;">
 								Since the $\mathbf v_i$ are orthonormal,
-							</p>
-
-							<p style="text-align:center; margin:8px 0;">
-								\[
-								X\mathbf v_j
+								\(X\mathbf v_j
 								=
 								U\Sigma V^T\mathbf v_j
 								=
 								\sigma_j\mathbf u_j.
-								\]
+								\)
 							</p>
 
-							<p style="margin:0; text-align:center;">
+							<p class="fragment" data-fragment-index="4" style="margin:5px; text-align:center;">
 								Thus the principal components are the columns of
-								\[
-								\boxed{XV=U\Sigma}.
-								\]
+								$XV=U\Sigma.$
+
 							</p>
 
-						</div>
+						</blockquote>
 
 					</div>
+					<br />
 				</section>
 
 				<section data-auto-animate>
 					<h4>Principal Component Analysis: The Procedure</h4>
 
-					<div style="font-size:0.52em;">
+					<div style="font-size:0.75em;">
 
-						<div style="display:flex; justify-content:space-around;
-                    align-items:center; margin-top:20px;">
+						<div style="display:flex; justify-content: space-around; align-items:center; margin-top:-20px;">
 
-							<div style="text-align:center; width:27%;" class="fragment" data-fragment-index="0">
+							<div style="text-align:center; width:25%;" class="fragment" data-fragment-index="0">
 
-								<p><b>1. Arrange the data</b></p>
+								<p><b>1. Arrange the data:</b></p>
 
-								\[
-								X=
-								\begin{pmatrix}
-								\text{obs. 1}\\
-								\text{obs. 2}\\
-								\vdots\\
-								\text{obs. }m
-								\end{pmatrix}
-								\]
+								<p style="text-align: center;">
+									$
+									X=
+									\begin{pmatrix}
+									\text{obs. 1}\\
+									\text{obs. 2}\\
+									\vdots\\
+									\text{obs. }m
+									\end{pmatrix}\quad 
+									$
+								</p>
+
 
 							</div>
 
@@ -2587,13 +2572,15 @@ plt.show()</code></pre>
 								$\longrightarrow$
 							</div>
 
-							<div style="text-align:center; width:27%;" class="fragment" data-fragment-index="1">
+							<div style="text-align:center; width:25%;" class="fragment" data-fragment-index="1">
 
-								<p><b>2. Compute the SVD</b></p>
+								<p><b>2. Compute the SVD:</b></p>
 
-								\[
-								X=U\Sigma V^T
-								\]
+
+								<p style="text-align: center;">
+									$X=U\Sigma V^T \quad$
+								</p>
+
 
 							</div>
 
@@ -2601,24 +2588,22 @@ plt.show()</code></pre>
 								$\longrightarrow$
 							</div>
 
-							<div style="text-align:center; width:27%;" class="fragment" data-fragment-index="2">
+							<div style="text-align:center; width:28%;" class="fragment" data-fragment-index="2">
 
-								<p><b>3. Find principal vectors</b></p>
+								<p><b>3. Find principal vectors:</b></p>
 
-								\[
-								\mathbf v_1,\mathbf v_2,\ldots
-								\]
+								<p style="text-align: center;">
+									$\mathbf v_1,\mathbf v_2,\v_3,\ldots \qquad $
+								</p>
 
 							</div>
 
 						</div>
 
-						<div style="margin-top:25px;" class="fragment" data-fragment-index="3">
+						<div style="margin-top:-20px;" class="fragment" data-fragment-index="3">
 
-							<p><b>4. Compute the principal components</b></p>
-
-							<p style="text-align:center;">
-								\[
+							<p><b>4. Compute the principal components:</b>
+								$\,
 								XV=
 								\begin{pmatrix}
 								|&|&&|\\
@@ -2630,41 +2615,32 @@ plt.show()</code></pre>
 								\end{pmatrix}
 								=
 								U\Sigma
-								\]
+								$
 							</p>
 
 						</div>
 
-						<div class="fragment" data-fragment-index="4" style="background:rgba(255,255,255,0.05);
-                   padding:12px; border-radius:6px;
-                   margin-top:15px;">
+						<div class="fragment" data-fragment-index="4" style="margin-top:15px;">
 
 							<p style="margin:0;">
-								<b>5. Keep the most significant components</b>
+								<b>5. Keep the most significant components:</b>
+								$
+								\;\sigma_1\geq\sigma_2\geq\cdots
+								$
 							</p>
 
-							<p style="text-align:center; margin:8px 0;">
-								\[
-								\sigma_1\geq\sigma_2\geq\cdots
-								\]
-							</p>
-
-							<p style="margin:0; text-align:center;">
+							<p style=" text-align:center;">
 								The first components capture the greatest variation
 								in the data.
 							</p>
 
 						</div>
 
-						<div class="fragment" data-fragment-index="5" style="margin-top:18px; text-align:center;
-                   font-size:1.15em;">
-
-							\[
-							\boxed{
-							\text{PCA finds a new orthogonal basis that reveals
-							dominant patterns in the data.}
-							}
-							\]
+						<div class="cc" style="margin-top:0px; font-size:1.1em;">
+							<p class="fragment" data-fragment-index="5" id="bb">
+								PCA finds a new orthogonal basis that reveals
+							dominant patterns in the data!
+							</p>
 
 						</div>
 
@@ -2674,7 +2650,7 @@ plt.show()</code></pre>
 				<section data-auto-animate>
 					<h4>Why is PCA Useful?</h4>
 
-					<div style="font-size: 0.7em;">
+					<div style="font-size: 0.68em;">
 
 						<p class="fragment" data-fragment-index="0">
 							PCA transforms data into a new coordinate system that
@@ -2682,11 +2658,11 @@ plt.show()</code></pre>
 						</p>
 
 						<div style="display: flex; justify-content: space-around;
-					margin-top: 25px;">
+					margin-top: -10px;">
 
 							<div class="fragment" data-fragment-index="1" style="width: 45%;
 				background: rgba(255,255,255,0.05);
-				padding: 15px;
+				padding: 5px;
 				border-radius: 8px;">
 
 								<p style="font-size: 1.15em; color: #1153bd;
@@ -2699,10 +2675,10 @@ plt.show()</code></pre>
 									differences between groups or classes.
 								</p>
 
-								<p style="text-align: center;">
-									$\text{high-dimensional data}
-									\;\longrightarrow\;
-									\text{informative features}$
+								<p style="text-align: left; font-size: 0.9em;">
+									<tt>high-dimensional data </tt><br/>
+									$\qquad \longrightarrow\;$
+									<tt>informative features</tt>
 								</p>
 
 							</div>
@@ -2722,10 +2698,10 @@ plt.show()</code></pre>
 									of the variation in the data.
 								</p>
 
-								<p style="text-align: center;">
-									$\text{many variables}
-									\;\longrightarrow\;
-									\text{fewer variables}$
+								<p style="text-align: left; font-size: 0.9em;">
+									<tt>many variables</tt><br/>
+									$\qquad \longrightarrow\;$
+									<tt>fewer variables</tt>
 								</p>
 
 							</div>
@@ -2753,7 +2729,7 @@ plt.show()</code></pre>
 								<p style="text-align: center;">
 									$X \approx
 									\sum_{i=1}^{k}
-									\sigma_i\mathbf u_i\mathbf v_i^T$
+									\sigma_i\mathbf u_i\mathbf v_i^T\quad$
 								</p>
 
 							</div>
@@ -2773,10 +2749,10 @@ plt.show()</code></pre>
 									components for visual exploration.
 								</p>
 
-								<p style="text-align: center;">
-									$\text{high-dimensional data}
-									\;\longrightarrow\;
-									\text{2D or 3D visualisation}$
+								<p style="text-align: left; font-size: 0.9em;">
+									<tt>high-dimensional data</tt><br/>
+									$\;\longrightarrow\;$
+									<tt>2D or 3D visualisation</tt>
 								</p>
 
 							</div>
