@@ -47,40 +47,71 @@
     </div>
 
     <script type="module">
-        import * as THREE from 'three';
+         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
         // --- 1. Scene & Renderer Setup ---
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x0e1117);
+        scene.background = new THREE.Color(0x0a0c12);
 
-        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(35, 25, 45);
+        const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 200);
+        camera.position.set(38, 22, 48);
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.2;
         document.body.appendChild(renderer.domElement);
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.minDistance = 8;
+        controls.maxDistance = 120;
+        controls.autoRotate = false;
+        controls.target.set(0, 0, 0);
 
-        // --- 2. Create Circular Particle Texture ---
+        // --- 2. Lighting ---
+        // Ambient light for base illumination
+        const ambient = new THREE.AmbientLight(0x404060, 0.5);
+        scene.add(ambient);
+
+        // Key light - warm
+        const keyLight = new THREE.DirectionalLight(0xffeedd, 2.2);
+        keyLight.position.set(20, 30, 20);
+        scene.add(keyLight);
+
+        // Fill light - cool
+        const fillLight = new THREE.DirectionalLight(0x4488ff, 1.0);
+        fillLight.position.set(-25, 10, -20);
+        scene.add(fillLight);
+
+        // Rim light
+        const rimLight = new THREE.DirectionalLight(0x88ccff, 0.8);
+        rimLight.position.set(0, -15, 30);
+        scene.add(rimLight);
+
+        // Soft hemisphere
+        const hemi = new THREE.HemisphereLight(0x4466aa, 0x222244, 0.8);
+        scene.add(hemi);
+
+        // --- 3. Create Circular Particle Texture (high quality) ---
         function createCircleTexture() {
             const canvas = document.createElement('canvas');
-            canvas.width = 64;
-            canvas.height = 64;
+            canvas.width = 128;
+            canvas.height = 128;
             const ctx = canvas.getContext('2d');
-            
-            // Soft glowing radial gradient for rounded spherical dots
-            const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+
+            const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
             gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-            gradient.addColorStop(0.4, 'rgba(120, 220, 255, 0.9)');
-            gradient.addColorStop(1, 'rgba(0, 80, 180, 0)');
+            gradient.addColorStop(0.15, 'rgba(200, 240, 255, 1)');
+            gradient.addColorStop(0.5, 'rgba(100, 200, 255, 0.7)');
+            gradient.addColorStop(1, 'rgba(0, 40, 120, 0)');
 
             ctx.fillStyle = gradient;
             ctx.beginPath();
-            ctx.arc(32, 32, 30, 0, Math.PI * 2);
+            ctx.arc(64, 64, 62, 0, Math.PI * 2);
             ctx.fill();
 
             const texture = new THREE.CanvasTexture(canvas);
@@ -88,30 +119,27 @@
             return texture;
         }
 
-        // --- 3. Generate Asymmetric 3D Dataset ---
+        // --- 4. Generate Asymmetric 3D Dataset ---
         const numPoints = 900;
         const geometry = new THREE.BufferGeometry();
         const positions = new Float32Array(numPoints * 3);
         const pointsArray = [];
 
-        // Random rotation matrix to orient the cloud arbitrarily in 3D space
         const rotationEuler = new THREE.Euler(Math.PI / 5, -Math.PI / 4, Math.PI / 6);
 
         for (let i = 0; i < numPoints; i++) {
-            // Asymmetrical skewed distribution using power scaling & non-linear curve
             const u = Math.random();
-            let x = (Math.pow(u, 2.2) * 55 - 18); // Skewed density towards one end
-            let y = Math.sin(x * 0.08) * 8 + (Math.random() - 0.5) * (10 + x * 0.2); // Curved, asymmetric spread
-            let z = (Math.random() - 0.5) * (4 + Math.abs(x) * 0.25); // Asymmetric tapering
+            let x = (Math.pow(u, 2.2) * 55 - 18);
+            let y = Math.sin(x * 0.08) * 8 + (Math.random() - 0.5) * (10 + x * 0.2);
+            let z = (Math.random() - 0.5) * (4 + Math.abs(x) * 0.25);
 
-            // Occasional tail scatter/outliers
             if (Math.random() > 0.93) {
                 x += (Math.random() - 0.5) * 18;
                 y += (Math.random() - 0.5) * 18;
             }
 
             let vec = new THREE.Vector3(x, y, z);
-            vec.applyEuler(rotationEuler); // Rotate dataset into arbitrary 3D orientation
+            vec.applyEuler(rotationEuler);
 
             positions[i * 3] = vec.x;
             positions[i * 3 + 1] = vec.y;
@@ -121,44 +149,52 @@
 
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
+        // Particles with size variation
+        const particleTexture = createCircleTexture();
         const particleMaterial = new THREE.PointsMaterial({
-            size: 1.5,
-            map: createCircleTexture(),
+            size: 1.8,
+            map: particleTexture,
             transparent: true,
             depthWrite: false,
             blending: THREE.AdditiveBlending,
-            color: 0x66ccff
+            color: 0x77ccff,
+            opacity: 0.92,
+            sizeAttenuation: true
         });
 
         const pointCloud = new THREE.Points(geometry, particleMaterial);
         scene.add(pointCloud);
 
-        // --- 4. PCA Calculations ---
-
-        // A. Calculate Mean (Center of mass)
+        // --- 5. PCA Calculations (unchanged) ---
         let mean = new THREE.Vector3(0, 0, 0);
         pointsArray.forEach(p => mean.add(p));
         mean.divideScalar(numPoints);
 
-        // B. Covariance Matrix (3x3)
-        let C = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        let C = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ];
         pointsArray.forEach(p => {
             let dx = p.x - mean.x;
             let dy = p.y - mean.y;
             let dz = p.z - mean.z;
-
-            C[0][0] += dx * dx; C[0][1] += dx * dy; C[0][2] += dx * dz;
-            C[1][0] += dy * dx; C[1][1] += dy * dy; C[1][2] += dy * dz;
-            C[2][0] += dz * dx; C[2][1] += dz * dy; C[2][2] += dz * dz;
+            C[0][0] += dx * dx;
+            C[0][1] += dx * dy;
+            C[0][2] += dx * dz;
+            C[1][0] += dy * dx;
+            C[1][1] += dy * dy;
+            C[1][2] += dy * dz;
+            C[2][0] += dz * dx;
+            C[2][1] += dz * dy;
+            C[2][2] += dz * dz;
         });
-
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 C[i][j] /= (numPoints - 1);
             }
         }
 
-        // C. Power Iteration to solve Eigenvectors/Eigenvalues
         function getDominantEigen(matrix, iterations = 60) {
             let v = new THREE.Vector3(1, 1, 1).normalize();
             for (let i = 0; i < iterations; i++) {
@@ -178,7 +214,11 @@
         }
 
         function deflate(matrix, eigenVec, eigenVal) {
-            let newM = [[0,0,0],[0,0,0],[0,0,0]];
+            let newM = [
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0]
+            ];
             let vArr = [eigenVec.x, eigenVec.y, eigenVec.z];
             for (let i = 0; i < 3; i++) {
                 for (let j = 0; j < 3; j++) {
@@ -188,7 +228,6 @@
             return newM;
         }
 
-        // D. Compute PC1, PC2, PC3
         let pc1 = getDominantEigen(C);
         let deflatedC1 = deflate(C, pc1.vector, pc1.value);
         let pc2 = getDominantEigen(deflatedC1);
@@ -197,35 +236,247 @@
         let pc3Value = Math.max(0.1, deflatedC2[0][0] + deflatedC2[1][1] + deflatedC2[2][2]);
         let pc3 = { vector: pc3Vector, value: pc3Value };
 
-        // --- 5. Render Components & Origin ---
-        function addArrow(dir, origin, length, hex) {
-            const visualScale = Math.sqrt(Math.max(0.1, length)) * 1.6;
-            const arrowHelper = new THREE.ArrowHelper(dir, origin, visualScale, hex, 1.8, 1.0);
-            const oppDir = dir.clone().negate();
-            const arrowHelperOpp = new THREE.ArrowHelper(oppDir, origin, visualScale, hex, 0.001, 0.001);
+        // --- 6. THICK CUSTOM ARROWS (Mesh-based) ---
 
-            scene.add(arrowHelper);
-            scene.add(arrowHelperOpp);
+        function createThickArrow(dir, origin, eigenvalue, color, shaftRadius = 0.45, headScale = 2.5) {
+            const visualScale = Math.sqrt(Math.max(0.1, eigenvalue)) * 1.6;
+            if (visualScale < 0.3) return null;
+
+            const group = new THREE.Group();
+            const direction = dir.clone().normalize();
+
+            // Slightly longer head for better proportion
+            const headLength = Math.min(visualScale * 0.28, 2.2);
+            const headRadius = shaftRadius * headScale;
+            const shaftLen = Math.max(visualScale - headLength, 0.3);
+
+            // --- Shaft ---
+            const shaftGeo = new THREE.CylinderGeometry(shaftRadius, shaftRadius, shaftLen, 24, 1);
+            // Slight taper for elegance
+            const shaftMat = new THREE.MeshPhysicalMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: 0.25,
+                metalness: 0.15,
+                roughness: 0.35,
+                clearcoat: 0.1,
+                clearcoatRoughness: 0.4,
+                envMapIntensity: 0.3,
+            });
+            const shaft = new THREE.Mesh(shaftGeo, shaftMat);
+            shaft.position.y = shaftLen / 2;
+
+            // --- Head ---
+            const headGeo = new THREE.ConeGeometry(headRadius, headLength, 28);
+            const headMat = new THREE.MeshPhysicalMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: 0.35,
+                metalness: 0.1,
+                roughness: 0.3,
+                clearcoat: 0.2,
+                clearcoatRoughness: 0.3,
+                envMapIntensity: 0.4,
+            });
+            const head = new THREE.Mesh(headGeo, headMat);
+            head.position.y = shaftLen + headLength / 2;
+
+            // --- Glow ring at base of head (optional accent) ---
+            const ringGeo = new THREE.TorusGeometry(headRadius * 0.7, shaftRadius * 0.6, 12, 24);
+            const ringMat = new THREE.MeshBasicMaterial({
+                color: color,
+                transparent: true,
+                opacity: 0.25,
+                blending: THREE.AdditiveBlending,
+            });
+            const ring = new THREE.Mesh(ringGeo, ringMat);
+            ring.position.y = shaftLen;
+            ring.rotation.x = Math.PI / 2;
+
+            group.add(shaft);
+            group.add(head);
+            group.add(ring);
+
+            // Orient the group along the direction
+            const up = new THREE.Vector3(0, 1, 0);
+            if (Math.abs(direction.dot(up)) < 0.9999) {
+                const quat = new THREE.Quaternion().setFromUnitVectors(up, direction);
+                group.quaternion.copy(quat);
+            } else if (direction.y < 0) {
+                group.rotation.z = Math.PI;
+            }
+            group.position.copy(origin);
+
+            return group;
         }
 
-        // Center Mean Sphere
-        const originGeo = new THREE.SphereGeometry(0.7, 32, 32);
-        const originMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        function createDoubleEndedArrow(dir, origin, eigenvalue, color, shaftRadius = 0.45, headScale = 2.5) {
+            const visualScale = Math.sqrt(Math.max(0.1, eigenvalue)) * 1.6;
+            if (visualScale < 0.3) return null;
+
+            const group = new THREE.Group();
+            const direction = dir.clone().normalize();
+
+            const headLength = Math.min(visualScale * 0.25, 2.0);
+            const headRadius = shaftRadius * headScale;
+            const totalLen = visualScale * 2;
+            const shaftLen = Math.max(totalLen - headLength * 2, 0.3);
+
+            const shaftMat = new THREE.MeshPhysicalMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: 0.2,
+                metalness: 0.15,
+                roughness: 0.35,
+                clearcoat: 0.1,
+                clearcoatRoughness: 0.4,
+            });
+
+            // Shaft through origin
+            const shaftGeo = new THREE.CylinderGeometry(shaftRadius, shaftRadius, shaftLen, 24);
+            const shaft = new THREE.Mesh(shaftGeo, shaftMat);
+            shaft.position.y = 0;
+            group.add(shaft);
+
+            // Head at positive end
+            const headMat = new THREE.MeshPhysicalMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: 0.35,
+                metalness: 0.1,
+                roughness: 0.3,
+                clearcoat: 0.2,
+                clearcoatRoughness: 0.3,
+            });
+            const headGeo = new THREE.ConeGeometry(headRadius, headLength, 28);
+            const headPos = new THREE.Mesh(headGeo, headMat);
+            headPos.position.y = shaftLen / 2 + headLength / 2;
+            group.add(headPos);
+
+            // Head at negative end
+            const headNeg = new THREE.Mesh(headGeo.clone(), headMat);
+            headNeg.position.y = -shaftLen / 2 - headLength / 2;
+            headNeg.rotation.z = Math.PI;
+            group.add(headNeg);
+
+            // Glow rings
+            const ringMat = new THREE.MeshBasicMaterial({
+                color: color,
+                transparent: true,
+                opacity: 0.2,
+                blending: THREE.AdditiveBlending,
+            });
+            const ringGeo = new THREE.TorusGeometry(headRadius * 0.6, shaftRadius * 0.5, 12, 24);
+            const ring1 = new THREE.Mesh(ringGeo, ringMat);
+            ring1.position.y = shaftLen / 2;
+            ring1.rotation.x = Math.PI / 2;
+            group.add(ring1);
+
+            const ring2 = new THREE.Mesh(ringGeo.clone(), ringMat);
+            ring2.position.y = -shaftLen / 2;
+            ring2.rotation.x = Math.PI / 2;
+            group.add(ring2);
+
+            // Orient
+            const up = new THREE.Vector3(0, 1, 0);
+            if (Math.abs(direction.dot(up)) < 0.9999) {
+                const quat = new THREE.Quaternion().setFromUnitVectors(up, direction);
+                group.quaternion.copy(quat);
+            } else if (direction.y < 0) {
+                group.rotation.z = Math.PI;
+            }
+            group.position.copy(origin);
+
+            return group;
+        }
+
+        // --- 7. Add PCA Arrows to Scene ---
+
+        // PC1 - Red (primary spread)
+        const arrow1 = createDoubleEndedArrow(pc1.vector, mean, pc1.value, 0xff4466, 0.50, 2.6);
+        if (arrow1) scene.add(arrow1);
+
+        // PC2 - Green (secondary spread)
+        const arrow2 = createDoubleEndedArrow(pc2.vector, mean, pc2.value, 0x44ff88, 0.42, 2.4);
+        if (arrow2) scene.add(arrow2);
+
+        // PC3 - Blue (tertiary spread)
+        const arrow3 = createDoubleEndedArrow(pc3.vector, mean, pc3.value, 0x44aaff, 0.35, 2.2);
+        if (arrow3) scene.add(arrow3);
+
+        // --- 8. Origin Marker (glowing sphere) ---
+        const originGeo = new THREE.SphereGeometry(0.9, 48, 48);
+        const originMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff,
+            emissive: 0x88ccff,
+            emissiveIntensity: 0.6,
+            metalness: 0.0,
+            roughness: 0.1,
+            transparent: true,
+            opacity: 0.95,
+        });
         const originMesh = new THREE.Mesh(originGeo, originMat);
         originMesh.position.copy(mean);
         scene.add(originMesh);
 
-        // Add PC Eigenvector Arrows
-        addArrow(pc1.vector, mean, pc1.value, 0xff4444); // Red: PC1 (Primary spread)
-        addArrow(pc2.vector, mean, pc2.value, 0x44ff77); // Green: PC2 (Secondary spread)
-        addArrow(pc3.vector, mean, pc3.value, 0x4499ff); // Blue: PC3 (Tertiary spread)
+        // Glow halo around origin
+        const haloGeo = new THREE.SphereGeometry(1.8, 32, 32);
+        const haloMat = new THREE.MeshBasicMaterial({
+            color: 0x4488ff,
+            transparent: true,
+            opacity: 0.12,
+            blending: THREE.AdditiveBlending,
+        });
+        const halo = new THREE.Mesh(haloGeo, haloMat);
+        halo.position.copy(mean);
+        scene.add(halo);
 
-        // Subtle background grid
-        const gridHelper = new THREE.GridHelper(80, 16, 0x2a3545, 0x18202c);
+        // --- 9. Grid & Environment ---
+
+        // Main grid
+        const gridHelper = new THREE.GridHelper(90, 20, 0x2a3a55, 0x141c2a);
         gridHelper.position.y = -22;
         scene.add(gridHelper);
 
-        // --- 6. Render Loop ---
+        // Subtle circular ring grid
+        const ringGridGeo = new THREE.RingGeometry(28, 30, 64);
+        const ringGridMat = new THREE.MeshBasicMaterial({
+            color: 0x1a2a44,
+            transparent: true,
+            opacity: 0.15,
+            side: THREE.DoubleSide,
+            wireframe: false,
+        });
+        const ringGrid = new THREE.Mesh(ringGridGeo, ringGridMat);
+        ringGrid.rotation.x = -Math.PI / 2;
+        ringGrid.position.y = -21.5;
+        scene.add(ringGrid);
+
+        // Ambient stars (distant particles)
+        const starCount = 600;
+        const starGeo = new THREE.BufferGeometry();
+        const starPos = new Float32Array(starCount * 3);
+        for (let i = 0; i < starCount; i++) {
+            const r = 60 + Math.random() * 80;
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            starPos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+            starPos[i * 3 + 1] = r * Math.cos(phi) * 0.3;
+            starPos[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+        }
+        starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+        const starMat = new THREE.PointsMaterial({
+            color: 0x6688bb,
+            size: 0.3,
+            transparent: true,
+            opacity: 0.4,
+            blending: THREE.AdditiveBlending,
+            sizeAttenuation: true,
+        });
+        const stars = new THREE.Points(starGeo, starMat);
+        scene.add(stars);
+
+        // --- 10. Render Loop ---
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
@@ -235,9 +486,20 @@
         function animate() {
             requestAnimationFrame(animate);
             controls.update();
+
+            // Subtle halo pulse
+            const time = Date.now() * 0.001;
+            halo.scale.setScalar(1 + 0.08 * Math.sin(time * 0.6));
+            haloMat.opacity = 0.08 + 0.05 * Math.sin(time * 0.6 + 0.5);
+
             renderer.render(scene, camera);
         }
         animate();
+
+        console.log('✅ PCA visualization with thick mesh-based vectors');
+        console.log('PC1 eigenvalue:', pc1.value);
+        console.log('PC2 eigenvalue:', pc2.value);
+        console.log('PC3 eigenvalue:', pc3Value);
     </script>
 </body>
 </html>

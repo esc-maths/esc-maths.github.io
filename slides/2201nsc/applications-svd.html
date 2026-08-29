@@ -2925,7 +2925,7 @@ iris_num = table2array(T(:, 1:4));
 % Extract the 5th column (the text) and convert to numeric color codes
 [~, ~, color_idx] = unique(T{:, 5});
 
-% Mean-center ONLY the numeric features
+% Center the numerical data
 iris_centered = iris_num - mean(iris_num);
 
 % Plot
@@ -2973,14 +2973,14 @@ ylabel('sepal width')</code></pre>
 							<p style="font-size: 0.7em; margin-top: 20px;">
 								<b>Plot of the first and second principal components:</b>
 							</p>
-							<pre style="font-size: 0.49em;  margin-top: -20px; width: 102%; height: 495px;"><code data-trim class="language-matlab">% Load the CSV into a table (preserving both numbers and text)
+							<pre style="font-size: 0.49em;  margin-top: -20px; width: 102%; height: 495px;"><code data-trim class="language-matlab">% Read the mixed data into a table
 T = readtable("iris.data.csv");
 
 % Separate the num features (cols 1-4) from the species text (col 5)
 iris_num = table2array(T(:, 1:4));
 [~, ~, color_idx] = unique(T{:, 5});
 
-% Mean-center ONLY the numeric features
+% Center the numerical data
 iris_centered = iris_num - mean(iris_num);
 
 % Compute Singular Value Decomposition (SVD)
@@ -3022,21 +3022,7 @@ ylabel('princomp2')</code></pre>
 							<b>very time-consuming</b> for large datasets.
 						</p>
 
-						<!--
-						<div class="fragment"
-							style="display: flex; justify-content:space-around; align-items:center; width: 80%; margin-top: -30px; margin-left: 60px;">
-
-							<div>
-								<p>
-									💻 This is where the <b>computer helps us</b>:
-									it performs the numerical calculations quickly and accurately.
-								</p>
-							</div>
-							<div>
-								<img style="width: 300px;"
-									src="https://www.geogebra.org/resource/a3xy3dzg/4xk8p3UuAAGNQtQt/material-a3xy3dzg.png">
-							</div>
-						</div>-->
+						
 
 						<div class="fragment"
 							style="display: flex; justify-content: space-around; align-items: center; width: 80%; margin-top: -20px; margin-left: 60px;">
