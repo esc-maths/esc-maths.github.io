@@ -2925,23 +2925,22 @@ plt.show()</code></pre>
 							</div>
 						</div>
 						<div>
-							<p style="font-size: 0.7em;">
+							<p style="font-size: 0.7em; margin-top: -20px;">
 								<b>Plot of sepal length (horizontal) vs sepal width (vertical):</b>
 							</p>
-							<pre style="font-size: 0.45em;  margin-top: 10px; width: 102%;"><code data-trim class="language-matlab">% 1. Read the mixed data into a table
+							<pre style="font-size: 0.46em;  margin-top: 10px; width: 101%;"><code data-trim class="language-matlab">% Read the mixed data into a table
 T = readtable("iris.data.csv");
 
-% 2. Extract ONLY the first 4 columns (the numbers) for math
-% Note: If your CSV has no headers, this might be T(:, 1:4)
+% Extract ONLY the first 4 columns (the numbers)
 iris_num = table2array(T(:, 1:4)); 
 
-% 3. Extract the 5th column (the text) and convert to numeric color codes
+% Extract the 5th column (the text) and convert to numeric color codes
 [~, ~, color_idx] = unique(T{:, 5});
 
-% 4. Do the math ONLY on the numbers
+% Mean-center ONLY the numeric features
 iris_centered = iris_num - mean(iris_num);
 
-% 5. Plot
+% Plot
 scatter(iris_centered(:,1), iris_centered(:,2), [], color_idx, 'filled')
 xlabel('sepal length')
 ylabel('sepal width')</code></pre>
@@ -2986,24 +2985,23 @@ ylabel('sepal width')</code></pre>
 							<p style="font-size: 0.7em; margin-top: 20px;">
 								<b>Plot of the first and second principal components:</b>
 							</p>
-							<pre style="font-size: 0.45em;  margin-top: -20px; width: 102%; height: 490px;"><code data-trim class="language-matlab">% 1. Load the CSV into a table (preserving both numbers and text)
-% Add 'ReadVariableNames', false if your CSV file has no header row
+							<pre style="font-size: 0.49em;  margin-top: -20px; width: 102%; height: 495px;"><code data-trim class="language-matlab">% Load the CSV into a table (preserving both numbers and text)
 T = readtable("iris.data.csv");
 
-% 2. Separate the numeric features (cols 1-4) from the species text (col 5)
+% Separate the num features (cols 1-4) from the species text (col 5)
 iris_num = table2array(T(:, 1:4));
 [~, ~, color_idx] = unique(T{:, 5});
 
-% 3. Mean-center ONLY the numeric features
+% Mean-center ONLY the numeric features
 iris_centered = iris_num - mean(iris_num);
 
-% 4. Compute Singular Value Decomposition (SVD)
+% Compute Singular Value Decomposition (SVD)
 [u, s, v] = svds(iris_centered, 2);
 
-% 5. Project numeric data onto the top 2 principal components
+% Project numeric data onto the top 2 principal components
 us = iris_centered * v;
 
-% 6. Plot using the species color indices
+% Plot using the species color indices
 scatter(us(:,1), us(:,2), [], color_idx, 'filled')
 xlabel('princomp1')
 ylabel('princomp2')</code></pre>
