@@ -95,7 +95,8 @@
 								$
 							</p>
 							<p class="fragment fade-in-then-out" data-fragment-index="3">
-								$ {\Large A =} \; \begin{pmatrix} | & | & & | \\ \u_1 & \u_2 & \dots & \u_m \\ | & | & & |
+								$ {\Large A =} \; \begin{pmatrix} | & | & & | \\ \u_1 & \u_2 & \dots & \u_m \\ | & | & &
+								|
 								\end{pmatrix}
 								\left(\begin{array}{ccc|c} \sigma_1 & \cdots & 0 & \\ \vdots & \ddots & \vdots & \mathbf
 								0 \\ 0 & \cdots & \sigma_r & \\ \hline & \mathbf 0 & & \mathbf 0 \end{array} \right)
@@ -105,7 +106,8 @@
 								$
 							</p>
 							<p class="fragment fade-in" data-fragment-index="4">
-								$ {\Large A =} \; \begin{pmatrix} | & | & & | \\ \u_1 & \u_2 & \dots & \u_r \\ | & | & & |
+								$ {\Large A =} \; \begin{pmatrix} | & | & & | \\ \u_1 & \u_2 & \dots & \u_r \\ | & | & &
+								|
 								\end{pmatrix}
 								\begin{pmatrix} \sigma_1 & & & \\ & \sigma_2 & & \\ & & \ddots & \\ & & & \sigma_r
 								\end{pmatrix} \begin{pmatrix}
@@ -2811,18 +2813,18 @@ plt.show()</code></pre>
 					</div>
 					<div class="size-65" style="margin-top: -40px;">
 						<p class="fragment">
-							A well-established example of the value of PCA, through a set of data obtained by Edgar
-							Anderson measuring the lengths and widths of <i>Iris</i> sepals and petals.
+							A well-established example illustrating the usefulness of PCA uses the
+							<i>Iris</i> dataset, originally collected by Edgar Anderson, containing
+							measurements of the lengths and widths of iris sepals and petals.
 							<span class="fragment">
-								The data set
-								contains measurements for 50 flowers from each of three different species of irises
-								(<i>setosa</i>, <i>versicolor</i>, <i>virginia</i>).
+								The dataset contains measurements for 50 flowers from each of three
+								different species: <i>setosa</i>, <i>versicolor</i>, and <i>virginica</i>.
 							</span>
 						</p>
 						<p class="fragment"
 							style="font-size: 1.3em; border-left: 6px solid rgb(0, 38, 255); padding-left: 20px;">
 							<b>Question:</b>
-							Can we use these measurements as a way of identifying which species an iris belongs to?
+							Can we use these measurements as a way of identifying which species an iris belongs to? 🤔
 						</p>
 					</div>
 					<br />
@@ -2855,29 +2857,31 @@ plt.show()</code></pre>
 							<div>
 								<img style="width: 100%" src="images/applications-svd/iris_photo.png">
 							</div>
-							<div style="font-size: 0.8em; margin-top: -30px;">
-								<p>
-									<i class="fa fa-link"></i> <b>Source:</b> <br />
-									<a href="https://archive.ics.uci.edu/dataset/53/iris"
-										target="_blank"><tt>archive.ics.uci.edu/dataset/53/iris</tt></a>
-								</p>
-								<p class="fragment" style="font-size: 0.8em; text-align: justify; margin-top: -10px;"
+							<div style="font-size: 0.8em; margin-top: -20px;">
+								
+								<p style="font-size: 0.8em; text-align: justify; margin-top: -10px;"
 									id="bb">
 									This is one of the earliest datasets used in the literature on classification
 									methods and widely used in <i>statistics</i> and <i>machine learning</i>.
 								</p>
+								<p class="fragment"  style="margin-top: -10px;">
+									<i class="fa fa-link"></i> <b>Source:</b> <br />
+									<a href="https://archive.ics.uci.edu/dataset/53/iris"
+										target="_blank"><tt>archive.ics.uci.edu/dataset/53/iris</tt></a>
+								</p>
+								
 							</div>
 						</td>
 					</table>
 
 					<div class="size-65" style="margin-top: -30px;">
 						<p>
-							A well-established example of the value of PCA, through a set of data obtained by Edgar
-							Anderson measuring the lengths and widths of <i>Iris</i> sepals and petals.
+							A well-established example illustrating the usefulness of PCA uses the
+							<i>Iris</i> dataset, originally collected by Edgar Anderson, containing
+							measurements of the lengths and widths of iris sepals and petals.
 							<span>
-								The data set
-								contains measurements for 50 flowers from each of three different species of irises
-								(<i>setosa</i>, <i>versicolor</i>, <i>virginia</i>).
+								The dataset contains measurements for 50 flowers from each of three
+								different species: <i>setosa</i>, <i>versicolor</i>, and <i>virginica</i>.
 							</span>
 						</p>
 
