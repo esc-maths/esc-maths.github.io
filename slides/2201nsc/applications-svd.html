@@ -2917,13 +2917,13 @@ plt.show()</code></pre>
 							<p style="font-size: 0.7em; margin-top: -20px;">
 								<b>Plot of sepal length (horizontal) vs sepal width (vertical):</b>
 							</p>
-							<pre style="font-size: 0.47em;  margin-top: 10px; width: 101%;"><code data-trim class="language-matlab">% Read the mixed data into a table
+							<pre style="font-size: 0.53em;  margin-top: 10px; width: 101%; height: 432px;"><code data-trim class="language-matlab">% Read the mixed data into a table
 T = readtable("iris.data.csv");
 
 % Extract ONLY the first 4 columns (the numbers)
 iris_num = table2array(T(:, 1:4)); 
 
-% Extract the 5th column (the text) and convert to numeric color codes
+% Convert column 5 to color codes
 [~, ~, color_idx] = unique(T{:, 5});
 
 % Center the numerical data
@@ -2977,18 +2977,18 @@ ylabel('sepal width')</code></pre>
 							<pre style="font-size: 0.49em;  margin-top: -20px; width: 102%; height: 497px;"><code data-trim class="language-matlab">% Read the mixed data into a table
 T = readtable("iris.data.csv");
 
-% Separate the num features (cols 1-4) from the species text (col 5)
+% Separate the numbers (cols 1-4) from the species text (col 5)
 iris_num = table2array(T(:, 1:4));
 [~, ~, color_idx] = unique(T{:, 5});
 
 % Center the numerical data
-iris_centered = iris_num - mean(iris_num);
+iris_c = iris_num - mean(iris_num);
 
 % Compute Singular Value Decomposition (SVD)
-[u, s, v] = svds(iris_centered, 2);
+[u, s, v] = svds(iris_c, 2);
 
 % Project numeric data onto the top 2 principal components
-us = iris_centered * v;
+us = iris_c * v;
 
 % Plot using the species color indices
 scatter(us(:,1), us(:,2), [], color_idx, 'filled')
