@@ -2374,49 +2374,65 @@ plt.show()</code></pre>
 				<section data-auto-animate>
 					<h4>From SVD to Principal Component Analysis (PCA)</h4>
 
-					<div style="font-size: 0.85em;">
+					<div style="font-size: 0.84em;">
 
-						<p class="fragment" data-fragment-index="0">
+						<p class="fragment" data-fragment-index="0" style="text-align: center;">
 							So far, we have considered the action of a matrix
 							$A$ on vectors $\mathbf{x}$.
 						</p>
 
-						<p class="fragment" data-fragment-index="1">
-							What if instead we have a <b>set of data</b>
-							stored in a matrix $X$?
-						</p>
+						<table style="width: 100%; margin-top: -20px;">
+							<tr>
+								<td style="width: 53%;">
+									<p style="margin-top:-20px;" class="fragment" data-fragment-index="1">
+										What if instead we have a <b>set of data</b>
+										stored in a matrix $X$?
+									</p>
 
-						<div class="fragment" data-fragment-index="2" style="text-align:center; margin-top:20px;">
+									<div class="fragment" data-fragment-index="1" >
+										<p style="text-align:center; margin-top:-20px;">
+											$
+											X=
+											\begin{pmatrix}
+											x_1 & y_1\\
+											x_2 & y_2\\
+											\vdots & \vdots\\
+											x_m & y_m
+											\end{pmatrix}
+											$
+										</p>
 
-							\[
-							X=
-							\begin{pmatrix}
-							x_1 & y_1\\
-							x_2 & y_2\\
-							\vdots & \vdots\\
-							x_m & y_m
-							\end{pmatrix}
-							\]
+									</div>
+									<div class="fragment" data-fragment-index="2" style="margin-top:0px;">
 
-						</div>
+										<p style="margin:0; text-align:left;">
+											<b>Can we find the directions in which the data
+												have the greatest spread?</b>
+										</p>
 
-						<div class="fragment" data-fragment-index="3" style="background:rgba(255,255,255,0.05);
-                   padding:12px; border-radius:6px;
-                   margin-top:20px;">
+									</div>
+								</td>
+								<td style="width: 37%;">
 
-							<p style="margin:0; text-align:center;">
-								<b>Can we find the directions in which the data
-									have the greatest spread?</b>
-							</p>
+									<div class="r-stack" >
+										<img class="fragment fade-in-then-out" data-fragment-index="1" src="images/applications-svd/pca-components.png">
+										<img class="fragment fade-in-then-out" data-fragment-index="2" src="images/applications-svd/pca-components.png">
+										<img class="fragment fade-in-then-out" data-fragment-index="3" src="images/applications-svd/pca-components.png">
+										<img class="fragment fade-in" data-fragment-index="4" src="images/applications-svd/pca-components-vecs.png">
+									</div>
 
-						</div>
+								</td>
+							</tr>
+						</table>
 
-						<p class="fragment" data-fragment-index="4" style="text-align:center; font-size:1.2em;
-                   margin-top:25px;" id="bb">
+
+						<p class="fragment" data-fragment-index="3" style="text-align:center; font-size:1.2em;
+                   margin-top:5px;" id="bb">
 							Which direction captures the most variation? 🤔
 						</p>
 
 					</div>
+					<br/>
 				</section>
 
 				<section data-auto-animate>
@@ -2846,18 +2862,17 @@ plt.show()</code></pre>
 								<img style="width: 100%" src="images/applications-svd/iris_photo.png">
 							</div>
 							<div style="font-size: 0.8em; margin-top: -20px;">
-								
-								<p style="font-size: 0.8em; text-align: justify; margin-top: -10px;"
-									id="bb">
+
+								<p style="font-size: 0.8em; text-align: justify; margin-top: -10px;" id="bb">
 									This is one of the earliest datasets used in the literature on classification
 									methods and widely used in <i>statistics</i> and <i>machine learning</i>.
 								</p>
-								<p class="fragment"  style="margin-top: -10px;">
+								<p class="fragment" style="margin-top: -10px;">
 									<i class="fa fa-link"></i> <b>Source:</b> <br />
 									<a href="https://archive.ics.uci.edu/dataset/53/iris"
 										target="_blank"><tt>archive.ics.uci.edu/dataset/53/iris</tt></a>
 								</p>
-								
+
 							</div>
 						</td>
 					</table>
@@ -2882,11 +2897,12 @@ plt.show()</code></pre>
 						Using PCA for Iris Dataset Classification
 					</h4>
 					<div>
-						<iframe style="width: 800px; height: 600px; border: 1px solid #d0d0d0; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
+						<iframe
+							style="width: 800px; height: 600px; border: 1px solid #d0d0d0; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
 							src="sketches/pca-iris-svd/"></iframe>
 					</div>
 					<br />
-					
+
 				</section>
 
 
@@ -3023,7 +3039,7 @@ ylabel('princomp2')</code></pre>
 							<b>very time-consuming</b> for large datasets.
 						</p>
 
-						
+
 
 						<div class="fragment"
 							style="display: flex; justify-content: space-around; align-items: center; width: 80%; margin-top: -20px; margin-left: 60px;">
