@@ -74,21 +74,25 @@
 
 				<section data-auto-animate>
 					<h4>Singular Value Decomposition (SVD)</h4>
-					<div class="size-75">
+					<div class="size-80">
 						<p class="fragment" data-fragment-index="0">
 							Recall that any matrix $A \in \mathbb{R}^{m \times n}$ can be
-							written as $A = U \Sigma V^T,$
-							<span class="fragment" data-fragment-index="1">
-								where $U \in \mathbb{R}^{m \times m}$ and
-								$V \in \mathbb{R}^{n \times n}$ are orthogonal matrices, and
-								$\Sigma \in \mathbb{R}^{m \times n}$ contains singular
-								values $\sigma_1 \ge \sigma_2 \ge
-								\dots \ge \sigma_r > 0.$
-							</span>
+							written as 
+							
 						</p>
 
 						<div class="r-stack" style="margin-top: -20px;font-size: 0.9em;">
 
+							<p class="fragment fade-in-then-out" data-fragment-index="0" style="font-size: 2em;">
+								$
+								A = U\Sigma V^{T}
+								$
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="1" style="font-size: 2em;">
+								$
+								A = U\Sigma V^{T}
+								$
+							</p>
 							<p class="fragment fade-in-then-out" data-fragment-index="2" style="font-size: 2em;">
 								$
 								A = U\Sigma V^{T}
@@ -117,14 +121,32 @@
 							</p>
 
 						</div>
-						<div class="fragment" data-fragment-index="5"
-							style="margin-top: -20px; margin-left: 200px; font-size: 1.2em;">
-							<p>
-								$\ds \quad \quad\; {\large =} \sum_{i=1}^{r} \sigma_i \u_i
+
+						<div 
+							style="margin-top: -20px; margin-left: 190px; font-size: 1.2em;">
+							<p class="fragment" data-fragment-index="5">
+								$\ds =\sum_{i=1}^{r} \sigma_i \u_i
 								\v_i^T$
 							</p>
 						</div>
+						
 
+						<p class="fragment fade-out" data-fragment-index="4">
+							<span class="fragment" data-fragment-index="1">
+								where $U \in \mathbb{R}^{m \times m}$ and
+								$V \in \mathbb{R}^{n \times n}$ are orthogonal matrices, 
+							</span>
+							<span class="fragment" data-fragment-index="2">
+								and
+								$\Sigma \in \mathbb{R}^{m \times n}$ contains singular
+								values $\sigma_1 \ge \sigma_2 \ge
+								\dots \ge \sigma_r > 0.$
+							</span>
+						</p>
+
+						
+
+						<!--
 						<blockquote class="fragment" data-fragment-index="6"
 							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #4285f4; margin-top: -10px; font-style: normal; width: 85%;">
 							The SVD decomposes $A$ into a linear combination of <b>outer product</b> matrices.
@@ -133,6 +155,7 @@
 							<b>Note:</b> The <i>outer product</i> of two vectors is a matrix whose entries are all
 							products of an element in the first vector with an element in the second vector.
 						</p>
+						-->
 					</div>
 					<br />
 				</section>
@@ -142,23 +165,23 @@
 					<h4>The SVD as an Outer Product Expansion</h4>
 					<div class="size-80 left-txt">
 						<p>
-							The SVD expresses $A$ as a <b>sum</b>
-							of matrices:
+							Thus the SVD expresses $A$ as a <b>sum</b>
+							<span class="fragment" data-fragment-index="6">
+								of matrices:
+							</span>
 
 						</p>
-						<div class="cc" style="margin-top: -20px;">
+						<div class="cc"
+							style="margin-top: -20px; margin-left: 0px; font-size: 1.2em;">
 							<p>
 								$\ds A = U\Sigma V^{T} =\sum_{i=1}^{r} \sigma_i \u_i
 								\v_i^T$
 							</p>
 						</div>
 
-						<p class="fragment" data-fragment-index="1" style="margin-top: 60px;">
-							Here, $\u_i \v_i^T$ is the <b>outer product</b>
-							of $\u_i$ and $\v_i$.
-							<span class="fragment" data-fragment-index="2">
-								This is a $m$-by-$n$ matrix:
-							</span>
+						<p class="fragment" data-fragment-index="1" style="margin-top: 10px;">
+							Here, the product $\u_i \v_i^T$ is a $m$-by-$n$ matrix:
+							
 						</p>
 
 						<div class="cc" style="margin-top: 0px; font-size: 0.9em;">
@@ -181,6 +204,11 @@
 								</span>
 							</p>
 						</div>
+
+						<blockquote class="fragment" data-fragment-index="6"
+							style="text-align: left; background: rgba(255,255,255,0.05); padding: 10px; border-left: 6px solid #4285f4; margin-top: 20px; font-style: normal; width: 90%;">
+							The SVD decomposes $A$ into a linear combination of <b>outer product</b> matrices.
+						</blockquote>
 
 
 					</div>
