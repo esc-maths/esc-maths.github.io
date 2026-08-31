@@ -994,11 +994,12 @@
 				 data-visibility="hidden"
 				-->
 				<section data-auto-animate>
-					<h4>Deterministic IFS: JavaScript</h4>
+					
 
-					<table style="width: 100%;">
+					<table style="width: 90%;">
 						<tr>
-							<td style="width: 40%;">
+							<td style="width: 45%;">
+								<h4>Deterministic IFS:</h4>
 								<div class="size-60">
 									<p>
 										\(
@@ -1046,33 +1047,42 @@
 									<br />
 								</div>
 							</td>
-							<td style="width: 60%;">
-								<pre style="width: 100%;height: 580px; font-size: 49%; margin-top: -10px;">
-						<code data-trim data-noescape 
-							data-line-numbers="1-7|9-15|17-23|1-23">
-function T1(c) {
-  return {
-    x: 0.5 * c.x + 0,
-    y: 0.5 * c.y + 0,
-    r: 0.5 * c.r, // radius
-  };
-}
+							<td style="width: 55%;">
+								<pre style="width: 100%;height: 710px; font-size: 42%; margin-top: -10px;">
+						<code class="language-matlab" data-trim data-noescape data-line-numbers="1-2|4-6|8-11|13|14|16,18-20|16,22-23|16,25-28|16,30-31|16,33|1-33">
+TRANSFORMATION T1:
+    Scale x, y, and radius by 1/2
 
-function T2(c) {
-  return {
-    x: 0.5 * c.x + 0,
-    y: 0.5 * c.y + 100,
-    r: 0.5 * c.r,
-  };
-}
+TRANSFORMATION T2:
+    Scale x, y, and radius by 1/2
+    Move 100 units in the positive y-direction
 
-function T3(c) {
-  return {
-    x: 0.5 * c.x + 100,
-    y: 0.5 * c.y + 100,
-    r: 0.5 * c.r,
-  };
-}
+TRANSFORMATION T3:
+    Scale x, y, and radius by 1/2
+    Move 100 units in the positive x-direction
+    Move 100 units in the positive y-direction
+
+SET the initial circle
+SET iteration ← 0
+
+REPEAT when the next iteration is requested:
+
+    IF the maximum number of iterations has been reached:
+        RESET to the initial circle
+        SET iteration ← 0
+
+    OTHERWISE:
+        CREATE an empty list of circles
+
+        FOR EACH current circle:
+            APPLY T1 and add the result
+            APPLY T2 and add the result
+            APPLY T3 and add the result
+
+        REPLACE the current circles
+            with the new circles
+
+        INCREASE iteration by 1
 </code></pre>
 
 							</td>
@@ -1388,11 +1398,12 @@ function plotAxesInfo() {
 					<br />
 				</section>
 				<section>
-					<h4>Probabilistic IFS: JavaScript</h4>
+					
 
-					<table style="width: 90%;">
+					<table style="width: 100%;">
 						<tr>
-							<td style="width: 50%;">
+							<td style="width: 45%;">
+								<h4>Probabilistic IFS</h4>
 								<div style="font-size: 60%;" class="cc">
 									<p>
 										$
@@ -1469,32 +1480,32 @@ function plotAxesInfo() {
 									<br />
 								</div>
 							</td>
-							<td style="width: 50%;">
-								<pre style="width: 100%;height: 590px; font-size: 50%; margin-top: -10px;">
-						<code data-trim data-noescape 
-							data-line-numbers="1|3-22|4|5-9|5,6,10-12|5,6,13-15|5,6,16-18|20-21|1-22">
-let x = 0, y = 0;
+							<td style="width: 55%;">
+								<pre style="width: 100%;height: 520px; font-size: 45%; margin-top: 20px;">
+						<code class="language-matlab" data-trim data-noescape 
+							data-line-numbers="1|3,5|3,7-8|3,10-11|3,13-14|3,16-17|19-22|1-22">
+SET (x, y) ← (0, 0)
 
-function nextPoint() {
-  let nextX, nextY, r = random();
-  // Apply affine transforms 
-  // base on probability distribution
-  if (r < 0.01) {
-    nextX = 0;
-    nextY = 0.16 * y;
-  } else if (r < 0.86) {
-    nextX = 0.85 * x + 0.04 * y;
-    nextY = -0.04 * x + 0.85 * y + 1.6;
-  } else if (r < 0.93) {
-    nextX = 0.2 * x + -0.26 * y;
-    nextY = 0.23 * x + 0.22 * y + 1.6;
-  } else {
-    nextX = -0.15 * x + 0.28 * y;
-    nextY = 0.26 * x + 0.24 * y + 0.44;
-  }
-  x = nextX;
-  y = nextY;
-}
+DEFINE NextPoint:
+
+    GENERATE random number r ∈ [0, 1]
+
+    IF r < 0.01:
+        (x, y) ← (0, 0.16y)
+
+    ELSE IF r < 0.86:
+        (x, y) ← (0.85x + 0.04y, -0.04x + 0.85y + 1.6)
+
+    ELSE IF r < 0.93:
+        (x, y) ← (0.20x - 0.26y, 0.23x + 0.22y + 1.6)
+
+    ELSE:
+        (x, y) ← (-0.15x + 0.28y, 0.26x + 0.24y + 0.44)
+
+REPEAT:
+    REPEAT maxValue times:
+        PLOT (x, y)
+        NextPoint
 </code></pre>
 							</td>
 						</tr>
