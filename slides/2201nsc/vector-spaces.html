@@ -1161,7 +1161,7 @@
 					</div>
 					<br />
 				</section>
-				
+
 			</section>
 
 			<section>
@@ -1605,7 +1605,7 @@
 							is the set of all solutions to the homogeneous system $A\mathbf x = \mathbf 0.$
 							<span class="fragment" data-fragment-index="2">
 								That is,
-								$$N(A) = \left\{\mathbf x \in \mathbb{R}^n \mid A\mathbf x =\mathbf  0\right\}.$$
+								$$N(A) = \left\{\mathbf x \in \mathbb{R}^n \mid A\mathbf x =\mathbf 0\right\}.$$
 							</span>
 						</p>
 						<p class="fragment" data-fragment-index="3">Now consider the matrix
@@ -2132,14 +2132,17 @@
 							<li class="fragment" data-fragment-index="0">
 								<b>Row Reduce:</b>
 								$\begin{pmatrix}1 & 1 & 1 & 0 \\ 2 & 1 & 0 & 1\end{pmatrix}
-								\rightarrow \dots \rightarrow \begin{pmatrix}1 & 0 & -1 & 1 \\ 0 & 1 & 2 &
-								-1\end{pmatrix}$
+								\rightarrow \dots \rightarrow
+								\begin{pmatrix}1 & 0 & -1 & 1 \\ 0 & 1 & 2 & -1\end{pmatrix}$
 							</li>
+
 							<li class="fragment" data-fragment-index="1">
-								<b>Column Space Basis:</b> Lead variable columns from RREF
+								<b>Column Space Basis:</b> Pivot columns of the <i>original</i> matrix
 								<p style="text-align: center; margin-top:2px;" class="fragment" data-fragment-index="1">
 									$
-									\left\{ \begin{pmatrix}1\\0\end{pmatrix}, \begin{pmatrix}0\\1\end{pmatrix}
+									\left\{
+									\begin{pmatrix}1\\2\end{pmatrix},
+									\begin{pmatrix}1\\1\end{pmatrix}
 									\right\}
 									$
 									<span class="fragment" data-fragment-index="5">
@@ -2149,37 +2152,45 @@
 									</span>
 								</p>
 							</li>
+
 							<li class="fragment" data-fragment-index="2">
 								<b>Row Space Basis:</b> Non-zero rows from RREF
-								<p style="text-align: center; margin-top: 2px;" class="fragment" data-fragment-index="2">
+								<p style="text-align: center; margin-top: 2px;" class="fragment"
+									data-fragment-index="2">
 									$
-									\left\{ \begin{pmatrix}1 & 0 & -1 & 1\end{pmatrix}, \begin{pmatrix}0 & 1 & 2 &
-									-1\end{pmatrix} \right\}
+									\left\{
+									\begin{pmatrix}1 & 0 & -1 & 1\end{pmatrix},
+									\begin{pmatrix}0 & 1 & 2 & -1\end{pmatrix}
+									\right\}
 									$
 									<span class="fragment" data-fragment-index="6">
 										$\Ra \dim = 2$
 									</span>
 								</p>
-
-
 							</li>
+
 							<li class="fragment" data-fragment-index="3">
-								<span>
-									<b>Null Space Basis:</b> $\left\{ \begin{pmatrix}1\\-2\\1\\0\end{pmatrix},
-									\begin{pmatrix}-1\\1\\0\\1\end{pmatrix} \right\}$
-								</span>
+								<b>Null Space Basis:</b>
+								$
+								\left\{
+								\begin{pmatrix}1\\-2\\1\\0\end{pmatrix},
+								\begin{pmatrix}-1\\1\\0\\1\end{pmatrix}
+								\right\}
+								$
 
 								<span class="fragment" data-fragment-index="7">
 									$
-									\Ra \text{nullity} = 2\quad
+									\Ra \text{nullity} = 2
 									$
 								</span>
-								<span class="fragment" data-fragment-index="4" style="border: 2px solid black; padding: 20px 20px 20px 20px;">
+
+								<span class="fragment" data-fragment-index="4"
+									style="border: 2px solid black; padding: 20px 20px 20px 20px;">
 									<span style="font-size: 1.2em;">
-										$\operatorname{rank}(A)+ \operatorname{nullity}(A) $
+										$\operatorname{rank}(A)+ \operatorname{nullity}(A)$
 									</span>
 									<span class="fragment" data-fragment-index="8" style="font-size: 1.2em;">
-										$=4 $
+										$=4$
 									</span>
 								</span>
 							</li>
@@ -2188,21 +2199,24 @@
 					<br />
 				</section>
 
+
 				<section data-auto-animate>
 					<h4>📝 Finding Spaces in Practice: Solution to Problem 2</h4>
 
 					<div>
-						<p style="text-align: center; font-size: 0.6em;margin-top: -18px;">
-							For matrix 
+						<p style="text-align: center; font-size: 0.6em; margin-top: -18px;">
+							For matrix
 							<span style="font-size: 0.8em;">
 								$A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\ 0 & 1 & 1\end{pmatrix}$,
 							</span>
 							find the row space, column space, and null space.
 						</p>
 					</div>
+
 					<div class="size-75 left-txt" style="margin-top: -10px;">
 
 						<ol style="line-height: 1.9em; margin-left: 0px;">
+
 							<li class="fragment" data-fragment-index="0">
 								<b>Row Reduce:</b>
 								<span style="font-size: 0.9em;">
@@ -2213,13 +2227,13 @@
 							</li>
 
 							<li class="fragment" data-fragment-index="1">
-								<b>Column Space Basis:</b> Lead variable columns from RREF
-								<p style="text-align: center; font-size: 0.9em;margin-top: -5px;" class="fragment"
+								<b>Column Space Basis:</b> Pivot columns of the <i>original</i> matrix
+								<p style="text-align: center; font-size: 0.9em; margin-top: -5px;" class="fragment"
 									data-fragment-index="1">
 									$
 									\left\{
-									\begin{pmatrix}1\\0\\0\end{pmatrix},
-									\begin{pmatrix}0\\1\\0\end{pmatrix}
+									\begin{pmatrix}1\\2\\0\end{pmatrix},
+									\begin{pmatrix}2\\-1\\1\end{pmatrix}
 									\right\}
 									$
 									<span class="fragment" data-fragment-index="5">
@@ -2232,7 +2246,7 @@
 
 							<li class="fragment" data-fragment-index="2">
 								<b>Row Space Basis:</b> Non-zero rows from RREF
-								<p style="text-align: center;margin-top: -5px;" class="fragment"
+								<p style="text-align: center; margin-top: -5px;" class="fragment"
 									data-fragment-index="2">
 									$
 									\left\{
@@ -2247,32 +2261,119 @@
 							</li>
 
 							<li class="fragment" data-fragment-index="3">
-								<span>
-									<b>Null Space Basis:</b>
-									$\left\{
-									\begin{pmatrix}-1\\-1\\1\end{pmatrix}
-									\right\}$
-								</span>
+								<b>Null Space Basis:</b>
+								$
+								\left\{
+								\begin{pmatrix}-1\\-1\\1\end{pmatrix}
+								\right\}
+								$
+
 								<span class="fragment" data-fragment-index="7">
 									$
-									\Ra \text{nullity} = 1\quad
+									\Ra \text{nullity} = 1
 									$
 								</span>
-								<span class="fragment" data-fragment-index="4" style="border: 2px solid black; padding: 20px 20px 20px 20px;">
+
+								<span class="fragment" data-fragment-index="4"
+									style="border: 2px solid black; padding: 20px 20px 20px 20px;">
 									<span style="font-size: 1.2em;">
 										$\operatorname{rank}(A)+\operatorname{nullity}(A)$
 									</span>
 									<span class="fragment" data-fragment-index="8" style="font-size: 1.2em;">
-										$=3 $
+										$=3$
 									</span>
 								</span>
-
 							</li>
+
 						</ol>
 					</div>
 					<br />
 				</section>
 
+				<section data-auto-animate>
+					<h4>Solvability of $A\mathbf x =\mathbf b$: Example 1</h4>
+					<div class="size-85 left-txt">
+						<p>
+							Does $A\mathbf x = \mathbf b$ always have a solution for
+							$A = \begin{pmatrix}1 & 1 & 1 & 0 \\
+							2 & 1 & 0 & 1\end{pmatrix}$?
+						</p>
+
+						<ol style="line-height: 1.7em;">
+							<li class="fragment" data-fragment-index="0">
+								Rank $= 2$ and Nullity $= 2$.
+							</li>
+
+							<li class="fragment" data-fragment-index="1">
+								$\text{Rank } 2 \implies
+								\dim(\text{Column Space}) = 2$.
+							</li>
+
+							<li class="fragment" data-fragment-index="2">
+								Column space is a subspace of $\mathbb{R}^2$.
+								Since its dimension is 2, it must be all of $\mathbb{R}^2$:
+								$\operatorname{Col}(A)=\mathbb{R}^2$.
+							</li>
+
+							<li class="fragment" data-fragment-index="3">
+								<b>Conclusion:</b>
+								Every $\mathbf b \in \mathbb{R}^2$ lies in the column space,
+								so $A\mathbf x=\mathbf b$ has a solution for every $\mathbf b$.
+							</li>
+						</ol>
+
+						<p style="text-align: center;" class="fragment" data-fragment-index="4">
+							👉 Since nullity $=2$, there is a 2-dimensional family of
+							solutions for each $\mathbf b$.
+						</p>
+					</div>
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Solvability of $A\mathbf x =\mathbf b$: Example 2</h4>
+
+					<div class="size-85" style="font-size: 0.8em;">
+						<p>
+							Does $A\mathbf x = \mathbf b$ always have a solution for
+							$A = \begin{pmatrix}1 & 2 & 3 \\ 2 & -1 & 1 \\
+							0 & 1 & 1\end{pmatrix}$?
+						</p>
+
+						<ol style="line-height: 1.7em;">
+							<li class="fragment" data-fragment-index="0">
+								Rank $= 2$ and Nullity $= 1$.
+							</li>
+
+							<li class="fragment" data-fragment-index="1">
+								$\text{Rank } 2 \implies
+								\dim(\text{Column Space}) = 2$.
+							</li>
+
+							<li class="fragment" data-fragment-index="2">
+								Column space is a subspace of $\mathbb{R}^3$.
+								Because $\dim = 2$, it is a 2D plane through the origin
+								and does <b>not</b> fill $\mathbb{R}^3$.
+							</li>
+
+							<li class="fragment" data-fragment-index="3">
+								<b>Conclusion:</b>
+								Not every $\mathbf b \in \mathbb{R}^3$ lies in the column space
+								<span class="fragment" data-fragment-index="4">
+									$\implies A\mathbf x=\mathbf b$ does <b>not</b> always
+									have a solution.
+								</span>
+							</li>
+						</ol>
+
+						<p class="fragment" data-fragment-index="5">
+							👉 When a solution exists, nullity $=1$ gives a
+							1-dimensional family of solutions.
+						</p>
+					</div>
+					<br />
+				</section>
 
 
 				<section data-auto-animate>
@@ -2293,7 +2394,8 @@
 								$\mathbb{R}^2$.
 							</li>
 							<li class="fragment" data-fragment-index="3">
-								<b>Conclusion:</b> Any $\mathbf b \in \mathbb{R}^2$ can be reached, so $A \mathbf x = \mathbf b$
+								<b>Conclusion:</b> Any $\mathbf b \in \mathbb{R}^2$ can be reached, so $A \mathbf x =
+								\mathbf b$
 								<b>always</b>
 								has a solution.
 							</li>
