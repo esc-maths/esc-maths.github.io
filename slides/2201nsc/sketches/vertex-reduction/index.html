@@ -447,10 +447,10 @@
 
         <div class="slider-group">
             <div class="slider-label">
-                <span>Keep vertices</span>
-                <span class="value" id="percent-label">91%</span>
+                <span>Reduction</span>
+                <span class="value" id="percent-label">9%</span>
             </div>
-            <input type="range" id="vertex-slider" min="3" max="100" value="91" step="1" />
+            <input type="range" id="vertex-slider" min="0" max="95" value="9" step="1" />
         </div>
 
         <div class="stats-grid">
@@ -473,12 +473,12 @@
                 The <strong>Simplify Modifier</strong> reduces the number of vertices in a mesh
                 while preserving the overall shape as much as possible.
                 <br /><br />
-                Drag the slider to control how many vertices to keep — lower values create
-                a more simplified, blockier model. The original mesh is shown on the left,
-                the simplified version on the right.
+                Drag the slider to control the <strong>reduction percentage</strong> — higher
+                values remove more vertices, creating a blockier model. The original mesh is
+                shown on the left, the simplified version on the right.
                 <br /><br />
-                <span style="color:#7a9eff;">Tip:</span> Try values between 10&ndash;50% for
-                dramatic reduction, or 70&ndash;95% for subtle optimization.
+                <span style="color:#7a9eff;">Tip:</span> Start with 10–30% for subtle
+                optimization, or go up to 90% for dramatic simplification.
             </p>
             <button class="modal-close" id="modal-close">Got it</button>
         </div>
@@ -586,7 +586,6 @@
         rimLight.position.set(0, -3, 8);
         scene.add(rimLight);
 
-        // subtle ground glow
         const hemi = new THREE.HemisphereLight(0x4477ff, 0x222244, 0.7);
         scene.add(hemi);
 
@@ -595,7 +594,7 @@
         let simplifiedMesh = null;
         let originalMesh = null;
         let modelLoaded = false;
-        let currentPercent = 91;
+        let currentReduction = 9; // percent reduction, initial 9% => 91% keep
 
         // ─── Load model ──────────────────────────────────────────────────
         const loader = new GLTFLoader();
@@ -609,7 +608,6 @@
                     return;
                 }
 
-                // Clone geometry so we keep the original pristine
                 const geom = mesh.geometry.clone();
                 originalGeometry = geom;
 
@@ -643,19 +641,17 @@
                 simplifiedMesh.scale.set(1, 1, 1);
                 scene.add(simplifiedMesh);
 
-                // Apply initial simplification
-                applySimplification(currentPercent);
+                // Apply initial simplification (91% keep => 9% reduction)
+                applySimplificationFromReduction(currentReduction);
 
                 modelLoaded = true;
                 updateStats();
 
-                // start animation loop
                 animate();
             },
             undefined,
             (err) => {
                 console.error('Failed to load model:', err);
-                // show fallback info
                 origCountEl.textContent = '⚠️';
                 simpCountEl.textContent = '⚠️';
                 reductionEl.textContent = 'Load error';
@@ -663,15 +659,14 @@
         );
 
         // ─── Simplify logic ─────────────────────────────────────────────
-        function applySimplification(percent) {
+        function applySimplificationFromReduction(reductionPercent) {
             if (!originalGeometry || !simplifiedMesh) return;
-
-            const keep = Math.max(3, Math.floor(originalGeometry.attributes.position.count * (percent / 100)));
+            // Keep at least 3 vertices
+            const keep = Math.max(3, Math.floor(originalGeometry.attributes.position.count * ((100 - reductionPercent) / 100)));
             const modifier = new SimplifyModifier();
 
             try {
                 const newGeo = modifier.modify(originalGeometry, keep);
-                // Dispose old geometry to avoid memory leaks
                 if (simplifiedMesh.geometry && simplifiedMesh.geometry !== originalGeometry) {
                     simplifiedMesh.geometry.dispose();
                 }
@@ -680,7 +675,6 @@
                 updateStats();
             } catch (e) {
                 console.warn('SimplifyModifier error:', e);
-                // fallback: keep current
             }
         }
 
@@ -699,21 +693,21 @@
 
         // ─── Slider ──────────────────────────────────────────────────────
         slider.addEventListener('input', () => {
-            const val = parseInt(slider.value, 10);
-            currentPercent = val;
-            percentLabel.textContent = `${val}%`;
+            const reduction = parseInt(slider.value, 10);
+            currentReduction = reduction;
+            percentLabel.textContent = `${reduction}%`;
             if (modelLoaded) {
-                applySimplification(val);
+                applySimplificationFromReduction(reduction);
             }
         });
 
         // ─── Reset ──────────────────────────────────────────────────────
         resetBtn.addEventListener('click', () => {
-            slider.value = '91';
-            currentPercent = 91;
-            percentLabel.textContent = '91%';
+            slider.value = '9';
+            currentReduction = 9;
+            percentLabel.textContent = '9%';
             if (modelLoaded) {
-                applySimplification(91);
+                applySimplificationFromReduction(9);
             }
         });
 
@@ -741,10 +735,6 @@
                 togglePanel();
             }
         });
-
-        // ─── Expose for debugging ──────────────────────────────────────
-        window.__scene = scene;
-        window.__controls = controls;
 
         console.log('🔧 Vertex Control ready — press V to toggle panel');
     </script>
