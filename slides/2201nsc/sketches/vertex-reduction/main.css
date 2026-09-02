@@ -1,96 +1,625 @@
 body {
+
     margin: 0;
-    background-color: #000;
+
+    background: #000;
+
     color: #fff;
-    font-family: Monospace;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
     font-size: 13px;
+
     line-height: 24px;
+
     overscroll-behavior: none;
+
 }
 
+
 a {
+
     color: #ff0;
+
     text-decoration: none;
+
 }
 
 a:hover {
+
     text-decoration: underline;
+
 }
 
-button {
-    cursor: pointer;
-    text-transform: uppercase;
-}
+
+/* =========================================================
+   INFO
+   ========================================================= */
 
 #info {
+
     position: absolute;
-    top: 0px;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: center;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    z-index: 1;
-    /* TODO Solve this in HTML */
-}
 
-a,
-button,
-input,
-select {
-    pointer-events: auto;
-}
+    top: 12px;
 
-.lil-gui {
-    z-index: 2 !important;
-    /* TODO Solve this in HTML */
-}
-
-@media all and (max-width: 640px) {
-    .lil-gui.root {
-        right: auto;
-        top: auto;
-        max-height: 50%;
-        max-width: 80%;
-        bottom: 0;
-        left: 0;
-    }
-}
-
-#overlay {
-    position: absolute;
-    font-size: 16px;
-    z-index: 2;
-    top: 0;
     left: 0;
+
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.7);
+
+    text-align: center;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    color: #aaa;
+
 }
 
-#overlay button {
-    background: transparent;
-    border: 0;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 4px;
-    color: #ffffff;
-    padding: 12px 18px;
-    text-transform: uppercase;
+#info a {
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================================
+   OPEN BUTTON
+   ========================================================= */
+
+#ui-toggle {
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 20px;
+
+    width: 46px;
+
+    height: 46px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 12px;
+
+    background:
+        rgba(25,25,30,0.85);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    color: white;
+
+    font-size: 20px;
+
     cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        background 0.2s,
+        transform 0.2s,
+        opacity 0.2s;
+
 }
 
-#notSupported {
-    width: 50%;
-    margin: auto;
-    background-color: #f00;
-    margin-top: 20px;
-    padding: 10px;
+#ui-toggle:hover {
+
+    background:
+        rgba(50,50,60,0.95);
+
+    transform: scale(1.05);
+
+}
+
+#ui-toggle.hidden {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   CONTROL PANEL
+   ========================================================= */
+
+#control-panel {
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 20px;
+
+    width: 290px;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(20,20,25,0.88);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    border-radius: 16px;
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.5);
+
+    z-index: 9;
+
+    opacity: 0;
+
+    transform:
+        translateX(-20px)
+        scale(0.97);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+#control-panel.open {
+
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        scale(1);
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================================
+   PANEL HEADER
+   ========================================================= */
+
+.panel-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 22px;
+
+}
+
+.panel-title {
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2px;
+
+}
+
+.panel-subtitle {
+
+    color: #888;
+
+    font-size: 12px;
+
+    margin-top: 2px;
+
+}
+
+
+#close-panel {
+
+    width: 30px;
+
+    height: 30px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.07);
+
+    color: #aaa;
+
+    font-size: 20px;
+
+    line-height: 20px;
+
+    cursor: pointer;
+
+}
+
+#close-panel:hover {
+
+    background: rgba(255,255,255,0.14);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   CONTROL
+   ========================================================= */
+
+.control-section {
+
+    margin-bottom: 20px;
+
+}
+
+.control-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+
+    color: #ccc;
+
+}
+
+.control-label strong {
+
+    font-size: 14px;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   SLIDER
+   ========================================================= */
+
+#vertices-slider {
+
+    width: 100%;
+
+    height: 5px;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    background: #444;
+
+    border-radius: 10px;
+
+    outline: none;
+
+}
+
+#vertices-slider::-webkit-slider-thumb {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 3px solid #222;
+
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.3);
+
+    cursor: pointer;
+
+}
+
+#vertices-slider::-moz-range-thumb {
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 3px solid #222;
+
+    cursor: pointer;
+
+}
+
+
+.slider-labels {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 6px;
+
+    color: #666;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+}
+
+.stat {
+
+    padding: 10px 6px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    text-align: center;
+
+}
+
+.stat span {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 10px;
+
+    margin-bottom: 2px;
+
+}
+
+.stat strong {
+
+    font-size: 12px;
+
+    color: #ddd;
+
+}
+
+
+/* =========================================================
+   INFO BUTTON
+   ========================================================= */
+
+#info-button {
+
+    width: 100%;
+
+    padding: 9px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: #bbb;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    text-transform: none;
+
+}
+
+#info-button:hover {
+
+    background:
+        rgba(255,255,255,0.1);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+#info-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+.modal-backdrop {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.7);
+
+    backdrop-filter: blur(5px);
+
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    width: min(500px, 100%);
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    background:
+        #18181d;
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.7);
+
+    z-index: 1;
+
+}
+
+
+.modal-content h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 18px;
+
+    font-size: 22px;
+
+}
+
+
+.modal-content p {
+
+    color: #aaa;
+
+    line-height: 1.7;
+
+}
+
+
+.modal-close {
+
+    position: absolute;
+
+    top: 14px;
+
+    right: 14px;
+
+    width: 32px;
+
+    height: 32px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    color: #aaa;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+.modal-close:hover {
+
+    color: white;
+
+    background:
+        rgba(255,255,255,0.12);
+
+}
+
+
+.formula {
+
+    margin: 20px 0;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    text-align: center;
+
+    color: #ddd;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #control-panel {
+
+        top: 15px;
+
+        left: 15px;
+
+        width:
+            calc(100vw - 30px);
+
+    }
+
+    #ui-toggle {
+
+        top: 15px;
+
+        left: 15px;
+
+    }
+
 }
