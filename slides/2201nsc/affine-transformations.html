@@ -709,11 +709,32 @@
 
 						</p>
 
-						<p>
-							Now consider the vertices of the square using homogeneous coordinates
+						<p class="fragment" data-fragment-index="0">
+							Now consider the vertices of the square <span class="fragment" data-fragment-index="1">using homogeneous coordinates</span>
 						</p>
-						<div class="cc" style="font-size: 0.85em; margin-top: -1px;">
-							<p>
+						<div class="r-stack" style="font-size: 0.85em; margin-top: -10px;">
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								\(
+								v_1 =
+								\begin{pmatrix}
+								1 \\
+								1 \\
+								\end{pmatrix}, \;\; v_2 =
+								\begin{pmatrix}
+								-1 \\
+								1 \\
+								\end{pmatrix}, \;\; v_3 =
+								\begin{pmatrix}
+								1 \\
+								-1 \\
+								\end{pmatrix},\;\; v_4 =
+								\begin{pmatrix}
+								-1 \\
+								-1 \\
+								\end{pmatrix}.
+								\)
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
 								\(
 								v_1 =
 								\begin{pmatrix}
@@ -740,18 +761,16 @@
 							</p>
 
 
-
-
 						</div>
 
-						<div class="r-stack">
-							<div class="fragment fade-in-then-out" data-fragment-index="2" style="margin-top: -15px;">
+						<div>
+							<div class="fragment fade-in-then-out" data-fragment-index="2" style="margin-top: -5px;">
 								<p>
 									Multiplying by the matrix $M$ we obtain the new vertices in 3D space:
 
 								</p>
 
-								<div class="cc" style="font-size: 0.85em;">
+								<div class="cc" style="font-size: 0.8em; margin-top: -15px;">
 									<p >
 										\(
 										
@@ -807,7 +826,90 @@
 									</p>
 								</div>
 							</div>
-							<div class="fragment fade-in" data-fragment-index="3" style="margin-top: -20px;">
+							
+						</div>
+
+					</div>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Affine transformations applied to a square</h4>
+					<div class="size-80">
+						<p>
+							For example, suppose we have $2\times 2$ square centred at the origin.
+							<span>
+								First, we want to <span>rotate the square by $45^{\circ}$ about its centre</span>;
+							</span>
+							<span>
+								and then <span>move it so its centre is at $(2, 3).$</span>
+							</span>
+
+						</p>
+
+						<div>
+							<div style="margin-top: -5px;">
+								<p>
+									Multiplying by the matrix $M$ we obtain the new vertices in 3D space:
+
+								</p>
+
+								<div class="cc" style="font-size: 0.8em; margin-top: -15px;">
+									<p >
+										\(
+										
+										M \begin{pmatrix}
+										1 \\
+										1 \\
+										1
+										\end{pmatrix} =
+										\begin{pmatrix}
+										3 \\
+										2+\sqrt{2} \\
+										1
+										\end{pmatrix},\quad
+										
+										M \begin{pmatrix}
+										-1 \\
+										1 \\
+										1
+										\end{pmatrix} =
+										\begin{pmatrix}
+										3-\sqrt{2} \\
+										2\\
+										1
+										\end{pmatrix},
+
+										\)
+									</p>
+									<p>
+										\(
+										
+										M \begin{pmatrix}
+										1 \\
+										-1 \\
+										1
+										\end{pmatrix} =
+										\begin{pmatrix}
+										3 + \sqrt{2} \\
+										2 \\
+										1
+										\end{pmatrix}, \quad
+										
+										M \begin{pmatrix}
+										-1 \\
+										-1 \\
+										1
+										\end{pmatrix} =
+										\begin{pmatrix}
+										3 \\
+										2-\sqrt{2} \\
+										1
+										\end{pmatrix}.
+										\)
+									</p>
+								</div>
+							</div>
+							<div style="margin-top: -5px;">
 								<p>
 									Finally, we remove the third component we obtain the new vertices in 2D:
 								</p>
@@ -819,22 +921,18 @@
 										\begin{pmatrix}
 										3 \\
 										2+\sqrt{2} \\
-										\end{pmatrix},\quad
+										\end{pmatrix},\;\;
 										v_2'=
 										\begin{pmatrix}
 										3-\sqrt{2} \\
 										2\\
-										\end{pmatrix},
+										\end{pmatrix},\;\;
 
-										\)
-									</p>
-									<p>
-										\(
 										v_3'=
 										\begin{pmatrix}
 										3 + \sqrt{2} \\
 										2 \\
-										\end{pmatrix}, \quad
+										\end{pmatrix}, \;\;
 										v_4'  =
 										\begin{pmatrix}
 										3 \\
@@ -849,7 +947,7 @@
 					</div>
 					<br />
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h4>Affine transformations applied to a square</h4>
 					<div class="size-80">
 						<p>
@@ -863,34 +961,32 @@
 
 						</p>
 
-						<div class="r-stack" style="margin-top: -20px;">
+						<div>
 							
-							<div >
-								
+							<div style="margin-top: -5px;">
+								<p>
+									Finally, we remove the third component we obtain the new vertices in 2D:
+								</p>
 
-								<div class="cc" style="font-size: 0.65em;">
+								<div class="cc" style="font-size: 0.85em;">
 									<p>
 										\(
 										v_1'  =
 										\begin{pmatrix}
 										3 \\
 										2+\sqrt{2} \\
-										\end{pmatrix},\quad
+										\end{pmatrix},\;\;
 										v_2'=
 										\begin{pmatrix}
 										3-\sqrt{2} \\
 										2\\
-										\end{pmatrix},
+										\end{pmatrix},\;\;
 
-										\)
-									</p>
-									<p>
-										\(
 										v_3'=
 										\begin{pmatrix}
 										3 + \sqrt{2} \\
 										2 \\
-										\end{pmatrix}, \quad
+										\end{pmatrix}, \;\;
 										v_4'  =
 										\begin{pmatrix}
 										3 \\
@@ -902,16 +998,16 @@
 							</div>
 						</div>
 
-						<div style="width: 80%;
+						<div style="width: 99%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin: 0 auto; margin-top: -20px;">
-							<div style="width: 48%; text-align: center;">
-								<img style="width: 500px;" src="images/affine-transformations/example-01.png">
+							<div style="width: 50%; text-align: center;">
+								<img style="width: 570px;" src="images/affine-transformations/example-01.png">
 							</div>
-							<div style="width: 48%; text-align: center;" class="fragment">
-								<img style="width: 500px;" src="images/affine-transformations/example-03.png">
+							<div style="width: 50%; text-align: center;" class="fragment">
+								<img style="width: 600px;" src="images/affine-transformations/example-03.png">
 							</div>
 
 							
