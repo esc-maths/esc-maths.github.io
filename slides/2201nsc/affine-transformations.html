@@ -658,7 +658,7 @@
 							<p>
 								${\large M}=$
 								<span class="fragment" data-fragment-index="1">
-									$ 
+									$
 									\overbrace{\begin{pmatrix}
 									1 &amp; 0 &amp; \color{blue}2 \\
 									0 &amp; 1 &amp; \color{blue}3 \\
@@ -710,7 +710,8 @@
 						</p>
 
 						<p class="fragment" data-fragment-index="0">
-							Now consider the vertices of the square <span class="fragment" data-fragment-index="1">using homogeneous coordinates</span>
+							Now consider the vertices of the square <span class="fragment" data-fragment-index="1">using
+								homogeneous coordinates</span>
 						</p>
 						<div class="r-stack" style="font-size: 0.85em; margin-top: -10px;">
 							<p class="fragment fade-in-then-out" data-fragment-index="0">
@@ -771,9 +772,9 @@
 								</p>
 
 								<div class="cc" style="font-size: 0.8em; margin-top: -15px;">
-									<p >
+									<p>
 										\(
-										
+
 										M \begin{pmatrix}
 										1 \\
 										1 \\
@@ -784,7 +785,7 @@
 										2+\sqrt{2} \\
 										1
 										\end{pmatrix},\quad
-										
+
 										M \begin{pmatrix}
 										-1 \\
 										1 \\
@@ -800,7 +801,7 @@
 									</p>
 									<p>
 										\(
-										
+
 										M \begin{pmatrix}
 										1 \\
 										-1 \\
@@ -811,7 +812,7 @@
 										2 \\
 										1
 										\end{pmatrix}, \quad
-										
+
 										M \begin{pmatrix}
 										-1 \\
 										-1 \\
@@ -826,7 +827,7 @@
 									</p>
 								</div>
 							</div>
-							
+
 						</div>
 
 					</div>
@@ -854,9 +855,9 @@
 								</p>
 
 								<div class="cc" style="font-size: 0.8em; margin-top: -15px;">
-									<p >
+									<p>
 										\(
-										
+
 										M \begin{pmatrix}
 										1 \\
 										1 \\
@@ -867,7 +868,7 @@
 										2+\sqrt{2} \\
 										1
 										\end{pmatrix},\quad
-										
+
 										M \begin{pmatrix}
 										-1 \\
 										1 \\
@@ -883,7 +884,7 @@
 									</p>
 									<p>
 										\(
-										
+
 										M \begin{pmatrix}
 										1 \\
 										-1 \\
@@ -894,7 +895,7 @@
 										2 \\
 										1
 										\end{pmatrix}, \quad
-										
+
 										M \begin{pmatrix}
 										-1 \\
 										-1 \\
@@ -917,7 +918,7 @@
 								<div class="cc" style="font-size: 0.85em;">
 									<p>
 										\(
-										v_1'  =
+										v_1' =
 										\begin{pmatrix}
 										3 \\
 										2+\sqrt{2} \\
@@ -933,7 +934,7 @@
 										3 + \sqrt{2} \\
 										2 \\
 										\end{pmatrix}, \;\;
-										v_4'  =
+										v_4' =
 										\begin{pmatrix}
 										3 \\
 										2-\sqrt{2} \\
@@ -962,14 +963,14 @@
 						</p>
 
 						<div>
-							
+
 							<div style="margin-top: -5px;">
-							
+
 
 								<div class="cc" style="font-size: 0.85em;">
 									<p>
 										\(
-										v_1'  =
+										v_1' =
 										\begin{pmatrix}
 										3 \\
 										2+\sqrt{2} \\
@@ -985,7 +986,7 @@
 										3 + \sqrt{2} \\
 										2 \\
 										\end{pmatrix}, \;\;
-										v_4'  =
+										v_4' =
 										\begin{pmatrix}
 										3 \\
 										2-\sqrt{2} \\
@@ -1008,7 +1009,7 @@
 								<img style="width: 600px;" src="images/affine-transformations/example-03.png">
 							</div>
 
-							
+
 						</div>
 
 					</div>
@@ -1224,7 +1225,8 @@
 
 					<div class="size-90 left-txt">
 						<p class="fragment" data-fragment-index="1">
-							An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\},\)
+							An <b>Iterative Function System</b> (IFS) consists of a finite set of affine transformations
+							\( \{T_1, T_2, \dots, T_n\},\)
 							<span class="fragment" data-fragment-index="2">
 								each of the form:
 							</span>
@@ -1257,7 +1259,8 @@
 
 					<div class="size-90 left-txt">
 						<p>
-							An IFS consists of a finite set of affine transformations \( \{T_1, T_2, \dots, T_n\},\)
+							An <b>Iterative Function System</b> (IFS) consists of a finite set of affine transformations
+							\( \{T_1, T_2, \dots, T_n\},\)
 							<span>
 								each of the form:
 							</span>
@@ -1291,8 +1294,37 @@
 
 				<section data-auto-animate>
 					<h4>Deterministic IFS</h4>
-					<div class="size-85 cc">
-						<p>We apply the following affine transformations at each iteration:</p>
+					<div class="size-85">
+						<p>
+							Let's start with a simple shape: A circle centred at the origin.
+							<span class="fragment " data-fragment-index="0">
+								At each iteration, we apply three affine transformations that scale the circle by a
+								factor of $1/2$
+							</span>
+							<span class="fragment " data-fragment-index="1">
+								and translate it to a new location.
+							</span>
+						</p>
+
+						<div class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="2"
+								src="images/affine-transformations/iter-00.png">
+							<img class="fragment fade-in-then-out" data-fragment-index="2"
+								src="images/affine-transformations/iter-01.png">
+							<img class="fragment fade-in-then-out" data-fragment-index="3"
+								src="images/affine-transformations/iter-02.png">
+							<img class="fragment fade-in" data-fragment-index="4"
+								src="images/affine-transformations/iter-03.png">
+						</div>
+
+					</div>
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Deterministic IFS</h4>
+					<div class="size-80 cc">
+						<p>Using homogeneous coordinates, the transformations are defined as follows:</p>
 						<p>
 							\(
 							\begin{aligned}
@@ -1388,7 +1420,7 @@
 							</td>
 							<td style="width: 55%;">
 								<pre style="width: 100%;height: 710px; font-size: 42%; margin-top: -10px;">
-						<code class="language-matlab" data-trim data-noescape data-line-numbers="1-2|4-6|8-11|13|14|16,18-20|16,22-23|16,25-28|16,30-31|16,33|1-33">
+						<code class="language-matlab" data-trim data-noescape data-line-numbers="1-33|1-11|13-14|16-33">
 TRANSFORMATION T1:
     Scale x, y, and radius by 1/2
 
@@ -1539,10 +1571,65 @@ function plotAxesInfo() {
 				</section>
 
 				<section>
+
+					<h4>Probabilistic IFS</h4>
+
+					<div style="display: flex; width: 100%; align-items: center; gap: 2em;">
+
+						<!-- Left side -->
+						<div style="flex: 1; text-align: left; font-size: 0.8em;">
+
+							<p class="fragment">
+								The <b>Barnsley fern</b> is a well-known example of a natural-looking fractal generated
+								using a
+								probabilistic IFS.
+
+							</p>
+							<p>
+								<span class="fragment">
+									It consists of four affine transformations, each applied with a
+									specified probability.
+								</span>
+
+							</p>
+							<p>
+								<span class="fragment">
+									These transformations are iteratively applied to a single point,
+									and the accumulation of these points produces the characteristic fern shape.
+								</span>
+							</p>
+
+
+
+						</div>
+
+						<!-- Right side -->
+						<div style="flex: 1; display: flex; justify-content: center;">
+
+							<iframe style="
+                width: 300px;
+                height: 500px;
+                border: 1px solid #d0d0d0;
+                border-radius: 8px;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            " src="sketches/fern-cindyjs/">
+							</iframe>
+
+						</div>
+
+					</div>
+
+					<br />
+
+
+
+				</section>
+
+				<section>
 					<h4>Probabilistic IFS </h4>
 
 					<div style="font-size: 75%;">
-						<p class="fragment" data-fragment-index="0">We apply the following affine transformations,
+						<p class="fragment" data-fragment-index="0">The transformations are defined as follows,
 							<span class="fragment" data-fragment-index="1">
 								with a given probability for each case:
 							</span>
@@ -1553,7 +1640,7 @@ function plotAxesInfo() {
 					<div class="fragment" data-fragment-index="0" style="margin-top: -30px;">
 						<table style="width: 75%;">
 							<tr>
-								<td style="text-align: right; width: 60%;font-size: 68%;">
+								<td style="text-align: right; width: 60%;font-size: 60%;">
 									<p>
 										$
 										\begin{aligned}
@@ -1608,7 +1695,7 @@ function plotAxesInfo() {
 								<td style="text-align: center; width: 40%;">
 
 									<table
-										style="margin: 0 auto; border-collapse: collapse; text-align: center; font-size: 100%;"
+										style="margin: 0 auto; border-collapse: collapse; text-align: center; font-size: 90%;"
 										class="fragment" data-fragment-index="1">
 										<thead>
 											<tr>
@@ -1827,7 +1914,7 @@ function plotAxesInfo() {
 								</h4>
 								<pre style="width: 100%;height: 520px; font-size: 45%; margin-top: 20px;">
 						<code class="language-matlab" data-trim data-noescape 
-							data-line-numbers="1|3,5|3,7-8|3,10-11|3,13-14|3,16-17|19-22|1-22">
+							data-line-numbers="1-22|1|3-17|19-22">
 SET (x, y) ← (0, 0)
 
 DEFINE NextPoint:
