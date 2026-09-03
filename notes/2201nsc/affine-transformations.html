@@ -117,7 +117,7 @@
           </figcaption>
         </figure>
 
-        
+
 
         <p>
           Affine transformations are fundamental tools in geometry, computer graphics, and computer vision, providing a
@@ -153,16 +153,17 @@
 
         <h2>Affine transformations</h2>
 
-        <p>Consider a point $\mathbf x=(x,y).$ A transformation $T: \mathbb R^2 \to \mathbb R^2$ of the form
+        <p>Consider a vector $\mathbf x\in \mathbb R^2.$
+          A transformation $T: \mathbb R^2 \to \mathbb R^2$ of the form
           \[
           \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
           ax + by + e \\
           cx + dy + f
           \end{pmatrix}
           \]
-          where $a,b,c,d,e$ and $f$ are real numbers, is called a two-dimensional affine transformation.</p>
+          where $a,b,c,d,e,$ and $f$ are real numbers, is called a two-dimensional affine transformation.</p>
 
-        <p>For example, if $a,d = 1,$ and $b,c=0,$ then we have a pure translation
+        <p>For example, if $a=d = 1,$ and $b=c=0,$ then we have a pure translation
           \[
           \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
           x + e \\
@@ -173,13 +174,16 @@
 
         <figure>
           <img src="imgs/affine-transformations/translate.png" loading="lazy" alt="Mountain landscape" width="350">
+          <!--<iframe style="width: 600px;height: 500px; border: 1px solid #d0d0d0;border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"
+										src="https://esc-maths.github.io/slides/2201nsc/sketches/affine-transformations/translation/"></iframe>
+          -->
           <figcaption>
             A pure translation.
           </figcaption>
         </figure>
 
         <p>
-          If $b,c=0$ and $e,f=0$ then we have a pure scale
+          If $b=c=0$ and $e=f=0,$ then we have a pure scaling
           \[
           \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
           ax \\
@@ -191,12 +195,13 @@
         <figure>
           <img src="imgs/affine-transformations/scale.png" loading="lazy" alt="Mountain landscape" width="350">
           <figcaption>
-            A pure scale.
+            A pure scaling.
           </figcaption>
         </figure>
 
         <p>
-          If $a,d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e,f=0,$ then we have a pure rotation about
+          If $a=d = \cos \theta,$ $b = -\sin \theta,$ $c = \sin \theta,$ and $e=f=0,$
+          then we have a pure rotation about
           the origin
           \[
           \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
@@ -214,7 +219,8 @@
         </figure>
 
         <p>
-          Finally, if $a,d=1,$ and $e,f=0$ we have the shear transforms
+          Finally, if $a=d=1,$ and $e=f=0,$
+          we have the shear transforms
           \[
           \mathbf{T\left( \mathbf x\right)} = \begin{pmatrix}
           x+ by \\
@@ -247,7 +253,7 @@
       <br>
       <hr>
 
-      
+
       <div id="section3">
 
         <h2 id="matrix-representation">Matrix representation of linear transformations</h2>
@@ -361,7 +367,7 @@
         </p>
 
         <p>
-          We begin by considering all points \(\mathbf{x} = (x, y)\) in the plane, which we represent as 2D column
+          We begin by considering all points \((x, y)\) in the plane, which we represent as 2D column
           vectors
           $
           \begin{pmatrix}
@@ -630,7 +636,7 @@
           3 + \sqrt{2} \\
           2 \\
           1
-          \end{pmatrix}, &amp; v_3' =
+          \end{pmatrix}, &amp; v_4' =
           M \begin{pmatrix}
           -1 \\
           -1 \\
@@ -650,6 +656,34 @@
         <div class="ggbElement" id="ggb-element-01"></div>
         <!--
         <iframe scrolling="no" title="Affine transformations" src="https://www.geogebra.org/material/iframe/id/hgdbm5tx/width/765/height/445/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="765px" height="445px" style="border:0px;" allowfullscreen> </iframe>-->
+
+
+        <p> <b>Rotations in $\mathbb{R}^3$</b> are linear transformations, and hence special cases of affine
+          transformations. The three basic rotations correspond to <b>roll, pitch,</b> and <b>yaw</b>: </p>
+        <div class="scroll-wrapper">
+          <div style="display: flex; justify-content: center; gap: 2.5em; align-items: center; margin-top: 1em; overflow-y: hidden;">
+            <div style="text-align: center;"> <b>About the $x$-axis</b> <br> $\begin{pmatrix} 1 &amp; 0 &amp; 0\\ 0 &amp;
+              \cos\theta &amp; -\sin\theta\\ 0 &amp; \sin\theta &amp; \cos\theta \end{pmatrix}$ </div>
+            <div style="text-align: center;"> <b>About the $y$-axis</b> <br> $\begin{pmatrix} \cos\theta &amp; 0 &amp;
+              \sin\theta\\ 0 &amp; 1 &amp; 0\\ -\sin\theta &amp; 0 &amp; \cos\theta \end{pmatrix}$ </div>
+            <div style="text-align: center;"> <b>About the $z$-axis</b> <br> $\begin{pmatrix} \cos\theta &amp;
+              -\sin\theta
+              &amp; 0\\ \sin\theta &amp; \cos\theta &amp; 0\\ 0 &amp; 0 &amp; 1 \end{pmatrix}$ </div>
+          </div>
+        </div>
+
+        <br>
+
+        <figure>
+          <img src="https://www.geogebra.org/resource/yjykcauz/HX8EWCBwWk1Sz3NE/material-yjykcauz.png" style="width: 60%; max-width: 500px;">
+          <figcaption>
+           Rotations in 3D. Open interactive demo <a href="https://esc-maths.github.io/slides/2201nsc/sketches/rotations-affine-maps/" target="_blank">here</a>.
+          </figcaption>
+        </figure>
+
+        <p style="margin-top: 1.2em;"> Using <b>homogeneous coordinates</b>, these rotations can be combined with
+          translations to represent general affine transformations. </p>
+
 
 
       </div>
@@ -683,11 +717,6 @@
         <p>
           There are two common approaches for plotting fractals using IFS:
         </p>
-        
-        <ul>
-          <li><b>Deterministic Algorithm:</b> Apply all transformations to a set of points in each iteration.</li>
-          <li><b>Random (or Probabilistic) Algorithm:</b> At each step, apply one randomly chosen transformation according to a probability distribution.</li>
-        </ul>
 
         <p>
           We now illustrate both approaches through two classical examples.
@@ -863,9 +892,9 @@ function plotAxesInfo() {
           starting with a square or any other closed figure can still lead to the same limiting fractal. This
           illustrates
           the robustness of the process with respect to the choice of initial shape. In his work on
-          <em>V-variable fractals and superfractals</em>, 
-          <a href="#barnsley-2003" id="ref2">Michael Barnsley, et al. (2003)</a> 
-          famously demonstrated this flexibility using the 
+          <em>V-variable fractals and superfractals</em>,
+          <a href="#barnsley-2003" id="ref2">Michael Barnsley, et al. (2003)</a>
+          famously demonstrated this flexibility using the
           image of a fish as the initial figure.
         </p>
 
@@ -1303,22 +1332,26 @@ function drawPoint() {
         <h2>References</h2>
 
         <ol class="bbtex-list">
-          <li id="ban-2024">Ban, S., &amp; Kim, T. (2024). <em>Rational-Function-Model-Based Rigorous Bundle Adjustment for Improving the
+          <li id="ban-2024">Ban, S., &amp; Kim, T. (2024). <em>Rational-Function-Model-Based Rigorous Bundle Adjustment for
+              Improving the
               Relative Geometric Positioning Accuracy of Multiple Korea Multi-Purpose Satellite-3A Images</em>.
             <em>Remote Sensing</em>, 16(16), 2890.
-            <a href="https://doi.org/10.3390/rs16162890" target="_blank" title="Go">doi.org/10.3390/rs16162890</a> 
+            <a href="https://doi.org/10.3390/rs16162890" target="_blank" title="Go">doi.org/10.3390/rs16162890</a>
             <a href="#ref1" title="Jump up">↩</a>
           </li>
 
-          <li id="barnsley-1993">Barnsley, M. (1993). <em>Fractals Everywhere</em>. (Chapter III). 2nd ed. Morgan Kaufmann. USA.
+          <li id="barnsley-1993">Barnsley, M. (1993). <em>Fractals Everywhere</em>. (Chapter III). 2nd ed. Morgan
+            Kaufmann. USA.
           </li>
 
-          <li id="barnsley-2003">Barnsley, M., Hutchinson, J. E., &amp; Stenflo, Ö. (2003). <em>V-variable fractals and superfractals</em>.
+          <li id="barnsley-2003">Barnsley, M., Hutchinson, J. E., &amp; Stenflo, Ö. (2003). <em>V-variable fractals and
+              superfractals</em>.
             <a href="https://arxiv.org/abs/math/0312314" title="Go" target="_blank">arXiv:math/0312314</a>
-              <a href="#ref2" title="Jump up">↩</a>
+            <a href="#ref2" title="Jump up">↩</a>
           </li>
 
-          <li id="rogers-1976">Rogers, D. F. (1989). <em>Mathematical Elements for Computer Graphics</em>. (Chapters 2 &amp; 3) 
+          <li id="rogers-1976">Rogers, D. F. (1989). <em>Mathematical Elements for Computer Graphics</em>. (Chapters 2
+            &amp; 3)
             McGraw Hill, Inc. &nbsp;<a href="https://archive.org/details/mathematicalelem00roge/" title="Go" target="_blank"><i class="fas fa-external-link-alt"></i></a>
           </li>
         </ol>
