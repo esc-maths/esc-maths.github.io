@@ -1350,21 +1350,24 @@
 							<p class="fragment fade-in-then-out" data-fragment-index="0">
 								\(
 								\begin{aligned}
-								T_1(\mathbf x) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 0\\ 0 &amp; \color{red}{0.5} &amp; 0 \\ 0
+								T_1(\mathbf x) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 0\\ 0 &amp;
+								\color{red}{0.5} &amp; 0 \\ 0
 								&amp; 0
 								&amp; 1 \end{pmatrix} \begin{pmatrix}
 								x \\
 								y \\
 								1
 								\end{pmatrix}, \\[1ex]
-								T_2(\mathbf{x}) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 0 \\ 0 &amp; \color{red}{0.5} &amp; 100 \\ 0
+								T_2(\mathbf{x}) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 0 \\ 0 &amp;
+								\color{red}{0.5} &amp; 100 \\ 0
 								&amp; 0
 								&amp; 1\end{pmatrix} \begin{pmatrix}
 								x \\
 								y \\
 								1
 								\end{pmatrix}, \\[1ex]
-								T_3(\mathbf{x}) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 100 \\ 0 &amp; \color{red}{0.5} &amp; 100 \\
+								T_3(\mathbf{x}) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 100 \\ 0 &amp;
+								\color{red}{0.5} &amp; 100 \\
 								0
 								&amp;
 								0 &amp; 1\end{pmatrix} \begin{pmatrix}
@@ -1378,21 +1381,24 @@
 							<p class="fragment fade-in" data-fragment-index="1">
 								\(
 								\begin{aligned}
-								T_1(\mathbf x) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{0}\\ 0 &amp; 0.5 &amp; \color{blue}{0} \\ 0
+								T_1(\mathbf x) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{0}\\ 0 &amp; 0.5
+								&amp; \color{blue}{0} \\ 0
 								&amp; 0
 								&amp; 1 \end{pmatrix} \begin{pmatrix}
 								x \\
 								y \\
 								1
 								\end{pmatrix}, \\[1ex]
-								T_2(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{0} \\ 0 &amp; 0.5 &amp; \color{blue}{100} \\ 0
+								T_2(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{0} \\ 0 &amp; 0.5
+								&amp; \color{blue}{100} \\ 0
 								&amp; 0
 								&amp; 1\end{pmatrix} \begin{pmatrix}
 								x \\
 								y \\
 								1
 								\end{pmatrix}, \\[1ex]
-								T_3(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{100} \\ 0 &amp; 0.5 &amp; \color{blue}{100} \\
+								T_3(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{100} \\ 0 &amp;
+								0.5 &amp; \color{blue}{100} \\
 								0
 								&amp;
 								0 &amp; 1\end{pmatrix} \begin{pmatrix}
@@ -1412,8 +1418,6 @@
 				 data-visibility="hidden"
 				-->
 				<section data-auto-animate>
-
-
 
 					<table style="width: 92%;">
 						<tr>
@@ -1627,7 +1631,7 @@ function plotAxesInfo() {
 
 					<h4>Probabilistic IFS</h4>
 
-					<div style="display: flex; width: 100%; align-items: center; gap: 2em;">
+					<div style="display: flex; width: 100%; align-items: center; gap: 1em;">
 
 						<!-- Left side -->
 						<div style="flex: 1; text-align: left; font-size: 0.8em;">
@@ -1871,9 +1875,11 @@ function plotAxesInfo() {
 
 						</table>
 					</div>
-
-					<br />
-					<br />
+					<div class="size-50 cc">
+						<p class="fragment">
+							👉 $\;T(\mathbf x) = \begin{pmatrix} a & b & e \\ c & d & f \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} x  \\ y  \\  1 \end{pmatrix}$
+						</p>
+					</div>
 					<br />
 				</section>
 				<section>
