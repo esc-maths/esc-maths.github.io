@@ -1257,10 +1257,10 @@
 				<section data-auto-animate>
 					<h3>Affine transformations & Fractals</h3>
 
-				
+
 					<div class="size-95 cc">
 						<p>
-							<b>IFS:</b> 
+							<b>IFS:</b>
 							\(
 							\;T_i(\mathbf{x}) = A_i \mathbf{x} + \mathbf{t}_i
 							\)
@@ -1318,32 +1318,92 @@
 					<h4>Deterministic IFS</h4>
 					<div class="size-80 cc">
 						<p>Using homogeneous coordinates, the transformations are defined as follows:</p>
-						<p>
-							\(
-							\begin{aligned}
-							T_1(\mathbf x) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 0\\ 0 &amp; 0.5 &amp; 0 \\ 0 &amp; 0
-							&amp; 1 \end{pmatrix} \begin{pmatrix}
-							x \\
-							y \\
-							1
-							\end{pmatrix}, \\[1ex]
-							T_2(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 0 \\ 0 &amp; 0.5 &amp; 100 \\ 0
-							&amp; 0
-							&amp; 1\end{pmatrix} \begin{pmatrix}
-							x \\
-							y \\
-							1
-							\end{pmatrix}, \\[1ex]
-							T_3(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 100 \\ 0 &amp; 0.5 &amp; 100 \\ 0
-							&amp;
-							0 &amp; 1\end{pmatrix} \begin{pmatrix}
-							x \\
-							y \\
-							1
-							\end{pmatrix}.
-							\end{aligned}
-							\)
-						</p>
+						<div class="r-stack">
+							<p class="fragment fade-out" data-fragment-index="0">
+								\(
+								\begin{aligned}
+								T_1(\mathbf x) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 0\\ 0 &amp; 0.5 &amp; 0 \\ 0
+								&amp; 0
+								&amp; 1 \end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}, \\[1ex]
+								T_2(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 0 \\ 0 &amp; 0.5 &amp; 100 \\ 0
+								&amp; 0
+								&amp; 1\end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}, \\[1ex]
+								T_3(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; 100 \\ 0 &amp; 0.5 &amp; 100 \\
+								0
+								&amp;
+								0 &amp; 1\end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}.
+								\end{aligned}
+								\)
+							</p>
+							<p class="fragment fade-in-then-out" data-fragment-index="0">
+								\(
+								\begin{aligned}
+								T_1(\mathbf x) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 0\\ 0 &amp; \color{red}{0.5} &amp; 0 \\ 0
+								&amp; 0
+								&amp; 1 \end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}, \\[1ex]
+								T_2(\mathbf{x}) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 0 \\ 0 &amp; \color{red}{0.5} &amp; 100 \\ 0
+								&amp; 0
+								&amp; 1\end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}, \\[1ex]
+								T_3(\mathbf{x}) &amp;= \begin{pmatrix} \color{red}{0.5} &amp; 0 &amp; 100 \\ 0 &amp; \color{red}{0.5} &amp; 100 \\
+								0
+								&amp;
+								0 &amp; 1\end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}.
+								\end{aligned}
+								\)
+							</p>
+							<p class="fragment fade-in" data-fragment-index="1">
+								\(
+								\begin{aligned}
+								T_1(\mathbf x) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{0}\\ 0 &amp; 0.5 &amp; \color{blue}{0} \\ 0
+								&amp; 0
+								&amp; 1 \end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}, \\[1ex]
+								T_2(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{0} \\ 0 &amp; 0.5 &amp; \color{blue}{100} \\ 0
+								&amp; 0
+								&amp; 1\end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}, \\[1ex]
+								T_3(\mathbf{x}) &amp;= \begin{pmatrix} 0.5 &amp; 0 &amp; \color{blue}{100} \\ 0 &amp; 0.5 &amp; \color{blue}{100} \\
+								0
+								&amp;
+								0 &amp; 1\end{pmatrix} \begin{pmatrix}
+								x \\
+								y \\
+								1
+								\end{pmatrix}.
+								\end{aligned}
+								\)
+							</p>
+						</div>
 					</div>
 					<br />
 				</section>
