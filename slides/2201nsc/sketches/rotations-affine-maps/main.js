@@ -159,13 +159,29 @@ const ROTATION_SPEED = 60; // Degrees per second
 const timer = new THREE.Timer();
 timer.connect(document);
 
+// Function to reset all orientation sliders
+function resetOrientation() {
+    sliderX.value = 0;
+    sliderY.value = 0;
+    sliderZ.value = 0;
+    updateRotation();
+}
+
 window.addEventListener('keydown', (e) => {
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
         e.preventDefault();
     }
     keysPressed[e.key.toLowerCase()] = true;
     keysPressed[e.code] = true;
+
+    // Press 'R' to reset orientation
+    if (e.key.toLowerCase() === 'r') {
+        resetOrientation();
+    }
 });
+
+// Update reset button to use the same function
+btnReset.addEventListener('click', resetOrientation);
 
 window.addEventListener('keyup', (e) => {
     keysPressed[e.key.toLowerCase()] = false;
