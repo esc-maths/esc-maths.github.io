@@ -94,6 +94,18 @@
             <button class="btn btn-secondary" id="btn-info">How this works?</button>
         </div>
 
+        <div style="text-align: center; margin-top: 10px; font-size: 0.9em;">
+            <p style="margin-bottom: 8px; opacity: 0.85;">
+                <strong>Keyboard Controls:</strong>
+            </p>
+            <p>
+                Pitch: <kbd>Q</kbd> / <kbd>E</kbd> &nbsp;|&nbsp;
+                Yaw: <kbd>A</kbd> / <kbd>D</kbd> &nbsp;|&nbsp;
+                Roll: <kbd>W</kbd> / <kbd>S</kbd>
+            </p>
+
+        </div>
+
         <div style="text-align: center; margin-top: 0px; font-size: 0.9em;">
             <p>Made with &#9829; by <a href="https://www.jcponce.com/">JCPC</a></p>
         </div>
@@ -114,13 +126,15 @@
             <div class="modal-body">
                 <p>
                     An <strong>affine transformation</strong> preserves points, straight lines, and planes. In 3D
-                    graphics, linear rotations are combined with translation 
+                    graphics, linear rotations are combined with translation
                     vectors into a single transformation model.
                 </p>
 
                 <p>The total rotation applied to the aircraft is determined by combining three separate rotation
-                    matrices for each Cartesian axis, <strong>Roll $(\alpha)$</strong> around $x$-axis, 
-                    <strong>Pitch $(\beta)$</strong> around $y$-axis, and <strong>Yaw $(\gamma)$</strong> around $z$-axis:</p>
+                    matrices for each Cartesian axis, <strong>Roll $(\alpha)$</strong> around $x$-axis,
+                    <strong>Pitch $(\beta)$</strong> around $y$-axis, and <strong>Yaw $(\gamma)$</strong> around
+                    $z$-axis:
+                </p>
 
                 $$\mathbf{R}_x(\alpha) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\alpha & -\sin\alpha \\ 0 & \sin\alpha &
                 \cos\alpha \end{pmatrix}$$

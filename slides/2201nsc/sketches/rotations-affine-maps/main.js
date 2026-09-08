@@ -6,9 +6,9 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 // DOM Elements
 const container = document.getElementById('canvas-container');
 const loadingEl = document.getElementById('loading');
-const sliderX = document.getElementById('slider-x');
-const sliderY = document.getElementById('slider-y');
-const sliderZ = document.getElementById('slider-z');
+const sliderX = document.getElementById('slider-x'); // Roll
+const sliderY = document.getElementById('slider-y'); // Pitch
+const sliderZ = document.getElementById('slider-z'); // Yaw
 const valX = document.getElementById('val-x');
 const valY = document.getElementById('val-y');
 const valZ = document.getElementById('val-z');
@@ -87,9 +87,7 @@ mtlLoader.load(
         objLoader.load(
             '11803_Airplane_v1_l1.obj',
             (object) => {
-                // Base alignment to make plane parallel to ground at 0 deg
                 object.rotation.x = -Math.PI / 2;
-                //object.rotation.z = Math.PI / 2;
 
                 const box = new THREE.Box3().setFromObject(object);
                 const center = box.getCenter(new THREE.Vector3());
@@ -134,9 +132,9 @@ function updateRotation() {
     const radY = THREE.MathUtils.degToRad(parseFloat(sliderY.value));
     const radZ = THREE.MathUtils.degToRad(parseFloat(sliderZ.value));
 
-    valX.textContent = `${sliderX.value}°`;
-    valY.textContent = `${sliderY.value}°`;
-    valZ.textContent = `${sliderZ.value}°`;
+    valX.textContent = `${parseFloat(sliderX.value).toFixed(1)}°`;
+    valY.textContent = `${parseFloat(sliderY.value).toFixed(1)}°`;
+    valZ.textContent = `${parseFloat(sliderZ.value).toFixed(1)}°`;
 
     airplaneGroup.rotation.set(radX, radY, radZ, 'XYZ');
     airplaneGroup.updateMatrix();
@@ -153,6 +151,70 @@ function updateRotation() {
     matrixCells.forEach((cell, index) => {
         cell.textContent = rotMatrix[index].toFixed(2);
     });
+}
+
+// Keyboard Input State
+const keysPressed = {};
+const ROTATION_SPEED = 60; // Degrees per second
+const timer = new THREE.Timer();
+timer.connect(document);
+
+window.addEventListener('keydown', (e) => {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+    }
+    keysPressed[e.key.toLowerCase()] = true;
+    keysPressed[e.code] = true;
+});
+
+window.addEventListener('keyup', (e) => {
+    keysPressed[e.key.toLowerCase()] = false;
+    keysPressed[e.code] = false;
+});
+
+function adjustSlider(slider, amount) {
+    const min = slider.min !== '' ? parseFloat(slider.min) : -180;
+    const max = slider.max !== '' ? parseFloat(slider.max) : 180;
+    const currentVal = parseFloat(slider.value);
+    const newVal = Math.min(max, Math.max(min, currentVal + amount));
+    if (newVal !== currentVal) {
+        slider.value = newVal;
+        return true;
+    }
+    return false;
+}
+
+function handleKeyboardInput(delta) {
+    let hasChanged = false;
+    const changeAmount = ROTATION_SPEED * delta;
+
+    // Roll -> Slider Z
+    if (keysPressed['w'] || keysPressed['KeyW']) {
+        if (adjustSlider(sliderZ, changeAmount)) hasChanged = true;
+    }
+    if (keysPressed['s'] || keysPressed['KeyS']) {
+        if (adjustSlider(sliderZ, -changeAmount)) hasChanged = true;
+    }
+
+    // Pitch -> Slider X
+    if (keysPressed['q'] || keysPressed['KeyQ']) {
+        if (adjustSlider(sliderX, -changeAmount)) hasChanged = true;
+    }
+    if (keysPressed['e'] || keysPressed['KeyE']) {
+        if (adjustSlider(sliderX, changeAmount)) hasChanged = true;
+    }
+
+    // Yaw -> Slider Y
+    if (keysPressed['a'] || keysPressed['KeyA']) {
+        if (adjustSlider(sliderY, changeAmount)) hasChanged = true;
+    }
+    if (keysPressed['d'] || keysPressed['KeyD']) {
+        if (adjustSlider(sliderY, -changeAmount)) hasChanged = true;
+    }
+
+    if (hasChanged) {
+        updateRotation();
+    }
 }
 
 // Modal Toggle Handlers
@@ -196,10 +258,15 @@ window.addEventListener('resize', () => {
     renderer.setSize(width, height);
 });
 
+
 // Animation Loop
-function animate() {
-    requestAnimationFrame(animate);
+renderer.setAnimationLoop((timestamp) => {
+    timer.update(timestamp);
+
+    const delta = timer.getDelta();
+    handleKeyboardInput(delta);
     controls.update();
     renderer.render(scene, camera);
-}
-animate();
+
+});
+

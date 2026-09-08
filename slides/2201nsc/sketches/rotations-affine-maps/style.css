@@ -29,6 +29,19 @@ body {
     box-shadow: 4px 0 16px rgba(0, 0, 0, 0.3);
 }
 
+kbd {
+    background-color: #2a2a30;
+    border: 1px solid #4a4a52;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    color: #e0e0e0;
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 600;
+    line-height: 1;
+    padding: 2px 5px;
+}
+
 h2 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -336,7 +349,7 @@ how to remove the virtical space around the range input in IE*/
 }
 
 /* Responsive adjustment */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     body {
         flex-direction: column;
     }
