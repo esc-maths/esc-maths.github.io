@@ -17,6 +17,8 @@ body {
 /* Left Sidebar Panel */
 #sidebar {
     width: 360px;
+    min-width: 360px;
+    flex-shrink: 0;
     height: 100%;
     background: #242429;
     border-right: 1px solid #36363d;
@@ -156,11 +158,14 @@ input[type="range"] {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1.1rem;
+    font-weight: 500;
     color: #9ca3af;
     background: rgba(0, 0, 0, 0.7);
     padding: 12px 24px;
     border-radius: 8px;
     pointer-events: none;
+    z-index: 5;
+    border: 1px solid #36363d;
 }
 
 /* Modal Styles */
