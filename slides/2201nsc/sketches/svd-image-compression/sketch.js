@@ -21,6 +21,7 @@ function preload() {
 
 function setup() {
     createCanvas(2 * 250, 370); // 250x350 images + space for text
+    pixelDensity(1);
     img.resize(250, 350);
     img.loadPixels();
 
@@ -54,7 +55,7 @@ function setup() {
     originalGfx.updatePixels();
 
     // Slider
-    slider = createSlider(1, 250, k, 1);
+    slider = createSlider(1, 145, k, 1);
     slider.position(10, height + 5);
     slider.style('width', `${width - 20}px`);
 }
