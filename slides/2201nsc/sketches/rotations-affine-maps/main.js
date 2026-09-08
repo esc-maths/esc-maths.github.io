@@ -30,12 +30,12 @@ scene.background = new THREE.Color(0x1a1a1e);
 
 // Camera Setup
 const camera = new THREE.PerspectiveCamera(
-    45,
+    25,
     container.clientWidth / container.clientHeight,
     0.1,
     1000
 );
-camera.position.set(0, 50, 100);
+camera.position.set(150, 30, 100);
 
 // Renderer Setup
 const renderer = new THREE.WebGLRenderer({ antialias: true });
