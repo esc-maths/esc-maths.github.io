@@ -16,8 +16,8 @@ body {
 
 /* Left Sidebar Panel */
 #sidebar {
-    width: 360px;
-    min-width: 360px;
+    width: 350px;
+    min-width: 300px;
     flex-shrink: 0;
     height: 100%;
     background: #242429;
@@ -354,17 +354,20 @@ how to remove the virtical space around the range input in IE*/
 }
 
 /* Responsive adjustment */
-@media (max-width: 800px) {
+@media (max-width: 990px) {
     body {
         flex-direction: column;
+    }
+
+    #canvas-container {
+        width: 100%;
+        height: 50vh;
+        min-height: 300px;
+        order: -1; /* Keeps 3D viewport on top on mobile screens */
     }
 
     #sidebar {
         width: 100%;
         height: 45%;
-    }
-
-    #canvas-container {
-        height: 55%;
     }
 }
