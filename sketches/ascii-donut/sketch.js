@@ -14,7 +14,7 @@
 // Characters ordered from darkest to brightest.
 // The character selected for each point depends on its
 // calculated lighting value.
-const chars = ".,-~:;=!*#%@";
+const chars = ".,-~:;=!*#$@";
 
 
 // Rotation angles.
@@ -40,9 +40,9 @@ let B = 0;
 //
 // K2 controls the distance of the torus from the camera.
 //
-const R1 = 0.6;
-const R2 = 1.2;
-const K2 = 5;
+const R1 = 1;
+const R2 = 2;
+const K2 = 18;
 
 
 function setup() {
@@ -77,7 +77,7 @@ function draw() {
   // character in the monospace font.
   //
   const charW = 10;
-  const charH = 12;
+  const charH = 10;
 
   const cols = floor(width / charW);
   const rows = floor(height / charH);
@@ -144,7 +144,8 @@ function draw() {
   // that the donut remains approximately the same size
   // regardless of the window's aspect ratio.
   //
-  const K1 = min(width, height) * 0.09;
+  const K1 = min(width, height) * 0.2;
+  //console.log(K1)
 
 
   // ==========================================================
@@ -301,7 +302,7 @@ function draw() {
       //
       //       (1, -1, 1)
       //
-      const lx = 1;
+      const lx = 0;
       const ly = -1;
       const lz = 1;
 
@@ -365,11 +366,18 @@ function draw() {
         //
         //   dark                         bright
         //    |                              |
-        //    . , - ~ : ; = ! * # % @
+        //    . , - ~ : ; = ! * # $ @
         //
-        const index = floor(
-          lightValue * (chars.length - 1)
-        );
+
+        let index;
+
+        if (lightValue > 0.97) {
+          index = chars.length - 1;
+        } else {
+          index = floor(
+            lightValue / 0.97 * (chars.length - 1)
+          );
+        }
 
         output[yp][xp] = chars[index];
       }
