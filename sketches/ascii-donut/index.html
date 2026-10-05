@@ -41,16 +41,26 @@
 
       <p>
         The animation represents a three-dimensional torus using only
-        ASCII characters. The main steps are:
+        ASCII characters. The main steps to create this effect are
+        as follows:
       </p>
 
       <ol>
-        <li>Parametrise the torus in 3D.</li>
+        <li>Parametrize the torus in 3D.</li>
         <li>Rotate the torus.</li>
         <li>Project the 3D points onto the screen.</li>
         <li>Calculate lighting using surface normals.</li>
         <li>Use a depth buffer to determine visibility.</li>
       </ol>
+
+      <p>
+        This is a p5.js version of the
+        <a href="https://www.a1k0n.net/2006/09/15/obfuscated-c-donut.html">
+          Have a donut
+        </a>
+        (ASCII 3D donut in C) created in 2006 by the amazing
+        <a href="https://www.a1k0n.net/" target="_blank">Andy Sloane</a>.
+      </p>
 
       <hr />
 
@@ -69,7 +79,7 @@
 
       <p>
         Using two parameters \(\theta\) and \(\phi\), the torus is
-        parametrised by
+        parametrized by
       </p>
 
       \[
@@ -340,6 +350,7 @@
         of the string, while brighter parts use characters near the end.
       </p>
 
+      <!--
       <p>
         To make the brightest parts of the torus clearly visible, values
         of \(L\) greater than \(0.97\) are assigned directly to the
@@ -365,12 +376,12 @@
       <p>
         The character at position \(i\) is then used to represent the
         brightness of the visible point.
-      </p>
+      </p>-->
 
       <p class="summary">
         <strong>
-          Parametric surface → rotation → perspective projection <br />
-          → lighting → depth test → ASCII character
+          Parametric surface → Rotation → Perspective projection <br />
+          → Lighting → Depth test → ASCII character
         </strong>
       </p>
 
