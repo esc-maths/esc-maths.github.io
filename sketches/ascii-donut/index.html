@@ -1,291 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.min.js"></script>
 
-    <!-- MathJax -->
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['\\(', '\\)']],
-          displayMath: [['\\[', '\\]']]
-        },
-        svg: {
-          fontCache: 'global'
-        }
-      };
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
-      async>
-    </script>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-  </head>
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async>
+  </script>
 
-  <body>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+</head>
 
-    <!-- Math button -->
-    <button id="mathButton" onclick="openMathModal()">?</button>
+<body>
 
-    <!-- Modal -->
-    <div id="mathModal" class="modal">
+  <!-- Math button -->
+  <button id="mathButton" onclick="openMathModal()">?</button>
 
-      <div class="modal-content">
+  <!-- Modal -->
+  <div id="mathModal" class="modal">
 
-        <button class="close-button" onclick="closeMathModal()">
-          &times;
-        </button>
+    <div class="modal-content">
 
-        <h2>The Mathematics of the ASCII Donut</h2>
+      <button class="close-button" onclick="closeMathModal()">
+        &times;
+      </button>
 
-        <p>
-          The animation represents a three-dimensional torus using only
-          ASCII characters. The main steps are:
-        </p>
+      <h2>The Mathematics of the ASCII Donut</h2>
 
-        <ol>
-          <li>Parametrise the torus in 3D.</li>
-          <li>Rotate the torus.</li>
-          <li>Project the 3D points onto the screen.</li>
-          <li>Calculate lighting using surface normals.</li>
-          <li>Use a depth buffer to determine visibility.</li>
-        </ol>
+      <p>
+        The animation represents a three-dimensional torus using only
+        ASCII characters. The main steps are:
+      </p>
 
-        <hr/>
+      <ol>
+        <li>Parametrise the torus in 3D.</li>
+        <li>Rotate the torus.</li>
+        <li>Project the 3D points onto the screen.</li>
+        <li>Calculate lighting using surface normals.</li>
+        <li>Use a depth buffer to determine visibility.</li>
+      </ol>
+
+      <hr />
 
 
-        <h3>1. The torus</h3>
+      <h3>1. The torus</h3>
 
-        <p>
-          A torus can be constructed by taking a circle of radius
-          \(R_1\) and moving its centre around a larger circle of radius
-          \(R_2\).
-        </p>
+      <p>
+        A torus can be constructed by taking a circle of radius
+        \(R_1\) and moving its centre around a larger circle of radius
+        \(R_2\).
+      </p>
 
-        <p>
-          Using two parameters \(\theta\) and \(\phi\), the torus is
-          parametrised by
-        </p>
+      <p>
+        Using two parameters \(\theta\) and \(\phi\), the torus is
+        parametrised by
+      </p>
 
+      \[
+      \begin{aligned}
+      x &= (R_2 + R_1\cos\theta)\cos\phi,\\
+      y &= (R_2 + R_1\cos\theta)\sin\phi,\\
+      z &= R_1\sin\theta,
+      \end{aligned}
+      \]
+
+      <p>
+        where
         \[
-        \begin{aligned}
-        x &= (R_2 + R_1\cos\theta)\cos\phi,\\
-        y &= (R_2 + R_1\cos\theta)\sin\phi,\\
-        z &= R_1\sin\theta,
-        \end{aligned}
-        \]
-
-        <p>
-          where
-          \[
-          0\leq\theta\lt 2\pi,
-          \qquad
-          0\leq\phi<2\pi.
-          \]
-        </p>
-
-        <p>
-          Here \(R_1\) controls the thickness of the tube, while
-          \(R_2\) controls the size of the central ring.
-        </p>
-
-
-        <h3>2. Rotating the torus</h3>
-
-        <p>
-          The torus is rotated around the \(x\)-axis and then around the
-          \(z\)-axis.
-        </p>
-
-        <p>
-          A rotation around the \(x\)-axis is given by
-        </p>
-
-        \[
-        \begin{aligned}
-        x' &= x,\\
-        y' &= y\cos A-z\sin A,\\
-        z' &= y\sin A+z\cos A.
-        \end{aligned}
-        \]
-
-        <p>
-          A rotation around the \(z\)-axis is
-        </p>
-
-        \[
-        \begin{aligned}
-        x'' &= x'\cos B-y'\sin B,\\
-        y'' &= x'\sin B+y'\cos B,\\
-        z'' &= z'.
-        \end{aligned}
-        \]
-
-        <p>
-          The angles \(A\) and \(B\) are increased slightly every frame,
-          producing the animation.
-        </p>
-
-
-        <h3>3. Perspective projection</h3>
-
-        <p>
-          After rotation, the three-dimensional point is projected onto
-          the two-dimensional screen using a simple perspective model:
-        </p>
-
-        \[
-        X = K_1\frac{x''}{z''},
+        0\leq\theta\lt 2\pi,
         \qquad
-        Y = K_1\frac{y''}{z''}.
-        \]
+        0\leq\phi<2\pi. \] </p>
 
-        <p>
-          Notice the division by \(z''\). Points farther from the camera
-          have larger \(z''\), so they appear smaller.
-        </p>
-
-        <p>
-          The constant \(K_1\) controls the apparent size of the torus.
-          The torus is also shifted by \(K_2\) so that its depth remains
-          positive.
-        </p>
+          <p>
+            Here \(R_1\) controls the thickness of the tube, while
+            \(R_2\) controls the size of the central ring.
+          </p>
 
 
-        <h3>4. Surface normals and lighting</h3>
+          <h3>2. Rotating the torus</h3>
 
-        <p>
-          To make the torus look three-dimensional, we calculate a
-          normal vector at every point on its surface.
-        </p>
+          <p>
+            The torus is rotated around the \(x\)-axis and then around the
+            \(z\)-axis.
+          </p>
 
-        \[
-        \mathbf n =
-        \begin{pmatrix}
-        \cos\theta\cos\phi\\
-        \cos\theta\sin\phi\\
-        \sin\theta
-        \end{pmatrix}.
-        \]
+          <p>
+            A rotation around the \(x\)-axis is given by
+          </p>
 
-        <p>
-          The normal is rotated together with the surface.
-        </p>
+          \[
+          \begin{aligned}
+          x' &= x,\\
+          y' &= y\cos A-z\sin A,\\
+          z' &= y\sin A+z\cos A.
+          \end{aligned}
+          \]
 
-        <p>
-          We then compare the normal with the direction of the light
-          using the dot product.
-        </p>
+          <p>
+            A rotation around the \(z\)-axis is
+          </p>
 
-        \[
-        L =
-        \max\left(
-        0,
-        \frac{\mathbf n\cdot\mathbf l}
-        {\|\mathbf l\|}
-        \right).
-        \]
+          \[
+          \begin{aligned}
+          x'' &= x'\cos B-y'\sin B,\\
+          y'' &= x'\sin B+y'\cos B,\\
+          z'' &= z'.
+          \end{aligned}
+          \]
 
-        <p>
-          In the animation the light direction is approximately
-        </p>
-
-        \[
-        \mathbf l=(1,-1,1).
-        \]
-
-        <p>
-          If the normal points towards the light, the dot product is
-          large and the surface is bright. If it points away from the
-          light, the value is close to zero.
-        </p>
+          <p>
+            The angles \(A\) and \(B\) are increased slightly every frame,
+            producing the animation.
+          </p>
 
 
-        <h3>5. The depth buffer</h3>
+          <h3>3. Perspective projection</h3>
 
-        <p>
-          Several points on the torus can project onto the same position
-          on the ASCII grid. We therefore keep track of the depth of the
-          closest visible point.
-        </p>
+          <p>
+            After rotation, the three-dimensional point is projected onto
+            the two-dimensional screen using a simple perspective model:
+          </p>
 
-        \[
-        z_{\text{new}}>z_{\text{buffer}}.
-        \]
+          \[
+          X = K_1\frac{x''}{z''},
+          \qquad
+          Y = K_1\frac{y''}{z''}.
+          \]
 
-        <p>
-          When this condition is satisfied, the new point replaces the
-          previous one. This is what allows the front of the torus to
-          hide the back.
-        </p>
+          <p>
+            Notice the division by \(z''\). Points farther from the camera
+            have larger \(z''\), so they appear smaller.
+          </p>
+
+          <p>
+            The constant \(K_1\) controls the apparent size of the torus.
+            The torus is also shifted by \(K_2\) so that its depth remains
+            positive.
+          </p>
 
 
-        <h3>6. From light to ASCII</h3>
+          <h3>4. Surface normals and lighting</h3>
 
-        <p>
-          Finally, the lighting value \(L\), approximately between \(0\)
-          and \(1\), is converted into an index in the character string
-        </p>
+          <p>
+            To make the torus look three-dimensional, we calculate a
+            normal vector at every point on its surface.
+          </p>
 
-        <p class="ascii-chars">
-          <code>.,-~:;=!*#$@</code>
-        </p>
+          \[
+          \mathbf n =
+          \begin{pmatrix}
+          \cos\theta\cos\phi\\
+          \cos\theta\sin\phi\\
+          \sin\theta
+          \end{pmatrix}.
+          \]
 
-        <p>
-          Darker parts of the surface use characters near the beginning
-          of the string, while brighter parts use characters near the end.
-        </p>
+          <p>
+            The normal is rotated together with the surface.
+          </p>
 
-        <p class="summary">
-          <strong>
-            Parametric surface → rotation → perspective projection <br/>
-            → lighting → depth test → ASCII character
-          </strong>
-        </p>
+          <p>
+            We then compare the normal with the direction of the light
+            using the dot product.
+          </p>
 
-        <div style="text-align: center; margin-top: 0px; font-size: 0.9em;">
+          \[
+          L =
+          \max\left(
+          0,
+          \frac{\mathbf n\cdot\mathbf l}
+          {\|\mathbf l\|}
+          \right).
+          \]
+
+          <p>
+            In the animation the light direction is approximately
+          </p>
+
+          \[
+          \mathbf l=(0,-1,1).
+          \]
+
+          <p>
+            If the normal points towards the light, the dot product is
+            large and the surface is bright. If it points away from the
+            light, the value is close to zero.
+          </p>
+
+
+          <h3>5. The depth buffer</h3>
+
+          <p>
+            Several points on the torus can project onto the same position
+            on the ASCII grid. We therefore keep track of the depth of the
+            closest visible point.
+          </p>
+
+          \[
+          z_{\text{new}}>z_{\text{buffer}}.
+          \]
+
+          <p>
+            When this condition is satisfied, the new point replaces the
+            previous one. This is what allows the front of the torus to
+            hide the back.
+          </p>
+
+          <h3>6. From light to ASCII</h3>
+
+          <p>
+            Finally, the lighting value \(L\), approximately between \(0\)
+            and \(1\), is converted into an index in the character string
+          </p>
+
+          <p class="ascii-chars">
+            <code>.,-~:;=!*#$@</code>
+          </p>
+
+          <p>
+            Darker parts of the surface use characters near the beginning
+            of the string, while brighter parts use characters near the end.
+          </p>
+
+          <p>
+            To make the brightest parts of the torus clearly visible, values
+            of \(L\) greater than \(0.97\) are assigned directly to the
+            brightest character, <code>@</code>. For lower values, the
+            lighting value is scaled to the remaining range of characters.
+          </p>
+
+          <p>
+            Thus, the conversion is
+          </p>
+
+          \[
+          i =
+          \begin{cases}
+          |\text{chars}|-1, & L>0.97,\\[4pt]
+          \displaystyle
+          \left\lfloor
+          \frac{L}{0.97}(|\text{chars}|-1)
+          \right\rfloor, & 0\leq L\leq0.97.
+          \end{cases}
+          \]
+
+          <p>
+            The character at position \(i\) is then used to represent the
+            brightness of the visible point.
+          </p>
+
+          <p class="summary">
+            <strong>
+              Parametric surface → rotation → perspective projection <br />
+              → lighting → depth test → ASCII character
+            </strong>
+          </p>
+
+          <div style="text-align: center; margin-top: 0px; font-size: 0.9em;">
             <p>Made with &#9829; by <a href="https://www.patreon.com/jcponce">JCPC</a></p>
-        </div>
+          </div>
 
-      </div>
     </div>
+  </div>
 
-    <main>
-    </main>
+  <main>
+  </main>
 
-    <script src="sketch.js"></script>
+  <script src="sketch.js"></script>
 
-    <script>
-      function openMathModal() {
-        document.getElementById("mathModal").classList.add("show");
+  <script>
+    function openMathModal() {
+      document.getElementById("mathModal").classList.add("show");
 
-        if (window.MathJax) {
-          MathJax.typesetPromise();
-        }
+      if (window.MathJax) {
+        MathJax.typesetPromise();
       }
+    }
 
-      function closeMathModal() {
-        document.getElementById("mathModal").classList.remove("show");
+    function closeMathModal() {
+      document.getElementById("mathModal").classList.remove("show");
+    }
+
+    // Close when clicking outside the modal
+    window.addEventListener("click", function (event) {
+      const modal = document.getElementById("mathModal");
+
+      if (event.target === modal) {
+        closeMathModal();
       }
+    });
 
-      // Close when clicking outside the modal
-      window.addEventListener("click", function(event) {
-        const modal = document.getElementById("mathModal");
+    // Close with Escape
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeMathModal();
+      }
+    });
+  </script>
 
-        if (event.target === modal) {
-          closeMathModal();
-        }
-      });
+</body>
 
-      // Close with Escape
-      window.addEventListener("keydown", function(event) {
-        if (event.key === "Escape") {
-          closeMathModal();
-        }
-      });
-    </script>
-
-  </body>
 </html>
