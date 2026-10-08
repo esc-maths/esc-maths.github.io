@@ -21,6 +21,7 @@ let cursorCounter = 0;
 let cursorSize = 16;
 
 let funSnippets = [
+  "do { enjoy(); } while( coding == play || drawing(); );",
   "while(alive) { code(); }",
   "if(coffee) { awake = true; }",
   "for(let i = 0; i < Infinity; i++) { debug(); }",
@@ -43,9 +44,9 @@ let funSnippets = [
   "const mood = Math.random() > 0.5 ? 'happy' : 'confused';",
   "console.log('Debugging life...');",
   "if(lunch) { eat(); } else { code(); }",
-  "for(let bug = 0; bug < Infinity; bug++) { fix(); }",
+  "for(let bu g= 0; bug < Infinity; bug++) { fix(); }",
   "function procrastinate() { avoidResponsibility(); }",
-  "while(true) { code(); sleep(); repeat(); }",
+  "while(true) { code(); sleep(); repeat(); }",	
   "if(brain === null) { reboot(); }",
   "while(!coffee) { complain(); }",
   "const bug = features.pop();",
@@ -56,8 +57,16 @@ let funSnippets = [
   "if(commit) { pray(); }",
   "while(stackOverflow) { copyPaste(); }",
   "return nap || coffee;",
-  "<(• . • )>",
-  "(•ㅅ•)"
+  "   <(• . • )>",
+  "     (•ㅅ•)",
+  "     (‾◡◝)",
+  "    O(∩_∩)O",
+  "      =.=",
+  "     (▀̿Ĺ̯▀̿ ̿)",
+  "  (￣o￣) . z Z",
+  "   (⊙ _ ⊙ )",
+  "    ₍^. .^₎Ⳋ",
+  "   (づ ᴗ _ᴗ)づ♡"
 ];
 
 function setup() {
