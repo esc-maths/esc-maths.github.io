@@ -1,7 +1,7 @@
 
 let binaryLines = []; // Array to store binary lines
-let charSize = 20; // Size of characters
-let lineSpacing = 20; // Spacing between lines
+let charSize = 25; // Size of characters
+let lineSpacing = 25; // Spacing between lines
 let lineLength; // Maximum characters per line
 let typingSpeed = 10; // Speed of typing (characters per second)
 let canvasPadding = 20; // Padding around the canvas
