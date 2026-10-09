@@ -7,7 +7,7 @@ function setup() {
 
 function writeTeX() {
   let equation = createTeX(
-    "{\\displaystyle \\rho \\left(\\frac{\\partial \\mathbf v}{\\partial t} + \\mathbf v \\cdot \\nabla \\mathbf v \\right) =-\\nabla p + \\mu \\nabla^2 \\mathbf v + \\mathbf F, \\quad \\nabla \\cdot \\mathbf v = 0. }"
+    "{\\displaystyle \\rho \\left(\\frac{\\partial \\mathbf v}{\\partial t} + \\left(\\mathbf v \\cdot \\nabla\\right) \\mathbf v \\right) =-\\nabla p + \\mu \\nabla^2 \\mathbf v + \\mathbf F, \\quad \\nabla \\cdot \\mathbf v = 0. }"
   );
   equation.position(15, 5);
   equation.size(25);
