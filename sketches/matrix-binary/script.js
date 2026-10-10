@@ -25,7 +25,7 @@ uniform vec3  iResolution;
 uniform vec4  iMouse;
 
 const int   ITERATIONS        = 40;
-const float SPEED             = 1.0;
+const float SPEED             = 0.8;
 
 const float STRIP_CHARS_MIN   =  7.0;
 const float STRIP_CHARS_MAX   = 40.0;
@@ -72,41 +72,6 @@ vec4 hash4(vec3 v) {
                              113.5, 271.9, 124.6,
                              271.9, 269.5, 311.7));
     return fract(sin(p) * 43758.5453123);
-}
-
-
-//        ----  symbols  ----
-
-float rune_line(vec2 p, vec2 a, vec2 b) {
-    p -= a, b -= a;
-    float h = clamp(dot(p, b) / dot(b, b), 0.0, 1.0);
-    return length(p - b * h);
-}
-
-float rune(vec2 U, vec2 seed, float highlight) {
-    float d = 1e5;
-    for (int i = 0; i < 4; i++) {
-        vec4 pos = hash4(seed);
-        seed += 1.0;
-
-        if (i == 0) pos.y = 0.0;
-        if (i == 1) pos.x = 0.999;
-        if (i == 2) pos.x = 0.0;
-        if (i == 3) pos.y = 0.999;
-
-        vec4 snaps = vec4(2.0, 3.0, 2.0, 3.0);
-        pos = (floor(pos * snaps) + 0.5) / snaps;
-
-        if (pos.xy != pos.zw)
-            d = min(d, rune_line(U, pos.xy, pos.zw + 0.001));
-    }
-    return smoothstep(0.1, 0.0, d) + highlight * smoothstep(0.4, 0.0, d);
-}
-
-float random_char(vec2 outer, vec2 inner, float highlight) {
-    vec2 seed = vec2(dot(outer, vec2(269.5, 183.3)),
-                     dot(outer, vec2(113.5, 271.9)));
-    return rune(inner, seed, highlight);
 }
 
 // 5x7 bitmap font: 0 and 1 only.
@@ -226,7 +191,7 @@ vec3 rain(vec3 ro3, vec3 rd3, float time) {
 
                             float a = binary_char(vec2(u, q), digit);
 
-                            a *= max(1.0, 3.0 - c / 2.0) * 0.2;
+                            a *= max(1.0, 3.0 - c / 2.0) * 0.35;
                             a *= clamp((chars_count - 0.5 - c) / 2.0, 0.0, 1.0);
 
                             if (a > 0.0) {
@@ -476,17 +441,44 @@ window.addEventListener('resize', updateSize);
 updateSize();
 
 /**
- * Mouse (optional interaction — falls back to auto camera when untouched)
+ * Mouse — only active while the user is dragging.
+ * When the drag ends, iMouse is zeroed so the shader falls
+ * back to its automatic camera path.
  */
-window.addEventListener('pointermove', (e) => {
+let isDragging = false;
+
+const setMouse = (clientX, clientY) => {
     const pixelRatio = Math.min(window.devicePixelRatio, 2);
     uniforms.iMouse.value.set(
-        e.clientX * pixelRatio,
-        (window.innerHeight - e.clientY) * pixelRatio,   // flip Y to match Shadertoy
+        clientX * pixelRatio,
+        (window.innerHeight - clientY) * pixelRatio,   // flip Y to match Shadertoy
         0,
         0
     );
+};
+
+canvas.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    canvas.setPointerCapture(e.pointerId);
+    setMouse(e.clientX, e.clientY);
 });
+
+canvas.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    setMouse(e.clientX, e.clientY);
+});
+
+const endDrag = (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    uniforms.iMouse.value.set(0, 0, 0, 0);   // release control → back to auto camera
+    if (canvas.hasPointerCapture(e.pointerId)) {
+        canvas.releasePointerCapture(e.pointerId);
+    }
+};
+
+canvas.addEventListener('pointerup', endDrag);
+canvas.addEventListener('pointercancel', endDrag);
 
 /**
  * Animate
