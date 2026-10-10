@@ -43,7 +43,7 @@ const float BLOCKS_BEFORE_TURN = 3.0;
 const float PI = 3.14159265359;
 
 
-//        ----  random  ----
+// ----  random functions ----
 
 float hash(float v) {
     return fract(sin(v) * 43758.5453123);
@@ -191,7 +191,8 @@ vec3 rain(vec3 ro3, vec3 rd3, float time) {
 
                             float a = binary_char(vec2(u, q), digit);
 
-                            a *= max(1.0, 3.0 - c / 2.0) * 0.35;
+                            // brightness
+                            a *= max(1.0, 3.0 - c / 2.0) * 0.45; 
                             a *= clamp((chars_count - 0.5 - c) / 2.0, 0.0, 1.0);
 
                             if (a > 0.0) {
