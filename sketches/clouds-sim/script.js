@@ -20,7 +20,7 @@ const fragmentShader = /* glsl */`
 /*
 Based upon YoheiNishitsuji's work:
 https://twigl.app/?ol=true&ss=-OgMbTexmkAwvg_2mnM_
-https://x.com/YoheiNishitsuji
+https://yoheinishitsuji.com/
 */
 precision highp float;
 
