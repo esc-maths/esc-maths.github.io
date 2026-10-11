@@ -17,6 +17,11 @@ const uniforms = {
 };
 
 const fragmentShader = /* glsl */`
+/*
+Based upon YoheiNishitsuji's work:
+https://twigl.app/?ol=true&ss=-OgMbTexmkAwvg_2mnM_
+https://x.com/YoheiNishitsuji
+*/
 precision highp float;
 
 uniform float iTime;
