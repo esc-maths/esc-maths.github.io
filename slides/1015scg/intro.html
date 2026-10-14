@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>1015SCG - Lecture Intro</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../revealjs/dist/reveal.css">
+	<link rel="stylesheet" href="../revealjs/dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/chalkboard/style.css">
+	<link rel="stylesheet" href="../revealjs/third-party-plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="mySetup/mylayout.css" />
+
+	<!-- Code syntax highlighting https://revealjs.com/-->
+	<link rel="stylesheet" href="../revealjs/plugin/highlight/zenburn.css">
+
+	<link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+
+	<!-- This script is to display Github buttons -->
+	<script async defer src="mySetup/buttons.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8GQQBCYTB5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-8GQQBCYTB5');
+	</script>
+
+	<style>
+		.fragment.emph {
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.fragment.emph.visible {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<section data-auto-animate>
+
+				<div style="margin-bottom: 10px;">
+					<img src="../../assets/gu-logo/Griffith-logo-black.png"
+						style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+				</div>
+
+				<div class="size-85">
+					<h2>Quantitative Reasoning</h2>
+					<p style="font-weight: bold; font-size: 130%;">1015SCG</p>
+				</div>
+				<p style="font-size: 90%;">Lecture 1</p>
+
+				<div style="margin-top: -20px;">
+					<img style="width: 600px;" src="../../assets/cesaro-fractal/cesaro-01.png">
+				</div>
+				<br />
+			</section>
+
+
+			<section>
+				<section data-auto-animate>
+
+					<div style="margin-bottom: 10px;">
+						<img src="../../assets/gu-logo/Griffith-logo-black.png"
+							style="width: 150px; vertical-align: middle; border: 0px solid rgb(255, 255, 255);">
+					</div>
+
+					<div class="size-85">
+						<h2><span style="font-size: 120%;">Q</span><span style="font-weight: normal;">uantitative</span>
+							<span style="font-size: 120%;">R</span><span style="font-weight: normal;">easoning</span>
+						</h2>
+					</div>
+					<p style="font-size: 90%;margin-top: 0px;">Welcome!</p>
+
+					<div style="margin-top: -20px;">
+						<img style="width: 450px;" src="images/lec-01/qr-diagram.png">
+					</div>
+					<br />
+				</section>
+
+				<section>
+					<h3>People</h3>
+
+					<div class="size-85 left-txt">
+						<p><span class="fragment" data-fragment-index="0"><b>• Gold Coast & Nathan</b></span></p>
+						<ul style="line-height: 70px;">
+
+							<li class="fragment" data-fragment-index="0">Convenor/Lecturer:</span> Dr
+								Juan Carlos Ponce Campuzano
+							</li>
+
+
+
+						</ul>
+					</div>
+
+
+
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Navigating the course site Learning@Griffith (a.k.a. Canvas)</h4>
+
+					<table style="margin-top: -20px;">
+						<tr>
+							<td style="text-align: center;">
+								<img style="width: 80%;" src="images/lec-01/1015scg-canvas.png">
+							</td>
+						</tr>
+					</table>
+					<br />
+				</section>
+				<section data-auto-animate>
+					<h4>Navigating the course site Learning@Griffith (a.k.a. Canvas)</h4>
+
+					<table style="margin-top: 0px; width: 100%;">
+						<tr>
+							<td style="width: 55%;">
+								<img style="width: 100%;" src="images/lec-01/1015scg-canvas.png">
+							</td>
+							<td style="width: 45%;font-size: 80%; text-align: left;">Do especially check:
+								<ul style="margin-left: 0px; line-height: 50px;">
+									<li>
+										Announcements
+									</li>
+									<li class="fragment" data-fragment-index="0">
+										Modules <br />(course material)
+									</li>
+									<!--
+									<li class="fragment" data-fragment-index="1">
+										<a href="https://www.youtube.com/watch?v=RGBe8QBnJk0"
+											target="_blank">Peer-Assisted Study Sessions <i
+												class="fa fa-external-link-alt"></i></a> (PASS)
+									</li>-->
+									<li class="fragment" data-fragment-index="2">
+										<a href="https://www.griffith.edu.au/student-support" target="_blank">Student
+											Support <i class="fa fa-external-link-alt"></i></a>
+									</li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h3>How the course works</h3>
+
+					<div class="size-95 left-txt">
+						<ul style="line-height: 70px; margin-left: 0px;">
+
+							<li class="fragment" data-fragment-index="1">Lecture Notes.
+							</li>
+							<li class="fragment" data-fragment-index="2">Online lectures:
+								<br />
+								<span class="fragment" data-fragment-index="3">
+									👉 <b>You are going to need 📝 notebook and 👩‍💻computer.</b>
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="4">Face-to-face workshops (<b>in even weeks,
+									mandatory and marked</b>).</li>
+							<li class="fragment" data-fragment-index="5">Pre-recorded videos (extra learning resources).</li>
+							<!--
+							<li class="fragment" data-fragment-index="6">PASS sessions -
+								<a href="https://www.youtube.com/watch?v=OKCE60jXTlw" target="_blank">5 Reasons to
+									Attend PASS <i class="fa fa-external-link-alt"></i></a>
+							</li>-->
+
+						</ul>
+
+					</div>
+
+
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h3>What if you need help?</h3>
+
+					<table style="margin-top: -20px; width: 100%;">
+						<tr>
+							<td style="width: 55%;">
+								<div class="size-90 left-txt">
+									<p class="fragment" data-fragment-index="0"><b>Course stuff</b></p>
+									<ul style="line-height: 60px;margin-left: 0px;">
+										<li class="fragment" data-fragment-index="1">Ask questions during workshops</li>
+										<!--
+										<li class="fragment" data-fragment-index="2"><a
+												href="https://www.youtube.com/watch?v=RGBe8QBnJk0" target="_blank">PASS
+												sessions <i class="fa fa-external-link-alt"></i></a></li>-->
+										<li class="fragment" data-fragment-index="3">Lectures</li>
+										<li class="fragment" data-fragment-index="4">Course Teams Channel</li>
+										<li class="fragment" data-fragment-index="5">Email - for private matters only
+										</li>
+
+									</ul>
+
+
+								</div>
+
+							</td>
+							<td style="width: 45%;">
+								<div class="size-90 left-txt">
+									<p class="fragment" data-fragment-index="6"><b>Bigger stuff</b></p>
+									<ul style="line-height: 60px;margin-left: 0px;">
+										<li class="fragment" data-fragment-index="6"><a
+												href="https://www.griffith.edu.au/student-connect"
+												target="_blank">Student Connect <i
+													class="fa fa-external-link-alt"></i></a></li>
+										<li class="fragment" data-fragment-index="6">Student Admin Officer</li>
+										<li class="fragment" data-fragment-index="6">First Year Coordinator</li>
+										<li class="fragment" data-fragment-index="6">Program Director</li>
+
+									</ul>
+
+								</div>
+								<br />
+
+
+							</td>
+						</tr>
+					</table>
+
+
+
+					<br />
+					<br />
+					<br />
+
+				</section>
+
+				<section>
+					<h4>Assessment</h4>
+
+					<div style="font-size: 95%;">
+						<ul style="margin-left: 0px;line-height: 70px;">
+							<li class="fragment" data-fragment-index="1">
+								No Exam
+							</li>
+							<li class="fragment" data-fragment-index="2">
+								You need 50% of total marks to pass
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								Extensions/Deferred assessment/Special consideration:<br />
+								Apply via the <a
+									href="https://www.griffith.edu.au/students/assessment-exams-grades/assessment-applications"
+									target="_blank">Official Griffith Channel <i
+										class="fa fa-external-link-alt"></i></a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="r-stack">
+						<picture class="fragment fade-in-then-out" data-fragment-index="1">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f973/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f973/512.gif" alt="🥳" width="160"
+								height="160">
+						</picture>
+						<picture class="fragment fade-in-then-out" data-fragment-index="2">
+							<source
+								srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f642_200d_2195_fe0f/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f642_200d_2195_fe0f/512.gif"
+								alt="🙂" width="160" height="160">
+						</picture>
+						<picture class="fragment fade-in-then-out" data-fragment-index="3">
+							<source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f446/512.webp"
+								type="image/webp">
+							<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f446/512.gif" alt="👆" width="160"
+								height="160">
+						</picture>
+					</div>
+
+
+					<br />
+					<br />
+				</section>
+
+				<section>
+					<h4>📝 Workshop Tasks - 25%</h4>
+
+					<div class="size-90">
+						<ul style="line-height: 60px;">
+							<li class="fragment" data-fragment-index="0">
+								Workshops in <b>Even</b> weeks only - 6 in total.
+							</li>
+							<li class="fragment" data-fragment-index="1">Report writing task throughout all workshops -
+								marked component.</li>
+							<li class="fragment" data-fragment-index="2">The marks will only be granted during the
+								workshop.</li>
+							<li class="fragment" data-fragment-index="3">If you have a valid reason to miss the workshop
+								<b>apply for deferred
+									assessment until next workshop</b> within 3 days and provide
+								supporting documentation.
+
+								<span class="fragment" data-fragment-index="4">
+									Do the task at home
+									and present it for marking to your demonstrator during the next
+									workshop.
+								</span>
+							</li>
+						</ul>
+					</div>
+
+
+
+
+					<br />
+					<br />
+				</section>
+				<section>
+					<h4>🤔 What do you need for workshops?</h4>
+
+					<div class="size-95">
+						<ul style="margin-left: 0px;line-height: 90px;">
+							<li class="fragment" data-fragment-index="0">
+								📝 Notebook and pens.
+							</li>
+							<li class="fragment" data-fragment-index="1">
+								Device with working Excel and Word (not online!) 💻
+							</li>
+							<li class="fragment" data-fragment-index="2">Microsoft Office available for all students - <a
+									href="https://www.griffith.edu.au/student-computing/365"
+									target="_blank">instructions <i class="fa fa-external-link-alt"></i></a></li>
+
+							<li class="fragment" data-fragment-index="3">Basic Excel knowledge - <a
+									href="https://youtu.be/wbJcJCkBcMg" target="_blank">nice
+									beginners' guide <i class="fa fa-external-link-alt"></i></a></li>
+						</ul>
+					</div>
+
+
+
+					<br />
+					<br />
+					<br />
+				</section>
+
+				<section data-visibility="hidden">
+					<h4>📆 Workshops schedule</h4>
+
+					<div style="font-size: 95%;">
+						<ul style="line-height: 90px;margin-left: 0px;">
+							<li class="fragment" data-fragment-index="0">
+								<b>Workshop Group 1</b>
+								<ul style="line-height: 90px;">
+									<li class="fragment" data-fragment-index="1">
+										<b>Thursdays:</b> Weeks 2, 6, 8, 10, and 12 (12pm - 2pm, G01_3.55)
+									</li>
+									<li class="fragment" data-fragment-index="2">
+										<b>Friday:</b> only in Week 4‼️ (10am - 12pm, G01_3.55)
+									</li>
+								</ul>
+							</li>
+							<li class="fragment" data-fragment-index="0">
+								<b>Workshop Group 2</b>
+								<ul style="line-height: 90px;">
+
+									<li class="fragment" data-fragment-index="3">
+										<b>Fridays:</b> Weeks 2, 4, 6, 8, 10, and 12 ( 1pm - 3 pm, G31_3.14)
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Employability Task A and B - 10%</h4>
+
+					<div class="size-85 left-txt">
+						<p class="fragment" data-fragment-index="0">📝 You have to write a short reflection on how
+							mathematics is likely to play a role in your career ambitions.</p>
+						<ul style="line-height: 70px;margin-top:  -20px;">
+							<li class="fragment" data-fragment-index="1">
+								<b>Part A:</b>
+								Quantitative Skills Evaluation and Improvement Strategy
+								<br />
+								<span class="fragment" data-fragment-index="2">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Draft → week 3</b> - 5%
+								</span>
+							</li>
+							<li class="fragment" data-fragment-index="3">
+								<b>Part B:</b>
+								Career research and skills reflections
+								forward<br />
+								<span class="fragment" data-fragment-index="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<b>Completed → week 9</b> - 5%
+								</span>
+							</li>
+
+						</ul>
+						<br />
+
+						<p class="fragment" data-fragment-index="5">Full details in <b>Canvas → Modules → Employability
+								Tasks</b></p>
+
+
+					</div>
+
+					<div style="font-size: 85%; text-align: left;" class="fragment" data-fragment-index="6">
+						<p>
+							The main goal of this task is to help you connect your learning and
+							skill development to future career options aligned with your chosen major. <br />
+
+						</p>
+						<div style="font-size: 80%; text-align: left;margin-top: -10px;">
+							Consult
+							<a href="https://www.griffith.edu.au/careers-employment/students-graduates/career-readiness"
+								target="_blank">Career readiness <i class="fa fa-external-link-alt"></i></a> for more
+							details.
+						</div>
+					</div>
+
+
+					<br />
+				</section>
+
+				<section data-auto-animate>
+					<h4>Maths & Inference and Scientific Critiquing Tasks </h4>
+
+					<div class="size-90 left-txt">
+						<ul style="line-height: 70px;">
+							<li class="fragment" data-fragment-index="0">
+								♾️📈 Maths & Inference Task - 30% (<b>week 7</b>)
+								<p class="fragment" data-fragment-index="1">Full details in <b>Canvas → Modules → Maths
+										and Inference Task</b></p>
+								<br />
+							</li>
+							<li class="fragment" data-fragment-index="2">🔬📊 Scientific Critiquing Task - 35% (<b>week
+									11</b>)
+								<p class="fragment" data-fragment-index="3">Full details in <b>Canvas → Modules →
+										Scientific Critiquing Task</b></p>
+							</li>
+
+						</ul>
+						<br />
+
+
+
+					</div>
+
+
+					<br />
+					<br />
+					<br />
+
+
+				</section>
+
+				<section>
+
+					<h4>Assessment: Summary</h4>
+
+
+					<table border="1" cellpadding="5" cellspacing="0" style="font-size: 90%;">
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Weight</th>
+								<th>Due</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Workshop (best 5)</td>
+								<td>25%</td>
+								<td>Ongoing</td>
+							</tr>
+							<tr>
+								<td>Employability A</td>
+								<td>5%</td>
+								<td>Week 3</td>
+							</tr>
+							<tr>
+								<td>Maths and Inference</td>
+								<td>30%</td>
+								<td>Week 7</td>
+							</tr>
+							<tr>
+								<td>Employability B</td>
+								<td>5%</td>
+								<td>Week 9</td>
+							</tr>
+							<tr>
+								<td>Scientific Critiquing</td>
+								<td>35%</td>
+								<td>Week 11</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="text-align:center;">🎉 NO FINAL EXAM!! 🎉</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<br />
+					<br />
+				</section>
+
+				<section data-auto-animate data-visibility="hidden">
+					<h4>Schedule Part I</h4>
+
+					<table>
+						<tr>
+							<td style="width: 50%;">
+
+								<table border="1" cellpadding="5" cellspacing="0" style="font-size: 70%;">
+
+									<tbody>
+										<tr>
+											<td style="width: 65%;">
+												<p>
+													<b>Week 1:</b>
+												</p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Course intro
+													</li>
+												</ul>
+												<br />
+												<br />
+											</td>
+											<td style="width: 35%;"></td>
+										</tr>
+										<tr>
+											<td>
+												<p><b>Week 2:</b></p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Data and Numbers
+													</li>
+												</ul>
+											</td>
+											<td><b>Workshop 1</b></td>
+										</tr>
+										<tr>
+											<td>
+												<p><b>Week 3:</b></p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Errors, Best Estimates, Correlation, Regression
+													</li>
+												</ul>
+											</td>
+											<td><b>Employability Task A</b></td>
+										</tr>
+
+									</tbody>
+								</table>
+
+							</td>
+							<td style="width: 50%;">
+								<table border="1" cellpadding="5" cellspacing="0" style="font-size: 70%;">
+
+									<tbody>
+										<tr>
+											<td style="width: 65%;">
+												<p>
+													<b>Week 4:</b>
+												</p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Regression, Hypothesis Testing, Basic Functions
+													</li>
+												</ul>
+												<br />
+											</td>
+											<td style="width: 35%;"><b>Workshop 2</b></td>
+										</tr>
+										<tr>
+											<td>
+												<p><b>Week 5:</b></p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Functions
+													</li>
+												</ul>
+												<br />
+												<br />
+											</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>
+												<p><b>Week 6:</b></p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Critical Thinking and Problem Solving
+													</li>
+												</ul>
+											</td>
+											<td><b>Workshop 3</b></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</section>
+				<section data-auto-animate data-visibility="hidden">
+					<h4>Schedule Part II</h4>
+
+					<table>
+						<tr>
+							<td style="width: 50%;">
+
+								<table border="1" cellpadding="5" cellspacing="0" style="font-size: 70%;">
+
+									<tbody>
+										<tr>
+											<td style="width: 65%;">
+												<p>
+													<b>Week 7:</b>
+												</p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Logical Arguments
+													</li>
+												</ul>
+											</td>
+											<td style="width: 35%;"><b>Maths and inference Task</b></td>
+										</tr>
+										<tr>
+											<td>
+												<p><b>Week 8:</b></p>
+												<ul style="margin-left: 0px;">
+													<li>
+														The power of approximation - Fermi Problems
+													</li>
+												</ul>
+											</td>
+											<td><b>Workshop 4</b></td>
+										</tr>
+										<tr>
+											<td>
+												<p><b>Week 9:</b></p>
+												<ul style="margin-left: 0px;">
+													<li>
+														The Structure of Scientific Writing
+													</li>
+												</ul>
+											</td>
+											<td><b>Employability Task B</b></td>
+										</tr>
+
+									</tbody>
+								</table>
+
+							</td>
+							<td style="width: 50%;">
+								<table border="1" cellpadding="5" cellspacing="0" style="font-size: 70%;">
+
+									<tbody>
+										<tr>
+											<td style="width: 65%;">
+												<p>
+													<b>Week 10:</b>
+												</p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Communicating Scientific Data
+													</li>
+												</ul>
+												<br />
+											</td>
+											<td style="width: 35%;"><b>Workshop 5</b></td>
+
+										</tr>
+										<tr>
+											<td>
+												<p><b>Week 11:</b></p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Big Data
+													</li>
+												</ul>
+												<br /><br />
+											</td>
+											<td><b>Scientific Critic Task</b></td>
+										</tr>
+										<tr>
+											<td>
+												<p><b>Week 12:</b></p>
+												<ul style="margin-left: 0px;">
+													<li>
+														Final week
+													</li>
+												</ul>
+
+												<br /><br />
+											</td>
+											<td><b>Workshop 6</b></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+
+				</section>
+
+			</section>
+
+			<!-- Ends sections -->
+
+		</div>
+	</div>
+
+
+	<script src="../revealjs/dist/reveal.js"></script>
+	<script src="../revealjs/plugin/math/math.js"></script>
+	<script src="../revealjs/plugin/highlight/highlight.js"></script>
+	<script src="../revealjs/plugin/zoom/zoom.js"></script>
+	<script src="../revealjs/plugin/search/search.js"></script>
+	<script src="../revealjs/third-party-plugin/chalkboard/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/customcontrols/plugin.js"></script>
+	<script src="../revealjs/third-party-plugin/menu/menu.js"></script>
+	<script src="mySetup/setup.js"></script>
+
+	<script>
+		includeHTML();
+	</script>
+
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+</body>
+
+</html>
