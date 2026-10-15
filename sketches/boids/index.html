@@ -2,21 +2,107 @@
 <html lang="en">
 
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.min.js"></script>
+    <title>Boids</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.min.js"></script>
 
 
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
 </head>
 
 <body>
 
-  <main>
-  </main>
+    <main>
 
-  <script src="sketch.js"></script>
+        <!-- Information button -->
 
-  
+        <button id="infoButton" aria-label="About the Boids simulation">ⓘ</button>
+
+        <!-- Modal -->
+
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <button id="closeModal" class="close-button" aria-label="Close modal">&times;</button>
+
+                <h2>Boids: Flocking Simulation</h2>
+
+                <p>
+                    <strong>Boids</strong> is a computer simulation that models
+                    the flocking behaviour of birds using a few simple rules.
+                    Each boid follows its own movement while responding to
+                    nearby boids.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Separation:</strong> Avoid getting too close
+                        to neighbouring boids.
+                    </li>
+                    <li>
+                        <strong>Alignment:</strong> Adjust direction to match
+                        nearby boids.
+                    </li>
+                    <li>
+                        <strong>Cohesion:</strong> Move towards the centre of
+                        nearby boids.
+                    </li>
+                </ul>
+
+                <p>
+                    Together, these simple rules produce complex, collective
+                    movement without a central leader.
+                </p>
+
+                <p class="modal-hint">
+                    Press <strong>F</strong> to toggle fullscreen.
+                </p>
+
+                <p class="modal-reference">
+                    Based on the original work by
+                    <a href="https://www.red3d.com/cwr/boids/" target="_blank" rel="noopener noreferrer">Boids</a>
+                    by
+                    <a href="https://www.red3d.com/cwr/index.html" target="_blank" rel="noopener noreferrer">Craig
+                        Reynolds</a>.
+                </p>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script src="sketch.js"></script>
+
+    <script>
+        // Modal controls
+        const infoButton = document.getElementById("infoButton");
+        const infoModal = document.getElementById("infoModal");
+        const closeModal = document.getElementById("closeModal");
+
+        // Open modal
+        infoButton.addEventListener("click", () => {
+            infoModal.classList.add("show");
+        });
+
+        // Close modal using the close button
+        closeModal.addEventListener("click", () => {
+            infoModal.classList.remove("show");
+        });
+
+        // Close modal by clicking the background
+        infoModal.addEventListener("click", (event) => {
+            if (event.target === infoModal) {
+                infoModal.classList.remove("show");
+            }
+        });
+
+        // Close modal using Escape
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                infoModal.classList.remove("show");
+            }
+        });
+    </script>
+
 
 </body>
 
