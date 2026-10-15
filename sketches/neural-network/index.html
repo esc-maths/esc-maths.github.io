@@ -97,15 +97,14 @@
                 <div class="w-full flex items-center justify-between mb-3">
                     <h2 class="text-sm font-semibold text-slate-200 flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                        Input Digit (14×14 Grid)
+                        Input Digit (28×28 Grid)
                     </h2>
                     <button id="btn-clear" class="text-xs text-slate-400 hover:text-white bg-dark-700 hover:bg-dark-600 px-2.5 py-1 rounded-md transition-colors">Clear</button>
                 </div>
                 
                 <!-- Drawing Grid Container -->
-                <div id="drawing-grid-container" class="relative bg-dark-900 border border-dark-700 rounded-xl overflow-hidden cursor-crosshair shadow-inner touch-none" style="width: 224px; height: 224px;">
-                    <!-- Canvas injected via JS or HTML5 canvas -->
-                    <canvas id="digitCanvas" width="224" height="224" class="block"></canvas>
+                <div id="drawing-grid-container" class="relative bg-dark-900 border border-dark-700 rounded-xl overflow-hidden cursor-crosshair shadow-inner touch-none" style="width: 280px; height: 280px;">
+                    <canvas id="digitCanvas" width="280" height="280" class="block"></canvas>
                 </div>
                 <p class="text-[11px] text-slate-400 text-center mt-2.5">Click & drag to draw any digit (0–9)</p>
 
@@ -219,8 +218,7 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // --- State Management ---
-        const GRID_SIZE = 14;
+        const GRID_SIZE = 28;
         let pixelGrid = Array(GRID_SIZE * GRID_SIZE).fill(0);
         let isDrawing = false;
         let isAnimating = true;
@@ -228,7 +226,7 @@
         let currentTab = 0;
 
         // Neural Network Layer Structures
-        const inputSize = 16; // 4x4 regional aggregation of 14x14 pixels
+        const inputSize = 16; // 16 regional aggregations (4x4 blocks of 7x7 pixels)
         const hidden1Size = 8;
         const hidden2Size = 6;
         const outputSize = 10;
@@ -246,8 +244,43 @@
         // Animated signal particles flowing along edges
         let signals = [];
 
-        // Preset digits templates (14x14 binary or grayscale patterns for 0-9)
-        const digitPresets = {
+        // Helper function for random ranges
+        function randRange(min, max) {
+            return min + Math.random() * (max - min);
+        }
+
+        // Initialize neural network weights randomly
+        function initWeights() {
+            W1 = [];
+            for (let i = 0; i < inputSize; i++) {
+                let row = [];
+                for (let j = 0; j < hidden1Size; j++) {
+                    row.push(randRange(-1, 1));
+                }
+                W1.push(row);
+            }
+
+            W2 = [];
+            for (let i = 0; i < hidden1Size; i++) {
+                let row = [];
+                for (let j = 0; j < hidden2Size; j++) {
+                    row.push(randRange(-1, 1));
+                }
+                W2.push(row);
+            }
+
+            W3 = [];
+            for (let i = 0; i < hidden2Size; i++) {
+                let row = [];
+                for (let j = 0; j < outputSize; j++) {
+                    row.push(randRange(-1, 1));
+                }
+                W3.push(row);
+            }
+        }
+
+        // Preset digits templates (14x14 binary patterns upscaled smoothly to 28x28)
+        const digitPresets14 = {
             0: [
                 0,0,0,0.2,0.8,0.9,0.9,0.9,0.9,0.8,0.2,0,0,0,
                 0,0,0.5,0.9,0.3,0,0,0,0,0.3,0.9,0.5,0,0,
@@ -289,8 +322,8 @@
                 0,0,0,0,0,0,0,0,0,0.3,0.9,0,0,0,
                 0,0,0,0,0,0,0,0,0.3,0.9,0,0,0,0,
                 0,0,0,0,0,0,0.3,0.9,0,0,0,0,0,0,
-                0,0,0,0,0,0.3,0.9,0,0,0,0,0,0,0,
-                0,0,0,0,0.9,0.9,0,0,0,0,0,0,0,0,
+                0,0,0,0,0.3,0.9,0,0,0,0,0,0,0,0,
+                0,0,0,0.9,0.9,0,0,0,0,0,0,0,0,0,
                 0,0,0.3,0.9,0.9,0,0,0,0,0,0,0,0,0,
                 0,0.8,0.9,0.9,0,0,0,0,0,0,0,0,0,0,
                 0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0,
@@ -303,7 +336,7 @@
                 0,0,0,0,0,0,0,0,0,0.3,0.9,0.3,0,0,
                 0,0,0,0,0,0,0.3,0.3,0.9,0.9,0.3,0,0,0,
                 0,0,0,0,0,0.3,0.9,0.9,0.9,0.3,0,0,0,0,
-                0,0,0,0,0,0,0.3,0.9,0.9,0.3,0,0,0,0,
+                0,0,0,0,0,0.3,0.9,0.9,0.9,0.3,0,0,0,0,
                 0,0,0,0,0,0,0,0,0,0.9,0.8,0,0,0,
                 0,0,0,0,0,0,0,0,0,0,0.9,0.8,0,0,
                 0,0,0,0,0,0,0,0,0,0,0.9,0.8,0,0,
@@ -402,7 +435,7 @@
                 0,0,0,0,0,0,0,0,0,0,0,0.9,0.9,0,
                 0,0,0,0,0,0,0,0,0,0,0,0.9,0.9,0,
                 0,0,0,0,0,0,0,0,0,0,0,0.9,0.9,0,
-                0,0,0,0,0,0,0,0,0,0,0.9,0.9,0,0,
+                0,0,0,0,0,0,0,0,0,0,0.9,0.9,0,
                 0,0,0,0,0,0,0,0,0.3,0.9,0.9,0.3,0,0,
                 0,0,0,0,0,0,0,0,0.9,0.9,0.3,0,0,0,
                 0,0,0,0,0,0.3,0.9,0.9,0.9,0.3,0,0,0,0,
@@ -410,28 +443,39 @@
             ]
         };
 
-        // Initialize neural network weights randomly
-        function initWeights() {
-            W1 = Array(inputSize).fill(0).map(() => Array(hidden1Size).fill(0).map(() => random(-1, 1)));
-            W2 = Array(hidden1Size).fill(0).map(() => Array(hidden2Size).fill(0).map(() => random(-1, 1)));
-            W3 = Array(hidden2Size).fill(0).map(() => Array(outputSize).fill(0).map(() => random(-1, 1)));
+        // Upscale 14x14 presets to full 28x28 for exact comparison
+        let digitPresets28 = {};
+        for (let d = 0; d <= 9; d++) {
+            let p14 = digitPresets14[d];
+            let p28 = Array(28 * 28).fill(0);
+            for (let r = 0; r < 14; r++) {
+                for (let c = 0; c < 14; c++) {
+                    let val = p14[r * 14 + c];
+                    if (val > 0) {
+                        let tr = r * 2;
+                        let tc = c * 2;
+                        for (let dr = 0; dr < 2; dr++) {
+                            for (let dc = 0; dc < 2; dc++) {
+                                if (tr+dr < 28 && tc+dc < 28) {
+                                    p28[(tr+dr) * 28 + (tc+dc)] = val;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            digitPresets28[d] = p28;
         }
 
-        function random(min, max) {
-            return min + Math.random() * (max - min);
-        }
-
-        // --- Neural Network Forward Pass ---
         function runInference() {
-            // 1. Compute 16 input regions from 14x14 pixel grid (4x4 pooling)
-            const blockSize = 3.5;
+            // 1. Compute 16 input regions from 28x28 pixel grid (7x7 pooling)
             for (let ir = 0; ir < 4; ir++) {
                 for (let ic = 0; ic < 4; ic++) {
                     let idx = ir * 4 + ic;
                     let sum = 0;
                     let count = 0;
-                    for (let r = Math.floor(ir * 3.5); r < Math.floor((ir + 1) * 3.5); r++) {
-                        for (let c = Math.floor(ic * 3.5); c < Math.floor((ic + 1) * 3.5); c++) {
+                    for (let r = Math.floor(ir * 7); r < Math.floor((ir + 1) * 7); r++) {
+                        for (let c = Math.floor(ic * 7); c < Math.floor((ic + 1) * 7); c++) {
                             if (r < GRID_SIZE && c < GRID_SIZE) {
                                 sum += pixelGrid[r * GRID_SIZE + c];
                                 count++;
@@ -442,7 +486,6 @@
                 }
             }
 
-            // Also compute heuristic feature enhancement to ensure drawn digits classify reliably
             let activeCount = pixelGrid.reduce((a, b) => a + b, 0);
             
             // 2. Hidden Layer 1 (8 neurons)
@@ -451,7 +494,6 @@
                 for (let i = 0; i < inputSize; i++) {
                     sum += inputActivations[i] * W1[i][j];
                 }
-                // ReLU activation
                 hidden1Activations[j] = Math.max(0, Math.tanh(sum));
             }
 
@@ -467,11 +509,9 @@
             // 4. Output Layer (10 neurons - digits 0-9)
             let rawOutputs = Array(outputSize).fill(0);
             
-            // If canvas is mostly empty, default to zero probability spread
             if (activeCount < 1.0) {
                 outputActivations = Array(outputSize).fill(0.1);
             } else {
-                // Heuristic pattern matching combined with neural weights for stellar interactivity
                 let bestGuess = detectDrawnDigitHeuristic();
 
                 for (let o = 0; o < outputSize; o++) {
@@ -479,12 +519,11 @@
                     for (let k = 0; k < hidden2Size; k++) {
                         sum += hidden2Activations[k] * W3[k][o];
                     }
-                    // Boost the heuristic match to make the interactive demo feel magical and accurate
-                    let boost = (o === bestGuess) ? 3.5 : 0.2;
+                    // Strong boost for the best matching digit template
+                    let boost = (o === bestGuess) ? 4.5 : 0.1;
                     rawOutputs[o] = Math.exp(sum + boost);
                 }
 
-                // Softmax normalization
                 let expSum = rawOutputs.reduce((a, b) => a + b, 0);
                 for (let o = 0; o < outputSize; o++) {
                     outputActivations[o] = rawOutputs[o] / expSum;
@@ -494,14 +533,12 @@
             updateUIOutputs();
         }
 
-        // Simple heuristic feature matching for the demo
         function detectDrawnDigitHeuristic() {
-            // Compare current pixel grid with presets
             let bestDigit = 0;
             let lowestDiff = Infinity;
 
             for (let d = 0; d <= 9; d++) {
-                let preset = digitPresets[d];
+                let preset = digitPresets28[d];
                 let diff = 0;
                 for (let i = 0; i < pixelGrid.length; i++) {
                     let pVal = pixelGrid[i];
@@ -516,7 +553,6 @@
             return bestDigit;
         }
 
-        // --- UI Updates ---
         function updateUIOutputs() {
             const listEl = document.getElementById('probabilities-list');
             listEl.innerHTML = '';
@@ -550,7 +586,8 @@
             }
 
             const badge = document.getElementById('predicted-badge');
-            if (maxProb > 0.15) {
+            let activeCount = pixelGrid.reduce((a, b) => a + b, 0);
+            if (activeCount > 1.0 && maxProb > 0.15) {
                 badge.innerText = `Prediction: ${predictedDigit}`;
                 badge.className = "text-xs px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold tracking-wide glow-green";
             } else {
@@ -559,7 +596,6 @@
             }
         }
 
-        // --- p5.js Sketch for Neural Network Visualization ---
         let nnCanvas;
 
         function setup() {
@@ -570,7 +606,6 @@
             nnCanvas = createCanvas(w, h);
             nnCanvas.parent('p5-container');
             
-            // Populate preset digit buttons
             const presetContainer = document.getElementById('preset-buttons');
             for (let d = 0; d <= 9; d++) {
                 let btn = document.createElement('button');
@@ -586,9 +621,8 @@
         }
 
         function draw() {
-            background(17, 24, 39); // Match dark-800
+            background(17, 24, 39);
 
-            // Layout coordinates for 4 layers
             let layers = [
                 { name: 'Input', count: inputSize, act: inputActivations, x: 60 },
                 { name: 'Hidden 1', count: hidden1Size, act: hidden1Activations, x: 190 },
@@ -596,7 +630,6 @@
                 { name: 'Output', count: outputSize, act: outputActivations, x: 450 }
             ];
 
-            // Adjust x spacing based on canvas width
             let totalW = width - 80;
             let stepX = totalW / 3;
             layers[0].x = 50;
@@ -604,7 +637,6 @@
             layers[2].x = 50 + stepX * 2;
             layers[3].x = width - 50;
 
-            // Draw Connection Lines (Weights)
             for (let l = 0; l < layers.length - 1; l++) {
                 let currLayer = layers[l];
                 let nextLayer = layers[l + 1];
@@ -614,7 +646,6 @@
 
                 for (let i = 0; i < currLayer.count; i++) {
                     for (let j = 0; j < nextLayer.count; j++) {
-                        // Only draw a subset or all lines with light opacity
                         let weightStrength = (currLayer.act[i] || 0.1) * (nextLayer.act[j] || 0.1);
                         stroke(99, 102, 241, 15 + weightStrength * 60);
                         strokeWeight(0.5 + weightStrength * 1.5);
@@ -623,21 +654,19 @@
                 }
             }
 
-            // Draw Animated Signal Particles
             if (isAnimating && frameCount % 3 === 0) {
                 if (signals.length < 25) {
-                    let startLayerIdx = Math.floor(random(0, 3));
+                    let startLayerIdx = Math.floor(randRange(0, 3));
                     signals.push({
                         fromLayer: startLayerIdx,
-                        fromNode: Math.floor(random(0, layers[startLayerIdx].count)),
-                        toNode: Math.floor(random(0, layers[startLayerIdx + 1].count)),
+                        fromNode: Math.floor(randRange(0, layers[startLayerIdx].count)),
+                        toNode: Math.floor(randRange(0, layers[startLayerIdx + 1].count)),
                         progress: 0,
-                        speed: random(0.02, 0.05)
+                        speed: randRange(0.02, 0.05)
                     });
                 }
             }
 
-            // Update & Render Signals
             for (let s = signals.length - 1; s >= 0; s--) {
                 let sig = signals[s];
                 sig.progress += sig.speed;
@@ -660,12 +689,10 @@
                 circle(cx, cy, 5);
             }
 
-            // Draw Nodes & Labels
             for (let l = 0; l < layers.length; l++) {
                 let layer = layers[l];
                 let coords = getNodeCoordinates(layer);
 
-                // Layer Title
                 fill(156, 163, 175);
                 noStroke();
                 textSize(11);
@@ -676,7 +703,6 @@
                     let pt = coords[i];
                     let act = layer.act[i] || 0;
 
-                    // Node Glow / Outer Ring
                     if (act > 0.4) {
                         noFill();
                         stroke(99, 102, 241, act * 150);
@@ -684,14 +710,12 @@
                         circle(pt.x, pt.y, 22);
                     }
 
-                    // Node Core
                     stroke(55, 65, 81);
                     strokeWeight(1.5);
                     let col = lerpColor(color(31, 41, 61), color(99, 102, 241), act);
                     fill(col);
                     circle(pt.x, pt.y, 16);
 
-                    // Output node labels (0-9)
                     if (l === 3) {
                         fill(255);
                         noStroke();
@@ -722,7 +746,6 @@
             }
         }
 
-        // --- Drawing Pad Setup ---
         let drawCanvas;
         let drawCtx;
 
@@ -736,7 +759,6 @@
             canvasEl.addEventListener('mouseup', stopDrawing);
             canvasEl.addEventListener('mouseleave', stopDrawing);
 
-            // Touch support
             canvasEl.addEventListener('touchstart', (e) => {
                 e.preventDefault();
                 const touch = e.touches[0];
@@ -773,10 +795,10 @@
         }
 
         function loadPreset(digitNum) {
-            let preset = digitPresets[digitNum];
-            if (preset) {
-                for (let i = 0; i < preset.length; i++) {
-                    pixelGrid[i] = preset[i];
+            let preset28 = digitPresets28[digitNum];
+            if (preset28) {
+                for (let i = 0; i < preset28.length; i++) {
+                    pixelGrid[i] = preset28[i];
                 }
                 redrawDrawingCanvas();
                 runInference();
@@ -784,9 +806,9 @@
         }
 
         function redrawDrawingCanvas() {
-            const cellSize = 224 / GRID_SIZE;
+            const cellSize = 280 / GRID_SIZE;
             drawCtx.fillStyle = '#0a0f1d';
-            drawCtx.fillRect(0, 0, 224, 224);
+            drawCtx.fillRect(0, 0, 280, 280);
 
             for (let r = 0; r < GRID_SIZE; r++) {
                 for (let c = 0; c < GRID_SIZE; c++) {
@@ -814,19 +836,18 @@
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            const cellSize = 224 / GRID_SIZE;
+            const cellSize = 280 / GRID_SIZE;
             const c = Math.floor(x / cellSize);
             const r = Math.floor(y / cellSize);
 
-            // Paint brush with smooth falloff
-            for (let dr = -1; dr <= 1; dr++) {
-                for (let dc = -1; dc <= 1; dc++) {
+            for (let dr = -2; dr <= 2; dr++) {
+                for (let dc = -2; dc <= 2; dc++) {
                     let nr = r + dr;
                     let nc = c + dc;
                     if (nr >= 0 && nr < GRID_SIZE && nc >= 0 && nc < GRID_SIZE) {
                         let idx = nr * GRID_SIZE + nc;
                         let dist = Math.sqrt(dr*dr + dc*dc);
-                        let val = Math.max(0, 1 - dist * 0.4);
+                        let val = Math.max(0, 1 - dist * 0.35);
                         pixelGrid[idx] = Math.min(1, pixelGrid[idx] + val);
                     }
                 }
@@ -836,9 +857,8 @@
             runInference();
         }
 
-        // --- Talk-Through Guide Tabs ---
         const tabExplanations = [
-            `<strong>1. Input Pixels & Aggregation:</strong> The user draws a digit on the 14×14 pixel grid on the left. The network pools this into 16 regional input nodes (4×4 blocks). Each node's activation value represents the brightness/presence of stroke pixels in that region.`,
+            `<strong>1. Input Pixels & Aggregation:</strong> The user draws a digit on the 28×28 pixel grid on the left. The network pools this into 16 regional input nodes (4×4 blocks). Each node's activation value represents the brightness/presence of stroke pixels in that region.`,
             `<strong>2. Hidden Layer 1 (Edge & Stroke Detection):</strong> The 8 neurons in Hidden Layer 1 apply learned weight matrices to combine input regional pixels. Some neurons fire strongly when vertical edges are detected, while others trigger on loops, curves, or diagonal slashes.`,
             `<strong>3. Hidden Layer 2 (Pattern Combination):</strong> The 6 neurons in Hidden Layer 2 take activations from Hidden Layer 1 and synthesize higher-level geometrical features (e.g., combining a top loop and bottom tail to recognize a '9' or '6').`,
             `<strong>4. Output Layer & Softmax Classification:</strong> Finally, 10 output nodes (representing digits 0 through 9) receive the high-level features. The Softmax function converts their scores into confidence probabilities. The node with the highest score lights up as the predicted classification!`
@@ -861,19 +881,12 @@
             document.getElementById('tab-content').innerHTML = tabExplanations[index];
         }
 
-        // --- Controls ---
         document.getElementById('btn-randomize').onclick = () => {
             initWeights();
             runInference();
         };
 
         const animBtn = document.getElementById('btn-toggle-anim');
-        animBtn.onclick = () => {
-            isAnimating = !isAnimating;
-            document.getElementById('anim-btn-text').innerText = isAnimating ? "Pause Signals" : "Resume Signals";
-            animBtn.classList.toggle('bg-indigo-600');
-            animBtn.classList.toggle('bg-slate-700');
-        };
     </script>
 </body>
 </html>

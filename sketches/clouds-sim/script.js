@@ -163,7 +163,6 @@ void main() {
               - abs(abs(p)*e - vec3(3.0, 4.0, 3.0));
         }
 
-
         // Update g using the transformed y-coordinate.
         // The accumulated scale s affects its contribution.
         // This value feeds into the next outer iteration.
