@@ -30,7 +30,8 @@ canvas {
     transition: background 0.2s, transform 0.2s;
 }
 
-#infoButton {
+/* Change background on hover */
+#infoButton:hover {
     background: #444;
     transform: scale(1.08);
 }

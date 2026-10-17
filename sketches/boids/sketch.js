@@ -1,6 +1,7 @@
 
 let flock = [];
 const NUM_BOIDS = 180;
+const MAX_BOIDS = 500;
 
 let separationWeight = 1.5;
 let alignmentWeight = 1.0;
@@ -62,12 +63,12 @@ function drawInfo() {
   textSize(12);
   text(
     "1/2 Separation   3/4 Alignment   5/6 Cohesion",
-    20, height - 45
+    width / 2 - 150, height - 45
   );
 
   text(
     "T Trails   R Reset   SPACE Add Boids   H Info",
-    20, height - 22
+    width / 2 - 150, height - 22
   );
 
   pop();
@@ -98,6 +99,7 @@ function keyPressed() {
 
   if (key === " ") {
     for (let i = 0; i < 20; i++) {
+      if (flock.length >= MAX_BOIDS) break;
       flock.push(new Boid(mouseX, mouseY));
     }
     return false;
