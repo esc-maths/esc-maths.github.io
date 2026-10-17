@@ -1,207 +1,262 @@
-let swarm = [];
+
+let flock = [];
+const NUM_BOIDS = 180;
+
+let separationWeight = 1.5;
+let alignmentWeight = 1.0;
+let cohesionWeight = 1.0;
+
+let showTrails = false;
+let showInfo = true;
+
+const BG = [10, 12, 22];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  for (let i = 0; i < 300; i++) {
-    swarm.push(new Boid());
+  for (let i = 0; i < NUM_BOIDS; i++) {
+    flock.push(new Boid(random(width), random(height)));
   }
+
+  background(...BG);
 }
 
 function draw() {
-  background(30);
+  if (showTrails) {
+    noStroke();
+    fill(BG[0], BG[1], BG[2], 35);
+    rect(0, 0, width, height);
+  } else {
+    background(...BG);
+  }
 
-  for (let bo of swarm) {
-    bo.edges();
-    bo.flock(swarm);
-    bo.update();
-    bo.show();
+  for (const b of flock) {
+    b.flock(flock);
+  }
+
+  for (const b of flock) {
+    b.update();
+    b.edges();
+    b.render();
+  }
+
+  if (showInfo) drawInfo();
+}
+
+function drawInfo() {
+  push();
+
+  colorMode(RGB, 255);
+  fill(240);
+  noStroke();
+  textFont("monospace");
+  textSize(14);
+
+  text("REYNOLDS BOIDS", 20, 30);
+  text("Boids: " + flock.length, 20, 55);
+
+  text("Separation: " + separationWeight.toFixed(1), 20, 80);
+  text("Alignment:  " + alignmentWeight.toFixed(1), 20, 100);
+  text("Cohesion:   " + cohesionWeight.toFixed(1), 20, 120);
+
+  textSize(12);
+  text(
+    "1/2 Separation   3/4 Alignment   5/6 Cohesion",
+    20, height - 45
+  );
+
+  text(
+    "T Trails   R Reset   SPACE Add Boids   H Info",
+    20, height - 22
+  );
+
+  pop();
+}
+
+function keyPressed() {
+  if (key === "1") separationWeight += 0.2;
+  if (key === "2") separationWeight = max(0, separationWeight - 0.2);
+
+  if (key === "3") alignmentWeight += 0.2;
+  if (key === "4") alignmentWeight = max(0, alignmentWeight - 0.2);
+
+  if (key === "5") cohesionWeight += 0.2;
+  if (key === "6") cohesionWeight = max(0, cohesionWeight - 0.2);
+
+  if (key === "t" || key === "T") showTrails = !showTrails;
+  if (key === "h" || key === "H") showInfo = !showInfo;
+
+  if (key === "r" || key === "R") {
+    flock = [];
+
+    for (let i = 0; i < NUM_BOIDS; i++) {
+      flock.push(new Boid(random(width), random(height)));
+    }
+
+    background(...BG);
+  }
+
+  if (key === " ") {
+    for (let i = 0; i < 20; i++) {
+      flock.push(new Boid(mouseX, mouseY));
+    }
+    return false;
   }
 }
 
-// Resize canvas when the browser window changes
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
-// Toggle fullscreen with the F key
-function keyPressed() {
-  if (key === 'f' || key === 'F') {
-    fullscreen(!fullscreen());
-  }
-}
+// ==================================================
+// Boid class
+// ==================================================
 
 class Boid {
-  constructor() {
-    this.perceptionRadius = 50;
-    this.pos = createVector(random(width), random(height));
-    this.vel = p5.Vector.random2D();
-    this.vel.setMag(2);
-    this.acc = createVector(0, 0);
+  constructor(x, y) {
+    this.position = createVector(x, y);
 
-    this.maxSpeed = 5;
-    this.maxForce = 0.05;
-    this.r = 5;
-    this.vision = 1;
+    this.maxSpeed = 3.0;
+    this.maxForce = 0.06;
 
-    this.redd = random(10, 200);
-    this.g = 60;
-    this.b = random(150, 255);
-    this.st = 5;
+    this.perceptionRadius = 55;
+    this.separationRadius = 25;
+
+    this.velocity = p5.Vector.random2D();
+    this.velocity.mult(random(1, this.maxSpeed));
+
+    this.acceleration = createVector(0, 0);
+
+    this.hueValue = random(160, 230);
   }
 
   flock(boids) {
-    let align = this.alignment(boids);
-    this.acc.add(align);
+    const sep = this.separation(boids);
+    const ali = this.alignment(boids);
+    const coh = this.cohesion(boids);
 
-    let separate = this.separation(boids);
-    this.acc.add(separate);
+    sep.mult(separationWeight);
+    ali.mult(alignmentWeight);
+    coh.mult(cohesionWeight);
 
-    let cohesion = this.cohesion(boids);
-    this.acc.add(cohesion);
-
-    let rand = p5.Vector.random2D();
-    rand.limit(this.maxForce * 5);
-    this.acc.add(rand);
-  }
-
-  update() {
-    this.vel.add(this.acc);
-    this.vel.limit(this.maxSpeed);
-    this.pos.add(this.vel);
-    this.acc.mult(0);
-  }
-
-  edges() {
-    // Wrap around the canvas edges
-    if (this.pos.x > width) {
-      this.pos.x = 0;
-    } else if (this.pos.x < 0) {
-      this.pos.x = width;
-    }
-
-    if (this.pos.y > height) {
-      this.pos.y = 0;
-    } else if (this.pos.y < 0) {
-      this.pos.y = height;
-    }
+    this.acceleration.add(sep);
+    this.acceleration.add(ali);
+    this.acceleration.add(coh);
   }
 
   separation(boids) {
-    let perceptionRadius = 10;
-    let avg = createVector(0, 0);
+    const steering = createVector(0, 0);
     let total = 0;
 
-    for (let other of boids) {
-      let d = this.pos.dist(other.pos);
+    for (const other of boids) {
+      const d = p5.Vector.dist(this.position, other.position);
 
-      if (other != this && d < perceptionRadius) {
-        let angle = this.vel.angleBetween(other.vel);
+      if (other !== this && d < this.separationRadius && d > 0) {
+        const diff = p5.Vector.sub(this.position, other.position);
 
-        if (
-          angle < PI / this.vision ||
-          angle > -PI / this.vision
-        ) {
-          let diff = p5.Vector.sub(this.pos, other.pos);
-
-          if (d > 0) {
-            diff.div(d * d);
-          }
-
-          avg.add(diff);
-          total++;
-        }
+        diff.div(d * d);
+        steering.add(diff);
+        total++;
       }
     }
 
     if (total > 0) {
-      avg.div(total);
-      avg.setMag(this.maxSpeed);
-      avg.sub(this.vel);
-      avg.limit(this.maxForce * 5);
+      steering.div(total);
+      steering.setMag(this.maxSpeed);
+      steering.sub(this.velocity);
+      steering.limit(this.maxForce);
     }
 
-    return avg;
+    return steering;
   }
 
   alignment(boids) {
-    let perceptionRadius = 100;
-    let avg = createVector(0, 0);
+    const steering = createVector(0, 0);
     let total = 0;
 
-    for (let other of boids) {
-      let d = this.pos.dist(other.pos);
+    for (const other of boids) {
+      const d = p5.Vector.dist(this.position, other.position);
 
-      if (other != this && d < perceptionRadius) {
-        let angle = this.vel.angleBetween(other.vel);
-
-        if (
-          angle < PI / this.vision ||
-          angle > -PI / this.vision
-        ) {
-          avg.add(other.vel);
-          total++;
-        }
+      if (other !== this && d < this.perceptionRadius) {
+        steering.add(other.velocity);
+        total++;
       }
     }
 
     if (total > 0) {
-      avg.div(total);
-      avg.setMag(this.maxSpeed);
-      avg.sub(this.vel);
-      avg.limit(this.maxForce);
+      steering.div(total);
+      steering.setMag(this.maxSpeed);
+      steering.sub(this.velocity);
+      steering.limit(this.maxForce);
     }
 
-    return avg;
+    return steering;
   }
 
   cohesion(boids) {
-    let perceptionRadius = 100;
-    let avg = createVector(0, 0);
+    const center = createVector(0, 0);
     let total = 0;
 
-    for (let other of boids) {
-      let d = this.pos.dist(other.pos);
+    for (const other of boids) {
+      const d = p5.Vector.dist(this.position, other.position);
 
-      if (other != this && d < perceptionRadius) {
-        let angle = this.vel.angleBetween(other.vel);
-
-        if (
-          angle < PI / this.vision ||
-          angle > -PI / this.vision
-        ) {
-          avg.add(other.pos);
-          total++;
-        }
+      if (other !== this && d < this.perceptionRadius) {
+        center.add(other.position);
+        total++;
       }
     }
 
     if (total > 0) {
-      avg.div(total);
-      avg.sub(this.pos);
-      avg.setMag(this.maxSpeed);
-      avg.sub(this.vel);
-      avg.limit(this.maxForce);
+      center.div(total);
+
+      const desired = p5.Vector.sub(center, this.position);
+      desired.setMag(this.maxSpeed);
+
+      const steering = p5.Vector.sub(desired, this.velocity);
+      steering.limit(this.maxForce);
+
+      return steering;
     }
 
-    return avg;
+    return createVector(0, 0);
   }
 
-  show() {
-    stroke(this.redd, this.g, this.b);
-    strokeWeight(this.st);
-    fill(this.g, this.redd, this.b);
+  update() {
+    this.velocity.add(this.acceleration);
+    this.velocity.limit(this.maxSpeed);
 
+    this.position.add(this.velocity);
+
+    this.acceleration.mult(0);
+  }
+
+  edges() {
+    if (this.position.x > width) this.position.x = 0;
+    if (this.position.x < 0) this.position.x = width;
+
+    if (this.position.y > height) this.position.y = 0;
+    if (this.position.y < 0) this.position.y = height;
+  }
+
+  render() {
     push();
-    translate(this.pos.x, this.pos.y);
-    rotate(this.vel.heading());
 
-    triangle(
-      -this.r, -this.r / 2,
-      -this.r, this.r / 2,
-      this.r, 0
-    );
+    translate(this.position.x, this.position.y);
+    rotate(this.velocity.heading() + HALF_PI);
+
+    colorMode(HSB, 360, 100, 100, 100);
+    fill(this.hueValue, 75, 100, 90);
+    noStroke();
+
+    beginShape();
+    vertex(0, -9);
+    vertex(-4, 6);
+    vertex(0, 3);
+    vertex(4, 6);
+    endShape(CLOSE);
 
     pop();
+
+    colorMode(RGB, 255);
   }
 }
