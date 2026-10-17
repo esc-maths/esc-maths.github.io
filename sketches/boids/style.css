@@ -13,8 +13,8 @@ canvas {
 /* Information button */
 #infoButton {
     position: fixed;
-    top: 140px;
-    left: 20px;
+    top: 20px;
+    right: 20px;
     z-index: 1000;
 
     width: 42px;

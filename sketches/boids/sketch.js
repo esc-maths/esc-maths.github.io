@@ -1,7 +1,7 @@
 
 let flock = [];
 const NUM_BOIDS = 180;
-const MAX_BOIDS = 500;
+const MAX_BOIDS = 600;
 
 let separationWeight = 1.5;
 let alignmentWeight = 1.0;
