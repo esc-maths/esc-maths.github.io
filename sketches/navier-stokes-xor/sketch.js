@@ -1,13 +1,18 @@
 /*
-
-Escher infinite bended frame
- Juan Carlos Ponce Campuzano
- 28/Aug/2025
+ 
+ Navier-Stokes by Xor
+ This version by Juan Carlos Ponce Campuzano
+ 14/Sep/2026
  https://www.patreon.com/jcponce
  
- Inspired by Escher's Cubic Space Division (1952)
- https://escherinhetpaleis.nl/en/about-escher/escher-today/cubic-space-division
- */
+ Adapted from the original code by Xor
+ https://fragcoord.xyz/s/nsm4hiif
+ The Navier-Stokes visualization made by Xor
+ I guess this was inspired from ChatGPT's solution to the 
+ Navier–Stokes existence and smoothness problem.
+ https://openai.com/index/navier-stokes-solution/
+ 
+*/
 
 // Shader variables
 let theShader;
