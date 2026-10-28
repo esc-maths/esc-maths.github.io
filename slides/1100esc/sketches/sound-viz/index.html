@@ -1,0 +1,95 @@
+<html lang="en">
+
+<head>
+  <title>FFT Music Visualizer</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+
+  <link rel="icon" type="image/png" href="../../images/icon/infinity32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../../images/icon/infinity16.png" sizes="16x16">
+
+  
+</head>
+
+<body id="page">
+
+  <div id="easycamhud" class="hud">
+    <div id="info">
+      <span id="hud-left" class="two"></span>
+    </div>
+    
+    <br />
+
+    <div id="hide" style="text-align:left; margin-left: 20px;">
+      <p>
+        <button class="myButton" id="playMusic" type="button">
+          <i class="fa fa-solid fa-play">/</i>
+          <i class="fa fa-solid fa-pause"></i>
+        </button>
+      </p>
+    </div>
+    <br />
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp; <input onclick="spin()" type="checkbox" id="rotateView" name="rotateView"
+        value="false" unchecked>
+      <label style="font-size:1.1em;" for="rotateView"> &nbsp;Spin</label><br>
+    </p>
+
+    <br />
+
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" id="micro" name="micro" value="false" unchecked>
+      <label id="hideMicro" style="font-size:1.1em;" for="micro"> &nbsp;Micro</label><br>
+    </p>
+
+    <br />
+  </div>
+
+  <script>
+    let rotateView = document.getElementById('rotateView').checked;
+
+    let spin = () => {
+      rotateView = !rotateView;
+    }
+
+    let starMicro = document.getElementById('micro').checked;
+  </script>
+
+
+  <script>
+    // go fullscreen when pressing 'f' (key 70)
+    document.onkeydown = function (e) {
+      e = e || window.event;
+      var key = e.which || e.keyCode;
+      if (key === 70) {
+        requestFullScreen(
+          document.getElementById('page')
+        );
+      }
+    };
+
+    function requestFullScreen(elt) {
+      console.log("Requesting fullscreen for", elt);
+      if (elt.requestFullscreen) {
+        elt.requestFullscreen();
+      } else if (elt.msRequestFullscreen) {
+        elt.msRequestFullscreen();
+      } else if (elt.mozRequestFullScreen) {
+        elt.mozRequestFullScreen();
+      } else if (elt.webkitRequestFullscreen) {
+        elt.webkitRequestFullscreen();
+      } else {
+        console.error("Fullscreen not available");
+      }
+    }
+  </script>
+
+  <script src="mySketch.js" type="text/javascript"></script>
+</body>
+
+
+</html>

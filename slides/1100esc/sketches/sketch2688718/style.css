@@ -1,0 +1,17 @@
+/* .btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #c9f4aa !important;
+  color: black;
+  border: 1px solid lightgreen;
+} */
+
+body {
+  background-color: lightgray;
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+}
