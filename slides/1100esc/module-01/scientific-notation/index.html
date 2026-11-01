@@ -37,7 +37,7 @@
         body {
             background: var(--bg);
             color: var(--ink);
-            font: 17px/1.4 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif
+            font: 17px/1.4 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
         }
 
         #app {
@@ -536,15 +536,15 @@
 
                 const f = $('coef') || $('std');
                 if (f) {
+                    const x = $('exp'); // only exists on the "scientific notation" questions
                     f.addEventListener('input', () => {
                         f.classList.remove('wrong');
-                        $('exp')?.classList.remove('wrong');
+                        if (x) x.classList.remove('wrong');
                     });
-                    const x = $('exp');
                     if (x) {
                         x.addEventListener('input', () => {
                             x.classList.remove('wrong');
-                            $('coef')?.classList.remove('wrong');
+                            f.classList.remove('wrong');
                         });
                     }
                     if (interacted) f.focus();
@@ -657,7 +657,7 @@
                     opts.forEach((o) => { o.disabled = true; });
                     if (good || reveal) {
                         p.opts.forEach((o, k) => { if (o.ok) opts[k].classList.add('right'); });
-                        if (good) return;
+                        // if (good) return;
                     }
                 }
             };
