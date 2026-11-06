@@ -8,12 +8,12 @@ import { Timer } from 'three';
 const canvas = document.querySelector('canvas.webgl');
 
 const characters = '@%#*+=-:.';
-const characterBrightness = [1.0, 0.90, 0.78, 0.65, 0.52, 0.5, 0.5, 0.5, 0.5];
+const characterBrightness = [1.0, 0.90, 0.78, 0.65, 0.6, 0.55, 0.55, 0.55, 0.5];
 
-const mouseRadius = 150;
+const mouseRadius = 140;
 const repulsionStrength = 5;
-const attraction = 0.05;
-const friction = 0.92;
+const attraction = 0.015;
+const friction = 0.82;
 
 // --------------------------------------------------
 // 1. ASCII ART
@@ -166,11 +166,12 @@ function createParticles() {
         availableWidth / maxColumns,
         availableHeight / rowCount
     );
-
-    artworkWidth = maxColumns * cellSize;
+    
+    const horizontalSpacing = 0.70;
+    artworkWidth = maxColumns * cellSize * horizontalSpacing;
     artworkHeight = rowCount * cellSize;
 
-    const offsetX = (window.innerWidth - artworkWidth) / 2;
+    const offsetX = (window.innerWidth - artworkWidth) / 2 ;
     const offsetY = (window.innerHeight - artworkHeight) / 2;
 
     artworkRows.forEach((line, row) => {
@@ -181,7 +182,7 @@ function createParticles() {
 
             if (characterIndex === -1) continue;
 
-            const horizontalSpacing = 0.80;
+            
             const targetX = offsetX + column * cellSize * horizontalSpacing;
             const targetY = offsetY + row * cellSize;
 
