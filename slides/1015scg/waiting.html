@@ -29,7 +29,7 @@
       background-color: #000;
       color: #fff;
       font-family: Monospace;
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 2em;
       overscroll-behavior: none;
 
@@ -82,7 +82,7 @@
       border-radius: 1rem;
       box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
       width: 50%;
-      max-width: 450px;
+      max-width: 500px;
       text-align: center;
       z-index: 10;
       pointer-events: auto;
@@ -98,6 +98,30 @@
 
     .card a:hover {
       color: rgb(119, 230, 255);
+    }
+
+    .countdown-container {
+      margin: 1rem 0;
+    }
+
+    .countdown-container p {
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    #countdown {
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      color: aqua;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media screen and (max-width: 600px) {
+      #countdown {
+        font-size: 2rem;
+      }
     }
 
     /* Responsive adjustments for smaller devices */
@@ -134,7 +158,7 @@
         padding: 0.8rem;
         /* Minimal padding */
       }
-      
+
       .credit {
         display: none;
       }
@@ -163,46 +187,36 @@
 
     <h2>1015SCG</h2>
 
-    <p>
-        Online Lecture starting soon!
-    </p>
-
     <picture>
-  <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47e/512.webp" type="image/webp">
-  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47e/512.gif" alt="👾" width="32" height="32">
-</picture>
-    
+      <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47e/512.webp" type="image/webp">
+      <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47e/512.gif" alt="👾" width="32" height="32">
+    </picture>
+
+    <div class="countdown-container">
+      <p>Lecture starts in</p>
+      <div id="countdown">00:00:00</div>
+    </div>
+
 
   </div>
 
- 
+
   <script>
     const links = [
-      //"sketches/transformations-3d",
-      //"sketches/birds",
-      //"sketches/math-symbols-fall",
-      "../sketches/donuts",
-      "../sketches/black-hole-bruno",
-      //"sketches/glowing-infinity",
-      //"sketches/game-of-life-evolution-3d",
-      //"sketches/matrix",
-      "../sketches/one-million-pi-digits",
-      "../sketches/fun-code",
-      "https://www.dynamicmath.xyz/inversion/figure-8-knot-matrix/knot-matrix.html",
-      "https://www.dynamicmath.xyz/sketches/zeros-ones-matrix/",
+      "../../sketches/black-hole-bruno",
+      "../../sketches/one-million-pi-digits",
+      "../../sketches/fun-code",
+      "https://www.dynamicmath.xyz/threejs/dodecahedron-fractal/",
       "https://www.dynamicmath.xyz/sketches/matrixrain/",
       "https://www.dynamicmath.xyz/sketches/tesseract/",
       "https://www.dynamicmath.xyz/sketches/dragon-curve-bezier",
       "https://www.dynamicmath.xyz/sketches/flow-field-noise",
       "https://vector-calculus.github.io/applets/threejs/gravity/",
       "https://geometria-hiperbolica.github.io/sketches/octahedralis/",
-      "https://geometria-hiperbolica.github.io/sketches/nested-cubes/",
-      "https://holtsetio.com/lab/aurelia/",
-      "../sketches/particle-life/webgpu",
-      "../sketches/curve-shapes-tsl",
-      "../sketches/dawn-sea",
-      "../sketches/navier-stokes-xor",
-      "../sketches/ascii-computer",
+      "../../sketches/particle-life/webgpu",
+      "../../sketches/curve-shapes-tsl",
+      "../../sketches/dawn-sea",
+      "../../sketches/ascii-computer",
       "https://www.dynamicmath.xyz/sketches/lean-proof",
 
     ];
@@ -212,6 +226,36 @@
 
     // Set iframe source
     document.getElementById("randomFrame").src = randomLink;
+
+  </script>
+
+  <script>
+    function updateCountdown() {
+      const now = new Date();
+
+      // Set target to 5:00 pm today
+      const target = new Date();
+      target.setHours(18, 0, 0, 0);
+
+      // If 5 pm has passed, target 5 pm tomorrow
+      if (now >= target) {
+        target.setDate(target.getDate() + 1);
+      }
+
+      const difference = target - now;
+
+      const hours = Math.floor(difference / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      const format = value => String(value).padStart(2, '0');
+
+      document.getElementById("countdown").textContent =
+        `${format(hours)}:${format(minutes)}:${format(seconds)}`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
 
 </body>
