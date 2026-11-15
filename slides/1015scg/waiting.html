@@ -216,7 +216,6 @@
       "../../sketches/particle-life/webgpu",
       "../../sketches/curve-shapes-tsl",
       "../../sketches/dawn-sea",
-      "../../sketches/ascii-computer",
       "https://www.dynamicmath.xyz/sketches/lean-proof",
 
     ];
@@ -233,7 +232,7 @@
     function updateCountdown() {
       const now = new Date();
 
-      // Set target to 5:00 pm today
+      // Set target to N:00 pm/am today (e.g. 5 pm -> 17)
       const target = new Date();
       target.setHours(11, 0, 0, 0);
 
