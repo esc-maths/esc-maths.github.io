@@ -106,7 +106,7 @@
 
     .countdown-container p {
       margin-bottom: 0.3rem;
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #aaa;
     }
 
@@ -235,9 +235,9 @@
 
       // Set target to 5:00 pm today
       const target = new Date();
-      target.setHours(18, 0, 0, 0);
+      target.setHours(11, 0, 0, 0);
 
-      // If 5 pm has passed, target 5 pm tomorrow
+      // If N pm/am has passed, target N pm/am tomorrow
       if (now >= target) {
         target.setDate(target.getDate() + 1);
       }
