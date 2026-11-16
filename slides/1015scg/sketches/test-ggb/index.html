@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<body>
+    <div id="ggb-element"></div>
+</body>
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+<script>
+    let params = {
+        "width": 560,
+        "height": 610,
+        "filename": "formas-coordenadas.ggb",
+        "showToolBar": true, 
+        "showAlgebraInput": true, 
+        "showMenuBar": true
+    };
+    let applet = new GGBApplet(params, true);
+    window.addEventListener("load", function () {
+        applet.inject('ggb-element');
+    });
+</script>
+
+</html>
