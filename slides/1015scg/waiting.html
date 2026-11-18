@@ -7,7 +7,7 @@
   <title>ESC Maths - Online Lectures</title>
 
   <link rel="icon" type="image/png" href="images/icon/infinity32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="images/icon/infinity16.png" sizes="16x16">
 
   <style>
     html,
@@ -224,52 +224,52 @@
 
   </script>
 
-  
-<script>
-  let countdownFinished = false;
 
-  // Set the target time: 5:00 pm
-  const target = new Date();
-  target.setHours(17, 0, 0, 0);
+  <script>
+    let countdownFinished = false;
 
-  // If 5 pm has already passed, use tomorrow's 5 pm.
-  const now = new Date();
+    // Set the target time: 5:00 pm
+    const target = new Date();
+    target.setHours(17, 0, 0, 0);
 
-  if (now >= target) {
-    target.setDate(target.getDate() + 1);
-  }
-
-  function updateCountdown() {
-
-    // Stop updating once the countdown reaches zero.
-    if (countdownFinished) return;
-
+    // If 5 pm has already passed, use tomorrow's 5 pm.
     const now = new Date();
-    const difference = target - now;
 
-    // Check whether the target time has been reached.
-    if (difference <= 0) {
-      document.getElementById("countdown").textContent = "00:00:00";
-      countdownFinished = true;
-      clearInterval(countdownInterval);
-      return;
+    if (now >= target) {
+      target.setDate(target.getDate() + 1);
     }
 
-    const hours = Math.floor(difference / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    function updateCountdown() {
 
-    const format = value => String(value).padStart(2, '0');
+      // Stop updating once the countdown reaches zero.
+      if (countdownFinished) return;
 
-    document.getElementById("countdown").textContent =
-      `${format(hours)}:${format(minutes)}:${format(seconds)}`;
-  }
+      const now = new Date();
+      const difference = target - now;
 
-  // Start the countdown.
-  updateCountdown();
+      // Check whether the target time has been reached.
+      if (difference <= 0) {
+        document.getElementById("countdown").textContent = "00:00:00";
+        countdownFinished = true;
+        clearInterval(countdownInterval);
+        return;
+      }
 
-  const countdownInterval = setInterval(updateCountdown, 1000);
-</script>
+      const hours = Math.floor(difference / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      const format = value => String(value).padStart(2, '0');
+
+      document.getElementById("countdown").textContent =
+        `${format(hours)}:${format(minutes)}:${format(seconds)}`;
+    }
+
+    // Start the countdown.
+    updateCountdown();
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+  </script>
 
 
 </body>
