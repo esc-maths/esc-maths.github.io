@@ -100,6 +100,36 @@
       color: rgb(119, 230, 255);
     }
 
+
+    #startTime {
+      background: #222;
+      color: aqua;
+      border: 1px solid aqua;
+      border-radius: 6px;
+      padding: 0.6rem;
+      font-family: monospace;
+      font-size: 1.2rem;
+      margin: 0.5rem;
+    }
+
+    #startButton {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.7rem 1.2rem;
+      background: aqua;
+      color: black;
+      border: none;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #startButton:hover {
+      background: white;
+    }
+
+
     .countdown-container {
       margin: 1rem 0;
     }
@@ -192,10 +222,26 @@
       <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f47e/512.gif" alt="👾" width="32" height="32">
     </picture>
 
+   
+
+
     <div class="countdown-container">
-      <p>Lecture starts in</p>
-      <div id="countdown">00:00:00</div>
+
+      <div id="time-selection">
+        <p>Set lecture start time</p>
+
+        <input type="time" id="startTime" value="17:00">
+
+        <button id="startButton">Start countdown</button>
+      </div>
+
+      <div id="countdown-display" style="display: none;">
+        <p>Lecture starts in</p>
+        <div id="countdown">00:00:00</div>
+      </div>
+
     </div>
+
 
 
   </div>
@@ -226,49 +272,69 @@
 
 
   <script>
-    let countdownFinished = false;
+    
+let countdownInterval;
+let countdownFinished = false;
 
-    // Set the target time: 5:00 pm
-    const target = new Date();
-    target.setHours(17, 0, 0, 0);
+function startCountdown() {
 
-    // If 5 pm has already passed, use tomorrow's 5 pm.
+  // Get the selected time.
+  const selectedTime = document.getElementById("startTime").value;
+
+  if (!selectedTime) return;
+
+  const [hours, minutes] = selectedTime.split(":").map(Number);
+
+  // Set the target time.
+  const target = new Date();
+  target.setHours(hours, minutes, 0, 0);
+
+  // If the selected time has passed, use tomorrow.
+  if (new Date() >= target) {
+    target.setDate(target.getDate() + 1);
+  }
+
+  // Show countdown and hide time selection.
+  document.getElementById("time-selection").style.display = "none";
+  document.getElementById("countdown-display").style.display = "block";
+
+  countdownFinished = false;
+
+  function updateCountdown() {
+
     const now = new Date();
+    const difference = target - now;
 
-    if (now >= target) {
-      target.setDate(target.getDate() + 1);
+    // Stop at zero.
+    if (difference <= 0) {
+
+      document.getElementById("countdown").textContent = "00:00:00";
+
+      countdownFinished = true;
+      clearInterval(countdownInterval);
+
+      return;
     }
 
-    function updateCountdown() {
+    const hours = Math.floor(difference / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-      // Stop updating once the countdown reaches zero.
-      if (countdownFinished) return;
+    const format = value => String(value).padStart(2, "0");
 
-      const now = new Date();
-      const difference = target - now;
+    document.getElementById("countdown").textContent =
+      `${format(hours)}:${format(minutes)}:${format(seconds)}`;
+  }
 
-      // Check whether the target time has been reached.
-      if (difference <= 0) {
-        document.getElementById("countdown").textContent = "00:00:00";
-        countdownFinished = true;
-        clearInterval(countdownInterval);
-        return;
-      }
+  // Start countdown.
+  updateCountdown();
 
-      const hours = Math.floor(difference / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  countdownInterval = setInterval(updateCountdown, 1000);
+}
 
-      const format = value => String(value).padStart(2, '0');
+// Start when the user clicks the button.
+document.getElementById("startButton").addEventListener("click", startCountdown);
 
-      document.getElementById("countdown").textContent =
-        `${format(hours)}:${format(minutes)}:${format(seconds)}`;
-    }
-
-    // Start the countdown.
-    updateCountdown();
-
-    const countdownInterval = setInterval(updateCountdown, 1000);
   </script>
 
 
