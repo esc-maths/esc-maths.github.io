@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en-AU" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Index laws</title>
+<style>
+:root{--text:#1e2b25;--muted:#52635a;--line:#c5d3ca;--accent:#147742;--accent-dark:#004b32;--soft:#f2f7f3;--ok:#0b6b2f;--ok-bg:#e6f4ea;--bad:#a4161a;--bad-bg:#fdecec;--focus:#0b5cad;--head-1:#144732;--head-2:#147742;--head-text:#fff;--g-deep:#004b32;--g-mid:#147742;--g-light:#78ce79;--g-bright:#67d064}
+*{box-sizing:border-box}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--text);font-family:Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.6}
+main{max-width:1200px;margin:0 auto;padding:1.5rem 1rem 3rem}
+.banner{position:relative;overflow:hidden;border-radius:8px;margin:0 0 .75rem;padding:3.5rem 1.5rem 1.75rem;background:linear-gradient(100deg,var(--g-deep) 0%,var(--g-mid) 22%,#4fae5c 45%,var(--g-light) 70%,var(--g-bright) 100%)}
+.banner::before,.banner::after{content:"";position:absolute;width:26rem;height:26rem;transform:rotate(45deg);background:rgba(255,255,255,.07);pointer-events:none}
+.banner::before{left:-6rem;top:-10rem}
+.banner::after{right:4rem;top:-6rem;background:rgba(255,255,255,.1)}
+.banner-inner{position:relative;max-width:55rem}
+.banner-label{display:inline-block;margin:0;padding:.35rem .9rem;background:var(--head-1);color:#fff;font-size:.85rem;font-weight:700;border-radius:6px 6px 0 0}
+h1{margin:0;padding:1rem 1.75rem;background:#fff;color:var(--head-1);font-size:1.75rem;font-weight:400;line-height:1.3;border-radius:0 8px 8px 8px}
+@media (max-width:40rem){.banner{padding:2rem .9rem 1rem}h1{font-size:1.4rem;padding:.8rem 1rem}}
+.utility{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:.25rem 1rem;margin:0 0 1rem}
+.utility button{background:transparent;border:1px solid transparent;color:var(--accent-dark);font-weight:400;font-size:.9rem;padding:.35rem .5rem;min-height:36px;border-radius:6px;text-decoration:underline;text-underline-offset:3px}
+.utility button:hover{background:var(--soft);border-color:var(--line);color:var(--accent-dark)}
+.utility button span[aria-hidden]{display:inline-block;margin-right:.3rem}
+dialog.pop{border:0;border-radius:10px;padding:0;max-width:32rem;width:calc(100% - 2rem);color:var(--text);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+dialog.pop::backdrop{background:rgba(0,40,25,.55)}
+.pop-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 1rem;background:var(--head-1);color:#fff}
+.pop-head h2{margin:0;padding:0;background:none;font-size:1.15rem}
+.pop-head button{background:transparent;border:2px solid #fff;color:#fff;min-height:36px;padding:.2rem .7rem;font-size:.9rem}
+.pop-head button:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.pop-head button:focus-visible{outline-color:#fff}
+.pop-body{padding:1rem}
+.keys{border-collapse:collapse;width:100%}
+.keys th,.keys td{text-align:left;padding:.45rem .4rem;border-bottom:1px solid var(--line);vertical-align:top}
+.keys th{white-space:nowrap;font-weight:400}
+kbd{display:inline-block;font:inherit;font-size:.85rem;font-weight:700;padding:.05rem .4rem;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;background:var(--soft);margin:0 .1rem}
+.pop-actions{display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap;margin-top:1rem}
+.car-dots button.done-ok::after{content:"\2713";font-size:.7rem;margin-left:.1rem}
+@media (max-width:30rem){.keys th{white-space:normal}}
+h2{font-size:1.3rem;margin:2.5rem 0 1rem;padding:.6rem 1rem;background:var(--head-2);color:var(--head-text);border-radius:6px}
+img{max-width:100%;height:auto;vertical-align:middle}
+.eq{text-align:center;margin:1rem 0;overflow-x:auto}
+.step{border-left:4px solid var(--accent);background:var(--soft);padding:.75rem 1rem;margin:1rem 0;border-radius:0 6px 6px 0}
+.step.is-hidden{display:none}
+.nojs-answer{display:none;margin-top:.75rem}
+.no-js .nojs-answer{display:block}
+.no-js .q-actions{display:none}
+.nojs-banner{border:2px solid var(--accent);border-radius:8px;padding:.75rem 1rem;margin:0 0 1.5rem;background:var(--soft)}
+.nojs-answer summary{cursor:pointer;font-weight:700;color:var(--accent-dark)}
+.step-title{font-size:1.05rem;margin:0 0 .5rem}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.mark{margin-left:auto;font-weight:700;font-size:.9rem;white-space:nowrap}
+.opt.correct .mark{color:var(--ok)}
+.opt.incorrect .mark{color:var(--bad)}
+.feedback:focus{outline:3px solid var(--focus);outline-offset:2px}
+.step.is-new{animation:fadein .35s ease-out}
+@keyframes fadein{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.step-controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:1rem 0}
+.step-status{color:var(--muted);font-size:.95rem}
+button{font:inherit;font-weight:700;cursor:pointer;border-radius:6px;padding:.55rem 1rem;border:2px solid var(--accent);background:var(--accent);color:#fff;min-height:44px}
+button:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+button.secondary,button.reset{background:#fff;color:var(--accent-dark);border-color:var(--accent)}
+button.secondary:hover,button.reset:hover{background:var(--soft)}
+button:disabled,button:disabled:hover,button.secondary:disabled,button.secondary:disabled:hover{background:#e6e6e6;border-color:#c7cdd1;color:#5a6b78;cursor:not-allowed}
+button:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.table-wrap{overflow-x:auto}
+table.summary{border-collapse:collapse;width:100%;min-width:30rem}
+table.summary caption{text-align:left;font-weight:700;margin-bottom:.5rem}
+table.summary th,table.summary td{border:1px solid var(--line);padding:.6rem .75rem;text-align:left;vertical-align:middle}
+table.summary thead th{background:var(--soft)}
+.q{border:1px solid var(--line);border-radius:8px;padding:1rem;margin:1rem 0}
+.q fieldset{border:0;margin:0;padding:0;min-width:0}
+.q legend{font-size:1.05rem;margin-bottom:.5rem;padding:0}
+.qnum{display:block;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.opt{min-height:44px;display:flex;align-items:center;gap:.6rem;padding:.5rem .6rem;margin:.35rem 0;border:1px solid var(--line);border-radius:6px;cursor:pointer}
+.opt:hover{background:var(--soft)}
+.opt input{width:1.5rem;height:1.5rem;margin:0;flex:none;accent-color:var(--head-1)}
+.opt.correct{border-color:var(--ok);background:var(--ok-bg)}
+.opt.incorrect{border-color:var(--bad);background:var(--bad-bg)}
+.q-actions{display:flex;gap:.5rem;margin-top:.75rem}
+.feedback:not(:empty){margin-top:.75rem;padding:.6rem .8rem;border-radius:6px}
+.feedback.ok{background:var(--ok-bg);color:var(--ok)}
+.feedback.bad{background:var(--bad-bg);color:var(--bad)}
+.feedback p{margin:.25rem 0;color:var(--text)}
+.score{font-weight:700}
+.fr-label{display:block;font-weight:700;margin:.85rem 0 .3rem}
+.working,.answer{width:100%;font:inherit;color:var(--text);background:#fff;border:2px solid var(--line);border-radius:6px;padding:.55rem .7rem}
+.working{min-height:7rem;resize:vertical;line-height:1.5}
+.answer{min-height:44px;max-width:22rem}
+.working:focus-visible,.answer:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-color:var(--focus)}
+.answer.is-wrong{border-color:var(--bad);background:var(--bad-bg)}
+.answer.is-right{border-color:var(--ok);background:var(--ok-bg)}
+.fr-hint{margin:.3rem 0 0;font-size:.9rem;color:var(--muted)}
+.preview{margin:.35rem 0 0;min-height:1.6em;font-size:1.05rem}
+.preview:empty{min-height:0}
+.preview .lbl{font-size:.85rem;color:var(--muted);margin-right:.4rem}
+.sol-why{font-weight:700;margin:.5rem 0 .25rem}
+.sol-lines{margin:.25rem 0 .5rem;padding-left:1.5rem}
+.sol-lines li{margin:.15rem 0}
+.compare{margin:.5rem 0 0;font-style:italic}
+
+.carousel .q{margin:0}
+.carousel .slide.is-off{display:none}
+.car-nav{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.75rem}
+.car-nav button[aria-disabled="true"]{background:#e6e6e6;border-color:#c7cdd1;color:#5a6b78;cursor:not-allowed}
+.car-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;margin:.75rem 0 0;padding:0;list-style:none}
+.car-dots button{min-height:44px;min-width:44px;padding:0;border-radius:50%;background:#fff;color:var(--accent-dark);font-size:.9rem}
+.car-dots button[aria-current="true"]{background:var(--accent);color:#fff}
+.car-dots button.done-ok{box-shadow:inset 0 0 0 3px var(--ok-bg);border-color:var(--ok)}
+.car-status{font-weight:700;text-align:center;flex:1}
+@media (max-width:30rem){.car-status{font-size:.9rem}}
+.score:empty{display:none}
+@media (prefers-reduced-motion:reduce){.step.is-new{animation:none}}
+main{max-width:1200px}
+.tablist{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.5rem;padding:.5rem;background:var(--soft);border-radius:10px}
+.tablist [role="tab"]{flex:0 1 auto;background:#fff;color:var(--head-1);border:2px solid var(--line);border-radius:8px;padding:.6rem 1rem;font-weight:700;transition:background-color .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease}
+.tablist [role="tab"]:hover{background:#fff;border-color:var(--head-1)}
+.tablist [role="tab"][aria-selected="true"]{background:var(--head-1);border-color:var(--head-1);color:#fff;box-shadow:0 2px 6px rgba(45,59,69,.25)}
+[role="tabpanel"]{outline:none}
+[role="tabpanel"]:focus-visible{outline:3px solid var(--focus);outline-offset:4px;border-radius:6px}
+[role="tabpanel"] > h2:first-child{margin-top:0}
+.panel-in{animation:panelin .3s ease-out}
+@keyframes panelin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel-nav{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line)}
+.panel-nav .spacer{flex:1}
+@media (max-width:40rem){.tablist [role="tab"]{flex:1 1 calc(50% - .5rem);padding:.55rem .6rem;font-size:.95rem}}
+@media (prefers-reduced-motion:reduce){.panel-in{animation:none}.tablist [role="tab"]{transition:none}}
+
+.eq{font-size:1.2rem}
+.eq mjx-container[display="true"]{margin:.25rem 0!important}
+.summary mjx-container{margin:0!important}
+.sol-lines li{margin:.35rem 0}
+.sol-lines mjx-container,legend mjx-container{font-size:1.05em}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  svg: { fontCache: 'local' }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+<main>
+<noscript><div class="nojs-banner"><p><strong>Interactive features are turned off.</strong> The program you opened this file in is blocking JavaScript. Open the file in a web browser such as Chrome, Edge, Firefox or Safari to use the step buttons and answer checking. You can still read every step and open each answer below, but equations will appear as plain LaTeX text.</p></div></noscript>
+<header class="banner"><div class="banner-inner"><p class="banner-label">Foundation Mathematics</p><h1>Index laws</h1></div></header>
+<p>Index laws, also called exponent rules, help us to simplify expressions involving powers. They are particularly useful when multiplying or dividing powers with the same base, raising a power to another power, and working with zero, negative or fractional exponents.</p>
+
+<div id="topic-tabs">
+<section class="tab-section" data-tab="Multiplying and dividing">
+<h2>Multiplying and dividing powers</h2>
+<p>When multiplying powers with the same base, add the exponents.</p>
+<p class="eq">\[ a^m \times a^n = a^{m+n}. \]</p>
+<p>When dividing powers with the same base, subtract the exponent in the denominator from the exponent in the numerator.</p>
+<p class="eq">\[ \frac{a^m}{a^n} = a^{m-n}, \qquad a \neq 0. \]</p>
+<p>For example,</p>
+<p class="eq">\[ x^3 \times x^4 = x^{3+4} = x^7. \]</p>
+<p>Similarly,</p>
+<p class="eq">\[ \frac{y^5}{y^2} = y^{5-2} = y^3. \]</p>
+<p>Notice that we add the exponents when multiplying and subtract them when dividing. In both cases, the base remains unchanged.</p>
+</section>
+<section class="tab-section" data-tab="Power of a power">
+<h2>Power of a power</h2>
+<p>When a power is raised to another power, multiply the exponents.</p>
+<p class="eq">\[ (a^m)^n = a^{mn}. \]</p>
+<p>For example,</p>
+<p class="eq">\[ (x^2)^3 = x^{2 \times 3} = x^6. \]</p>
+</section>
+<section class="tab-section" data-tab="Power of a product">
+<h2>Power of a product</h2>
+<p>When a product is raised to a power, apply the exponent to each factor inside the brackets.</p>
+<p class="eq">\[ (ab)^n = a^n b^n. \]</p>
+<p>For example,</p>
+<p class="eq">\[ \begin{aligned} (3a^2)^2 &amp;= 3^2 (a^2)^2 \\ &amp;= 9a^4. \end{aligned} \]</p>
+<p>Another example is</p>
+<p class="eq">\[ \begin{aligned} (2x^3)^2 &amp;= 2^2 (x^3)^2 \\ &amp;= 4x^6. \end{aligned} \]</p>
+</section>
+<section class="tab-section" data-tab="Zero and negative">
+<h2>Zero and negative indices</h2>
+<p>A power with an exponent of zero is equal to one, provided the base is nonzero.</p>
+<p class="eq">\[ a^0 = 1, \qquad a \neq 0 \]</p>
+<p>For example,</p>
+<p class="eq">\[ 7^0 = 1 \qquad \text{and} \qquad (-1234)^0 = 1. \]</p>
+<p>A negative exponent indicates the reciprocal of the corresponding positive power. Therefore,</p>
+<p class="eq">\[ a^{-n} = \frac{1}{a^n}, \qquad a \neq 0. \]</p>
+<p>For example,</p>
+<p class="eq">\[ \begin{aligned} 10^{-2} &amp;= \frac{1}{10^2} \\ &amp;= \frac{1}{100}. \end{aligned} \]</p>
+<p>Similarly,</p>
+<p class="eq">\[ x^{-3} = \frac{1}{x^3}, \qquad x \neq 0. \]</p>
+</section>
+<section class="tab-section" data-tab="Rational indices">
+<h2>Rational indices</h2>
+<p>A rational index is an exponent expressed as a fraction. An exponent of \(\tfrac{1}{n}\) represents an \(n\)-th root. That is,</p>
+<p class="eq">\[ a^{\frac{1}{n}} = \sqrt[n]{a}. \]</p>
+<p>More generally,</p>
+<p class="eq">\[ a^{\frac{m}{n}} = \sqrt[n]{a^m}. \]</p>
+<p>For example,</p>
+<p class="eq">\[ 4^{\frac{1}{2}} = \sqrt{4} = 2. \]</p>
+<p>Similarly,</p>
+<p class="eq">\[ 8^{\frac{1}{3}} = \sqrt[3]{8} = 2. \]</p>
+<p>These rules connect fractional exponents with the familiar operations of finding square roots, cube roots and higher-order roots.</p>
+</section>
+<section class="tab-section" data-tab="Worked example">
+<h2>Worked example: Simplifying an expression</h2>
+<p>Simplify the following expression using the index laws:</p>
+<p class="eq">\[ \left(\frac{2a^2b}{b^3}\right)^3 \div \left(\frac{16a^5}{ab^7}\right)^2. \]</p>
+<p>Assume that \(a \neq 0\) and \(b \neq 0\).</p>
+<div class="steps" id="worked-steps">
+<section class="step" data-step="1" aria-labelledby="step1-title"><h3 id="step1-title" class="step-title">Step 1: Simplify the expressions inside the brackets</h3><p>Using the law for dividing powers,</p><p class="eq">\[ \frac{2a^2b}{b^3} = \frac{2a^2}{b^2} \]</p><p>and</p><p class="eq">\[ \frac{16a^5}{ab^7} = \frac{16a^4}{b^7} \]</p><p>Therefore, the original expression becomes</p><p class="eq">\[ \left(\frac{2a^2}{b^2}\right)^3 \div \left(\frac{16a^4}{b^7}\right)^2. \]</p></section>
+<section class="step" data-step="2" aria-labelledby="step2-title"><h3 id="step2-title" class="step-title">Step 2: Apply the power of a product and power of a power laws</h3><p class="eq">\[ \frac{8a^6}{b^6} \div \frac{256a^8}{b^{14}}. \]</p></section>
+<section class="step" data-step="3" aria-labelledby="step3-title"><h3 id="step3-title" class="step-title">Step 3: Rewrite the division as multiplication by the reciprocal</h3><p class="eq">\[ \frac{8a^6}{b^6} \times \frac{b^{14}}{256a^8}. \]</p></section>
+<section class="step" data-step="4" aria-labelledby="step4-title"><h3 id="step4-title" class="step-title">Step 4: Simplify the numerical coefficients and apply the index laws</h3><p class="eq">\[ \begin{aligned} \frac{8a^6b^{14}}{256a^8b^6} &amp;= \frac{1}{32}a^{6-8}b^{14-6} \\ &amp;= \frac{1}{32}a^{-2}b^8. \end{aligned} \]</p><p>Finally, using the law for negative indices,</p><p class="eq">\[ \boxed{\frac{b^8}{32a^2}}. \]</p></section>
+</div>
+</section>
+<section class="tab-section" data-tab="Summary">
+<h2>Summary of index laws</h2>
+<p>The following table summarises the main rules covered in this section. Assume that the expressions are defined and that any denominator is nonzero.</p>
+<div class="table-wrap">
+<table class="summary">
+<caption>Summary of index laws</caption>
+<thead><tr><th scope="col">Rule</th><th scope="col">Index law</th><th scope="col">Example</th></tr></thead>
+<tbody>
+<tr><th scope="row">Multiplication</th><td>\(a^m \times a^n = a^{m+n}\)</td><td>\(x^3 \times x^4 = x^7\)</td></tr>
+<tr><th scope="row">Division</th><td>\(\displaystyle \frac{a^m}{a^n} = a^{m-n}\)</td><td>\(\displaystyle \frac{y^5}{y^2} = y^3\)</td></tr>
+<tr><th scope="row">Power of a power</th><td>\((a^m)^n = a^{mn}\)</td><td>\((x^2)^3 = x^6\)</td></tr>
+<tr><th scope="row">Power of a product</th><td>\((ab)^n = a^n b^n\)</td><td>\((3a^2)^2 = 9a^4\)</td></tr>
+<tr><th scope="row">Zero index</th><td>\(a^0 = 1\)</td><td>\(7^0 = 1\)</td></tr>
+<tr><th scope="row">Negative index</th><td>\(\displaystyle a^{-n} = \frac{1}{a^n}\)</td><td>\(\displaystyle 10^{-2} = \frac{1}{100}\)</td></tr>
+<tr><th scope="row">Rational index</th><td>\(\displaystyle a^{\frac{1}{n}} = \sqrt[n]{a}\)</td><td>\(\displaystyle 4^{\frac{1}{2}} = 2\)</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="tab-section" data-tab="Check your understanding">
+<h2 id="check">Check your understanding</h2>
+<p>Answer the six questions below to practise the index laws. Write your working in the box, type your final answer, then select <strong>Check answer</strong>. Once you have the answer, compare your working with the worked solution. Use <strong>Previous</strong> and <strong>Next</strong> to move between questions.</p>
+<p class="score"></p>
+<form class="q fr" data-accept='["x^7"]' novalidate>
+<fieldset><legend><span class="qnum">Question 1</span> Simplify \(x^5 \times x^2\).</legend>
+<label class="fr-label" for="w1">Your working</label>
+<textarea id="w1" class="working" rows="4" aria-describedby="whint1"></textarea>
+<p class="fr-hint" id="whint1">Show each step on a new line. Your working is not marked; you will compare it with the worked solution.</p>
+<label class="fr-label" for="a1">Your final answer</label>
+<input id="a1" class="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="ahint1">
+<p class="fr-hint" id="ahint1">Type powers with ^ and fractions with /, for example x^7 or 1/25.</p>
+<p class="preview" aria-hidden="true"></p>
+</fieldset>
+<div class="q-actions"><button type="submit" class="check-answer">Check answer</button><button type="button" class="reset" hidden>Try again</button></div>
+<div class="feedback" role="status" aria-live="polite"></div>
+<details class="nojs-answer tex2jax_ignore"><summary>Show worked solution</summary><p class="sol-why">Same base, so add the exponents.</p><ol class="sol-lines"><li>\(x^5 \times x^2 = x^{5+2}\)</li><li>\(= x^7\)</li></ol></details>
+<template class="explain"><p class="sol-why">Same base, so add the exponents.</p><ol class="sol-lines"><li>\(x^5 \times x^2 = x^{5+2}\)</li><li>\(= x^7\)</li></ol></template>
+</form>
+<form class="q fr" data-accept='["m^12"]' novalidate>
+<fieldset><legend><span class="qnum">Question 2</span> Simplify \((m^4)^3\).</legend>
+<label class="fr-label" for="w2">Your working</label>
+<textarea id="w2" class="working" rows="4" aria-describedby="whint2"></textarea>
+<p class="fr-hint" id="whint2">Show each step on a new line. Your working is not marked; you will compare it with the worked solution.</p>
+<label class="fr-label" for="a2">Your final answer</label>
+<input id="a2" class="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="ahint2">
+<p class="fr-hint" id="ahint2">Type powers with ^ and fractions with /, for example x^7 or 1/25.</p>
+<p class="preview" aria-hidden="true"></p>
+</fieldset>
+<div class="q-actions"><button type="submit" class="check-answer">Check answer</button><button type="button" class="reset" hidden>Try again</button></div>
+<div class="feedback" role="status" aria-live="polite"></div>
+<details class="nojs-answer tex2jax_ignore"><summary>Show worked solution</summary><p class="sol-why">A power of a power: multiply the exponents.</p><ol class="sol-lines"><li>\((m^4)^3 = m^{4 \times 3}\)</li><li>\(= m^{12}\)</li></ol></details>
+<template class="explain"><p class="sol-why">A power of a power: multiply the exponents.</p><ol class="sol-lines"><li>\((m^4)^3 = m^{4 \times 3}\)</li><li>\(= m^{12}\)</li></ol></template>
+</form>
+<form class="q fr" data-accept='["16p^12"]' novalidate>
+<fieldset><legend><span class="qnum">Question 3</span> Simplify \((2p^3)^4\).</legend>
+<label class="fr-label" for="w3">Your working</label>
+<textarea id="w3" class="working" rows="4" aria-describedby="whint3"></textarea>
+<p class="fr-hint" id="whint3">Show each step on a new line. Your working is not marked; you will compare it with the worked solution.</p>
+<label class="fr-label" for="a3">Your final answer</label>
+<input id="a3" class="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="ahint3">
+<p class="fr-hint" id="ahint3">Type powers with ^ and fractions with /, for example x^7 or 1/25.</p>
+<p class="preview" aria-hidden="true"></p>
+</fieldset>
+<div class="q-actions"><button type="submit" class="check-answer">Check answer</button><button type="button" class="reset" hidden>Try again</button></div>
+<div class="feedback" role="status" aria-live="polite"></div>
+<details class="nojs-answer tex2jax_ignore"><summary>Show worked solution</summary><p class="sol-why">Apply the power to every factor in the brackets, including the 2.</p><ol class="sol-lines"><li>\((2p^3)^4 = 2^4(p^3)^4\)</li><li>\(= 16p^{12}\)</li></ol></details>
+<template class="explain"><p class="sol-why">Apply the power to every factor in the brackets, including the 2.</p><ol class="sol-lines"><li>\((2p^3)^4 = 2^4(p^3)^4\)</li><li>\(= 16p^{12}\)</li></ol></template>
+</form>
+<form class="q fr" data-accept='["1/25", "0.04", ".04"]' novalidate>
+<fieldset><legend><span class="qnum">Question 4</span> Evaluate \(5^{-2}\). Give your answer as a fraction or a decimal.</legend>
+<label class="fr-label" for="w4">Your working</label>
+<textarea id="w4" class="working" rows="4" aria-describedby="whint4"></textarea>
+<p class="fr-hint" id="whint4">Show each step on a new line. Your working is not marked; you will compare it with the worked solution.</p>
+<label class="fr-label" for="a4">Your final answer</label>
+<input id="a4" class="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="ahint4">
+<p class="fr-hint" id="ahint4">Type powers with ^ and fractions with /, for example x^7 or 1/25.</p>
+<p class="preview" aria-hidden="true"></p>
+</fieldset>
+<div class="q-actions"><button type="submit" class="check-answer">Check answer</button><button type="button" class="reset" hidden>Try again</button></div>
+<div class="feedback" role="status" aria-live="polite"></div>
+<details class="nojs-answer tex2jax_ignore"><summary>Show worked solution</summary><p class="sol-why">A negative exponent gives the reciprocal of the positive power.</p><ol class="sol-lines"><li>\(5^{-2} = \dfrac{1}{5^2}\)</li><li>\(= \dfrac{1}{25}\)</li></ol></details>
+<template class="explain"><p class="sol-why">A negative exponent gives the reciprocal of the positive power.</p><ol class="sol-lines"><li>\(5^{-2} = \dfrac{1}{5^2}\)</li><li>\(= \dfrac{1}{25}\)</li></ol></template>
+</form>
+<form class="q fr" data-accept='["9"]' novalidate>
+<fieldset><legend><span class="qnum">Question 5</span> Evaluate \(27^{\frac{2}{3}}\).</legend>
+<label class="fr-label" for="w5">Your working</label>
+<textarea id="w5" class="working" rows="4" aria-describedby="whint5"></textarea>
+<p class="fr-hint" id="whint5">Show each step on a new line. Your working is not marked; you will compare it with the worked solution.</p>
+<label class="fr-label" for="a5">Your final answer</label>
+<input id="a5" class="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="ahint5">
+<p class="fr-hint" id="ahint5">Type powers with ^ and fractions with /, for example x^7 or 1/25.</p>
+<p class="preview" aria-hidden="true"></p>
+</fieldset>
+<div class="q-actions"><button type="submit" class="check-answer">Check answer</button><button type="button" class="reset" hidden>Try again</button></div>
+<div class="feedback" role="status" aria-live="polite"></div>
+<details class="nojs-answer tex2jax_ignore"><summary>Show worked solution</summary><p class="sol-why">Take the cube root first, then square.</p><ol class="sol-lines"><li>\(27^{\frac{2}{3}} = \left(\sqrt[3]{27}\right)^2\)</li><li>\(= 3^2\)</li><li>\(= 9\)</li></ol></details>
+<template class="explain"><p class="sol-why">Take the cube root first, then square.</p><ol class="sol-lines"><li>\(27^{\frac{2}{3}} = \left(\sqrt[3]{27}\right)^2\)</li><li>\(= 3^2\)</li><li>\(= 9\)</li></ol></template>
+</form>
+<form class="q fr" data-accept='["a^2/b^3", "a^2b^-3"]' novalidate>
+<fieldset><legend><span class="qnum">Question 6</span> Simplify \(a^3b^2 \div ab^5\), where \(a \neq 0\) and \(b \neq 0\).</legend>
+<label class="fr-label" for="w6">Your working</label>
+<textarea id="w6" class="working" rows="4" aria-describedby="whint6"></textarea>
+<p class="fr-hint" id="whint6">Show each step on a new line. Your working is not marked; you will compare it with the worked solution.</p>
+<label class="fr-label" for="a6">Your final answer</label>
+<input id="a6" class="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="ahint6">
+<p class="fr-hint" id="ahint6">Type powers with ^ and fractions with /, for example x^7 or 1/25.</p>
+<p class="preview" aria-hidden="true"></p>
+</fieldset>
+<div class="q-actions"><button type="submit" class="check-answer">Check answer</button><button type="button" class="reset" hidden>Try again</button></div>
+<div class="feedback" role="status" aria-live="polite"></div>
+<details class="nojs-answer tex2jax_ignore"><summary>Show worked solution</summary><p class="sol-why">Subtract the exponents for each base, then rewrite the negative power as a fraction.</p><ol class="sol-lines"><li>\(a^3b^2 \div ab^5 = a^{3-1}b^{2-5}\)</li><li>\(= a^2b^{-3}\)</li><li>\(= \dfrac{a^2}{b^3}\)</li></ol></details>
+<template class="explain"><p class="sol-why">Subtract the exponents for each base, then rewrite the negative power as a fraction.</p><ol class="sol-lines"><li>\(a^3b^2 \div ab^5 = a^{3-1}b^{2-5}\)</li><li>\(= a^2b^{-3}\)</li><li>\(= \dfrac{a^2}{b^3}\)</li></ol></template>
+</form>
+</section>
+</div>
+</main>
+<script>
+(function () {
+  'use strict';
+  document.documentElement.classList.remove('no-js');
+  var resetters = [];
+
+  /* Tabs (WAI-ARIA tabs pattern, manual activation). Without JS every section is shown in order. */
+  var tabRoot = document.getElementById('topic-tabs');
+  if (tabRoot) {
+    var sections = Array.prototype.slice.call(tabRoot.querySelectorAll('.tab-section'));
+    var tablist = document.createElement('div');
+    tablist.className = 'tablist';
+    tablist.setAttribute('role', 'tablist');
+    tablist.setAttribute('aria-label', 'Index laws topics');
+    tabRoot.insertBefore(tablist, tabRoot.firstChild);
+
+    var tabs = sections.map(function (sec, i) {
+      var tab = document.createElement('button');
+      tab.type = 'button';
+      tab.setAttribute('role', 'tab');
+      tab.id = 'tab-' + (i + 1);
+      tab.setAttribute('aria-controls', 'panel-' + (i + 1));
+      tab.textContent = sec.getAttribute('data-tab');
+      tablist.appendChild(tab);
+      sec.id = 'panel-' + (i + 1);
+      sec.setAttribute('role', 'tabpanel');
+      sec.setAttribute('aria-labelledby', tab.id);
+      sec.setAttribute('tabindex', '0');
+
+      /* Previous / next section buttons at the end of each panel */
+      var nav = document.createElement('div');
+      nav.className = 'panel-nav';
+      if (i > 0) {
+        var back = document.createElement('button');
+        back.type = 'button';
+        back.className = 'secondary';
+        back.textContent = 'Previous: ' + sections[i - 1].getAttribute('data-tab');
+        back.addEventListener('click', function () { activate(i - 1, true); });
+        nav.appendChild(back);
+      }
+      var spacer = document.createElement('span');
+      spacer.className = 'spacer';
+      nav.appendChild(spacer);
+      if (i < sections.length - 1) {
+        var fwd = document.createElement('button');
+        fwd.type = 'button';
+        fwd.textContent = 'Next: ' + sections[i + 1].getAttribute('data-tab');
+        fwd.addEventListener('click', function () { activate(i + 1, true); });
+        nav.appendChild(fwd);
+      }
+      sec.appendChild(nav);
+      return tab;
+    });
+
+    var active = 0;
+    function activate(i, moveFocus) {
+      active = i;
+      tabs.forEach(function (t, j) {
+        var on = j === i;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.setAttribute('tabindex', on ? '0' : '-1');
+        sections[j].hidden = !on;
+      });
+      var panel = sections[i];
+      panel.classList.remove('panel-in');
+      void panel.offsetWidth;
+      panel.classList.add('panel-in');
+      if (moveFocus) {
+        tabs[i].focus();
+        tablist.scrollIntoView({ block: 'nearest' });
+      }
+    }
+
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { activate(i, false); });
+      t.addEventListener('keydown', function (e) {
+        var n = tabs.length, target = null;
+        switch (e.key) {
+          case 'ArrowRight': case 'ArrowDown': target = (i + 1) % n; break;
+          case 'ArrowLeft': case 'ArrowUp': target = (i - 1 + n) % n; break;
+          case 'Home': target = 0; break;
+          case 'End': target = n - 1; break;
+          case 'Enter': case ' ': e.preventDefault(); activate(i, false); return;
+          default: return;
+        }
+        e.preventDefault();
+        tabs[target].focus();
+      });
+    });
+    activate(0, false);
+    resetters.push(function () { activate(0, false); });
+  }
+
+
+  /* Worked example: reveal steps one at a time. Without JS every step stays visible. */
+  var wrap = document.getElementById('worked-steps');
+  if (wrap) {
+    var steps = Array.prototype.slice.call(wrap.querySelectorAll('.step'));
+    var shown = 1;
+    var controls = document.createElement('div');
+    controls.className = 'step-controls';
+    controls.innerHTML =
+      '<button type="button" class="next-step" aria-controls="worked-steps">Show next step</button>' +
+      '<button type="button" class="secondary all-steps" aria-controls="worked-steps">Show all steps</button>' +
+      '<span class="step-status" aria-live="polite"></span>';
+    wrap.parentNode.insertBefore(controls, wrap.nextSibling);
+    var nextBtn = controls.querySelector('.next-step');
+    var allBtn = controls.querySelector('.all-steps');
+    var status = controls.querySelector('.step-status');
+
+    function render(focusIndex) {
+      steps.forEach(function (s, i) {
+        s.classList.toggle('is-hidden', i >= shown);
+      });
+      var done = shown >= steps.length;
+      nextBtn.disabled = done;
+      allBtn.disabled = done;
+      status.textContent = 'Showing step ' + shown + ' of ' + steps.length + (done ? '. All steps shown.' : '.');
+      if (typeof focusIndex === 'number') {
+        var s = steps[focusIndex];
+        s.classList.add('is-new');
+        s.setAttribute('tabindex', '-1');
+        s.focus();
+      }
+    }
+    nextBtn.addEventListener('click', function () {
+      if (shown < steps.length) { shown += 1; render(shown - 1); }
+    });
+    allBtn.addEventListener('click', function () {
+      var first = shown;
+      shown = steps.length;
+      render(first);
+    });
+    render();
+    resetters.push(function () { shown = 1; render(); });
+  }
+
+  /* Written-answer questions: students type their working and a final answer.
+     Only the final answer is checked; the working is compared with the worked solution. */
+  var forms = Array.prototype.slice.call(document.querySelectorAll('form.q'));
+  var scoreEl = document.querySelector('.score');
+  var results = {};
+
+  function updateScore() {
+    if (!scoreEl) return;
+    var answered = Object.keys(results).length;
+    if (!answered) { scoreEl.textContent = ''; return; }
+    var right = 0;
+    Object.keys(results).forEach(function (k) { if (results[k]) right += 1; });
+    scoreEl.textContent = 'Score: ' + right + ' of ' + forms.length + ' correct on first check (' + answered + ' answered).';
+  }
+
+  /* Make typed answers comparable: x^(7), x^{7}, X ^ 7 and x**7 all become x^7 */
+  function normalise(v) {
+    var s = String(v).toLowerCase()
+      .replace(/\s+/g, '')
+      .replace(/[\u00d7*\u00b7\u22c5]/g, function (m) { return m === '*' ? '*' : ''; })
+      .replace(/\*\*/g, '^').replace(/\*/g, '')
+      .replace(/[\u2212\u2013\u2014]/g, '-')
+      .replace(/\u00f7/g, '/')
+      .replace(/[{}]/g, '')
+      .replace(/\.$/, '');
+    var prev;
+    do {
+      prev = s;
+      s = s.replace(/\^\((-?[\w.\/]+)\)/g, '^$1');            /* x^(7) -> x^7 */
+      s = s.replace(/\(([a-z0-9]+(\^-?\w+)?)\)/g, '$1');      /* (a^2) -> a^2 */
+    } while (s !== prev);
+    return s;
+  }
+
+  /* Render any LaTeX that has just been added to the page (worked solutions) */
+  function typeset(el) {
+    var mj = window.MathJax;
+    if (mj && mj.typesetPromise) { mj.typesetPromise([el]).catch(function () {}); }
+  }
+
+  function escapeHtml(t) {
+    return t.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+  }
+
+  /* Visual preview of what the student typed: x^7 -> x with a raised 7 */
+  function preview(v) {
+    var t = escapeHtml(v.trim());
+    t = t.replace(/\^\(([^)]*)\)/g, '<sup>$1</sup>')
+         .replace(/\^\{([^}]*)\}/g, '<sup>$1</sup>')
+         .replace(/\^(-?[\w.]+)/g, '<sup>$1</sup>')
+         .replace(/\*/g, ' \u00d7 ')
+         .replace(/sqrt/g, '\u221a')
+         .replace(/-/g, '\u2212');
+    return t;
+  }
+
+  forms.forEach(function (form, idx) {
+    var accept = JSON.parse(form.getAttribute('data-accept')).map(normalise);
+    var answer = form.querySelector('.answer');
+    var working = form.querySelector('.working');
+    var prev = form.querySelector('.preview');
+    var feedback = form.querySelector('.feedback');
+    var solution = form.querySelector('template.explain').innerHTML;
+    var submit = form.querySelector('button[type="submit"]');
+    /* Plain button + click handler: sandboxed iframes (Canvas, artifact viewers) can block form submission */
+    submit.type = 'button';
+    submit.classList.add('check-answer');
+    var reset = form.querySelector('.reset');
+    feedback.setAttribute('tabindex', '-1');
+    form.setAttribute('data-done', 'false');
+
+    var showBtn = document.createElement('button');
+    showBtn.type = 'button';
+    showBtn.className = 'secondary show-answer';
+    showBtn.textContent = 'Show worked solution';
+    showBtn.hidden = true;
+    reset.parentNode.insertBefore(showBtn, reset);
+
+    answer.addEventListener('input', function () {
+      answer.classList.remove('is-wrong');
+      prev.innerHTML = answer.value.trim() ? '<span class="lbl">Reads as:</span>' + preview(answer.value) : '';
+    });
+    answer.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); check(); }
+    });
+
+    function reveal(ok) {
+      answer.readOnly = true;
+      answer.classList.remove('is-wrong');
+      if (ok) answer.classList.add('is-right');
+      feedback.className = 'feedback ' + (ok ? 'ok' : 'bad');
+      feedback.innerHTML = '<strong>' + (ok ? 'Correct.' : 'Here is the worked solution.') + '</strong>' + solution +
+        '<p class="compare">' + (working.value.trim()
+          ? 'Compare your working with each line above. Where did your steps match, and where did they differ?'
+          : 'Try writing out these steps yourself so you can use them in the next question.') + '</p>';
+      submit.disabled = true;
+      showBtn.hidden = true;
+      reset.hidden = false;
+      form.setAttribute('data-done', 'true');
+      typeset(feedback);
+      feedback.focus();
+    }
+
+    function check() {
+      var v = answer.value.trim();
+      feedback.className = 'feedback';
+      if (!v) {
+        feedback.textContent = 'Type your final answer before checking.';
+        answer.focus();
+        return;
+      }
+      var ok = accept.indexOf(normalise(v)) !== -1;
+      if (!(idx in results)) { results[idx] = ok; updateScore(); }
+      if (ok) { reveal(true); return; }
+      /* Wrong answer: say so, keep the solution hidden, let the student check their working */
+      answer.classList.add('is-wrong');
+      feedback.classList.add('bad');
+      feedback.innerHTML = '<strong>Not quite.</strong><p>That answer is incorrect. Check each line of your working against the index laws, then change your answer and try again.</p>';
+      showBtn.hidden = false;
+      reset.hidden = false;
+    }
+    form.addEventListener('submit', function (e) { e.preventDefault(); check(); });
+    submit.addEventListener('click', check);
+    showBtn.addEventListener('click', function () { reveal(false); });
+
+    resetters.push(function () {
+      answer.readOnly = false; answer.value = ''; working.value = '';
+      answer.classList.remove('is-wrong', 'is-right'); prev.innerHTML = '';
+      feedback.className = 'feedback'; feedback.textContent = '';
+      submit.disabled = false; showBtn.hidden = true; reset.hidden = true;
+      form.setAttribute('data-done', 'false');
+    });
+
+    reset.addEventListener('click', function () {
+      answer.readOnly = false;
+      answer.value = '';
+      answer.classList.remove('is-wrong', 'is-right');
+      prev.innerHTML = '';
+      feedback.className = 'feedback';
+      feedback.textContent = '';
+      submit.disabled = false;
+      showBtn.hidden = true;
+      reset.hidden = true;
+      form.setAttribute('data-done', 'false');
+      answer.focus();
+    });
+  });
+
+  /* Carousel: one question at a time. Without JS all questions stay visible. */
+  if (forms.length > 1) {
+    var region = document.createElement('section');
+    region.className = 'carousel';
+    region.setAttribute('aria-roledescription', 'carousel');
+    region.setAttribute('aria-label', 'Practice questions');
+    forms[0].parentNode.insertBefore(region, forms[0]);
+    var slides = forms.map(function (f, i) {
+      var slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', (i + 1) + ' of ' + forms.length);
+      slide.appendChild(f);
+      region.appendChild(slide);
+      return slide;
+    });
+
+    var nav = document.createElement('div');
+    nav.className = 'car-nav';
+    nav.innerHTML =
+      '<button type="button" class="secondary car-prev">Previous</button>' +
+      '<span class="car-status" aria-live="polite"></span>' +
+      '<button type="button" class="car-next">Next</button>';
+    region.appendChild(nav);
+
+    var dots = document.createElement('ul');
+    dots.className = 'car-dots';
+    forms.forEach(function (f, i) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'secondary';
+      b.textContent = i + 1;
+      b.setAttribute('aria-label', 'Go to question ' + (i + 1));
+      b.addEventListener('click', function () { go(i); });
+      li.appendChild(b);
+      dots.appendChild(li);
+    });
+    region.appendChild(dots);
+
+    var prev = nav.querySelector('.car-prev');
+    var next = nav.querySelector('.car-next');
+    var statusEl = nav.querySelector('.car-status');
+    var dotBtns = Array.prototype.slice.call(dots.querySelectorAll('button'));
+    var current = 0;
+
+    function go(i) {
+      if (i < 0 || i >= forms.length) return;
+      current = i;
+      slides.forEach(function (s, j) { s.classList.toggle('is-off', j !== i); });
+      dotBtns.forEach(function (b, j) {
+        if (j === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+      });
+      prev.setAttribute('aria-disabled', i === 0 ? 'true' : 'false');
+      next.setAttribute('aria-disabled', i === forms.length - 1 ? 'true' : 'false');
+      statusEl.textContent = 'Question ' + (i + 1) + ' of ' + forms.length;
+    }
+    prev.addEventListener('click', function () { go(current - 1); });
+    next.addEventListener('click', function () { go(current + 1); });
+
+    /* Mark a dot once its question is answered correctly or revealed */
+    forms.forEach(function (f, i) {
+      new MutationObserver(function () {
+        var done = f.getAttribute('data-done') === 'true';
+        dotBtns[i].classList.toggle('done-ok', done);
+        dotBtns[i].setAttribute('aria-label', 'Go to question ' + (i + 1) + (done ? ', completed' : ''));
+      }).observe(f, { attributes: true, attributeFilter: ['data-done'] });
+    });
+
+    go(0);
+    resetters.push(function () { go(0); });
+  }
+
+  /* Utility bar: keyboard shortcuts and restart (low-key, top right under the banner) */
+  var banner = document.querySelector('.banner');
+  if (banner) {
+    var bar = document.createElement('div');
+    bar.className = 'utility';
+    bar.innerHTML =
+      '<button type="button" class="u-keys" aria-haspopup="dialog"><span aria-hidden="true">\u2328</span>Keyboard shortcuts</button>' +
+      '<button type="button" class="u-restart" aria-haspopup="dialog"><span aria-hidden="true">\u21ba</span>Restart</button>';
+    banner.parentNode.insertBefore(bar, banner.nextSibling);
+    var live = document.createElement('p');
+    live.id = 'restart-status';
+    live.className = 'sr-only';
+    live.setAttribute('role', 'status');
+    bar.appendChild(live);
+
+    var makeDialog = function (id, title, bodyHtml) {
+      var d = document.createElement('dialog');
+      d.className = 'pop';
+      d.id = id;
+      d.setAttribute('aria-labelledby', id + '-title');
+      d.innerHTML = '<div class="pop-head"><h2 id="' + id + '-title">' + title + '</h2>' +
+        '<button type="button" class="pop-close">Close</button></div><div class="pop-body">' + bodyHtml + '</div>';
+      document.body.appendChild(d);
+      var opener = null;
+      d.querySelector('.pop-close').addEventListener('click', function () { d.close(); });
+      d.addEventListener('click', function (e) { if (e.target === d) d.close(); });   /* click on the backdrop */
+      d.addEventListener('close', function () { if (opener && opener.focus) opener.focus(); });
+      return {
+        el: d,
+        open: function (from) {
+          opener = from || document.activeElement;
+          if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+        }
+      };
+    };
+
+    var keysDlg = makeDialog('keys-dialog', 'Keyboard shortcuts',
+      '<table class="keys"><caption class="sr-only">Keys you can use in this activity</caption><tbody>' +
+      '<tr><th scope="row"><kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd></th><td>Move forward or back between buttons, tabs and answer boxes</td></tr>' +
+      '<tr><th scope="row"><kbd>\u2190</kbd> <kbd>\u2192</kbd></th><td>Move between section tabs</td></tr>' +
+      '<tr><th scope="row"><kbd>Home</kbd> / <kbd>End</kbd></th><td>Go to the first or last section tab</td></tr>' +
+      '<tr><th scope="row"><kbd>Enter</kbd> or <kbd>Space</kbd></th><td>Open the selected tab or press the focused button</td></tr>' +
+      '<tr><th scope="row"><kbd>Enter</kbd> in an answer box</th><td>Check your answer</td></tr>' +
+      '<tr><th scope="row"><kbd>?</kbd></th><td>Open this list (when you are not typing in a box)</td></tr>' +
+      '<tr><th scope="row"><kbd>Esc</kbd></th><td>Close this window</td></tr>' +
+      '</tbody></table>');
+
+    var restartDlg = makeDialog('restart-dialog', 'Restart the activity?',
+      '<p>This clears every answer, all your working and your score, and takes you back to the first section. This cannot be undone.</p>' +
+      '<div class="pop-actions"><button type="button" class="secondary r-cancel">Cancel</button><button type="button" class="r-confirm">Restart</button></div>');
+
+    bar.querySelector('.u-keys').addEventListener('click', function () { keysDlg.open(this); });
+    bar.querySelector('.u-restart').addEventListener('click', function () {
+      restartDlg.open(this);
+      restartDlg.el.querySelector('.r-cancel').focus();   /* the safe choice gets focus first */
+    });
+    restartDlg.el.querySelector('.r-cancel').addEventListener('click', function () { restartDlg.el.close(); });
+    restartDlg.el.querySelector('.r-confirm').addEventListener('click', function () {
+      resetters.forEach(function (fn) { fn(); });
+      Object.keys(results).forEach(function (k) { delete results[k]; });
+      updateScore();
+      restartDlg.el.close();
+      live.textContent = '';
+      /* after the dialog's own close handler has run, move focus to the first tab and announce */
+      setTimeout(function () {
+        var firstTab = document.querySelector('[role=tab]');
+        if (firstTab) firstTab.focus();
+        live.textContent = 'Activity restarted.';
+      }, 50);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      var t = e.target;
+      var typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+      if (e.key === '?' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey && !keysDlg.el.open && !restartDlg.el.open) {
+        e.preventDefault();
+        keysDlg.open(document.activeElement);
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
